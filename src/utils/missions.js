@@ -32,6 +32,7 @@ export const AVAILABLE_MISSION_EVENTS = new Set([
   'lessonComplete',
   'perfectLesson',
   'xp',
+  'review',
 ])
 
 export const MISSIONS_PER_DAY = 3

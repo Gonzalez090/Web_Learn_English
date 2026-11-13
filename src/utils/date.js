@@ -32,3 +32,10 @@ export function weekStartKey(dateKey) {
   const offset = (new Date(y, m - 1, d).getDay() + 6) % 7 // จันทร์ = 0 … อาทิตย์ = 6
   return addDays(dateKey, -offset)
 }
+
+// แสดงวันที่ให้คนอ่าน เช่น "วันจันทร์ที่ 16 พฤศจิกายน" / "Monday, November 16"
+export function formatDateKey(dateKey, language = 'th') {
+  const [y, m, d] = dateKey.split('-').map(Number)
+  const locale = language === 'th' ? 'th-TH' : 'en-US'
+  return new Date(y, m - 1, d).toLocaleDateString(locale, { weekday: 'long', day: 'numeric', month: 'long' })
+}

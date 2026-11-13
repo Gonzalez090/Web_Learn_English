@@ -6,6 +6,8 @@
 // =========================================================
 import { useTranslation } from 'react-i18next'
 import { useReviewStore } from '../store/reviewStore'
+import { dueEntries } from '../utils/review'
+import { todayKey } from '../utils/date'
 import { ICONS } from '../utils/icons'
 import Page from '../components/Page'
 import Section from '../components/Section'
@@ -27,9 +29,9 @@ const SHORTCUTS = [
 
 export default function HomePage() {
   const { t } = useTranslation()
-  // ตอนนี้นับทั้งหมด — ขั้นที่ 16 จะนับเฉพาะรายการที่ถึงกำหนดวันนี้
-  // (หน้า /review ยังเข้าได้จากลิงก์ตรง แต่หน้าแรกจะไม่ชวนกดถ้าไม่มีรายการ)
-  const reviewCount = useReviewStore((state) => state.reviewQueue.length)
+  // นับเฉพาะรายการที่ถึงกำหนดวันนี้ (หรือค้างจากก่อนหน้า)
+  const reviewQueue = useReviewStore((state) => state.reviewQueue)
+  const reviewCount = dueEntries(reviewQueue, todayKey()).length
 
   return (
     <Page title={t('home.title')} subtitle={t('app.tagline')}>

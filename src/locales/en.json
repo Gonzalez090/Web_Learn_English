@@ -156,7 +156,19 @@
     "realVsTextbookDesc": "What native speakers really say"
   },
   "review": {
-    "title": "Today's review"
+    "title": "Today's review",
+    "subtitle": "{{count}} due today. Listen, tap, and say it.",
+    "doneTitle": "Review done. Great job!",
+    "doneCount": "You remembered {{passed}} of {{total}}.",
+    "resultTitle": "How each one went",
+    "mastered": "Got it! No more review for this one.",
+    "next": "Got it! Back for review in {{days}} days.",
+    "reset": "No worries. Let’s practice this one again tomorrow.",
+    "continue": "Keep reviewing ({{count}})",
+    "backHome": "Back to Home",
+    "nextDue": "Next review: {{date}} ({{count}} items in your list)",
+    "emptyHint": "Items you miss in lessons come here, then come back for review after 1 → 3 → 7 → 14 days.",
+    "goLearn": "Learn something new"
   },
   "plan": {
     "title": "Today's plan"

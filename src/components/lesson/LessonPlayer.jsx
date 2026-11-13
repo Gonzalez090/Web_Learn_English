@@ -10,16 +10,13 @@
 // =========================================================
 import { useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
-import { X } from 'lucide-react'
 import { LESSON_FLOWS, XP } from '../../utils/lessonSteps'
 import { useProgressStore } from '../../store/progressStore'
 import { useReviewStore } from '../../store/reviewStore'
 import LookListenStep from './LookListenStep'
 import SpeakStep from './SpeakStep'
+import PlayerFrame from './PlayerFrame'
 import ListenTapGame from '../games/ListenTapGame'
-import Button from '../Button'
-import styles from './LessonPlayer.module.css'
 
 // สร้างรายการขั้นของบท: [{ kind: 'lookListen' | 'speak', item } ..., { kind: 'game', game }]
 function buildSteps(flow, items) {
@@ -29,7 +26,6 @@ function buildSteps(flow, items) {
 }
 
 export default function LessonPlayer({ lesson, stage, onlyItemIds }) {
-  const { t } = useTranslation()
   const navigate = useNavigate()
   const addXp = useProgressStore((state) => state.addXp)
   const trackEvent = useProgressStore((state) => state.trackEvent)
@@ -80,76 +76,50 @@ export default function LessonPlayer({ lesson, stage, onlyItemIds }) {
   }
 
   const step = steps[index]
-  const progress = Math.round((index / steps.length) * 100)
 
   return (
-    <div className={styles.player}>
-      <div className={styles.top}>
-        <Button
-          to={`/learn/${stage.id}`}
-          variant="ghost"
-          size="sm"
-          icon={X}
-          className={styles.exit}
-        >
-          {t('lesson.exit')}
-        </Button>
-        <div
-          className={styles.progress}
-          role="progressbar"
-          aria-label={t('lesson.progress')}
-          aria-valuemin={0}
-          aria-valuemax={steps.length}
-          aria-valuenow={index}
-        >
-          <span className={styles.progressBar} style={{ transform: `scaleX(${progress / 100})` }} />
-        </div>
-      </div>
-
-      {/* key = ลำดับขั้น → เปลี่ยนขั้นแล้วเริ่ม component ใหม่ (สถานะไม่ค้างจากข้อก่อน) */}
-      <div key={`step-${index}`} className={styles.stage}>
-        {step.kind === 'lookListen' && (
-          <LookListenStep
-            item={step.item}
-            onDone={() => {
-              earn(XP.listen)
-              trackEvent('listen')
-              next()
-            }}
-          />
-        )}
-        {step.kind === 'speak' && (
-          <SpeakStep
-            item={step.item}
-            stage={stage}
-            onDone={({ passed }) => {
-              if (passed) {
-                earn(XP.speak)
-                trackEvent('speakPass')
-              }
-              check(step.item, passed)
-              next()
-            }}
-          />
-        )}
-        {step.kind === 'game' && (
-          <ListenTapGame
-            items={items}
-            pool={lesson.items}
-            onRoundResult={(item, firstTry) => {
-              if (firstTry) {
-                earn(XP.gameCorrect)
-                trackEvent('gameCorrect')
-              }
-              check(item, firstTry)
-            }}
-            onFinish={() => {
-              trackEvent('gamePlay')
-              finish()
-            }}
-          />
-        )}
-      </div>
-    </div>
+    <PlayerFrame exitTo={`/learn/${stage.id}`} index={index} total={steps.length} stepKey={`step-${index}`}>
+      {step.kind === 'lookListen' && (
+        <LookListenStep
+          item={step.item}
+          onDone={() => {
+            earn(XP.listen)
+            trackEvent('listen')
+            next()
+          }}
+        />
+      )}
+      {step.kind === 'speak' && (
+        <SpeakStep
+          item={step.item}
+          stage={stage}
+          onDone={({ passed }) => {
+            if (passed) {
+              earn(XP.speak)
+              trackEvent('speakPass')
+            }
+            check(step.item, passed)
+            next()
+          }}
+        />
+      )}
+      {step.kind === 'game' && (
+        <ListenTapGame
+          items={items}
+          pool={lesson.items}
+          onRoundResult={(item, firstTry) => {
+            if (firstTry) {
+              earn(XP.gameCorrect)
+              trackEvent('gameCorrect')
+            }
+            check(item, firstTry)
+          }}
+          onFinish={() => {
+            trackEvent('gamePlay')
+            finish()
+          }}
+        />
+      )}
+    </PlayerFrame>
   )
 }
