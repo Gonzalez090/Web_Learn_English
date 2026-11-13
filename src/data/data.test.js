@@ -3,8 +3,32 @@ import { existsSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { describe, it, expect } from 'vitest'
 import { stages, lessons, miniGames, imageCredits } from './index.js'
+import { collectSpeechTexts } from './speechTexts.js'
+import audioManifest from './audioManifest.json'
 import th from '../locales/th.json'
 import en from '../locales/en.json'
+
+// ทุกข้อความที่เว็บพูดต้องมีไฟล์เสียง Kokoro ทั้งความเร็วปกติและช้า
+// (เพิ่ม/แก้เนื้อหาแล้ว test นี้ไม่ผ่าน → รัน npm run audio)
+describe('ไฟล์เสียงเจ้าของภาษา (Kokoro)', () => {
+  const texts = collectSpeechTexts({ lessons })
+  const fileOf = (audioPath) => fileURLToPath(new URL(`../../public${audioPath}`, import.meta.url))
+
+  it.each(texts)('"%s" มีไฟล์เสียงปกติและช้า และไฟล์มีอยู่จริง', (text) => {
+    for (const speed of ['normal', 'slow']) {
+      const audioPath = audioManifest[speed][text]
+      expect(audioPath, `${speed}: ${text} — รัน npm run audio`).toMatch(/^\/audio\/[0-9a-f]{12}\.mp3$/)
+      expect(existsSync(fileOf(audioPath)), audioPath).toBe(true)
+    }
+  })
+
+  it('ไม่มีไฟล์เสียงค้างของข้อความที่ไม่ใช้แล้ว', () => {
+    const used = new Set(texts)
+    for (const speed of ['normal', 'slow']) {
+      expect(Object.keys(audioManifest[speed]).filter((text) => !used.has(text)), speed).toEqual([])
+    }
+  })
+})
 
 const REGISTERS = ['casual', 'neutral', 'formal']
 const FREQUENCIES = ['very-common', 'common', 'sometimes']

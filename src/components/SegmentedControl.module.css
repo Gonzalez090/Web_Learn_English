@@ -1,0 +1,32 @@
+.group {
+  display: flex;
+  gap: 2px;
+  width: 100%;
+  max-width: 420px;
+  padding: 3px;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+}
+
+.option {
+  flex: 1;
+  min-height: 40px;
+  padding: 0 var(--space-2);
+  border: 0;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--color-muted);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    background-color 0.15s,
+    color 0.15s;
+}
+
+.option[aria-pressed='true'] {
+  background: var(--color-primary);
+  color: #fff;
+}

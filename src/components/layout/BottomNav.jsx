@@ -13,7 +13,17 @@ const TABS = [
     to: '/',
     icon: ICONS.home,
     labelKey: 'nav.home',
-    prefixes: ['/place', '/talk', '/plan', '/review', '/phrases', '/sounds', '/settings', '/credits', '/dev'],
+    prefixes: [
+      '/place',
+      '/talk',
+      '/plan',
+      '/review',
+      '/phrases',
+      '/sounds',
+      '/settings',
+      '/credits',
+      ...(import.meta.env.DEV ? ['/dev'] : []), // หน้า /dev มีเฉพาะตอนพัฒนา
+    ],
   },
   { to: '/learn', icon: ICONS.learn, labelKey: 'nav.learn', prefixes: ['/learn', '/lesson'] },
   { to: '/games', icon: ICONS.games, labelKey: 'nav.games', prefixes: ['/games'] },

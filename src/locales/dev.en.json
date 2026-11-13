@@ -1,0 +1,24 @@
+{
+  "home": {
+    "dev": "Dev page"
+  },
+  "dev": {
+    "title": "Dev page",
+    "subtitle": "Only in npm run dev. Not in the real site.",
+    "routes": "All pages",
+    "tools": "Tools",
+    "unlockAll": "Unlock all stages and places",
+    "resetAll": "Clear all data",
+    "confirmReset": "Tap again to confirm",
+    "done": "Done",
+    "lessonData": "Lesson data",
+    "colStage": "Stage",
+    "colLessons": "Lessons",
+    "colItems": "Items",
+    "storage": "Saved in localStorage",
+    "voices": "English voices on this device ({{count}})",
+    "activeVoice": "in use",
+    "voiceLocal": "on device",
+    "voiceOnline": "online"
+  }
+}

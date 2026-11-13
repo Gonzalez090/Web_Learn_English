@@ -1,0 +1,36 @@
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-6) var(--space-4);
+  text-align: center;
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+  color: var(--color-xp);
+}
+
+.title {
+  font-size: 1.375rem;
+  font-weight: 800;
+}
+
+.text {
+  color: var(--color-muted);
+}
+
+.detail {
+  max-width: 100%;
+  margin: 0;
+  padding: var(--space-3);
+  overflow: auto;
+  border-radius: var(--radius-sm);
+  background: #1f2430;
+  color: #ffb4b4;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-align: left;
+}

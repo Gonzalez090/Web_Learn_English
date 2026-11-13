@@ -34,6 +34,28 @@
   "category": {
     "home-family": "Home & family"
   },
+  "register": {
+    "casual": "Casual",
+    "neutral": "Neutral",
+    "formal": "Formal"
+  },
+  "frequency": {
+    "very-common": "Very common",
+    "common": "Common",
+    "sometimes": "Sometimes"
+  },
+  "speech": {
+    "listen": "Listen",
+    "normal": "Listen",
+    "slow": "Slow",
+    "stop": "Stop",
+    "notSupported": "Sound doesn't work in this browser. Please try Chrome or Edge."
+  },
+  "card": {
+    "showText": "Show word",
+    "showMeaning": "Show meaning",
+    "stressHint": "Stressed syllable"
+  },
   "home": {
     "title": "Hi! Let's practice speaking today",
     "startPlan": "Start today's plan",
@@ -46,8 +68,7 @@
     "soundPractice": "Sounds",
     "miniGames": "Mini games",
     "phrases": "Phrases",
-    "settings": "Settings",
-    "dev": "Dev page"
+    "settings": "Settings"
   },
   "learn": {
     "title": "Basics",
@@ -57,7 +78,8 @@
   },
   "lesson": {
     "summaryTitle": "Lesson summary",
-    "goSummary": "See lesson summary"
+    "goSummary": "See lesson summary",
+    "previewHint": "Tap “Listen” or “Slow” to hear it. Tap “Show meaning” to see the Thai meaning."
   },
   "place": {
     "title": "Place"
@@ -91,13 +113,30 @@
     "speakingCheckDesc": "Record yourself every 30 days and hear your progress"
   },
   "settings": {
-    "title": "Settings"
+    "title": "Settings",
+    "thaiReading": "Thai reading",
+    "thaiReadingHint": "Auto = hidden in Stages 1–5, shown in Stages 6–7 (Stages 1–3 show no text at all)",
+    "readingAuto": "Auto",
+    "readingOn": "Show",
+    "readingOff": "Hide",
+    "thaiTranslation": "Thai meaning",
+    "translationHint": "Keep it hidden so you can guess from the picture and sound first.",
+    "translationHidden": "Hidden, tap to see",
+    "translationShown": "Always show",
+    "voice": "English voice",
+    "voiceHint": "Lesson words and sentences use a ready-made high-quality native voice (works offline). This choice is for sentences without a ready-made file. Voices named Natural or Google usually sound best.",
+    "voiceAuto": "Auto: {{name}}",
+    "voiceAutoShort": "Auto (best voice)",
+    "voiceLoading": "Loading voices…",
+    "voiceFallbackNote": "The online voice isn't working right now (maybe no internet), so the on-device voice “{{name}}” is used. It will switch back when you're online."
   },
   "credits": {
     "title": "Photo credits",
     "subtitle": "All pictures are real photos from Pixabay",
     "source": "All photos are used under the Content License of",
     "pixabay": "Pixabay",
+    "voiceSource": "The English voice in lessons is made with the open-source AI",
+    "kokoro": "Kokoro-82M (Apache-2.0)",
     "photoNumber": "Photo #{{id}}",
     "by": "by"
   },
@@ -105,19 +144,9 @@
     "title": "Page not found",
     "text": "The link may be wrong, or this page doesn't exist yet."
   },
-  "dev": {
-    "title": "Dev page",
-    "subtitle": "Only in npm run dev. Not in the real site.",
-    "routes": "All pages",
-    "tools": "Tools",
-    "unlockAll": "Unlock all stages and places",
-    "resetAll": "Clear all data",
-    "confirmReset": "Tap again to confirm",
-    "done": "Done",
-    "lessonData": "Lesson data",
-    "colStage": "Stage",
-    "colLessons": "Lessons",
-    "colItems": "Items",
-    "storage": "Saved in localStorage"
+  "error": {
+    "title": "Oops, something went wrong",
+    "text": "Don't worry, your progress is safe. Please reload the page.",
+    "reload": "Reload page"
   }
 }

@@ -28,11 +28,14 @@ export const useProgressStore = create(
       ...INITIAL_PROGRESS,
 
       // ปลดล็อกทุก Stage และทุกสถานที่ — ใช้ในหน้า /dev เท่านั้น
-      devUnlockAll: (stageIds, placeIds) =>
-        set({
-          unlockedStages: [...stageIds],
-          unlockedPlaces: Array.from(new Set([...INITIAL_PROGRESS.unlockedPlaces, ...placeIds])),
-        }),
+      // มีเฉพาะตอน npm run dev (ในเว็บจริงไม่มีฟังก์ชันนี้ คนกด F12 จึงเรียกใช้ไม่ได้)
+      ...(import.meta.env.DEV && {
+        devUnlockAll: (stageIds, placeIds) =>
+          set({
+            unlockedStages: [...stageIds],
+            unlockedPlaces: Array.from(new Set([...INITIAL_PROGRESS.unlockedPlaces, ...placeIds])),
+          }),
+      }),
 
       // ล้างความคืบหน้าทั้งหมด กลับเป็นผู้เรียนใหม่
       resetProgress: () => set(INITIAL_PROGRESS),

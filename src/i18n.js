@@ -25,6 +25,16 @@ i18n.use(initReactI18next).init({
   interpolation: { escapeValue: false }, // React ป้องกัน XSS ให้อยู่แล้ว
 })
 
+// ข้อความของเครื่องมือนักพัฒนา (หน้า /dev) โหลดเฉพาะตอน npm run dev
+// → ตอน build เว็บจริง โค้ดส่วนนี้ถูกตัดทิ้ง ข้อความเหล่านี้จึงไม่ติดไปในไฟล์ที่คนเปิด F12 เห็น
+if (import.meta.env.DEV) {
+  const devLocales = import.meta.glob('./locales/dev.*.json', { eager: true, import: 'default' })
+  for (const [file, resource] of Object.entries(devLocales)) {
+    const lng = file.match(/dev\.(\w+)\.json$/)[1]
+    i18n.addResourceBundle(lng, 'translation', resource, true, true)
+  }
+}
+
 // อัปเดต <html lang> และชื่อแท็บเบราว์เซอร์ให้ตรงกับภาษาที่เลือก
 function applyDocumentLanguage(lng) {
   document.documentElement.lang = lng

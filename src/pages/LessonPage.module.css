@@ -1,12 +1,17 @@
-/* ภาพของแต่ละข้อ: มือถือ 3 คอลัมน์, จอกว้าง 5 คอลัมน์ */
-.preview {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--space-2);
+.hint {
+  color: var(--color-muted);
+  font-size: 0.9375rem;
 }
 
-@media (min-width: 520px) {
-  .preview {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+/* การ์ดคำศัพท์: มือถือ 2 คอลัมน์, จอกว้าง 3 คอลัมน์ */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+@media (min-width: 600px) {
+  .cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }

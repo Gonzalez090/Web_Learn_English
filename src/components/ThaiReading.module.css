@@ -1,0 +1,20 @@
+.reading {
+  color: var(--color-muted);
+  font-size: 1.0625rem;
+  line-height: 1.5;
+}
+
+.dash {
+  margin: 0 1px;
+  opacity: 0.6;
+}
+
+/* พยางค์ที่ลงเสียงหนัก: ตัวหนา สีเข้ม ขีดเส้นใต้หนา */
+.stress {
+  color: var(--color-primary-strong);
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--color-primary) 45%, transparent);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 5px;
+}

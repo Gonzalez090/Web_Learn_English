@@ -3,6 +3,8 @@
 import { describe, it, expect } from 'vitest'
 import th from './th.json'
 import en from './en.json'
+import devTh from './dev.th.json'
+import devEn from './dev.en.json'
 
 // แปลง object ซ้อนกันให้เป็น { 'home.title': '...' }
 function flatten(obj, prefix = '') {
@@ -34,6 +36,23 @@ describe('locales', () => {
   it('ตัวแปร {{x}} ตรงกันทั้งสองภาษา', () => {
     for (const key of Object.keys(thFlat)) {
       expect(variablesOf(enFlat[key] ?? ''), key).toEqual(variablesOf(thFlat[key]))
+    }
+  })
+})
+
+// ข้อความของหน้า /dev อยู่แยกไฟล์ (โหลดเฉพาะตอน npm run dev → ไม่ติดไปในเว็บจริง)
+describe('dev locales', () => {
+  const devThFlat = flatten(devTh)
+  const devEnFlat = flatten(devEn)
+
+  it('dev.th.json และ dev.en.json มี key ชุดเดียวกัน', () => {
+    expect(Object.keys(devEnFlat).sort()).toEqual(Object.keys(devThFlat).sort())
+  })
+
+  it('ข้อความ dev ไม่ปนอยู่ในไฟล์ภาษาหลัก', () => {
+    for (const key of Object.keys(devThFlat)) {
+      expect(thFlat[key], key).toBeUndefined()
+      expect(enFlat[key], key).toBeUndefined()
     }
   })
 })

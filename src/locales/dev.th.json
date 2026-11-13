@@ -1,0 +1,24 @@
+{
+  "home": {
+    "dev": "หน้าทดสอบ"
+  },
+  "dev": {
+    "title": "หน้าทดสอบ (dev)",
+    "subtitle": "มีเฉพาะตอนรัน npm run dev — ไม่ติดไปในเว็บจริง",
+    "routes": "ทุกหน้า",
+    "tools": "เครื่องมือ",
+    "unlockAll": "ปลดล็อกทุก Stage และสถานที่",
+    "resetAll": "ล้างข้อมูลทั้งหมด",
+    "confirmReset": "กดอีกครั้งเพื่อยืนยันการล้างข้อมูล",
+    "done": "เรียบร้อย",
+    "lessonData": "ข้อมูลบทเรียน",
+    "colStage": "Stage",
+    "colLessons": "บทเรียน",
+    "colItems": "ข้อ",
+    "storage": "ข้อมูลที่เก็บใน localStorage",
+    "voices": "เสียงภาษาอังกฤษในเครื่อง ({{count}})",
+    "activeVoice": "ใช้อยู่",
+    "voiceLocal": "ในเครื่อง",
+    "voiceOnline": "ออนไลน์"
+  }
+}

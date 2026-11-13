@@ -12,6 +12,7 @@ import { stages, cityMap, getLessonsByStage } from '../data'
 import { useProgressStore } from '../store/progressStore'
 import { useSettingsStore } from '../store/settingsStore'
 import { useReviewStore } from '../store/reviewStore'
+import { useSpeech } from '../hooks/useSpeech'
 import Page from '../components/Page'
 import Section from '../components/Section'
 import Button from '../components/Button'
@@ -51,6 +52,7 @@ export default function DevPage() {
   const progress = useProgressStore()
   const settings = useSettingsStore()
   const review = useReviewStore()
+  const { voices, activeVoice } = useSpeech()
   const [confirmReset, setConfirmReset] = useState(false)
   const [message, setMessage] = useState('')
 
@@ -125,6 +127,17 @@ export default function DevPage() {
             })}
           </tbody>
         </table>
+      </Section>
+
+      <Section title={t('dev.voices', { count: voices.length })}>
+        <ul className={styles.voices}>
+          {voices.map((voice) => (
+            <li key={voice.voiceURI} className={voice === activeVoice ? styles.activeVoice : undefined}>
+              {`${voice.name} · ${voice.lang} · ${voice.localService ? t('dev.voiceLocal') : t('dev.voiceOnline')}`}
+              {voice === activeVoice && ` ← ${t('dev.activeVoice')}`}
+            </li>
+          ))}
+        </ul>
       </Section>
 
       <Section title={t('dev.storage')}>

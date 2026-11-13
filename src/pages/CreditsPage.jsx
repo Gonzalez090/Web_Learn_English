@@ -10,6 +10,7 @@ import Picture from '../components/Picture'
 import styles from './CreditsPage.module.css'
 
 const PIXABAY_URL = 'https://pixabay.com/'
+const KOKORO_URL = 'https://huggingface.co/hexgrad/Kokoro-82M'
 
 export default function CreditsPage() {
   const { t } = useTranslation()
@@ -21,6 +22,12 @@ export default function CreditsPage() {
         {t('credits.source')}{' '}
         <a href={PIXABAY_URL} target="_blank" rel="noopener noreferrer">
           {t('credits.pixabay')}
+        </a>
+      </p>
+      <p className={styles.source}>
+        {t('credits.voiceSource')}{' '}
+        <a href={KOKORO_URL} target="_blank" rel="noopener noreferrer">
+          {t('credits.kokoro')}
         </a>
       </p>
 
