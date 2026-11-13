@@ -23,6 +23,8 @@
     "micTest": "Mic test",
     "micTestHint": "Say anything and see every version the system heard, with confidence %.",
     "micStart": "Start listening",
-    "micStop": "Stop listening"
+    "micStop": "Stop listening",
+    "colWords": "Words so far",
+    "colNewShare": "Avg new / lesson"
   }
 }

@@ -3,12 +3,13 @@
 // มีเฉพาะตอน npm run dev (App.jsx โหลดแบบ lazy เฉพาะโหมด DEV → ไม่ติดไปใน build จริง)
 //   - ลิงก์ไปทุกหน้า
 //   - ปลดล็อกทุก Stage / ล้างข้อมูลทั้งหมด (กด 2 ครั้งเพื่อยืนยัน)
-//   - ดูจำนวนบทเรียนในแต่ละ Stage และข้อมูลที่เก็บใน localStorage
+//   - ดูจำนวนบทเรียนในแต่ละ Stage, คำสะสม, สัดส่วนคำใหม่ (หลัก i+1) และข้อมูลที่เก็บใน localStorage
 // =========================================================
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { stages, cityMap, getLessonsByStage } from '../data'
+import { stages, lessons, cityMap, getLessonsByStage } from '../data'
+import { cumulativeVocabulary, lessonFirstHearingShare } from '../utils/vocabulary'
 import { useProgressStore } from '../store/progressStore'
 import { useSettingsStore } from '../store/settingsStore'
 import { useReviewStore } from '../store/reviewStore'
@@ -18,6 +19,15 @@ import Page from '../components/Page'
 import Section from '../components/Section'
 import Button from '../components/Button'
 import styles from './DevPage.module.css'
+
+// ตัวนับคำ (คำนวณครั้งเดียวตอนเปิดหน้า)
+const CUMULATIVE = cumulativeVocabulary(lessons)
+const SHARES = lessonFirstHearingShare(lessons).slice(1) // บทแรกของคอร์สเป็นของใหม่ทั้งหมดเสมอ
+const averageShare = (stageId) => {
+  const inStage = SHARES.filter((entry) => entry.stageId === stageId)
+  if (!inStage.length) return null
+  return Math.round((inStage.reduce((sum, entry) => sum + entry.share, 0) / inStage.length) * 100)
+}
 
 const ROUTES = [
   '/',
@@ -122,6 +132,8 @@ export default function DevPage() {
               <th>{t('dev.colStage')}</th>
               <th>{t('dev.colLessons')}</th>
               <th>{t('dev.colItems')}</th>
+              <th>{t('dev.colWords')}</th>
+              <th>{t('dev.colNewShare')}</th>
             </tr>
           </thead>
           <tbody>
@@ -133,6 +145,8 @@ export default function DevPage() {
                   <td>{stage.id}</td>
                   <td>{stageLessons.length}</td>
                   <td>{itemCount}</td>
+                  <td>{CUMULATIVE[stage.id] ?? '–'}</td>
+                  <td>{averageShare(stage.id) === null ? '–' : `${averageShare(stage.id)}%`}</td>
                 </tr>
               )
             })}

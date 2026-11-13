@@ -32,7 +32,19 @@
     "itemCount": "Items: {{count}}"
   },
   "category": {
-    "home-family": "Home & family"
+    "home-family": "Home & family",
+    "food": "Food & drinks",
+    "animals": "Animals",
+    "toys": "Toys",
+    "body": "My body",
+    "clothes": "Clothes",
+    "home-things": "Around the house",
+    "routines": "Daily routines",
+    "outside": "Outside",
+    "describe": "Describing things",
+    "play": "Playtime",
+    "feelings": "Feelings",
+    "manners": "Manners"
   },
   "register": {
     "casual": "Casual",

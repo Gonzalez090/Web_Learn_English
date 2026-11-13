@@ -12,6 +12,7 @@
 //   3) เข้ารหัสเป็น MP3 → public/audio/<hash>.mp3 (ชื่อไฟล์มาจาก hash ของ เสียง+ความเร็ว+ข้อความ)
 //   4) เขียนสารบัญ src/data/audioManifest.json ให้เว็บรู้ว่าข้อความไหนใช้ไฟล์ไหน
 //   - ข้อความที่มีไฟล์อยู่แล้วจะข้าม (รันซ้ำเร็ว) และลบไฟล์ที่ไม่ได้ใช้แล้วทิ้ง
+//   - ไฟล์เยอะ → แบ่งรันพร้อมกันหลายตัวได้: node scripts/generate-audio.mjs --shard 1/3 (และ 2/3, 3/3)
 // =========================================================
 import { createHash } from 'node:crypto'
 import fs from 'node:fs/promises'
@@ -75,17 +76,25 @@ for (const text of texts) {
   }
 }
 
-console.log(`ข้อความทั้งหมด ${texts.length} | ต้องสร้างใหม่ ${todo.length} ไฟล์`)
+// --shard i/n → ทำเฉพาะงานลำดับที่ (index % n) === i-1 (รันหลายตัวพร้อมกันได้ ไม่ทำงานซ้ำกัน)
+const shardArg = process.argv.indexOf('--shard')
+const [shardIndex, shardCount] = shardArg > 0 ? process.argv[shardArg + 1].split('/').map(Number) : [1, 1]
+const myJobs = todo.filter((_, index) => index % shardCount === shardIndex - 1)
 
-if (todo.length > 0) {
+console.log(`ข้อความทั้งหมด ${texts.length} | ต้องสร้างใหม่ ${todo.length} ไฟล์ | รอบนี้ทำ ${myJobs.length} ไฟล์ (shard ${shardIndex}/${shardCount})`)
+
+if (myJobs.length > 0) {
   console.log(`กำลังโหลดโมเดล ${MODEL_ID} (ครั้งแรกจะดาวน์โหลดราว 90MB)...`)
   const tts = await KokoroTTS.from_pretrained(MODEL_ID, { dtype: 'q8', device: 'cpu' })
 
-  for (const [index, job] of todo.entries()) {
+  for (const [index, job] of myJobs.entries()) {
     const audio = await tts.generate(job.text, { voice: VOICE, speed: SPEEDS[job.speedKey] })
     const mp3 = encodeMp3(audio.audio, audio.sampling_rate)
-    await fs.writeFile(path.join(AUDIO_DIR, job.fileName), mp3)
-    console.log(`[${index + 1}/${todo.length}] ${job.speedKey.padEnd(6)} ${Math.round(mp3.length / 1024)}KB  ${job.text}`)
+    // เขียนไฟล์ชั่วคราวก่อนแล้วค่อยเปลี่ยนชื่อ → หยุดกลางคันก็ไม่มีไฟล์เสียงครึ่ง ๆ กลาง ๆ
+    const target = path.join(AUDIO_DIR, job.fileName)
+    await fs.writeFile(`${target}.tmp`, mp3)
+    await fs.rename(`${target}.tmp`, target)
+    console.log(`[${index + 1}/${myJobs.length}] ${job.speedKey.padEnd(6)} ${Math.round(mp3.length / 1024)}KB  ${job.text}`)
   }
 }
 

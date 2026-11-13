@@ -32,7 +32,19 @@
     "itemCount": "{{count}} ข้อ"
   },
   "category": {
-    "home-family": "บ้านและครอบครัว"
+    "home-family": "บ้านและครอบครัว",
+    "food": "อาหารและเครื่องดื่ม",
+    "animals": "สัตว์",
+    "toys": "ของเล่น",
+    "body": "ร่างกาย",
+    "clothes": "เสื้อผ้า",
+    "home-things": "ของในบ้าน",
+    "routines": "กิจวัตรประจำวัน",
+    "outside": "นอกบ้าน",
+    "describe": "คำบอกลักษณะ",
+    "play": "การเล่น",
+    "feelings": "ความรู้สึก",
+    "manners": "มารยาท"
   },
   "register": {
     "casual": "กันเอง",

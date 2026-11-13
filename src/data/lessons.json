@@ -99,7 +99,9 @@
           "parentese": [
             "Look! It's Mommy.",
             "Hi, Mommy!",
-            "Mommy loves you."
+            "Mommy loves you.",
+            "Where's Mommy? Here's Mommy!",
+            "Give Mommy a kiss."
           ]
         },
         {
@@ -112,9 +114,11 @@
           "register": "casual",
           "frequency": "very-common",
           "parentese": [
-            "Who's that? It's Daddy!",
-            "Daddy's home.",
-            "Hi, Daddy!"
+            "Look! It's Daddy.",
+            "Hi, Daddy!",
+            "Daddy is home.",
+            "Where's Daddy? There's Daddy!",
+            "Daddy loves you."
           ]
         },
         {
@@ -128,8 +132,10 @@
           "frequency": "very-common",
           "parentese": [
             "Look at the baby.",
-            "A little baby.",
-            "Hi, baby!"
+            "Hi, baby!",
+            "The baby is sleepy.",
+            "Shh, the baby is sleeping.",
+            "What a sweet baby."
           ]
         },
         {
@@ -144,7 +150,9 @@
           "parentese": [
             "Look! A dog.",
             "The dog is big.",
-            "Big dog!"
+            "Big dog!",
+            "The dog says woof woof.",
+            "Bye-bye, dog!"
           ]
         },
         {
@@ -158,8 +166,1747 @@
           "frequency": "very-common",
           "parentese": [
             "Look! A cat.",
+            "The cat is soft.",
+            "Soft cat.",
             "The cat says meow.",
-            "Meow, cat!"
+            "Hi, cat!"
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 1,
+      "id": "s1-family-2",
+      "category": "home-family",
+      "type": "listen",
+      "title": "My family",
+      "titleTh": "ครอบครัวของหนู",
+      "items": [
+        {
+          "id": "s1-grandma",
+          "word": "Grandma",
+          "meaningTh": "คุณยาย / คุณย่า",
+          "readingTh": "แกรนด์-มา",
+          "stressSyllable": 1,
+          "image": "/images/s1-grandma.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! It's Grandma.",
+            "Hi, Grandma!",
+            "Grandma loves you.",
+            "Give Grandma a hug.",
+            "Bye-bye, Grandma!"
+          ]
+        },
+        {
+          "id": "s1-grandpa",
+          "word": "Grandpa",
+          "meaningTh": "คุณตา / คุณปู่",
+          "readingTh": "แกรนด์-ป้า",
+          "stressSyllable": 1,
+          "image": "/images/s1-grandpa.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! It's Grandpa.",
+            "Hi, Grandpa!",
+            "Grandpa is funny.",
+            "Give Grandpa a kiss.",
+            "Bye-bye, Grandpa!"
+          ]
+        },
+        {
+          "id": "s1-brother",
+          "word": "brother",
+          "meaningTh": "พี่ชาย / น้องชาย",
+          "readingTh": "บรา-เธ่อร์",
+          "stressSyllable": 1,
+          "image": "/images/s1-brother.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! It's your brother.",
+            "Hi, brother!",
+            "Your brother is playing.",
+            "Brother loves you.",
+            "Where's your brother?"
+          ]
+        },
+        {
+          "id": "s1-sister",
+          "word": "sister",
+          "meaningTh": "พี่สาว / น้องสาว",
+          "readingTh": "ซิส-เต้อร์",
+          "stressSyllable": 1,
+          "image": "/images/s1-sister.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! It's your sister.",
+            "Hi, sister!",
+            "Your sister is singing.",
+            "Sister loves you.",
+            "Where's your sister?"
+          ]
+        },
+        {
+          "id": "s1-family",
+          "word": "family",
+          "meaningTh": "ครอบครัว",
+          "readingTh": "แฟม-มิ-ลี่",
+          "stressSyllable": 1,
+          "image": "/images/s1-family.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A family.",
+            "Mommy, Daddy, and baby. Family!",
+            "We are a family.",
+            "Family hug!",
+            "Hi, family!"
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 1,
+      "id": "s1-food-1",
+      "category": "food",
+      "type": "listen",
+      "title": "Milk, juice, and fruit",
+      "titleTh": "นม น้ำผลไม้ และผลไม้",
+      "items": [
+        {
+          "id": "s1-milk",
+          "word": "milk",
+          "meaningTh": "นม",
+          "readingTh": "มิลค์",
+          "image": "/images/s1-milk.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Here's your milk.",
+            "Mmm, milk!",
+            "Milk is yummy.",
+            "Do you want milk?",
+            "Milk all gone!"
+          ]
+        },
+        {
+          "id": "s1-juice",
+          "word": "juice",
+          "meaningTh": "น้ำผลไม้",
+          "readingTh": "จูซ",
+          "image": "/images/s1-juice.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Here's your juice.",
+            "Mmm, juice!",
+            "Orange juice.",
+            "Juice in a cup.",
+            "Is the juice yummy?"
+          ]
+        },
+        {
+          "id": "s1-water",
+          "word": "water",
+          "meaningTh": "น้ำเปล่า",
+          "readingTh": "ว้อ-เท่อร์",
+          "stressSyllable": 1,
+          "image": "/images/s1-water.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Here's some water.",
+            "Water! Splash, splash.",
+            "Drink your water.",
+            "Cold water.",
+            "Water in a cup."
+          ]
+        },
+        {
+          "id": "s1-apple",
+          "word": "apple",
+          "meaningTh": "แอปเปิล",
+          "readingTh": "แอ๊ป-เปิ้ล",
+          "stressSyllable": 1,
+          "image": "/images/s1-apple.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! An apple.",
+            "A red apple.",
+            "Crunch, crunch, apple!",
+            "Mmm, apple.",
+            "Do you want an apple?"
+          ]
+        },
+        {
+          "id": "s1-banana",
+          "word": "banana",
+          "meaningTh": "กล้วย",
+          "readingTh": "บะ-แน้-หนะ",
+          "stressSyllable": 2,
+          "image": "/images/s1-banana.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A banana.",
+            "A yellow banana.",
+            "Peel the banana.",
+            "Mmm, banana!",
+            "Do you want a banana?"
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 1,
+      "id": "s1-food-2",
+      "category": "food",
+      "type": "listen",
+      "title": "Snack time",
+      "titleTh": "ของว่างของหนู",
+      "items": [
+        {
+          "id": "s1-cookie",
+          "word": "cookie",
+          "meaningTh": "คุกกี้",
+          "readingTh": "คุก-กี้",
+          "stressSyllable": 1,
+          "image": "/images/s1-cookie.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A cookie.",
+            "Mmm, cookie!",
+            "One cookie for you.",
+            "Crunch, crunch, cookie.",
+            "Cookie all gone!"
+          ]
+        },
+        {
+          "id": "s1-bread",
+          "word": "bread",
+          "meaningTh": "ขนมปัง",
+          "readingTh": "เบรด",
+          "image": "/images/s1-bread.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Here's some bread.",
+            "Soft bread.",
+            "Bread and butter.",
+            "Mmm, bread!",
+            "Do you want bread?"
+          ]
+        },
+        {
+          "id": "s1-egg",
+          "word": "egg",
+          "meaningTh": "ไข่",
+          "readingTh": "เอ๊ก",
+          "image": "/images/s1-egg.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! An egg.",
+            "An egg for breakfast.",
+            "Crack the egg.",
+            "Mmm, egg!",
+            "Yummy egg."
+          ]
+        },
+        {
+          "id": "s1-cheese",
+          "word": "cheese",
+          "meaningTh": "ชีส",
+          "readingTh": "ชีส",
+          "image": "/images/s1-cheese.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! Cheese.",
+            "Yellow cheese.",
+            "Mmm, cheese!",
+            "Cheese, please.",
+            "Do you want cheese?"
+          ]
+        },
+        {
+          "id": "s1-rice",
+          "word": "rice",
+          "meaningTh": "ข้าว",
+          "readingTh": "ไรซ์",
+          "image": "/images/s1-rice.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Here's your rice.",
+            "Hot rice.",
+            "Rice in a bowl.",
+            "Mmm, rice!",
+            "Eat your rice."
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 1,
+      "id": "s1-food-3",
+      "category": "food",
+      "type": "listen",
+      "title": "More yummy food",
+      "titleTh": "ของอร่อยอีกนิด",
+      "items": [
+        {
+          "id": "s1-soup",
+          "word": "soup",
+          "meaningTh": "ซุป",
+          "readingTh": "ซูป",
+          "image": "/images/s1-soup.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Here's your soup.",
+            "Hot soup! Blow, blow.",
+            "Soup in a bowl.",
+            "Mmm, soup!",
+            "Yummy soup."
+          ]
+        },
+        {
+          "id": "s1-cake",
+          "word": "cake",
+          "meaningTh": "เค้ก",
+          "readingTh": "เค้ก",
+          "image": "/images/s1-cake.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A cake.",
+            "A birthday cake!",
+            "Cake is yummy.",
+            "Mmm, cake!",
+            "Do you want cake?"
+          ]
+        },
+        {
+          "id": "s1-carrot",
+          "word": "carrot",
+          "meaningTh": "แครอท",
+          "readingTh": "แค-เร็ท",
+          "stressSyllable": 1,
+          "image": "/images/s1-carrot.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A carrot.",
+            "An orange carrot.",
+            "Crunch, crunch, carrot.",
+            "The bunny eats a carrot.",
+            "Mmm, carrot!"
+          ]
+        },
+        {
+          "id": "s1-orange",
+          "word": "orange",
+          "meaningTh": "ส้ม",
+          "readingTh": "ออ-เรนจ์",
+          "stressSyllable": 1,
+          "image": "/images/s1-orange.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! An orange.",
+            "A round orange.",
+            "Peel the orange.",
+            "Mmm, orange!",
+            "The orange is yummy."
+          ]
+        },
+        {
+          "id": "s1-ice-cream",
+          "word": "ice cream",
+          "meaningTh": "ไอศกรีม",
+          "readingTh": "ไอซ์-ครีม",
+          "stressSyllable": 1,
+          "image": "/images/s1-ice-cream.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! Ice cream!",
+            "Cold ice cream.",
+            "Lick, lick, ice cream.",
+            "Mmm, ice cream!",
+            "Yummy ice cream."
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 1,
+      "id": "s1-animals-1",
+      "category": "animals",
+      "type": "listen",
+      "title": "Animal friends",
+      "titleTh": "เพื่อนสัตว์",
+      "items": [
+        {
+          "id": "s1-bird",
+          "word": "bird",
+          "meaningTh": "นก",
+          "readingTh": "เบิร์ด",
+          "image": "/images/s1-bird.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A bird.",
+            "The bird says tweet tweet.",
+            "The bird can fly.",
+            "Fly, bird, fly!",
+            "Bye-bye, bird!"
+          ]
+        },
+        {
+          "id": "s1-fish",
+          "word": "fish",
+          "meaningTh": "ปลา",
+          "readingTh": "ฟิช",
+          "image": "/images/s1-fish.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A fish.",
+            "The fish can swim.",
+            "Swim, fish, swim!",
+            "A little fish.",
+            "Bye-bye, fish!"
+          ]
+        },
+        {
+          "id": "s1-duck",
+          "word": "duck",
+          "meaningTh": "เป็ด",
+          "readingTh": "ดั๊ก",
+          "image": "/images/s1-duck.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A duck.",
+            "The duck says quack quack.",
+            "The duck can swim.",
+            "A yellow duck.",
+            "Hi, duck!"
+          ]
+        },
+        {
+          "id": "s1-cow",
+          "word": "cow",
+          "meaningTh": "วัว",
+          "readingTh": "คาว",
+          "image": "/images/s1-cow.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A cow.",
+            "The cow says moo.",
+            "A big cow.",
+            "Moo, cow!",
+            "Hi, cow!"
+          ]
+        },
+        {
+          "id": "s1-horse",
+          "word": "horse",
+          "meaningTh": "ม้า",
+          "readingTh": "ฮอร์ส",
+          "image": "/images/s1-horse.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A horse.",
+            "The horse can run.",
+            "A big horse.",
+            "The horse says neigh.",
+            "Hi, horse!"
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 1,
+      "id": "s1-animals-2",
+      "category": "animals",
+      "type": "listen",
+      "title": "On the farm",
+      "titleTh": "สัตว์ในฟาร์ม",
+      "items": [
+        {
+          "id": "s1-pig",
+          "word": "pig",
+          "meaningTh": "หมู",
+          "readingTh": "พิก",
+          "image": "/images/s1-pig.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A pig.",
+            "The pig says oink oink.",
+            "A pink pig.",
+            "Oink, pig!",
+            "Hi, pig!"
+          ]
+        },
+        {
+          "id": "s1-sheep",
+          "word": "sheep",
+          "meaningTh": "แกะ",
+          "readingTh": "ชีพ",
+          "image": "/images/s1-sheep.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A sheep.",
+            "The sheep says baa.",
+            "A soft sheep.",
+            "Baa, sheep!",
+            "Hi, sheep!"
+          ]
+        },
+        {
+          "id": "s1-chicken",
+          "word": "chicken",
+          "meaningTh": "ไก่",
+          "readingTh": "ชิก-เคิ่น",
+          "stressSyllable": 1,
+          "image": "/images/s1-chicken.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A chicken.",
+            "The chicken says cluck cluck.",
+            "A little chicken.",
+            "Peck, peck, chicken.",
+            "Hi, chicken!"
+          ]
+        },
+        {
+          "id": "s1-frog",
+          "word": "frog",
+          "meaningTh": "กบ",
+          "readingTh": "ฟร็อก",
+          "image": "/images/s1-frog.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A frog.",
+            "The frog can jump.",
+            "Jump, frog, jump!",
+            "A green frog.",
+            "The frog says ribbit."
+          ]
+        },
+        {
+          "id": "s1-bunny",
+          "word": "bunny",
+          "meaningTh": "กระต่าย",
+          "readingTh": "บัน-นี่",
+          "stressSyllable": 1,
+          "image": "/images/s1-bunny.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A bunny.",
+            "A soft bunny.",
+            "Hop, hop, bunny!",
+            "The bunny can hop.",
+            "Hi, bunny!"
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 1,
+      "id": "s1-animals-3",
+      "category": "animals",
+      "type": "listen",
+      "title": "Big and small animals",
+      "titleTh": "สัตว์ตัวใหญ่ตัวเล็ก",
+      "items": [
+        {
+          "id": "s1-bear",
+          "word": "bear",
+          "meaningTh": "หมี",
+          "readingTh": "แบร์",
+          "image": "/images/s1-bear.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A bear.",
+            "A big bear.",
+            "The bear says grr.",
+            "Hi, bear!",
+            "Bye-bye, bear!"
+          ]
+        },
+        {
+          "id": "s1-monkey",
+          "word": "monkey",
+          "meaningTh": "ลิง",
+          "readingTh": "มัง-กี้",
+          "stressSyllable": 1,
+          "image": "/images/s1-monkey.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A monkey.",
+            "The monkey can climb.",
+            "A funny monkey.",
+            "The monkey eats a banana.",
+            "Hi, monkey!"
+          ]
+        },
+        {
+          "id": "s1-lion",
+          "word": "lion",
+          "meaningTh": "สิงโต",
+          "readingTh": "ไล-อัน",
+          "stressSyllable": 1,
+          "image": "/images/s1-lion.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A lion.",
+            "The lion says roar!",
+            "A big lion.",
+            "Roar, lion, roar!",
+            "Bye-bye, lion!"
+          ]
+        },
+        {
+          "id": "s1-elephant",
+          "word": "elephant",
+          "meaningTh": "ช้าง",
+          "readingTh": "เอล-ละ-เฟิ่นท์",
+          "stressSyllable": 1,
+          "image": "/images/s1-elephant.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! An elephant.",
+            "A big, big elephant.",
+            "The elephant is so big.",
+            "The elephant says toot!",
+            "Bye-bye, elephant!"
+          ]
+        },
+        {
+          "id": "s1-bee",
+          "word": "bee",
+          "meaningTh": "ผึ้ง",
+          "readingTh": "บี",
+          "image": "/images/s1-bee.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A bee.",
+            "The bee says buzz buzz.",
+            "A little bee.",
+            "Fly, bee, fly!",
+            "Bye-bye, bee!"
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 1,
+      "id": "s1-toys-1",
+      "category": "toys",
+      "type": "listen",
+      "title": "My toys",
+      "titleTh": "ของเล่นของหนู",
+      "items": [
+        {
+          "id": "s1-ball",
+          "word": "ball",
+          "meaningTh": "ลูกบอล",
+          "readingTh": "บอล",
+          "image": "/images/s1-ball.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A ball.",
+            "A big ball.",
+            "Roll the ball.",
+            "Catch the ball!",
+            "Where's the ball?"
+          ]
+        },
+        {
+          "id": "s1-teddy-bear",
+          "word": "teddy bear",
+          "meaningTh": "ตุ๊กตาหมี",
+          "readingTh": "เท็ด-ดี้-แบร์",
+          "stressSyllable": 1,
+          "image": "/images/s1-teddy-bear.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A teddy bear.",
+            "A soft teddy bear.",
+            "Hug your teddy bear.",
+            "The teddy bear is sleepy.",
+            "Night-night, teddy bear."
+          ]
+        },
+        {
+          "id": "s1-car",
+          "word": "car",
+          "meaningTh": "รถ",
+          "readingTh": "คาร์",
+          "image": "/images/s1-car.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A car.",
+            "Vroom, vroom, car!",
+            "A red car.",
+            "The car goes fast.",
+            "Push the car."
+          ]
+        },
+        {
+          "id": "s1-book",
+          "word": "book",
+          "meaningTh": "หนังสือ",
+          "readingTh": "บุ๊ก",
+          "image": "/images/s1-book.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A book.",
+            "Read a book.",
+            "Open the book.",
+            "A big book.",
+            "A book for you."
+          ]
+        },
+        {
+          "id": "s1-blocks",
+          "word": "blocks",
+          "meaningTh": "ตัวต่อ",
+          "readingTh": "บล็อกส์",
+          "image": "/images/s1-blocks.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! Blocks.",
+            "Build the blocks up, up, up.",
+            "Big blocks.",
+            "The blocks fell down!",
+            "Play with blocks."
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 1,
+      "id": "s1-toys-2",
+      "category": "toys",
+      "type": "listen",
+      "title": "Fun toys",
+      "titleTh": "ของเล่นสนุก ๆ",
+      "items": [
+        {
+          "id": "s1-doll",
+          "word": "doll",
+          "meaningTh": "ตุ๊กตา",
+          "readingTh": "ด็อล",
+          "image": "/images/s1-doll.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A doll.",
+            "A pretty doll.",
+            "Hug the doll.",
+            "The doll is sleepy.",
+            "Night-night, doll."
+          ]
+        },
+        {
+          "id": "s1-balloon",
+          "word": "balloon",
+          "meaningTh": "ลูกโป่ง",
+          "readingTh": "บะ-ลูน",
+          "stressSyllable": 2,
+          "image": "/images/s1-balloon.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A balloon.",
+            "A red balloon.",
+            "The balloon goes up, up, up!",
+            "Pop! Bye, balloon.",
+            "Bye-bye, balloon!"
+          ]
+        },
+        {
+          "id": "s1-truck",
+          "word": "truck",
+          "meaningTh": "รถบรรทุก",
+          "readingTh": "ทรัก",
+          "image": "/images/s1-truck.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A truck.",
+            "A big truck.",
+            "Beep, beep, truck!",
+            "The truck goes vroom.",
+            "Push the truck."
+          ]
+        },
+        {
+          "id": "s1-train",
+          "word": "train",
+          "meaningTh": "รถไฟ",
+          "readingTh": "เทรน",
+          "image": "/images/s1-train.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A train.",
+            "Choo-choo! Here comes the train.",
+            "A long train.",
+            "The train goes fast.",
+            "Bye-bye, train!"
+          ]
+        },
+        {
+          "id": "s1-bubbles",
+          "word": "bubbles",
+          "meaningTh": "ฟองสบู่",
+          "readingTh": "บับ-เบิ้ลส์",
+          "stressSyllable": 1,
+          "image": "/images/s1-bubbles.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! Bubbles.",
+            "Pop the bubbles!",
+            "So many bubbles.",
+            "Blow bubbles.",
+            "Bubbles go up, up!"
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 1,
+      "id": "s1-body-1",
+      "category": "body",
+      "type": "listen",
+      "title": "My face",
+      "titleTh": "ใบหน้าของหนู",
+      "items": [
+        {
+          "id": "s1-nose",
+          "word": "nose",
+          "meaningTh": "จมูก",
+          "readingTh": "โนส",
+          "image": "/images/s1-nose.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Where's your nose?",
+            "Here's your nose!",
+            "Touch your nose.",
+            "Beep! Nose!",
+            "Little nose."
+          ]
+        },
+        {
+          "id": "s1-eyes",
+          "word": "eyes",
+          "meaningTh": "ตา",
+          "readingTh": "อายส์",
+          "image": "/images/s1-eyes.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Where are your eyes?",
+            "Here are your eyes!",
+            "Open your eyes.",
+            "Close your eyes.",
+            "Pretty eyes."
+          ]
+        },
+        {
+          "id": "s1-mouth",
+          "word": "mouth",
+          "meaningTh": "ปาก",
+          "readingTh": "เมาธ์",
+          "image": "/images/s1-mouth.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Where's your mouth?",
+            "Here's your mouth!",
+            "Open your mouth.",
+            "Food goes in your mouth.",
+            "Little mouth."
+          ]
+        },
+        {
+          "id": "s1-ears",
+          "word": "ears",
+          "meaningTh": "หู",
+          "readingTh": "เอียร์ส",
+          "image": "/images/s1-ears.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Where are your ears?",
+            "Here are your ears!",
+            "Touch your ears.",
+            "The bunny has big ears.",
+            "Little ears."
+          ]
+        },
+        {
+          "id": "s1-hair",
+          "word": "hair",
+          "meaningTh": "ผม",
+          "readingTh": "แฮร์",
+          "image": "/images/s1-hair.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look at your hair.",
+            "Soft hair.",
+            "Brush your hair.",
+            "Wash your hair.",
+            "Pretty hair."
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 1,
+      "id": "s1-body-2",
+      "category": "body",
+      "type": "listen",
+      "title": "My body",
+      "titleTh": "ร่างกายของหนู",
+      "items": [
+        {
+          "id": "s1-hands",
+          "word": "hands",
+          "meaningTh": "มือ",
+          "readingTh": "แฮนด์ส",
+          "image": "/images/s1-hands.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Where are your hands?",
+            "Clap your hands.",
+            "Wash your hands.",
+            "Wave your hands. Bye-bye!",
+            "Little hands."
+          ]
+        },
+        {
+          "id": "s1-feet",
+          "word": "feet",
+          "meaningTh": "เท้า",
+          "readingTh": "ฟีท",
+          "image": "/images/s1-feet.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Where are your feet?",
+            "Stomp your feet.",
+            "Little feet.",
+            "Socks on your feet.",
+            "Wiggle your feet."
+          ]
+        },
+        {
+          "id": "s1-tummy",
+          "word": "tummy",
+          "meaningTh": "พุง",
+          "readingTh": "ทัม-มี่",
+          "stressSyllable": 1,
+          "image": "/images/s1-tummy.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Where's your tummy?",
+            "Here's your tummy!",
+            "Tickle, tickle, tummy!",
+            "Full tummy.",
+            "Pat your tummy."
+          ]
+        },
+        {
+          "id": "s1-toes",
+          "word": "toes",
+          "meaningTh": "นิ้วเท้า",
+          "readingTh": "โทส์",
+          "image": "/images/s1-toes.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Where are your toes?",
+            "Here are your toes!",
+            "Wiggle your toes.",
+            "Ten little toes.",
+            "Tickle your toes."
+          ]
+        },
+        {
+          "id": "s1-teeth",
+          "word": "teeth",
+          "meaningTh": "ฟัน",
+          "readingTh": "ทีธ",
+          "image": "/images/s1-teeth.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Where are your teeth?",
+            "Show me your teeth.",
+            "Brush your teeth.",
+            "Clean teeth.",
+            "Little teeth."
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 1,
+      "id": "s1-clothes-1",
+      "category": "clothes",
+      "type": "listen",
+      "title": "Getting dressed",
+      "titleTh": "แต่งตัวกัน",
+      "items": [
+        {
+          "id": "s1-shoes",
+          "word": "shoes",
+          "meaningTh": "รองเท้า",
+          "readingTh": "ชูส์",
+          "image": "/images/s1-shoes.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! Shoes.",
+            "Shoes on.",
+            "Red shoes.",
+            "Shoes on your feet.",
+            "Where are your shoes?"
+          ]
+        },
+        {
+          "id": "s1-socks",
+          "word": "socks",
+          "meaningTh": "ถุงเท้า",
+          "readingTh": "ซ็อกส์",
+          "image": "/images/s1-socks.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! Socks.",
+            "Socks on.",
+            "Soft socks.",
+            "Socks on your feet.",
+            "Where are your socks?"
+          ]
+        },
+        {
+          "id": "s1-hat",
+          "word": "hat",
+          "meaningTh": "หมวก",
+          "readingTh": "แฮท",
+          "image": "/images/s1-hat.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A hat.",
+            "Hat on.",
+            "A big hat.",
+            "Hat on your head.",
+            "Where's your hat?"
+          ]
+        },
+        {
+          "id": "s1-shirt",
+          "word": "shirt",
+          "meaningTh": "เสื้อ",
+          "readingTh": "เชิร์ท",
+          "image": "/images/s1-shirt.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A shirt.",
+            "Shirt on.",
+            "A blue shirt.",
+            "Arms in your shirt.",
+            "Where's your shirt?"
+          ]
+        },
+        {
+          "id": "s1-coat",
+          "word": "coat",
+          "meaningTh": "เสื้อโค้ท",
+          "readingTh": "โค้ท",
+          "image": "/images/s1-coat.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A coat.",
+            "Coat on.",
+            "A warm coat.",
+            "It's cold. Coat on!",
+            "Where's your coat?"
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 1,
+      "id": "s1-clothes-2",
+      "category": "clothes",
+      "type": "listen",
+      "title": "More clothes",
+      "titleTh": "เสื้อผ้าอีกนิด",
+      "items": [
+        {
+          "id": "s1-pants",
+          "word": "pants",
+          "meaningTh": "กางเกง",
+          "readingTh": "แพนท์ส",
+          "image": "/images/s1-pants.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! Pants.",
+            "Pants on.",
+            "Blue pants.",
+            "Two legs. Pants!",
+            "Where are your pants?"
+          ]
+        },
+        {
+          "id": "s1-diaper",
+          "word": "diaper",
+          "meaningTh": "ผ้าอ้อม",
+          "readingTh": "ได-เพ่อร์",
+          "stressSyllable": 1,
+          "image": "/images/s1-diaper.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A diaper.",
+            "New diaper.",
+            "Diaper on.",
+            "Clean diaper.",
+            "Wet diaper? New diaper!"
+          ]
+        },
+        {
+          "id": "s1-pajamas",
+          "word": "pajamas",
+          "meaningTh": "ชุดนอน",
+          "readingTh": "พะ-จา-ม่าส์",
+          "stressSyllable": 2,
+          "image": "/images/s1-pajamas.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! Pajamas.",
+            "Pajamas on.",
+            "Soft pajamas.",
+            "Time for pajamas.",
+            "Night-night in your pajamas."
+          ]
+        },
+        {
+          "id": "s1-dress",
+          "word": "dress",
+          "meaningTh": "ชุดกระโปรง",
+          "readingTh": "เดรส",
+          "image": "/images/s1-dress.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A dress.",
+            "A pretty dress.",
+            "Dress on.",
+            "A pink dress.",
+            "Twirl in your dress!"
+          ]
+        },
+        {
+          "id": "s1-boots",
+          "word": "boots",
+          "meaningTh": "รองเท้าบูท",
+          "readingTh": "บูทส์",
+          "image": "/images/s1-boots.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! Boots.",
+            "Boots on.",
+            "Rain boots.",
+            "Stomp in your boots!",
+            "Big boots."
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 1,
+      "id": "s1-home-1",
+      "category": "home-things",
+      "type": "listen",
+      "title": "Around the house",
+      "titleTh": "ในบ้าน",
+      "items": [
+        {
+          "id": "s1-bed",
+          "word": "bed",
+          "meaningTh": "เตียง",
+          "readingTh": "เบด",
+          "image": "/images/s1-bed.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A bed.",
+            "Time for bed.",
+            "A soft bed.",
+            "Night-night in your bed.",
+            "Jump on the bed? No, no!"
+          ]
+        },
+        {
+          "id": "s1-chair",
+          "word": "chair",
+          "meaningTh": "เก้าอี้",
+          "readingTh": "แชร์",
+          "image": "/images/s1-chair.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A chair.",
+            "Sit on the chair.",
+            "A little chair.",
+            "A big chair for Daddy.",
+            "Up on the chair."
+          ]
+        },
+        {
+          "id": "s1-door",
+          "word": "door",
+          "meaningTh": "ประตู",
+          "readingTh": "ดอร์",
+          "image": "/images/s1-door.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A door.",
+            "Open the door.",
+            "Close the door.",
+            "Knock, knock, door!",
+            "Who's at the door?"
+          ]
+        },
+        {
+          "id": "s1-table",
+          "word": "table",
+          "meaningTh": "โต๊ะ",
+          "readingTh": "เท-เบิ้ล",
+          "stressSyllable": 1,
+          "image": "/images/s1-table.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A table.",
+            "Food on the table.",
+            "Sit at the table.",
+            "A big table.",
+            "Clean the table."
+          ]
+        },
+        {
+          "id": "s1-light",
+          "word": "light",
+          "meaningTh": "ไฟ",
+          "readingTh": "ไลท์",
+          "image": "/images/s1-light.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A light.",
+            "Light on!",
+            "Light off!",
+            "A bright light.",
+            "Turn on the light."
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 1,
+      "id": "s1-home-2",
+      "category": "home-things",
+      "type": "listen",
+      "title": "Mealtime and bath time",
+      "titleTh": "เวลากินข้าวและอาบน้ำ",
+      "items": [
+        {
+          "id": "s1-cup",
+          "word": "cup",
+          "meaningTh": "แก้ว",
+          "readingTh": "คัป",
+          "image": "/images/s1-cup.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A cup.",
+            "Milk in the cup.",
+            "Drink from the cup.",
+            "A little cup.",
+            "Uh-oh, the cup fell down!"
+          ]
+        },
+        {
+          "id": "s1-bowl",
+          "word": "bowl",
+          "meaningTh": "ชาม",
+          "readingTh": "โบล",
+          "image": "/images/s1-bowl.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A bowl.",
+            "Rice in the bowl.",
+            "A big bowl.",
+            "All gone! Empty bowl.",
+            "Soup in the bowl."
+          ]
+        },
+        {
+          "id": "s1-spoon",
+          "word": "spoon",
+          "meaningTh": "ช้อน",
+          "readingTh": "สปูน",
+          "image": "/images/s1-spoon.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A spoon.",
+            "Eat with your spoon.",
+            "A little spoon.",
+            "Spoon in your mouth. Yum!",
+            "Where's your spoon?"
+          ]
+        },
+        {
+          "id": "s1-bottle",
+          "word": "bottle",
+          "meaningTh": "ขวดนม",
+          "readingTh": "บ๊อท-เทิ่ล",
+          "stressSyllable": 1,
+          "image": "/images/s1-bottle.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A bottle.",
+            "Milk in the bottle.",
+            "Here's your bottle.",
+            "Bottle all gone.",
+            "A warm bottle."
+          ]
+        },
+        {
+          "id": "s1-bath",
+          "word": "bath",
+          "meaningTh": "อาบน้ำ",
+          "readingTh": "แบธ",
+          "image": "/images/s1-bath.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Time for a bath.",
+            "Splash, splash, bath!",
+            "Warm bath.",
+            "Bubbles in the bath.",
+            "Bath all done!"
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 1,
+      "id": "s1-social",
+      "category": "routines",
+      "type": "listen",
+      "title": "Hi and hugs",
+      "titleTh": "ทักทายและกอด",
+      "items": [
+        {
+          "id": "s1-hi",
+          "word": "hi",
+          "meaningTh": "สวัสดี (ทักทาย)",
+          "readingTh": "ไฮ",
+          "image": "/images/s1-hi.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Hi! Hi, baby!",
+            "Say hi.",
+            "Hi, Mommy!",
+            "Wave hi.",
+            "Hi there!"
+          ]
+        },
+        {
+          "id": "s1-peekaboo",
+          "word": "peekaboo",
+          "meaningTh": "จ๊ะเอ๋",
+          "readingTh": "พีค-อะ-บู",
+          "stressSyllable": 3,
+          "image": "/images/s1-peekaboo.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Where's the baby? Peekaboo!",
+            "Peekaboo, I see you!",
+            "Let's play peekaboo.",
+            "Peekaboo, Daddy!",
+            "More peekaboo?"
+          ]
+        },
+        {
+          "id": "s1-hug",
+          "word": "hug",
+          "meaningTh": "กอด",
+          "readingTh": "ฮัก",
+          "image": "/images/s1-hug.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Give me a hug.",
+            "Big hug!",
+            "Hug Mommy.",
+            "A big, big hug.",
+            "Hug your teddy bear."
+          ]
+        },
+        {
+          "id": "s1-kiss",
+          "word": "kiss",
+          "meaningTh": "หอม / จุ๊บ",
+          "readingTh": "คิส",
+          "image": "/images/s1-kiss.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Give me a kiss.",
+            "Kiss, kiss!",
+            "Kiss Daddy.",
+            "A kiss for you.",
+            "Night-night kiss."
+          ]
+        },
+        {
+          "id": "s1-clap",
+          "word": "clap",
+          "meaningTh": "ปรบมือ",
+          "readingTh": "แคลป",
+          "image": "/images/s1-clap.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Clap, clap, clap!",
+            "Clap your hands.",
+            "Let's clap.",
+            "Clap for Mommy!",
+            "Yay! Clap!"
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 1,
+      "id": "s1-actions",
+      "category": "routines",
+      "type": "listen",
+      "title": "What are we doing?",
+      "titleTh": "เรากำลังทำอะไร",
+      "items": [
+        {
+          "id": "s1-eat",
+          "word": "eat",
+          "meaningTh": "กิน",
+          "readingTh": "อีท",
+          "image": "/images/s1-eat.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Let's eat.",
+            "Time to eat.",
+            "Eat your rice.",
+            "Yum, yum, eat!",
+            "The baby can eat."
+          ]
+        },
+        {
+          "id": "s1-drink",
+          "word": "drink",
+          "meaningTh": "ดื่ม",
+          "readingTh": "ดริงค์",
+          "image": "/images/s1-drink.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Let's drink.",
+            "Drink your milk.",
+            "Drink some water.",
+            "Drink, drink, all gone!",
+            "A drink for you."
+          ]
+        },
+        {
+          "id": "s1-sleep",
+          "word": "sleep",
+          "meaningTh": "นอน / หลับ",
+          "readingTh": "สลีพ",
+          "image": "/images/s1-sleep.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Time to sleep.",
+            "Sleep, baby, sleep.",
+            "Sleep in your bed.",
+            "Sleep tight.",
+            "Shh! Sleep now."
+          ]
+        },
+        {
+          "id": "s1-walk",
+          "word": "walk",
+          "meaningTh": "เดิน",
+          "readingTh": "ว้อค",
+          "image": "/images/s1-walk.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Let's walk.",
+            "Walk, walk, walk.",
+            "Walk to Mommy.",
+            "A big walk!",
+            "Can you walk?"
+          ]
+        },
+        {
+          "id": "s1-run",
+          "word": "run",
+          "meaningTh": "วิ่ง",
+          "readingTh": "รัน",
+          "image": "/images/s1-run.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Let's run!",
+            "Run, run, run!",
+            "Run to Daddy.",
+            "The dog can run.",
+            "Ready, set, run!"
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 1,
+      "id": "s1-outside-1",
+      "category": "outside",
+      "type": "listen",
+      "title": "Outside",
+      "titleTh": "ข้างนอกบ้าน",
+      "items": [
+        {
+          "id": "s1-tree",
+          "word": "tree",
+          "meaningTh": "ต้นไม้",
+          "readingTh": "ทรี",
+          "image": "/images/s1-tree.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A tree.",
+            "A big tree.",
+            "A green tree.",
+            "Birds in the tree.",
+            "Hi, tree!"
+          ]
+        },
+        {
+          "id": "s1-flower",
+          "word": "flower",
+          "meaningTh": "ดอกไม้",
+          "readingTh": "ฟลาว-เว่อร์",
+          "stressSyllable": 1,
+          "image": "/images/s1-flower.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A flower.",
+            "A pretty flower.",
+            "Smell the flower.",
+            "A red flower.",
+            "Mmm, flower!"
+          ]
+        },
+        {
+          "id": "s1-sun",
+          "word": "sun",
+          "meaningTh": "พระอาทิตย์",
+          "readingTh": "ซัน",
+          "image": "/images/s1-sun.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! The sun.",
+            "The sun is up.",
+            "Hello, sun!",
+            "The sun is hot.",
+            "Bye-bye, sun!"
+          ]
+        },
+        {
+          "id": "s1-moon",
+          "word": "moon",
+          "meaningTh": "พระจันทร์",
+          "readingTh": "มูน",
+          "image": "/images/s1-moon.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! The moon.",
+            "The moon is up.",
+            "Hello, moon!",
+            "A big moon.",
+            "Night-night, moon."
+          ]
+        },
+        {
+          "id": "s1-rain",
+          "word": "rain",
+          "meaningTh": "ฝน",
+          "readingTh": "เรน",
+          "image": "/images/s1-rain.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! Rain.",
+            "Rain, rain!",
+            "Drip, drop, rain.",
+            "The rain is wet.",
+            "Bye-bye, rain!"
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 1,
+      "id": "s1-outside-2",
+      "category": "outside",
+      "type": "listen",
+      "title": "Let's go out",
+      "titleTh": "ออกไปเที่ยวกัน",
+      "items": [
+        {
+          "id": "s1-bus",
+          "word": "bus",
+          "meaningTh": "รถเมล์",
+          "readingTh": "บัส",
+          "image": "/images/s1-bus.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A bus.",
+            "A big bus.",
+            "Beep, beep, bus!",
+            "Get on the bus.",
+            "Bye-bye, bus!"
+          ]
+        },
+        {
+          "id": "s1-boat",
+          "word": "boat",
+          "meaningTh": "เรือ",
+          "readingTh": "โบท",
+          "image": "/images/s1-boat.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A boat.",
+            "The boat is on the water.",
+            "A little boat.",
+            "Row, row, boat.",
+            "Bye-bye, boat!"
+          ]
+        },
+        {
+          "id": "s1-plane",
+          "word": "plane",
+          "meaningTh": "เครื่องบิน",
+          "readingTh": "เพลน",
+          "image": "/images/s1-plane.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A plane.",
+            "The plane is up in the sky.",
+            "A big plane.",
+            "The plane can fly.",
+            "Bye-bye, plane!"
+          ]
+        },
+        {
+          "id": "s1-bike",
+          "word": "bike",
+          "meaningTh": "จักรยาน",
+          "readingTh": "ไบค์",
+          "image": "/images/s1-bike.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A bike.",
+            "Ride the bike.",
+            "A red bike.",
+            "Ring, ring, bike!",
+            "A little bike."
+          ]
+        },
+        {
+          "id": "s1-swing",
+          "word": "swing",
+          "meaningTh": "ชิงช้า",
+          "readingTh": "สวิง",
+          "image": "/images/s1-swing.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A swing.",
+            "Up and down on the swing.",
+            "Push the swing.",
+            "Swing, swing!",
+            "Wheee! Swing!"
           ]
         }
       ]
@@ -190,9 +1937,10 @@
           "register": "casual",
           "frequency": "very-common",
           "parentese": [
-            "Who's this? It's Mama!",
-            "Mama loves you.",
-            "Can you say Mama?"
+            "Who's that? Mama!",
+            "Say Mama.",
+            "Hi, Mama!",
+            "Mama loves you."
           ]
         },
         {
@@ -210,9 +1958,10 @@
           "register": "neutral",
           "frequency": "very-common",
           "parentese": [
-            "Mmm, milk!",
-            "Yummy milk.",
-            "Can you say milk?"
+            "What's this? Milk!",
+            "Say milk.",
+            "Milk, please.",
+            "Yummy milk!"
           ]
         },
         {
@@ -230,9 +1979,10 @@
           "register": "neutral",
           "frequency": "very-common",
           "parentese": [
-            "Look! A ball.",
+            "What's this? Ball!",
+            "Say ball.",
             "Roll the ball!",
-            "Can you say ball?"
+            "A big ball."
           ]
         },
         {
@@ -251,9 +2001,10 @@
           "register": "neutral",
           "frequency": "very-common",
           "parentese": [
-            "Woof woof! It's a dog.",
-            "Hi, doggy!",
-            "Can you say dog?"
+            "What's that? Dog!",
+            "Say dog.",
+            "Hi, dog!",
+            "Woof! It's a dog."
           ]
         },
         {
@@ -274,9 +2025,1019 @@
           "register": "casual",
           "frequency": "very-common",
           "parentese": [
-            "Daddy's going to work.",
-            "Wave bye-bye!",
-            "Can you say bye?"
+            "Say bye.",
+            "Bye, Daddy!",
+            "Wave bye-bye.",
+            "Bye! See you later."
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 2,
+      "id": "s2-people",
+      "category": "home-family",
+      "type": "word",
+      "title": "Who is it?",
+      "titleTh": "นี่ใครเอ่ย",
+      "items": [
+        {
+          "id": "s2-dada",
+          "word": "Dada",
+          "target": "dada",
+          "acceptAlso": [
+            "daddy",
+            "dad",
+            "data"
+          ],
+          "meaningTh": "พ่อ (เด็กเล็กเรียก)",
+          "readingTh": "ดา-ด้า",
+          "stressSyllable": 1,
+          "image": "/images/s2-dada.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Who's that? Dada!",
+            "Say Dada.",
+            "Dada is home!",
+            "Dada loves you."
+          ]
+        },
+        {
+          "id": "s2-baby",
+          "word": "baby",
+          "target": "baby",
+          "acceptAlso": [
+            "babe",
+            "babies"
+          ],
+          "meaningTh": "เด็กทารก / น้อง",
+          "readingTh": "เบ-บี้",
+          "stressSyllable": 1,
+          "image": "/images/s2-baby.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Who's that? Baby!",
+            "Say baby.",
+            "Hi, baby!",
+            "Look at the baby."
+          ]
+        },
+        {
+          "id": "s2-grandma",
+          "word": "Grandma",
+          "target": "grandma",
+          "acceptAlso": [
+            "granma",
+            "grammy",
+            "grandmother"
+          ],
+          "meaningTh": "คุณยาย / คุณย่า",
+          "readingTh": "แกรนด์-มา",
+          "stressSyllable": 1,
+          "image": "/images/s2-grandma.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Who's that? Grandma!",
+            "Say Grandma.",
+            "Hi, Grandma!",
+            "Grandma loves you."
+          ]
+        },
+        {
+          "id": "s2-hi",
+          "word": "hi",
+          "target": "hi",
+          "acceptAlso": [
+            "hey",
+            "hello",
+            "high"
+          ],
+          "meaningTh": "สวัสดี (ทักทาย)",
+          "readingTh": "ไฮ",
+          "image": "/images/s2-hi.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Say hi!",
+            "Hi! Hi!",
+            "Wave and say hi.",
+            "Hi, Dada!"
+          ]
+        },
+        {
+          "id": "s2-no",
+          "word": "no",
+          "target": "no",
+          "acceptAlso": [
+            "nope",
+            "know",
+            "nah"
+          ],
+          "meaningTh": "ไม่ / ไม่เอา",
+          "readingTh": "โน",
+          "image": "/images/s2-no.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Say no.",
+            "No, no, no!",
+            "No? Okay, no.",
+            "No more."
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 2,
+      "id": "s2-food",
+      "category": "food",
+      "type": "word",
+      "title": "Yummy words",
+      "titleTh": "คำอร่อย ๆ",
+      "items": [
+        {
+          "id": "s2-juice",
+          "word": "juice",
+          "target": "juice",
+          "acceptAlso": [
+            "juices",
+            "use"
+          ],
+          "meaningTh": "น้ำผลไม้",
+          "readingTh": "จูซ",
+          "image": "/images/s2-juice.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "What's this? Juice!",
+            "Say juice.",
+            "Juice, please.",
+            "Yummy juice!"
+          ]
+        },
+        {
+          "id": "s2-water",
+          "word": "water",
+          "target": "water",
+          "acceptAlso": [
+            "wawa",
+            "waters"
+          ],
+          "meaningTh": "น้ำเปล่า",
+          "readingTh": "ว้อ-เท่อร์",
+          "stressSyllable": 1,
+          "image": "/images/s2-water.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "What's this? Water!",
+            "Say water.",
+            "Water, please.",
+            "Cold water!"
+          ]
+        },
+        {
+          "id": "s2-apple",
+          "word": "apple",
+          "target": "apple",
+          "acceptAlso": [
+            "apples"
+          ],
+          "meaningTh": "แอปเปิล",
+          "readingTh": "แอ๊ป-เปิ้ล",
+          "stressSyllable": 1,
+          "image": "/images/s2-apple.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "What's this? Apple!",
+            "Say apple.",
+            "Apple, please.",
+            "Yummy apple!"
+          ]
+        },
+        {
+          "id": "s2-banana",
+          "word": "banana",
+          "target": "banana",
+          "acceptAlso": [
+            "nana",
+            "bananas"
+          ],
+          "meaningTh": "กล้วย",
+          "readingTh": "บะ-แน้-หนะ",
+          "stressSyllable": 2,
+          "image": "/images/s2-banana.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "What's this? Banana!",
+            "Say banana.",
+            "Banana, please.",
+            "Yummy banana!"
+          ]
+        },
+        {
+          "id": "s2-cookie",
+          "word": "cookie",
+          "target": "cookie",
+          "acceptAlso": [
+            "cookies",
+            "cooky"
+          ],
+          "meaningTh": "คุกกี้",
+          "readingTh": "คุก-กี้",
+          "stressSyllable": 1,
+          "image": "/images/s2-cookie.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "What's this? Cookie!",
+            "Say cookie.",
+            "Cookie, please.",
+            "Yummy cookie!"
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 2,
+      "id": "s2-animals",
+      "category": "animals",
+      "type": "word",
+      "title": "Animal words",
+      "titleTh": "ชื่อสัตว์",
+      "items": [
+        {
+          "id": "s2-cat",
+          "word": "cat",
+          "target": "cat",
+          "acceptAlso": [
+            "kitty",
+            "cats",
+            "kat"
+          ],
+          "meaningTh": "แมว",
+          "readingTh": "แคท",
+          "image": "/images/s2-cat.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "What's that? Cat!",
+            "Say cat.",
+            "Hi, cat!",
+            "Meow! It's a cat."
+          ]
+        },
+        {
+          "id": "s2-duck",
+          "word": "duck",
+          "target": "duck",
+          "acceptAlso": [
+            "ducky",
+            "ducks",
+            "doc"
+          ],
+          "meaningTh": "เป็ด",
+          "readingTh": "ดั๊ก",
+          "image": "/images/s2-duck.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "What's that? Duck!",
+            "Say duck.",
+            "Hi, duck!",
+            "Quack! It's a duck."
+          ]
+        },
+        {
+          "id": "s2-bird",
+          "word": "bird",
+          "target": "bird",
+          "acceptAlso": [
+            "birdie",
+            "birds",
+            "bert"
+          ],
+          "meaningTh": "นก",
+          "readingTh": "เบิร์ด",
+          "image": "/images/s2-bird.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "What's that? Bird!",
+            "Say bird.",
+            "Hi, bird!",
+            "Tweet! It's a bird."
+          ]
+        },
+        {
+          "id": "s2-fish",
+          "word": "fish",
+          "target": "fish",
+          "acceptAlso": [
+            "fishy",
+            "fishes"
+          ],
+          "meaningTh": "ปลา",
+          "readingTh": "ฟิช",
+          "image": "/images/s2-fish.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "What's that? Fish!",
+            "Say fish.",
+            "Hi, fish!",
+            "Swim, swim! It's a fish."
+          ]
+        },
+        {
+          "id": "s2-cow",
+          "word": "cow",
+          "target": "cow",
+          "acceptAlso": [
+            "cows",
+            "ciao"
+          ],
+          "meaningTh": "วัว",
+          "readingTh": "คาว",
+          "image": "/images/s2-cow.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "What's that? Cow!",
+            "Say cow.",
+            "Hi, cow!",
+            "Moo! It's a cow."
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 2,
+      "id": "s2-toys",
+      "category": "toys",
+      "type": "word",
+      "title": "Toy words",
+      "titleTh": "ชื่อของเล่น",
+      "items": [
+        {
+          "id": "s2-car",
+          "word": "car",
+          "target": "car",
+          "acceptAlso": [
+            "cars",
+            "card"
+          ],
+          "meaningTh": "รถ",
+          "readingTh": "คาร์",
+          "image": "/images/s2-car.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "What's this? Car!",
+            "Say car.",
+            "Vroom! Car!",
+            "A red car."
+          ]
+        },
+        {
+          "id": "s2-book",
+          "word": "book",
+          "target": "book",
+          "acceptAlso": [
+            "books"
+          ],
+          "meaningTh": "หนังสือ",
+          "readingTh": "บุ๊ก",
+          "image": "/images/s2-book.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "What's this? Book!",
+            "Say book.",
+            "Let's read a book.",
+            "Open the book!"
+          ]
+        },
+        {
+          "id": "s2-teddy",
+          "word": "teddy",
+          "target": "teddy",
+          "acceptAlso": [
+            "teddy bear",
+            "teddie"
+          ],
+          "meaningTh": "ตุ๊กตาหมี",
+          "readingTh": "เท็ด-ดี้",
+          "stressSyllable": 1,
+          "image": "/images/s2-teddy.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "What's this? Teddy!",
+            "Say teddy.",
+            "Hug your teddy.",
+            "Night-night, teddy."
+          ]
+        },
+        {
+          "id": "s2-balloon",
+          "word": "balloon",
+          "target": "balloon",
+          "acceptAlso": [
+            "balloons",
+            "baloon"
+          ],
+          "meaningTh": "ลูกโป่ง",
+          "readingTh": "บะ-ลูน",
+          "stressSyllable": 2,
+          "image": "/images/s2-balloon.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "What's this? Balloon!",
+            "Say balloon.",
+            "Up goes the balloon!",
+            "A big balloon."
+          ]
+        },
+        {
+          "id": "s2-bubbles",
+          "word": "bubbles",
+          "target": "bubbles",
+          "acceptAlso": [
+            "bubble",
+            "bubba"
+          ],
+          "meaningTh": "ฟองสบู่",
+          "readingTh": "บับ-เบิ้ลส์",
+          "stressSyllable": 1,
+          "image": "/images/s2-bubbles.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "What's this? Bubbles!",
+            "Say bubbles.",
+            "Pop the bubbles!",
+            "More bubbles!"
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 2,
+      "id": "s2-body",
+      "category": "body",
+      "type": "word",
+      "title": "Body words",
+      "titleTh": "ส่วนต่าง ๆ ของร่างกาย",
+      "items": [
+        {
+          "id": "s2-nose",
+          "word": "nose",
+          "target": "nose",
+          "acceptAlso": [
+            "knows",
+            "noes"
+          ],
+          "meaningTh": "จมูก",
+          "readingTh": "โนส",
+          "image": "/images/s2-nose.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "What's this? Nose!",
+            "Say nose.",
+            "Touch your nose.",
+            "Beep! Nose!"
+          ]
+        },
+        {
+          "id": "s2-eyes",
+          "word": "eyes",
+          "target": "eyes",
+          "acceptAlso": [
+            "eye",
+            "ice"
+          ],
+          "meaningTh": "ตา",
+          "readingTh": "อายส์",
+          "image": "/images/s2-eyes.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "What are these? Eyes!",
+            "Say eyes.",
+            "Open your eyes.",
+            "Blink your eyes."
+          ]
+        },
+        {
+          "id": "s2-ears",
+          "word": "ears",
+          "target": "ears",
+          "acceptAlso": [
+            "ear",
+            "years"
+          ],
+          "meaningTh": "หู",
+          "readingTh": "เอียร์ส",
+          "image": "/images/s2-ears.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "What are these? Ears!",
+            "Say ears.",
+            "Touch your ears.",
+            "Big ears!"
+          ]
+        },
+        {
+          "id": "s2-hands",
+          "word": "hands",
+          "target": "hands",
+          "acceptAlso": [
+            "hand"
+          ],
+          "meaningTh": "มือ",
+          "readingTh": "แฮนด์ส",
+          "image": "/images/s2-hands.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "What are these? Hands!",
+            "Say hands.",
+            "Clap your hands.",
+            "Wash your hands."
+          ]
+        },
+        {
+          "id": "s2-toes",
+          "word": "toes",
+          "target": "toes",
+          "acceptAlso": [
+            "toe",
+            "tows"
+          ],
+          "meaningTh": "นิ้วเท้า",
+          "readingTh": "โทส์",
+          "image": "/images/s2-toes.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "What are these? Toes!",
+            "Say toes.",
+            "Wiggle your toes.",
+            "Ten little toes."
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 2,
+      "id": "s2-clothes",
+      "category": "clothes",
+      "type": "word",
+      "title": "Clothes words",
+      "titleTh": "ชื่อเสื้อผ้า",
+      "items": [
+        {
+          "id": "s2-shoe",
+          "word": "shoe",
+          "target": "shoe",
+          "acceptAlso": [
+            "shoes",
+            "shoo"
+          ],
+          "meaningTh": "รองเท้า (ข้างเดียว)",
+          "readingTh": "ชู",
+          "image": "/images/s2-shoe.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "What's this? Shoe!",
+            "Say shoe.",
+            "Shoe on.",
+            "One shoe, one sock."
+          ]
+        },
+        {
+          "id": "s2-hat",
+          "word": "hat",
+          "target": "hat",
+          "acceptAlso": [
+            "hats"
+          ],
+          "meaningTh": "หมวก",
+          "readingTh": "แฮท",
+          "image": "/images/s2-hat.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "What's this? Hat!",
+            "Say hat.",
+            "Hat on.",
+            "A funny hat!"
+          ]
+        },
+        {
+          "id": "s2-sock",
+          "word": "sock",
+          "target": "sock",
+          "acceptAlso": [
+            "socks",
+            "sack"
+          ],
+          "meaningTh": "ถุงเท้า (ข้างเดียว)",
+          "readingTh": "ซ็อก",
+          "image": "/images/s2-sock.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "What's this? Sock!",
+            "Say sock.",
+            "Sock on.",
+            "Where's your sock?"
+          ]
+        },
+        {
+          "id": "s2-coat",
+          "word": "coat",
+          "target": "coat",
+          "acceptAlso": [
+            "coats",
+            "code"
+          ],
+          "meaningTh": "เสื้อโค้ท",
+          "readingTh": "โค้ท",
+          "image": "/images/s2-coat.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "What's this? Coat!",
+            "Say coat.",
+            "Coat on.",
+            "A warm coat!"
+          ]
+        },
+        {
+          "id": "s2-diaper",
+          "word": "diaper",
+          "target": "diaper",
+          "acceptAlso": [
+            "diapers"
+          ],
+          "meaningTh": "ผ้าอ้อม",
+          "readingTh": "ได-เพ่อร์",
+          "stressSyllable": 1,
+          "image": "/images/s2-diaper.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "What's this? Diaper!",
+            "Say diaper.",
+            "New diaper.",
+            "Clean diaper!"
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 2,
+      "id": "s2-home",
+      "category": "home-things",
+      "type": "word",
+      "title": "Things at home",
+      "titleTh": "ของในบ้าน",
+      "items": [
+        {
+          "id": "s2-cup",
+          "word": "cup",
+          "target": "cup",
+          "acceptAlso": [
+            "cups",
+            "cop"
+          ],
+          "meaningTh": "แก้ว",
+          "readingTh": "คัป",
+          "image": "/images/s2-cup.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "What's this? Cup!",
+            "Say cup.",
+            "Milk in the cup.",
+            "Your cup!"
+          ]
+        },
+        {
+          "id": "s2-bed",
+          "word": "bed",
+          "target": "bed",
+          "acceptAlso": [
+            "beds",
+            "bad"
+          ],
+          "meaningTh": "เตียง",
+          "readingTh": "เบด",
+          "image": "/images/s2-bed.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "What's this? Bed!",
+            "Say bed.",
+            "Time for bed.",
+            "Night-night, bed."
+          ]
+        },
+        {
+          "id": "s2-bath",
+          "word": "bath",
+          "target": "bath",
+          "acceptAlso": [
+            "baths",
+            "bat"
+          ],
+          "meaningTh": "อาบน้ำ / อ่างอาบน้ำ",
+          "readingTh": "แบธ",
+          "image": "/images/s2-bath.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "What's this? Bath!",
+            "Say bath.",
+            "Bath time!",
+            "Splash in the bath!"
+          ]
+        },
+        {
+          "id": "s2-spoon",
+          "word": "spoon",
+          "target": "spoon",
+          "acceptAlso": [
+            "spoons"
+          ],
+          "meaningTh": "ช้อน",
+          "readingTh": "สปูน",
+          "image": "/images/s2-spoon.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "What's this? Spoon!",
+            "Say spoon.",
+            "Eat with your spoon.",
+            "Your spoon!"
+          ]
+        },
+        {
+          "id": "s2-door",
+          "word": "door",
+          "target": "door",
+          "acceptAlso": [
+            "doors"
+          ],
+          "meaningTh": "ประตู",
+          "readingTh": "ดอร์",
+          "image": "/images/s2-door.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "What's this? Door!",
+            "Say door.",
+            "Open the door.",
+            "Knock, knock! Door!"
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 2,
+      "id": "s2-little-words",
+      "category": "routines",
+      "type": "word",
+      "title": "Little words",
+      "titleTh": "คำสั้น ๆ ใช้บ่อย",
+      "items": [
+        {
+          "id": "s2-more",
+          "word": "more",
+          "target": "more",
+          "acceptAlso": [
+            "mo",
+            "moore",
+            "more please"
+          ],
+          "meaningTh": "อีก / เอาอีก",
+          "readingTh": "มอร์",
+          "image": "/images/s2-more.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "More?",
+            "Say more.",
+            "More milk? More!",
+            "You want more!"
+          ]
+        },
+        {
+          "id": "s2-up",
+          "word": "up",
+          "target": "up",
+          "acceptAlso": [
+            "app",
+            "op",
+            "up please"
+          ],
+          "meaningTh": "อุ้มหน่อย / ขึ้น",
+          "readingTh": "อัพ",
+          "image": "/images/s2-up.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Up?",
+            "Say up.",
+            "Up, up, up!",
+            "Up you go!"
+          ]
+        },
+        {
+          "id": "s2-uh-oh",
+          "word": "uh-oh",
+          "target": "uh-oh",
+          "acceptAlso": [
+            "uh oh",
+            "oh no",
+            "oh oh"
+          ],
+          "meaningTh": "อุ๊ย (ของตก/หก)",
+          "readingTh": "อะ-โอ",
+          "stressSyllable": 2,
+          "image": "/images/s2-uh-oh.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Uh-oh! It fell.",
+            "Say uh-oh.",
+            "Uh-oh, the milk!",
+            "Uh-oh! All gone."
+          ]
+        },
+        {
+          "id": "s2-all-done",
+          "word": "all done",
+          "target": "all done",
+          "acceptAlso": [
+            "all gone",
+            "done",
+            "i'm done"
+          ],
+          "meaningTh": "เสร็จแล้ว / อิ่มแล้ว",
+          "readingTh": "ออล-ดัน",
+          "stressSyllable": 2,
+          "image": "/images/s2-all-done.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "All done?",
+            "Say all done.",
+            "All done! Good job.",
+            "All done eating."
+          ]
+        },
+        {
+          "id": "s2-night-night",
+          "word": "night-night",
+          "target": "night-night",
+          "acceptAlso": [
+            "night night",
+            "good night",
+            "nite nite"
+          ],
+          "meaningTh": "นอนแล้วนะ / ฝันดี",
+          "readingTh": "ไนท์-ไนท์",
+          "stressSyllable": 1,
+          "image": "/images/s2-night-night.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Night-night, baby.",
+            "Say night-night.",
+            "Night-night, Mommy!",
+            "Time for night-night."
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 2,
+      "id": "s2-outside",
+      "category": "outside",
+      "type": "word",
+      "title": "Outside words",
+      "titleTh": "คำที่เห็นข้างนอก",
+      "items": [
+        {
+          "id": "s2-sun",
+          "word": "sun",
+          "target": "sun",
+          "acceptAlso": [
+            "son",
+            "sunny"
+          ],
+          "meaningTh": "พระอาทิตย์",
+          "readingTh": "ซัน",
+          "image": "/images/s2-sun.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "What's that? Sun!",
+            "Say sun.",
+            "Hello, sun!",
+            "Sunny day!"
+          ]
+        },
+        {
+          "id": "s2-moon",
+          "word": "moon",
+          "target": "moon",
+          "acceptAlso": [
+            "moons"
+          ],
+          "meaningTh": "พระจันทร์",
+          "readingTh": "มูน",
+          "image": "/images/s2-moon.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "What's that? Moon!",
+            "Say moon.",
+            "Hello, moon!",
+            "A pretty moon."
+          ]
+        },
+        {
+          "id": "s2-flower",
+          "word": "flower",
+          "target": "flower",
+          "acceptAlso": [
+            "flowers",
+            "flour"
+          ],
+          "meaningTh": "ดอกไม้",
+          "readingTh": "ฟลาว-เว่อร์",
+          "stressSyllable": 1,
+          "image": "/images/s2-flower.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "What's that? Flower!",
+            "Say flower.",
+            "Smell the flower.",
+            "A yellow flower!"
+          ]
+        },
+        {
+          "id": "s2-bus",
+          "word": "bus",
+          "target": "bus",
+          "acceptAlso": [
+            "buses",
+            "bass"
+          ],
+          "meaningTh": "รถเมล์",
+          "readingTh": "บัส",
+          "image": "/images/s2-bus.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "What's that? Bus!",
+            "Say bus.",
+            "Beep, beep! Bus!",
+            "A red bus."
+          ]
+        },
+        {
+          "id": "s2-boat",
+          "word": "boat",
+          "target": "boat",
+          "acceptAlso": [
+            "boats",
+            "bout"
+          ],
+          "meaningTh": "เรือ",
+          "readingTh": "โบท",
+          "image": "/images/s2-boat.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "What's that? Boat!",
+            "Say boat.",
+            "Row, row! Boat!",
+            "A sail boat."
           ]
         }
       ]
@@ -309,7 +3070,9 @@
           "parentese": [
             "Uh-oh, all gone!",
             "More milk?",
-            "More milk!"
+            "More milk!",
+            "More milk, please.",
+            "Here's more milk."
           ]
         },
         {
@@ -333,8 +3096,10 @@
           "frequency": "common",
           "parentese": [
             "Bye, Daddy!",
-            "Daddy's going to work.",
-            "Daddy go!"
+            "Daddy is going to work.",
+            "Daddy go!",
+            "Daddy go, vroom!",
+            "Daddy go. Wave bye-bye."
           ]
         },
         {
@@ -358,7 +3123,9 @@
           "parentese": [
             "It's bedtime. Time to sleep!",
             "No sleep?",
-            "No sleep!"
+            "No sleep!",
+            "No sleep? Jump, jump!",
+            "No sleep. Okay, one more book."
           ]
         },
         {
@@ -382,7 +3149,9 @@
           "parentese": [
             "Look at the dog go!",
             "The dog runs so fast.",
-            "Dog run!"
+            "Dog run!",
+            "Run, dog, run!",
+            "Dog run to the ball."
           ]
         },
         {
@@ -406,9 +3175,3849 @@
           "register": "casual",
           "frequency": "very-common",
           "parentese": [
-            "Mama's going out.",
+            "Mama is going out.",
             "Wave to Mama.",
-            "Bye, Mama!"
+            "Bye, Mama!",
+            "Say bye, Mama.",
+            "Bye, Mama! See you later."
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 3,
+      "id": "s3-more",
+      "category": "food",
+      "type": "twoWord",
+      "title": "More, please!",
+      "titleTh": "ขออีก!",
+      "items": [
+        {
+          "id": "s3-more-juice",
+          "word": "more juice",
+          "target": "more juice",
+          "acceptAlso": [
+            "more juice please",
+            "some more juice"
+          ],
+          "meaningTh": "เอาน้ำผลไม้อีก",
+          "readingTh": "มอร์ จูซ",
+          "stressWords": [
+            "more",
+            "juice"
+          ],
+          "image": "/images/s3-more-juice.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "All gone! More juice?",
+            "More juice, please.",
+            "Here's more juice.",
+            "You want more juice!"
+          ]
+        },
+        {
+          "id": "s3-more-cookie",
+          "word": "more cookie",
+          "target": "more cookie",
+          "acceptAlso": [
+            "more cookies",
+            "more cookie please"
+          ],
+          "meaningTh": "เอาคุกกี้อีก",
+          "readingTh": "มอร์ คุก-กี้",
+          "stressWords": [
+            "more",
+            "cookie"
+          ],
+          "image": "/images/s3-more-cookie.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Cookie all gone! More cookie?",
+            "More cookie, please.",
+            "One more cookie.",
+            "Mmm, more cookie!"
+          ]
+        },
+        {
+          "id": "s3-more-banana",
+          "word": "more banana",
+          "target": "more banana",
+          "acceptAlso": [
+            "more bananas",
+            "more banana please"
+          ],
+          "meaningTh": "เอากล้วยอีก",
+          "readingTh": "มอร์ บะ-แน้-หนะ",
+          "stressWords": [
+            "more",
+            "banana"
+          ],
+          "image": "/images/s3-more-banana.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Banana all gone! More banana?",
+            "More banana, please.",
+            "Here's more banana.",
+            "Yummy! More banana!"
+          ]
+        },
+        {
+          "id": "s3-more-rice",
+          "word": "more rice",
+          "target": "more rice",
+          "acceptAlso": [
+            "more rice please",
+            "some more rice"
+          ],
+          "meaningTh": "เอาข้าวอีก",
+          "readingTh": "มอร์ ไรซ์",
+          "stressWords": [
+            "more",
+            "rice"
+          ],
+          "image": "/images/s3-more-rice.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Rice all gone! More rice?",
+            "More rice, please.",
+            "Here's more rice.",
+            "Hungry? More rice!"
+          ]
+        },
+        {
+          "id": "s3-more-bubbles",
+          "word": "more bubbles",
+          "target": "more bubbles",
+          "acceptAlso": [
+            "more bubble",
+            "more bubbles please"
+          ],
+          "meaningTh": "เป่าฟองสบู่อีก",
+          "readingTh": "มอร์ บับ-เบิ้ลส์",
+          "stressWords": [
+            "more",
+            "bubbles"
+          ],
+          "image": "/images/s3-more-bubbles.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Bubbles all gone! More bubbles?",
+            "More bubbles, please.",
+            "Blow more bubbles!",
+            "Pop! More bubbles!"
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 3,
+      "id": "s3-big-little",
+      "category": "describe",
+      "type": "twoWord",
+      "title": "Big and little",
+      "titleTh": "ใหญ่และเล็ก",
+      "items": [
+        {
+          "id": "s3-big-dog",
+          "word": "big dog",
+          "target": "big dog",
+          "acceptAlso": [
+            "big doggy",
+            "a big dog"
+          ],
+          "meaningTh": "หมาตัวใหญ่",
+          "readingTh": "บิ๊ก ด็อก",
+          "stressWords": [
+            "big",
+            "dog"
+          ],
+          "image": "/images/s3-big-dog.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! Big dog!",
+            "Wow, a big, big dog.",
+            "Big dog says woof!",
+            "Hi, big dog!"
+          ]
+        },
+        {
+          "id": "s3-little-kitty",
+          "word": "little kitty",
+          "target": "little kitty",
+          "acceptAlso": [
+            "little cat",
+            "little kitten",
+            "kitty"
+          ],
+          "meaningTh": "แมวตัวเล็ก / ลูกแมว",
+          "readingTh": "ลิท-เทิ่ล คิท-ตี้",
+          "stressWords": [
+            "little",
+            "kitty"
+          ],
+          "image": "/images/s3-little-kitty.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! Little kitty!",
+            "A little, little kitty.",
+            "Little kitty says meow.",
+            "Hi, little kitty!",
+            "Soft little kitty."
+          ]
+        },
+        {
+          "id": "s3-big-truck",
+          "word": "big truck",
+          "target": "big truck",
+          "acceptAlso": [
+            "big trucks",
+            "a big truck"
+          ],
+          "meaningTh": "รถบรรทุกคันใหญ่",
+          "readingTh": "บิ๊ก ทรัก",
+          "stressWords": [
+            "big",
+            "truck"
+          ],
+          "image": "/images/s3-big-truck.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! Big truck!",
+            "Wow, a big, big truck.",
+            "Big truck goes beep beep!",
+            "Bye-bye, big truck!"
+          ]
+        },
+        {
+          "id": "s3-little-bird",
+          "word": "little bird",
+          "target": "little bird",
+          "acceptAlso": [
+            "little birdie",
+            "a little bird"
+          ],
+          "meaningTh": "นกตัวเล็ก",
+          "readingTh": "ลิท-เทิ่ล เบิร์ด",
+          "stressWords": [
+            "little",
+            "bird"
+          ],
+          "image": "/images/s3-little-bird.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! Little bird!",
+            "A little, little bird.",
+            "Little bird says tweet.",
+            "Fly, little bird!"
+          ]
+        },
+        {
+          "id": "s3-big-ball",
+          "word": "big ball",
+          "target": "big ball",
+          "acceptAlso": [
+            "big balls",
+            "a big ball"
+          ],
+          "meaningTh": "ลูกบอลลูกใหญ่",
+          "readingTh": "บิ๊ก บอล",
+          "stressWords": [
+            "big",
+            "ball"
+          ],
+          "image": "/images/s3-big-ball.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! Big ball!",
+            "Wow, a big, big ball.",
+            "Roll the big ball.",
+            "Kick the big ball!"
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 3,
+      "id": "s3-eat-drink",
+      "category": "food",
+      "type": "twoWord",
+      "title": "Eat and drink",
+      "titleTh": "กินและดื่ม",
+      "items": [
+        {
+          "id": "s3-eat-apple",
+          "word": "eat apple",
+          "target": "eat apple",
+          "acceptAlso": [
+            "eat an apple",
+            "eating apple"
+          ],
+          "meaningTh": "กินแอปเปิล",
+          "readingTh": "อีท แอ๊ป-เปิ้ล",
+          "stressWords": [
+            "eat",
+            "apple"
+          ],
+          "image": "/images/s3-eat-apple.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Eat apple? Okay!",
+            "Let's eat an apple.",
+            "Crunch, crunch! Eat apple.",
+            "Yum! You eat apple."
+          ]
+        },
+        {
+          "id": "s3-drink-water",
+          "word": "drink water",
+          "target": "drink water",
+          "acceptAlso": [
+            "drinking water",
+            "drink some water"
+          ],
+          "meaningTh": "ดื่มน้ำ",
+          "readingTh": "ดริงค์ ว้อ-เท่อร์",
+          "stressWords": [
+            "drink",
+            "water"
+          ],
+          "image": "/images/s3-drink-water.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Drink water?",
+            "Let's drink water.",
+            "Gulp, gulp! Drink water.",
+            "Ahh! You drink water."
+          ]
+        },
+        {
+          "id": "s3-eat-cake",
+          "word": "eat cake",
+          "target": "eat cake",
+          "acceptAlso": [
+            "eat the cake",
+            "eating cake"
+          ],
+          "meaningTh": "กินเค้ก",
+          "readingTh": "อีท เค้ก",
+          "stressWords": [
+            "eat",
+            "cake"
+          ],
+          "image": "/images/s3-eat-cake.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Eat cake? Yes!",
+            "Let's eat cake.",
+            "Birthday cake! Eat cake.",
+            "Yum! You eat cake."
+          ]
+        },
+        {
+          "id": "s3-drink-juice",
+          "word": "drink juice",
+          "target": "drink juice",
+          "acceptAlso": [
+            "drink some juice",
+            "drinking juice"
+          ],
+          "meaningTh": "ดื่มน้ำผลไม้",
+          "readingTh": "ดริงค์ จูซ",
+          "stressWords": [
+            "drink",
+            "juice"
+          ],
+          "image": "/images/s3-drink-juice.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Drink juice?",
+            "Let's drink juice.",
+            "Sip, sip! Drink juice.",
+            "Mmm! You drink juice."
+          ]
+        },
+        {
+          "id": "s3-eat-soup",
+          "word": "eat soup",
+          "target": "eat soup",
+          "acceptAlso": [
+            "eat the soup",
+            "eating soup"
+          ],
+          "meaningTh": "กินซุป",
+          "readingTh": "อีท ซูป",
+          "stressWords": [
+            "eat",
+            "soup"
+          ],
+          "image": "/images/s3-eat-soup.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Eat soup? It's hot!",
+            "Let's eat soup.",
+            "Blow, blow! Eat soup.",
+            "Yum! You eat soup."
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 3,
+      "id": "s3-animal-sounds-1",
+      "category": "animals",
+      "type": "twoWord",
+      "title": "What does it say?",
+      "titleTh": "สัตว์ร้องว่าอะไร",
+      "items": [
+        {
+          "id": "s3-cow-moo",
+          "word": "cow moo",
+          "target": "cow moo",
+          "acceptAlso": [
+            "cow moos",
+            "moo cow"
+          ],
+          "meaningTh": "วัวร้องมอ",
+          "readingTh": "คาว มู",
+          "stressWords": [
+            "cow",
+            "moo"
+          ],
+          "image": "/images/s3-cow-moo.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Listen! Cow moo.",
+            "Cow moo, moo!",
+            "Big cow, moo!",
+            "What does the cow say? Moo!"
+          ]
+        },
+        {
+          "id": "s3-dog-woof",
+          "word": "dog woof",
+          "target": "dog woof",
+          "acceptAlso": [
+            "doggy woof",
+            "woof woof"
+          ],
+          "meaningTh": "หมาเห่าโฮ่ง",
+          "readingTh": "ด็อก วูฟ",
+          "stressWords": [
+            "dog",
+            "woof"
+          ],
+          "image": "/images/s3-dog-woof.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Listen! Dog woof.",
+            "Dog woof, woof!",
+            "Big doggy, woof!",
+            "What does the dog say? Woof!"
+          ]
+        },
+        {
+          "id": "s3-duck-quack",
+          "word": "duck quack",
+          "target": "duck quack",
+          "acceptAlso": [
+            "ducky quack",
+            "quack quack"
+          ],
+          "meaningTh": "เป็ดร้องก้าบ",
+          "readingTh": "ดั๊ก แคว็ก",
+          "stressWords": [
+            "duck",
+            "quack"
+          ],
+          "image": "/images/s3-duck-quack.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Listen! Duck quack.",
+            "Duck quack, quack!",
+            "Little duck, quack!",
+            "What does the duck say? Quack!"
+          ]
+        },
+        {
+          "id": "s3-cat-meow",
+          "word": "cat meow",
+          "target": "cat meow",
+          "acceptAlso": [
+            "kitty meow",
+            "meow meow"
+          ],
+          "meaningTh": "แมวร้องเหมียว",
+          "readingTh": "แคท เมี้ยว",
+          "stressWords": [
+            "cat",
+            "meow"
+          ],
+          "image": "/images/s3-cat-meow.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Listen! Cat meow.",
+            "Cat meow, meow!",
+            "Little cat, meow!",
+            "What does the cat say? Meow!"
+          ]
+        },
+        {
+          "id": "s3-sheep-baa",
+          "word": "sheep baa",
+          "target": "sheep baa",
+          "acceptAlso": [
+            "baa baa",
+            "sheep ba"
+          ],
+          "meaningTh": "แกะร้องแบ๊",
+          "readingTh": "ชีพ แบ๊",
+          "stressWords": [
+            "sheep",
+            "baa"
+          ],
+          "image": "/images/s3-sheep-baa.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Listen! Sheep baa.",
+            "Sheep baa, baa!",
+            "Soft sheep, baa!",
+            "What does the sheep say? Baa!"
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 3,
+      "id": "s3-animal-sounds-2",
+      "category": "animals",
+      "type": "twoWord",
+      "title": "More animal sounds",
+      "titleTh": "เสียงสัตว์อีกนิด",
+      "items": [
+        {
+          "id": "s3-pig-oink",
+          "word": "pig oink",
+          "target": "pig oink",
+          "acceptAlso": [
+            "piggy oink",
+            "oink oink"
+          ],
+          "meaningTh": "หมูร้องอู๊ด",
+          "readingTh": "พิก ออยค์",
+          "stressWords": [
+            "pig",
+            "oink"
+          ],
+          "image": "/images/s3-pig-oink.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Listen! Pig oink.",
+            "Pig oink, oink!",
+            "Pink pig, oink!",
+            "What does the pig say? Oink!"
+          ]
+        },
+        {
+          "id": "s3-lion-roar",
+          "word": "lion roar",
+          "target": "lion roar",
+          "acceptAlso": [
+            "lion roars",
+            "roar roar"
+          ],
+          "meaningTh": "สิงโตคำราม",
+          "readingTh": "ไล-อัน รอร์",
+          "stressWords": [
+            "lion",
+            "roar"
+          ],
+          "image": "/images/s3-lion-roar.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Listen! Lion roar.",
+            "Lion roar, roar!",
+            "Big lion, roar!",
+            "What does the lion say? Roar!"
+          ]
+        },
+        {
+          "id": "s3-bird-tweet",
+          "word": "bird tweet",
+          "target": "bird tweet",
+          "acceptAlso": [
+            "birdie tweet",
+            "tweet tweet"
+          ],
+          "meaningTh": "นกร้องจิ๊บ",
+          "readingTh": "เบิร์ด ทวีท",
+          "stressWords": [
+            "bird",
+            "tweet"
+          ],
+          "image": "/images/s3-bird-tweet.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Listen! Bird tweet.",
+            "Bird tweet, tweet!",
+            "Little birdie, tweet!",
+            "What does the bird say? Tweet!"
+          ]
+        },
+        {
+          "id": "s3-horse-neigh",
+          "word": "horse neigh",
+          "target": "horse neigh",
+          "acceptAlso": [
+            "horsey neigh",
+            "neigh neigh",
+            "horse nay"
+          ],
+          "meaningTh": "ม้าร้องฮี้",
+          "readingTh": "ฮอร์ส เน",
+          "stressWords": [
+            "horse",
+            "neigh"
+          ],
+          "image": "/images/s3-horse-neigh.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Listen! Horse neigh.",
+            "Horse neigh, neigh!",
+            "Big horse, neigh!",
+            "What does the horse say? Neigh!"
+          ]
+        },
+        {
+          "id": "s3-bee-buzz",
+          "word": "bee buzz",
+          "target": "bee buzz",
+          "acceptAlso": [
+            "buzz buzz",
+            "bee bus"
+          ],
+          "meaningTh": "ผึ้งบินหึ่ง",
+          "readingTh": "บี บัซ",
+          "stressWords": [
+            "bee",
+            "buzz"
+          ],
+          "image": "/images/s3-bee-buzz.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Listen! Bee buzz.",
+            "Bee buzz, buzz!",
+            "Little bee, buzz!",
+            "What does the bee say? Buzz!"
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 3,
+      "id": "s3-baby-does",
+      "category": "home-family",
+      "type": "twoWord",
+      "title": "What is baby doing?",
+      "titleTh": "น้องกำลังทำอะไร",
+      "items": [
+        {
+          "id": "s3-baby-sleep",
+          "word": "baby sleep",
+          "target": "baby sleep",
+          "acceptAlso": [
+            "baby sleeping",
+            "baby's sleeping",
+            "baby asleep"
+          ],
+          "meaningTh": "น้องนอน",
+          "readingTh": "เบ-บี้ สลีพ",
+          "stressWords": [
+            "baby",
+            "sleep"
+          ],
+          "image": "/images/s3-baby-sleep.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Shh! Baby sleep.",
+            "Baby sleep in the bed.",
+            "Night-night. Baby sleep.",
+            "Sleepy baby. Baby sleep."
+          ]
+        },
+        {
+          "id": "s3-baby-cry",
+          "word": "baby cry",
+          "target": "baby cry",
+          "acceptAlso": [
+            "baby crying",
+            "baby's crying",
+            "baby cries"
+          ],
+          "meaningTh": "น้องร้องไห้",
+          "readingTh": "เบ-บี้ คราย",
+          "stressWords": [
+            "baby",
+            "cry"
+          ],
+          "image": "/images/s3-baby-cry.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Uh-oh, baby cry.",
+            "Waah! Baby cry.",
+            "Baby cry? Hug the baby.",
+            "Don't cry, baby.",
+            "Baby cry, Mommy come."
+          ]
+        },
+        {
+          "id": "s3-baby-eat",
+          "word": "baby eat",
+          "target": "baby eat",
+          "acceptAlso": [
+            "baby eating",
+            "baby eats"
+          ],
+          "meaningTh": "น้องกิน",
+          "readingTh": "เบ-บี้ อีท",
+          "stressWords": [
+            "baby",
+            "eat"
+          ],
+          "image": "/images/s3-baby-eat.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Yum! Baby eat.",
+            "Baby eat with a spoon.",
+            "Baby eat rice.",
+            "Hungry baby. Baby eat!"
+          ]
+        },
+        {
+          "id": "s3-baby-bath",
+          "word": "baby bath",
+          "target": "baby bath",
+          "acceptAlso": [
+            "baby bath time",
+            "baby's bath"
+          ],
+          "meaningTh": "น้องอาบน้ำ",
+          "readingTh": "เบ-บี้ แบธ",
+          "stressWords": [
+            "baby",
+            "bath"
+          ],
+          "image": "/images/s3-baby-bath.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Splash! Baby bath.",
+            "Time for baby bath.",
+            "Bubbles in baby bath.",
+            "Warm baby bath."
+          ]
+        },
+        {
+          "id": "s3-baby-walk",
+          "word": "baby walk",
+          "target": "baby walk",
+          "acceptAlso": [
+            "baby walking",
+            "baby walks"
+          ],
+          "meaningTh": "น้องเดิน",
+          "readingTh": "เบ-บี้ ว้อค",
+          "stressWords": [
+            "baby",
+            "walk"
+          ],
+          "image": "/images/s3-baby-walk.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! Baby walk.",
+            "Baby walk to Mommy.",
+            "Walk, walk! Baby walk.",
+            "Good job! Baby walk."
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 3,
+      "id": "s3-animals-do",
+      "category": "animals",
+      "type": "twoWord",
+      "title": "What can animals do?",
+      "titleTh": "สัตว์ทำอะไรได้บ้าง",
+      "items": [
+        {
+          "id": "s3-cat-jump",
+          "word": "cat jump",
+          "target": "cat jump",
+          "acceptAlso": [
+            "cat jumps",
+            "cat jumping",
+            "kitty jump"
+          ],
+          "meaningTh": "แมวกระโดด",
+          "readingTh": "แคท จัมพ์",
+          "stressWords": [
+            "cat",
+            "jump"
+          ],
+          "image": "/images/s3-cat-jump.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! Cat jump.",
+            "Jump, cat, jump!",
+            "Cat jump up high.",
+            "Wow! Cat jump."
+          ]
+        },
+        {
+          "id": "s3-bird-fly",
+          "word": "bird fly",
+          "target": "bird fly",
+          "acceptAlso": [
+            "bird flies",
+            "bird flying"
+          ],
+          "meaningTh": "นกบิน",
+          "readingTh": "เบิร์ด ฟลาย",
+          "stressWords": [
+            "bird",
+            "fly"
+          ],
+          "image": "/images/s3-bird-fly.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! Bird fly.",
+            "Bird fly up, up!",
+            "Bird fly in the sky.",
+            "Bye, bird! Bird fly away."
+          ]
+        },
+        {
+          "id": "s3-fish-swim",
+          "word": "fish swim",
+          "target": "fish swim",
+          "acceptAlso": [
+            "fish swims",
+            "fish swimming"
+          ],
+          "meaningTh": "ปลาว่ายน้ำ",
+          "readingTh": "ฟิช สวิม",
+          "stressWords": [
+            "fish",
+            "swim"
+          ],
+          "image": "/images/s3-fish-swim.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! Fish swim.",
+            "Fish swim in the water.",
+            "Swim, swim! Fish swim.",
+            "Wow! Fish swim fast."
+          ]
+        },
+        {
+          "id": "s3-frog-hop",
+          "word": "frog hop",
+          "target": "frog hop",
+          "acceptAlso": [
+            "frog hops",
+            "frog jump",
+            "froggy hop"
+          ],
+          "meaningTh": "กบกระโดด",
+          "readingTh": "ฟร็อก ฮ็อป",
+          "stressWords": [
+            "frog",
+            "hop"
+          ],
+          "image": "/images/s3-frog-hop.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! Frog hop.",
+            "Hop, hop! Frog hop.",
+            "Green frog. Frog hop!",
+            "Wow! Frog hop high."
+          ]
+        },
+        {
+          "id": "s3-monkey-climb",
+          "word": "monkey climb",
+          "target": "monkey climb",
+          "acceptAlso": [
+            "monkey climbs",
+            "monkey climbing"
+          ],
+          "meaningTh": "ลิงปีน",
+          "readingTh": "มัง-กี้ ไคลม์",
+          "stressWords": [
+            "monkey",
+            "climb"
+          ],
+          "image": "/images/s3-monkey-climb.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! Monkey climb.",
+            "Monkey climb the tree.",
+            "Up, up! Monkey climb.",
+            "Wow! Monkey climb high."
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 3,
+      "id": "s3-my",
+      "category": "toys",
+      "type": "twoWord",
+      "title": "Mine!",
+      "titleTh": "ของหนู!",
+      "items": [
+        {
+          "id": "s3-my-ball",
+          "word": "my ball",
+          "target": "my ball",
+          "acceptAlso": [
+            "my ball please",
+            "mine ball"
+          ],
+          "meaningTh": "บอลของหนู",
+          "readingTh": "มาย บอล",
+          "stressWords": [
+            "my",
+            "ball"
+          ],
+          "image": "/images/s3-my-ball.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "My ball! Kick it!",
+            "Where's my ball?",
+            "My ball is red.",
+            "Is it your ball? My ball!"
+          ]
+        },
+        {
+          "id": "s3-my-teddy",
+          "word": "my teddy",
+          "target": "my teddy",
+          "acceptAlso": [
+            "my teddy bear",
+            "mine teddy"
+          ],
+          "meaningTh": "ตุ๊กตาหมีของหนู",
+          "readingTh": "มาย เท็ด-ดี้",
+          "stressWords": [
+            "my",
+            "teddy"
+          ],
+          "image": "/images/s3-my-teddy.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "My teddy! Hug, hug.",
+            "Where's my teddy?",
+            "My teddy is soft.",
+            "Night-night, my teddy."
+          ]
+        },
+        {
+          "id": "s3-my-shoe",
+          "word": "my shoe",
+          "target": "my shoe",
+          "acceptAlso": [
+            "my shoes",
+            "mine shoe"
+          ],
+          "meaningTh": "รองเท้าของหนู",
+          "readingTh": "มาย ชู",
+          "stressWords": [
+            "my",
+            "shoe"
+          ],
+          "image": "/images/s3-my-shoe.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "My shoe! Shoe on.",
+            "Where's my shoe?",
+            "My shoe is red.",
+            "One shoe, two shoes. My shoe!"
+          ]
+        },
+        {
+          "id": "s3-my-cup",
+          "word": "my cup",
+          "target": "my cup",
+          "acceptAlso": [
+            "my cup please",
+            "mine cup"
+          ],
+          "meaningTh": "แก้วของหนู",
+          "readingTh": "มาย คัป",
+          "stressWords": [
+            "my",
+            "cup"
+          ],
+          "image": "/images/s3-my-cup.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "My cup! Milk, please.",
+            "Where's my cup?",
+            "My cup is blue.",
+            "Drink from my cup."
+          ]
+        },
+        {
+          "id": "s3-my-book",
+          "word": "my book",
+          "target": "my book",
+          "acceptAlso": [
+            "my books",
+            "mine book"
+          ],
+          "meaningTh": "หนังสือของหนู",
+          "readingTh": "มาย บุ๊ก",
+          "stressWords": [
+            "my",
+            "book"
+          ],
+          "image": "/images/s3-my-book.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "My book! Read it.",
+            "Where's my book?",
+            "My book is big.",
+            "Open my book."
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 3,
+      "id": "s3-whose",
+      "category": "home-family",
+      "type": "twoWord",
+      "title": "Whose is it?",
+      "titleTh": "ของใครเอ่ย",
+      "items": [
+        {
+          "id": "s3-daddy-hat",
+          "word": "Daddy hat",
+          "target": "daddy hat",
+          "acceptAlso": [
+            "daddy's hat",
+            "dad hat"
+          ],
+          "meaningTh": "หมวกของพ่อ",
+          "readingTh": "แด๊ด-ดี้ แฮท",
+          "stressWords": [
+            "daddy",
+            "hat"
+          ],
+          "image": "/images/s3-daddy-hat.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! Daddy hat.",
+            "Big Daddy hat.",
+            "Daddy hat on your head!",
+            "Silly! Daddy hat."
+          ]
+        },
+        {
+          "id": "s3-mommy-phone",
+          "word": "Mommy phone",
+          "target": "mommy phone",
+          "acceptAlso": [
+            "mommy's phone",
+            "mom phone"
+          ],
+          "meaningTh": "โทรศัพท์ของแม่",
+          "readingTh": "ม้า-มี่ โฟน",
+          "stressWords": [
+            "mommy",
+            "phone"
+          ],
+          "image": "/images/s3-mommy-phone.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Ring, ring! Mommy phone.",
+            "Mommy phone. Hello?",
+            "Give Mommy phone to Mommy.",
+            "Mommy phone goes ring!",
+            "That's Mommy phone."
+          ]
+        },
+        {
+          "id": "s3-baby-bottle",
+          "word": "baby bottle",
+          "target": "baby bottle",
+          "acceptAlso": [
+            "baby's bottle",
+            "baby bottles"
+          ],
+          "meaningTh": "ขวดนมของน้อง",
+          "readingTh": "เบ-บี้ บ๊อท-เทิ่ล",
+          "stressWords": [
+            "baby",
+            "bottle"
+          ],
+          "image": "/images/s3-baby-bottle.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! Baby bottle.",
+            "Milk in baby bottle.",
+            "Here's baby bottle.",
+            "Baby bottle all gone."
+          ]
+        },
+        {
+          "id": "s3-doggy-bed",
+          "word": "doggy bed",
+          "target": "doggy bed",
+          "acceptAlso": [
+            "dog bed",
+            "doggie bed"
+          ],
+          "meaningTh": "ที่นอนของหมา",
+          "readingTh": "ด็อก-กี้ เบด",
+          "stressWords": [
+            "doggy",
+            "bed"
+          ],
+          "image": "/images/s3-doggy-bed.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! Doggy bed.",
+            "The dog sleeps in doggy bed.",
+            "Soft doggy bed.",
+            "Night-night in doggy bed."
+          ]
+        },
+        {
+          "id": "s3-kitty-food",
+          "word": "kitty food",
+          "target": "kitty food",
+          "acceptAlso": [
+            "cat food",
+            "kitty's food"
+          ],
+          "meaningTh": "อาหารแมว",
+          "readingTh": "คิท-ตี้ ฟู้ด",
+          "stressWords": [
+            "kitty",
+            "food"
+          ],
+          "image": "/images/s3-kitty-food.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! Kitty food.",
+            "Kitty food in the bowl.",
+            "Hungry kitty! Kitty food.",
+            "Yum, kitty food!"
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 3,
+      "id": "s3-no",
+      "category": "routines",
+      "type": "twoWord",
+      "title": "No, thank you!",
+      "titleTh": "ไม่เอา!",
+      "items": [
+        {
+          "id": "s3-no-bath",
+          "word": "no bath",
+          "target": "no bath",
+          "acceptAlso": [
+            "no bath please",
+            "no baths"
+          ],
+          "meaningTh": "ไม่อาบน้ำ",
+          "readingTh": "โน แบธ",
+          "stressWords": [
+            "no",
+            "bath"
+          ],
+          "image": "/images/s3-no-bath.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "No bath? Hmm.",
+            "No bath! No, no.",
+            "No bath today? Okay.",
+            "Bath time? No bath!"
+          ]
+        },
+        {
+          "id": "s3-no-milk",
+          "word": "no milk",
+          "target": "no milk",
+          "acceptAlso": [
+            "no more milk",
+            "no milk please"
+          ],
+          "meaningTh": "นมหมดแล้ว / ไม่มีนม",
+          "readingTh": "โน มิลค์",
+          "stressWords": [
+            "no",
+            "milk"
+          ],
+          "image": "/images/s3-no-milk.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "No milk? All gone!",
+            "No milk in the cup.",
+            "Uh-oh! No milk.",
+            "No milk. More milk, please!"
+          ]
+        },
+        {
+          "id": "s3-no-shoes",
+          "word": "no shoes",
+          "target": "no shoes",
+          "acceptAlso": [
+            "no shoe",
+            "no shoes please"
+          ],
+          "meaningTh": "ไม่ใส่รองเท้า",
+          "readingTh": "โน ชูส์",
+          "stressWords": [
+            "no",
+            "shoes"
+          ],
+          "image": "/images/s3-no-shoes.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "No shoes? Okay.",
+            "No shoes! Bare feet.",
+            "No shoes in the house.",
+            "No shoes today."
+          ]
+        },
+        {
+          "id": "s3-no-more",
+          "word": "no more",
+          "target": "no more",
+          "acceptAlso": [
+            "no more please",
+            "nomore"
+          ],
+          "meaningTh": "ไม่เอาแล้ว",
+          "readingTh": "โน มอร์",
+          "stressWords": [
+            "no",
+            "more"
+          ],
+          "image": "/images/s3-no-more.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "No more? All done.",
+            "No more! Okay.",
+            "No more rice?",
+            "No more, thank you."
+          ]
+        },
+        {
+          "id": "s3-no-cookie",
+          "word": "no cookie",
+          "target": "no cookie",
+          "acceptAlso": [
+            "no cookies",
+            "no more cookie"
+          ],
+          "meaningTh": "คุกกี้หมดแล้ว / ไม่มีคุกกี้",
+          "readingTh": "โน คุก-กี้",
+          "stressWords": [
+            "no",
+            "cookie"
+          ],
+          "image": "/images/s3-no-cookie.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "No cookie? All gone!",
+            "No cookie on the plate.",
+            "Uh-oh! No cookie.",
+            "No cookie now. Later!"
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 3,
+      "id": "s3-up-down",
+      "category": "routines",
+      "type": "twoWord",
+      "title": "Up and down",
+      "titleTh": "ขึ้นและลง",
+      "items": [
+        {
+          "id": "s3-go-up",
+          "word": "go up",
+          "target": "go up",
+          "acceptAlso": [
+            "going up",
+            "go up please"
+          ],
+          "meaningTh": "ขึ้นไป",
+          "readingTh": "โก อัพ",
+          "stressWords": [
+            "go",
+            "up"
+          ],
+          "image": "/images/s3-go-up.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Go up the stairs.",
+            "Go up, up, up!",
+            "Let's go up.",
+            "Go up! Good job."
+          ]
+        },
+        {
+          "id": "s3-sit-down",
+          "word": "sit down",
+          "target": "sit down",
+          "acceptAlso": [
+            "sit down please",
+            "sitting down"
+          ],
+          "meaningTh": "นั่งลง",
+          "readingTh": "ซิท ดาวน์",
+          "stressWords": [
+            "sit",
+            "down"
+          ],
+          "image": "/images/s3-sit-down.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Sit down, please.",
+            "Sit down on the chair.",
+            "Let's sit down.",
+            "Sit down! Good job."
+          ]
+        },
+        {
+          "id": "s3-fall-down",
+          "word": "fall down",
+          "target": "fall down",
+          "acceptAlso": [
+            "fell down",
+            "falling down"
+          ],
+          "meaningTh": "ล้มลง",
+          "readingTh": "ฟอล ดาวน์",
+          "stressWords": [
+            "fall",
+            "down"
+          ],
+          "image": "/images/s3-fall-down.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Uh-oh! Fall down.",
+            "Boom! Fall down.",
+            "Fall down? Get up!",
+            "You fall down. Are you okay?",
+            "Fall down, up again!"
+          ]
+        },
+        {
+          "id": "s3-jump-up",
+          "word": "jump up",
+          "target": "jump up",
+          "acceptAlso": [
+            "jump up high",
+            "jumping up"
+          ],
+          "meaningTh": "กระโดดขึ้น",
+          "readingTh": "จัมพ์ อัพ",
+          "stressWords": [
+            "jump",
+            "up"
+          ],
+          "image": "/images/s3-jump-up.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Jump up!",
+            "Jump up, up, up!",
+            "Jump up high!",
+            "Let's jump up."
+          ]
+        },
+        {
+          "id": "s3-lie-down",
+          "word": "lie down",
+          "target": "lie down",
+          "acceptAlso": [
+            "lay down",
+            "lie down please"
+          ],
+          "meaningTh": "นอนลง",
+          "readingTh": "ลาย ดาวน์",
+          "stressWords": [
+            "lie",
+            "down"
+          ],
+          "image": "/images/s3-lie-down.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Lie down, please.",
+            "Lie down in your bed.",
+            "Let's lie down.",
+            "Lie down. Night-night.",
+            "Lie down on the floor."
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 3,
+      "id": "s3-hi-bye",
+      "category": "home-family",
+      "type": "twoWord",
+      "title": "Hi and bye",
+      "titleTh": "ทักทายและบอกลา",
+      "items": [
+        {
+          "id": "s3-hi-daddy",
+          "word": "hi Daddy",
+          "target": "hi daddy",
+          "acceptAlso": [
+            "hi dad",
+            "hi dada",
+            "hello daddy"
+          ],
+          "meaningTh": "สวัสดีค่ะ/ครับพ่อ",
+          "readingTh": "ไฮ แด๊ด-ดี้",
+          "stressWords": [
+            "hi",
+            "daddy"
+          ],
+          "image": "/images/s3-hi-daddy.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Daddy is home! Hi, Daddy!",
+            "Say hi, Daddy.",
+            "Hi, Daddy! Big hug.",
+            "Run to Daddy. Hi, Daddy!"
+          ]
+        },
+        {
+          "id": "s3-hi-grandma",
+          "word": "hi Grandma",
+          "target": "hi grandma",
+          "acceptAlso": [
+            "hi granma",
+            "hello grandma"
+          ],
+          "meaningTh": "สวัสดีค่ะ/ครับยาย",
+          "readingTh": "ไฮ แกรนด์-มา",
+          "stressWords": [
+            "hi",
+            "grandma"
+          ],
+          "image": "/images/s3-hi-grandma.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Look who's here! Hi, Grandma!",
+            "Say hi, Grandma.",
+            "Hi, Grandma! Big kiss.",
+            "Wave to Grandma. Hi, Grandma!"
+          ]
+        },
+        {
+          "id": "s3-bye-bus",
+          "word": "bye bus",
+          "target": "bye bus",
+          "acceptAlso": [
+            "bye bye bus",
+            "bye-bye bus"
+          ],
+          "meaningTh": "บ๊ายบายรถเมล์",
+          "readingTh": "บาย บัส",
+          "stressWords": [
+            "bye",
+            "bus"
+          ],
+          "image": "/images/s3-bye-bus.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "The bus is going. Bye, bus!",
+            "Say bye, bus.",
+            "Bye, bus! See you!",
+            "Wave to the bus. Bye, bus!"
+          ]
+        },
+        {
+          "id": "s3-bye-birdie",
+          "word": "bye birdie",
+          "target": "bye birdie",
+          "acceptAlso": [
+            "bye bird",
+            "bye bye birdie"
+          ],
+          "meaningTh": "บ๊ายบายนก",
+          "readingTh": "บาย เบอร์-ดี้",
+          "stressWords": [
+            "bye",
+            "birdie"
+          ],
+          "image": "/images/s3-bye-birdie.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "The bird can fly. Bye, birdie!",
+            "Say bye, birdie.",
+            "Bye, birdie! Fly away.",
+            "Wave to the birdie. Bye, birdie!"
+          ]
+        },
+        {
+          "id": "s3-night-night-teddy",
+          "word": "night-night teddy",
+          "target": "night-night teddy",
+          "acceptAlso": [
+            "night night teddy",
+            "good night teddy"
+          ],
+          "meaningTh": "ฝันดีนะตุ๊กตาหมี",
+          "readingTh": "ไนท์-ไนท์ เท็ด-ดี้",
+          "stressWords": [
+            "teddy"
+          ],
+          "image": "/images/s3-night-night-teddy.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Time for bed. Night-night, teddy!",
+            "Say night-night, teddy.",
+            "Night-night, teddy! Sleep tight.",
+            "Hug your teddy. Night-night, teddy!"
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 3,
+      "id": "s3-play",
+      "category": "play",
+      "type": "twoWord",
+      "title": "Let's play!",
+      "titleTh": "มาเล่นกัน!",
+      "items": [
+        {
+          "id": "s3-kick-ball",
+          "word": "kick ball",
+          "target": "kick ball",
+          "acceptAlso": [
+            "kick the ball",
+            "kicking ball"
+          ],
+          "meaningTh": "เตะบอล",
+          "readingTh": "คิก บอล",
+          "stressWords": [
+            "kick",
+            "ball"
+          ],
+          "image": "/images/s3-kick-ball.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Let's kick ball.",
+            "Kick the ball, kick!",
+            "Big kick! Kick ball.",
+            "Kick ball to Daddy.",
+            "Wow! Kick ball!"
+          ]
+        },
+        {
+          "id": "s3-read-book",
+          "word": "read book",
+          "target": "read book",
+          "acceptAlso": [
+            "read a book",
+            "read the book",
+            "reading book"
+          ],
+          "meaningTh": "อ่านหนังสือ",
+          "readingTh": "รีด บุ๊ก",
+          "stressWords": [
+            "read",
+            "book"
+          ],
+          "image": "/images/s3-read-book.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Let's read a book.",
+            "Read book? Yes!",
+            "Read book with Mommy.",
+            "Read book before bed."
+          ]
+        },
+        {
+          "id": "s3-push-truck",
+          "word": "push truck",
+          "target": "push truck",
+          "acceptAlso": [
+            "push the truck",
+            "pushing truck"
+          ],
+          "meaningTh": "ดันรถบรรทุก",
+          "readingTh": "พุช ทรัก",
+          "stressWords": [
+            "push",
+            "truck"
+          ],
+          "image": "/images/s3-push-truck.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Push the truck!",
+            "Push truck, vroom!",
+            "Push truck to me.",
+            "Push, push! Push truck."
+          ]
+        },
+        {
+          "id": "s3-blow-bubbles",
+          "word": "blow bubbles",
+          "target": "blow bubbles",
+          "acceptAlso": [
+            "blow bubble",
+            "blowing bubbles"
+          ],
+          "meaningTh": "เป่าฟองสบู่",
+          "readingTh": "โบล บับ-เบิ้ลส์",
+          "stressWords": [
+            "blow",
+            "bubbles"
+          ],
+          "image": "/images/s3-blow-bubbles.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Let's blow bubbles!",
+            "Blow bubbles, whoosh!",
+            "Blow bubbles up high.",
+            "More? Blow bubbles!"
+          ]
+        },
+        {
+          "id": "s3-hug-teddy",
+          "word": "hug teddy",
+          "target": "hug teddy",
+          "acceptAlso": [
+            "hug teddy bear",
+            "hugging teddy"
+          ],
+          "meaningTh": "กอดตุ๊กตาหมี",
+          "readingTh": "ฮัก เท็ด-ดี้",
+          "stressWords": [
+            "hug",
+            "teddy"
+          ],
+          "image": "/images/s3-hug-teddy.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Hug teddy!",
+            "Hug teddy, so soft.",
+            "Big hug! Hug teddy.",
+            "Night-night. Hug teddy."
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 3,
+      "id": "s3-get-ready",
+      "category": "routines",
+      "type": "twoWord",
+      "title": "Getting ready",
+      "titleTh": "เตรียมตัวกัน",
+      "items": [
+        {
+          "id": "s3-wash-hands",
+          "word": "wash hands",
+          "target": "wash hands",
+          "acceptAlso": [
+            "wash your hands",
+            "washing hands"
+          ],
+          "meaningTh": "ล้างมือ",
+          "readingTh": "วอช แฮนด์ส",
+          "stressWords": [
+            "wash",
+            "hands"
+          ],
+          "image": "/images/s3-wash-hands.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Wash hands, please.",
+            "Wash hands with soap.",
+            "Rub, rub! Wash hands.",
+            "Time to eat. Wash hands!"
+          ]
+        },
+        {
+          "id": "s3-brush-teeth",
+          "word": "brush teeth",
+          "target": "brush teeth",
+          "acceptAlso": [
+            "brush your teeth",
+            "brushing teeth"
+          ],
+          "meaningTh": "แปรงฟัน",
+          "readingTh": "บรัช ทีธ",
+          "stressWords": [
+            "brush",
+            "teeth"
+          ],
+          "image": "/images/s3-brush-teeth.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Brush teeth, please.",
+            "Brush teeth, up and down.",
+            "Scrub, scrub! Brush teeth.",
+            "Bedtime. Brush teeth!"
+          ]
+        },
+        {
+          "id": "s3-shoes-on",
+          "word": "shoes on",
+          "target": "shoes on",
+          "acceptAlso": [
+            "shoe on",
+            "put shoes on",
+            "put on shoes"
+          ],
+          "meaningTh": "ใส่รองเท้า",
+          "readingTh": "ชูส์ ออน",
+          "stressWords": [
+            "shoes",
+            "on"
+          ],
+          "image": "/images/s3-shoes-on.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Shoes on, please.",
+            "Let's go! Shoes on.",
+            "One, two. Shoes on!",
+            "Shoes on, then go outside."
+          ]
+        },
+        {
+          "id": "s3-hat-on",
+          "word": "hat on",
+          "target": "hat on",
+          "acceptAlso": [
+            "put hat on",
+            "put on hat"
+          ],
+          "meaningTh": "ใส่หมวก",
+          "readingTh": "แฮท ออน",
+          "stressWords": [
+            "hat",
+            "on"
+          ],
+          "image": "/images/s3-hat-on.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Hat on, please.",
+            "Sunny day! Hat on.",
+            "Silly hat on!",
+            "Hat on. Ready!"
+          ]
+        },
+        {
+          "id": "s3-coat-on",
+          "word": "coat on",
+          "target": "coat on",
+          "acceptAlso": [
+            "put coat on",
+            "put on coat",
+            "jacket on"
+          ],
+          "meaningTh": "ใส่เสื้อโค้ท",
+          "readingTh": "โค้ท ออน",
+          "stressWords": [
+            "coat",
+            "on"
+          ],
+          "image": "/images/s3-coat-on.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Coat on, please.",
+            "It's cold. Coat on.",
+            "Arms in. Coat on!",
+            "Coat on. Let's go!"
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 3,
+      "id": "s3-vehicles",
+      "category": "outside",
+      "type": "twoWord",
+      "title": "Things that go",
+      "titleTh": "ยานพาหนะ",
+      "items": [
+        {
+          "id": "s3-car-go",
+          "word": "car go",
+          "target": "car go",
+          "acceptAlso": [
+            "car goes",
+            "car going",
+            "go car"
+          ],
+          "meaningTh": "รถไป",
+          "readingTh": "คาร์ โก",
+          "stressWords": [
+            "car",
+            "go"
+          ],
+          "image": "/images/s3-car-go.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Vroom! Car go.",
+            "Car go fast!",
+            "Car go, car stop.",
+            "Car go bye-bye."
+          ]
+        },
+        {
+          "id": "s3-bus-stop",
+          "word": "bus stop",
+          "target": "bus stop",
+          "acceptAlso": [
+            "bus stops",
+            "the bus stop"
+          ],
+          "meaningTh": "รถเมล์จอด",
+          "readingTh": "บัส สต็อป",
+          "stressWords": [
+            "bus",
+            "stop"
+          ],
+          "image": "/images/s3-bus-stop.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Beep! Bus stop.",
+            "Bus stop here.",
+            "Bus stop. Get on!",
+            "Bus go, bus stop."
+          ]
+        },
+        {
+          "id": "s3-plane-fly",
+          "word": "plane fly",
+          "target": "plane fly",
+          "acceptAlso": [
+            "plane flies",
+            "airplane fly",
+            "plane flying"
+          ],
+          "meaningTh": "เครื่องบินบิน",
+          "readingTh": "เพลน ฟลาย",
+          "stressWords": [
+            "plane",
+            "fly"
+          ],
+          "image": "/images/s3-plane-fly.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look up! Plane fly.",
+            "Plane fly in the sky.",
+            "Whoosh! Plane fly.",
+            "Bye-bye! Plane fly away."
+          ]
+        },
+        {
+          "id": "s3-ride-bike",
+          "word": "ride bike",
+          "target": "ride bike",
+          "acceptAlso": [
+            "ride a bike",
+            "riding bike",
+            "ride the bike"
+          ],
+          "meaningTh": "ขี่จักรยาน",
+          "readingTh": "ไรด์ ไบค์",
+          "stressWords": [
+            "ride",
+            "bike"
+          ],
+          "image": "/images/s3-ride-bike.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Let's ride bike.",
+            "Ride bike to the park.",
+            "Ring, ring! Ride bike.",
+            "Ride bike, fast!"
+          ]
+        },
+        {
+          "id": "s3-choo-choo-train",
+          "word": "choo-choo train",
+          "target": "choo-choo train",
+          "acceptAlso": [
+            "choo choo train",
+            "choo choo"
+          ],
+          "meaningTh": "รถไฟปู๊น ๆ",
+          "readingTh": "ชู-ชู เทรน",
+          "stressWords": [
+            "train"
+          ],
+          "image": "/images/s3-choo-choo-train.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Here comes the choo-choo train.",
+            "Choo-choo train, choo-choo!",
+            "Long choo-choo train.",
+            "Bye-bye, choo-choo train!"
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 3,
+      "id": "s3-hot-cold",
+      "category": "describe",
+      "type": "twoWord",
+      "title": "Hot, cold, wet",
+      "titleTh": "ร้อน เย็น เปียก",
+      "items": [
+        {
+          "id": "s3-hot-soup",
+          "word": "hot soup",
+          "target": "hot soup",
+          "acceptAlso": [
+            "hot soups",
+            "soup hot"
+          ],
+          "meaningTh": "ซุปร้อน",
+          "readingTh": "ฮ็อท ซูป",
+          "stressWords": [
+            "hot",
+            "soup"
+          ],
+          "image": "/images/s3-hot-soup.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Careful! Hot soup.",
+            "Hot soup. Blow, blow.",
+            "Hot soup in the bowl.",
+            "Yum, hot soup!"
+          ]
+        },
+        {
+          "id": "s3-cold-ice",
+          "word": "cold ice",
+          "target": "cold ice",
+          "acceptAlso": [
+            "ice cold",
+            "cold ice cube"
+          ],
+          "meaningTh": "น้ำแข็งเย็น ๆ",
+          "readingTh": "โคลด์ ไอซ์",
+          "stressWords": [
+            "cold",
+            "ice"
+          ],
+          "image": "/images/s3-cold-ice.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Brr! Cold ice.",
+            "Cold ice in the cup.",
+            "Touch it. Cold ice!",
+            "Cold ice, melt, melt."
+          ]
+        },
+        {
+          "id": "s3-wet-dog",
+          "word": "wet dog",
+          "target": "wet dog",
+          "acceptAlso": [
+            "wet doggy",
+            "dog wet"
+          ],
+          "meaningTh": "หมาเปียก",
+          "readingTh": "เว็ท ด็อก",
+          "stressWords": [
+            "wet",
+            "dog"
+          ],
+          "image": "/images/s3-wet-dog.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Uh-oh! Wet dog.",
+            "Shake, shake! Wet dog.",
+            "Wet dog in the rain.",
+            "Towel for wet dog."
+          ]
+        },
+        {
+          "id": "s3-dirty-hands",
+          "word": "dirty hands",
+          "target": "dirty hands",
+          "acceptAlso": [
+            "dirty hand",
+            "hands dirty"
+          ],
+          "meaningTh": "มือสกปรก",
+          "readingTh": "เดอร์-ตี้ แฮนด์ส",
+          "stressWords": [
+            "dirty",
+            "hands"
+          ],
+          "image": "/images/s3-dirty-hands.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Uh-oh! Dirty hands.",
+            "Dirty hands? Wash hands!",
+            "Mud! Dirty hands.",
+            "No more dirty hands.",
+            "Dirty hands, dirty feet!"
+          ]
+        },
+        {
+          "id": "s3-yummy-cake",
+          "word": "yummy cake",
+          "target": "yummy cake",
+          "acceptAlso": [
+            "yummy cakes",
+            "cake yummy"
+          ],
+          "meaningTh": "เค้กอร่อย",
+          "readingTh": "ยัม-มี่ เค้ก",
+          "stressWords": [
+            "yummy",
+            "cake"
+          ],
+          "image": "/images/s3-yummy-cake.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Mmm! Yummy cake.",
+            "Yummy cake for you.",
+            "Birthday! Yummy cake.",
+            "Eat yummy cake."
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 3,
+      "id": "s3-open-light",
+      "category": "home-things",
+      "type": "twoWord",
+      "title": "Open and on",
+      "titleTh": "เปิดนี่ เปิดนั่น",
+      "items": [
+        {
+          "id": "s3-open-door",
+          "word": "open door",
+          "target": "open door",
+          "acceptAlso": [
+            "open the door",
+            "open the door please"
+          ],
+          "meaningTh": "เปิดประตู",
+          "readingTh": "โอ-เพ่น ดอร์",
+          "stressWords": [
+            "open",
+            "door"
+          ],
+          "image": "/images/s3-open-door.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Knock, knock! Open door.",
+            "Open door, please.",
+            "Let's open the door.",
+            "Open door! Hi, Daddy!"
+          ]
+        },
+        {
+          "id": "s3-open-box",
+          "word": "open box",
+          "target": "open box",
+          "acceptAlso": [
+            "open the box",
+            "open a box"
+          ],
+          "meaningTh": "เปิดกล่อง",
+          "readingTh": "โอ-เพ่น บ็อกซ์",
+          "stressWords": [
+            "open",
+            "box"
+          ],
+          "image": "/images/s3-open-box.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "What's in the box? Open box!",
+            "Open box, please.",
+            "Let's open the box.",
+            "Wow! Open box!",
+            "Big box. Open box!"
+          ]
+        },
+        {
+          "id": "s3-open-mouth",
+          "word": "open mouth",
+          "target": "open mouth",
+          "acceptAlso": [
+            "open your mouth",
+            "open the mouth"
+          ],
+          "meaningTh": "อ้าปาก",
+          "readingTh": "โอ-เพ่น เมาธ์",
+          "stressWords": [
+            "open",
+            "mouth"
+          ],
+          "image": "/images/s3-open-mouth.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Open mouth, please. Ahh!",
+            "Here comes the spoon. Open mouth!",
+            "Open your mouth wide.",
+            "Open mouth. Yum!"
+          ]
+        },
+        {
+          "id": "s3-light-on",
+          "word": "light on",
+          "target": "light on",
+          "acceptAlso": [
+            "lights on",
+            "turn light on",
+            "turn on the light"
+          ],
+          "meaningTh": "เปิดไฟ",
+          "readingTh": "ไลท์ ออน",
+          "stressWords": [
+            "light",
+            "on"
+          ],
+          "image": "/images/s3-light-on.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "It's dark. Light on!",
+            "Click! Light on.",
+            "Light on, please.",
+            "Yay, light on!"
+          ]
+        },
+        {
+          "id": "s3-light-off",
+          "word": "light off",
+          "target": "light off",
+          "acceptAlso": [
+            "lights off",
+            "turn light off",
+            "turn off the light"
+          ],
+          "meaningTh": "ปิดไฟ",
+          "readingTh": "ไลท์ ออฟ",
+          "stressWords": [
+            "light",
+            "off"
+          ],
+          "image": "/images/s3-light-off.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Bedtime. Light off.",
+            "Click! Light off.",
+            "Light off, please.",
+            "Night-night. Light off."
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 3,
+      "id": "s3-chunks",
+      "category": "routines",
+      "type": "twoWord",
+      "title": "Help me!",
+      "titleTh": "ช่วยหนูหน่อย",
+      "items": [
+        {
+          "id": "s3-help-me",
+          "word": "help me",
+          "target": "help me",
+          "acceptAlso": [
+            "help me please",
+            "help please"
+          ],
+          "meaningTh": "ช่วยหนูหน่อย",
+          "readingTh": "เฮลพ์ มี",
+          "stressWords": [
+            "help",
+            "me"
+          ],
+          "image": "/images/s3-help-me.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "It's too high. Help me!",
+            "Help me, please.",
+            "Can you help me?",
+            "Help me, Mommy!",
+            "Mommy can help me."
+          ]
+        },
+        {
+          "id": "s3-my-turn",
+          "word": "my turn",
+          "target": "my turn",
+          "acceptAlso": [
+            "my turn please",
+            "me turn"
+          ],
+          "meaningTh": "ตาหนูแล้ว",
+          "readingTh": "มาย เทิร์น",
+          "stressWords": [
+            "my",
+            "turn"
+          ],
+          "image": "/images/s3-my-turn.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Your turn, my turn.",
+            "My turn, please!",
+            "Now it's my turn.",
+            "My turn! Yay!",
+            "Wait for my turn."
+          ]
+        },
+        {
+          "id": "s3-me-too",
+          "word": "me too",
+          "target": "me too",
+          "acceptAlso": [
+            "me to",
+            "me two",
+            "me too please"
+          ],
+          "meaningTh": "หนูด้วย",
+          "readingTh": "มี ทู",
+          "stressWords": [
+            "me",
+            "too"
+          ],
+          "image": "/images/s3-me-too.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Daddy eats. Me too!",
+            "Me too, please!",
+            "Can I play? Me too!",
+            "Mommy jumps. Me too!",
+            "Me too, me too!"
+          ]
+        },
+        {
+          "id": "s3-come-here",
+          "word": "come here",
+          "target": "come here",
+          "acceptAlso": [
+            "come here please",
+            "come here mommy"
+          ],
+          "meaningTh": "มานี่ ๆ",
+          "readingTh": "คัม เฮียร์",
+          "stressWords": [
+            "come",
+            "here"
+          ],
+          "image": "/images/s3-come-here.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Come here, baby.",
+            "Come here, please.",
+            "Come here! Big hug.",
+            "Come here to Mommy.",
+            "Come here, doggy!"
+          ]
+        },
+        {
+          "id": "s3-look-mommy",
+          "word": "look Mommy",
+          "target": "look mommy",
+          "acceptAlso": [
+            "look mom",
+            "look mama"
+          ],
+          "meaningTh": "ดูนี่สิแม่",
+          "readingTh": "ลุค ม้า-มี่",
+          "stressWords": [
+            "look",
+            "mommy"
+          ],
+          "image": "/images/s3-look-mommy.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Look, Mommy! A bird!",
+            "Look, Mommy! Look!",
+            "Look, Mommy, I can jump!",
+            "Look, Mommy! My picture."
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 3,
+      "id": "s3-people-do",
+      "category": "home-family",
+      "type": "twoWord",
+      "title": "What are they doing?",
+      "titleTh": "ทุกคนกำลังทำอะไร",
+      "items": [
+        {
+          "id": "s3-mommy-read",
+          "word": "Mommy read",
+          "target": "mommy read",
+          "acceptAlso": [
+            "mommy reading",
+            "mommy reads",
+            "mom read"
+          ],
+          "meaningTh": "แม่อ่านหนังสือ",
+          "readingTh": "ม้า-มี่ รีด",
+          "stressWords": [
+            "mommy",
+            "read"
+          ],
+          "image": "/images/s3-mommy-read.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Mommy read a book.",
+            "Mommy read to baby.",
+            "Shh! Mommy read.",
+            "Mommy read, baby listen."
+          ]
+        },
+        {
+          "id": "s3-daddy-sleep",
+          "word": "Daddy sleep",
+          "target": "daddy sleep",
+          "acceptAlso": [
+            "daddy sleeping",
+            "daddy sleeps",
+            "dad sleep"
+          ],
+          "meaningTh": "พ่อนอน",
+          "readingTh": "แด๊ด-ดี้ สลีพ",
+          "stressWords": [
+            "daddy",
+            "sleep"
+          ],
+          "image": "/images/s3-daddy-sleep.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Shh! Daddy sleep.",
+            "Daddy sleep on the bed.",
+            "Daddy sleep, snore, snore.",
+            "Tired Daddy. Daddy sleep."
+          ]
+        },
+        {
+          "id": "s3-grandma-cook",
+          "word": "Grandma cook",
+          "target": "grandma cook",
+          "acceptAlso": [
+            "grandma cooking",
+            "grandma cooks"
+          ],
+          "meaningTh": "ยายทำอาหาร",
+          "readingTh": "แกรนด์-มา คุก",
+          "stressWords": [
+            "grandma",
+            "cook"
+          ],
+          "image": "/images/s3-grandma-cook.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Grandma cook soup.",
+            "Mmm! Grandma cook.",
+            "Grandma cook in the kitchen.",
+            "Grandma cook for you.",
+            "Yummy! Grandma cook rice."
+          ]
+        },
+        {
+          "id": "s3-grandpa-walk",
+          "word": "Grandpa walk",
+          "target": "grandpa walk",
+          "acceptAlso": [
+            "grandpa walking",
+            "grandpa walks"
+          ],
+          "meaningTh": "ตาเดินเล่น",
+          "readingTh": "แกรนด์-ป้า ว้อค",
+          "stressWords": [
+            "grandpa",
+            "walk"
+          ],
+          "image": "/images/s3-grandpa-walk.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Grandpa walk the dog.",
+            "Grandpa walk slow.",
+            "Walk, walk! Grandpa walk.",
+            "Grandpa walk in the park."
+          ]
+        },
+        {
+          "id": "s3-sister-dance",
+          "word": "sister dance",
+          "target": "sister dance",
+          "acceptAlso": [
+            "sister dancing",
+            "sister dances"
+          ],
+          "meaningTh": "พี่สาวเต้น",
+          "readingTh": "ซิส-เต้อร์ แดนซ์",
+          "stressWords": [
+            "sister",
+            "dance"
+          ],
+          "image": "/images/s3-sister-dance.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Sister dance!",
+            "Sister dance, twirl, twirl.",
+            "Look! Sister dance.",
+            "Sister dance to the music.",
+            "Yay! Sister dance."
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 3,
+      "id": "s3-park",
+      "category": "outside",
+      "type": "twoWord",
+      "title": "At the park",
+      "titleTh": "ที่สวนสาธารณะ",
+      "items": [
+        {
+          "id": "s3-push-swing",
+          "word": "push swing",
+          "target": "push swing",
+          "acceptAlso": [
+            "push the swing",
+            "push me swing"
+          ],
+          "meaningTh": "ไกวชิงช้า",
+          "readingTh": "พุช สวิง",
+          "stressWords": [
+            "push",
+            "swing"
+          ],
+          "image": "/images/s3-push-swing.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Push swing, please!",
+            "Push swing high!",
+            "Wheee! Push swing.",
+            "Daddy, push swing."
+          ]
+        },
+        {
+          "id": "s3-dig-sand",
+          "word": "dig sand",
+          "target": "dig sand",
+          "acceptAlso": [
+            "dig the sand",
+            "digging sand"
+          ],
+          "meaningTh": "ขุดทราย",
+          "readingTh": "ดิก แซนด์",
+          "stressWords": [
+            "dig",
+            "sand"
+          ],
+          "image": "/images/s3-dig-sand.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Let's dig sand.",
+            "Dig sand with a shovel.",
+            "Dig, dig! Dig sand.",
+            "Dig sand at the park.",
+            "Dig sand, make a hole."
+          ]
+        },
+        {
+          "id": "s3-slide-down",
+          "word": "slide down",
+          "target": "slide down",
+          "acceptAlso": [
+            "go down the slide",
+            "slide down please"
+          ],
+          "meaningTh": "ไถลลงสไลเดอร์",
+          "readingTh": "สไลด์ ดาวน์",
+          "stressWords": [
+            "slide",
+            "down"
+          ],
+          "image": "/images/s3-slide-down.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Wheee! Slide down.",
+            "Slide down the slide.",
+            "Ready? Slide down!",
+            "Slide down fast!",
+            "Up the steps. Slide down!"
+          ]
+        },
+        {
+          "id": "s3-pick-flower",
+          "word": "pick flower",
+          "target": "pick flower",
+          "acceptAlso": [
+            "pick a flower",
+            "pick the flower",
+            "picking flower"
+          ],
+          "meaningTh": "เด็ดดอกไม้",
+          "readingTh": "พิก ฟลาว-เว่อร์",
+          "stressWords": [
+            "pick",
+            "flower"
+          ],
+          "image": "/images/s3-pick-flower.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Pick flower for Mommy.",
+            "Pick flower, smell it.",
+            "Pretty! Pick flower.",
+            "Pick flower, please.",
+            "Let's pick a flower."
+          ]
+        },
+        {
+          "id": "s3-see-moon",
+          "word": "see moon",
+          "target": "see moon",
+          "acceptAlso": [
+            "see the moon",
+            "i see moon"
+          ],
+          "meaningTh": "เห็นพระจันทร์",
+          "readingTh": "ซี มูน",
+          "stressWords": [
+            "see",
+            "moon"
+          ],
+          "image": "/images/s3-see-moon.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look up! See moon?",
+            "I see moon!",
+            "See moon in the sky.",
+            "Night-night. See moon.",
+            "Big moon! See moon."
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 3,
+      "id": "s3-time",
+      "category": "routines",
+      "type": "twoWord",
+      "title": "What time is it?",
+      "titleTh": "ได้เวลาอะไรแล้ว",
+      "items": [
+        {
+          "id": "s3-bath-time",
+          "word": "bath time",
+          "target": "bath time",
+          "acceptAlso": [
+            "it's bath time",
+            "bath time now"
+          ],
+          "meaningTh": "ได้เวลาอาบน้ำ",
+          "readingTh": "แบธ ไทม์",
+          "stressWords": [
+            "bath",
+            "time"
+          ],
+          "image": "/images/s3-bath-time.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Bath time! Splash, splash.",
+            "It's bath time.",
+            "Bath time with bubbles.",
+            "Yay! Bath time."
+          ]
+        },
+        {
+          "id": "s3-nap-time",
+          "word": "nap time",
+          "target": "nap time",
+          "acceptAlso": [
+            "it's nap time",
+            "nap time now"
+          ],
+          "meaningTh": "ได้เวลานอนกลางวัน",
+          "readingTh": "แนป ไทม์",
+          "stressWords": [
+            "nap",
+            "time"
+          ],
+          "image": "/images/s3-nap-time.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Nap time, baby.",
+            "It's nap time.",
+            "Shh! Nap time.",
+            "Nap time in your bed.",
+            "Sleepy? Nap time."
+          ]
+        },
+        {
+          "id": "s3-story-time",
+          "word": "story time",
+          "target": "story time",
+          "acceptAlso": [
+            "it's story time",
+            "story time now"
+          ],
+          "meaningTh": "ได้เวลาฟังนิทาน",
+          "readingTh": "สตอ-รี่ ไทม์",
+          "stressWords": [
+            "story",
+            "time"
+          ],
+          "image": "/images/s3-story-time.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Story time! Get a book.",
+            "It's story time.",
+            "Story time with Daddy.",
+            "Yay! Story time.",
+            "One more story time?"
+          ]
+        },
+        {
+          "id": "s3-lunch-time",
+          "word": "lunch time",
+          "target": "lunch time",
+          "acceptAlso": [
+            "it's lunch time",
+            "lunchtime"
+          ],
+          "meaningTh": "ได้เวลากินข้าวกลางวัน",
+          "readingTh": "ลันช์ ไทม์",
+          "stressWords": [
+            "lunch",
+            "time"
+          ],
+          "image": "/images/s3-lunch-time.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Lunch time! Let's eat.",
+            "It's lunch time.",
+            "Lunch time. Wash hands!",
+            "Yum! Lunch time.",
+            "Hungry? Lunch time."
+          ]
+        },
+        {
+          "id": "s3-play-time",
+          "word": "play time",
+          "target": "play time",
+          "acceptAlso": [
+            "it's play time",
+            "playtime"
+          ],
+          "meaningTh": "ได้เวลาเล่น",
+          "readingTh": "เพลย์ ไทม์",
+          "stressWords": [
+            "play",
+            "time"
+          ],
+          "image": "/images/s3-play-time.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Play time! Get your toys.",
+            "It's play time.",
+            "Play time with blocks.",
+            "Yay! Play time.",
+            "Play time at the park."
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 3,
+      "id": "s3-please",
+      "category": "manners",
+      "type": "twoWord",
+      "title": "Please!",
+      "titleTh": "ขอหน่อยนะ",
+      "items": [
+        {
+          "id": "s3-water-please",
+          "word": "water please",
+          "target": "water please",
+          "acceptAlso": [
+            "water please mommy",
+            "some water please"
+          ],
+          "meaningTh": "ขอน้ำหน่อย",
+          "readingTh": "ว้อ-เท่อร์ พลีส",
+          "stressWords": [
+            "water",
+            "please"
+          ],
+          "image": "/images/s3-water-please.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Thirsty? Water, please.",
+            "Say water, please.",
+            "Water, please! Here you go.",
+            "Good job! Water, please."
+          ]
+        },
+        {
+          "id": "s3-cheese-please",
+          "word": "cheese please",
+          "target": "cheese please",
+          "acceptAlso": [
+            "some cheese please"
+          ],
+          "meaningTh": "ขอชีสหน่อย",
+          "readingTh": "ชีส พลีส",
+          "stressWords": [
+            "cheese",
+            "please"
+          ],
+          "image": "/images/s3-cheese-please.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Hungry? Cheese, please.",
+            "Say cheese, please.",
+            "Cheese, please! Here you go.",
+            "Good asking! Cheese, please."
+          ]
+        },
+        {
+          "id": "s3-bread-please",
+          "word": "bread please",
+          "target": "bread please",
+          "acceptAlso": [
+            "some bread please"
+          ],
+          "meaningTh": "ขอขนมปังหน่อย",
+          "readingTh": "เบรด พลีส",
+          "stressWords": [
+            "bread",
+            "please"
+          ],
+          "image": "/images/s3-bread-please.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Hungry? Bread, please.",
+            "Say bread, please.",
+            "Bread, please! Here you go.",
+            "Yum! Bread, please."
+          ]
+        },
+        {
+          "id": "s3-egg-please",
+          "word": "egg please",
+          "target": "egg please",
+          "acceptAlso": [
+            "an egg please",
+            "eggs please"
+          ],
+          "meaningTh": "ขอไข่หน่อย",
+          "readingTh": "เอ๊ก พลีส",
+          "stressWords": [
+            "egg",
+            "please"
+          ],
+          "image": "/images/s3-egg-please.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Hungry? Egg, please.",
+            "Say egg, please.",
+            "Egg, please! Here you go.",
+            "Yum! Egg, please."
+          ]
+        },
+        {
+          "id": "s3-grapes-please",
+          "word": "grapes please",
+          "target": "grapes please",
+          "acceptAlso": [
+            "grape please",
+            "some grapes please"
+          ],
+          "meaningTh": "ขอองุ่นหน่อย",
+          "readingTh": "เกรพส์ พลีส",
+          "stressWords": [
+            "grapes",
+            "please"
+          ],
+          "image": "/images/s3-grapes-please.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! Grapes.",
+            "Hungry? Grapes, please.",
+            "Say grapes, please.",
+            "Grapes, please! Here you go.",
+            "Yum! Grapes, please."
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 3,
+      "id": "s3-clothes",
+      "category": "clothes",
+      "type": "twoWord",
+      "title": "On and off",
+      "titleTh": "ใส่และถอด",
+      "items": [
+        {
+          "id": "s3-socks-off",
+          "word": "socks off",
+          "target": "socks off",
+          "acceptAlso": [
+            "sock off",
+            "take socks off"
+          ],
+          "meaningTh": "ถอดถุงเท้า",
+          "readingTh": "ซ็อกส์ ออฟ",
+          "stressWords": [
+            "socks",
+            "off"
+          ],
+          "image": "/images/s3-socks-off.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Socks off, please.",
+            "Bath time. Socks off!",
+            "Pull, pull! Socks off.",
+            "Socks off. Wiggle your toes!",
+            "Socks off, bare feet."
+          ]
+        },
+        {
+          "id": "s3-boots-on",
+          "word": "boots on",
+          "target": "boots on",
+          "acceptAlso": [
+            "boot on",
+            "put boots on"
+          ],
+          "meaningTh": "ใส่รองเท้าบูท",
+          "readingTh": "บูทส์ ออน",
+          "stressWords": [
+            "boots",
+            "on"
+          ],
+          "image": "/images/s3-boots-on.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Rain! Boots on.",
+            "Boots on, please.",
+            "Stomp, stomp! Boots on.",
+            "Boots on. Let's go!"
+          ]
+        },
+        {
+          "id": "s3-pajamas-on",
+          "word": "pajamas on",
+          "target": "pajamas on",
+          "acceptAlso": [
+            "pajama on",
+            "put pajamas on",
+            "pjs on"
+          ],
+          "meaningTh": "ใส่ชุดนอน",
+          "readingTh": "พะ-จา-ม่าส์ ออน",
+          "stressWords": [
+            "pajamas",
+            "on"
+          ],
+          "image": "/images/s3-pajamas-on.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Bedtime. Pajamas on.",
+            "Pajamas on, please.",
+            "Soft pajamas on.",
+            "Pajamas on. Night-night!"
+          ]
+        },
+        {
+          "id": "s3-new-dress",
+          "word": "new dress",
+          "target": "new dress",
+          "acceptAlso": [
+            "a new dress",
+            "new dresses"
+          ],
+          "meaningTh": "ชุดใหม่",
+          "readingTh": "นิว เดรส",
+          "stressWords": [
+            "new",
+            "dress"
+          ],
+          "image": "/images/s3-new-dress.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! New dress.",
+            "Pretty new dress.",
+            "Twirl in your new dress!",
+            "New dress for the party.",
+            "I love your new dress."
+          ]
+        },
+        {
+          "id": "s3-wet-diaper",
+          "word": "wet diaper",
+          "target": "wet diaper",
+          "acceptAlso": [
+            "wet diapers",
+            "diaper wet"
+          ],
+          "meaningTh": "ผ้าอ้อมเปียก",
+          "readingTh": "เว็ท ได-เพ่อร์",
+          "stressWords": [
+            "wet",
+            "diaper"
+          ],
+          "image": "/images/s3-wet-diaper.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Uh-oh! Wet diaper.",
+            "Wet diaper? Let's change.",
+            "No more wet diaper.",
+            "Wet diaper off, new diaper on."
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 3,
+      "id": "s3-body",
+      "category": "body",
+      "type": "twoWord",
+      "title": "Body fun",
+      "titleTh": "สนุกกับร่างกาย",
+      "items": [
+        {
+          "id": "s3-my-nose",
+          "word": "my nose",
+          "target": "my nose",
+          "acceptAlso": [
+            "my nose please",
+            "mine nose"
+          ],
+          "meaningTh": "จมูกหนู",
+          "readingTh": "มาย โนส",
+          "stressWords": [
+            "my",
+            "nose"
+          ],
+          "image": "/images/s3-my-nose.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Where's your nose? My nose!",
+            "Touch my nose.",
+            "My nose, beep!",
+            "Little nose. My nose."
+          ]
+        },
+        {
+          "id": "s3-wash-face",
+          "word": "wash face",
+          "target": "wash face",
+          "acceptAlso": [
+            "wash your face",
+            "washing face"
+          ],
+          "meaningTh": "ล้างหน้า",
+          "readingTh": "วอช เฟส",
+          "stressWords": [
+            "wash",
+            "face"
+          ],
+          "image": "/images/s3-wash-face.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Wash face, please.",
+            "Splash! Wash face.",
+            "Wash face with water.",
+            "Good morning! Wash face.",
+            "All clean! Wash face."
+          ]
+        },
+        {
+          "id": "s3-clap-hands",
+          "word": "clap hands",
+          "target": "clap hands",
+          "acceptAlso": [
+            "clap your hands",
+            "clapping hands"
+          ],
+          "meaningTh": "ปรบมือ",
+          "readingTh": "แคลป แฮนด์ส",
+          "stressWords": [
+            "clap",
+            "hands"
+          ],
+          "image": "/images/s3-clap-hands.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Clap hands! Clap, clap.",
+            "Let's clap hands.",
+            "Happy? Clap hands!",
+            "Clap hands for Daddy."
+          ]
+        },
+        {
+          "id": "s3-stomp-feet",
+          "word": "stomp feet",
+          "target": "stomp feet",
+          "acceptAlso": [
+            "stomp your feet",
+            "stomping feet"
+          ],
+          "meaningTh": "กระทืบเท้า",
+          "readingTh": "สต็อมพ์ ฟีท",
+          "stressWords": [
+            "stomp",
+            "feet"
+          ],
+          "image": "/images/s3-stomp-feet.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Stomp feet! Stomp, stomp.",
+            "Let's stomp feet.",
+            "Big boots. Stomp feet!",
+            "Stomp feet, so loud!"
+          ]
+        },
+        {
+          "id": "s3-wiggle-toes",
+          "word": "wiggle toes",
+          "target": "wiggle toes",
+          "acceptAlso": [
+            "wiggle your toes",
+            "wiggling toes"
+          ],
+          "meaningTh": "ขยับนิ้วเท้า",
+          "readingTh": "วิก-เกิ้ล โทส์",
+          "stressWords": [
+            "wiggle",
+            "toes"
+          ],
+          "image": "/images/s3-wiggle-toes.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Wiggle toes! Wiggle, wiggle.",
+            "Let's wiggle toes.",
+            "Socks off. Wiggle toes!",
+            "Wiggle toes, tickle, tickle."
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 3,
+      "id": "s3-baby-animals",
+      "category": "animals",
+      "type": "twoWord",
+      "title": "Animal babies",
+      "titleTh": "ลูกสัตว์",
+      "items": [
+        {
+          "id": "s3-baby-duck",
+          "word": "baby duck",
+          "target": "baby duck",
+          "acceptAlso": [
+            "baby ducky",
+            "baby ducks",
+            "duckling"
+          ],
+          "meaningTh": "ลูกเป็ด",
+          "readingTh": "เบ-บี้ ดั๊ก",
+          "stressWords": [
+            "baby",
+            "duck"
+          ],
+          "image": "/images/s3-baby-duck.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! Baby duck.",
+            "Baby duck says quack.",
+            "Baby duck follows Mommy duck.",
+            "Hi, baby duck!"
+          ]
+        },
+        {
+          "id": "s3-baby-cow",
+          "word": "baby cow",
+          "target": "baby cow",
+          "acceptAlso": [
+            "baby cows",
+            "calf"
+          ],
+          "meaningTh": "ลูกวัว",
+          "readingTh": "เบ-บี้ คาว",
+          "stressWords": [
+            "baby",
+            "cow"
+          ],
+          "image": "/images/s3-baby-cow.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! Baby cow.",
+            "Baby cow says moo.",
+            "Baby cow drinks milk.",
+            "Hi, baby cow!"
+          ]
+        },
+        {
+          "id": "s3-mama-bird",
+          "word": "mama bird",
+          "target": "mama bird",
+          "acceptAlso": [
+            "mommy bird",
+            "mother bird"
+          ],
+          "meaningTh": "แม่นก",
+          "readingTh": "ม้า-ม่า เบิร์ด",
+          "stressWords": [
+            "mama",
+            "bird"
+          ],
+          "image": "/images/s3-mama-bird.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! Mama bird.",
+            "Mama bird in the nest.",
+            "Mama bird says tweet.",
+            "Hi, mama bird!"
+          ]
+        },
+        {
+          "id": "s3-big-fish",
+          "word": "big fish",
+          "target": "big fish",
+          "acceptAlso": [
+            "big fishes",
+            "a big fish"
+          ],
+          "meaningTh": "ปลาตัวใหญ่",
+          "readingTh": "บิ๊ก ฟิช",
+          "stressWords": [
+            "big",
+            "fish"
+          ],
+          "image": "/images/s3-big-fish.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! Big fish.",
+            "Big fish can swim.",
+            "Wow, a big, big fish!",
+            "Bye-bye, big fish!"
+          ]
+        },
+        {
+          "id": "s3-little-frog",
+          "word": "little frog",
+          "target": "little frog",
+          "acceptAlso": [
+            "little froggy",
+            "a little frog"
+          ],
+          "meaningTh": "กบตัวเล็ก",
+          "readingTh": "ลิท-เทิ่ล ฟร็อก",
+          "stressWords": [
+            "little",
+            "frog"
+          ],
+          "image": "/images/s3-little-frog.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! Little frog.",
+            "Little frog can hop.",
+            "A little, little frog.",
+            "Hi, little frog!"
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 3,
+      "id": "s3-feelings",
+      "category": "feelings",
+      "type": "twoWord",
+      "title": "How do they feel?",
+      "titleTh": "รู้สึกยังไงนะ",
+      "items": [
+        {
+          "id": "s3-happy-baby",
+          "word": "happy baby",
+          "target": "happy baby",
+          "acceptAlso": [
+            "baby happy",
+            "happy babies"
+          ],
+          "meaningTh": "น้องอารมณ์ดี",
+          "readingTh": "แฮป-ปี้ เบ-บี้",
+          "stressWords": [
+            "happy",
+            "baby"
+          ],
+          "image": "/images/s3-happy-baby.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! Happy baby.",
+            "Happy baby, big smile!",
+            "Giggle, giggle! Happy baby.",
+            "Happy baby claps.",
+            "Yay! Happy baby."
+          ]
+        },
+        {
+          "id": "s3-sleepy-kitty",
+          "word": "sleepy kitty",
+          "target": "sleepy kitty",
+          "acceptAlso": [
+            "sleepy cat",
+            "kitty sleepy"
+          ],
+          "meaningTh": "แมวง่วงนอน",
+          "readingTh": "สลี-ปี้ คิท-ตี้",
+          "stressWords": [
+            "sleepy",
+            "kitty"
+          ],
+          "image": "/images/s3-sleepy-kitty.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! Sleepy kitty.",
+            "Yawn! Sleepy kitty.",
+            "Sleepy kitty in the bed.",
+            "Shh! Sleepy kitty.",
+            "Night-night, sleepy kitty."
+          ]
+        },
+        {
+          "id": "s3-sad-boy",
+          "word": "sad boy",
+          "target": "sad boy",
+          "acceptAlso": [
+            "boy sad",
+            "sad boys"
+          ],
+          "meaningTh": "เด็กผู้ชายเศร้า",
+          "readingTh": "แซด บอย",
+          "stressWords": [
+            "sad",
+            "boy"
+          ],
+          "image": "/images/s3-sad-boy.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Oh no. Sad boy.",
+            "Sad boy needs a hug.",
+            "Hug the sad boy.",
+            "Sad boy, cry, cry.",
+            "No more sad boy. Smile!"
+          ]
+        },
+        {
+          "id": "s3-hungry-puppy",
+          "word": "hungry puppy",
+          "target": "hungry puppy",
+          "acceptAlso": [
+            "hungry puppies",
+            "puppy hungry",
+            "hungry doggy"
+          ],
+          "meaningTh": "ลูกหมาหิว",
+          "readingTh": "ฮัง-กรี้ พัป-ปี้",
+          "stressWords": [
+            "hungry",
+            "puppy"
+          ],
+          "image": "/images/s3-hungry-puppy.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! Hungry puppy.",
+            "Hungry puppy wants food.",
+            "Woof! Hungry puppy.",
+            "Food for hungry puppy.",
+            "Yum! Hungry puppy eats."
+          ]
+        },
+        {
+          "id": "s3-funny-monkey",
+          "word": "funny monkey",
+          "target": "funny monkey",
+          "acceptAlso": [
+            "funny monkeys",
+            "monkey funny"
+          ],
+          "meaningTh": "ลิงตลก",
+          "readingTh": "ฟัน-นี่ มัง-กี้",
+          "stressWords": [
+            "funny",
+            "monkey"
+          ],
+          "image": "/images/s3-funny-monkey.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! Funny monkey.",
+            "Ha ha! Funny monkey.",
+            "Funny monkey eats a banana.",
+            "Funny monkey can climb.",
+            "Hi, funny monkey!"
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 3,
+      "id": "s3-music-art",
+      "category": "play",
+      "type": "twoWord",
+      "title": "Art and music",
+      "titleTh": "ศิลปะและดนตรี",
+      "items": [
+        {
+          "id": "s3-draw-picture",
+          "word": "draw picture",
+          "target": "draw picture",
+          "acceptAlso": [
+            "draw a picture",
+            "drawing picture"
+          ],
+          "meaningTh": "วาดรูป",
+          "readingTh": "ดรอว์ พิค-เช่อร์",
+          "stressWords": [
+            "draw",
+            "picture"
+          ],
+          "image": "/images/s3-draw-picture.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Let's draw a picture.",
+            "Draw picture for Mommy.",
+            "Draw picture with crayons.",
+            "Wow! Draw picture.",
+            "Draw picture of a dog."
+          ]
+        },
+        {
+          "id": "s3-bang-drum",
+          "word": "bang drum",
+          "target": "bang drum",
+          "acceptAlso": [
+            "bang the drum",
+            "banging drum",
+            "play drum"
+          ],
+          "meaningTh": "ตีกลอง",
+          "readingTh": "แบง ดรัม",
+          "stressWords": [
+            "bang",
+            "drum"
+          ],
+          "image": "/images/s3-bang-drum.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Bang drum! Boom, boom.",
+            "Let's bang the drum.",
+            "Bang drum, so loud!",
+            "Bang drum, bang, bang!",
+            "Bang drum for Daddy."
+          ]
+        },
+        {
+          "id": "s3-sing-song",
+          "word": "sing song",
+          "target": "sing song",
+          "acceptAlso": [
+            "sing a song",
+            "singing song"
+          ],
+          "meaningTh": "ร้องเพลง",
+          "readingTh": "ซิง ซอง",
+          "stressWords": [
+            "sing",
+            "song"
+          ],
+          "image": "/images/s3-sing-song.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Let's sing a song.",
+            "Sing song with Mommy.",
+            "La, la, la! Sing song.",
+            "Sing song, clap hands.",
+            "Sing song before bed."
+          ]
+        },
+        {
+          "id": "s3-splash-water",
+          "word": "splash water",
+          "target": "splash water",
+          "acceptAlso": [
+            "splash the water",
+            "splashing water"
+          ],
+          "meaningTh": "สาดน้ำเล่น",
+          "readingTh": "สแปลช ว้อ-เท่อร์",
+          "stressWords": [
+            "splash",
+            "water"
+          ],
+          "image": "/images/s3-splash-water.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Splash water! Splash, splash.",
+            "Splash water in the bath.",
+            "Wet! Splash water.",
+            "Splash water with Daddy."
+          ]
+        },
+        {
+          "id": "s3-play-piano",
+          "word": "play piano",
+          "target": "play piano",
+          "acceptAlso": [
+            "play the piano",
+            "playing piano"
+          ],
+          "meaningTh": "เล่นเปียโน",
+          "readingTh": "เพลย์ เพีย-โน่",
+          "stressWords": [
+            "play",
+            "piano"
+          ],
+          "image": "/images/s3-play-piano.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Let's play the piano.",
+            "Play piano, ding, ding.",
+            "Play piano with Grandma.",
+            "Wow! Play piano.",
+            "Play piano, sing a song."
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 3,
+      "id": "s3-manners",
+      "category": "manners",
+      "type": "twoWord",
+      "title": "Nice words",
+      "titleTh": "คำน่ารัก ๆ",
+      "items": [
+        {
+          "id": "s3-thank-you",
+          "word": "thank you",
+          "target": "thank you",
+          "acceptAlso": [
+            "thanks",
+            "thank you mommy",
+            "thankyou"
+          ],
+          "meaningTh": "ขอบคุณ",
+          "readingTh": "แธงค์ ยู",
+          "stressWords": [
+            "thank",
+            "you"
+          ],
+          "image": "/images/s3-thank-you.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Here you go. Thank you!",
+            "Say thank you.",
+            "Thank you, Mommy!",
+            "Thank you for the cookie.",
+            "Good job saying thank you."
+          ]
+        },
+        {
+          "id": "s3-love-you",
+          "word": "love you",
+          "target": "love you",
+          "acceptAlso": [
+            "i love you",
+            "love you mommy",
+            "love ya"
+          ],
+          "meaningTh": "รักนะ",
+          "readingTh": "ลัฟ ยู",
+          "stressWords": [
+            "love",
+            "you"
+          ],
+          "image": "/images/s3-love-you.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "I love you!",
+            "Love you, Daddy!",
+            "Big hug. Love you!",
+            "Love you so much.",
+            "Night-night. Love you."
+          ]
+        },
+        {
+          "id": "s3-good-job",
+          "word": "good job",
+          "target": "good job",
+          "acceptAlso": [
+            "good job mommy",
+            "great job"
+          ],
+          "meaningTh": "เก่งมาก",
+          "readingTh": "กู๊ด จ็อบ",
+          "stressWords": [
+            "good",
+            "job"
+          ],
+          "image": "/images/s3-good-job.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "You did it! Good job!",
+            "Good job, baby!",
+            "Clap, clap! Good job!",
+            "Good job eating.",
+            "Good job, high five!"
+          ]
+        },
+        {
+          "id": "s3-high-five",
+          "word": "high five",
+          "target": "high five",
+          "acceptAlso": [
+            "hi five",
+            "high 5",
+            "give me five"
+          ],
+          "meaningTh": "แปะมือ",
+          "readingTh": "ไฮ ไฟว์",
+          "stressWords": [
+            "high",
+            "five"
+          ],
+          "image": "/images/s3-high-five.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Give me a high five!",
+            "High five, baby!",
+            "Good job! High five!",
+            "Up high! High five.",
+            "High five, Daddy!"
+          ]
+        },
+        {
+          "id": "s3-bless-you",
+          "word": "bless you",
+          "target": "bless you",
+          "acceptAlso": [
+            "god bless you",
+            "bless u"
+          ],
+          "meaningTh": "ขอให้หาย (พูดตอนคนจาม)",
+          "readingTh": "เบลส ยู",
+          "stressWords": [
+            "bless",
+            "you"
+          ],
+          "image": "/images/s3-bless-you.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Ah-choo! Bless you!",
+            "Bless you, baby.",
+            "Sneeze? Bless you!",
+            "Ah-choo! Bless you, Daddy.",
+            "Say bless you."
+          ]
+        }
+      ]
+    },
+    {
+      "stageId": 3,
+      "id": "s3-go-places",
+      "category": "outside",
+      "type": "twoWord",
+      "title": "Let's go!",
+      "titleTh": "ไปกันเถอะ",
+      "items": [
+        {
+          "id": "s3-go-outside",
+          "word": "go outside",
+          "target": "go outside",
+          "acceptAlso": [
+            "go outside please",
+            "going outside"
+          ],
+          "meaningTh": "ไปข้างนอก",
+          "readingTh": "โก เอ้าท์-ไซด์",
+          "stressWords": [
+            "go",
+            "outside"
+          ],
+          "image": "/images/s3-go-outside.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Let's go outside!",
+            "Shoes on. Go outside.",
+            "Go outside and play.",
+            "Sunny day! Go outside.",
+            "Go outside with Daddy."
+          ]
+        },
+        {
+          "id": "s3-go-park",
+          "word": "go park",
+          "target": "go park",
+          "acceptAlso": [
+            "go to the park",
+            "go to park",
+            "going park"
+          ],
+          "meaningTh": "ไปสวนสาธารณะ",
+          "readingTh": "โก พาร์ค",
+          "stressWords": [
+            "go",
+            "park"
+          ],
+          "image": "/images/s3-go-park.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Let's go to the park!",
+            "Go park? Yes!",
+            "Go park, swing, swing.",
+            "Go park with Mommy.",
+            "Yay! Go park."
+          ]
+        },
+        {
+          "id": "s3-go-home",
+          "word": "go home",
+          "target": "go home",
+          "acceptAlso": [
+            "going home",
+            "go home now"
+          ],
+          "meaningTh": "กลับบ้าน",
+          "readingTh": "โก โฮม",
+          "stressWords": [
+            "go",
+            "home"
+          ],
+          "image": "/images/s3-go-home.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Time to go home.",
+            "Go home, night-night.",
+            "Bye, park! Go home.",
+            "Let's go home.",
+            "Go home with Daddy."
+          ]
+        },
+        {
+          "id": "s3-go-potty",
+          "word": "go potty",
+          "target": "go potty",
+          "acceptAlso": [
+            "go to the potty",
+            "potty"
+          ],
+          "meaningTh": "ไปเข้าห้องน้ำ",
+          "readingTh": "โก พ็อท-ตี้",
+          "stressWords": [
+            "go",
+            "potty"
+          ],
+          "image": "/images/s3-go-potty.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Go potty, please.",
+            "Do you need to go potty?",
+            "Let's go potty.",
+            "Go potty. Good job!",
+            "Go potty, then wash hands."
+          ]
+        },
+        {
+          "id": "s3-go-fast",
+          "word": "go fast",
+          "target": "go fast",
+          "acceptAlso": [
+            "going fast",
+            "go faster"
+          ],
+          "meaningTh": "ไปเร็ว ๆ",
+          "readingTh": "โก ฟาสท์",
+          "stressWords": [
+            "go",
+            "fast"
+          ],
+          "image": "/images/s3-go-fast.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Ready? Go fast!",
+            "Go fast, go fast!",
+            "Car go fast. Vroom!",
+            "Run! Go fast.",
+            "Wow! You go fast."
           ]
         }
       ]

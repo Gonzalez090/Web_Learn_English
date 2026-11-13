@@ -6,7 +6,7 @@
 //   PEXELS_API_KEY=xxxx    ← สำรองไว้ (ตอนนี้ Pexels ปิดการออก key ใหม่)
 //
 // ขั้นที่ 1 — ค้นหา: ดาวน์โหลดภาพตัวเลือก + ทำ "แผ่นรวมภาพ" (contact sheet) ไว้ตรวจด้วยตา
-//   node --env-file=.env.local scripts/fetch-images.mjs search [id ...] [--out <โฟลเดอร์>] [--page 2] [--q "คำค้นใหม่"]
+//   node --env-file=.env.local scripts/fetch-images.mjs search [id ...] [--out <โฟลเดอร์>] [--page 2] [--q "คำค้นใหม่"] [--cell 200]
 //   (ไม่ใส่ id = ทุกตัวใน scripts/image-queries.json)
 //
 // ขั้นที่ 2 — เลือก: ย่อภาพที่เลือกเป็น WebP 640x640 ไว้ที่ public/images/<id>.webp
@@ -28,12 +28,13 @@ const OUTPUT_SIZE = 640 // ขนาดภาพสุดท้าย (px)
 
 // ---------- อ่านคำสั่ง ----------
 const [command, ...rest] = process.argv.slice(2)
-const options = { out: path.join(ROOT, '.image-candidates'), page: 1, query: null }
+const options = { out: path.join(ROOT, '.image-candidates'), page: 1, query: null, cell: 300 }
 const args = []
 for (let i = 0; i < rest.length; i++) {
   if (rest[i] === '--out') options.out = path.resolve(rest[++i])
   else if (rest[i] === '--page') options.page = Number(rest[++i])
   else if (rest[i] === '--q') options.query = rest[++i]
+  else if (rest[i] === '--cell') options.cell = Math.max(120, Number(rest[++i]) || 300) // ขนาดช่องในแผ่นรวมภาพ (px)
   else args.push(rest[i])
 }
 
@@ -102,7 +103,7 @@ async function download(url) {
 
 // ---------- แผ่นรวมภาพ 3 คอลัมน์ พร้อมเลขกำกับ ----------
 async function makeContactSheet(buffers, title, file) {
-  const cell = 300
+  const cell = options.cell
   const header = 40
   const cols = 3
   const rows = Math.ceil(buffers.length / cols)
