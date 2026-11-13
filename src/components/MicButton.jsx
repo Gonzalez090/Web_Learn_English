@@ -9,8 +9,9 @@
 //   lenient    = ตรวจแบบผ่อนปรน (Stage 2–3)
 //   showText   = แสดงตัวอักษรภาษาอังกฤษในผลได้ไหม (Stage 1–3 = false)
 //   onResult   = เรียกเมื่อได้ผล (ขั้นที่ 4 ใช้ให้ XP / บันทึกข้อที่พลาด)
+//   onError    = เรียกเมื่อฟังไม่สำเร็จ ส่งรหัส error (เช่น 'no-speech', 'not-allowed')
 // =========================================================
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Mic, Square } from 'lucide-react'
 import { useRecognition } from '../hooks/useRecognition'
@@ -27,11 +28,29 @@ const ERROR_MESSAGE_KEY = {
   network: 'mic.errorNetwork',
 }
 
-export default function MicButton({ target, acceptAlso = [], lenient = false, showText = true, onResult, size = 'md' }) {
+export default function MicButton({
+  target,
+  acceptAlso = [],
+  lenient = false,
+  showText = true,
+  onResult,
+  onError,
+  size = 'md',
+}) {
   const { t } = useTranslation()
   const { supported, status, interim, error, listen, stop } = useRecognition()
   const [result, setResult] = useState(null)
   const [attempts, setAttempts] = useState(0)
+
+  // แจ้ง error ให้ component แม่ครั้งเดียวต่อการฟัง 1 ครั้ง
+  // (เก็บ onError ไว้ใน ref → ฟังก์ชันใหม่ทุกครั้งที่ render ไม่ทำให้แจ้งซ้ำ)
+  const onErrorRef = useRef(onError)
+  useEffect(() => {
+    onErrorRef.current = onError
+  })
+  useEffect(() => {
+    if (status === 'error' && error) onErrorRef.current?.(error)
+  }, [status, error])
 
   if (!supported) {
     return (

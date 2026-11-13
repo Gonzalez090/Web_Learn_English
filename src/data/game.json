@@ -1,5 +1,126 @@
 {
-  "dailyMissionPool": [],
+  "dailyMissionPool": [
+    {
+      "id": "listen-10",
+      "event": "listen",
+      "target": 10,
+      "xp": 10,
+      "title": "Listen to 10 words or lines",
+      "titleTh": "ฟังคำ/ประโยค 10 ข้อ"
+    },
+    {
+      "id": "speak-5",
+      "event": "speakPass",
+      "target": 5,
+      "xp": 15,
+      "title": "Say 5 things right",
+      "titleTh": "พูดตามผ่าน 5 ครั้ง"
+    },
+    {
+      "id": "speak-10",
+      "event": "speakPass",
+      "target": 10,
+      "xp": 25,
+      "title": "Say 10 things right",
+      "titleTh": "พูดตามผ่าน 10 ครั้ง"
+    },
+    {
+      "id": "lesson-1",
+      "event": "lessonComplete",
+      "target": 1,
+      "xp": 15,
+      "title": "Finish 1 lesson",
+      "titleTh": "เรียนจบ 1 บท"
+    },
+    {
+      "id": "lesson-2",
+      "event": "lessonComplete",
+      "target": 2,
+      "xp": 25,
+      "title": "Finish 2 lessons",
+      "titleTh": "เรียนจบ 2 บท"
+    },
+    {
+      "id": "perfect-1",
+      "event": "perfectLesson",
+      "target": 1,
+      "xp": 25,
+      "title": "Get 100% in a lesson",
+      "titleTh": "จบบทแบบได้ 100%"
+    },
+    {
+      "id": "game-1",
+      "event": "gamePlay",
+      "target": 1,
+      "xp": 10,
+      "title": "Play 1 mini-game",
+      "titleTh": "เล่นมินิเกม 1 เกม"
+    },
+    {
+      "id": "game-correct-8",
+      "event": "gameCorrect",
+      "target": 8,
+      "xp": 15,
+      "title": "Get 8 game rounds right on the first try",
+      "titleTh": "มินิเกม: ตอบถูกตั้งแต่ครั้งแรก 8 รอบ"
+    },
+    {
+      "id": "xp-100",
+      "event": "xp",
+      "target": 100,
+      "xp": 20,
+      "title": "Earn 100 XP",
+      "titleTh": "เก็บ XP ให้ได้ 100"
+    },
+    {
+      "id": "sound-1",
+      "event": "sound",
+      "target": 1,
+      "xp": 15,
+      "title": "Practice 1 tricky sound",
+      "titleTh": "ฝึกเสียงที่คนไทยออกยาก 1 ชุด"
+    },
+    {
+      "id": "phrase-5",
+      "event": "phrase",
+      "target": 5,
+      "xp": 15,
+      "title": "Practice 5 real-life phrases",
+      "titleTh": "ฝึกวลีใช้งานจริง 5 วลี"
+    },
+    {
+      "id": "talk-1",
+      "event": "conversation",
+      "target": 1,
+      "xp": 20,
+      "title": "Finish 1 random conversation",
+      "titleTh": "คุยบทสนทนาสุ่มจบ 1 รอบ"
+    },
+    {
+      "id": "npc-1",
+      "event": "npcTalk",
+      "target": 1,
+      "xp": 15,
+      "title": "Talk to 1 neighbor in town",
+      "titleTh": "คุยกับ NPC ในเมือง 1 คน"
+    },
+    {
+      "id": "review-5",
+      "event": "review",
+      "target": 5,
+      "xp": 15,
+      "title": "Review 5 items",
+      "titleTh": "ทบทวน 5 รายการ"
+    },
+    {
+      "id": "speak-minutes-3",
+      "event": "speakingMinutes",
+      "target": 3,
+      "xp": 20,
+      "title": "Speak English for 3 minutes",
+      "titleTh": "พูดภาษาอังกฤษรวม 3 นาที"
+    }
+  ],
   "miniGames": [
     {
       "id": "listen-tap",

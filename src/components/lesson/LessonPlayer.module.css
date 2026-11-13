@@ -1,0 +1,45 @@
+.player {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* แถบบน: ปุ่มออก + แถบความคืบหน้า */
+.top {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.exit {
+  flex: none;
+}
+
+.progress {
+  flex: 1;
+  height: 10px;
+  overflow: hidden;
+  border-radius: var(--radius-full);
+  background: var(--color-border);
+}
+
+.progressBar {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--color-success);
+  transform-origin: left center;
+  transition: transform 0.3s ease;
+}
+
+.stage {
+  display: flex;
+  justify-content: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progressBar {
+    transition: none;
+  }
+}

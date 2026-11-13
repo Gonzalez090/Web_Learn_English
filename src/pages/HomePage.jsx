@@ -1,7 +1,7 @@
 // =========================================================
 // HomePage — หน้าแรก
 //   ปุ่ม "เริ่มแผนวันนี้" / "ทบทวนวันนี้"
-//   แผนที่เมือง (ขั้นที่ 14), ภารกิจวันนี้ (ขั้นที่ 13)
+//   การ์ดเลเวล/streak, ภารกิจวันนี้, แผนที่เมือง (ขั้นที่ 14)
 //   ปุ่มลัดไปส่วนต่าง ๆ
 // =========================================================
 import { useTranslation } from 'react-i18next'
@@ -12,6 +12,8 @@ import Section from '../components/Section'
 import Button from '../components/Button'
 import ComingSoon from '../components/ComingSoon'
 import Tile, { TileList } from '../components/Tile'
+import LevelCard from '../components/LevelCard'
+import MissionList from '../components/MissionList'
 import styles from './HomePage.module.css'
 
 const SHORTCUTS = [
@@ -31,6 +33,8 @@ export default function HomePage() {
 
   return (
     <Page title={t('home.title')} subtitle={t('app.tagline')}>
+      <LevelCard />
+
       <div className={styles.actions}>
         <Button to="/plan" size="lg" block icon={ICONS.plan}>
           {t('home.startPlan')}
@@ -47,12 +51,12 @@ export default function HomePage() {
         )}
       </div>
 
-      <Section title={t('home.cityMap')}>
-        <ComingSoon step={14} />
+      <Section title={t('home.todayMissions')}>
+        <MissionList />
       </Section>
 
-      <Section title={t('home.todayMissions')}>
-        <ComingSoon step={13} />
+      <Section title={t('home.cityMap')}>
+        <ComingSoon step={14} />
       </Section>
 
       <Section title={t('home.shortcuts')}>

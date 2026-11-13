@@ -1,6 +1,6 @@
 // =========================================================
 // AppLayout — โครงหลักของทุกหน้า (แบบแอปมือถือ)
-//   แถบบน (TopBar) + เนื้อหาหน้า (Outlet) + แถบเมนูล่าง (BottomNav)
+//   แถบบน (TopBar) + เนื้อหาหน้า (Outlet) + แถบเมนูล่าง (BottomNav) + ข้อความแจ้งเตือน (Toaster)
 //   เนื้อหาหน้าครอบด้วย ErrorBoundary: หน้าไหนพัง แถบบน/ล่างยังใช้ได้ และไม่โชว์รายละเอียด error
 // =========================================================
 import { useEffect } from 'react'
@@ -11,6 +11,7 @@ import TopBar from './TopBar'
 import BottomNav from './BottomNav'
 import ScrollToTop from './ScrollToTop'
 import ErrorBoundary from '../ErrorBoundary'
+import Toaster from '../Toaster'
 import styles from './AppLayout.module.css'
 
 export default function AppLayout() {
@@ -31,6 +32,7 @@ export default function AppLayout() {
           <Outlet />
         </ErrorBoundary>
       </main>
+      <Toaster />
       <BottomNav />
     </div>
   )

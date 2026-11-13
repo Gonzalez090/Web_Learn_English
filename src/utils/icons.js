@@ -25,6 +25,7 @@ import {
   RotateCcw,
   Settings,
   Shuffle,
+  Snowflake,
   Star,
   Swords,
   Target,
@@ -43,6 +44,7 @@ export const ICONS = {
   // สถิติ
   streak: Flame,
   xp: Star,
+  freeze: Snowflake,
 
   // สถานะ
   locked: Lock,

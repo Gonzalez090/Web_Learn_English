@@ -2,29 +2,54 @@
 // progressStore — ที่เก็บ "ความคืบหน้า" ของผู้เรียน
 // บันทึกลง localStorage อัตโนมัติ (key: et-progress)
 // วันที่ทั้งหมดใช้รูปแบบ 'YYYY-MM-DD' ตามเวลาเครื่อง (ไม่ใช้ UTC)
-// เลเวลและฉายาคำนวณจาก xp ไม่เก็บซ้ำ (ขั้นที่ 13)
+// เลเวลและฉายาคำนวณจาก xp ไม่เก็บซ้ำ (utils/level.js)
+// ได้ XP จากการเรียน → นับ streak วันนี้ + ภารกิจ "เก็บ XP" คืบหน้า
+// เหตุการณ์อื่น (พูดผ่าน, จบบท ฯลฯ) → trackEvent → ภารกิจคืบหน้า → สำเร็จได้ XP รางวัล
+// ขึ้นเลเวล / ภารกิจสำเร็จ / ใช้ Streak Freeze → แจ้งผ่าน toastStore
 // =========================================================
 import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
+import { stages, lessons, dailyMissionPool } from '../data'
+import { computeUnlockedStages, recordLessonResult } from '../utils/progress'
+import { todayKey } from '../utils/date'
+import { levelFromXp } from '../utils/level'
+import { recordActivity } from '../utils/streak'
+import { applyMissionEvent, ensureDailyMissions, missionReward } from '../utils/missions'
+import { useToastStore } from './toastStore'
 
 // ค่าเริ่มต้นของผู้เรียนใหม่
 export const INITIAL_PROGRESS = {
   xp: 0, // XP สะสมทั้งหมด
-  streak: { count: 0, lastActiveDate: null }, // เรียนต่อเนื่องกี่วัน (ขั้นที่ 13)
-  streakFreeze: { available: 1, weekId: null }, // Streak Freeze 1 ครั้ง/สัปดาห์ (ขั้นที่ 13)
+  streak: { count: 0, lastActiveDate: null, best: 0 }, // เรียนต่อเนื่องกี่วัน + สูงสุดที่เคยทำได้
+  streakFreeze: { available: 1, weekId: null }, // Streak Freeze 1 ครั้ง/สัปดาห์ (weekId = วันจันทร์ของสัปดาห์)
   unlockedStages: [1], // Stage ที่ปลดล็อกแล้ว
   unlockedPlaces: ['home'], // สถานที่ที่ปลดล็อกแล้ว (ขั้นที่ 14)
   lessonProgress: {}, // { [lessonId]: { completed, bestScore, attempts, completedAt } }
   collection: [], // วลีที่สะสมได้ (ขั้นที่ 20)
   npcFriendship: {}, // { [npcId]: แต้มความสนิท } (ขั้นที่ 15)
-  dailyMissions: { date: null, missions: [] }, // ภารกิจของวันนี้ (ขั้นที่ 13)
+  dailyMissions: { date: null, missions: [] }, // ภารกิจของวันนี้ [{ id, progress, done }]
   speakingMinutes: {}, // { 'YYYY-MM-DD': นาทีที่พูด } (ขั้นที่ 18)
   lastVisitDate: null, // ใช้ตรวจว่าหายไปหลายวันหรือไม่ (ขั้นที่ 15)
 }
 
+// แจ้งผู้ใช้หลัง XP/ภารกิจเปลี่ยน
+function announce({ previousXp, nextXp, completed = [], usedFreeze = false, streakCount = 0 }) {
+  const { show } = useToastStore.getState()
+  if (usedFreeze) show({ kind: 'freeze', count: streakCount })
+  for (const mission of completed) show({ kind: 'mission', missionId: mission.id, xp: mission.xp })
+  const level = levelFromXp(nextXp)
+  if (level > levelFromXp(previousXp)) show({ kind: 'levelUp', level })
+}
+
+// ภารกิจของวันนี้ + ผลของเหตุการณ์หนึ่ง
+function missionsAfter(state, event, amount) {
+  const daily = ensureDailyMissions(state.dailyMissions, dailyMissionPool, todayKey())
+  return applyMissionEvent(daily, dailyMissionPool, event, amount)
+}
+
 export const useProgressStore = create(
   persist(
-    (set) => ({
+    (set, get) => ({
       ...INITIAL_PROGRESS,
 
       // ปลดล็อกทุก Stage และทุกสถานที่ — ใช้ในหน้า /dev เท่านั้น
@@ -36,6 +61,54 @@ export const useProgressStore = create(
             unlockedPlaces: Array.from(new Set([...INITIAL_PROGRESS.unlockedPlaces, ...placeIds])),
           }),
       }),
+
+      // ได้ XP จากการเรียน (จำนวนเต็มบวกเท่านั้น) → นับ streak วันนี้ + ภารกิจ "เก็บ XP"
+      addXp: (amount) => {
+        if (!Number.isFinite(amount) || amount <= 0) return
+        const gained = Math.round(amount)
+        const state = get()
+        const activity = recordActivity(state.streak, state.streakFreeze, todayKey())
+        const { daily, completed } = missionsAfter(state, 'xp', gained)
+        const nextXp = state.xp + gained + missionReward(completed)
+        set({ xp: nextXp, streak: activity.streak, streakFreeze: activity.streakFreeze, dailyMissions: daily })
+        announce({
+          previousXp: state.xp,
+          nextXp,
+          completed,
+          usedFreeze: activity.usedFreeze,
+          streakCount: activity.streak.count,
+        })
+      },
+
+      // แจ้งเหตุการณ์ของภารกิจรายวัน (ชนิดเหตุการณ์ดูที่ utils/missions.js)
+      trackEvent: (event, amount = 1) => {
+        const state = get()
+        const { daily, completed } = missionsAfter(state, event, amount)
+        if (daily === state.dailyMissions) return
+        const nextXp = state.xp + missionReward(completed)
+        set({ dailyMissions: daily, xp: nextXp })
+        announce({ previousXp: state.xp, nextXp, completed })
+      },
+
+      // เปิดหน้าแรกวันใหม่ → สุ่มภารกิจของวันนี้
+      refreshDailyMissions: () => {
+        const state = get()
+        const daily = ensureDailyMissions(state.dailyMissions, dailyMissionPool, todayKey())
+        if (daily !== state.dailyMissions) set({ dailyMissions: daily })
+      },
+
+      // จบบทเรียน → บันทึกผล + ปลดล็อก Stage ถัดไปถ้าผ่านครบ
+      // @returns รายการ Stage ที่เพิ่งปลดล็อก (ใช้แสดงในหน้าสรุป)
+      completeLesson: (lessonId, score) => {
+        let newlyUnlocked = []
+        set((state) => {
+          const lessonProgress = recordLessonResult(state.lessonProgress, lessonId, score, todayKey())
+          const result = computeUnlockedStages(stages, lessons, state.unlockedStages, lessonProgress)
+          newlyUnlocked = result.newlyUnlocked
+          return { lessonProgress, unlockedStages: result.unlockedStages }
+        })
+        return newlyUnlocked
+      },
 
       // ล้างความคืบหน้าทั้งหมด กลับเป็นผู้เรียนใหม่
       resetProgress: () => set(INITIAL_PROGRESS),

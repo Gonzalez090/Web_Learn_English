@@ -1,0 +1,42 @@
+/* โครงของแต่ละขั้นในบทเรียน (ใช้ร่วมกันทุกขั้น) */
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  animation: enter 0.2s ease-out;
+}
+
+@keyframes enter {
+  from {
+    transform: translateY(6px);
+    opacity: 0;
+  }
+}
+
+.instruction {
+  font-size: 1.125rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+/* ภาพย่อตามความสูงจอด้วย → มือถือจอเตี้ยยังเห็นปุ่ม "ต่อไป" โดยไม่ต้องเลื่อน */
+.picture {
+  max-width: min(300px, 36vh);
+}
+
+.hint {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  width: 100%;
+}
