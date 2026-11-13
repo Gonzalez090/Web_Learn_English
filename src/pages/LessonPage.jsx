@@ -30,7 +30,8 @@ export default function LessonPage() {
   return (
     <Page title={loc(lesson, 'title')} subtitle={t(`category.${lesson.category}`)} backTo={`/learn/${lesson.stageId}`}>
       <p className={styles.hint}>{t('lesson.previewHint')}</p>
-      <div className={styles.cards}>
+      {/* บทที่เป็นประโยค (Stage 4 ขึ้นไป) ใช้การ์ดกว้างขึ้น อ่านผลคะแนนรายคำง่าย */}
+      <div className={stage.id >= 4 ? `${styles.cards} ${styles.wide}` : styles.cards}>
         {lesson.items.map((item) => (
           <VocabCard key={item.id} item={item} stage={stage} />
         ))}

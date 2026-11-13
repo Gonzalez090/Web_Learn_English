@@ -12,6 +12,7 @@
 import { useTranslation } from 'react-i18next'
 import { Snail, Square, Volume2 } from 'lucide-react'
 import { useSpeech } from '../hooks/useSpeech'
+import { abortListening } from '../utils/recognition'
 import styles from './SpeakButton.module.css'
 
 export default function SpeakButton({ text, id, showSlow = true, size = 'md', useFiles = true }) {
@@ -41,7 +42,11 @@ export default function SpeakButton({ text, id, showSlow = true, size = 'md', us
             type="button"
             className={playing ? `${styles.button} ${styles.playing}` : styles.button}
             aria-pressed={playing}
-            onClick={() => (playing ? stop() : speak(text, { rate, key, useFiles }))}
+            onClick={() => {
+              if (playing) return stop()
+              abortListening() // กำลังฟังไมค์อยู่ → หยุดก่อน ไม่ให้ไมค์ได้ยินเสียงตัวอย่าง
+              return speak(text, { rate, key, useFiles })
+            }}
           >
             <ShownIcon className={styles.icon} aria-hidden="true" />
             <span>{playing ? t('speech.stop') : label}</span>

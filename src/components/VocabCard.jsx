@@ -15,10 +15,11 @@ import { useSettingsStore } from '../store/settingsStore'
 import { englishTextMode, meaningStartsVisible, showThaiReading } from '../utils/display'
 import Picture from './Picture'
 import SpeakButton from './SpeakButton'
+import MicButton from './MicButton'
 import ThaiReading from './ThaiReading'
 import styles from './VocabCard.module.css'
 
-export default function VocabCard({ item, stage }) {
+export default function VocabCard({ item, stage, onSpeechResult }) {
   const { t } = useTranslation()
   const thaiReadingSetting = useSettingsStore((state) => state.thaiReading)
   const thaiTranslationSetting = useSettingsStore((state) => state.thaiTranslation)
@@ -73,6 +74,17 @@ export default function VocabCard({ item, stage }) {
 
         <div className={styles.actions}>
           <SpeakButton text={english} id={item.id} size="sm" />
+          {/* พูดตาม: Stage 1 ฟังอย่างเดียว (ไม่มีไมค์), Stage 2–3 ตรวจแบบผ่อนปรน */}
+          {item.target && stage.id >= 2 && (
+            <MicButton
+              target={item.target}
+              acceptAlso={item.acceptAlso}
+              lenient={stage.id <= 3}
+              showText={textVisible}
+              onResult={(result) => onSpeechResult?.(item, result)}
+              size="sm"
+            />
+          )}
         </div>
       </div>
     </article>

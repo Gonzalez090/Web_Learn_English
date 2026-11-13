@@ -6,6 +6,7 @@
 import { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import { stop as stopSpeech } from '../../utils/speech'
+import { abortListening } from '../../utils/recognition'
 import TopBar from './TopBar'
 import BottomNav from './BottomNav'
 import ScrollToTop from './ScrollToTop'
@@ -15,9 +16,10 @@ import styles from './AppLayout.module.css'
 export default function AppLayout() {
   const { pathname } = useLocation()
 
-  // เปลี่ยนหน้า → หยุดเสียงที่กำลังพูดอยู่ (ไม่ให้เสียงจากหน้าเก่าพูดค้าง)
+  // เปลี่ยนหน้า → หยุดเสียงที่กำลังพูด และหยุดไมค์ที่กำลังฟัง (ไม่ให้ค้างจากหน้าเก่า)
   useEffect(() => {
     stopSpeech()
+    abortListening()
   }, [pathname])
 
   return (

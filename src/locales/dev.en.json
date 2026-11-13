@@ -19,6 +19,10 @@
     "voices": "English voices on this device ({{count}})",
     "activeVoice": "in use",
     "voiceLocal": "on device",
-    "voiceOnline": "online"
+    "voiceOnline": "online",
+    "micTest": "Mic test",
+    "micTestHint": "Say anything and see every version the system heard, with confidence %.",
+    "micStart": "Start listening",
+    "micStop": "Stop listening"
   }
 }

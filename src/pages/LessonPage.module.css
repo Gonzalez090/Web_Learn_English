@@ -14,4 +14,9 @@
   .cards {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+
+  /* ประโยค: 2 คอลัมน์ */
+  .cards.wide {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }

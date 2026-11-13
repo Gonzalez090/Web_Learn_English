@@ -1,4 +1,39 @@
-# Logs
+# =========================================================
+# ไฟล์ที่ห้ามขึ้น GitHub — ไฟล์ไหนไม่ควรขึ้น ให้เพิ่มไว้ที่นี่เสมอ
+# (ไฟล์ที่อยู่ในนี้ยังอยู่ในเครื่องตามปกติ แค่ git ไม่เก็บ/ไม่ push)
+# =========================================================
+
+# ---------- 1) ของลับ: key / รหัสผ่าน / ใบรับรอง ----------
+# .env.local มี PIXABAY_API_KEY — ห้ามขึ้นเด็ดขาด
+.env
+.env.*
+!.env.example
+*.local
+# ใบรับรองและกุญแจส่วนตัว (เช่น ตอนเปิด https ด้วย npm run dev:phone)
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# ---------- 2) เอกสารโปรเจกต์ (เก็บในเครื่องเท่านั้น) ----------
+# ไฟล์ Markdown ทุกไฟล์: CLAUDE.md, README.md, แผน/สเปก
+*.md
+# การตั้งค่าและแผนงานของ Claude Code
+.claude/
+
+# ---------- 3) ของที่สร้างใหม่ได้เอง (ไม่ต้องเก็บ) ----------
+node_modules
+dist
+dist-ssr
+coverage
+.cache
+.eslintcache
+*.tsbuildinfo
+# ภาพตัวเลือกจากสคริปต์ fetch-images (เก็บเฉพาะภาพที่เลือกแล้วใน public/images)
+.image-candidates
+
+# ---------- 4) log และไฟล์ชั่วคราว ----------
 logs
 *.log
 npm-debug.log*
@@ -6,20 +41,19 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+*.tmp
+*.temp
+tmp/
+temp/
 
-node_modules
-dist
-dist-ssr
-*.local
-
-# ภาพตัวเลือกจากสคริปต์ fetch-images (ไม่ต้องเก็บ เก็บเฉพาะภาพที่เลือกใน public/images)
-.image-candidates
-
-# Editor directories and files
+# ---------- 5) ไฟล์ของโปรแกรมแก้โค้ด / ระบบปฏิบัติการ ----------
 .vscode/*
 !.vscode/extensions.json
 .idea
 .DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
 *.suo
 *.ntvs*
 *.njsproj

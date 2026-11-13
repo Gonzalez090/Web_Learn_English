@@ -51,6 +51,21 @@
     "stop": "Stop",
     "notSupported": "Sound doesn't work in this browser. Please try Chrome or Edge."
   },
+  "mic": {
+    "speak": "Say it",
+    "again": "Say it again",
+    "listening": "Listening… tap to finish",
+    "score": "{{score}}%",
+    "heard": "I heard:",
+    "praise": ["Great job!", "Awesome!", "So clear!", "Nailed it!", "That's it!"],
+    "encourage": ["Almost! Try again", "So close. Listen again and repeat", "No worries, try as many times as you like", "Listen slowly once more and try again"],
+    "notSupported": "This browser can't listen to speech. Please try Chrome or Edge.",
+    "errorPermission": "Microphone isn't allowed yet. Tap the icon at the left of the address bar, choose “Allow” for the microphone, then try again.",
+    "errorNoSpeech": "I didn't hear anything. Try speaking a bit louder or closer to the mic.",
+    "errorNoMic": "No microphone found. Plug one in or check your device's sound settings.",
+    "errorNetwork": "Speech listening needs the internet. Check your connection and try again.",
+    "errorGeneric": "Couldn't listen this time. Please try again."
+  },
   "card": {
     "showText": "Show word",
     "showMeaning": "Show meaning",
@@ -128,6 +143,8 @@
     "voiceAuto": "Auto: {{name}}",
     "voiceAutoShort": "Auto (best voice)",
     "voiceLoading": "Loading voices…",
+    "mic": "Microphone (Say it button)",
+    "micPrivacy": "The “Say it” button uses your browser's speech listening. Chrome and Edge send what you say to Google / Microsoft servers to turn it into text, so it needs the internet. This site doesn't record or keep your voice from this button.",
     "voiceFallbackNote": "The online voice isn't working right now (maybe no internet), so the on-device voice “{{name}}” is used. It will switch back when you're online."
   },
   "credits": {

@@ -92,6 +92,8 @@ export default function SettingsPage() {
         </div>
       </Section>
 
+      <Section title={t('settings.mic')} description={t('settings.micPrivacy')} />
+
       <ComingSoon step={21} />
 
       <TileList>

@@ -13,6 +13,7 @@ import { useProgressStore } from '../store/progressStore'
 import { useSettingsStore } from '../store/settingsStore'
 import { useReviewStore } from '../store/reviewStore'
 import { useSpeech } from '../hooks/useSpeech'
+import { useRecognition } from '../hooks/useRecognition'
 import Page from '../components/Page'
 import Section from '../components/Section'
 import Button from '../components/Button'
@@ -53,8 +54,18 @@ export default function DevPage() {
   const settings = useSettingsStore()
   const review = useReviewStore()
   const { voices, activeVoice } = useSpeech()
+  const mic = useRecognition()
+  const [micAlternatives, setMicAlternatives] = useState([])
   const [confirmReset, setConfirmReset] = useState(false)
   const [message, setMessage] = useState('')
+
+  // ทดสอบไมค์: ฟัง 1 ครั้ง แล้วแสดงทุกแบบที่ระบบอาจได้ยิน + ความมั่นใจ
+  async function handleMicTest() {
+    if (mic.status === 'listening') return mic.stop()
+    setMicAlternatives([])
+    const alternatives = await mic.listen()
+    if (alternatives) setMicAlternatives(alternatives)
+  }
 
   function handleUnlockAll() {
     progress.devUnlockAll(
@@ -127,6 +138,23 @@ export default function DevPage() {
             })}
           </tbody>
         </table>
+      </Section>
+
+      <Section title={t('dev.micTest')} description={t('dev.micTestHint')}>
+        <div className={styles.row}>
+          <Button size="sm" variant={mic.status === 'listening' ? 'danger' : 'secondary'} onClick={handleMicTest}>
+            {mic.status === 'listening' ? t('dev.micStop') : t('dev.micStart')}
+          </Button>
+        </div>
+        {mic.interim && <p className={styles.voices}>{mic.interim}</p>}
+        {mic.error && <p className={styles.voices}>{`error: ${mic.error}`}</p>}
+        {micAlternatives.length > 0 && (
+          <ol className={styles.voices}>
+            {micAlternatives.map((alt, index) => (
+              <li key={index}>{`${alt.transcript} (${Math.round((alt.confidence ?? 0) * 100)}%)`}</li>
+            ))}
+          </ol>
+        )}
       </Section>
 
       <Section title={t('dev.voices', { count: voices.length })}>
