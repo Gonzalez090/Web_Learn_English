@@ -1,0 +1,706 @@
+{
+  "stages": [
+    {
+      "id": 1,
+      "name": "Listening",
+      "nameTh": "ช่วงฟัง",
+      "age": "0–12 months",
+      "ageTh": "ทารก 0–12 เดือน",
+      "description": "Just listen, then tap the right picture.",
+      "descriptionTh": "ฟังอย่างเดียว แล้วแตะภาพให้ตรงกับเสียง",
+      "showText": "never",
+      "image": "/images/stage-1.webp"
+    },
+    {
+      "id": 2,
+      "name": "First Words",
+      "nameTh": "คำแรก",
+      "age": "1 year",
+      "ageTh": "1 ขวบ",
+      "description": "Look at the picture and say one word.",
+      "descriptionTh": "ดูภาพแล้วพูดคำเดียว",
+      "showText": "never",
+      "image": "/images/stage-2.webp"
+    },
+    {
+      "id": 3,
+      "name": "Two Words",
+      "nameTh": "สองคำ",
+      "age": "1.5–2 years",
+      "ageTh": "1 ขวบครึ่ง – 2 ขวบ",
+      "description": "Say two words that match the picture.",
+      "descriptionTh": "พูดคำคู่ให้ตรงกับภาพ",
+      "showText": "never",
+      "image": "/images/stage-3.webp"
+    },
+    {
+      "id": 4,
+      "name": "Short Sentences",
+      "nameTh": "ประโยคสั้น",
+      "age": "2–3 years",
+      "ageTh": "2–3 ขวบ",
+      "description": "Ask and answer with short sentences.",
+      "descriptionTh": "ถาม-ตอบด้วยประโยคสั้น ๆ",
+      "showText": "toggle",
+      "image": "/images/stage-4.webp"
+    },
+    {
+      "id": 5,
+      "name": "Everyday Talk",
+      "nameTh": "สนทนาชีวิตประจำวัน",
+      "age": "3–5 years",
+      "ageTh": "3–5 ขวบ",
+      "description": "Talk about daily life and tell picture stories.",
+      "descriptionTh": "คุยเรื่องในชีวิตประจำวัน และเล่าเรื่องจากภาพ",
+      "showText": "always",
+      "image": "/images/stage-5.webp"
+    },
+    {
+      "id": 6,
+      "name": "Reading",
+      "nameTh": "เข้าโรงเรียน: อ่าน",
+      "age": "5–6 years",
+      "ageTh": "5–6 ขวบ",
+      "description": "Sound out words and read stories aloud.",
+      "descriptionTh": "ผสมเสียงเป็นคำ และอ่านนิทานออกเสียง",
+      "showText": "always",
+      "image": "/images/stage-6.webp"
+    },
+    {
+      "id": 7,
+      "name": "Writing",
+      "nameTh": "เขียน",
+      "age": "6–8 years",
+      "ageTh": "6–8 ขวบ",
+      "description": "From dictation to your own short stories.",
+      "descriptionTh": "จากฟังแล้วพิมพ์ จนเขียนเรื่องสั้นเองได้",
+      "showText": "always",
+      "image": "/images/stage-7.webp"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "s1-home-family",
+      "stageId": 1,
+      "category": "home-family",
+      "type": "listen",
+      "title": "Who's at home?",
+      "titleTh": "ใครอยู่ที่บ้านบ้าง",
+      "items": [
+        {
+          "id": "s1-mommy",
+          "word": "Mommy",
+          "meaningTh": "แม่",
+          "readingTh": "ม้า-มี่",
+          "stressSyllable": 1,
+          "image": "/images/s1-mommy.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! It's Mommy.",
+            "Hi, Mommy!",
+            "Mommy loves you."
+          ]
+        },
+        {
+          "id": "s1-daddy",
+          "word": "Daddy",
+          "meaningTh": "พ่อ",
+          "readingTh": "แด๊-ดี้",
+          "stressSyllable": 1,
+          "image": "/images/s1-daddy.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Who's that? It's Daddy!",
+            "Daddy's home.",
+            "Hi, Daddy!"
+          ]
+        },
+        {
+          "id": "s1-baby",
+          "word": "baby",
+          "meaningTh": "เด็กทารก",
+          "readingTh": "เบ๊-บี้",
+          "stressSyllable": 1,
+          "image": "/images/s1-baby.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look at the baby.",
+            "A little baby.",
+            "Hi, baby!"
+          ]
+        },
+        {
+          "id": "s1-dog",
+          "word": "dog",
+          "meaningTh": "หมา",
+          "readingTh": "ด็อก",
+          "stressSyllable": 1,
+          "image": "/images/s1-dog.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A dog.",
+            "The dog is big.",
+            "Big dog!"
+          ]
+        },
+        {
+          "id": "s1-cat",
+          "word": "cat",
+          "meaningTh": "แมว",
+          "readingTh": "แค็ท",
+          "stressSyllable": 1,
+          "image": "/images/s1-cat.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A cat.",
+            "The cat says meow.",
+            "Meow, cat!"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2-home-family",
+      "stageId": 2,
+      "category": "home-family",
+      "type": "word",
+      "title": "My first words",
+      "titleTh": "คำแรกของหนู",
+      "items": [
+        {
+          "id": "s2-mama",
+          "word": "Mama",
+          "target": "mama",
+          "acceptAlso": [
+            "mom",
+            "mum",
+            "momma",
+            "mamma",
+            "mommy"
+          ],
+          "meaningTh": "แม่",
+          "readingTh": "ม้า-หมะ",
+          "stressSyllable": 1,
+          "image": "/images/s2-mama.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Who's this? It's Mama!",
+            "Mama loves you.",
+            "Can you say Mama?"
+          ]
+        },
+        {
+          "id": "s2-milk",
+          "word": "milk",
+          "target": "milk",
+          "acceptAlso": [
+            "milks",
+            "milky"
+          ],
+          "meaningTh": "นม",
+          "readingTh": "มิลค์",
+          "stressSyllable": 1,
+          "image": "/images/s2-milk.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Mmm, milk!",
+            "Yummy milk.",
+            "Can you say milk?"
+          ]
+        },
+        {
+          "id": "s2-ball",
+          "word": "ball",
+          "target": "ball",
+          "acceptAlso": [
+            "balls",
+            "bowl"
+          ],
+          "meaningTh": "ลูกบอล",
+          "readingTh": "บอล",
+          "stressSyllable": 1,
+          "image": "/images/s2-ball.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Look! A ball.",
+            "Roll the ball!",
+            "Can you say ball?"
+          ]
+        },
+        {
+          "id": "s2-dog",
+          "word": "dog",
+          "target": "dog",
+          "acceptAlso": [
+            "dogs",
+            "doggy",
+            "doggie"
+          ],
+          "meaningTh": "หมา",
+          "readingTh": "ด็อก",
+          "stressSyllable": 1,
+          "image": "/images/s2-dog.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "parentese": [
+            "Woof woof! It's a dog.",
+            "Hi, doggy!",
+            "Can you say dog?"
+          ]
+        },
+        {
+          "id": "s2-bye",
+          "word": "bye",
+          "target": "bye",
+          "acceptAlso": [
+            "bye-bye",
+            "bye bye",
+            "by",
+            "buy",
+            "goodbye"
+          ],
+          "meaningTh": "บ๊ายบาย / ลาก่อน",
+          "readingTh": "บาย",
+          "stressSyllable": 1,
+          "image": "/images/s2-bye.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Daddy's going to work.",
+            "Wave bye-bye!",
+            "Can you say bye?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s3-home-family",
+      "stageId": 3,
+      "category": "home-family",
+      "type": "twoWord",
+      "title": "Two little words",
+      "titleTh": "พูดสองคำ",
+      "items": [
+        {
+          "id": "s3-more-milk",
+          "word": "more milk",
+          "target": "more milk",
+          "acceptAlso": [
+            "more milk please",
+            "some more milk"
+          ],
+          "meaningTh": "เอานมอีก",
+          "readingTh": "มอร์ มิลค์",
+          "stressWords": [
+            "more",
+            "milk"
+          ],
+          "image": "/images/s3-more-milk.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Uh-oh, all gone!",
+            "More milk?",
+            "More milk!"
+          ]
+        },
+        {
+          "id": "s3-daddy-go",
+          "word": "daddy go",
+          "target": "daddy go",
+          "acceptAlso": [
+            "daddy goes",
+            "daddy's going",
+            "daddy gone",
+            "daddy go bye-bye"
+          ],
+          "meaningTh": "พ่อไปแล้ว",
+          "readingTh": "แด๊-ดี้ โก",
+          "stressWords": [
+            "daddy",
+            "go"
+          ],
+          "image": "/images/s3-daddy-go.webp",
+          "register": "casual",
+          "frequency": "common",
+          "parentese": [
+            "Bye, Daddy!",
+            "Daddy's going to work.",
+            "Daddy go!"
+          ]
+        },
+        {
+          "id": "s3-no-sleep",
+          "word": "no sleep",
+          "target": "no sleep",
+          "acceptAlso": [
+            "no sleeping",
+            "know sleep",
+            "no sleepy"
+          ],
+          "meaningTh": "ไม่นอน",
+          "readingTh": "โน สลีพ",
+          "stressWords": [
+            "no",
+            "sleep"
+          ],
+          "image": "/images/s3-no-sleep.webp",
+          "register": "casual",
+          "frequency": "common",
+          "parentese": [
+            "It's bedtime. Time to sleep!",
+            "No sleep?",
+            "No sleep!"
+          ]
+        },
+        {
+          "id": "s3-dog-run",
+          "word": "dog run",
+          "target": "dog run",
+          "acceptAlso": [
+            "dog runs",
+            "doggy run",
+            "dog running"
+          ],
+          "meaningTh": "หมาวิ่ง",
+          "readingTh": "ด็อก รัน",
+          "stressWords": [
+            "dog",
+            "run"
+          ],
+          "image": "/images/s3-dog-run.webp",
+          "register": "casual",
+          "frequency": "common",
+          "parentese": [
+            "Look at the dog go!",
+            "The dog runs so fast.",
+            "Dog run!"
+          ]
+        },
+        {
+          "id": "s3-bye-mama",
+          "word": "bye mama",
+          "target": "bye mama",
+          "acceptAlso": [
+            "bye mom",
+            "bye-bye mama",
+            "bye bye mama",
+            "bye mommy",
+            "by mama"
+          ],
+          "meaningTh": "บ๊ายบายแม่",
+          "readingTh": "บาย ม้า-หมะ",
+          "stressWords": [
+            "bye",
+            "mama"
+          ],
+          "image": "/images/s3-bye-mama.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "parentese": [
+            "Mama's going out.",
+            "Wave to Mama.",
+            "Bye, Mama!"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s4-home-family",
+      "stageId": 4,
+      "category": "home-family",
+      "type": "sentence",
+      "title": "Little talks",
+      "titleTh": "ถาม-ตอบสั้น ๆ",
+      "items": [
+        {
+          "id": "s4-want-juice",
+          "question": "What do you want, sweetie?",
+          "questionTh": "อยากได้อะไรจ๊ะลูก",
+          "target": "I want juice.",
+          "translationTh": "หนูอยากกินน้ำผลไม้",
+          "readingTh": "ไอ วอนท์ จูส",
+          "stressWords": [
+            "want",
+            "juice"
+          ],
+          "intonation": "down",
+          "image": "/images/s4-want-juice.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": [
+            "i want some juice",
+            "i want a juice"
+          ],
+          "commonErrors": [
+            {
+              "pattern": "^want (a |some )?juice$",
+              "correct": "I want juice."
+            },
+            {
+              "pattern": "^i want drink juice$",
+              "correct": "I want juice."
+            }
+          ],
+          "keywords": [
+            {
+              "word": "juice",
+              "alternatives": [
+                {
+                  "word": "milk",
+                  "meaningTh": "นม",
+                  "register": "neutral"
+                },
+                {
+                  "word": "water",
+                  "meaningTh": "น้ำเปล่า",
+                  "register": "neutral"
+                },
+                {
+                  "word": "a cookie",
+                  "meaningTh": "คุกกี้",
+                  "register": "neutral"
+                },
+                {
+                  "word": "a snack",
+                  "meaningTh": "ขนม",
+                  "register": "casual"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "s4-where-cat",
+          "question": "Hmm, somebody's hiding…",
+          "questionTh": "อืม มีใครแอบอยู่นะ…",
+          "target": "Where's the cat?",
+          "translationTh": "แมวอยู่ไหน",
+          "readingTh": "แวร์ส เดอะ แค็ท",
+          "stressWords": [
+            "Where's",
+            "cat"
+          ],
+          "intonation": "down",
+          "image": "/images/s4-where-cat.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": [
+            "where is the cat"
+          ],
+          "commonErrors": [
+            {
+              "pattern": "^where (is )?cat$",
+              "correct": "Where's the cat?"
+            },
+            {
+              "pattern": "^cat where$",
+              "correct": "Where's the cat?"
+            },
+            {
+              "pattern": "^where the cat$",
+              "correct": "Where's the cat?"
+            }
+          ],
+          "keywords": [
+            {
+              "word": "cat",
+              "alternatives": [
+                {
+                  "word": "dog",
+                  "meaningTh": "หมา",
+                  "register": "neutral"
+                },
+                {
+                  "word": "ball",
+                  "meaningTh": "ลูกบอล",
+                  "register": "neutral"
+                },
+                {
+                  "word": "teddy",
+                  "meaningTh": "ตุ๊กตาหมี",
+                  "register": "casual"
+                },
+                {
+                  "word": "remote",
+                  "meaningTh": "รีโมต",
+                  "register": "neutral"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "s4-dont-like",
+          "question": "Want some broccoli?",
+          "questionTh": "กินบร็อกโคลีไหมจ๊ะ",
+          "target": "No, I don't like it.",
+          "translationTh": "ไม่เอา หนูไม่ชอบ",
+          "readingTh": "โน, ไอ โดนท์ ไล-คิท",
+          "stressWords": [
+            "No",
+            "don't",
+            "like"
+          ],
+          "intonation": "down",
+          "image": "/images/s4-dont-like.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "acceptAlso": [
+            "no i do not like it",
+            "i don't like it"
+          ],
+          "commonErrors": [
+            {
+              "pattern": "^(no )?i (no|not) like( it)?$",
+              "correct": "No, I don't like it."
+            },
+            {
+              "pattern": "^(no )?i don't like$",
+              "correct": "No, I don't like it."
+            }
+          ],
+          "keywords": [
+            {
+              "word": "it",
+              "alternatives": [
+                {
+                  "word": "broccoli",
+                  "meaningTh": "บร็อกโคลี",
+                  "register": "neutral"
+                },
+                {
+                  "word": "that",
+                  "meaningTh": "อันนั้น",
+                  "register": "neutral"
+                },
+                {
+                  "word": "veggies",
+                  "meaningTh": "ผัก",
+                  "register": "casual"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "s4-daddy-home",
+          "question": "Ding-dong! Who's here?",
+          "questionTh": "ติ๊งต่อง! ใครมาน่ะ",
+          "target": "Daddy's home!",
+          "translationTh": "พ่อกลับมาแล้ว!",
+          "readingTh": "แด๊-ดี้ส โฮม",
+          "stressWords": [
+            "Daddy's",
+            "home"
+          ],
+          "intonation": "down",
+          "image": "/images/s4-daddy-home.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "acceptAlso": [
+            "daddy is home"
+          ],
+          "commonErrors": [
+            {
+              "pattern": "^daddy (come )?home$",
+              "correct": "Daddy's home!"
+            },
+            {
+              "pattern": "^daddy (is )?come home$",
+              "correct": "Daddy's home!"
+            }
+          ],
+          "keywords": [
+            {
+              "word": "Daddy",
+              "alternatives": [
+                {
+                  "word": "Mommy",
+                  "meaningTh": "แม่",
+                  "register": "casual"
+                },
+                {
+                  "word": "Grandma",
+                  "meaningTh": "คุณยาย / คุณย่า",
+                  "register": "casual"
+                },
+                {
+                  "word": "Grandpa",
+                  "meaningTh": "คุณตา / คุณปู่",
+                  "register": "casual"
+                },
+                {
+                  "word": "Big Sis",
+                  "meaningTh": "พี่สาว",
+                  "register": "casual"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "s4-goes-school",
+          "question": "What does Big Brother do every morning?",
+          "questionTh": "พี่ชายทำอะไรทุกเช้านะ",
+          "target": "He goes to school.",
+          "translationTh": "พี่ไปโรงเรียน",
+          "readingTh": "ฮี โกซ ทะ สกูล",
+          "stressWords": [
+            "goes",
+            "school"
+          ],
+          "intonation": "down",
+          "image": "/images/s4-goes-school.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": [],
+          "commonErrors": [
+            {
+              "pattern": "^he go (to )?school$",
+              "correct": "He goes to school."
+            },
+            {
+              "pattern": "^he goes school$",
+              "correct": "He goes to school."
+            },
+            {
+              "pattern": "^he going (to )?school$",
+              "correct": "He goes to school."
+            }
+          ],
+          "keywords": [
+            {
+              "word": "school",
+              "alternatives": [
+                {
+                  "word": "work",
+                  "meaningTh": "ที่ทำงาน",
+                  "register": "neutral"
+                },
+                {
+                  "word": "the park",
+                  "meaningTh": "สวนสาธารณะ",
+                  "register": "neutral"
+                },
+                {
+                  "word": "soccer practice",
+                  "meaningTh": "ซ้อมฟุตบอล",
+                  "register": "neutral"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

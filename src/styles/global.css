@@ -1,0 +1,132 @@
+/* =========================================================
+   สไตล์กลางของทั้งเว็บ (mobile-first)
+   - ตัวแปรสี / ฟอนต์ / ระยะห่าง / มุมโค้ง ใช้ร่วมกันทุก component
+   - reset พื้นฐาน
+   สไตล์เฉพาะ component ให้เขียนในไฟล์ .module.css คู่กับ component นั้น
+   ========================================================= */
+
+:root {
+  /* ---------- สี ---------- */
+  --color-bg: #fffaf2;
+  --color-surface: #ffffff;
+  --color-surface-soft: #fff1dc;
+  --color-text: #1f2430;
+  --color-muted: #5f6675;
+  --color-border: #efe3d0;
+
+  --color-primary: #2563eb;
+  --color-primary-strong: #1d4ed8;
+  --color-primary-soft: #e3ecff;
+
+  --color-xp: #f5a524;
+  --color-streak: #ff6b35;
+  --color-success: #15803d;
+  --color-success-soft: #dcfce7;
+  --color-danger: #dc2626;
+  --color-locked-bg: #eef0f3;
+  --color-locked-text: #4b5260;
+
+  /* ---------- ฟอนต์ (Nunito สำหรับอังกฤษ, Noto Sans Thai Looped = ไทยแบบมีหัว อ่านคำอ่านไทยง่าย) ---------- */
+  --font-body: 'Nunito', 'Noto Sans Thai Looped', 'Leelawadee UI', 'Thonburi', system-ui, sans-serif;
+  --font-mono: ui-monospace, 'Cascadia Code', Consolas, monospace;
+
+  /* ---------- ระยะห่าง ---------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+
+  /* ---------- มุมโค้ง + เงา ---------- */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 999px;
+
+  /* ---------- ขนาดโครงหน้า ---------- */
+  --topbar-height: 56px;
+  --bottomnav-height: 64px;
+  --content-max: 640px;
+  --gutter: 16px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.3;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ข้อความสำหรับโปรแกรมอ่านหน้าจอเท่านั้น (มองไม่เห็นบนจอ) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ผู้ใช้ที่ตั้งค่าลดการเคลื่อนไหว → ปิดแอนิเมชัน */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

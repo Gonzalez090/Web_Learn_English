@@ -1,0 +1,15 @@
+.shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+/* เว้นด้านล่างให้พ้นแถบเมนูล่างที่ลอยอยู่ (+ ขอบล่างของ iPhone) */
+.main {
+  flex: 1;
+  width: 100%;
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: var(--space-4) var(--gutter)
+    calc(var(--bottomnav-height) + env(safe-area-inset-bottom) + var(--space-6));
+}

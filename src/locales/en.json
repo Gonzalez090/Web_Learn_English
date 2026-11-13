@@ -1,0 +1,123 @@
+{
+  "app": {
+    "name": "English Town",
+    "tagline": "Learn like a native kid: listen → speak → read → write"
+  },
+  "nav": {
+    "home": "Home",
+    "learn": "Learn",
+    "games": "Games",
+    "profile": "Profile",
+    "back": "Back",
+    "mainMenu": "Main menu",
+    "goHome": "Go home"
+  },
+  "language": {
+    "label": "Site language",
+    "th": "Thai",
+    "en": "English",
+    "hint": "Changes menus, buttons and instructions only. Lessons, Thai meanings and Thai readings stay the same."
+  },
+  "stats": {
+    "streak": "{{count}}-day streak",
+    "xp": "{{count}} XP"
+  },
+  "status": {
+    "locked": "Locked",
+    "unlocked": "Open",
+    "completed": "Done"
+  },
+  "common": {
+    "comingSoon": "Coming in step {{step}}",
+    "itemCount": "Items: {{count}}"
+  },
+  "category": {
+    "home-family": "Home & family"
+  },
+  "home": {
+    "title": "Hi! Let's practice speaking today",
+    "startPlan": "Start today's plan",
+    "reviewToday": "Review today ({{count}})",
+    "noReview": "Nothing to review today",
+    "cityMap": "City map",
+    "todayMissions": "Today's missions",
+    "shortcuts": "Go to",
+    "learnBasics": "Basics",
+    "soundPractice": "Sounds",
+    "miniGames": "Mini games",
+    "phrases": "Phrases",
+    "settings": "Settings",
+    "dev": "Dev page"
+  },
+  "learn": {
+    "title": "Basics",
+    "subtitle": "7 stages, just like native kids learn",
+    "stageN": "Stage {{n}}",
+    "noLessons": "No lessons in this stage yet"
+  },
+  "lesson": {
+    "summaryTitle": "Lesson summary",
+    "goSummary": "See lesson summary"
+  },
+  "place": {
+    "title": "Place"
+  },
+  "talk": {
+    "title": "Random talk"
+  },
+  "phrases": {
+    "title": "Real-life phrases",
+    "subtitle": "Grouped by real situations",
+    "realVsTextbook": "Textbook vs real English",
+    "realVsTextbookDesc": "What native speakers really say"
+  },
+  "review": {
+    "title": "Today's review"
+  },
+  "plan": {
+    "title": "Today's plan"
+  },
+  "games": {
+    "title": "Mini games",
+    "subtitle": "Mix them in with lessons. Never get bored."
+  },
+  "sounds": {
+    "title": "Sounds",
+    "subtitle": "Sounds that are hard for Thai speakers"
+  },
+  "profile": {
+    "title": "Profile",
+    "speakingCheck": "Speaking Check",
+    "speakingCheckDesc": "Record yourself every 30 days and hear your progress"
+  },
+  "settings": {
+    "title": "Settings"
+  },
+  "credits": {
+    "title": "Photo credits",
+    "subtitle": "All pictures are real photos from Pixabay",
+    "source": "All photos are used under the Content License of",
+    "pixabay": "Pixabay",
+    "photoNumber": "Photo #{{id}}",
+    "by": "by"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "text": "The link may be wrong, or this page doesn't exist yet."
+  },
+  "dev": {
+    "title": "Dev page",
+    "subtitle": "Only in npm run dev. Not in the real site.",
+    "routes": "All pages",
+    "tools": "Tools",
+    "unlockAll": "Unlock all stages and places",
+    "resetAll": "Clear all data",
+    "confirmReset": "Tap again to confirm",
+    "done": "Done",
+    "lessonData": "Lesson data",
+    "colStage": "Stage",
+    "colLessons": "Lessons",
+    "colItems": "Items",
+    "storage": "Saved in localStorage"
+  }
+}

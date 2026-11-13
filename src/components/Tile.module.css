@@ -1,0 +1,148 @@
+/* ---------- รายการ ---------- */
+.list,
+.grid {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+@media (min-width: 520px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.item {
+  min-width: 0;
+}
+
+/* ---------- การ์ด ---------- */
+.tile {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  height: 100%;
+  min-height: 64px;
+  padding: var(--space-3) var(--space-4);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: 0 3px 0 var(--color-border);
+  color: var(--color-text);
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    transform 0.08s,
+    border-color 0.15s;
+}
+
+.tile:hover {
+  border-color: var(--color-primary);
+}
+
+.tile:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 var(--color-border);
+}
+
+.stack {
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-2);
+  text-align: center;
+}
+
+/* ไอคอนเส้นในกล่องสีอ่อน */
+.icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background: var(--color-primary-soft);
+  color: var(--color-primary-strong);
+}
+
+.icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.thumb {
+  position: relative;
+  flex: none;
+}
+
+/* รูปกุญแจทับมุมภาพ (เฉพาะ Stage ที่ยังล็อก) */
+.lock {
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border: 2px solid var(--color-surface);
+  border-radius: var(--radius-full);
+  background: var(--color-locked-text);
+  color: #fff;
+}
+
+.lock svg {
+  width: 14px;
+  height: 14px;
+  stroke-width: 2.5;
+}
+
+.text {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.stack .text {
+  flex: none;
+  align-items: center;
+}
+
+.title {
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+/* ป้ายสถานะอยู่ใต้ชื่อ — ชื่อไม่ถูกเบียดจนตกบรรทัดบนจอแคบ */
+.badge {
+  margin: 2px 0;
+}
+
+.description {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+/* ยังล็อก: ภาพยังเป็นสีจริง แค่จางลงเล็กน้อย */
+.locked .thumb > :first-child,
+.locked .icon {
+  opacity: 0.6;
+}
+
+.locked .title {
+  color: var(--color-muted);
+}

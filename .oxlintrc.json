@@ -1,0 +1,35 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["react", "oxc"],
+  "jsPlugins": ["eslint-plugin-i18next"],
+  "rules": {
+    "react/rules-of-hooks": "error",
+    "react/only-export-components": ["warn", { "allowConstantExport": true }],
+    "i18next/no-literal-string": [
+      "error",
+      {
+        "mode": "jsx-only",
+        "jsx-attributes": {
+          "include": ["aria-label", "title", "placeholder", "alt"],
+          "exclude": [".*"]
+        },
+        "callees": {
+          "exclude": [
+            "i18n(ext)?",
+            "t",
+            "loc",
+            "require",
+            "addEventListener",
+            "removeEventListener",
+            "includes",
+            "indexOf",
+            "endsWith",
+            "startsWith"
+          ]
+        },
+        "message": "ข้อความ UI ต้องผ่าน t('key') เท่านั้น"
+      }
+    ]
+  },
+  "ignorePatterns": ["dist", "node_modules"]
+}

@@ -1,0 +1,49 @@
+{
+  "dailyMissionPool": [],
+  "miniGames": [
+    {
+      "id": "listen-tap",
+      "name": "Listen & Tap",
+      "description": "Listen and tap the right picture before time runs out.",
+      "descriptionTh": "ฟังแล้วแตะภาพให้ถูกภายในเวลาที่กำหนด",
+      "step": 4
+    },
+    {
+      "id": "shadow-karaoke",
+      "name": "Shadow Karaoke",
+      "description": "Say the words in time with the karaoke line.",
+      "descriptionTh": "ประโยควิ่งแบบคาราโอเกะ พูดให้ทันจังหวะ",
+      "step": 5
+    },
+    {
+      "id": "word-swap-race",
+      "name": "Word Swap Race",
+      "description": "Swap as many words as you can in 60 seconds.",
+      "descriptionTh": "สลับคำในประโยคให้ได้มากที่สุดใน 60 วินาที",
+      "step": 6
+    },
+    {
+      "id": "real-or-textbook",
+      "name": "Real or Textbook?",
+      "description": "Pick what a native speaker would really say.",
+      "descriptionTh": "เลือกว่าประโยคไหนเจ้าของภาษาพูดจริง",
+      "step": 10
+    },
+    {
+      "id": "minimal-pair-duel",
+      "name": "Minimal Pair Duel",
+      "description": "Hear two similar words. Pick the right one.",
+      "descriptionTh": "ฟังคู่คำเสียงคล้าย แล้วเลือกให้ถูก",
+      "step": 8
+    },
+    {
+      "id": "speed-order",
+      "name": "Speed Order",
+      "description": "Answer fast before the staff gets tired of waiting.",
+      "descriptionTh": "ตอบให้ทันก่อนพนักงานรอนาน",
+      "step": 12
+    }
+  ],
+  "milestones": [],
+  "soundPractice": []
+}

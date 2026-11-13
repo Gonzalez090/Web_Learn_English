@@ -1,0 +1,33 @@
+{
+  "stage-1": "mother talking to baby",
+  "stage-2": "toddler playing with mother",
+  "stage-3": "toddler pointing",
+  "stage-4": "father and son talking",
+  "stage-5": "children talking and playing",
+  "stage-6": "child reading book",
+  "stage-7": "child writing in notebook",
+
+  "s1-mommy": "smiling woman portrait",
+  "s1-daddy": "smiling man portrait",
+  "s1-baby": "cute baby portrait",
+  "s1-dog": "dog portrait",
+  "s1-cat": "cat portrait",
+
+  "s2-mama": "mother holding baby",
+  "s2-milk": "glass of milk",
+  "s2-ball": "ball on grass",
+  "s2-dog": "puppy",
+  "s2-bye": "child waving hand",
+
+  "s3-more-milk": "toddler drinking milk",
+  "s3-daddy-go": "man walking away",
+  "s3-no-sleep": "child jumping on bed",
+  "s3-dog-run": "dog running",
+  "s3-bye-mama": "girl waving goodbye",
+
+  "s4-want-juice": "child drinking orange juice",
+  "s4-where-cat": "cat hiding under blanket",
+  "s4-dont-like": "child disgusted face",
+  "s4-daddy-home": "father hugging child at home",
+  "s4-goes-school": "boy walking to school with backpack"
+}
