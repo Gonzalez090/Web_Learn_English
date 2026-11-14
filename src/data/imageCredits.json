@@ -5599,6 +5599,41 @@
     "photographerUrl": "https://pixabay.com/users/SiaModels-34556904/",
     "pageUrl": "https://pixabay.com/photos/daughter-child-fun-joy-tree-8318355/"
   },
+  "s5-did-you-see": {
+    "provider": "pixabay",
+    "sourceId": 4818426,
+    "photographer": "congerdesign",
+    "photographerUrl": "https://pixabay.com/users/congerdesign-509903/",
+    "pageUrl": "https://pixabay.com/photos/child-girl-tie-shoes-shoelaces-4818426/"
+  },
+  "s5-gonna-be-late": {
+    "provider": "pixabay",
+    "sourceId": 10428798,
+    "photographer": "AlisaDyson",
+    "photographerUrl": "https://pixabay.com/users/AlisaDyson-25286447/",
+    "pageUrl": "https://pixabay.com/photos/school-bus-school-bus-child-boy-10428798/"
+  },
+  "s5-gotta-brush": {
+    "provider": "pixabay",
+    "sourceId": 2103217,
+    "photographer": "jennyfriedrichs",
+    "photographerUrl": "https://pixabay.com/users/jennyfriedrichs-435099/",
+    "pageUrl": "https://pixabay.com/photos/brush-teeth-teeth-child-2103217/"
+  },
+  "s5-see-you-later": {
+    "provider": "pixabay",
+    "sourceId": 2252145,
+    "photographer": "ast25rulos",
+    "photographerUrl": "https://pixabay.com/users/ast25rulos-5169380/",
+    "pageUrl": "https://pixabay.com/photos/kid-little-girl-smile-happiness-2252145/"
+  },
+  "s5-wanna-pancakes": {
+    "provider": "pixabay",
+    "sourceId": 2139844,
+    "photographer": "Daria-Yakovleva",
+    "photographerUrl": "https://pixabay.com/users/Daria-Yakovleva-3938704/",
+    "pageUrl": "https://pixabay.com/photos/pancakes-honey-stack-2139844/"
+  },
   "stage-1": {
     "provider": "pixabay",
     "sourceId": 84628,

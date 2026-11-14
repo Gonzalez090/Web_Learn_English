@@ -16272,8 +16272,8 @@
                   "register": "neutral"
                 },
                 {
-                  "word": "noodles",
-                  "meaningTh": "บะหมี่ / ก๋วยเตี๋ยว",
+                  "word": "burger",
+                  "meaningTh": "เบอร์เกอร์",
                   "register": "neutral"
                 },
                 {
@@ -17336,8 +17336,8 @@
               "word": "one",
               "alternatives": [
                 {
-                  "word": "two",
-                  "meaningTh": "สอง",
+                  "word": "one more",
+                  "meaningTh": "อีก (หนึ่ง)",
                   "register": "neutral"
                 },
                 {
@@ -17347,7 +17347,7 @@
                 },
                 {
                   "word": "a tiny",
-                  "meaningTh": "นิดเดียว",
+                  "meaningTh": "เล็ก ๆ",
                   "register": "neutral"
                 }
               ]
@@ -21339,17 +21339,17 @@
               "alternatives": [
                 {
                   "word": "down",
-                  "meaningTh": "เบาลง / ลง",
+                  "meaningTh": "ลง",
                   "register": "neutral"
                 },
                 {
-                  "word": "on",
-                  "meaningTh": "เปิด",
+                  "word": "in",
+                  "meaningTh": "เข้าไป",
                   "register": "neutral"
                 },
                 {
-                  "word": "off",
-                  "meaningTh": "ปิด",
+                  "word": "out",
+                  "meaningTh": "ออกไป",
                   "register": "neutral"
                 }
               ]
@@ -21876,8 +21876,8 @@
                   "register": "neutral"
                 },
                 {
-                  "word": "boots",
-                  "meaningTh": "รองเท้าบูต",
+                  "word": "coat",
+                  "meaningTh": "เสื้อโค้ท",
                   "register": "neutral"
                 },
                 {
@@ -21988,8 +21988,8 @@
                   "register": "neutral"
                 },
                 {
-                  "word": "hair",
-                  "meaningTh": "ผม",
+                  "word": "boots",
+                  "meaningTh": "รองเท้าบูต",
                   "register": "neutral"
                 },
                 {
@@ -22110,9 +22110,9 @@
                   "register": "neutral"
                 },
                 {
-                  "word": "stars",
-                  "meaningTh": "ดาว",
-                  "register": "neutral"
+                  "word": "kitty",
+                  "meaningTh": "แมวเหมียว",
+                  "register": "casual"
                 },
                 {
                   "word": "rainbow",
@@ -23543,21 +23543,21 @@
           ],
           "keywords": [
             {
-              "word": "three",
+              "word": "ducks",
               "alternatives": [
                 {
-                  "word": "four",
-                  "meaningTh": "สี่",
+                  "word": "birds",
+                  "meaningTh": "นก (หลายตัว)",
                   "register": "neutral"
                 },
                 {
-                  "word": "five",
-                  "meaningTh": "ห้า",
+                  "word": "frogs",
+                  "meaningTh": "กบ (หลายตัว)",
                   "register": "neutral"
                 },
                 {
-                  "word": "two",
-                  "meaningTh": "สอง",
+                  "word": "cars",
+                  "meaningTh": "รถ (หลายคัน)",
                   "register": "neutral"
                 }
               ]
@@ -33907,8 +33907,8 @@
                   "register": "neutral"
                 },
                 {
-                  "word": "stars",
-                  "meaningTh": "ดาว",
+                  "word": "bird",
+                  "meaningTh": "นก",
                   "register": "neutral"
                 }
               ]
@@ -34247,8 +34247,8 @@
               "word": "two",
               "alternatives": [
                 {
-                  "word": "one",
-                  "meaningTh": "ชิ้นหนึ่ง / อันหนึ่ง",
+                  "word": "four",
+                  "meaningTh": "สี่",
                   "register": "neutral"
                 },
                 {
@@ -35186,8 +35186,8 @@
                   "register": "neutral"
                 },
                 {
-                  "word": "noodles",
-                  "meaningTh": "บะหมี่ / ก๋วยเตี๋ยว",
+                  "word": "salad",
+                  "meaningTh": "สลัด",
                   "register": "neutral"
                 }
               ]
@@ -35388,21 +35388,21 @@
           ],
           "keywords": [
             {
-              "word": "all",
+              "word": "ate",
               "alternatives": [
                 {
-                  "word": "every bit",
-                  "meaningTh": "ทุกคำ",
+                  "word": "drank",
+                  "meaningTh": "ดื่ม (หมด)",
                   "register": "neutral"
                 },
                 {
-                  "word": "everything",
-                  "meaningTh": "ทุกอย่าง",
-                  "register": "neutral"
+                  "word": "gobbled",
+                  "meaningTh": "กินเกลี้ยง",
+                  "register": "casual"
                 },
                 {
-                  "word": "the whole thing",
-                  "meaningTh": "ทั้งหมด",
+                  "word": "finished",
+                  "meaningTh": "กิน (จน) หมด",
                   "register": "neutral"
                 }
               ]
@@ -36091,17 +36091,17 @@
               "alternatives": [
                 {
                   "word": "high",
-                  "meaningTh": "สูง",
-                  "register": "neutral"
-                },
-                {
-                  "word": "down",
-                  "meaningTh": "เบาลง / ลง",
+                  "meaningTh": "สูง ๆ",
                   "register": "neutral"
                 },
                 {
                   "word": "over",
                   "meaningTh": "ข้ามไป",
+                  "register": "neutral"
+                },
+                {
+                  "word": "away",
+                  "meaningTh": "ไปไกล",
                   "register": "neutral"
                 }
               ]
@@ -36275,6 +36275,458 @@
                 {
                   "word": "tower",
                   "meaningTh": "ตึก / หอคอย",
+                  "register": "neutral"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s5-morning",
+      "stageId": 5,
+      "category": "routines",
+      "type": "context",
+      "title": "Busy morning",
+      "titleTh": "เช้าวุ่น ๆ",
+      "items": [
+        {
+          "id": "s5-wanna-pancakes",
+          "scene": "Breakfast in the kitchen",
+          "sceneTh": "มื้อเช้าในครัว",
+          "target": "I wanna make pancakes. Can you help me?",
+          "translationTh": "หนูอยากทำแพนเค้ก ช่วยหนูหน่อยได้ไหม",
+          "readingTh": "ไอ วอน-น่า เมค แพน-เค้กส์, แคน-ยะ เฮลพ์ มี",
+          "connectedSpeech": [
+            {
+              "text": "wanna",
+              "full": "want to",
+              "readingTh": "วอน-น่า"
+            },
+            {
+              "text": "Can you",
+              "spoken": "can-ya",
+              "readingTh": "แคน-ยะ"
+            }
+          ],
+          "stressWords": [
+            "wanna",
+            "pancakes",
+            "help"
+          ],
+          "intonation": "up",
+          "image": "/images/s5-wanna-pancakes.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "acceptAlso": [
+            "i want to make pancakes can you help me"
+          ],
+          "commonErrors": [
+            {
+              "pattern": "^i (want|wanna) make pancake( can you help me)?$",
+              "correct": "I wanna make pancakes. Can you help me?"
+            },
+            {
+              "pattern": "^i want make pancakes",
+              "correct": "I wanna make pancakes. Can you help me?"
+            }
+          ],
+          "keywords": [
+            {
+              "word": "pancakes",
+              "alternatives": [
+                {
+                  "word": "waffles",
+                  "meaningTh": "วาฟเฟิล",
+                  "register": "neutral"
+                },
+                {
+                  "word": "cookies",
+                  "meaningTh": "คุกกี้",
+                  "register": "neutral"
+                },
+                {
+                  "word": "a sandwich",
+                  "meaningTh": "แซนด์วิช",
+                  "register": "neutral"
+                },
+                {
+                  "word": "breakfast",
+                  "meaningTh": "อาหารเช้า",
+                  "register": "neutral"
+                }
+              ]
+            },
+            {
+              "word": "help",
+              "alternatives": [
+                {
+                  "word": "watch",
+                  "meaningTh": "ดู (หนูทำ)",
+                  "register": "neutral"
+                },
+                {
+                  "word": "show",
+                  "meaningTh": "ทำให้ดู",
+                  "register": "neutral"
+                },
+                {
+                  "word": "teach",
+                  "meaningTh": "สอน",
+                  "register": "neutral"
+                }
+              ]
+            }
+          ],
+          "alsoSay": [
+            {
+              "text": "I would like to make pancakes. Could you help me?",
+              "register": "formal",
+              "translationTh": "หนูอยากทำแพนเค้ก ช่วยหนูได้ไหมคะ (สุภาพ)"
+            }
+          ]
+        },
+        {
+          "id": "s5-gotta-brush",
+          "scene": "In front of the bathroom mirror",
+          "sceneTh": "หน้ากระจกห้องน้ำ",
+          "target": "Hold on, I gotta brush my teeth first.",
+          "translationTh": "รอแป๊บนะ หนูต้องแปรงฟันก่อน",
+          "readingTh": "โฮล-ด้อน, ไอ ก็อท-ท่า บรัช มาย ทีธ เฟิร์สท์",
+          "connectedSpeech": [
+            {
+              "text": "gotta",
+              "full": "got to (have to)",
+              "readingTh": "ก็อท-ท่า"
+            },
+            {
+              "text": "Hold on",
+              "spoken": "hol-don",
+              "readingTh": "โฮล-ด้อน"
+            }
+          ],
+          "stressWords": [
+            "Hold",
+            "gotta",
+            "teeth",
+            "first"
+          ],
+          "intonation": "down",
+          "image": "/images/s5-gotta-brush.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "acceptAlso": [
+            "hold on i got to brush my teeth first",
+            "hold on i have to brush my teeth first"
+          ],
+          "commonErrors": [
+            {
+              "pattern": "^(hold on )?i (gotta|have to) brush my tooth first$",
+              "correct": "Hold on, I gotta brush my teeth first."
+            },
+            {
+              "pattern": "^(hold on )?i (gotta|have to) brush teeth first$",
+              "correct": "Hold on, I gotta brush my teeth first."
+            }
+          ],
+          "keywords": [
+            {
+              "word": "teeth",
+              "alternatives": [
+                {
+                  "word": "hair",
+                  "meaningTh": "ผม",
+                  "register": "neutral"
+                },
+                {
+                  "word": "dolly's hair",
+                  "meaningTh": "ผมตุ๊กตา",
+                  "register": "casual"
+                },
+                {
+                  "word": "dog",
+                  "meaningTh": "หมา (แปรงขน)",
+                  "register": "neutral"
+                }
+              ]
+            },
+            {
+              "word": "first",
+              "alternatives": [
+                {
+                  "word": "now",
+                  "meaningTh": "ตอนนี้",
+                  "register": "neutral"
+                },
+                {
+                  "word": "again",
+                  "meaningTh": "อีกรอบ",
+                  "register": "neutral"
+                },
+                {
+                  "word": "too",
+                  "meaningTh": "ด้วย",
+                  "register": "neutral"
+                }
+              ]
+            }
+          ],
+          "alsoSay": [
+            {
+              "text": "Just a moment, I have to brush my teeth first.",
+              "register": "neutral",
+              "translationTh": "รอสักครู่นะ หนูต้องแปรงฟันก่อน"
+            }
+          ]
+        },
+        {
+          "id": "s5-did-you-see",
+          "scene": "By the front door",
+          "sceneTh": "ที่ประตูหน้าบ้าน",
+          "target": "Mom, did you see my shoes? I looked everywhere!",
+          "translationTh": "แม่ เห็นรองเท้าหนูไหม หนูหาทั่วเลย!",
+          "readingTh": "ม็อม, ดิด-จะ ซี มาย ชูส์, ไอ ลุค-เทฟ-รี-แวร์",
+          "connectedSpeech": [
+            {
+              "text": "did you",
+              "spoken": "didja",
+              "readingTh": "ดิด-จะ"
+            },
+            {
+              "text": "looked everywhere",
+              "spoken": "look-tevrywhere",
+              "readingTh": "ลุค-เทฟ-รี-แวร์"
+            }
+          ],
+          "stressWords": [
+            "see",
+            "shoes",
+            "everywhere"
+          ],
+          "intonation": "down",
+          "image": "/images/s5-did-you-see.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "acceptAlso": [
+            "did you see my shoes i looked everywhere"
+          ],
+          "commonErrors": [
+            {
+              "pattern": "^(mom )?you see my shoes( i looked everywhere)?$",
+              "correct": "Mom, did you see my shoes? I looked everywhere!"
+            },
+            {
+              "pattern": "^(mom )?did you saw my shoes",
+              "correct": "Mom, did you see my shoes? I looked everywhere!"
+            }
+          ],
+          "keywords": [
+            {
+              "word": "shoes",
+              "alternatives": [
+                {
+                  "word": "socks",
+                  "meaningTh": "ถุงเท้า",
+                  "register": "neutral"
+                },
+                {
+                  "word": "keys",
+                  "meaningTh": "กุญแจ",
+                  "register": "neutral"
+                },
+                {
+                  "word": "hat",
+                  "meaningTh": "หมวก",
+                  "register": "neutral"
+                },
+                {
+                  "word": "backpack",
+                  "meaningTh": "กระเป๋าเป้",
+                  "register": "neutral"
+                }
+              ]
+            },
+            {
+              "word": "Mom",
+              "alternatives": [
+                {
+                  "word": "Dad",
+                  "meaningTh": "พ่อ",
+                  "register": "casual"
+                },
+                {
+                  "word": "Grandma",
+                  "meaningTh": "คุณยาย / คุณย่า",
+                  "register": "casual"
+                },
+                {
+                  "word": "Sis",
+                  "meaningTh": "พี่สาว",
+                  "register": "casual"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "s5-gonna-be-late",
+          "scene": "Waiting for the school bus",
+          "sceneTh": "รอรถโรงเรียน",
+          "target": "Hurry up! We're gonna be late for school.",
+          "translationTh": "เร็วเข้า! เราจะไปโรงเรียนสายแล้ว",
+          "readingTh": "เฮอ-รี่-ยัพ, เวียร์ กอน-น่า บี เลท ฟอร์ สกูล",
+          "connectedSpeech": [
+            {
+              "text": "gonna",
+              "full": "going to",
+              "readingTh": "กอน-น่า"
+            },
+            {
+              "text": "Hurry up",
+              "spoken": "hurry-yup",
+              "readingTh": "เฮอ-รี่-ยัพ"
+            }
+          ],
+          "stressWords": [
+            "Hurry",
+            "late",
+            "school"
+          ],
+          "intonation": "down",
+          "image": "/images/s5-gonna-be-late.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "acceptAlso": [
+            "hurry up we are going to be late for school",
+            "hurry we are gonna be late for school"
+          ],
+          "commonErrors": [
+            {
+              "pattern": "^(hurry up )?we (gonna|going to) be late for school$",
+              "correct": "Hurry up! We're gonna be late for school."
+            },
+            {
+              "pattern": "^(hurry up )?we('re| are) late for school$",
+              "correct": "Hurry up! We're gonna be late for school."
+            }
+          ],
+          "keywords": [
+            {
+              "word": "school",
+              "alternatives": [
+                {
+                  "word": "the bus",
+                  "meaningTh": "รถบัส",
+                  "register": "neutral"
+                },
+                {
+                  "word": "the party",
+                  "meaningTh": "ปาร์ตี้",
+                  "register": "neutral"
+                },
+                {
+                  "word": "the movie",
+                  "meaningTh": "หนัง",
+                  "register": "neutral"
+                },
+                {
+                  "word": "swimming",
+                  "meaningTh": "ว่ายน้ำ",
+                  "register": "neutral"
+                }
+              ]
+            }
+          ],
+          "alsoSay": [
+            {
+              "text": "Please hurry. We are going to be late for school.",
+              "register": "neutral",
+              "translationTh": "รีบหน่อยนะ เราจะไปโรงเรียนสายแล้ว"
+            }
+          ]
+        },
+        {
+          "id": "s5-see-you-later",
+          "scene": "Saying bye at the door",
+          "sceneTh": "บอกลาที่ประตู",
+          "target": "Bye, Dad! See you after school. Love you!",
+          "translationTh": "บายค่ะพ่อ! เจอกันหลังเลิกเรียนนะ รักพ่อนะ!",
+          "readingTh": "บาย, แด๊ด, ซี-ยะ แอฟ-เท่อร์ สกูล, ลัฟ-ยู",
+          "connectedSpeech": [
+            {
+              "text": "See you",
+              "spoken": "see-ya",
+              "readingTh": "ซี-ยะ"
+            },
+            {
+              "text": "Love you",
+              "full": "I love you",
+              "readingTh": "ลัฟ-ยู"
+            }
+          ],
+          "stressWords": [
+            "Bye",
+            "Dad",
+            "after",
+            "school",
+            "Love"
+          ],
+          "intonation": "down",
+          "image": "/images/s5-see-you-later.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "acceptAlso": [
+            "bye dad see you after school i love you",
+            "bye dad see you after school love you"
+          ],
+          "commonErrors": [
+            {
+              "pattern": "^(bye dad )?see you after school( i)? love$",
+              "correct": "Bye, Dad! See you after school. Love you!"
+            },
+            {
+              "pattern": "^(bye dad )?see you later school",
+              "correct": "Bye, Dad! See you after school. Love you!"
+            }
+          ],
+          "keywords": [
+            {
+              "word": "Dad",
+              "alternatives": [
+                {
+                  "word": "Mom",
+                  "meaningTh": "แม่",
+                  "register": "casual"
+                },
+                {
+                  "word": "Grandma",
+                  "meaningTh": "คุณยาย / คุณย่า",
+                  "register": "casual"
+                },
+                {
+                  "word": "Grandpa",
+                  "meaningTh": "คุณตา / คุณปู่",
+                  "register": "casual"
+                }
+              ]
+            },
+            {
+              "word": "after school",
+              "alternatives": [
+                {
+                  "word": "tonight",
+                  "meaningTh": "คืนนี้",
+                  "register": "neutral"
+                },
+                {
+                  "word": "later",
+                  "meaningTh": "ทีหลัง",
+                  "register": "neutral"
+                },
+                {
+                  "word": "at dinner",
+                  "meaningTh": "ตอนมื้อเย็น",
                   "register": "neutral"
                 }
               ]

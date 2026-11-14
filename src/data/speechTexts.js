@@ -8,6 +8,7 @@
 // ข้อความต้องตรงกับที่ส่งให้ SpeakButton ทุกตัวอักษร เพราะใช้เป็น key หาไฟล์เสียง
 // =========================================================
 import { RECAST_OPENERS } from '../utils/recast.js'
+import { swapVariants } from '../utils/swap.js'
 
 export function collectSpeechTexts(lessonsData) {
   const texts = new Set()
@@ -22,6 +23,10 @@ export function collectSpeechTexts(lessonsData) {
       for (const line of item.parentese ?? []) add(line) // ประโยคแบบพ่อแม่พูด (Stage 1–3)
       add(item.question) // คำถามของพ่อแม่ (Stage 4)
       for (const error of item.commonErrors ?? []) add(error.correct) // ประโยคที่ทวนกลับ (recast)
+      // สลับคำในบริบท (Stage 4+): คำที่ใช้แทน + ประโยคที่สลับแล้วทุกแบบ
+      for (const keyword of item.keywords ?? []) for (const alternative of keyword.alternatives) add(alternative.word)
+      for (const variant of swapVariants(item)) add(variant.text)
+      for (const other of item.alsoSay ?? []) add(other.text) // แบบสุภาพ/แบบกันเอง (ประโยคในบริบท)
     }
   }
 

@@ -16,13 +16,29 @@ describe('buildLessonSteps', () => {
     ])
   })
 
-  it('Stage 4: ฟัง → พูดตาม ทีละข้อ → เกมคาราโอเกะ → รอบใช้เองทุกข้อ', () => {
+  it('Stage 4: ฟัง → พูดตาม → สลับคำ ทีละข้อ → เกมคาราโอเกะ → รอบใช้เองทุกข้อ', () => {
     expect(describeSteps(buildLessonSteps(LESSON_FLOWS.sentence, items))).toEqual([
       'listenSentence:a',
       'speak:a',
+      'swap:a',
       'listenSentence:b',
       'speak:b',
+      'swap:b',
       'game:shadow-karaoke',
+      'speakOwn:a',
+      'speakOwn:b',
+    ])
+  })
+
+  it('ประโยคในบริบท (Stage 5): ฟัง → พูดตาม → สลับคำ → เกม Word Swap Race → รอบใช้เอง', () => {
+    expect(describeSteps(buildLessonSteps(LESSON_FLOWS.context, items))).toEqual([
+      'listenContext:a',
+      'speak:a',
+      'swap:a',
+      'listenContext:b',
+      'speak:b',
+      'swap:b',
+      'game:word-swap-race',
       'speakOwn:a',
       'speakOwn:b',
     ])
@@ -30,8 +46,8 @@ describe('buildLessonSteps', () => {
 })
 
 describe('LESSON_FLOWS', () => {
-  it('ทุกบทใน Stage 1–4 มีตัวเล่นแล้ว', () => {
-    for (const lesson of lessonList.filter((entry) => entry.stageId <= 4)) {
+  it('ทุกบทใน Stage 1–4 และบทประโยคในบริบทมีตัวเล่นแล้ว', () => {
+    for (const lesson of lessonList.filter((entry) => entry.stageId <= 4 || entry.type === 'context')) {
       expect(isPlayable(lesson), lesson.id).toBe(true)
     }
   })

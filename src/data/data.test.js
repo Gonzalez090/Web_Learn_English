@@ -6,6 +6,7 @@ import { miniGames } from './index.js'
 import lessonsData from './lessons.json'
 import imageCredits from './imageCredits.json'
 import { collectSpeechTexts } from './speechTexts.js'
+import { swapVariants } from '../utils/swap.js'
 import audioManifest from './audioManifest.json'
 import th from '../locales/th.json'
 import en from '../locales/en.json'
@@ -38,8 +39,8 @@ describe('ไฟล์เสียงเจ้าของภาษา (Kokoro)'
 const REGISTERS = ['casual', 'neutral', 'formal']
 const FREQUENCIES = ['very-common', 'common', 'sometimes']
 const SHOW_TEXT = ['never', 'toggle', 'always']
-const LESSON_TYPES = ['listen', 'word', 'twoWord', 'sentence', 'dialogue', 'story', 'phonics', 'writing']
-const SPEAKING_TYPES = ['word', 'twoWord', 'sentence']
+const LESSON_TYPES = ['listen', 'word', 'twoWord', 'sentence', 'context', 'dialogue', 'story', 'phonics', 'writing']
+const SPEAKING_TYPES = ['word', 'twoWord', 'sentence', 'context']
 
 // ทำข้อความให้อยู่ในรูปมาตรฐานก่อนเทียบ: ตัวเล็ก, ตัดเครื่องหมาย (ยกเว้น '), เว้นวรรคเดียว
 const normalize = (text) =>
@@ -179,6 +180,44 @@ describe('Stage 4: recast + สลับคำ', () => {
         expect(alt.meaningTh).toBeTruthy()
         expect(REGISTERS).toContain(alt.register)
       }
+    }
+  })
+})
+
+// สลับคำในบริบท (Stage 4+): ทุกประโยคที่สลับต้องเปลี่ยนจริง ไม่ซ้ำกัน และมีไฟล์เสียง (ตรวจในชุดไฟล์เสียงด้านบน)
+describe('สลับคำในบริบท', () => {
+  const swapItems = allItems.filter(({ item }) => item.keywords?.length).map(({ item }) => [item.id, item])
+
+  it.each(swapItems)('%s สลับคำแล้วได้ประโยคใหม่ทุกแบบ ไม่ซ้ำกัน', (_id, item) => {
+    const texts = swapVariants(item).map((variant) => variant.text)
+    expect(texts.length).toBeGreaterThan(0)
+    expect(texts).not.toContain(item.target)
+    expect(new Set(texts).size).toBe(texts.length)
+    // a / an ไม่ผิดหน้าคำที่ขึ้นต้นด้วยสระ/พยัญชนะ (ยกเว้นคำอย่าง unicorn / hour)
+    for (const text of texts) expect(text, text).not.toMatch(/\ba [aeio]\w|\ban [bcdfgjklmnpqrstvwxz]/i)
+  })
+})
+
+// ประโยคในบริบท (Stage 5+, ส่วนที่ 2.2 + 2.3)
+describe('ประโยคในบริบท (context)', () => {
+  const contextItems = allItems.filter(({ lesson }) => lesson.type === 'context').map(({ item }) => [item.id, item])
+
+  it('มีบทตัวอย่างอย่างน้อย 1 บท', () => {
+    expect(contextItems.length).toBeGreaterThan(0)
+  })
+
+  it.each(contextItems)('%s มีฉาก เสียงพูดเชื่อม คำสำคัญ และแบบอื่นครบ', (_id, item) => {
+    expect(item.scene && item.sceneTh).toBeTruthy()
+    expect(['up', 'down']).toContain(item.intonation)
+    expect(item.keywords.length).toBeGreaterThan(0)
+    for (const entry of item.connectedSpeech ?? []) {
+      expect(containsWord(item.target, entry.text), entry.text).toBe(true)
+      expect(entry.full || entry.spoken, entry.text).toBeTruthy()
+      expect(entry.readingTh).toBeTruthy()
+    }
+    for (const other of item.alsoSay ?? []) {
+      expect(other.text && other.translationTh).toBeTruthy()
+      expect(REGISTERS).toContain(other.register)
     }
   })
 })

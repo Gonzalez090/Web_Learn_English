@@ -78,6 +78,18 @@ export default function Exchange({ item, display, parts = 'both', idPrefix }) {
         </div>
       )}
 
+      {/* ประโยคในบริบท (ไม่มีคำถามของพ่อแม่) รอบใช้เอง → บอกความหมายไทยเป็นโจทย์ ให้พูดเป็นภาษาอังกฤษเอง */}
+      {parts === 'ownTurn' && !item.question && item.translationTh && (
+        <div className={`${styles.row} ${styles.questionRow}`} role="group" aria-label={t('lesson.sayInEnglish')}>
+          <div className={`${styles.bubble} ${styles.question}`}>
+            <p className={styles.meaning}>{t('lesson.sayInEnglish')}</p>
+            <p className={styles.questionText} lang="th">
+              {item.translationTh}
+            </p>
+          </div>
+        </div>
+      )}
+
       <div className={`${styles.row} ${styles.answerRow}`} role="group" aria-label={t('lesson.answer')}>
         {parts === 'ownTurn' ? (
           <div className={`${styles.bubble} ${styles.answer} ${styles.yourTurn}`}>

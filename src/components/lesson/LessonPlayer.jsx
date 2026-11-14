@@ -1,6 +1,6 @@
 // =========================================================
 // LessonPlayer — ตัวเล่นบทเรียน (ส่วนที่ 4)
-// - ลำดับขั้นอ่านจาก utils/lessonSteps.js: ทีละข้อ (ฟัง → พูดตาม) → มินิเกม → (Stage 4) รอบใช้เอง
+// - ลำดับขั้นอ่านจาก utils/lessonSteps.js: ทีละข้อ (ฟัง → พูดตาม → สลับคำ) → มินิเกม → (Stage 4+) รอบใช้เอง
 // - ได้ XP ทันทีที่ทำแต่ละขั้นสำเร็จ (ออกกลางคันก็ได้ XP ที่ทำไปแล้ว) + แจ้งเหตุการณ์ให้ภารกิจรายวัน
 // - ข้อที่พูดไม่ผ่าน / เกมไม่ผ่านรอบนั้น → เข้ารายการทบทวน
 // - Stage 4: กด "ดูข้อความ" ข้อไหนแล้ว จำไว้ทั้งบท (ขั้นพูดตามไม่ต้องกดซ้ำ) — รอบใช้เองปิดข้อความเสมอ
@@ -17,12 +17,15 @@ import { useReviewStore } from '../../store/reviewStore'
 import LookListenStep from './LookListenStep'
 import ListenSentenceStep from './ListenSentenceStep'
 import SpeakStep from './SpeakStep'
+import SwapStep from './SwapStep'
+import ListenContextStep from './ListenContextStep'
 import PlayerFrame from './PlayerFrame'
 import ListenTapGame from '../games/ListenTapGame'
 import ShadowKaraokeGame from '../games/ShadowKaraokeGame'
+import WordSwapRaceGame from '../games/WordSwapRaceGame'
 
 // มินิเกมที่แทรกในบทได้ (ทุกเกมรับ props ชุดเดียวกัน: items, pool, onRoundResult, onFinish)
-const GAMES = { 'listen-tap': ListenTapGame, 'shadow-karaoke': ShadowKaraokeGame }
+const GAMES = { 'listen-tap': ListenTapGame, 'shadow-karaoke': ShadowKaraokeGame, 'word-swap-race': WordSwapRaceGame }
 
 export default function LessonPlayer({ lesson, stage, onlyItemIds }) {
   const navigate = useNavigate()
@@ -44,6 +47,7 @@ export default function LessonPlayer({ lesson, stage, onlyItemIds }) {
   const xpRef = useRef(0)
   const missedRef = useRef(new Set())
   const checksRef = useRef({ total: 0, passed: 0 }) // ใช้คิดคะแนนท้ายบท
+  const gameCheckedRef = useRef(new Set()) // ข้อที่เกมรายงานผลแล้ว (นับคะแนนครั้งเดียว)
 
   function earn(amount) {
     xpRef.current += amount
@@ -118,6 +122,37 @@ export default function LessonPlayer({ lesson, stage, onlyItemIds }) {
           }}
         />
       )}
+      {step.kind === 'listenContext' && (
+        <ListenContextStep
+          item={step.item}
+          stage={stage}
+          revealed={revealed[step.item.id]}
+          onReveal={(kind) => reveal(step.item.id, kind)}
+          onDone={() => {
+            earn(XP.listen)
+            trackEvent('listen')
+            next()
+          }}
+        />
+      )}
+      {step.kind === 'swap' && (
+        // สลับคำ: ไม่นับเป็นข้อสอบ (ไม่มีผ่าน/ไม่ผ่าน) — ลองสลับได้ XP ฟัง / พูดประโยคใหม่ผ่านได้ XP พูดตามเพิ่ม
+        <SwapStep
+          item={step.item}
+          stage={stage}
+          revealed={revealed[step.item.id]}
+          onReveal={(kind) => reveal(step.item.id, kind)}
+          onDone={({ spoke }) => {
+            earn(XP.swap)
+            trackEvent('listen')
+            if (spoke) {
+              earn(XP.speak)
+              trackEvent('speakPass')
+            }
+            next()
+          }}
+        />
+      )}
       {step.kind === 'speak' && (
         <SpeakStep
           item={step.item}
@@ -144,6 +179,9 @@ export default function LessonPlayer({ lesson, stage, onlyItemIds }) {
               earn(GAME_ROUND_XP[step.game])
               trackEvent('gameCorrect')
             }
+            // นับคะแนนท้ายบทข้อละครั้งต่อเกม (Word Swap Race เล่นข้อเดิมได้หลายรอบ)
+            if (gameCheckedRef.current.has(item.id)) return
+            gameCheckedRef.current.add(item.id)
             check(item, passed)
           }}
           onFinish={(outcome) => {

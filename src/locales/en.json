@@ -159,7 +159,11 @@
     "playQuestion": "Hear the question",
     "yourTurn": "Your turn",
     "speakOwnInstruction": "Answer on your own (no text)",
-    "speakOwnHint": "Hear the question, look at the picture, then tap “Answer”. Try as many times as you like."
+    "speakOwnHint": "Hear the question, look at the picture, then tap “Answer”. Try as many times as you like.",
+    "swapInstruction": "Tap a dashed word and swap it for another.",
+    "swapHint": "Swap at least one word to go on.",
+    "listenContext": "Listen to how native speakers say it.",
+    "sayInEnglish": "Say this in English…"
   },
   "game": {
     "listenTapTitle": "Listen & Tap",
@@ -178,7 +182,14 @@
     "karaokeAlmost": "Almost! Try again next round",
     "karaokeNeedsMic": "This game needs a microphone",
     "points": "{{points}} pts",
-    "skipGame": "Skip this game"
+    "skipGame": "Skip this game",
+    "swapRaceTitle": "Word Swap Race",
+    "swapRaceIntro": "Read the Thai meaning and tap the English word that matches. Swap as many as you can in {{seconds}} seconds!",
+    "start": "Start!",
+    "swapTo": "Swap in the word for",
+    "timeLeft": "{{seconds}} seconds left",
+    "swapCount": "{{count}} swaps",
+    "swapRaceDone": "Time's up! {{count}} swaps"
   },
   "locked": {
     "title": "This stage is locked",
@@ -314,5 +325,19 @@
       "up": "Voice goes up at the end",
       "down": "Voice goes down at the end"
     }
+  },
+  "swap": {
+    "choose": "Swap it for…",
+    "original": "Original",
+    "playWord": "Hear \"{{word}}\"",
+    "keywordHint": "Tap to swap \"{{word}}\"",
+    "meaning": "{{word}} = {{meaning}}",
+    "speakNew": "Say this sentence"
+  },
+  "context": {
+    "connected": "Native speakers say…",
+    "means": "= {{full}}",
+    "soundsLike": "sounds like {{spoken}}",
+    "alsoSay": "You can also say"
   }
 }
