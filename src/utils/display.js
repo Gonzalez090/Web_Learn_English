@@ -31,3 +31,24 @@ export function showThaiReading(setting, stage) {
 
 // คำแปลไทยเปิดไว้ตั้งแต่แรกหรือไม่ ('hidden' = ซ่อนไว้ กดดูได้, 'shown' = แสดงเลย)
 export const meaningStartsVisible = (setting) => setting === 'shown'
+
+// คำที่ใช้เทียบ: ตัวเล็ก ตัดเครื่องหมายหัว-ท้าย (เก็บ ' ไว้)
+const bareWord = (word) =>
+  String(word ?? '')
+    .toLowerCase()
+    .replace(/[’‘]/g, "'")
+    .replace(/^[^a-z0-9']+|[^a-z0-9']+$/g, '')
+
+/**
+ * แยกประโยคเป็นคำ แล้วบอกว่าคำไหนลงเสียงหนัก (ส่วนที่ 2.3: stress)
+ * @param text        "No, I don't like it."
+ * @param stressWords ["No", "don't", "like"] (ไม่สนตัวพิมพ์/เครื่องหมาย)
+ * @returns [{ text: 'No,', stressed: true }, { text: 'I', stressed: false }, ...]
+ */
+export function markStress(text, stressWords = []) {
+  const stressed = new Set((stressWords ?? []).map(bareWord))
+  return String(text ?? '')
+    .split(/\s+/)
+    .filter(Boolean)
+    .map((word) => ({ text: word, stressed: stressed.has(bareWord(word)) }))
+}

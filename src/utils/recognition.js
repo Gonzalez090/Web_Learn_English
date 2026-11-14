@@ -14,6 +14,21 @@ const RecognitionClass =
 
 export const isRecognitionSupported = typeof RecognitionClass === 'function'
 
+// error จากระบบรับเสียง → key ข้อความที่อธิบายให้ผู้ใช้เข้าใจ (ไฟล์ภาษา mic.*)
+const ERROR_MESSAGE_KEY = {
+  'not-allowed': 'mic.errorPermission',
+  'service-not-allowed': 'mic.errorPermission',
+  'no-speech': 'mic.errorNoSpeech',
+  'audio-capture': 'mic.errorNoMic',
+  network: 'mic.errorNetwork',
+  unsupported: 'mic.notSupported',
+}
+export const micErrorMessageKey = (error) => ERROR_MESSAGE_KEY[error] ?? 'mic.errorGeneric'
+
+// ปัญหาที่ผู้ใช้แก้เองในหน้านั้นไม่ได้ → ต้องให้ข้ามได้ทันที ไม่ติดอยู่ในบท/เกม
+const BLOCKING_ERRORS = new Set(['not-allowed', 'service-not-allowed', 'audio-capture', 'network', 'unsupported'])
+export const isBlockingMicError = (error) => BLOCKING_ERRORS.has(error)
+
 let activeSession = null // { recognition, token }
 
 /**

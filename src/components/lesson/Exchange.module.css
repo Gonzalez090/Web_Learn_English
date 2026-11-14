@@ -1,0 +1,153 @@
+/* บทถาม-ตอบแบบกล่องแชต: คำถามชิดซ้าย คำตอบชิดขวา */
+.exchange {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-2);
+  max-width: 100%;
+}
+
+.questionRow {
+  align-self: flex-start;
+}
+
+/* คำตอบอยู่ขวา */
+.answerRow {
+  align-self: flex-end;
+}
+
+.bubble {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 0;
+  max-width: 100%;
+  padding: var(--space-2) var(--space-3);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.question {
+  align-items: flex-start;
+  border-bottom-left-radius: 4px;
+}
+
+.answer {
+  border-color: transparent;
+  border-bottom-right-radius: 4px;
+  background: var(--color-primary-soft);
+}
+
+.questionText {
+  font-weight: 600;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.meaning {
+  color: var(--color-muted);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* ข้อความยังซ่อน → คลื่นเสียง */
+.hidden {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  color: var(--color-muted);
+}
+
+.hiddenIcon {
+  width: 44px;
+  height: 24px;
+}
+
+/* กล่อง "ตาเรา" ตอนใช้เอง */
+.yourTurn {
+  flex-direction: row;
+  gap: var(--space-2);
+  border: 2px dashed var(--color-primary);
+  background: var(--color-surface);
+  color: var(--color-primary-strong);
+  font-weight: 800;
+}
+
+.yourTurnIcon {
+  width: 18px;
+  height: 18px;
+}
+
+/* ปุ่มลำโพงเล็ก */
+.lineButton {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
+.lineButton:hover {
+  border-color: var(--color-primary);
+}
+
+.playing {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.lineIcon {
+  width: 18px;
+  height: 18px;
+}
+
+/* ปุ่ม "ดูข้อความ" / "ดูความหมาย" */
+.reveals {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.reveal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 0 var(--space-3);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-bg);
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.reveal:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary-strong);
+}
+
+.revealIcon {
+  width: 16px;
+  height: 16px;
+}

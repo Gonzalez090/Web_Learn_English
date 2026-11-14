@@ -3,11 +3,15 @@
 //   แตะ → ไมค์เริ่มฟัง (เสียงที่กำลังเล่นจะหยุดก่อน)
 //   แตะอีกครั้งระหว่างฟัง → หยุดฟังแล้วให้คะแนนทันที
 //   พูดจบ → เทียบกับคำเป้าหมาย → แสดงผล (SpeechResult)
+//   ส่ง recast (Stage 4+) → พูดยังไม่ถูก ระบบทวนประโยคที่ถูกให้ฟังทันที (ส่วนที่ 2.4) แล้วให้ลองใหม่
 // props:
 //   target     = คำ/ประโยคเป้าหมาย
 //   acceptAlso = คำอื่นที่ยอมรับ (ระบบมักได้ยินคำสั้น ๆ เป็นคำใกล้เคียง)
 //   lenient    = ตรวจแบบผ่อนปรน (Stage 2–3)
 //   showText   = แสดงตัวอักษรภาษาอังกฤษในผลได้ไหม (Stage 1–3 = false)
+//   recast     = ข้อในบทเรียน { target, commonErrors } → เปิดการทวนกลับแบบพ่อแม่ (ไม่ส่ง = ไม่ทวน)
+//   speakId    = รหัสของปุ่มเสียงทวนกลับ (ไม่ซ้ำกันในหน้า)
+//   label      = ข้อความบนปุ่ม (ค่าเริ่มต้น "พูดตาม")
 //   onResult   = เรียกเมื่อได้ผล (ขั้นที่ 4 ใช้ให้ XP / บันทึกข้อที่พลาด)
 //   onError    = เรียกเมื่อฟังไม่สำเร็จ ส่งรหัส error (เช่น 'no-speech', 'not-allowed')
 // =========================================================
@@ -15,30 +19,28 @@ import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Mic, Square } from 'lucide-react'
 import { useRecognition } from '../hooks/useRecognition'
+import { useSpeech } from '../hooks/useSpeech'
 import { compareSpeech } from '../utils/compareWords'
+import { applyRecast } from '../utils/recast'
+import { micErrorMessageKey } from '../utils/recognition'
 import SpeechResult from './SpeechResult'
 import styles from './MicButton.module.css'
-
-// error จากระบบรับเสียง → key ข้อความที่อธิบายให้ผู้ใช้เข้าใจ
-const ERROR_MESSAGE_KEY = {
-  'not-allowed': 'mic.errorPermission',
-  'service-not-allowed': 'mic.errorPermission',
-  'no-speech': 'mic.errorNoSpeech',
-  'audio-capture': 'mic.errorNoMic',
-  network: 'mic.errorNetwork',
-}
 
 export default function MicButton({
   target,
   acceptAlso = [],
   lenient = false,
   showText = true,
+  recast = null,
+  speakId = 'mic',
+  label,
   onResult,
   onError,
   size = 'md',
 }) {
   const { t } = useTranslation()
   const { supported, status, interim, error, listen, stop } = useRecognition()
+  const { speak } = useSpeech()
   const [result, setResult] = useState(null)
   const [attempts, setAttempts] = useState(0)
 
@@ -70,10 +72,13 @@ export default function MicButton({
     setResult(null)
     const alternatives = await listen()
     if (!alternatives) return
-    const scored = compareSpeech(target, alternatives, { lenient, acceptAlso })
+    let scored = compareSpeech(target, alternatives, { lenient, acceptAlso })
+    if (recast) scored = applyRecast(recast, scored, attempts)
     setResult(scored)
     setAttempts((count) => count + 1)
     onResult?.(scored)
+    // ทวนประโยคที่ถูกให้ฟังทันที แบบพ่อแม่ ("Yes! He goes to school.")
+    if (scored.recast) speak(scored.recast.lines, { key: `${speakId}:recast:normal` })
   }
 
   return (
@@ -85,7 +90,7 @@ export default function MicButton({
         onClick={handleClick}
       >
         {listening ? <Square className={styles.icon} aria-hidden="true" /> : <Mic className={styles.icon} aria-hidden="true" />}
-        <span>{listening ? t('mic.listening') : result ? t('mic.again') : t('mic.speak')}</span>
+        <span>{listening ? t('mic.listening') : result ? t('mic.again') : (label ?? t('mic.speak'))}</span>
       </button>
 
       {/* ระหว่างพูด: แสดงสิ่งที่ได้ยินสด ๆ (เฉพาะ Stage ที่แสดงตัวอักษรได้) */}
@@ -97,11 +102,13 @@ export default function MicButton({
 
       {status === 'error' && error && (
         <p className={styles.error} role="alert">
-          {t(ERROR_MESSAGE_KEY[error] ?? 'mic.errorGeneric')}
+          {t(micErrorMessageKey(error))}
         </p>
       )}
 
-      {result && !listening && <SpeechResult result={result} attempt={attempts - 1} showText={showText} />}
+      {result && !listening && (
+        <SpeechResult result={result} attempt={attempts - 1} showText={showText} speakId={speakId} />
+      )}
     </div>
   )
 }

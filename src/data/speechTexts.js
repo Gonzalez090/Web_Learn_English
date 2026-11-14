@@ -7,6 +7,7 @@
 //
 // ข้อความต้องตรงกับที่ส่งให้ SpeakButton ทุกตัวอักษร เพราะใช้เป็น key หาไฟล์เสียง
 // =========================================================
+import { RECAST_OPENERS } from '../utils/recast.js'
 
 export function collectSpeechTexts(lessonsData) {
   const texts = new Set()
@@ -20,8 +21,12 @@ export function collectSpeechTexts(lessonsData) {
       add(item.word ?? item.target) // คำ/ประโยคบนการ์ด (VocabCard)
       for (const line of item.parentese ?? []) add(line) // ประโยคแบบพ่อแม่พูด (Stage 1–3)
       add(item.question) // คำถามของพ่อแม่ (Stage 4)
+      for (const error of item.commonErrors ?? []) add(error.correct) // ประโยคที่ทวนกลับ (recast)
     }
   }
+
+  // คำขึ้นต้นตอนทวนกลับ ("Yes!", "Listen." …) — พูดคู่กับประโยคที่ถูก
+  for (const opener of [...RECAST_OPENERS.error, ...RECAST_OPENERS.model]) add(opener)
 
   return [...texts].sort()
 }

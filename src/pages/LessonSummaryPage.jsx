@@ -78,7 +78,8 @@ export default function LessonSummaryPage() {
     )
   }
 
-  const showText = englishTextMode(stage.showText) === 'shown'
+  // Stage 4 (กดดูข้อความได้) ได้เห็นข้อความในบทแล้ว → สรุปท้ายบทแสดงประโยคเลย / Stage 1–3 ไม่แสดง
+  const showText = englishTextMode(stage.showText) !== 'hidden'
   const played = lesson.items.filter((item) => !result.itemIds.length || result.itemIds.includes(item.id))
   const missed = played.filter((item) => result.missedIds.includes(item.id))
   const mastered = played.filter((item) => !result.missedIds.includes(item.id))

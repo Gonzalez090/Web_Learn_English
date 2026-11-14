@@ -28,6 +28,11 @@
   max-width: min(300px, 36vh);
 }
 
+/* ขั้นที่มีกล่องถาม-ตอบ (Stage 4) → ภาพเล็กลงอีกนิด ให้เห็นทั้งบทสนทนาและปุ่ม */
+.pictureSmall {
+  max-width: min(240px, 28vh);
+}
+
 .hint {
   color: var(--color-muted);
   font-size: 0.875rem;

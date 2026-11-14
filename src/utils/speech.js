@@ -94,6 +94,33 @@ export function estimateDurationMs(text, rate) {
   return Math.round((words / (2.5 * rate)) * 1000)
 }
 
+// ความยาวจริงของไฟล์เสียง (ms) — เกมคาราโอเกะใช้จัดจังหวะคำ; ไม่มีไฟล์/อ่านไม่ได้ → ใช้ค่าประมาณ
+const durationCache = new Map()
+export function getSpeechDurationMs(text, rate = 'normal') {
+  const fallback = estimateDurationMs(text, rate === 'slow' ? 0.75 : 1)
+  const file = typeof window !== 'undefined' && typeof window.Audio === 'function' ? audioFileFor(text, rate) : null
+  if (!file) return Promise.resolve(fallback)
+  if (durationCache.has(file)) return Promise.resolve(durationCache.get(file))
+  return new Promise((resolve) => {
+    const probe = new window.Audio()
+    const done = (ms) => {
+      clearTimeout(timer)
+      probe.onloadedmetadata = null
+      probe.onerror = null
+      resolve(ms)
+    }
+    const timer = setTimeout(() => done(fallback), 2000)
+    probe.onloadedmetadata = () => {
+      const ms = Number.isFinite(probe.duration) && probe.duration > 0 ? Math.round(probe.duration * 1000) : fallback
+      durationCache.set(file, ms)
+      done(ms)
+    }
+    probe.onerror = () => done(fallback)
+    probe.preload = 'metadata'
+    probe.src = file
+  })
+}
+
 // =========================================================
 // ตัวควบคุมเสียง (ใช้ speechSynthesis ของเบราว์เซอร์)
 // =========================================================

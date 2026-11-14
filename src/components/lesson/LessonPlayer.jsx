@@ -1,8 +1,9 @@
 // =========================================================
 // LessonPlayer — ตัวเล่นบทเรียน (ส่วนที่ 4)
-// - ลำดับขั้นอ่านจาก utils/lessonSteps.js: ทีละข้อ (ดูภาพ+ฟัง → พูดตาม) แล้วจบด้วยมินิเกม
+// - ลำดับขั้นอ่านจาก utils/lessonSteps.js: ทีละข้อ (ฟัง → พูดตาม) → มินิเกม → (Stage 4) รอบใช้เอง
 // - ได้ XP ทันทีที่ทำแต่ละขั้นสำเร็จ (ออกกลางคันก็ได้ XP ที่ทำไปแล้ว) + แจ้งเหตุการณ์ให้ภารกิจรายวัน
-// - ข้อที่พูดไม่ผ่าน / เกมไม่ถูกตั้งแต่ครั้งแรก → เข้ารายการทบทวน
+// - ข้อที่พูดไม่ผ่าน / เกมไม่ผ่านรอบนั้น → เข้ารายการทบทวน
+// - Stage 4: กด "ดูข้อความ" ข้อไหนแล้ว จำไว้ทั้งบท (ขั้นพูดตามไม่ต้องกดซ้ำ) — รอบใช้เองปิดข้อความเสมอ
 // - จบบท → บันทึกผล + ปลดล็อก Stage ถัดไป → ไปหน้าสรุป
 // props:
 //   lesson, stage
@@ -10,20 +11,18 @@
 // =========================================================
 import { useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { LESSON_FLOWS, XP } from '../../utils/lessonSteps'
+import { buildLessonSteps, GAME_ROUND_XP, LESSON_FLOWS, XP } from '../../utils/lessonSteps'
 import { useProgressStore } from '../../store/progressStore'
 import { useReviewStore } from '../../store/reviewStore'
 import LookListenStep from './LookListenStep'
+import ListenSentenceStep from './ListenSentenceStep'
 import SpeakStep from './SpeakStep'
 import PlayerFrame from './PlayerFrame'
 import ListenTapGame from '../games/ListenTapGame'
+import ShadowKaraokeGame from '../games/ShadowKaraokeGame'
 
-// สร้างรายการขั้นของบท: [{ kind: 'lookListen' | 'speak', item } ..., { kind: 'game', game }]
-function buildSteps(flow, items) {
-  const steps = items.flatMap((item) => flow.itemSteps.map((kind) => ({ kind, item })))
-  if (flow.game) steps.push({ kind: 'game', game: flow.game })
-  return steps
-}
+// มินิเกมที่แทรกในบทได้ (ทุกเกมรับ props ชุดเดียวกัน: items, pool, onRoundResult, onFinish)
+const GAMES = { 'listen-tap': ListenTapGame, 'shadow-karaoke': ShadowKaraokeGame }
 
 export default function LessonPlayer({ lesson, stage, onlyItemIds }) {
   const navigate = useNavigate()
@@ -37,9 +36,10 @@ export default function LessonPlayer({ lesson, stage, onlyItemIds }) {
     const selected = onlyItemIds?.length ? lesson.items.filter((item) => onlyItemIds.includes(item.id)) : []
     return selected.length ? selected : lesson.items
   }, [lesson, onlyItemIds])
-  const steps = useMemo(() => buildSteps(flow, items), [flow, items])
+  const steps = useMemo(() => buildLessonSteps(flow, items), [flow, items])
 
   const [index, setIndex] = useState(0)
+  const [revealed, setRevealed] = useState({}) // { [itemId]: { text, meaning } } ข้อที่กดเปิดดูแล้ว
   // ผลระหว่างเล่น (ใช้ ref เพราะไม่ต้อง render ใหม่ทุกครั้งที่เปลี่ยน)
   const xpRef = useRef(0)
   const missedRef = useRef(new Set())
@@ -54,6 +54,11 @@ export default function LessonPlayer({ lesson, stage, onlyItemIds }) {
     checksRef.current.total += 1
     if (passed) checksRef.current.passed += 1
     else missedRef.current.add(item.id)
+  }
+
+  // กด "ดูข้อความ" ('text') / "ดูความหมาย" ('meaning') ของข้อไหนแล้ว → ขั้นต่อ ๆ ไปของข้อนั้นเปิดไว้เลย
+  function reveal(itemId, kind) {
+    setRevealed((current) => ({ ...current, [itemId]: { ...current[itemId], [kind]: true } }))
   }
 
   function finish() {
@@ -75,7 +80,18 @@ export default function LessonPlayer({ lesson, stage, onlyItemIds }) {
     else setIndex(index + 1)
   }
 
+  // ผลของขั้นพูด (พูดตาม / ใช้เอง)
+  function speakDone(item, passed, xp) {
+    if (passed) {
+      earn(xp)
+      trackEvent('speakPass')
+    }
+    check(item, passed)
+    next()
+  }
+
   const step = steps[index]
+  const Game = step.kind === 'game' ? GAMES[step.game] : null
 
   return (
     <PlayerFrame exitTo={`/learn/${stage.id}`} index={index} total={steps.length} stepKey={`step-${index}`}>
@@ -89,34 +105,50 @@ export default function LessonPlayer({ lesson, stage, onlyItemIds }) {
           }}
         />
       )}
-      {step.kind === 'speak' && (
-        <SpeakStep
+      {step.kind === 'listenSentence' && (
+        <ListenSentenceStep
           item={step.item}
           stage={stage}
-          onDone={({ passed }) => {
-            if (passed) {
-              earn(XP.speak)
-              trackEvent('speakPass')
-            }
-            check(step.item, passed)
+          revealed={revealed[step.item.id]}
+          onReveal={(kind) => reveal(step.item.id, kind)}
+          onDone={() => {
+            earn(XP.listen)
+            trackEvent('listen')
             next()
           }}
         />
       )}
-      {step.kind === 'game' && (
-        <ListenTapGame
+      {step.kind === 'speak' && (
+        <SpeakStep
+          item={step.item}
+          stage={stage}
+          revealed={revealed[step.item.id]}
+          onReveal={(kind) => reveal(step.item.id, kind)}
+          onDone={({ passed }) => speakDone(step.item, passed, XP.speak)}
+        />
+      )}
+      {step.kind === 'speakOwn' && (
+        <SpeakStep
+          item={step.item}
+          stage={stage}
+          mode="own"
+          onDone={({ passed }) => speakDone(step.item, passed, XP.speakOwn)}
+        />
+      )}
+      {Game && (
+        <Game
           items={items}
           pool={lesson.items}
-          onRoundResult={(item, firstTry) => {
-            if (firstTry) {
-              earn(XP.gameCorrect)
+          onRoundResult={(item, passed) => {
+            if (passed) {
+              earn(GAME_ROUND_XP[step.game])
               trackEvent('gameCorrect')
             }
-            check(item, firstTry)
+            check(item, passed)
           }}
-          onFinish={() => {
-            trackEvent('gamePlay')
-            finish()
+          onFinish={(outcome) => {
+            if (!outcome?.skipped) trackEvent('gamePlay')
+            next()
           }}
         />
       )}

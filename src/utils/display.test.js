@@ -1,5 +1,22 @@
 import { describe, it, expect } from 'vitest'
-import { englishTextMode, showThaiReading, meaningStartsVisible } from './display'
+import { englishTextMode, showThaiReading, meaningStartsVisible, markStress } from './display'
+
+describe('markStress', () => {
+  it('บอกคำที่ลงเสียงหนัก ไม่สนตัวพิมพ์และเครื่องหมาย', () => {
+    expect(markStress("No, I don't like it.", ['no', "Don't", 'like'])).toEqual([
+      { text: 'No,', stressed: true },
+      { text: 'I', stressed: false },
+      { text: "don't", stressed: true },
+      { text: 'like', stressed: true },
+      { text: 'it.', stressed: false },
+    ])
+  })
+
+  it('ไม่มีคำที่ลงเสียงหนัก → ทุกคำไม่เน้น', () => {
+    expect(markStress('Daddy’s home!', undefined).every((word) => !word.stressed)).toBe(true)
+    expect(markStress("Daddy's home!", ['Daddy’s']).map((word) => word.stressed)).toEqual([true, false])
+  })
+})
 
 const stage = (id, showText) => ({ id, showText })
 

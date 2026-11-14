@@ -87,7 +87,16 @@
     "errorNoSpeech": "I didn't hear anything. Try speaking a bit louder or closer to the mic.",
     "errorNoMic": "No microphone found. Plug one in or check your device's sound settings.",
     "errorNetwork": "Speech listening needs the internet. Check your connection and try again.",
-    "errorGeneric": "Couldn't listen this time. Please try again."
+    "errorGeneric": "Couldn't listen this time. Please try again.",
+    "answer": "Answer",
+    "recastPraise": [
+      "Got it! Here’s how people say it",
+      "So close! Listen and say it again",
+      "They’d understand you! Now say it just like this",
+      "Nice! Almost like a native speaker"
+    ],
+    "recastListen": "Hear how a native speaker says it",
+    "recastTryAgain": "Listen, then try again"
   },
   "card": {
     "showText": "Show word",
@@ -138,7 +147,16 @@
     "stageUnlocked": "Stage {{n}} unlocked!",
     "goStage": "Go",
     "noResult": "No results yet. Let’s start the lesson!",
-    "start": "Start lesson"
+    "start": "Start lesson",
+    "listenGuess": "Listen, then guess the meaning from the picture",
+    "showText": "Show text",
+    "textHidden": "Text is hidden. Listen first.",
+    "question": "Question",
+    "answer": "Answer",
+    "playQuestion": "Hear the question",
+    "yourTurn": "Your turn",
+    "speakOwnInstruction": "Answer on your own (no text)",
+    "speakOwnHint": "Hear the question, look at the picture, then tap “Answer”. Try as many times as you like."
   },
   "game": {
     "listenTapTitle": "Listen & Tap",
@@ -148,7 +166,16 @@
     "correct": "That’s it!",
     "tryAgain": "Almost! Try another one.",
     "timeUp": "Time’s up! This is the one.",
-    "optionLabel": "Picture {{n}}"
+    "optionLabel": "Picture {{n}}",
+    "karaokeTitle": "Shadow Karaoke",
+    "karaokeListen": "Listen to the rhythm first",
+    "karaokeReady": "Get ready to speak with the line…",
+    "karaokeGo": "Go! Keep up with the line",
+    "karaokeGreat": "Right on the beat!",
+    "karaokeAlmost": "Almost! Try again next round",
+    "karaokeNeedsMic": "This game needs a microphone",
+    "points": "{{points}} pts",
+    "skipGame": "Skip this game"
   },
   "locked": {
     "title": "This stage is locked",
@@ -277,5 +304,12 @@
     "freezeUsed": "Streak Freeze used",
     "freezeText": "You missed yesterday, but your {{count}}-day streak is safe!",
     "dismiss": "Close"
+  },
+  "sentence": {
+    "stressHint": "Stressed word",
+    "intonation": {
+      "up": "Voice goes up at the end",
+      "down": "Voice goes down at the end"
+    }
   }
 }
