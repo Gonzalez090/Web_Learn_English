@@ -7,7 +7,8 @@
 // =========================================================
 import { useLocation, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { getLesson, getStage } from '../data'
+import { getStage } from '../data'
+import { useLesson } from '../hooks/useLessons'
 import { useLocalized } from '../hooks/useLocalized'
 import { useProgressStore } from '../store/progressStore'
 import { isPlayable } from '../utils/lessonSteps'
@@ -33,7 +34,7 @@ export default function LessonPage() {
   const loc = useLocalized()
   const unlockedStages = useProgressStore((state) => state.unlockedStages)
 
-  const lesson = getLesson(lessonId)
+  const lesson = useLesson(lessonId) // เนื้อหาบทแยกไฟล์ราย Stage → ครั้งแรกรอโหลดสั้น ๆ
   if (!lesson) return <NotFoundPage />
   const stage = getStage(lesson.stageId)
   const title = loc(lesson, 'title')

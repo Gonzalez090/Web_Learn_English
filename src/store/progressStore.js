@@ -9,7 +9,7 @@
 // =========================================================
 import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
-import { stages, lessons, dailyMissionPool } from '../data'
+import { stages, lessonList, dailyMissionPool } from '../data'
 import { computeUnlockedStages, recordLessonResult } from '../utils/progress'
 import { todayKey } from '../utils/date'
 import { levelFromXp } from '../utils/level'
@@ -103,7 +103,7 @@ export const useProgressStore = create(
         let newlyUnlocked = []
         set((state) => {
           const lessonProgress = recordLessonResult(state.lessonProgress, lessonId, score, todayKey())
-          const result = computeUnlockedStages(stages, lessons, state.unlockedStages, lessonProgress)
+          const result = computeUnlockedStages(stages, lessonList, state.unlockedStages, lessonProgress)
           newlyUnlocked = result.newlyUnlocked
           return { lessonProgress, unlockedStages: result.unlockedStages }
         })

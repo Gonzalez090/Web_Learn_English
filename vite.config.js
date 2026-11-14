@@ -1,6 +1,38 @@
+import fs from 'node:fs'
+import { fileURLToPath } from 'node:url'
 import react from '@vitejs/plugin-react'
 import basicSsl from '@vitejs/plugin-basic-ssl'
 import { defineConfig } from 'vite'
+import { INDEX_MODULE_ID, STAGE_MODULE_PREFIX, indexModuleCode, stageModuleCode } from './src/data/lessonChunks.js'
+
+// =========================================================
+// แบ่งข้อมูลบทเรียนเป็นก้อน (โหลดเฉพาะที่ต้องใช้) — รายละเอียดดู src/data/lessonChunks.js
+//   import ... from 'virtual:lessons'            → สารบัญ (อยู่ในไฟล์ JS หลัก ขนาดเล็ก)
+//   import('virtual:lessons/stage-N')            → เนื้อหาเต็มของ Stage N (ไฟล์ JS แยก โหลดตอนเข้าบท)
+// แก้ lessons.json → Vite โหลดโมดูลเหล่านี้ใหม่เอง (addWatchFile)
+// =========================================================
+const LESSONS_FILE = fileURLToPath(new URL('./src/data/lessons.json', import.meta.url))
+
+function lessonChunks() {
+  const read = () => JSON.parse(fs.readFileSync(LESSONS_FILE, 'utf8'))
+  return {
+    name: 'lesson-chunks',
+    resolveId(id) {
+      return id === INDEX_MODULE_ID || id.startsWith(STAGE_MODULE_PREFIX) ? `\0${id}` : null
+    },
+    load(id) {
+      if (id === `\0${INDEX_MODULE_ID}`) {
+        this.addWatchFile(LESSONS_FILE)
+        return indexModuleCode(read())
+      }
+      if (id.startsWith(`\0${STAGE_MODULE_PREFIX}`)) {
+        this.addWatchFile(LESSONS_FILE)
+        return stageModuleCode(read(), Number(id.slice(STAGE_MODULE_PREFIX.length + 1)))
+      }
+      return null
+    },
+  }
+}
 
 // =========================================================
 // ความปลอดภัยของเว็บจริง (ใส่ตอน build เท่านั้น)
@@ -59,7 +91,7 @@ const PREVIEW_SECURITY_HEADERS = {
 // - npm run build     → เว็บจริงใน dist/ (ไม่มี source map → คนเปิด F12 ไม่เห็นโค้ดต้นฉบับ/คอมเมนต์)
 // =========================================================
 export default defineConfig(({ mode }) => ({
-  plugins: [react(), securityMetaTags(), mode === 'phone' && basicSsl()].filter(Boolean),
+  plugins: [react(), lessonChunks(), securityMetaTags(), mode === 'phone' && basicSsl()].filter(Boolean),
   build: {
     sourcemap: false,
   },

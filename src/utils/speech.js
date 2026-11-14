@@ -1,15 +1,16 @@
 // =========================================================
 // speech.js — ตัวกลางควบคุม "เสียงพูด" ทั้งแอป
 // ลำดับการเลือกเสียง:
-//   1) ไฟล์เสียงคุณภาพสูง (Kokoro) ที่สร้างไว้ล่วงหน้าใน public/audio/ — ดู src/data/audioManifest.json
-//   2) ข้อความที่ยังไม่มีไฟล์ / เล่นไฟล์ไม่ได้ → เสียงของเบราว์เซอร์ (Web Speech API: speechSynthesis)
+//   1) ไฟล์เสียงคุณภาพสูง (Kokoro) ที่สร้างไว้ล่วงหน้าใน public/audio/
+//      ชื่อไฟล์คำนวณจากข้อความ (utils/audioPath.js) → ไม่ต้องโหลดสารบัญเสียงทั้งก้อนเข้าเว็บ
+//   2) ข้อความที่ยังไม่มีไฟล์ / เล่นไฟล์ไม่ได้ → เสียงของเบราว์เซอร์ (Web Speech API: speechSynthesis) ทีละประโยค
 //   3) เสียงออนไลน์ของเบราว์เซอร์ใช้ไม่ได้ (เน็ตหลุด) → เสียงในเครื่อง
 // - มีตัวเดียวทั้งแอป: เริ่มเสียงใหม่ → หยุดเสียงเก่าก่อนเสมอ (เสียงไม่ซ้อนกัน)
 // - ตัดข้อความยาวเป็นทีละประโยค (Chrome ตัดเสียงที่ยาวเกินประมาณ 15 วินาที)
 // - มีตัวจับเวลากันค้าง เผื่อเบราว์เซอร์ไม่แจ้งว่าพูดจบ (onend ไม่ทำงาน)
 // component ให้ใช้ผ่าน hook useSpeech() ไม่เรียกไฟล์นี้ตรง ๆ
 // =========================================================
-import audioManifest from '../data/audioManifest.json'
+import { audioPathFor } from './audioPath'
 
 // ความเร็วเสียงของเบราว์เซอร์ (1 = ปกติของเครื่อง) — ไฟล์เสียงมีรุ่นช้าแยกไว้แล้ว
 export const RATES = { normal: 0.95, slow: 0.65 }
@@ -69,23 +70,20 @@ export function pickLocalVoice(voices) {
 const FALLBACK_ERRORS = new Set(['network', 'synthesis-failed', 'synthesis-unavailable', 'voice-unavailable'])
 export const shouldFallbackToLocal = (errorCode) => FALLBACK_ERRORS.has(errorCode)
 
-// หาไฟล์เสียงที่สร้างไว้ของข้อความนี้ (ต้องตรงทุกตัวอักษร) — ไม่มีได้ null
-export function audioFileFor(text, rate, manifest = audioManifest) {
-  const speedKey = rate === 'slow' ? 'slow' : rate === 'normal' ? 'normal' : null
-  if (!speedKey) return null
-  return manifest[speedKey]?.[String(text ?? '').trim()] ?? null
+// ไฟล์เสียงของข้อความนี้ (ชื่อไฟล์คำนวณจากข้อความ — ต้องตรงทุกตัวอักษร) — ความเร็วที่ไม่มีไฟล์ได้ null
+// (ข้อความที่ไม่ได้สร้างเสียงไว้ จะได้ชื่อไฟล์ที่ไม่มีอยู่จริง → เล่นไม่ได้ → ใช้เสียงเบราว์เซอร์แทน)
+export function audioFileFor(text, rate) {
+  return rate === 'normal' || rate === 'slow' ? audioPathFor(text, rate) : null
 }
 
-// แบ่งสิ่งที่ต้องพูดเป็นช่วง ๆ
-// - บรรทัดที่มีไฟล์เสียงทั้งบรรทัด → เล่นไฟล์ทีเดียว (น้ำเสียงต่อเนื่องเป็นธรรมชาติ)
-// - ไม่มี → แยกทีละประโยค (แต่ละประโยคอาจมีไฟล์ หรือให้เบราว์เซอร์อ่าน)
-export function planSegments(input, rate, { useFiles = true, manifest = audioManifest } = {}) {
+// แบ่งสิ่งที่ต้องพูดเป็นช่วง ๆ: 1 บรรทัด = 1 ช่วง (เล่นไฟล์ทั้งบรรทัด → น้ำเสียงต่อเนื่องเป็นธรรมชาติ)
+// ถ้าเล่นไฟล์ไม่ได้ ตัวเล่นจะแยกบรรทัดนั้นเป็นทีละประโยคให้เบราว์เซอร์อ่าน
+export function planSegments(input, rate, { useFiles = true } = {}) {
   const lines = Array.isArray(input) ? input : [input]
-  return lines.flatMap((line) => {
-    const file = useFiles ? audioFileFor(line, rate, manifest) : null
-    if (file) return [{ text: String(line).trim(), file }]
-    return splitIntoChunks(line).map((text) => ({ text, file: useFiles ? audioFileFor(text, rate, manifest) : null }))
-  })
+  return lines
+    .map((line) => String(line ?? '').trim())
+    .filter(Boolean)
+    .map((text) => ({ text, file: useFiles ? audioFileFor(text, rate) : null }))
 }
 
 // ประมาณเวลาพูด (ms) — คนพูดประมาณ 2.5 คำ/วินาที ที่ความเร็ว 1
@@ -269,18 +267,21 @@ export async function speak(
     // 1) มีไฟล์เสียง → เล่นไฟล์
     let result = segment.file ? await playFile(segment.file) : { ok: false }
 
-    // 2) ไม่มีไฟล์ / เล่นไฟล์ไม่ได้ → ให้เบราว์เซอร์อ่าน
+    // 2) ไม่มีไฟล์ / เล่นไฟล์ไม่ได้ → ให้เบราว์เซอร์อ่านทีละประโยค
     if (!result.ok && myRun === runId && synth) {
-      result = await speakChunk(synth, segment.text, rateValue, voice)
+      for (const chunk of splitIntoChunks(segment.text)) {
+        result = await speakChunk(synth, chunk, rateValue, voice)
 
-      // 3) เสียงออนไลน์ใช้ไม่ได้ (เช่น เน็ตหลุด) → ลองใหม่ด้วยเสียงในเครื่อง และจำไว้จนกว่าเน็ตจะกลับมา
-      if (!result.ok && myRun === runId && shouldFallbackToLocal(result.error) && !voice?.localService) {
-        const localVoice = pickLocalVoice(voices)
-        if (localVoice) {
-          voice = localVoice
-          setState({ usingLocalFallback: true })
-          result = await speakChunk(synth, segment.text, rateValue, voice)
+        // 3) เสียงออนไลน์ใช้ไม่ได้ (เช่น เน็ตหลุด) → ลองใหม่ด้วยเสียงในเครื่อง และจำไว้จนกว่าเน็ตจะกลับมา
+        if (!result.ok && myRun === runId && shouldFallbackToLocal(result.error) && !voice?.localService) {
+          const localVoice = pickLocalVoice(voices)
+          if (localVoice) {
+            voice = localVoice
+            setState({ usingLocalFallback: true })
+            result = await speakChunk(synth, chunk, rateValue, voice)
+          }
         }
+        if (!result.ok || myRun !== runId) break
       }
     }
 

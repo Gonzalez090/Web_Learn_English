@@ -5,10 +5,10 @@
 //   - ปลดล็อกทุก Stage / ล้างข้อมูลทั้งหมด (กด 2 ครั้งเพื่อยืนยัน)
 //   - ดูจำนวนบทเรียนในแต่ละ Stage, คำสะสม, สัดส่วนคำใหม่ (หลัก i+1) และข้อมูลที่เก็บใน localStorage
 // =========================================================
-import { useState } from 'react'
+import { use, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { stages, lessons, cityMap, getLessonsByStage } from '../data'
+import { stages, cityMap, getLessonsByStage, loadAllLessons } from '../data'
 import { cumulativeVocabulary, lessonFirstHearingShare } from '../utils/vocabulary'
 import { useProgressStore } from '../store/progressStore'
 import { useSettingsStore } from '../store/settingsStore'
@@ -20,13 +20,16 @@ import Section from '../components/Section'
 import Button from '../components/Button'
 import styles from './DevPage.module.css'
 
-// ตัวนับคำ (คำนวณครั้งเดียวตอนเปิดหน้า)
-const CUMULATIVE = cumulativeVocabulary(lessons)
-const SHARES = lessonFirstHearingShare(lessons).slice(1) // บทแรกของคอร์สเป็นของใหม่ทั้งหมดเสมอ
-const averageShare = (stageId) => {
-  const inStage = SHARES.filter((entry) => entry.stageId === stageId)
-  if (!inStage.length) return null
-  return Math.round((inStage.reduce((sum, entry) => sum + entry.share, 0) / inStage.length) * 100)
+// ตัวนับคำ: คำสะสมเมื่อจบแต่ละ Stage + สัดส่วนคำที่ได้ยินครั้งแรกเฉลี่ยต่อบท (%)
+function vocabularyStats(lessons) {
+  const cumulative = cumulativeVocabulary(lessons)
+  const shares = lessonFirstHearingShare(lessons).slice(1) // บทแรกของคอร์สเป็นของใหม่ทั้งหมดเสมอ
+  const averageShare = (stageId) => {
+    const inStage = shares.filter((entry) => entry.stageId === stageId)
+    if (!inStage.length) return null
+    return Math.round((inStage.reduce((sum, entry) => sum + entry.share, 0) / inStage.length) * 100)
+  }
+  return { cumulative, averageShare }
 }
 
 const ROUTES = [
@@ -60,6 +63,9 @@ const dataOnly = (state) => JSON.parse(JSON.stringify(state))
 
 export default function DevPage() {
   const { t } = useTranslation()
+  // บทเรียนเต็มทุก Stage (แยกไฟล์ → รอโหลดครั้งแรก) แล้วคำนวณตัวนับคำครั้งเดียว
+  const allLessons = use(loadAllLessons())
+  const vocab = useMemo(() => vocabularyStats(allLessons), [allLessons])
   const progress = useProgressStore()
   const settings = useSettingsStore()
   const review = useReviewStore()
@@ -139,14 +145,15 @@ export default function DevPage() {
           <tbody>
             {stages.map((stage) => {
               const stageLessons = getLessonsByStage(stage.id)
-              const itemCount = stageLessons.reduce((sum, lesson) => sum + lesson.items.length, 0)
+              const itemCount = stageLessons.reduce((sum, lesson) => sum + lesson.itemCount, 0)
+              const share = vocab.averageShare(stage.id)
               return (
                 <tr key={stage.id}>
                   <td>{stage.id}</td>
                   <td>{stageLessons.length}</td>
                   <td>{itemCount}</td>
-                  <td>{CUMULATIVE[stage.id] ?? '–'}</td>
-                  <td>{averageShare(stage.id) === null ? '–' : `${averageShare(stage.id)}%`}</td>
+                  <td>{vocab.cumulative[stage.id] ?? '–'}</td>
+                  <td>{share === null ? '–' : `${share}%`}</td>
                 </tr>
               )
             })}

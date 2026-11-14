@@ -49,14 +49,14 @@ export default function StagePage() {
             const progress = lessonProgress[lesson.id]
             const details = [
               t(`category.${lesson.category}`),
-              t('common.itemCount', { count: lesson.items.length }),
+              t('common.itemCount', { count: lesson.itemCount }),
               progress?.completed && t('learn.bestScore', { score: progress.bestScore }),
             ]
             return (
               <Tile
                 key={lesson.id}
                 to={`/lesson/${lesson.id}`}
-                image={lesson.items[0]?.image}
+                image={lesson.image}
                 title={loc(lesson, 'title')}
                 description={details.filter(Boolean).join(' · ')}
                 badge={progress?.completed && <StatusBadge status="completed" />}

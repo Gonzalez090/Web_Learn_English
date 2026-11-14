@@ -6,7 +6,8 @@
 // =========================================================
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { getLesson, getStage } from '../data'
+import { getStage } from '../data'
+import { useLesson } from '../hooks/useLessons'
 import { useLocalized } from '../hooks/useLocalized'
 import { englishTextMode } from '../utils/display'
 import { ICONS } from '../utils/icons'
@@ -61,7 +62,7 @@ export default function LessonSummaryPage() {
   const { t } = useTranslation()
   const loc = useLocalized()
 
-  const lesson = getLesson(lessonId)
+  const lesson = useLesson(lessonId)
   if (!lesson) return <NotFoundPage />
   const stage = getStage(lesson.stageId)
   const result = readResult(state)

@@ -22,8 +22,10 @@ import SoundPracticePage from './pages/SoundPracticePage'
 import ProfilePage from './pages/ProfilePage'
 import SpeakingCheckPage from './pages/SpeakingCheckPage'
 import SettingsPage from './pages/SettingsPage'
-import CreditsPage from './pages/CreditsPage'
 import NotFoundPage from './pages/NotFoundPage'
+
+// หน้าเครดิตมีรายชื่อช่างภาพหลายร้อยรายการ → แยกไฟล์ โหลดเฉพาะตอนเปิดหน้า (Suspense อยู่ใน AppLayout)
+const CreditsPage = lazy(() => import('./pages/CreditsPage'))
 
 // หน้าทดสอบ /dev โหลดเฉพาะตอน npm run dev (ตอน build จริงโค้ดส่วนนี้ถูกตัดทิ้ง)
 const DevPage = import.meta.env.DEV ? lazy(() => import('./pages/DevPage')) : null

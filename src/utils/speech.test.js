@@ -11,38 +11,28 @@ import {
   audioFileFor,
   planSegments,
 } from './speech'
+import { audioPathFor } from './audioPath'
 
 describe('ไฟล์เสียงที่สร้างไว้ (Kokoro)', () => {
-  const manifest = {
-    normal: { 'Big dog!': '/audio/a.mp3', 'Look! A dog.': '/audio/b.mp3' },
-    slow: { 'Big dog!': '/audio/a-slow.mp3' },
-  }
-
-  it('หาไฟล์ตามความเร็ว และตัดช่องว่างหัวท้าย', () => {
-    expect(audioFileFor('Big dog!', 'normal', manifest)).toBe('/audio/a.mp3')
-    expect(audioFileFor(' Big dog! ', 'slow', manifest)).toBe('/audio/a-slow.mp3')
+  it('ชื่อไฟล์คำนวณจากข้อความตามความเร็ว และตัดช่องว่างหัวท้าย', () => {
+    expect(audioFileFor('Big dog!', 'normal')).toBe(audioPathFor('Big dog!', 'normal'))
+    expect(audioFileFor(' Big dog! ', 'slow')).toBe(audioPathFor('Big dog!', 'slow'))
+    expect(audioFileFor('Big dog!', 'slow')).not.toBe(audioFileFor('Big dog!', 'normal'))
   })
 
-  it('ไม่มีไฟล์ / ความเร็วเป็นตัวเลข → null (ให้เบราว์เซอร์อ่านแทน)', () => {
-    expect(audioFileFor('Look! A dog.', 'slow', manifest)).toBeNull()
-    expect(audioFileFor('Big dog!', 0.8, manifest)).toBeNull()
+  it('ความเร็วเป็นตัวเลข → null (ให้เบราว์เซอร์อ่านแทน)', () => {
+    expect(audioFileFor('Big dog!', 0.8)).toBeNull()
   })
 
-  it('บรรทัดที่มีไฟล์ทั้งบรรทัด เล่นทีเดียว ไม่แยกประโยค', () => {
-    expect(planSegments('Look! A dog.', 'normal', { manifest })).toEqual([{ text: 'Look! A dog.', file: '/audio/b.mp3' }])
-  })
-
-  it('บรรทัดที่ไม่มีไฟล์ แยกทีละประโยคให้เบราว์เซอร์อ่าน', () => {
-    expect(planSegments('Look! A dog.', 'slow', { manifest })).toEqual([
-      { text: 'Look!', file: null },
-      { text: 'A dog.', file: null },
+  it('1 บรรทัด = 1 ช่วง เล่นไฟล์ทั้งบรรทัดทีเดียว ไม่แยกประโยค (ตัดบรรทัดว่างทิ้ง)', () => {
+    expect(planSegments(['Look! A dog.', ' ', 'Big dog!'], 'normal')).toEqual([
+      { text: 'Look! A dog.', file: audioPathFor('Look! A dog.', 'normal') },
+      { text: 'Big dog!', file: audioPathFor('Big dog!', 'normal') },
     ])
   })
 
   it('ปิดการใช้ไฟล์ (ปุ่มลองเสียงในตั้งค่า) → ใช้เสียงเบราว์เซอร์ทั้งหมด', () => {
-    expect(planSegments(['Big dog!'], 'normal', { manifest, useFiles: false })).toEqual([
-      { text: 'Big dog!', file: null },
-    ])
+    expect(planSegments(['Big dog!'], 'normal', { useFiles: false })).toEqual([{ text: 'Big dog!', file: null }])
   })
 })
 

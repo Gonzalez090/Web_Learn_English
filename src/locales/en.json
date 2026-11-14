@@ -29,7 +29,8 @@
   },
   "common": {
     "comingSoon": "Coming in step {{step}}",
-    "itemCount": "Items: {{count}}"
+    "itemCount": "Items: {{count}}",
+    "loading": "Loading…"
   },
   "category": {
     "home-family": "Home & family",

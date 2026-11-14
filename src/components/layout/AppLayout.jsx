@@ -2,9 +2,11 @@
 // AppLayout — โครงหลักของทุกหน้า (แบบแอปมือถือ)
 //   แถบบน (TopBar) + เนื้อหาหน้า (Outlet) + แถบเมนูล่าง (BottomNav) + ข้อความแจ้งเตือน (Toaster)
 //   เนื้อหาหน้าครอบด้วย ErrorBoundary: หน้าไหนพัง แถบบน/ล่างยังใช้ได้ และไม่โชว์รายละเอียด error
+//   + Suspense: หน้าที่ "รอ" ข้อมูลแยกไฟล์ (hooks/useLessons.js) แสดงตัวโหลด แถบบน/ล่างยังอยู่
 // =========================================================
-import { useEffect } from 'react'
+import { Suspense, useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
+import PageLoading from '../PageLoading'
 import { stop as stopSpeech } from '../../utils/speech'
 import { abortListening } from '../../utils/recognition'
 import TopBar from './TopBar'
@@ -29,7 +31,10 @@ export default function AppLayout() {
       <TopBar />
       <main className={styles.main}>
         <ErrorBoundary resetKey={pathname}>
-          <Outlet />
+          {/* หน้าที่ต้องโหลดเนื้อหาแยกไฟล์ (บทเรียนราย Stage / หน้าเครดิต) → แสดงตัวโหลดระหว่างรอ */}
+          <Suspense fallback={<PageLoading />}>
+            <Outlet />
+          </Suspense>
         </ErrorBoundary>
       </main>
       <Toaster />

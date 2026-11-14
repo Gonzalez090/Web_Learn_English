@@ -14,13 +14,14 @@
 //   - ข้อความที่มีไฟล์อยู่แล้วจะข้าม (รันซ้ำเร็ว) และลบไฟล์ที่ไม่ได้ใช้แล้วทิ้ง
 //   - ไฟล์เยอะ → แบ่งรันพร้อมกันหลายตัวได้: node scripts/generate-audio.mjs --shard 1/3 (และ 2/3, 3/3)
 // =========================================================
-import { createHash } from 'node:crypto'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { KokoroTTS } from 'kokoro-js'
 import { Mp3Encoder } from '@breezystack/lamejs'
 import { collectSpeechTexts } from '../src/data/speechTexts.js'
+// ชื่อไฟล์ใช้ฟังก์ชันเดียวกับหน้าเว็บ (หน้าเว็บคำนวณชื่อไฟล์เองจากข้อความ) → ต้องตรงกันเสมอ
+import { AUDIO_SPEEDS, AUDIO_VOICE, audioPathFor } from '../src/utils/audioPath.js'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const LESSONS_FILE = path.join(ROOT, 'src', 'data', 'lessons.json')
@@ -28,13 +29,11 @@ const MANIFEST_FILE = path.join(ROOT, 'src', 'data', 'audioManifest.json')
 const AUDIO_DIR = path.join(ROOT, 'public', 'audio')
 
 const MODEL_ID = 'onnx-community/Kokoro-82M-v1.0-ONNX'
-const VOICE = 'af_heart' // เสียงผู้หญิงอเมริกัน คุณภาพดีที่สุดของ Kokoro (เหมาะกับบทพ่อแม่คุยกับลูก)
-const SPEEDS = { normal: 1.0, slow: 0.75 }
+const VOICE = AUDIO_VOICE // af_heart: เสียงผู้หญิงอเมริกัน คุณภาพดีที่สุดของ Kokoro (เหมาะกับบทพ่อแม่คุยกับลูก)
+const SPEEDS = AUDIO_SPEEDS // { normal: 1.0, slow: 0.75 }
 const MP3_KBPS = 64
 
 // ---------- ตัวช่วย ----------
-const hashOf = (text, speedKey) =>
-  createHash('sha1').update(`${VOICE}|${speedKey}|${text}`).digest('hex').slice(0, 12)
 
 const exists = (file) =>
   fs.access(file).then(
@@ -70,8 +69,9 @@ const manifest = { voice: VOICE, normal: {}, slow: {} }
 const todo = []
 for (const text of texts) {
   for (const speedKey of Object.keys(SPEEDS)) {
-    const fileName = `${hashOf(text, speedKey)}.mp3`
-    manifest[speedKey][text] = `/audio/${fileName}`
+    const audioPath = audioPathFor(text, speedKey)
+    const fileName = path.basename(audioPath)
+    manifest[speedKey][text] = audioPath
     if (!(await exists(path.join(AUDIO_DIR, fileName)))) todo.push({ text, speedKey, fileName })
   }
 }

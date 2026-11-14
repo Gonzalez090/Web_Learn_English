@@ -4,7 +4,8 @@
 // ข้อมูลมาจาก src/data/imageCredits.json (สคริปต์ scripts/fetch-images.mjs เป็นคนเขียน)
 // =========================================================
 import { useTranslation } from 'react-i18next'
-import { imageCredits } from '../data'
+// { [id ภาพ]: { provider, sourceId, photographer, photographerUrl, pageUrl } } — หน้านี้โหลดแยกไฟล์ (lazy ใน App.jsx)
+import imageCredits from '../data/imageCredits.json'
 import Page from '../components/Page'
 import Picture from '../components/Picture'
 import styles from './CreditsPage.module.css'

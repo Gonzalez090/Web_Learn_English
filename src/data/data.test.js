@@ -2,11 +2,16 @@
 import { existsSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { describe, it, expect } from 'vitest'
-import { stages, lessons, miniGames, imageCredits } from './index.js'
+import { miniGames } from './index.js'
+import lessonsData from './lessons.json'
+import imageCredits from './imageCredits.json'
 import { collectSpeechTexts } from './speechTexts.js'
 import audioManifest from './audioManifest.json'
 import th from '../locales/th.json'
 import en from '../locales/en.json'
+
+// ตรวจเนื้อหาเต็มจาก lessons.json โดยตรง (ในเว็บ เนื้อหาถูกแบ่งโหลดราย Stage — ตรวจใน lessonChunks.test.js)
+const { stages, lessons } = lessonsData
 
 // ทุกข้อความที่เว็บพูดต้องมีไฟล์เสียง Kokoro ทั้งความเร็วปกติและช้า
 // (เพิ่ม/แก้เนื้อหาแล้ว test นี้ไม่ผ่าน → รัน npm run audio)

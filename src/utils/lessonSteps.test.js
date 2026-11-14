@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { buildLessonSteps, GAME_ROUND_XP, isPlayable, LESSON_FLOWS, XP } from './lessonSteps'
-import { lessons, miniGames } from '../data'
+import { lessonList, miniGames } from '../data'
 
 const items = [{ id: 'a' }, { id: 'b' }]
 const describeSteps = (steps) => steps.map((step) => (step.kind === 'game' ? `game:${step.game}` : `${step.kind}:${step.item.id}`))
@@ -31,7 +31,7 @@ describe('buildLessonSteps', () => {
 
 describe('LESSON_FLOWS', () => {
   it('ทุกบทใน Stage 1–4 มีตัวเล่นแล้ว', () => {
-    for (const lesson of lessons.filter((entry) => entry.stageId <= 4)) {
+    for (const lesson of lessonList.filter((entry) => entry.stageId <= 4)) {
       expect(isPlayable(lesson), lesson.id).toBe(true)
     }
   })

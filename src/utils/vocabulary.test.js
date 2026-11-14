@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { lessons } from '../data'
+import lessonsData from '../data/lessons.json' // เนื้อหาเต็ม (มี items) — ในเว็บโหลดแยกราย Stage
 import {
   cumulativeVocabulary,
   firstHearings,
@@ -9,6 +9,8 @@ import {
   textCountByWord,
   wordsOf,
 } from './vocabulary'
+
+const { lessons } = lessonsData
 
 // ---------- ตัวนับคำ (ข้อมูลตัวอย่างเล็ก ๆ) ----------
 const sample = [

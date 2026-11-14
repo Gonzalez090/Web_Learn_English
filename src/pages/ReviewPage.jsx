@@ -6,7 +6,8 @@
 // =========================================================
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { lessons } from '../data'
+import { getLessonMeta } from '../data'
+import { useLessonsOfStages } from '../hooks/useLessons'
 import { useReviewStore } from '../store/reviewStore'
 import { useProgressStore } from '../store/progressStore'
 import { buildReviewItems, dueEntries, nextDueDate } from '../utils/review'
@@ -31,6 +32,11 @@ export default function ReviewPage() {
   const queue = useReviewStore((state) => state.reviewQueue)
   const gradeReviews = useReviewStore((state) => state.gradeReviews)
   const trackEvent = useProgressStore((state) => state.trackEvent)
+
+  // โหลดเนื้อหาเฉพาะ Stage ที่มีข้ออยู่ในคิว — จับชุด Stage ไว้ตั้งแต่เปิดหน้า
+  // (ระหว่างทบทวน คิวมีแต่ข้อเดิมเปลี่ยนรอบ ไม่มีบทใหม่เข้ามา → ไม่ต้องโหลด/รอใหม่กลางทาง)
+  const [stageIds] = useState(() => queue.map((entry) => getLessonMeta(entry.lessonId)?.stageId).filter(Boolean))
+  const lessons = useLessonsOfStages(stageIds)
 
   const [round, setRound] = useState(0) // เพิ่มขึ้น = เริ่มทบทวนรอบใหม่
   const [session, setSession] = useState(() => buildReviewItems(queue, lessons, todayKey()))

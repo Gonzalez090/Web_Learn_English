@@ -29,7 +29,8 @@
   },
   "common": {
     "comingSoon": "ส่วนนี้จะเปิดในขั้นที่ {{step}}",
-    "itemCount": "{{count}} ข้อ"
+    "itemCount": "{{count}} ข้อ",
+    "loading": "กำลังโหลด…"
   },
   "category": {
     "home-family": "บ้านและครอบครัว",
