@@ -45,7 +45,9 @@
     "describe": "คำบอกลักษณะ",
     "play": "การเล่น",
     "feelings": "ความรู้สึก",
-    "manners": "มารยาท"
+    "manners": "มารยาท",
+    "weather": "อากาศ",
+    "numbers-colors": "สีและตัวเลข"
   },
   "register": {
     "casual": "กันเอง",

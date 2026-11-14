@@ -88,3 +88,52 @@ describe('เนื้อหา Stage 1–3 (ขั้นที่ 22)', () => {
     }
   })
 })
+
+// ---------- ตรวจเนื้อหา Stage 4 (ถาม-ตอบประโยคสั้น) ----------
+// ไล่ฟังต่อจาก Stage 1–3 → ต้องคิดรวมตั้งแต่ Stage 1 เพื่อรู้ว่าคำไหน "ได้ยินแล้ว"
+const throughStage4 = lessons.filter((lesson) => lesson.stageId <= 4)
+const stage4 = lessons.filter((lesson) => lesson.stageId === 4)
+
+describe('เนื้อหา Stage 4 (ขั้นที่ 23)', () => {
+  it('ประโยคสั้น 500 ประโยค (100 บท บทละ 5 ข้อ)', () => {
+    expect(stage4).toHaveLength(100)
+    expect(stage4.reduce((sum, lesson) => sum + lesson.items.length, 0)).toBe(500)
+  })
+
+  it('คำสะสมเมื่อจบ Stage 4 ถึง ~1,000 คำ (เด็กเจ้าของภาษาวัย 3 ขวบ)', () => {
+    expect(cumulativeVocabulary(throughStage4)[4]).toBeGreaterThanOrEqual(1000)
+  })
+
+  it('i+1: ทุกข้อความ (คำถามของพ่อแม่ + ประโยคที่พูด) มีคำที่เพิ่งได้ยินครั้งแรกไม่เกิน 2 คำ', () => {
+    const heavy = firstHearings(throughStage4)
+      .filter((entry) => entry.stageId === 4 && entry.newWords.length > 2)
+      .map((entry) => `${entry.lessonId}: ${entry.text}`)
+    expect(heavy).toEqual([])
+  })
+
+  it('i+1: คำที่ได้ยินครั้งแรกไม่เกิน 30% ของคำที่ฟังในบท และเฉลี่ยทั้ง Stage ไม่เกิน 20%', () => {
+    const shares = lessonFirstHearingShare(throughStage4).filter((entry) => entry.stageId === 4)
+    expect(shares.filter((entry) => entry.share > 0.3)).toEqual([])
+    const average = shares.reduce((sum, entry) => sum + entry.share, 0) / shares.length
+    expect(average).toBeLessThanOrEqual(0.2)
+  })
+
+  // Stage 4 มีแค่คำถาม + ประโยคตอบต่อข้อ (ไม่มี parentese) → เกณฑ์ 6+ ครั้งของ Stage 1–3 ทำไม่ได้กับคำ ~600 คำ
+  // จึงบังคับขั้นต่ำว่าทุกคำที่ผู้เรียนต้องพูด ต้องได้ยินในข้อความอื่นด้วย (คำถามของพ่อแม่ข้ออื่นพูดถึงซ้ำ)
+  // ส่วนการเจอซ้ำเพิ่มมาจากรอบทบทวน (ขั้นที่ 16) และ Stage 5 ที่ใช้คำเดิมในบทสนทนา
+  it('ทุกคำในประโยคที่ต้องพูด ได้ยินอย่างน้อย 2 ข้อความต่างกัน', () => {
+    const counts = textCountByWord(throughStage4)
+    const once = stage4
+      .flatMap((lesson) => lesson.items)
+      .flatMap((item) => targetWords(item).map((word) => ({ word, id: item.id, count: counts.get(word) ?? 0 })))
+      .filter((entry) => entry.count < 2)
+    expect(once).toEqual([])
+  })
+
+  it('ในบทเดียวกัน ประโยคที่พูดไม่ซ้ำกัน (เกมคาราโอเกะ)', () => {
+    for (const lesson of stage4) {
+      const targets = lesson.items.map((item) => item.target.toLowerCase())
+      expect(new Set(targets).size, lesson.id).toBe(targets.length)
+    }
+  })
+})

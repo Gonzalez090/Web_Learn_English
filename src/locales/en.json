@@ -45,7 +45,9 @@
     "describe": "Describing things",
     "play": "Playtime",
     "feelings": "Feelings",
-    "manners": "Manners"
+    "manners": "Manners",
+    "weather": "Weather",
+    "numbers-colors": "Colors & numbers"
   },
   "register": {
     "casual": "Casual",
