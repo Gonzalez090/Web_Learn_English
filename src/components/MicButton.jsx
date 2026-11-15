@@ -12,6 +12,9 @@
 //   recast     = ข้อในบทเรียน { target, commonErrors } → เปิดการทวนกลับแบบพ่อแม่ (ไม่ส่ง = ไม่ทวน)
 //   speakId    = รหัสของปุ่มเสียงทวนกลับ (ไม่ซ้ำกันในหน้า)
 //   label      = ข้อความบนปุ่ม (ค่าเริ่มต้น "พูดตาม")
+//   evaluate   = (alternatives, attempt) => ผลแบบ compareSpeech — ให้คะแนนแบบอื่นแทนการเทียบทั้งประโยค
+//                (เช่น เล่าเรื่องเองจากภาพ ตรวจคำสำคัญ) ผลมี recast ได้ → พูดทวนกลับให้เหมือนกัน
+//   wordsLabel = ป้ายหน้าแถวคำในผล (เช่น "คำสำคัญ:")
 //   onResult   = เรียกเมื่อได้ผล (ขั้นที่ 4 ใช้ให้ XP / บันทึกข้อที่พลาด)
 //   onError    = เรียกเมื่อฟังไม่สำเร็จ ส่งรหัส error (เช่น 'no-speech', 'not-allowed')
 // =========================================================
@@ -34,6 +37,8 @@ export default function MicButton({
   recast = null,
   speakId = 'mic',
   label,
+  evaluate,
+  wordsLabel,
   onResult,
   onError,
   size = 'md',
@@ -72,8 +77,10 @@ export default function MicButton({
     setResult(null)
     const alternatives = await listen()
     if (!alternatives) return
-    let scored = compareSpeech(target, alternatives, { lenient, acceptAlso })
-    if (recast) scored = applyRecast(recast, scored, attempts)
+    let scored = evaluate
+      ? evaluate(alternatives, attempts)
+      : compareSpeech(target, alternatives, { lenient, acceptAlso })
+    if (recast && !evaluate) scored = applyRecast(recast, scored, attempts)
     setResult(scored)
     setAttempts((count) => count + 1)
     onResult?.(scored)
@@ -107,7 +114,13 @@ export default function MicButton({
       )}
 
       {result && !listening && (
-        <SpeechResult result={result} attempt={attempts - 1} showText={showText} speakId={speakId} />
+        <SpeechResult
+          result={result}
+          attempt={attempts - 1}
+          showText={showText}
+          speakId={speakId}
+          wordsLabel={wordsLabel}
+        />
       )}
     </div>
   )

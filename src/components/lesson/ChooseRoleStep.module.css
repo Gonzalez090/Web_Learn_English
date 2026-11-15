@@ -1,0 +1,82 @@
+/* การ์ดเลือกบท 2 ใบ: จอแคบเรียงลง / จอกว้างวางคู่กัน */
+.roles {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  width: 100%;
+}
+
+@media (min-width: 400px) {
+  .roles {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.role {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: 44px;
+  padding: var(--space-3);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font: inherit;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.role:hover,
+.role:focus-visible {
+  border-color: var(--color-primary);
+}
+
+.role:active {
+  transform: scale(0.98);
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  color: var(--color-primary);
+}
+
+.name {
+  font-size: 1.125rem;
+  font-weight: 900;
+}
+
+/* ประโยคแรกของบท ในเครื่องหมายคำพูด */
+.preview {
+  color: var(--color-muted);
+  font-size: 0.9375rem;
+  font-style: italic;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  quotes: '“' '”';
+}
+
+.preview::before {
+  content: open-quote;
+}
+
+.preview::after {
+  content: close-quote;
+}
+
+.count {
+  color: var(--color-primary-strong);
+  font-size: 0.8125rem;
+  font-weight: 800;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .role {
+    transition: none;
+  }
+}

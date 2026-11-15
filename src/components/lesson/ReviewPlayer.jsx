@@ -1,23 +1,28 @@
 // =========================================================
 // ReviewPlayer — ตัวเล่น "ทบทวนวันนี้" (ส่วนที่ 8.5)
-//   1) Listen & Tap: ฟังแล้วแตะภาพของทุกข้อที่ถึงกำหนด (ภาพหลอกมาจากบทเดียวกัน)
-//   2) พูดตามทีละข้อ (เฉพาะข้อจากบทที่มีขั้นพูด เช่น Stage 2–3)
+//   1) Listen & Tap: ฟังแล้วแตะภาพของข้อที่ถึงกำหนด (ภาพหลอกมาจากบทเดียวกัน)
+//      — เฉพาะข้อจากบทที่ภาพแยกกันได้ (บทสนทนา/คำคล้องจองใช้ภาพฉากเดียวทั้งบท → ข้ามเกมนี้)
+//   2) พูดตามทีละข้อ (เฉพาะข้อจากบทที่มีขั้นพูด) — บทสนทนา/คำคล้องจองมีบรรทัดก่อนหน้าเป็นตัวนำ
+//   ชนิดการทบทวนของแต่ละประเภทบทอยู่ใน LESSON_FLOWS[type].review
 // ข้อไหนทำได้ทุกขั้นตั้งแต่ครั้งแรก = ผ่าน → เลื่อนรอบ / พลาด = กลับรอบแรก (ตัดสินใน reviewStore)
 // props: reviewItems [{ entry, item, lesson }], onFinish(results [{ entryId, passed }])
 // =========================================================
 import { useMemo, useRef, useState } from 'react'
 import { getStage } from '../../data'
 import { useProgressStore } from '../../store/progressStore'
-import { LESSON_FLOWS, XP } from '../../utils/lessonSteps'
+import { reviewKindsOf, XP } from '../../utils/lessonSteps'
 import PlayerFrame from './PlayerFrame'
 import SpeakStep from './SpeakStep'
 import ListenTapGame from '../games/ListenTapGame'
 
+// ข้อที่ทบทวนด้วยเกมแตะภาพ
+const tapItemsOf = (reviewItems) => reviewItems.filter(({ lesson }) => reviewKindsOf(lesson).includes('tap'))
+
 function buildSteps(reviewItems) {
   const speakSteps = reviewItems
-    .filter(({ lesson }) => LESSON_FLOWS[lesson.type]?.itemSteps.includes('speak'))
+    .filter(({ lesson }) => reviewKindsOf(lesson).includes('speak'))
     .map(({ item, lesson }) => ({ kind: 'speak', item, stage: getStage(lesson.stageId) }))
-  return [{ kind: 'game' }, ...speakSteps]
+  return [...(tapItemsOf(reviewItems).length ? [{ kind: 'game' }] : []), ...speakSteps]
 }
 
 export default function ReviewPlayer({ reviewItems, onFinish }) {
@@ -25,13 +30,14 @@ export default function ReviewPlayer({ reviewItems, onFinish }) {
   const trackEvent = useProgressStore((state) => state.trackEvent)
 
   const steps = useMemo(() => buildSteps(reviewItems), [reviewItems])
-  const items = useMemo(() => reviewItems.map(({ item }) => item), [reviewItems])
-  // ภาพหลอกของเกม: ทุกข้อในบทที่มีข้อทบทวน (ไม่ซ้ำ)
+  const tapReviewItems = useMemo(() => tapItemsOf(reviewItems), [reviewItems])
+  const items = useMemo(() => tapReviewItems.map(({ item }) => item), [tapReviewItems])
+  // ภาพหลอกของเกม: ทุกข้อในบทที่มีข้อทบทวนด้วยเกม (ไม่ซ้ำ)
   const pool = useMemo(() => {
     const byId = new Map()
-    for (const { lesson } of reviewItems) for (const item of lesson.items) byId.set(item.id, item)
+    for (const { lesson } of tapReviewItems) for (const item of lesson.items) byId.set(item.id, item)
     return [...byId.values()]
-  }, [reviewItems])
+  }, [tapReviewItems])
 
   const [index, setIndex] = useState(0)
   const failedRef = useRef(new Set()) // id ของข้อ (item.id) ที่พลาดในรอบนี้

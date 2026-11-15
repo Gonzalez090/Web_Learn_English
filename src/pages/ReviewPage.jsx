@@ -6,7 +6,8 @@
 // =========================================================
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { getLessonMeta } from '../data'
+import { getLessonMeta, getStage } from '../data'
+import { englishTextMode } from '../utils/display'
 import { useLessonsOfStages } from '../hooks/useLessons'
 import { useReviewStore } from '../store/reviewStore'
 import { useProgressStore } from '../store/progressStore'
@@ -19,6 +20,9 @@ import Button from '../components/Button'
 import Picture from '../components/Picture'
 import ReviewPlayer from '../components/lesson/ReviewPlayer'
 import styles from './ReviewPage.module.css'
+
+// ข้อจาก Stage ที่แสดงตัวอักษรได้ (Stage 4 ขึ้นไป) → สรุปแสดงประโยคด้วย
+const showsEnglish = (lesson) => englishTextMode(getStage(lesson?.stageId)?.showText) !== 'hidden'
 
 // ผลของแต่ละข้อ → ข้อความ
 function outcomeText(t, outcome) {
@@ -49,7 +53,11 @@ export default function ReviewPage() {
     const outcomes = gradeReviews(results)
     trackEvent('review', results.length)
     setSummary(
-      session.map(({ entry, item }) => ({ item, outcome: outcomes.find((result) => result.entryId === entry.id) })),
+      session.map(({ entry, item, lesson }) => ({
+        item,
+        lesson,
+        outcome: outcomes.find((result) => result.entryId === entry.id),
+      })),
     )
   }
 
@@ -70,12 +78,20 @@ export default function ReviewPage() {
         </div>
         <Section title={t('review.resultTitle')}>
           <ul className={styles.items}>
-            {summary.map(({ item, outcome }) => (
+            {summary.map(({ item, lesson, outcome }) => (
               <li key={item.id} className={styles.item}>
                 <Picture image={item.image} size="sm" />
-                <span className={outcome?.outcome === 'reset' ? styles.reset : styles.good}>
-                  {outcomeText(t, outcome)}
-                </span>
+                <div className={styles.itemBody}>
+                  {/* ประโยคช่วยแยกข้อที่ใช้ภาพเดียวกัน (บทสนทนา/คำคล้องจอง) — Stage 1–3 ห้ามแสดงตัวอักษร */}
+                  {showsEnglish(lesson) && (
+                    <span className={styles.itemText} lang="en">
+                      {item.target ?? item.word}
+                    </span>
+                  )}
+                  <span className={outcome?.outcome === 'reset' ? styles.reset : styles.good}>
+                    {outcomeText(t, outcome)}
+                  </span>
+                </div>
               </li>
             ))}
           </ul>

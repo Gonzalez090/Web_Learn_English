@@ -1,0 +1,27 @@
+/* เล่นบทบาทในบทสนทนา */
+.sceneText {
+  color: var(--color-muted);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* ช่อง "ตาคุณพูด": ปุ่มฟังตัวอย่าง + ไมค์ + ผล */
+.turn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+  padding: var(--space-3);
+  border: 2px dashed var(--color-primary);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.done {
+  color: var(--color-success);
+  font-size: 1.125rem;
+  font-weight: 900;
+  text-align: center;
+}

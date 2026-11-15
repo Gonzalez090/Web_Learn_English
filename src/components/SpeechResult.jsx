@@ -17,8 +17,16 @@ import styles from './SpeechResult.module.css'
 const pick = (messages, attempt) => (Array.isArray(messages) ? messages[attempt % messages.length] : messages)
 
 // showWords = false → ไม่แสดงคำเป้าหมายรายคำ (เช่น เกมคาราโอเกะระบายสีบนบรรทัดของเกมแล้ว)
-export default function SpeechResult({ result, attempt = 0, showText = true, showWords = true, speakId = 'result' }) {
-  const { t } = useTranslation()
+// wordsLabel = ป้ายหน้าแถวคำ (เช่น "คำสำคัญ:" ตอนเล่าเรื่องเอง — แถวคำเป็นคำสำคัญ ไม่ใช่ทั้งประโยค)
+export default function SpeechResult({
+  result,
+  attempt = 0,
+  showText = true,
+  showWords = true,
+  speakId = 'result',
+  wordsLabel,
+}) {
+  const { t, i18n } = useTranslation()
   if (!result) return null
 
   // ตรงรูปแบบผิดที่พบบ่อย = สื่อความหมายได้แล้ว → ชมก่อนแล้วชวนพูดแบบเจ้าของภาษา
@@ -36,6 +44,11 @@ export default function SpeechResult({ result, attempt = 0, showText = true, sho
 
       {showText && showWords && result.words.length > 0 && (
         <p className={styles.words} lang="en">
+          {wordsLabel && (
+            <span className={styles.wordsLabel} lang={i18n.language}>
+              {wordsLabel}
+            </span>
+          )}
           {result.words.map((word, index) => (
             <span key={index} className={styles[word.status]}>
               {word.text}

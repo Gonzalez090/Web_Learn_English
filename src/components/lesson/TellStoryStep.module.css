@@ -1,0 +1,33 @@
+/* คำใบ้ตอนเล่าเรื่องเอง: คำสำคัญเป็นป้ายเล็ก ๆ */
+.hint {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.hintLabel {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  font-weight: 800;
+}
+
+.keywords {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.keyword {
+  padding: 2px 12px;
+  border: 1px dashed var(--color-primary);
+  border-radius: var(--radius-full);
+  background: var(--color-primary-soft);
+  color: var(--color-primary-strong);
+  font-weight: 800;
+}

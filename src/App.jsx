@@ -8,7 +8,6 @@ import AppLayout from './components/layout/AppLayout'
 import HomePage from './pages/HomePage'
 import LearnPage from './pages/LearnPage'
 import StagePage from './pages/StagePage'
-import LessonPage from './pages/LessonPage'
 import LessonSummaryPage from './pages/LessonSummaryPage'
 import PlacePage from './pages/PlacePage'
 import TalkPage from './pages/TalkPage'
@@ -26,6 +25,10 @@ import NotFoundPage from './pages/NotFoundPage'
 
 // หน้าเครดิตมีรายชื่อช่างภาพหลายร้อยรายการ → แยกไฟล์ โหลดเฉพาะตอนเปิดหน้า (Suspense อยู่ใน AppLayout)
 const CreditsPage = lazy(() => import('./pages/CreditsPage'))
+
+// หน้าบทเรียน = ตัวเล่นบท + ทุกขั้น + มินิเกม (โค้ดก้อนใหญ่ที่สุด) → แยกไฟล์ โหลดเมื่อเข้าบทเรียน
+// เปิดเว็บครั้งแรกจึงเร็วขึ้น (ระหว่างโหลดแสดงตัวโหลดของ AppLayout เหมือนตอนรอเนื้อหาบท)
+const LessonPage = lazy(() => import('./pages/LessonPage'))
 
 // หน้าทดสอบ /dev โหลดเฉพาะตอน npm run dev (ตอน build จริงโค้ดส่วนนี้ถูกตัดทิ้ง)
 const DevPage = import.meta.env.DEV ? lazy(() => import('./pages/DevPage')) : null

@@ -1,0 +1,12 @@
+/* ข้อความยังซ่อน → คลื่นเสียง */
+.hidden {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  color: var(--color-muted);
+}
+
+.icon {
+  width: 44px;
+  height: 24px;
+}

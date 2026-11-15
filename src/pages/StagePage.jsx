@@ -18,6 +18,10 @@ import NotFoundPage from './NotFoundPage'
 // Stage ที่ยังไม่มีเนื้อหา จะมีบทเรียนในขั้นไหนของแผน
 const CONTENT_STEP = { 5: 7, 6: 8, 7: 9 }
 
+// Stage 5+ มีบทหลายประเภท → บอกประเภทบท (ไฟล์ภาษา lessonType.*) + นับเป็นบรรทัด/ภาพ ตามประเภท
+const TYPE_LABELS = new Set(['context', 'dialogue', 'story', 'rhyme'])
+const COUNT_KEYS = { dialogue: 'common.lineCount', rhyme: 'common.lineCount', story: 'common.pictureCount' }
+
 export default function StagePage() {
   const { stageId } = useParams()
   const { t } = useTranslation()
@@ -48,8 +52,9 @@ export default function StagePage() {
           {stageLessons.map((lesson) => {
             const progress = lessonProgress[lesson.id]
             const details = [
+              TYPE_LABELS.has(lesson.type) && t(`lessonType.${lesson.type}`),
               t(`category.${lesson.category}`),
-              t('common.itemCount', { count: lesson.itemCount }),
+              t(COUNT_KEYS[lesson.type] ?? 'common.itemCount', { count: lesson.itemCount }),
               progress?.completed && t('learn.bestScore', { score: progress.bestScore }),
             ]
             return (

@@ -39,9 +39,43 @@
   text-align: center;
 }
 
+/* ชื่อฉาก (บทสนทนา) ใต้ภาพ */
+.sceneName {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* หัวฉากแบบย่อ: ภาพเล็ก + ชื่อฉาก (ขั้นที่มีเนื้อหายาว เช่น เล่นบทบาท) */
+.sceneRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+}
+
+/* กล่องแชตเรียงลงมา (บทสนทนา) */
+.chat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: 100%;
+}
+
+/* แถวปุ่มเล็ก ๆ เช่น ฟังทั้งบท / ช้า / ดูความหมาย */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
 .actions {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
   width: 100%;
+  /* เลื่อนจอมาที่ปุ่ม (เช่น ตาเราพูดในบทสนทนา) → เผื่อที่ให้แถบเมนูล่าง (fixed) ไม่บังปุ่ม */
+  scroll-margin-bottom: calc(var(--bottomnav-height) + env(safe-area-inset-bottom) + var(--space-3));
 }

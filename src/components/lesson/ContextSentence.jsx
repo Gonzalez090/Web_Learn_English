@@ -7,11 +7,11 @@
 // props: item, display (ผลจาก useSentenceDisplay)
 // =========================================================
 import { useTranslation } from 'react-i18next'
-import { MessageCircle } from 'lucide-react'
 import { useLocalized } from '../../hooks/useLocalized'
 import SentenceText from '../SentenceText'
 import ThaiReading from '../ThaiReading'
 import SpeakButton from '../SpeakButton'
+import ConnectedSpeech from './ConnectedSpeech'
 import styles from './ContextSentence.module.css'
 
 export default function ContextSentence({ item, display }) {
@@ -32,25 +32,7 @@ export default function ContextSentence({ item, display }) {
 
       {item.connectedSpeech?.length > 0 && (
         <div className={styles.block}>
-          <p className={styles.label}>
-            <MessageCircle className={styles.labelIcon} aria-hidden="true" />
-            {t('context.connected')}
-          </p>
-          <ul className={styles.chips}>
-            {item.connectedSpeech.map((entry) => (
-              <li key={entry.text} className={styles.chip}>
-                <span className={styles.chipText} lang="en">
-                  {entry.text}
-                </span>
-                <span className={styles.chipNote}>
-                  {entry.full ? t('context.means', { full: entry.full }) : t('context.soundsLike', { spoken: entry.spoken })}
-                </span>
-                <span className={styles.chipReading} lang="th">
-                  {entry.readingTh}
-                </span>
-              </li>
-            ))}
-          </ul>
+          <ConnectedSpeech entries={item.connectedSpeech} />
         </div>
       )}
 

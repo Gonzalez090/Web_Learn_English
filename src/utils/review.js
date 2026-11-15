@@ -5,6 +5,7 @@
 // - ทบทวนแล้วพลาด → กลับไปรอบแรก (อีก 1 วัน)
 // =========================================================
 import { addDays } from './date'
+import { prepareLessonItems } from './lessonItems'
 
 export const REVIEW_INTERVALS = [1, 3, 7, 14]
 
@@ -56,6 +57,7 @@ export function gradeReview(queue, entryId, passed, today) {
 
 /**
  * รายการที่จะทบทวนรอบนี้: ถึงกำหนดแล้ว + ยังมีข้อนั้นในบทเรียน เรียงจากค้างนานสุด ไม่เกิน limit ข้อ
+ * ข้อเป็นแบบเตรียมแล้ว (บทสนทนา/คำคล้องจองมีบรรทัดก่อนหน้าเป็นตัวนำ — utils/lessonItems.js)
  * @returns [{ entry, item, lesson }]
  */
 export function buildReviewItems(queue, lessons, today, limit = MAX_REVIEW_PER_SESSION) {
@@ -63,7 +65,7 @@ export function buildReviewItems(queue, lessons, today, limit = MAX_REVIEW_PER_S
     .sort((a, b) => a.dueDate.localeCompare(b.dueDate) || a.id.localeCompare(b.id))
     .map((entry) => {
       const lesson = lessons.find((candidate) => candidate.id === entry.lessonId)
-      const item = lesson?.items.find((candidate) => candidate.id === entry.itemId)
+      const item = lesson ? prepareLessonItems(lesson).find((candidate) => candidate.id === entry.itemId) : null
       return item ? { entry, item, lesson } : null
     })
     .filter(Boolean)

@@ -12,45 +12,12 @@
 //   idPrefix รหัสของปุ่มเสียง (ไม่ซ้ำกันในหน้า)
 // =========================================================
 import { useTranslation } from 'react-i18next'
-import { AudioLines, Eye, Languages, Mic, Square, Volume2 } from 'lucide-react'
-import { useSpeech } from '../../hooks/useSpeech'
-import { abortListening } from '../../utils/recognition'
+import { Eye, Languages, Mic } from 'lucide-react'
 import SentenceText from '../SentenceText'
 import ThaiReading from '../ThaiReading'
+import LineButton from './LineButton'
+import HiddenText from './HiddenText'
 import styles from './Exchange.module.css'
-
-// ปุ่มลำโพงเล็ก ๆ ฟังบรรทัดเดียว (กดซ้ำตอนเล่นอยู่ = หยุด)
-function LineButton({ text, speakKey, label }) {
-  const { t } = useTranslation()
-  const { speak, stop, speakingKey } = useSpeech()
-  const playing = speakingKey === speakKey
-  const Icon = playing ? Square : Volume2
-  return (
-    <button
-      type="button"
-      className={playing ? `${styles.lineButton} ${styles.playing}` : styles.lineButton}
-      aria-label={playing ? t('speech.stop') : label}
-      aria-pressed={playing}
-      onClick={() => {
-        if (playing) return stop()
-        abortListening() // กำลังฟังไมค์อยู่ → หยุดก่อน ไม่ให้ไมค์ได้ยินเสียงตัวอย่าง
-        return speak(text, { key: speakKey })
-      }}
-    >
-      <Icon className={styles.lineIcon} aria-hidden="true" />
-    </button>
-  )
-}
-
-// ข้อความถูกซ่อน → คลื่นเสียงแทนตัวอักษร
-function HiddenText() {
-  const { t } = useTranslation()
-  return (
-    <span className={styles.hidden} role="img" aria-label={t('lesson.textHidden')}>
-      <AudioLines className={styles.hiddenIcon} aria-hidden="true" />
-    </span>
-  )
-}
 
 export default function Exchange({ item, display, parts = 'both', idPrefix }) {
   const { t } = useTranslation()

@@ -7,6 +7,9 @@ import lessonsData from './lessons.json'
 import imageCredits from './imageCredits.json'
 import { collectSpeechTexts } from './speechTexts.js'
 import { swapVariants } from '../utils/swap.js'
+import { LESSON_FLOWS } from '../utils/lessonSteps.js'
+import { prepareLessonItems } from '../utils/lessonItems.js'
+import { checkKeywords } from '../utils/storyCheck.js'
 import audioManifest from './audioManifest.json'
 import th from '../locales/th.json'
 import en from '../locales/en.json'
@@ -39,8 +42,8 @@ describe('ไฟล์เสียงเจ้าของภาษา (Kokoro)'
 const REGISTERS = ['casual', 'neutral', 'formal']
 const FREQUENCIES = ['very-common', 'common', 'sometimes']
 const SHOW_TEXT = ['never', 'toggle', 'always']
-const LESSON_TYPES = ['listen', 'word', 'twoWord', 'sentence', 'context', 'dialogue', 'story', 'phonics', 'writing']
-const SPEAKING_TYPES = ['word', 'twoWord', 'sentence', 'context']
+const LESSON_TYPES = ['listen', 'word', 'twoWord', 'sentence', 'context', 'dialogue', 'story', 'rhyme', 'phonics', 'writing']
+const SPEAKING_TYPES = ['word', 'twoWord', 'sentence', 'context', 'dialogue', 'story', 'rhyme']
 
 // ทำข้อความให้อยู่ในรูปมาตรฐานก่อนเทียบ: ตัวเล็ก, ตัดเครื่องหมาย (ยกเว้น '), เว้นวรรคเดียว
 const normalize = (text) =>
@@ -110,7 +113,9 @@ describe('items', () => {
     '%s มีข้อมูลพื้นฐานครบ',
     (_id, lesson, item) => {
       // ภาพประกอบเป็นภาพถ่ายจริง ชื่อไฟล์ = id ของข้อ (ห้ามใช้ emoji)
-      expect(item.image).toBe(`/images/${item.id}.webp`)
+      // บทที่ใช้ภาพฉากเดียวกันทั้งบท (บทสนทนา/คำคล้องจอง) → ชื่อไฟล์ = id ของบท
+      const imageId = LESSON_FLOWS[lesson.type]?.sharedImage ? lesson.id : item.id
+      expect(item.image).toBe(`/images/${imageId}.webp`)
       expect(item.emoji, 'ห้ามใช้ emoji เป็นภาพ').toBeUndefined()
       expect(item.readingTh).toBeTruthy()
       expect(item.meaningTh ?? item.translationTh).toBeTruthy()
@@ -222,8 +227,99 @@ describe('ประโยคในบริบท (context)', () => {
   })
 })
 
+// รูปแบบผิดที่พบบ่อยของบทอื่นนอกจาก Stage 4 (ไม่บังคับมี แต่ถ้ามีต้องใช้งานได้)
+describe('recast ของบท Stage 5 (ประโยคในบริบท / บทสนทนา / คำคล้องจอง)', () => {
+  const withErrors = allItems
+    .filter(({ lesson, item }) => lesson.type !== 'sentence' && item.commonErrors?.length)
+    .map(({ item }) => [item.id, item])
+
+  it.each(withErrors)('%s รูปแบบผิดใช้งานได้ และไม่จับคำตอบที่ถูก', (_id, item) => {
+    const correctAnswers = [item.target, ...item.acceptAlso].map(normalize)
+    for (const { pattern, correct } of item.commonErrors) {
+      const regex = new RegExp(pattern)
+      expect(correct).toBeTruthy()
+      for (const answer of correctAnswers) {
+        expect(regex.test(answer), `${pattern} ไม่ควรจับ "${answer}"`).toBe(false)
+      }
+    }
+  })
+})
+
+// บทสนทนา (Stage 5): ผู้พูด 2 คน บทละ 4–6 บรรทัด ทั้งสองคนได้พูด — ผู้ใช้เลือกเป็นใครก็ได้
+describe('บทสนทนา (dialogue)', () => {
+  const dialogues = lessons.filter((lesson) => lesson.type === 'dialogue').map((lesson) => [lesson.id, lesson])
+
+  it('มีบทตัวอย่างอย่างน้อย 1 บท', () => {
+    expect(dialogues.length).toBeGreaterThan(0)
+  })
+
+  it.each(dialogues)('%s มีฉาก ผู้พูด 2 คน 4–6 บรรทัด และแต่ละคนพูดอย่างน้อย 2 ประโยค', (_id, lesson) => {
+    expect(lesson.scene && lesson.sceneTh).toBeTruthy()
+    expect(lesson.speakers).toHaveLength(2)
+    expect(lesson.items.length).toBeGreaterThanOrEqual(4)
+    expect(lesson.items.length).toBeLessThanOrEqual(6)
+    for (const speaker of lesson.speakers) {
+      expect(speaker.id && speaker.name && speaker.nameTh).toBeTruthy()
+      expect(lesson.items.filter((line) => line.speaker === speaker.id).length, speaker.id).toBeGreaterThanOrEqual(2)
+    }
+    for (const line of lesson.items) {
+      expect(lesson.speakers.map((speaker) => speaker.id)).toContain(line.speaker)
+      expect(['up', 'down']).toContain(line.intonation)
+      for (const entry of line.connectedSpeech ?? []) {
+        expect(containsWord(line.target, entry.text), entry.text).toBe(true)
+        expect(entry.full || entry.spoken, entry.text).toBeTruthy()
+        expect(entry.readingTh).toBeTruthy()
+      }
+    }
+  })
+})
+
+// เรื่องเล่าจากภาพ (Stage 5): 3–4 ภาพต่อกัน ภาพของตัวเอง — เล่าเองแล้วตรวจคำสำคัญ
+describe('เรื่องเล่าจากภาพ (story)', () => {
+  const stories = lessons.filter((lesson) => lesson.type === 'story')
+  const panels = stories.flatMap((lesson) => lesson.items).map((item) => [item.id, item])
+
+  it('มีเรื่องตัวอย่างอย่างน้อย 1 เรื่อง และเรื่องละ 3–4 ภาพ', () => {
+    expect(stories.length).toBeGreaterThan(0)
+    for (const lesson of stories) {
+      expect(lesson.items.length, lesson.id).toBeGreaterThanOrEqual(3)
+      expect(lesson.items.length, lesson.id).toBeLessThanOrEqual(4)
+    }
+  })
+
+  it.each(panels)('%s มีคำสำคัญ 1–4 คำ และประโยคที่เจ้าของภาษาเล่ามีคำสำคัญครบ', (_id, item) => {
+    expect(item.requiredWords.length).toBeGreaterThanOrEqual(1)
+    expect(item.requiredWords.length).toBeLessThanOrEqual(4)
+    expect(['up', 'down']).toContain(item.intonation)
+    const missing = checkKeywords(item.requiredWords, item.target).words.filter((word) => !word.found)
+    expect(missing.map((word) => word.text)).toEqual([])
+  })
+})
+
+// คำคล้องจอง (Stage 5): คู่ละ 2 บรรทัด (AABB) อย่างน้อย 2 คู่ — คำท้ายของคู่อื่นเป็นตัวหลอกในขั้นเติมคำ
+describe('คำคล้องจอง (rhyme)', () => {
+  const rhymes = lessons.filter((lesson) => lesson.type === 'rhyme').map((lesson) => [lesson.id, lesson])
+
+  it('มีเพลงตัวอย่างอย่างน้อย 1 เพลง', () => {
+    expect(rhymes.length).toBeGreaterThan(0)
+  })
+
+  it.each(rhymes)('%s เป็นคู่ ≥ 2 คู่ ทุกคู่มีขั้นเติมคำ ตัวเลือก ≥ 3 ไม่ซ้ำกัน', (_id, lesson) => {
+    expect(lesson.items.length % 2).toBe(0)
+    expect(lesson.items.length).toBeGreaterThanOrEqual(4)
+    const fills = prepareLessonItems(lesson).filter((item) => item.rhymeFill)
+    expect(fills).toHaveLength(lesson.items.length / 2)
+    for (const { id, rhymeFill } of fills) {
+      expect(rhymeFill.choices.length, id).toBeGreaterThanOrEqual(3)
+      expect(new Set(rhymeFill.choices).size, id).toBe(rhymeFill.choices.length)
+      expect(rhymeFill.choices, id).toContain(rhymeFill.word.toLowerCase())
+    }
+  })
+})
+
 describe('ภาพถ่ายประกอบ', () => {
-  const imagePaths = [...stages.map((stage) => stage.image), ...allItems.map(({ item }) => item.image)]
+  // บทสนทนา/คำคล้องจองใช้ภาพเดียวกันทั้งบท → นับภาพละครั้ง
+  const imagePaths = [...new Set([...stages.map((stage) => stage.image), ...allItems.map(({ item }) => item.image)])]
   // '/images/x.webp' → ไฟล์จริงใน public/images/x.webp
   const fileOf = (imagePath) => fileURLToPath(new URL(`../../public${imagePath}`, import.meta.url))
   const idOf = (imagePath) => imagePath.replace('/images/', '').replace('.webp', '')

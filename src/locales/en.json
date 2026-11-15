@@ -30,7 +30,9 @@
   "common": {
     "comingSoon": "Coming in step {{step}}",
     "itemCount": "Items: {{count}}",
-    "loading": "Loading…"
+    "loading": "Loading…",
+    "lineCount": "Lines: {{count}}",
+    "pictureCount": "Pictures: {{count}}"
   },
   "category": {
     "home-family": "Home & family",
@@ -99,7 +101,8 @@
       "Nice! Almost like a native speaker"
     ],
     "recastListen": "Hear how a native speaker says it",
-    "recastTryAgain": "Listen, then try again"
+    "recastTryAgain": "Listen, then try again",
+    "tell": "Tell it"
   },
   "card": {
     "showText": "Show word",
@@ -339,5 +342,53 @@
     "means": "= {{full}}",
     "soundsLike": "sounds like {{spoken}}",
     "alsoSay": "You can also say"
+  },
+  "lessonType": {
+    "context": "In context",
+    "dialogue": "Conversation",
+    "story": "Picture story",
+    "rhyme": "Rhyme"
+  },
+  "dialogue": {
+    "listen": "Listen to the conversation. Guess from the picture.",
+    "playAll": "Hear it all",
+    "showAll": "Show all the text now",
+    "playLine": "Hear the {{name}} line",
+    "chooseRole": "Who do you want to be?",
+    "chooseRoleHint": "We say the other part. Then you say yours.",
+    "lineCount": "Lines to say: {{count}}",
+    "rolePlay": "Your part: {{name}}. Say your lines!",
+    "rolePlayOwn": "Your part: {{name}}. No script this time!",
+    "rolePlayHint": "Tap “Say it” and say your line. Try as many times as you like.",
+    "rolePlayOwnHint": "Read the Thai meaning. Then tap “Answer” and say it in English.",
+    "you": "{{name}} (you)",
+    "otherSpeaking": "{{name}} is talking… Listen!",
+    "passed": "Done",
+    "done": "You finished the conversation. Great job!"
+  },
+  "story": {
+    "listen": "Listen to the story and look at the pictures.",
+    "strip": "Story pictures in order",
+    "panel": "Picture {{n}} of {{total}}",
+    "playPanel": "Hear this picture again",
+    "playAll": "Hear the whole story",
+    "tell": "Tell what happens in this picture, in your own words.",
+    "tellHint": "Tap “Tell it” and say what happens. Use the key words. Try as many times as you like.",
+    "showHint": "Show hints",
+    "keywords": "Key words:"
+  },
+  "rhyme": {
+    "listen": "Listen. Notice the words that rhyme.",
+    "listenHint": "Same color = the words rhyme (same end sound).",
+    "playLine": "Hear line {{n}}",
+    "playAll": "Hear the whole rhyme",
+    "fill": "Which word rhymes with “{{word}}”?",
+    "fillHint": "Hear the first line. Then pick the word with the same end sound.",
+    "playPrompt": "Hear the first line",
+    "playCouplet": "Hear both lines",
+    "blank": "Missing word",
+    "choices": "Word choices",
+    "correct": "Yes! {{a}} and {{b}} rhyme.",
+    "tryAgain": "That one doesn’t rhyme. Try another word."
   }
 }

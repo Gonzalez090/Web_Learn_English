@@ -10,6 +10,7 @@ import { getStage } from '../data'
 import { useLesson } from '../hooks/useLessons'
 import { useLocalized } from '../hooks/useLocalized'
 import { englishTextMode } from '../utils/display'
+import { LESSON_FLOWS } from '../utils/lessonSteps'
 import { ICONS } from '../utils/icons'
 import Page from '../components/Page'
 import Section from '../components/Section'
@@ -34,14 +35,15 @@ function readResult(state) {
   }
 }
 
-function ItemGrid({ items, showText }) {
+// withPicture = false → รายการประโยค (บทสนทนา/คำคล้องจองใช้ภาพฉากเดียวกันทั้งบท ไม่ต้องโชว์ภาพซ้ำ)
+function ItemGrid({ items, showText, withPicture = true }) {
   return (
-    <ul className={styles.items}>
+    <ul className={withPicture ? styles.items : styles.lines}>
       {items.map((item) => {
         const text = item.target ?? item.word
         return (
-          <li key={item.id} className={styles.item}>
-            <Picture image={item.image} size="fill" />
+          <li key={item.id} className={withPicture ? styles.item : styles.line}>
+            {withPicture && <Picture image={item.image} size="fill" />}
             {showText && (
               <span className={styles.itemText} lang="en">
                 {text}
@@ -81,6 +83,7 @@ export default function LessonSummaryPage() {
 
   // Stage 4 (กดดูข้อความได้) ได้เห็นข้อความในบทแล้ว → สรุปท้ายบทแสดงประโยคเลย / Stage 1–3 ไม่แสดง
   const showText = englishTextMode(stage.showText) !== 'hidden'
+  const withPicture = !LESSON_FLOWS[lesson.type]?.sharedImage
   const played = lesson.items.filter((item) => !result.itemIds.length || result.itemIds.includes(item.id))
   const missed = played.filter((item) => result.missedIds.includes(item.id))
   const mastered = played.filter((item) => !result.missedIds.includes(item.id))
@@ -114,13 +117,13 @@ export default function LessonSummaryPage() {
 
       {mastered.length > 0 && (
         <Section title={t('lesson.mastered')}>
-          <ItemGrid items={mastered} showText={showText} />
+          <ItemGrid items={mastered} showText={showText} withPicture={withPicture} />
         </Section>
       )}
 
       {missed.length > 0 && (
         <Section title={t('lesson.practice')} description={t('lesson.inReview')}>
-          <ItemGrid items={missed} showText={showText} />
+          <ItemGrid items={missed} showText={showText} withPicture={withPicture} />
         </Section>
       )}
 

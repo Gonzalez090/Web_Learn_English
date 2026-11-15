@@ -83,6 +83,21 @@ describe('ทบทวนแบบเว้นระยะ (ขั้นที�
     expect(buildReviewItems(queue, lessons, TODAY, 1).map((r) => r.item.id)).toEqual(['b'])
   })
 
+  it('buildReviewItems: บรรทัดของบทสนทนาได้บรรทัดก่อนหน้า (อีกฝ่าย) เป็นตัวนำ', () => {
+    const lessons = [
+      {
+        id: 'd1',
+        type: 'dialogue',
+        items: [
+          { id: 'x', speaker: 'a', target: 'What can I get you?', translationTh: 'รับอะไรดี' },
+          { id: 'y', speaker: 'b', target: 'A cookie, please.', translationTh: 'ขอคุกกี้' },
+        ],
+      },
+    ]
+    const [review] = buildReviewItems([entry('d1:y', 0, TODAY)], lessons, TODAY)
+    expect(review.item).toMatchObject({ id: 'y', question: 'What can I get you?', questionTh: 'รับอะไรดี' })
+  })
+
   it('nextDueDate: วันครบกำหนดถัดไปหลังวันนี้', () => {
     const queue = [entry('l1:a', 0, '2026-11-13'), entry('l1:b', 0, '2026-11-20'), entry('l1:c', 0, '2026-11-15')]
     expect(nextDueDate(queue, TODAY)).toBe('2026-11-15')

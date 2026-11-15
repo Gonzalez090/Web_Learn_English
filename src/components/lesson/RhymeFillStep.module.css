@@ -1,0 +1,114 @@
+/* เติมคำท้ายที่คล้องจอง */
+.couplet {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  width: 100%;
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--color-primary-soft);
+}
+
+.line {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* เว้นที่ไว้เท่าปุ่มลำโพง ให้บรรทัดที่สองตรงกับบรรทัดแรก */
+.spacer {
+  flex: none;
+  width: 40px;
+}
+
+.text {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+/* คำท้ายที่คล้องจอง (สีเดียวกับในขั้นฟังทั้งเพลง) */
+.rhyme {
+  padding: 0 4px;
+  border-radius: 4px;
+  background: #fde68a;
+  color: inherit;
+}
+
+.coupletB {
+  background: #bbf7d0;
+}
+
+/* ช่องว่างรอเติมคำ */
+.blank {
+  display: inline-block;
+  width: 4.5em;
+  height: 1.1em;
+  border-bottom: 3px dashed var(--color-primary);
+  vertical-align: -0.15em;
+}
+
+.choices {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.choice {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 96px;
+  min-height: 48px;
+  padding: 0 var(--space-4);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font: inherit;
+  font-size: 1.125rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.choice:hover:not(:disabled) {
+  border-color: var(--color-primary);
+}
+
+/* แตะแล้วไม่ใช่ / ตอบถูกแล้ว (ตัวเลือกอื่น) → จางลง */
+.choice:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.correct,
+.correct:disabled {
+  border-color: var(--color-success);
+  background: var(--color-success-soft);
+  color: var(--color-success);
+  opacity: 1;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+}
+
+.praise {
+  color: var(--color-success);
+  font-weight: 800;
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .choice {
+    transition: none;
+  }
+}

@@ -9,6 +9,11 @@
 //   node --env-file=.env.local scripts/fetch-images.mjs search [id ...] [--out <โฟลเดอร์>] [--page 2] [--q "คำค้นใหม่"] [--cell 200]
 //   (ไม่ใส่ id = ทุกตัวใน scripts/image-queries.json)
 //
+// ขั้นที่ 1ข — ภาพชุดเดียวกัน (ภาพเล่าเรื่อง 3–4 ภาพ / NPC ต้องเป็นคนหน้าเดิม): ภาพที่ช่างภาพถ่ายเซ็ตเดียวกัน
+//   มักอัปโหลดต่อกัน → เลขภาพ Pixabay ติดกัน (เลขอยู่ท้ายลิงก์ภาพ เช่น .../tree-watering-child-3335400/)
+//   node --env-file=.env.local scripts/fetch-images.mjs series <id> <เลขภาพ Pixabay> [--range 10] [--out <โฟลเดอร์>]
+//   → แผ่นรวมภาพของภาพเลขใกล้ ๆ (±range) ที่เป็นของช่างภาพคนเดียวกัน แล้วใช้ pick <id>=เลข เหมือนเดิม (Pixabay เท่านั้น)
+//
 // ขั้นที่ 2 — เลือก: ย่อภาพที่เลือกเป็น WebP 640x640 ไว้ที่ public/images/<id>.webp
 //   node --env-file=.env.local scripts/fetch-images.mjs pick s1-dog=3 s1-cat=1 [--out <โฟลเดอร์>]
 //   + บันทึกชื่อช่างภาพ/ที่มาลง src/data/imageCredits.json (ใช้ทำหน้าเครดิตภาพ)
@@ -28,17 +33,29 @@ const OUTPUT_SIZE = 640 // ขนาดภาพสุดท้าย (px)
 
 // ---------- อ่านคำสั่ง ----------
 const [command, ...rest] = process.argv.slice(2)
-const options = { out: path.join(ROOT, '.image-candidates'), page: 1, query: null, cell: 300 }
+const options = { out: path.join(ROOT, '.image-candidates'), page: 1, query: null, cell: 300, range: 10 }
 const args = []
 for (let i = 0; i < rest.length; i++) {
   if (rest[i] === '--out') options.out = path.resolve(rest[++i])
   else if (rest[i] === '--page') options.page = Number(rest[++i])
   else if (rest[i] === '--q') options.query = rest[++i]
   else if (rest[i] === '--cell') options.cell = Math.max(120, Number(rest[++i]) || 300) // ขนาดช่องในแผ่นรวมภาพ (px)
+  else if (rest[i] === '--range') options.range = Math.min(30, Math.max(1, Number(rest[++i]) || 10)) // series: ±กี่เลขภาพ
   else args.push(rest[i])
 }
 
 // ---------- แหล่งภาพ (provider) ----------
+// ผลจาก Pixabay → รูปแบบกลาง
+const pixabayCandidate = (hit) => ({
+  provider: 'pixabay',
+  sourceId: hit.id,
+  preview: hit.webformatURL,
+  full: hit.largeImageURL,
+  photographer: hit.user,
+  photographerUrl: `https://pixabay.com/users/${hit.user}-${hit.user_id}/`,
+  pageUrl: hit.pageURL,
+})
+
 // ทุก provider คืนรายการรูปแบบเดียวกัน:
 // { provider, sourceId, preview, full, photographer, photographerUrl, pageUrl }
 const PROVIDERS = {
@@ -55,15 +72,17 @@ const PROVIDERS = {
       const response = await fetch(url)
       if (!response.ok) throw new Error(`Pixabay ${response.status}: ${await response.text()}`)
       const { hits = [] } = await response.json()
-      return hits.map((hit) => ({
-        provider: 'pixabay',
-        sourceId: hit.id,
-        preview: hit.webformatURL,
-        full: hit.largeImageURL,
-        photographer: hit.user,
-        photographerUrl: `https://pixabay.com/users/${hit.user}-${hit.user_id}/`,
-        pageUrl: hit.pageURL,
-      }))
+      return hits.map(pixabayCandidate)
+    },
+    // ภาพเดียวตามเลขภาพ (ไม่มีภาพเลขนี้ → null)
+    async byId(sourceId) {
+      const url = new URL('https://pixabay.com/api/')
+      url.searchParams.set('key', this.key)
+      url.searchParams.set('id', String(sourceId))
+      const response = await fetch(url)
+      if (!response.ok) return null
+      const { hits = [] } = await response.json()
+      return hits[0] ? pixabayCandidate(hits[0]) : null
     },
   },
   pexels: {
@@ -140,31 +159,59 @@ async function runSearch(ids) {
       continue
     }
     const found = await provider.search(query, options.page)
-
-    // ดาวน์โหลดภาพตัวอย่าง — ภาพไหนโหลดไม่ได้หรือเปิดไม่ได้ ให้ข้ามไป (ไม่หยุดทั้งชุด)
-    const loaded = await Promise.all(
-      found.map(async (candidate) => {
-        try {
-          const buffer = await download(candidate.preview)
-          await sharp(buffer).metadata()
-          return { candidate, buffer }
-        } catch {
-          return null
-        }
-      }),
-    )
-    const usable = loaded.filter(Boolean)
-    if (usable.length === 0) {
-      console.warn(`${id}: ไม่พบภาพที่ใช้ได้สำหรับ "${query}"`)
-      continue
-    }
-    const candidates = usable.map((item) => item.candidate)
-    const previews = usable.map((item) => item.buffer)
-    await makeContactSheet(previews, `${id} - "${query}"`, path.join(options.out, `${id}.jpg`))
-    // เก็บข้อมูลตัวเลือกไว้ใช้ตอน pick
-    await fs.writeFile(path.join(options.out, `${id}.json`), JSON.stringify(candidates, null, 2))
-    console.log(`${id}: ${candidates.length} ภาพ → ${path.join(options.out, `${id}.jpg`)}`)
+    await saveCandidates(id, `${id} - "${query}"`, found)
   }
+}
+
+// ดาวน์โหลดภาพตัวอย่าง → แผ่นรวมภาพ <id>.jpg + รายการตัวเลือก <id>.json (ใช้ตอน pick)
+// ภาพไหนโหลดไม่ได้หรือเปิดไม่ได้ ให้ข้ามไป (ไม่หยุดทั้งชุด)
+async function saveCandidates(id, title, found) {
+  const loaded = await Promise.all(
+    found.map(async (candidate) => {
+      try {
+        const buffer = await download(candidate.preview)
+        await sharp(buffer).metadata()
+        return { candidate, buffer }
+      } catch {
+        return null
+      }
+    }),
+  )
+  const usable = loaded.filter(Boolean)
+  if (usable.length === 0) {
+    console.warn(`${id}: ไม่พบภาพที่ใช้ได้ (${title})`)
+    return
+  }
+  const candidates = usable.map((item) => item.candidate)
+  const previews = usable.map((item) => item.buffer)
+  await makeContactSheet(previews, title, path.join(options.out, `${id}.jpg`))
+  await fs.writeFile(path.join(options.out, `${id}.json`), JSON.stringify(candidates, null, 2))
+  console.log(`${id}: ${candidates.length} ภาพ → ${path.join(options.out, `${id}.jpg`)}`)
+}
+
+// ---------- คำสั่ง series (ภาพชุดเดียวกันของช่างภาพคนเดียว) ----------
+async function runSeries([id, sourceIdText]) {
+  const center = Number(sourceIdText)
+  if (!id || !Number.isInteger(center)) {
+    console.log('ใช้: node --env-file=.env.local scripts/fetch-images.mjs series <id> <เลขภาพ Pixabay> [--range 10]')
+    process.exit(1)
+  }
+  if (!provider.byId) {
+    console.error('คำสั่ง series ใช้ได้กับ Pixabay เท่านั้น')
+    process.exit(1)
+  }
+  const origin = await provider.byId(center)
+  if (!origin) throw new Error(`ไม่พบภาพเลข ${center}`)
+  await fs.mkdir(options.out, { recursive: true })
+
+  // ขอทีละภาพ (ไม่ยิงพร้อมกัน — Pixabay จำกัด 100 ครั้ง/นาที)
+  const found = []
+  for (let sourceId = center - options.range; sourceId <= center + options.range; sourceId += 1) {
+    const candidate = sourceId === center ? origin : await provider.byId(sourceId)
+    if (candidate?.photographer === origin.photographer) found.push(candidate)
+  }
+  await saveCandidates(id, `${id} - ${origin.photographer} #${center} ±${options.range}`, found)
+  found.forEach((candidate, index) => console.log(`  ${index + 1}: ${candidate.pageUrl}`))
 }
 
 // ---------- คำสั่ง pick ----------
@@ -202,8 +249,9 @@ async function runPick(choices) {
 }
 
 if (command === 'search') await runSearch(args)
+else if (command === 'series') await runSeries(args)
 else if (command === 'pick') await runPick(args)
 else {
-  console.log('ใช้: node --env-file=.env.local scripts/fetch-images.mjs search [id ...] | pick id=เลข ...')
+  console.log('ใช้: node --env-file=.env.local scripts/fetch-images.mjs search [id ...] | series <id> <เลขภาพ> | pick id=เลข ...')
   process.exit(1)
 }

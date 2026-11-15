@@ -63,6 +63,12 @@
   font-weight: 700;
 }
 
+/* ป้ายหน้าแถวคำ เช่น "คำสำคัญ:" */
+.wordsLabel {
+  color: var(--color-muted);
+  font-weight: 800;
+}
+
 .correct {
   color: var(--color-success);
 }

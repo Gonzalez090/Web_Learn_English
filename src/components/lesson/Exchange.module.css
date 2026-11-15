@@ -59,19 +59,6 @@
   line-height: 1.4;
 }
 
-/* ข้อความยังซ่อน → คลื่นเสียง */
-.hidden {
-  display: inline-flex;
-  align-items: center;
-  min-height: 28px;
-  color: var(--color-muted);
-}
-
-.hiddenIcon {
-  width: 44px;
-  height: 24px;
-}
-
 /* กล่อง "ตาเรา" ตอนใช้เอง */
 .yourTurn {
   flex-direction: row;
@@ -83,37 +70,6 @@
 }
 
 .yourTurnIcon {
-  width: 18px;
-  height: 18px;
-}
-
-/* ปุ่มลำโพงเล็ก */
-.lineButton {
-  display: inline-flex;
-  flex: none;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  padding: 0;
-  border: 2px solid var(--color-border);
-  border-radius: var(--radius-full);
-  background: var(--color-surface);
-  color: var(--color-primary);
-  cursor: pointer;
-}
-
-.lineButton:hover {
-  border-color: var(--color-primary);
-}
-
-.playing {
-  border-color: var(--color-primary);
-  background: var(--color-primary);
-  color: #fff;
-}
-
-.lineIcon {
   width: 18px;
   height: 18px;
 }

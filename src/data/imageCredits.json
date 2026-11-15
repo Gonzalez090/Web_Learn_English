@@ -5599,6 +5599,13 @@
     "photographerUrl": "https://pixabay.com/users/SiaModels-34556904/",
     "pageUrl": "https://pixabay.com/photos/daughter-child-fun-joy-tree-8318355/"
   },
+  "s5-cafe": {
+    "provider": "pixabay",
+    "sourceId": 2609042,
+    "photographer": "StockSnap",
+    "photographerUrl": "https://pixabay.com/users/StockSnap-894430/",
+    "pageUrl": "https://pixabay.com/photos/business-establishments-shops-2609042/"
+  },
   "s5-did-you-see": {
     "provider": "pixabay",
     "sourceId": 4818426,
@@ -5619,6 +5626,34 @@
     "photographer": "jennyfriedrichs",
     "photographerUrl": "https://pixabay.com/users/jennyfriedrichs-435099/",
     "pageUrl": "https://pixabay.com/photos/brush-teeth-teeth-child-2103217/"
+  },
+  "s5-kite-fly": {
+    "provider": "pixabay",
+    "sourceId": 7782102,
+    "photographer": "trungkhang",
+    "photographerUrl": "https://pixabay.com/users/trungkhang-29069499/",
+    "pageUrl": "https://pixabay.com/photos/child-boy-play-kite-kite-flying-7782102/"
+  },
+  "s5-kite-hold": {
+    "provider": "pixabay",
+    "sourceId": 7782105,
+    "photographer": "trungkhang",
+    "photographerUrl": "https://pixabay.com/users/trungkhang-29069499/",
+    "pageUrl": "https://pixabay.com/photos/children-boys-play-kite-7782105/"
+  },
+  "s5-kite-new": {
+    "provider": "pixabay",
+    "sourceId": 7782103,
+    "photographer": "trungkhang",
+    "photographerUrl": "https://pixabay.com/users/trungkhang-29069499/",
+    "pageUrl": "https://pixabay.com/photos/child-boy-play-kite-kite-flying-7782103/"
+  },
+  "s5-rhyme-bedtime": {
+    "provider": "pixabay",
+    "sourceId": 6000962,
+    "photographer": "GM-VA",
+    "photographerUrl": "https://pixabay.com/users/GM-VA-20208997/",
+    "pageUrl": "https://pixabay.com/photos/girl-kid-bed-rest-child-little-6000962/"
   },
   "s5-see-you-later": {
     "provider": "pixabay",

@@ -36734,6 +36734,363 @@
           ]
         }
       ]
+    },
+    {
+      "id": "s5-rhyme-bedtime",
+      "stageId": 5,
+      "category": "routines",
+      "type": "rhyme",
+      "title": "Time for bed",
+      "titleTh": "ได้เวลานอนแล้ว",
+      "items": [
+        {
+          "id": "s5-bedtime-night",
+          "target": "Night, night! Time for bed.",
+          "translationTh": "ฝันดีนะ! ได้เวลานอนแล้ว",
+          "readingTh": "ไนท์, ไนท์, ไทม์ ฟอร์ เบด",
+          "stressWords": [
+            "Night",
+            "Time",
+            "bed"
+          ],
+          "intonation": "down",
+          "image": "/images/s5-rhyme-bedtime.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "acceptAlso": [
+            "good night time for bed"
+          ]
+        },
+        {
+          "id": "s5-bedtime-pillow",
+          "target": "Pillow for my sleepy head.",
+          "translationTh": "หมอนรองหัวง่วง ๆ ของหนู",
+          "readingTh": "พิล-โล่ว ฟอร์ มาย สลี-ปี้ เฮด",
+          "stressWords": [
+            "Pillow",
+            "sleepy",
+            "head"
+          ],
+          "intonation": "down",
+          "image": "/images/s5-rhyme-bedtime.webp",
+          "register": "casual",
+          "frequency": "common",
+          "acceptAlso": [
+            "a pillow for my sleepy head"
+          ]
+        },
+        {
+          "id": "s5-bedtime-eyes",
+          "target": "Close your eyes, one, two, three.",
+          "translationTh": "หลับตานะ หนึ่ง สอง สาม",
+          "readingTh": "โคลส ยัวร์ อายส์, วัน, ทู, ธรี",
+          "stressWords": [
+            "Close",
+            "eyes",
+            "one",
+            "two",
+            "three"
+          ],
+          "intonation": "down",
+          "image": "/images/s5-rhyme-bedtime.webp",
+          "register": "casual",
+          "frequency": "common",
+          "acceptAlso": [],
+          "commonErrors": [
+            {
+              "pattern": "^close you eyes( one two three)?$",
+              "correct": "Close your eyes, one, two, three."
+            }
+          ]
+        },
+        {
+          "id": "s5-bedtime-kiss",
+          "target": "Mommy gives a kiss to me.",
+          "translationTh": "แม่จุ๊บหนูหนึ่งที",
+          "readingTh": "ม้า-มี่ กิฟวส์ อะ คิส ทะ มี",
+          "stressWords": [
+            "Mommy",
+            "kiss",
+            "me"
+          ],
+          "intonation": "down",
+          "image": "/images/s5-rhyme-bedtime.webp",
+          "register": "casual",
+          "frequency": "common",
+          "acceptAlso": [
+            "mom gives a kiss to me",
+            "mama gives a kiss to me"
+          ],
+          "commonErrors": [
+            {
+              "pattern": "^(mommy|mom|mama) give a kiss to me$",
+              "correct": "Mommy gives a kiss to me."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s5-cafe",
+      "stageId": 5,
+      "category": "food",
+      "type": "dialogue",
+      "title": "Hot chocolate, please!",
+      "titleTh": "ขอช็อกโกแลตร้อนหน่อย",
+      "scene": "Ordering at a café",
+      "sceneTh": "สั่งเครื่องดื่มที่ร้านกาแฟ",
+      "speakers": [
+        {
+          "id": "barista",
+          "name": "Barista",
+          "nameTh": "บาริสต้า"
+        },
+        {
+          "id": "customer",
+          "name": "Customer",
+          "nameTh": "ลูกค้า"
+        }
+      ],
+      "items": [
+        {
+          "id": "s5-cafe-hi",
+          "speaker": "barista",
+          "target": "Hi there! What can I get you?",
+          "translationTh": "สวัสดีครับ! รับอะไรดีครับ",
+          "readingTh": "ไฮ แดร์, วอท แคน ไอ เก็ท-ชะ",
+          "connectedSpeech": [
+            {
+              "text": "get you",
+              "spoken": "getcha",
+              "readingTh": "เก็ท-ชะ"
+            }
+          ],
+          "stressWords": [
+            "Hi",
+            "What",
+            "get"
+          ],
+          "intonation": "down",
+          "image": "/images/s5-cafe.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "acceptAlso": [
+            "hi there what can i get for you"
+          ]
+        },
+        {
+          "id": "s5-cafe-hot-chocolate",
+          "speaker": "customer",
+          "target": "Can I get a hot chocolate, please?",
+          "translationTh": "ขอช็อกโกแลตร้อนแก้วนึงได้ไหมคะ/ครับ",
+          "readingTh": "แคน ไอ เก็ท-ดะ ฮ็อท ช็อก-โก-เล็ท, พลีส",
+          "connectedSpeech": [
+            {
+              "text": "get a",
+              "spoken": "gedda",
+              "readingTh": "เก็ท-ดะ"
+            }
+          ],
+          "stressWords": [
+            "hot",
+            "chocolate",
+            "please"
+          ],
+          "intonation": "up",
+          "image": "/images/s5-cafe.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": [
+            "can i have a hot chocolate please",
+            "could i get a hot chocolate please",
+            "can i get a hot chocolate"
+          ],
+          "commonErrors": [
+            {
+              "pattern": "^(can|could) i (get|have) hot chocolate( please)?$",
+              "correct": "Can I get a hot chocolate, please?"
+            },
+            {
+              "pattern": "^i want (a )?hot chocolate( please)?$",
+              "correct": "Can I get a hot chocolate, please?"
+            }
+          ]
+        },
+        {
+          "id": "s5-cafe-big-small",
+          "speaker": "barista",
+          "target": "Sure! Big or small?",
+          "translationTh": "ได้เลยครับ! แก้วใหญ่หรือแก้วเล็กครับ",
+          "readingTh": "ชัวร์, บิ๊ก ออร์ สมอล",
+          "stressWords": [
+            "Sure",
+            "Big",
+            "small"
+          ],
+          "intonation": "down",
+          "image": "/images/s5-cafe.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s5-cafe-small-cookie",
+          "speaker": "customer",
+          "target": "Small, please. And a cookie too.",
+          "translationTh": "แก้วเล็กค่ะ/ครับ แล้วก็ขอคุกกี้ชิ้นนึงด้วย",
+          "readingTh": "สมอล พลีส, แอน-ดะ คุก-กี้ ทู",
+          "connectedSpeech": [
+            {
+              "text": "And a",
+              "spoken": "an-da",
+              "readingTh": "แอน-ดะ"
+            }
+          ],
+          "stressWords": [
+            "Small",
+            "cookie",
+            "too"
+          ],
+          "intonation": "down",
+          "image": "/images/s5-cafe.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": [
+            "small please and a cookie",
+            "a small one please and a cookie too"
+          ],
+          "commonErrors": [
+            {
+              "pattern": "^small please and cookie( too)?$",
+              "correct": "Small, please. And a cookie too."
+            }
+          ]
+        },
+        {
+          "id": "s5-cafe-five-dollars",
+          "speaker": "barista",
+          "target": "Okay! That's five dollars.",
+          "translationTh": "โอเคครับ! ทั้งหมดห้าดอลลาร์ครับ",
+          "readingTh": "โอ-เค, แดทส์ ไฟว์ ด็อล-ล่าร์ส",
+          "stressWords": [
+            "Okay",
+            "five",
+            "dollars"
+          ],
+          "intonation": "down",
+          "image": "/images/s5-cafe.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s5-cafe-here-you-go",
+          "speaker": "customer",
+          "target": "Here you go. Thanks!",
+          "translationTh": "นี่ค่ะ/ครับ ขอบคุณนะ!",
+          "readingTh": "เฮีย-ยะ-โก, แธงค์ส",
+          "connectedSpeech": [
+            {
+              "text": "Here you go",
+              "spoken": "here-ya-go",
+              "readingTh": "เฮีย-ยะ-โก"
+            }
+          ],
+          "stressWords": [
+            "Here",
+            "go",
+            "Thanks"
+          ],
+          "intonation": "down",
+          "image": "/images/s5-cafe.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "acceptAlso": [
+            "here you go thank you",
+            "here you are thanks"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s5-story-kite",
+      "stageId": 5,
+      "category": "play",
+      "type": "story",
+      "title": "Sam's new kite",
+      "titleTh": "ว่าวตัวใหม่ของแซม",
+      "items": [
+        {
+          "id": "s5-kite-new",
+          "target": "Sam got a new kite. It looked like a big bird!",
+          "translationTh": "แซมได้ว่าวตัวใหม่ มันดูเหมือนนกตัวใหญ่เลย!",
+          "readingTh": "แซม ก็อท อะ นิว ไคท์, อิท ลุคท์ ไลค์ อะ บิ๊ก เบิร์ด",
+          "stressWords": [
+            "new",
+            "kite",
+            "big",
+            "bird"
+          ],
+          "intonation": "down",
+          "image": "/images/s5-kite-new.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [
+            "sam has a new kite it looks like a big bird"
+          ],
+          "requiredWords": [
+            "kite",
+            "bird"
+          ]
+        },
+        {
+          "id": "s5-kite-hold",
+          "target": "His friend held it up high, and Sam held the string.",
+          "translationTh": "เพื่อนของแซมชูว่าวขึ้นสูง ๆ แล้วแซมก็ถือเชือกไว้",
+          "readingTh": "ฮิส เฟรนด์ เฮล-ดิท อัพ ไฮ, แอน แซม เฮลด์ เดอะ สตริง",
+          "stressWords": [
+            "friend",
+            "high",
+            "string"
+          ],
+          "intonation": "down",
+          "image": "/images/s5-kite-hold.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [
+            "his friend holds it up high and sam holds the string"
+          ],
+          "requiredWords": [
+            "friend",
+            "hold",
+            "string"
+          ]
+        },
+        {
+          "id": "s5-kite-fly",
+          "target": "Then the wind came, and whoosh! The kite flew up, up, up!",
+          "translationTh": "แล้วลมก็พัดมา วู้ช! ว่าวลอยขึ้นไป สูงขึ้น สูงขึ้น สูงขึ้น!",
+          "readingTh": "เด็น เดอะ วินด์ เคม, แอน วูช, เดอะ ไคท์ ฟลู อัพ, อัพ, อัพ",
+          "stressWords": [
+            "wind",
+            "whoosh",
+            "flew",
+            "up"
+          ],
+          "intonation": "down",
+          "image": "/images/s5-kite-fly.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [
+            "then the wind came and the kite flew up up up"
+          ],
+          "requiredWords": [
+            "wind",
+            "fly",
+            "up"
+          ]
+        }
+      ]
     }
   ]
 }

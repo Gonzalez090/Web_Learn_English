@@ -4,6 +4,7 @@
 // props:
 //   items         = ประโยค (1 ข้อ = 1 รอบ) ต้องมี target, image
 //   lenient       = ตรวจแบบผ่อนปรน (ค่าเริ่มต้น false = เกณฑ์ 70% ของ Stage 4+)
+//   ordered       = เล่นตามลำดับข้อ ไม่สุ่ม (คำคล้องจอง: ร้องตามลำดับบรรทัดของเพลง)
 //   onRoundResult = (item, passed) => void   เรียกเมื่อจบแต่ละรอบ
 //   onFinish      = ({ skipped }) => void     เล่นครบทุกรอบ / ข้ามเกม (ไมค์ใช้ไม่ได้)
 // แต่ละรอบ:
@@ -43,11 +44,11 @@ import styles from './ShadowKaraokeGame.module.css'
 
 const TICK_MS = 40 // ความถี่ในการเลื่อนแถบสี
 
-export default function ShadowKaraokeGame({ items, lenient = false, onRoundResult, onFinish }) {
+export default function ShadowKaraokeGame({ items, lenient = false, ordered = false, onRoundResult, onFinish }) {
   const { t } = useTranslation()
   const { speak, stop: stopSpeech } = useSpeech()
   // จัดลำดับรอบครั้งเดียวตอนเริ่มเกม
-  const [rounds] = useState(() => shuffle(items))
+  const [rounds] = useState(() => (ordered ? [...items] : shuffle(items)))
   const [roundIndex, setRoundIndex] = useState(0)
   // phase: 'demo' (ฟังต้นแบบ) → 'countdown' → 'sing' (ตาเรา) → 'result' | 'blocked' (ไมค์ใช้ไม่ได้)
   const [phase, setPhase] = useState(isRecognitionSupported ? 'demo' : 'blocked')

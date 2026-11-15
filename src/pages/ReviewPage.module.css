@@ -52,6 +52,19 @@
   background: var(--color-surface);
 }
 
+.itemBody {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.itemText {
+  font-weight: 700;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
 .good {
   color: var(--color-success);
   font-weight: 700;
