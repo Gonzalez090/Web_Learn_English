@@ -49,7 +49,9 @@
     "feelings": "ความรู้สึก",
     "manners": "มารยาท",
     "weather": "อากาศ",
-    "numbers-colors": "สีและตัวเลข"
+    "numbers-colors": "สีและตัวเลข",
+    "school": "โรงเรียน",
+    "friends": "เพื่อน"
   },
   "register": {
     "casual": "กันเอง",

@@ -49,7 +49,9 @@
     "feelings": "Feelings",
     "manners": "Manners",
     "weather": "Weather",
-    "numbers-colors": "Colors & numbers"
+    "numbers-colors": "Colors & numbers",
+    "school": "School",
+    "friends": "Friends"
   },
   "register": {
     "casual": "Casual",

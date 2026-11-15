@@ -16,9 +16,17 @@ export function itemTexts(item) {
 // คำเป้าหมายของข้อ (คำ/คำคู่ที่สอน)
 export const targetWords = (item) => wordsOf(item.target ?? item.word)
 
+// คำที่ได้ยินเพิ่มในขั้นสลับคำ: คำแทน (alternatives) + แบบอื่น (alsoSay)
+// ผู้เรียนได้ฟัง เห็นความหมายไทย และพูดคำเหล่านี้ → นับเป็นคำสะสม แต่ไม่นับในการตรวจ i+1 (มีความหมายกำกับอยู่แล้ว)
+export const itemExtraTexts = (item) => [
+  ...(item.keywords ?? []).flatMap((keyword) => keyword.alternatives.map((alternative) => alternative.word)),
+  ...(item.alsoSay ?? []).map((other) => other.text),
+]
+
 export const lessonTexts = (lesson) => lesson.items.flatMap(itemTexts)
 
-export const lessonWords = (lesson) => new Set(lessonTexts(lesson).flatMap(wordsOf))
+export const lessonWords = (lesson) =>
+  new Set([...lessonTexts(lesson), ...lesson.items.flatMap(itemExtraTexts)].flatMap(wordsOf))
 
 // เรียงบทตามลำดับการเรียน: Stage ก่อน แล้วตามลำดับในไฟล์
 export const orderedLessons = (lessons) =>

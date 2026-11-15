@@ -17,6 +17,9 @@
 // ขั้นที่ 2 — เลือก: ย่อภาพที่เลือกเป็น WebP 640x640 ไว้ที่ public/images/<id>.webp
 //   node --env-file=.env.local scripts/fetch-images.mjs pick s1-dog=3 s1-cat=1 [--out <โฟลเดอร์>]
 //   + บันทึกชื่อช่างภาพ/ที่มาลง src/data/imageCredits.json (ใช้ทำหน้าเครดิตภาพ)
+//   ปกติครอปเป็นสี่เหลี่ยมจัตุรัสตรงจุดเด่นของภาพเอง — ถ้าครอปแล้วคนหลุดกรอบ ใส่โหมดท้ายเลขภาพได้:
+//     s5-leo-3=3@right   เลื่อนกรอบไปทาง right / left / top / bottom / center
+//     s5-teddy-1=1@contain  เห็นทั้งภาพ (ภาพกว้างที่มีคนอยู่คนละฝั่ง) เติมขอบด้วยภาพเดียวกันแบบเบลอ
 // =========================================================
 import fs from 'node:fs/promises'
 import path from 'node:path'
@@ -30,6 +33,23 @@ const IMAGES_DIR = path.join(ROOT, 'public', 'images')
 
 const CANDIDATES = 9 // จำนวนภาพตัวเลือกต่อ 1 รายการ (ตาราง 3x3)
 const OUTPUT_SIZE = 640 // ขนาดภาพสุดท้าย (px)
+const CROP_MODES = ['right', 'left', 'top', 'bottom', 'center', 'contain'] // โหมดครอปที่ใส่ท้ายเลขภาพตอน pick
+
+// ภาพต้นฉบับ → สี่เหลี่ยมจัตุรัส OUTPUT_SIZE (sharp instance ที่ยังไม่บันทึก)
+async function toSquare(buffer, mode) {
+  if (mode !== 'contain') {
+    const position = mode ?? sharp.strategy.attention // ไม่ใส่โหมด = ให้ sharp หาจุดเด่นของภาพเอง
+    return sharp(buffer).resize(OUTPUT_SIZE, OUTPUT_SIZE, { fit: 'cover', position })
+  }
+  // contain: ภาพเต็มอยู่ตรงกลาง + พื้นหลังเป็นภาพเดียวกันขยายเต็มกรอบแบบเบลอและมืดลงเล็กน้อย
+  const background = await sharp(buffer)
+    .resize(OUTPUT_SIZE, OUTPUT_SIZE, { fit: 'cover' })
+    .blur(24)
+    .modulate({ brightness: 0.8 })
+    .toBuffer()
+  const foreground = await sharp(buffer).resize(OUTPUT_SIZE, OUTPUT_SIZE, { fit: 'inside' }).toBuffer()
+  return sharp(background).composite([{ input: foreground, gravity: 'center' }])
+}
 
 // ---------- อ่านคำสั่ง ----------
 const [command, ...rest] = process.argv.slice(2)
@@ -220,17 +240,17 @@ async function runPick(choices) {
   await fs.mkdir(IMAGES_DIR, { recursive: true })
 
   for (const choice of choices) {
-    const [id, numberText] = choice.split('=')
+    const [id, pickText] = choice.split('=')
+    const [numberText, mode] = pickText.split('@')
+    if (mode && !CROP_MODES.includes(mode)) throw new Error(`${id}: โหมดครอป "${mode}" ใช้ไม่ได้ (${CROP_MODES.join(' / ')})`)
     const candidates = JSON.parse(await fs.readFile(path.join(options.out, `${id}.json`), 'utf8'))
     const picked = candidates[Number(numberText) - 1]
     if (!picked) throw new Error(`${id}: ไม่มีภาพหมายเลข ${numberText}`)
 
     const buffer = await download(picked.full)
     const outFile = path.join(IMAGES_DIR, `${id}.webp`)
-    await sharp(buffer)
-      .resize(OUTPUT_SIZE, OUTPUT_SIZE, { fit: 'cover', position: sharp.strategy.attention })
-      .webp({ quality: 78 })
-      .toFile(outFile)
+    const square = await toSquare(buffer, mode)
+    await square.webp({ quality: 78 }).toFile(outFile)
 
     credits[id] = {
       provider: picked.provider,

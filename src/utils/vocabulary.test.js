@@ -29,6 +29,24 @@ describe('vocabulary (ตัวนับคำ)', () => {
     expect(lessonNovelty(sample)[1].newWords).toEqual(['cat'])
   })
 
+  it('คำสะสมนับคำแทนในขั้นสลับคำ + แบบอื่น (alsoSay) ด้วย แต่การตรวจ i+1 นับแค่ข้อความที่ฟัง', () => {
+    const withSwap = [
+      {
+        id: 'c',
+        stageId: 5,
+        items: [
+          {
+            target: 'I want juice.',
+            keywords: [{ word: 'juice', alternatives: [{ word: 'milk' }, { word: 'hot cocoa' }] }],
+            alsoSay: [{ text: 'May I have juice?' }],
+          },
+        ],
+      },
+    ]
+    expect(cumulativeVocabulary(withSwap)[5]).toBe(8) // i want juice + milk hot cocoa + may have
+    expect(firstHearings(withSwap)[0].newWords).toEqual(['i', 'want', 'juice'])
+  })
+
   it('นับจำนวนข้อความที่มีคำนั้น และคำที่ได้ยินครั้งแรกในแต่ละข้อความ', () => {
     const counts = textCountByWord(sample)
     expect(counts.get('dog')).toBe(3)
@@ -135,5 +153,31 @@ describe('เนื้อหา Stage 4 (ขั้นที่ 23)', () => {
       const targets = lesson.items.map((item) => item.target.toLowerCase())
       expect(new Set(targets).size, lesson.id).toBe(targets.length)
     }
+  })
+})
+
+// ---------- ตรวจเนื้อหา Stage 5 (ประโยคบริบท บทสนทนา เรื่องเล่า คำคล้องจอง) ----------
+// ข้อความที่ฟัง = ประโยค/บรรทัดของแต่ละข้อ (คำแทนในขั้นสลับคำมีความหมายไทยกำกับ → นับเป็นคำสะสม แต่ไม่นับใน i+1)
+const throughStage5 = lessons.filter((lesson) => lesson.stageId <= 5)
+
+describe('เนื้อหา Stage 5 (ขั้นที่ 24)', () => {
+  it('i+1: ทุกประโยค/บรรทัด มีคำที่เพิ่งได้ยินครั้งแรกไม่เกิน 2 คำ', () => {
+    const heavy = firstHearings(throughStage5)
+      .filter((entry) => entry.stageId === 5 && entry.newWords.length > 2)
+      .map((entry) => `${entry.lessonId}: ${entry.text}`)
+    expect(heavy).toEqual([])
+  })
+
+  it('i+1: คำที่ได้ยินครั้งแรกไม่เกิน 30% ของคำที่ฟังในบท และเฉลี่ยทั้ง Stage ไม่เกิน 20%', () => {
+    const shares = lessonFirstHearingShare(throughStage5).filter((entry) => entry.stageId === 5)
+    expect(shares.filter((entry) => entry.share > 0.3)).toEqual([])
+    const average = shares.reduce((sum, entry) => sum + entry.share, 0) / shares.length
+    expect(average).toBeLessThanOrEqual(0.2)
+  })
+
+  // ระหว่างขยายเนื้อหาเป็นช่วง ๆ (หน่วย 1–10 → 11–20 → 21–30) — เป้า ~2,500 คำ ตรวจเมื่อครบ 30 หน่วย
+  it('คำสะสมเพิ่มจาก Stage 4 อย่างน้อย 300 คำ (หน่วย 1–10)', () => {
+    const cumulative = cumulativeVocabulary(throughStage5)
+    expect(cumulative[5] - cumulative[4]).toBeGreaterThanOrEqual(300)
   })
 })
