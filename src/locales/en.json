@@ -51,7 +51,9 @@
     "weather": "Weather",
     "numbers-colors": "Colors & numbers",
     "school": "School",
-    "friends": "Friends"
+    "friends": "Friends",
+    "shopping": "Shopping",
+    "health": "Health"
   },
   "register": {
     "casual": "Casual",

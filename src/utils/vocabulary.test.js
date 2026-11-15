@@ -176,8 +176,8 @@ describe('เนื้อหา Stage 5 (ขั้นที่ 24)', () => {
   })
 
   // ระหว่างขยายเนื้อหาเป็นช่วง ๆ (หน่วย 1–10 → 11–20 → 21–30) — เป้า ~2,500 คำ ตรวจเมื่อครบ 30 หน่วย
-  it('คำสะสมเพิ่มจาก Stage 4 อย่างน้อย 300 คำ (หน่วย 1–10)', () => {
+  it('คำสะสมเพิ่มจาก Stage 4 อย่างน้อย 600 คำ (หน่วย 1–20)', () => {
     const cumulative = cumulativeVocabulary(throughStage5)
-    expect(cumulative[5] - cumulative[4]).toBeGreaterThanOrEqual(300)
+    expect(cumulative[5] - cumulative[4]).toBeGreaterThanOrEqual(600)
   })
 })

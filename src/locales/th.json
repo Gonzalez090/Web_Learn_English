@@ -51,7 +51,9 @@
     "weather": "อากาศ",
     "numbers-colors": "สีและตัวเลข",
     "school": "โรงเรียน",
-    "friends": "เพื่อน"
+    "friends": "เพื่อน",
+    "shopping": "ซื้อของ",
+    "health": "สุขภาพ"
   },
   "register": {
     "casual": "กันเอง",
