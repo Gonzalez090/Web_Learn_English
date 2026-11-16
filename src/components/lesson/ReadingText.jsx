@@ -13,7 +13,10 @@ export default function ReadingText({ text, read = 0, focusWord }) {
       {readingUnits(text).map((unit, index) => {
         const classes = [styles.word]
         if (unit.countable && unit.order < read) classes.push(styles.read)
-        if (focus && unit.tokens.join(' ') === focus) classes.push(styles.focus)
+        // เทียบจากคำตามที่เขียน (ตัดเครื่องหมาย) → คำย่ออย่าง "Don't" ก็ขีดเส้นใต้ได้
+        if (focus && unit.display.toLowerCase().replace(/[’]/g, "'").replace(/^[^a-z']+|[^a-z']+$/g, '') === focus) {
+          classes.push(styles.focus)
+        }
         return (
           <Fragment key={index}>
             {index > 0 && ' '}
