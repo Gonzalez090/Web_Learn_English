@@ -65,6 +65,15 @@
   }
 }
 
+/* โหมดอ่าน: คำ/ประโยคที่ต้องอ่าน */
+.prompt {
+  font-size: clamp(1.5rem, 7vw, 2rem);
+  font-weight: 800;
+  line-height: 1.25;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
 .feedback {
   min-height: 1.5em;
   font-weight: 700;

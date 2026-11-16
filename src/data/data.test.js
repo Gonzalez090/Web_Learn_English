@@ -2,14 +2,17 @@
 import { existsSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { describe, it, expect } from 'vitest'
-import { miniGames } from './index.js'
+import { miniGames, soundPractice } from './index.js'
 import lessonsData from './lessons.json'
+import phonicsData from './phonics.json'
 import imageCredits from './imageCredits.json'
 import { collectSpeechTexts } from './speechTexts.js'
 import { swapVariants } from '../utils/swap.js'
 import { LESSON_FLOWS } from '../utils/lessonSteps.js'
 import { prepareLessonItems } from '../utils/lessonItems.js'
 import { checkKeywords } from '../utils/storyCheck.js'
+import { graphemeUnits, spellUnits } from '../utils/reading.js'
+import { itemTexts, wordsOf } from '../utils/vocabulary.js'
 import audioManifest from './audioManifest.json'
 import th from '../locales/th.json'
 import en from '../locales/en.json'
@@ -20,7 +23,7 @@ const { stages, lessons } = lessonsData
 // ทุกข้อความที่เว็บพูดต้องมีไฟล์เสียง Kokoro ทั้งความเร็วปกติและช้า
 // (เพิ่ม/แก้เนื้อหาแล้ว test นี้ไม่ผ่าน → รัน npm run audio)
 describe('ไฟล์เสียงเจ้าของภาษา (Kokoro)', () => {
-  const texts = collectSpeechTexts({ lessons })
+  const texts = collectSpeechTexts({ lessons, soundPractice, phonicsSounds: phonicsData.sounds })
   const fileOf = (audioPath) => fileURLToPath(new URL(`../../public${audioPath}`, import.meta.url))
 
   it.each(texts)('"%s" มีไฟล์เสียงปกติและช้า และไฟล์มีอยู่จริง', (text) => {
@@ -42,7 +45,20 @@ describe('ไฟล์เสียงเจ้าของภาษา (Kokoro)'
 const REGISTERS = ['casual', 'neutral', 'formal']
 const FREQUENCIES = ['very-common', 'common', 'sometimes']
 const SHOW_TEXT = ['never', 'toggle', 'always']
-const LESSON_TYPES = ['listen', 'word', 'twoWord', 'sentence', 'context', 'dialogue', 'story', 'rhyme', 'phonics', 'writing']
+const LESSON_TYPES = [
+  'listen',
+  'word',
+  'twoWord',
+  'sentence',
+  'context',
+  'dialogue',
+  'story',
+  'rhyme',
+  'phonics',
+  'sightWords',
+  'reading',
+  'writing',
+]
 const SPEAKING_TYPES = ['word', 'twoWord', 'sentence', 'context', 'dialogue', 'story', 'rhyme']
 
 // ทำข้อความให้อยู่ในรูปมาตรฐานก่อนเทียบ: ตัวเล็ก, ตัดเครื่องหมาย (ยกเว้น '), เว้นวรรคเดียว
@@ -313,6 +329,100 @@ describe('คำคล้องจอง (rhyme)', () => {
       expect(rhymeFill.choices.length, id).toBeGreaterThanOrEqual(3)
       expect(new Set(rhymeFill.choices).size, id).toBe(rhymeFill.choices.length)
       expect(rhymeFill.choices, id).toContain(rhymeFill.word.toLowerCase())
+    }
+  })
+})
+
+// ---------- Stage 6 อ่าน: phonics / sight words / อ่านนิทาน ----------
+// หลักข้อ 9 "พูดได้ก่อนอ่าน": ทุกคำที่ให้อ่าน (และคำคู่ในเกม) ต้องได้ยินแล้วในข้อความที่ฟังของ Stage 1–5
+describe('Stage 6 อ่าน', () => {
+  const stage6 = lessons.filter((lesson) => lesson.stageId === 6)
+  const soundsById = Object.fromEntries(phonicsData.sounds.map((sound) => [sound.id, sound]))
+  const heardBefore = new Set(
+    lessons
+      .filter((lesson) => lesson.stageId <= 5)
+      .flatMap((lesson) => lesson.items.flatMap(itemTexts))
+      .flatMap(wordsOf),
+  )
+  const unheard = (text) => wordsOf(text).filter((word) => !heardBefore.has(word))
+
+  it('มีบทตัวอย่างครบ 3 แบบ: phonics / sight words / อ่านนิทาน', () => {
+    for (const type of ['phonics', 'sightWords', 'reading']) {
+      expect(stage6.some((lesson) => lesson.type === type), type).toBe(true)
+    }
+  })
+
+  it('ทุกคำที่ให้อ่าน + คำคู่ในเกม ได้ยินแล้วใน Stage 1–5', () => {
+    const problems = stage6
+      .flatMap((lesson) => lesson.items)
+      .flatMap((item) => [item.word, item.target, item.pairWith].filter(Boolean).map((text) => [item.id, text]))
+      .filter(([, text]) => unheard(text).length > 0)
+      .map(([id, text]) => `${id}: ${unheard(text).join(', ')}`)
+    expect(problems).toEqual([])
+  })
+
+  it('ทุกข้อมีคำตอบที่ยอมรับเพิ่ม (acceptAlso) และคำคู่ในเกมไม่ซ้ำกับคำของข้อ', () => {
+    for (const item of stage6.flatMap((lesson) => lesson.items)) {
+      expect(Array.isArray(item.acceptAlso), item.id).toBe(true)
+      if (item.pairWith) expect(item.pairWith.toLowerCase(), item.id).not.toBe(item.word.toLowerCase())
+    }
+  })
+
+  it('phonics: เสียงของบทมีใน phonics.json, ตัวอักษรสะกดเป็นคำได้ และใช้แค่เสียงที่สอนแล้ว', () => {
+    const taught = new Set()
+    for (const lesson of stage6.filter((entry) => entry.type === 'phonics')) {
+      for (const id of lesson.sounds) {
+        expect(soundsById[id], `${lesson.id}: ${id}`).toBeTruthy()
+        taught.add(id)
+      }
+      for (const item of lesson.items) {
+        expect(spellUnits(graphemeUnits(item.graphemes, soundsById)), item.id).toBe(item.word)
+        expect(item.graphemes.filter((id) => !taught.has(id)), item.id).toEqual([])
+        expect(item.pairWith, item.id).toBeTruthy()
+      }
+    }
+  })
+
+  it('sight words: คำอยู่ในประโยคที่ให้อ่าน และมีคำคู่หน้าตาคล้าย', () => {
+    for (const item of stage6.filter((lesson) => lesson.type === 'sightWords').flatMap((lesson) => lesson.items)) {
+      expect(containsWord(item.target, item.word), item.id).toBe(true)
+      expect(item.pairWith, item.id).toBeTruthy()
+      expect(item.translationTh, item.id).toBeTruthy()
+    }
+  })
+
+  it('อ่านนิทาน: เรื่องละ 3–6 หน้า ทุกหน้ามีภาพของตัวเอง', () => {
+    for (const lesson of stage6.filter((entry) => entry.type === 'reading')) {
+      expect(lesson.items.length, lesson.id).toBeGreaterThanOrEqual(3)
+      expect(lesson.items.length, lesson.id).toBeLessThanOrEqual(6)
+      expect(new Set(lesson.items.map((item) => item.image)).size, lesson.id).toBe(lesson.items.length)
+    }
+  })
+
+  it.each(phonicsData.sounds.map((sound) => [sound.id, sound]))(
+    'เสียง %s มีข้อมูลครบ และคำตัวอย่างเป็นคำที่ได้ยินแล้ว',
+    (_id, sound) => {
+      for (const field of ['grapheme', 'ipa', 'soundTh', 'tipTh']) expect(sound[field], field).toBeTruthy()
+      expect(sound.examples.length).toBeGreaterThanOrEqual(2)
+      expect(sound.examples.flatMap(unheard)).toEqual([])
+    },
+  )
+})
+
+// ---------- โหมดฝึกเสียง (ส่วนที่ 10.1) ----------
+describe('โหมดฝึกเสียง (soundPractice)', () => {
+  it('มีเสียงหลัก th, r/l, v/w (+ อื่น ๆ) id ไม่ซ้ำ', () => {
+    const ids = soundPractice.map((set) => set.id)
+    expect(ids).toEqual(expect.arrayContaining(['th', 'r-l', 'v-w']))
+    expect(new Set(ids).size).toBe(ids.length)
+  })
+
+  it.each(soundPractice.map((set) => [set.id, set]))('%s มีคำแนะนำภาษาไทย + คู่คำจริง ≥ 5 คู่', (_id, set) => {
+    for (const field of ['title', 'titleTh', 'summary', 'summaryTh', 'tipTh', 'mistakeTh']) expect(set[field], field).toBeTruthy()
+    expect(set.pairs.length).toBeGreaterThanOrEqual(5)
+    for (const pair of set.pairs) {
+      expect(pair.a && pair.b && pair.aTh && pair.bTh, `${pair.a}/${pair.b}`).toBeTruthy()
+      expect(pair.a).not.toBe(pair.b)
     }
   })
 })

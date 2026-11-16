@@ -1,0 +1,52 @@
+/* ภาพ + ความหมายที่เฉลยหลังลองอ่าน (คำ phonics) */
+.reveal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+  animation: pop 0.25s ease-out;
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.96);
+    opacity: 0;
+  }
+}
+
+.meaning {
+  font-weight: 700;
+  text-align: center;
+}
+
+/* การ์ด sight word: คำใหญ่ + ปุ่มฟัง + ความหมาย */
+.sightCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  width: 100%;
+  padding: var(--space-3);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.sightRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.sightWord {
+  font-size: clamp(2.25rem, 12vw, 3rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    animation: none;
+  }
+}

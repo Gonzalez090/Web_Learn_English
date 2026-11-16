@@ -9631,6 +9631,111 @@
     "photographerUrl": "https://pixabay.com/users/Daria-Yakovleva-3938704/",
     "pageUrl": "https://pixabay.com/photos/pancakes-honey-stack-2139844/"
   },
+  "s6-ant": {
+    "provider": "pixabay",
+    "sourceId": 9904052,
+    "photographer": "KhiemBeo",
+    "photographerUrl": "https://pixabay.com/users/KhiemBeo-52838919/",
+    "pageUrl": "https://pixabay.com/photos/ant-ants-nature-insects-green-9904052/"
+  },
+  "s6-kite-fly": {
+    "provider": "pixabay",
+    "sourceId": 7782102,
+    "photographer": "trungkhang",
+    "photographerUrl": "https://pixabay.com/users/trungkhang-29069499/",
+    "pageUrl": "https://pixabay.com/photos/child-boy-play-kite-kite-flying-7782102/"
+  },
+  "s6-kite-hold": {
+    "provider": "pixabay",
+    "sourceId": 7782105,
+    "photographer": "trungkhang",
+    "photographerUrl": "https://pixabay.com/users/trungkhang-29069499/",
+    "pageUrl": "https://pixabay.com/photos/children-boys-play-kite-7782105/"
+  },
+  "s6-kite-new": {
+    "provider": "pixabay",
+    "sourceId": 7782103,
+    "photographer": "trungkhang",
+    "photographerUrl": "https://pixabay.com/users/trungkhang-29069499/",
+    "pageUrl": "https://pixabay.com/photos/child-boy-play-kite-kite-flying-7782103/"
+  },
+  "s6-nap": {
+    "provider": "pixabay",
+    "sourceId": 1151351,
+    "photographer": "ddimitrova",
+    "photographerUrl": "https://pixabay.com/users/ddimitrova-1155171/",
+    "pageUrl": "https://pixabay.com/photos/baby-girl-sleep-sleeping-asleep-1151351/"
+  },
+  "s6-pants": {
+    "provider": "pixabay",
+    "sourceId": 166852,
+    "photographer": "PDPics",
+    "photographerUrl": "https://pixabay.com/users/PDPics-44804/",
+    "pageUrl": "https://pixabay.com/photos/clothes-pants-clothing-stack-pink-166852/"
+  },
+  "s6-sip": {
+    "provider": "pixabay",
+    "sourceId": 1109675,
+    "photographer": "calvinwang6808020",
+    "photographerUrl": "https://pixabay.com/users/calvinwang6808020-675620/",
+    "pageUrl": "https://pixabay.com/photos/fresh-beautiful-little-girl-asia-1109675/"
+  },
+  "s6-sit": {
+    "provider": "pixabay",
+    "sourceId": 361052,
+    "photographer": "aditomo68",
+    "photographerUrl": "https://pixabay.com/users/aditomo68-203402/",
+    "pageUrl": "https://pixabay.com/photos/child-boy-airplane-seat-seat-belt-361052/"
+  },
+  "s6-spin": {
+    "provider": "pixabay",
+    "sourceId": 1143518,
+    "photographer": "JillWellington",
+    "photographerUrl": "https://pixabay.com/users/JillWellington-334088/",
+    "pageUrl": "https://pixabay.com/photos/little-girl-running-red-dress-happy-1143518/"
+  },
+  "s6-sw-are": {
+    "provider": "pixabay",
+    "sourceId": 1822563,
+    "photographer": "sasint",
+    "photographerUrl": "https://pixabay.com/users/sasint-3639875/",
+    "pageUrl": "https://pixabay.com/photos/selfie-children-telephone-asia-1822563/"
+  },
+  "s6-sw-said": {
+    "provider": "pixabay",
+    "sourceId": 10206498,
+    "photographer": "Navanithe",
+    "photographerUrl": "https://pixabay.com/users/Navanithe-17724027/",
+    "pageUrl": "https://pixabay.com/photos/sleeping-child-teddy-bear-bed-10206498/"
+  },
+  "s6-sw-the": {
+    "provider": "pixabay",
+    "sourceId": 287420,
+    "photographer": "Beatriz57",
+    "photographerUrl": "https://pixabay.com/users/Beatriz57-189088/",
+    "pageUrl": "https://pixabay.com/photos/dog-pet-animal-bernese-mountain-dog-287420/"
+  },
+  "s6-sw-to": {
+    "provider": "pixabay",
+    "sourceId": 3687187,
+    "photographer": "pasja1000",
+    "photographerUrl": "https://pixabay.com/users/pasja1000-6355831/",
+    "pageUrl": "https://pixabay.com/photos/family-mom-childhood-the-ball-3687187/"
+  },
+  "s6-sw-was": {
+    "provider": "pixabay",
+    "sourceId": 1850011,
+    "photographer": "Pexels",
+    "photographerUrl": "https://pixabay.com/users/Pexels-2286921/",
+    "pageUrl": "https://pixabay.com/photos/cake-chocolate-chocolate-cake-1850011/"
+  },
+  "s6-sw-you": {
+    "provider": "pixabay",
+    "sourceId": 1590491,
+    "photographer": "fsHH",
+    "photographerUrl": "https://pixabay.com/users/fsHH-1451325/",
+    "pageUrl": "https://pixabay.com/photos/child-father-teddy-hamburg-summer-1590491/"
+  },
   "stage-1": {
     "provider": "pixabay",
     "sourceId": 84628,

@@ -20,6 +20,9 @@
 //   ปกติครอปเป็นสี่เหลี่ยมจัตุรัสตรงจุดเด่นของภาพเอง — ถ้าครอปแล้วคนหลุดกรอบ ใส่โหมดท้ายเลขภาพได้:
 //     s5-leo-3=3@right   เลื่อนกรอบไปทาง right / left / top / bottom / center
 //     s5-teddy-1=1@contain  เห็นทั้งภาพ (ภาพกว้างที่มีคนอยู่คนละฝั่ง) เติมขอบด้วยภาพเดียวกันแบบเบลอ
+//
+// ใช้ภาพเดิมซ้ำ — คัดลอกภาพ + เครดิตของข้อเดิมไปเป็นภาพของข้อใหม่ (ไม่ต้องใช้ key)
+//   node scripts/fetch-images.mjs copy s6-ant=s4-so-tiny s6-pants=s1-pants
 // =========================================================
 import fs from 'node:fs/promises'
 import path from 'node:path'
@@ -129,7 +132,8 @@ const PROVIDERS = {
 }
 
 const provider = Object.values(PROVIDERS).find((p) => p.key)
-if (!provider) {
+// copy ไม่ได้ดาวน์โหลดอะไร → ไม่ต้องใช้ key
+if (!provider && command !== 'copy') {
   console.error('ไม่พบ key — สร้างไฟล์ .env.local แล้วใส่ PIXABAY_API_KEY=xxxx ก่อน')
   process.exit(1)
 }
@@ -263,15 +267,38 @@ async function runPick(choices) {
     console.log(`${id} ← #${numberText} โดย ${picked.photographer} (${Math.round(size / 1024)} KB)`)
   }
 
-  // เรียง key ให้อ่านง่าย แล้วบันทึกเครดิต
+  await saveCredits(credits)
+}
+
+// เรียง key ให้อ่านง่าย แล้วบันทึกเครดิต
+async function saveCredits(credits) {
   const sorted = Object.fromEntries(Object.entries(credits).sort(([a], [b]) => a.localeCompare(b)))
   await fs.writeFile(CREDITS_FILE, `${JSON.stringify(sorted, null, 2)}\n`)
+}
+
+// ---------- คำสั่ง copy ----------
+// ใช้ภาพเดิมซ้ำกับข้อใหม่ (เช่น Stage 6 อ่านคำ/ประโยคที่เคยเห็นภาพใน Stage 1–5): คัดลอกไฟล์ + เครดิตช่างภาพ
+//   copy <id ใหม่>=<id เดิม> ...   (ไม่ต้องใช้ key — ไม่ได้ดาวน์โหลดอะไร)
+async function runCopy(pairs) {
+  const credits = JSON.parse(await fs.readFile(CREDITS_FILE, 'utf8').catch(() => '{}'))
+  for (const pair of pairs) {
+    const [id, fromId] = pair.split('=')
+    if (!id || !fromId) throw new Error(`"${pair}": ใช้รูปแบบ <id ใหม่>=<id เดิม>`)
+    if (!credits[fromId]) throw new Error(`${fromId}: ไม่มีเครดิตของภาพเดิม`)
+    await fs.copyFile(path.join(IMAGES_DIR, `${fromId}.webp`), path.join(IMAGES_DIR, `${id}.webp`))
+    credits[id] = { ...credits[fromId] }
+    console.log(`${id} ← ${fromId} (โดย ${credits[id].photographer})`)
+  }
+  await saveCredits(credits)
 }
 
 if (command === 'search') await runSearch(args)
 else if (command === 'series') await runSeries(args)
 else if (command === 'pick') await runPick(args)
+else if (command === 'copy') await runCopy(args)
 else {
-  console.log('ใช้: node --env-file=.env.local scripts/fetch-images.mjs search [id ...] | series <id> <เลขภาพ> | pick id=เลข ...')
+  console.log(
+    'ใช้: node --env-file=.env.local scripts/fetch-images.mjs search [id ...] | series <id> <เลขภาพ> | pick id=เลข ... | copy id=idเดิม ...',
+  )
   process.exit(1)
 }

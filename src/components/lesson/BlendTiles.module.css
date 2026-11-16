@@ -1,0 +1,83 @@
+.blend {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.tiles {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+  max-width: 100%;
+  transition: gap 0.3s ease;
+}
+
+/* รวมเป็นคำ: ป้ายเลื่อนชิดกัน */
+.blended {
+  gap: 2px;
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  /* คำยาว (6–7 ตัว) ป้ายหดลงได้ ไม่ล้นจอ 320px */
+  flex: 0 1 56px;
+  min-width: 0;
+  padding: var(--space-2) 4px var(--space-1);
+  border: 3px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.letter {
+  font-size: clamp(1.75rem, 10vw, 3rem);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.sound {
+  min-height: 1.4em;
+  color: var(--color-muted);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+/* ตัวที่กำลังไล่เสียง */
+.active {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+  transform: translateY(-4px);
+}
+
+.active .sound {
+  color: var(--color-primary-strong);
+}
+
+/* ตัวที่ไล่ผ่านแล้ว / รวมเป็นคำแล้ว */
+.done {
+  border-color: var(--color-primary);
+}
+
+@media (max-width: 359px) {
+  .tiles {
+    gap: var(--space-1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tiles,
+  .tile {
+    transition: none;
+  }
+
+  .active {
+    transform: none;
+  }
+}

@@ -6,6 +6,7 @@
 //                   listenContext (ฟังประโยคในบริบท), swap (สลับคำในบริบท), rhymeFill (เติมคำท้ายที่คล้องจอง)
 //                   ขั้นใน STEP_NEEDS ทำเฉพาะข้อที่มีข้อมูลของขั้นนั้น (เตรียมใน utils/lessonItems.js)
 // - game            มินิเกมแทรกในบท (ทำครั้งเดียวทั้งบท ด้วยคำ/ประโยคของบทนั้น) — keepOrder = เล่นตามลำดับข้อ ไม่สุ่ม
+//                   ใส่เป็น array ได้ → เล่นต่อกันหลายเกม (เช่น phonics: ฟังเลือกคำ แล้วอ่านแล้วแตะภาพ)
 // - afterGameSteps  ทำทีละข้ออีกรอบหลังเกม: speakOwn (ใช้เอง — ปิดข้อความ ดูภาพแล้วตอบเอง), tellStory (เล่าเรื่องภาพเอง)
 //                   ห่างจากตอนฝึกครั้งแรก → ได้ดึงความจำจริง ไม่ใช่พูดซ้ำทันที
 // - retry           ลำดับขั้นตอน "ฝึกซ้ำเฉพาะข้อที่พลาด" (ไม่ใส่ = ใช้ลำดับปกติกับข้อที่พลาด)
@@ -14,6 +15,9 @@
 // Stage 1–3 ใช้แค่ขั้น 1 (ดู+ฟัง), 3 (ฟังช้า/ปกติ), 4 (พูดตาม) + เกม Listen & Tap — ไม่แสดงข้อความ
 // Stage 4: ฟัง (เดาจากภาพ → ดูข้อความ → ช้า/ปกติ) → พูดตาม + recast → สลับคำ → เกม Shadow Karaoke → ใช้เอง
 // Stage 5 ประโยคในบริบท: ฟัง (ฉาก + เสียงพูดเชื่อม) → พูดตาม → สลับคำ → เกม Word Swap Race → ใช้เอง
+// Stage 6 อ่าน: phonics (เสียงใหม่ → ไล่เสียงแล้วอ่านทั้งคำ → Minimal Pair Duel → Read & Tap),
+//   sight words (ดู+ฟังคำ → อ่านประโยค → Minimal Pair Duel), อ่านนิทาน (อ่านทีละหน้า → Read & Tap)
+//   ขั้นอ่าน (blend / sightWord / readAloud) = ReadAloudStep — ทบทวนแบบ 'read' (อ่านออกเสียงอีกครั้ง)
 // เพิ่มประเภทบทใหม่ = เพิ่มค่าตรงนี้ + component ของขั้นใหม่ใน LessonPlayer
 // =========================================================
 
@@ -64,7 +68,29 @@ export const LESSON_FLOWS = {
     afterGameSteps: ['tellStory'],
     review: ['tap', 'speak'],
   },
+  // Stage 6 phonics: เสียงใหม่ของบท → ไล่เสียงทีละตัวแล้วอ่านทั้งคำ → ฟังแล้วเลือกคำที่ได้ยิน (sit / sat) → อ่านแล้วแตะภาพ
+  phonics: {
+    wholeSteps: ['phonicsIntro'],
+    itemSteps: ['blend'],
+    game: ['minimal-pair-duel', 'read-tap'],
+    review: ['read'],
+  },
+  // Stage 6 sight words: ดู + ฟังคำ (จำทั้งคำ) → อ่านประโยคที่มีคำนั้น → ฟังแล้วเลือกคำ (คู่คำหน้าตาคล้าย was / saw)
+  sightWords: { itemSteps: ['sightWord'], game: 'minimal-pair-duel', review: ['read'] },
+  // Stage 6 อ่านนิทาน: อ่านออกเสียงทีละหน้า (ไฮไลต์คำที่อ่านถึง) → อ่านแล้วแตะภาพ
+  reading: { itemSteps: ['readAloud'], game: 'read-tap', review: ['read'] },
 }
+
+// ขั้นอ่านของแต่ละประเภทบท → แบบของ ReadAloudStep (ใช้ทั้งในบทและตอนทบทวน)
+export const READ_VARIANTS = { blend: 'blend', sightWord: 'sight', readAloud: 'page' }
+const READ_VARIANT_OF_TYPE = { phonics: 'blend', sightWords: 'sight', reading: 'page' }
+export const readVariantOf = (lesson) => READ_VARIANT_OF_TYPE[lesson?.type] ?? 'page'
+
+// เกมในบท (เป็น array เสมอ)
+export const flowGames = (flow) => [].concat(flow?.game ?? [])
+
+// เกมที่เป็นโหมดหนึ่งของมินิเกมอื่น (Read & Tap = Listen & Tap แบบอ่านเอง)
+export const GAME_BASE = { 'read-tap': 'listen-tap' }
 
 // ขั้นรายข้อที่ทำเฉพาะข้อที่มีข้อมูลของขั้นนั้น
 const STEP_NEEDS = { rhymeFill: 'rhymeFill' }
@@ -87,7 +113,7 @@ export function buildLessonSteps(flow, items, { retry = false } = {}) {
   return [
     ...(active.wholeSteps ?? []).map((kind) => ({ kind, whole: true })),
     ...perItem(active.itemSteps),
-    ...(active.game ? [{ kind: 'game', game: active.game }] : []),
+    ...flowGames(active).map((game) => ({ kind: 'game', game })),
     // รอบใช้เอง: ทำครบทุกข้อก่อน แล้วค่อยวนกลับมาข้อแรก (เว้นระยะให้ได้ดึงความจำ)
     ...(active.afterGameSteps ?? []).flatMap((kind) =>
       items.filter((item) => applies(kind, item)).map((item) => ({ kind, item })),
@@ -95,7 +121,7 @@ export function buildLessonSteps(flow, items, { retry = false } = {}) {
   ]
 }
 
-// ขั้นทบทวนของข้อจากบทประเภทนี้ ('tap' / 'speak')
+// ขั้นทบทวนของข้อจากบทประเภทนี้ ('tap' / 'speak' / 'read')
 export const reviewKindsOf = (lesson) => LESSON_FLOWS[lesson?.type]?.review ?? []
 
 // XP ตามสเปก 8.1: ฟัง 5, พูดตาม 15, พูดเองไม่ดูข้อความ 25
@@ -104,8 +130,15 @@ export const reviewKindsOf = (lesson) => LESSON_FLOWS[lesson?.type]?.review ?? [
 //        Word Swap Race สลับถูกตั้งแต่ครั้งแรก 1 คำ = 3 (60 วิ ได้ราว 15–25 คำ → ใกล้เคียงคาราโอเกะ)
 //   ฟังทั้งบท (บทสนทนา/เรื่องเล่า/คำคล้องจอง) = ฟัง 5 ต่อบรรทัด/ภาพ
 //   เติมคำคล้องจองถูกตั้งแต่ครั้งแรก = ฟัง 5 / เล่นบทบาทผ่าน 1 บรรทัด = พูดตาม 15 (รอบซ่อนบท = 25) / เล่าเรื่องเองผ่าน 1 ภาพ = 25
+//   Stage 6: ฟังเสียงใหม่ = ฟัง 5 ต่อเสียง / อ่านออกเสียงผ่าน = พูดตาม 15 / Minimal Pair Duel, Read & Tap ถูกตั้งแต่ครั้งแรก = 5
 export const XP = { listen: 5, speak: 15, speakOwn: 25, gameCorrect: 5, swap: 5, raceSwap: 3, rhymeFill: 5 }
-export const GAME_ROUND_XP = { 'listen-tap': XP.gameCorrect, 'shadow-karaoke': XP.speak, 'word-swap-race': XP.raceSwap }
+export const GAME_ROUND_XP = {
+  'listen-tap': XP.gameCorrect,
+  'shadow-karaoke': XP.speak,
+  'word-swap-race': XP.raceSwap,
+  'minimal-pair-duel': XP.gameCorrect,
+  'read-tap': XP.gameCorrect,
+}
 
 // ลองพูดได้ไม่จำกัด แต่ครบกี่ครั้งแล้วให้กด "ไปต่อ" ได้ (ข้อนั้นเข้ารายการทบทวน)
 export const MAX_ATTEMPTS_BEFORE_SKIP = 3

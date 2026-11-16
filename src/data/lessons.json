@@ -72139,6 +72139,257 @@
           "intonation": "down"
         }
       ]
+    },
+    {
+      "id": "s6-phonics-satpin",
+      "stageId": 6,
+      "category": "phonics",
+      "type": "phonics",
+      "title": "Sounds: s, a, t, p, i, n",
+      "titleTh": "เสียง s a t p i n",
+      "sounds": [
+        "s",
+        "a",
+        "t",
+        "p",
+        "i",
+        "n"
+      ],
+      "items": [
+        {
+          "id": "s6-sit",
+          "word": "sit",
+          "graphemes": [
+            "s",
+            "i",
+            "t"
+          ],
+          "pairWith": "sat",
+          "meaningTh": "นั่ง",
+          "readingTh": "ซิท",
+          "image": "/images/s6-sit.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-nap",
+          "word": "nap",
+          "graphemes": [
+            "n",
+            "a",
+            "p"
+          ],
+          "pairWith": "snap",
+          "meaningTh": "งีบหลับ",
+          "readingTh": "แน็พ",
+          "image": "/images/s6-nap.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-ant",
+          "word": "ant",
+          "graphemes": [
+            "a",
+            "n",
+            "t"
+          ],
+          "pairWith": "at",
+          "meaningTh": "มด",
+          "readingTh": "แอนท์",
+          "image": "/images/s6-ant.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-sip",
+          "word": "sip",
+          "graphemes": [
+            "s",
+            "i",
+            "p"
+          ],
+          "pairWith": "tip",
+          "meaningTh": "จิบ",
+          "readingTh": "ซิพ",
+          "image": "/images/s6-sip.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-spin",
+          "word": "spin",
+          "graphemes": [
+            "s",
+            "p",
+            "i",
+            "n"
+          ],
+          "pairWith": "spit",
+          "meaningTh": "หมุน",
+          "readingTh": "สปิน",
+          "image": "/images/s6-spin.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-pants",
+          "word": "pants",
+          "graphemes": [
+            "p",
+            "a",
+            "n",
+            "t",
+            "s"
+          ],
+          "pairWith": "plants",
+          "meaningTh": "กางเกง",
+          "readingTh": "แพนท์ส",
+          "image": "/images/s6-pants.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-sight-1",
+      "stageId": 6,
+      "category": "sight-words",
+      "type": "sightWords",
+      "title": "Sight words: the, you, said",
+      "titleTh": "คำที่ต้องจำ ชุดที่ 1",
+      "items": [
+        {
+          "id": "s6-sw-the",
+          "word": "the",
+          "pairWith": "then",
+          "meaningTh": "คำนำหน้าคำนาม (ตัวนั้น/อันนั้น)",
+          "wordReadingTh": "เดอะ",
+          "target": "Look at the dog!",
+          "translationTh": "ดูหมาตัวนั้นสิ!",
+          "readingTh": "ลุค แอท เดอะ ด็อก",
+          "image": "/images/s6-sw-the.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-sw-you",
+          "word": "you",
+          "pairWith": "your",
+          "meaningTh": "คุณ/เธอ/หนู",
+          "wordReadingTh": "ยู",
+          "target": "I love you, Daddy!",
+          "translationTh": "หนูรักพ่อนะ!",
+          "readingTh": "ไอ ลัฟ ยู, แดด-ดี้",
+          "image": "/images/s6-sw-you.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-sw-said",
+          "word": "said",
+          "pairWith": "sad",
+          "meaningTh": "พูดว่า (อดีตของ say)",
+          "wordReadingTh": "เซด",
+          "target": "Mom said good night.",
+          "translationTh": "แม่บอกราตรีสวัสดิ์",
+          "readingTh": "มัม เซด กู๊ด ไนท์",
+          "image": "/images/s6-sw-said.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-sw-was",
+          "word": "was",
+          "pairWith": "saw",
+          "meaningTh": "เป็น/อยู่ (อดีต ใช้กับ I, he, she, it)",
+          "wordReadingTh": "วอซ",
+          "target": "The cake was yummy!",
+          "translationTh": "เค้กอร่อยมาก!",
+          "readingTh": "เดอะ เคค วอซ ยัม-มี่",
+          "image": "/images/s6-sw-was.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-sw-to",
+          "word": "to",
+          "pairWith": "too",
+          "meaningTh": "ไปยัง/ถึง",
+          "wordReadingTh": "ทู",
+          "target": "We go to the park.",
+          "translationTh": "เราไปสวนสาธารณะกัน",
+          "readingTh": "วี โก ทู เดอะ พาร์ค",
+          "image": "/images/s6-sw-to.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-sw-are",
+          "word": "are",
+          "pairWith": "our",
+          "meaningTh": "เป็น/อยู่ (ใช้กับ you, we, they)",
+          "wordReadingTh": "อาร์",
+          "target": "They are best friends.",
+          "translationTh": "สองคนนี้เป็นเพื่อนรักกัน",
+          "readingTh": "เดย์ อาร์ เบสท์ เฟรนดส์",
+          "image": "/images/s6-sw-are.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-read-kite",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "Sam's kite",
+      "titleTh": "ว่าวของแซม",
+      "items": [
+        {
+          "id": "s6-kite-new",
+          "target": "Sam got a new kite.",
+          "translationTh": "แซมได้ว่าวตัวใหม่",
+          "readingTh": "แซม ก็อท อะ นิว ไคท์",
+          "image": "/images/s6-kite-new.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-kite-hold",
+          "target": "His friend held it up high.",
+          "translationTh": "เพื่อนของแซมชูว่าวขึ้นสูง ๆ",
+          "readingTh": "ฮิซ เฟรนด์ เฮลด์ อิท อัพ ไฮ",
+          "image": "/images/s6-kite-hold.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-kite-fly",
+          "target": "Up, up, up! The kite flew!",
+          "translationTh": "ขึ้น ขึ้น ขึ้น! ว่าวบินขึ้นไปแล้ว!",
+          "readingTh": "อัพ, อัพ, อัพ! เดอะ ไคท์ ฟลู",
+          "image": "/images/s6-kite-fly.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        }
+      ]
     }
   ]
 }

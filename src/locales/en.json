@@ -32,7 +32,9 @@
     "itemCount": "Items: {{count}}",
     "loading": "Loading…",
     "lineCount": "Lines: {{count}}",
-    "pictureCount": "Pictures: {{count}}"
+    "pictureCount": "Pictures: {{count}}",
+    "wordCount": "Words: {{count}}",
+    "pageCount": "Pages: {{count}}"
   },
   "category": {
     "home-family": "Home & family",
@@ -59,7 +61,10 @@
     "arts": "Arts and music",
     "sports": "Sports",
     "nature": "Nature",
-    "town": "Around town"
+    "town": "Around town",
+    "phonics": "Phonics",
+    "sight-words": "Sight words",
+    "reading": "Reading"
   },
   "register": {
     "casual": "Casual",
@@ -202,7 +207,13 @@
     "swapTo": "Swap in the word for",
     "timeLeft": "{{seconds}} seconds left",
     "swapCount": "{{count}} swaps",
-    "swapRaceDone": "Time's up! {{count}} swaps"
+    "swapRaceDone": "Time's up! {{count}} swaps",
+    "duelTitle": "Minimal Pair Duel",
+    "duelQuestion": "Which word did you hear?",
+    "duelWrong": "It was “{{word}}”. Listen to both.",
+    "duelOr": "or",
+    "readTapTitle": "Read & Tap",
+    "readTapPicture": "Read it, then tap the picture"
   },
   "locked": {
     "title": "This stage is locked",
@@ -245,7 +256,21 @@
   },
   "sounds": {
     "title": "Sounds",
-    "subtitle": "Sounds that are hard for Thai speakers"
+    "subtitle": "Sounds that are hard for Thai speakers",
+    "pairCount": "Pairs: {{count}}",
+    "howTo": "How to say it",
+    "mistake": "Common mistake",
+    "pairs": "Listen to the pairs (tap a word)",
+    "startDuel": "Start the duel",
+    "resultTitle": "Round complete!",
+    "score": "You got {{n}} of {{total}}",
+    "xp": "+{{xp}} XP",
+    "great": "Great ears!",
+    "keepGoing": "Keep listening. Your ears will catch it.",
+    "playAgain": "Play again",
+    "backToPairs": "Back to the pairs",
+    "otherSounds": "Pick another sound",
+    "note": "Speech recognition guesses words from context, so it can't check these sounds. Listen and choose, then say them out loud."
   },
   "profile": {
     "title": "Profile",
@@ -400,5 +425,24 @@
     "choices": "Word choices",
     "correct": "Yes! {{a}} and {{b}} rhyme.",
     "tryAgain": "That one doesn’t rhyme. Try another word."
+  },
+  "phonics": {
+    "introInstruction": "New sounds in this lesson",
+    "soundN": "Sound {{n}}/{{total}}",
+    "soundLike": "Close to Thai “{{sound}}”",
+    "examples": "Words with this sound (tap to hear)",
+    "playAgain": "Hear the words again",
+    "nextSound": "Next sound"
+  },
+  "read": {
+    "blendInstruction": "Sound it out, then read the word",
+    "sightInstruction": "Learn this word, then read the sentence",
+    "pageInstruction": "Read this page aloud",
+    "soundOut": "Sound it out",
+    "readAloud": "Read aloud",
+    "hearWord": "Hear this word",
+    "pictureAfter": "Read first, then see the picture",
+    "sightNote": "This word breaks the rules. Learn it by sight.",
+    "hint": "Try reading it yourself first"
   }
 }

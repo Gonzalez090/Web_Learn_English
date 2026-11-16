@@ -6,13 +6,15 @@
 //   pool          = ข้อที่ใช้เป็นภาพหลอกได้ (ค่าเริ่มต้น = items)
 //   onRoundResult = (item, firstTry) => void  เรียกเมื่อจบแต่ละรอบ (firstTry = แตะถูกตั้งแต่ครั้งแรก)
 //   onFinish      = () => void                เรียกเมื่อเล่นครบทุกรอบ
+//   mode          = 'listen' (ฟังแล้วแตะภาพ) | 'read' (Read & Tap — Stage 6: อ่านคำ/ประโยคเอง แล้วแตะภาพ
+//                   ไม่มีเสียงตอนถาม พูดให้ฟังหลังตอบแล้ว)
 // กติกา: แตะผิดได้ไม่จำกัด (ไม่มีหัวใจ) — ภาพที่แตะผิดจะจางลง แล้วลองใหม่ได้
 //        หมดเวลา → โชว์ภาพที่ถูก + พูดคำนั้นให้ฟัง แล้วไปรอบถัดไป
-// ⚠️ ไม่แสดงตัวอักษรภาษาอังกฤษ และ aria-label ของภาพไม่บอกคำตอบ
+// ⚠️ โหมดฟัง: ไม่แสดงตัวอักษรภาษาอังกฤษ และ aria-label ของภาพไม่บอกคำตอบ
 // =========================================================
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Ear } from 'lucide-react'
+import { BookOpen, Ear } from 'lucide-react'
 import { buildListenTapRounds, listenTapPrompt } from '../../utils/listenTap'
 import { useSpeech } from '../../hooks/useSpeech'
 import Picture from '../Picture'
@@ -20,19 +22,23 @@ import Button from '../Button'
 import styles from './ListenTapGame.module.css'
 
 const ROUND_MS = 10000 // เวลาต่อรอบ (เริ่มนับหลังพูดคำถามจบ)
+const READ_ROUND_MS = 15000 // โหมดอ่าน: ต้องอ่านเองก่อน → ให้เวลามากขึ้น
 const PAUSE_AFTER_MS = 700 // พักสั้น ๆ หลังโชว์คำตอบ ก่อนไปรอบถัดไป
 const MAX_OPTIONS = 4
 
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
-export default function ListenTapGame({ items, pool = items, onRoundResult, onFinish }) {
+export default function ListenTapGame({ items, pool = items, onRoundResult, onFinish, mode = 'listen' }) {
   const { t } = useTranslation()
   const { speak, stop } = useSpeech()
+  const reading = mode === 'read'
+  const roundMs = reading ? READ_ROUND_MS : ROUND_MS
   // จัดรอบครั้งเดียวตอนเริ่มเกม
   const [rounds] = useState(() => buildListenTapRounds(items, { optionsPerRound: MAX_OPTIONS, pool }))
   const [roundIndex, setRoundIndex] = useState(0)
   // phase: 'asking' (กำลังพูดคำถาม) → 'playing' (นับเวลา) → 'correct' | 'timeup' (โชว์คำตอบ)
-  const [phase, setPhase] = useState('asking')
+  //        โหมดอ่านไม่มีเสียงตอนถาม → เริ่มที่ 'playing' เลย
+  const [phase, setPhase] = useState(reading ? 'playing' : 'asking')
   const [wrongIds, setWrongIds] = useState([])
 
   const round = rounds[roundIndex]
@@ -45,8 +51,9 @@ export default function ListenTapGame({ items, pool = items, onRoundResult, onFi
     callbacks.current = { onRoundResult, onFinish }
   })
 
-  // เริ่มรอบ → พูดคำถาม แล้วเริ่มนับเวลา
+  // เริ่มรอบ → พูดคำถาม แล้วเริ่มนับเวลา (โหมดอ่าน: ไม่พูด — อ่านเอง)
   useEffect(() => {
+    if (reading) return undefined
     let active = true
     speak(prompt, { key: speakKey }).finally(() => {
       if (active) setPhase((current) => (current === 'asking' ? 'playing' : current))
@@ -61,9 +68,9 @@ export default function ListenTapGame({ items, pool = items, onRoundResult, onFi
   // นับเวลา → หมดเวลา
   useEffect(() => {
     if (phase !== 'playing') return undefined
-    const timer = setTimeout(() => setPhase('timeup'), ROUND_MS)
+    const timer = setTimeout(() => setPhase('timeup'), roundMs)
     return () => clearTimeout(timer)
-  }, [phase, roundIndex])
+  }, [phase, roundIndex, roundMs])
 
   // จบรอบ (ถูก / หมดเวลา) → พูดคำนั้นอีกครั้งพร้อมโชว์ภาพที่ถูก → รอบถัดไป
   useEffect(() => {
@@ -80,7 +87,7 @@ export default function ListenTapGame({ items, pool = items, onRoundResult, onFi
         return
       }
       setWrongIds([])
-      setPhase('asking')
+      setPhase(reading ? 'playing' : 'asking')
       setRoundIndex(roundIndex + 1)
     })()
     return () => {
@@ -109,17 +116,18 @@ export default function ListenTapGame({ items, pool = items, onRoundResult, onFi
     return styles.option
   }
 
-  let feedback = t('game.tapPicture')
+  let feedback = t(reading ? 'game.readTapPicture' : 'game.tapPicture')
   if (phase === 'correct') feedback = t('game.correct')
   else if (phase === 'timeup') feedback = t('game.timeUp')
   else if (wrongIds.length > 0) feedback = t('game.tryAgain')
+  const TitleIcon = reading ? BookOpen : Ear
 
   return (
     <div className={styles.game}>
       <div className={styles.header}>
         <span className={styles.title}>
-          <Ear className={styles.titleIcon} aria-hidden="true" />
-          {t('game.listenTapTitle')}
+          <TitleIcon className={styles.titleIcon} aria-hidden="true" />
+          {t(reading ? 'game.readTapTitle' : 'game.listenTapTitle')}
         </span>
         <span className={styles.round}>{t('game.round', { n: roundIndex + 1, total: rounds.length })}</span>
       </div>
@@ -131,11 +139,18 @@ export default function ListenTapGame({ items, pool = items, onRoundResult, onFi
           key={roundIndex}
           className={styles.timerBar}
           style={{
-            animationDuration: `${ROUND_MS}ms`,
+            animationDuration: `${roundMs}ms`,
             animationPlayState: phase === 'playing' ? 'running' : 'paused',
           }}
         />
       </div>
+
+      {/* โหมดอ่าน: คำ/ประโยคที่ต้องอ่านเอง */}
+      {reading && (
+        <p className={styles.prompt} lang="en">
+          {prompt}
+        </p>
+      )}
 
       <p className={styles.feedback} role="status" aria-live="polite">
         {feedback}
@@ -156,9 +171,12 @@ export default function ListenTapGame({ items, pool = items, onRoundResult, onFi
         ))}
       </div>
 
-      <Button variant="secondary" icon={Ear} onClick={() => speak(prompt, { key: speakKey })} disabled={answered}>
-        {t('game.listenAgain')}
-      </Button>
+      {/* โหมดอ่าน: ไม่มีปุ่มฟัง (ต้องอ่านเอง — ได้ยินหลังตอบแล้ว) */}
+      {!reading && (
+        <Button variant="secondary" icon={Ear} onClick={() => speak(prompt, { key: speakKey })} disabled={answered}>
+          {t('game.listenAgain')}
+        </Button>
+      )}
     </div>
   )
 }

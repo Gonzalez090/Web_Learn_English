@@ -17,6 +17,7 @@
 //   wordsLabel = ป้ายหน้าแถวคำในผล (เช่น "คำสำคัญ:")
 //   onResult   = เรียกเมื่อได้ผล (ขั้นที่ 4 ใช้ให้ XP / บันทึกข้อที่พลาด)
 //   onError    = เรียกเมื่อฟังไม่สำเร็จ ส่งรหัส error (เช่น 'no-speech', 'not-allowed')
+//   onInterim  = (ข้อความ) => void  สิ่งที่ได้ยินสด ๆ ระหว่างพูด ('' เมื่อหยุดฟัง) — ขั้นอ่านใช้ไฮไลต์คำที่อ่านถึงแล้ว
 // =========================================================
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -41,6 +42,7 @@ export default function MicButton({
   wordsLabel,
   onResult,
   onError,
+  onInterim,
   size = 'md',
 }) {
   const { t } = useTranslation()
@@ -58,6 +60,15 @@ export default function MicButton({
   useEffect(() => {
     if (status === 'error' && error) onErrorRef.current?.(error)
   }, [status, error])
+
+  // ส่งสิ่งที่ได้ยินสด ๆ ให้ component แม่ (หยุดฟังแล้ว → '')
+  const onInterimRef = useRef(onInterim)
+  useEffect(() => {
+    onInterimRef.current = onInterim
+  })
+  useEffect(() => {
+    onInterimRef.current?.(status === 'listening' ? interim : '')
+  }, [status, interim])
 
   if (!supported) {
     return (

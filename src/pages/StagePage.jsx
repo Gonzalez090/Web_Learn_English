@@ -18,9 +18,17 @@ import NotFoundPage from './NotFoundPage'
 // Stage ที่ยังไม่มีเนื้อหา จะมีบทเรียนในขั้นไหนของแผน
 const CONTENT_STEP = { 5: 7, 6: 8, 7: 9 }
 
-// Stage 5+ มีบทหลายประเภท → บอกประเภทบท (ไฟล์ภาษา lessonType.*) + นับเป็นบรรทัด/ภาพ ตามประเภท
+// Stage 5 มีบทหลายประเภทในหมวดเดียวกัน → บอกประเภทบท (ไฟล์ภาษา lessonType.*)
+// (Stage 6 หมวด = ประเภทบทอยู่แล้ว: โฟนิกส์ / คำที่ต้องจำ / อ่านนิทาน) + นับเป็นบรรทัด/ภาพ/คำ/หน้า ตามประเภท
 const TYPE_LABELS = new Set(['context', 'dialogue', 'story', 'rhyme'])
-const COUNT_KEYS = { dialogue: 'common.lineCount', rhyme: 'common.lineCount', story: 'common.pictureCount' }
+const COUNT_KEYS = {
+  dialogue: 'common.lineCount',
+  rhyme: 'common.lineCount',
+  story: 'common.pictureCount',
+  phonics: 'common.wordCount',
+  sightWords: 'common.wordCount',
+  reading: 'common.pageCount',
+}
 
 export default function StagePage() {
   const { stageId } = useParams()

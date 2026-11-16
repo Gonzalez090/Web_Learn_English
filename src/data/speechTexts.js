@@ -10,14 +10,19 @@
 import { RECAST_OPENERS } from '../utils/recast.js'
 import { swapVariants } from '../utils/swap.js'
 
-export function collectSpeechTexts(lessonsData) {
+/**
+ * @param lessons        บทเรียนทั้งหมด (lessons.json)
+ * @param soundPractice  ชุดฝึกเสียง (game.json) — คู่คำ think / sink …
+ * @param phonicsSounds  เสียง phonics (phonics.json) — คำตัวอย่างของแต่ละเสียง
+ */
+export function collectSpeechTexts({ lessons, soundPractice = [], phonicsSounds = [] }) {
   const texts = new Set()
   const add = (text) => {
     const clean = typeof text === 'string' ? text.trim() : ''
     if (clean) texts.add(clean)
   }
 
-  for (const lesson of lessonsData.lessons) {
+  for (const lesson of lessons) {
     for (const item of lesson.items) {
       add(item.word ?? item.target) // คำ/ประโยคบนการ์ด (VocabCard)
       for (const line of item.parentese ?? []) add(line) // ประโยคแบบพ่อแม่พูด (Stage 1–3)
@@ -27,6 +32,18 @@ export function collectSpeechTexts(lessonsData) {
       for (const keyword of item.keywords ?? []) for (const alternative of keyword.alternatives) add(alternative.word)
       for (const variant of swapVariants(item)) add(variant.text)
       for (const other of item.alsoSay ?? []) add(other.text) // แบบสุภาพ/แบบกันเอง (ประโยคในบริบท)
+      add(item.pairWith) // คำคู่ในเกม Minimal Pair Duel (Stage 6)
+      if (item.target && item.word) add(item.word) // sight word: พูดคำเดี่ยว ๆ ด้วย (ประโยคอยู่ใน target)
+    }
+  }
+
+  // Stage 6 phonics: คำตัวอย่างของแต่ละเสียง ("s as in sun, sock, see")
+  for (const sound of phonicsSounds) for (const example of sound.examples ?? []) add(example)
+  // โหมดฝึกเสียง: คู่คำเสียงคล้าย
+  for (const set of soundPractice) {
+    for (const pair of set.pairs ?? []) {
+      add(pair.a)
+      add(pair.b)
     }
   }
 

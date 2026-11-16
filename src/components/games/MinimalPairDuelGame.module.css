@@ -1,0 +1,171 @@
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.title {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-weight: 800;
+}
+
+.titleIcon {
+  width: 20px;
+  height: 20px;
+  color: var(--color-primary);
+}
+
+.round {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* แถบเวลา (แบบเดียวกับ Listen & Tap) */
+.timer {
+  width: 100%;
+  height: 8px;
+  overflow: hidden;
+  border-radius: var(--radius-full);
+  background: var(--color-border);
+}
+
+.timerBar {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--color-primary);
+  transform-origin: left center;
+  animation-name: countdown;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes countdown {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+
+.feedback {
+  min-height: 1.5em;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* 2 คำวางคู่กัน + ป้าย "หรือ" ตรงกลาง */
+.options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+  width: 100%;
+}
+
+.option {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  min-height: 120px;
+  padding: var(--space-3) var(--space-2);
+  border: 3px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+  transition:
+    transform 0.12s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.option:hover:not(:disabled) {
+  border-color: var(--color-primary);
+}
+
+.option:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.option:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.option:disabled {
+  cursor: default;
+}
+
+.word {
+  font-size: clamp(1.75rem, 9vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+
+.meaning {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+/* ป้าย "หรือ" อยู่ขอบขวาของคำแรก (กึ่งกลางระหว่าง 2 ปุ่ม) */
+.versus {
+  position: absolute;
+  top: 50%;
+  right: calc(-1 * var(--space-4) / 2);
+  transform: translate(50%, -50%);
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  color: var(--color-surface);
+  font-size: 0.75rem;
+  font-weight: 800;
+  z-index: 1;
+}
+
+/* คำที่ได้ยิน (ถูก) */
+.right {
+  border-color: var(--color-success);
+  box-shadow: 0 0 0 3px var(--color-success-soft);
+}
+
+/* คำที่เลือกแต่ไม่ใช่คำที่ได้ยิน — จางลง (ไม่ใช้สีแดงตำหนิ) */
+.missed {
+  opacity: 0.55;
+}
+
+/* กำลังพูดคำนี้ตอนฟังเทียบ */
+.speaking {
+  transform: scale(1.04);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .option {
+    transition: none;
+  }
+
+  .speaking {
+    transform: none;
+  }
+}

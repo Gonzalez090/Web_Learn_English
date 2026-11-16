@@ -18,6 +18,7 @@ import DailyPlanPage from './pages/DailyPlanPage'
 import GamesPage from './pages/GamesPage'
 import GamePage from './pages/GamePage'
 import SoundPracticePage from './pages/SoundPracticePage'
+import SoundDrillPage from './pages/SoundDrillPage'
 import ProfilePage from './pages/ProfilePage'
 import SpeakingCheckPage from './pages/SpeakingCheckPage'
 import SettingsPage from './pages/SettingsPage'
@@ -56,6 +57,7 @@ export default function App() {
         <Route path="games" element={<GamesPage />} />
         <Route path="games/:gameId" element={<GamePage />} />
         <Route path="sounds" element={<SoundPracticePage />} />
+        <Route path="sounds/:soundId" element={<SoundDrillPage />} />
 
         {/* โปรไฟล์ + ตั้งค่า */}
         <Route path="profile" element={<ProfilePage />} />

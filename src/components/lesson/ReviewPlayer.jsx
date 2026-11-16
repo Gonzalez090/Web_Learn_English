@@ -3,6 +3,7 @@
 //   1) Listen & Tap: ฟังแล้วแตะภาพของข้อที่ถึงกำหนด (ภาพหลอกมาจากบทเดียวกัน)
 //      — เฉพาะข้อจากบทที่ภาพแยกกันได้ (บทสนทนา/คำคล้องจองใช้ภาพฉากเดียวทั้งบท → ข้ามเกมนี้)
 //   2) พูดตามทีละข้อ (เฉพาะข้อจากบทที่มีขั้นพูด) — บทสนทนา/คำคล้องจองมีบรรทัดก่อนหน้าเป็นตัวนำ
+//   3) อ่านออกเสียงทีละข้อ (Stage 6: คำ phonics / sight word / หน้านิทาน)
 //   ชนิดการทบทวนของแต่ละประเภทบทอยู่ใน LESSON_FLOWS[type].review
 // ข้อไหนทำได้ทุกขั้นตั้งแต่ครั้งแรก = ผ่าน → เลื่อนรอบ / พลาด = กลับรอบแรก (ตัดสินใน reviewStore)
 // props: reviewItems [{ entry, item, lesson }], onFinish(results [{ entryId, passed }])
@@ -10,19 +11,27 @@
 import { useMemo, useRef, useState } from 'react'
 import { getStage } from '../../data'
 import { useProgressStore } from '../../store/progressStore'
-import { reviewKindsOf, XP } from '../../utils/lessonSteps'
+import { readVariantOf, reviewKindsOf, XP } from '../../utils/lessonSteps'
 import PlayerFrame from './PlayerFrame'
 import SpeakStep from './SpeakStep'
+import ReadAloudStep from './ReadAloudStep'
 import ListenTapGame from '../games/ListenTapGame'
 
 // ข้อที่ทบทวนด้วยเกมแตะภาพ
 const tapItemsOf = (reviewItems) => reviewItems.filter(({ lesson }) => reviewKindsOf(lesson).includes('tap'))
 
+// ขั้นทีละข้อของชนิดการทบทวนหนึ่ง ('speak' / 'read')
+const itemStepsOf = (reviewItems, kind) =>
+  reviewItems
+    .filter(({ lesson }) => reviewKindsOf(lesson).includes(kind))
+    .map(({ item, lesson }) => ({ kind, item, stage: getStage(lesson.stageId), variant: readVariantOf(lesson) }))
+
 function buildSteps(reviewItems) {
-  const speakSteps = reviewItems
-    .filter(({ lesson }) => reviewKindsOf(lesson).includes('speak'))
-    .map(({ item, lesson }) => ({ kind: 'speak', item, stage: getStage(lesson.stageId) }))
-  return [...(tapItemsOf(reviewItems).length ? [{ kind: 'game' }] : []), ...speakSteps]
+  return [
+    ...(tapItemsOf(reviewItems).length ? [{ kind: 'game' }] : []),
+    ...itemStepsOf(reviewItems, 'speak'),
+    ...itemStepsOf(reviewItems, 'read'),
+  ]
 }
 
 export default function ReviewPlayer({ reviewItems, onFinish }) {
@@ -54,6 +63,17 @@ export default function ReviewPlayer({ reviewItems, onFinish }) {
 
   const step = steps[index]
 
+  // ผลของขั้นทีละข้อ (พูดตาม / อ่านออกเสียง): ผ่านได้ XP พูดตาม / ไม่ผ่าน = พลาดรอบนี้
+  function itemDone(item, passed) {
+    if (passed) {
+      addXp(XP.speak)
+      trackEvent('speakPass')
+    } else {
+      failedRef.current.add(item.id)
+    }
+    next()
+  }
+
   return (
     <PlayerFrame exitTo="/" index={index} total={steps.length} stepKey={`review-${index}`}>
       {step.kind === 'game' && (
@@ -75,18 +95,14 @@ export default function ReviewPlayer({ reviewItems, onFinish }) {
         />
       )}
       {step.kind === 'speak' && (
-        <SpeakStep
+        <SpeakStep item={step.item} stage={step.stage} onDone={({ passed }) => itemDone(step.item, passed)} />
+      )}
+      {step.kind === 'read' && (
+        <ReadAloudStep
           item={step.item}
           stage={step.stage}
-          onDone={({ passed }) => {
-            if (passed) {
-              addXp(XP.speak)
-              trackEvent('speakPass')
-            } else {
-              failedRef.current.add(step.item.id)
-            }
-            next()
-          }}
+          variant={step.variant}
+          onDone={({ passed }) => itemDone(step.item, passed)}
         />
       )}
     </PlayerFrame>

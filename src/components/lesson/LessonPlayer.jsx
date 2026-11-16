@@ -14,7 +14,7 @@
 // =========================================================
 import { useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { buildLessonSteps, GAME_ROUND_XP, LESSON_FLOWS, XP } from '../../utils/lessonSteps'
+import { buildLessonSteps, GAME_ROUND_XP, LESSON_FLOWS, READ_VARIANTS, XP } from '../../utils/lessonSteps'
 import { prepareLessonItems } from '../../utils/lessonItems'
 import { useProgressStore } from '../../store/progressStore'
 import { useReviewStore } from '../../store/reviewStore'
@@ -30,13 +30,27 @@ import ListenStoryStep from './ListenStoryStep'
 import TellStoryStep from './TellStoryStep'
 import ListenRhymeStep from './ListenRhymeStep'
 import RhymeFillStep from './RhymeFillStep'
+import PhonicsIntroStep from './PhonicsIntroStep'
+import ReadAloudStep from './ReadAloudStep'
 import PlayerFrame from './PlayerFrame'
 import ListenTapGame from '../games/ListenTapGame'
 import ShadowKaraokeGame from '../games/ShadowKaraokeGame'
 import WordSwapRaceGame from '../games/WordSwapRaceGame'
+import MinimalPairDuelGame from '../games/MinimalPairDuelGame'
+
+// Read & Tap (Stage 6) = Listen & Tap แบบอ่านเอง
+function ReadTapGame(props) {
+  return <ListenTapGame {...props} mode="read" />
+}
 
 // มินิเกมที่แทรกในบทได้ (ทุกเกมรับ props ชุดเดียวกัน: items, pool, onRoundResult, onFinish)
-const GAMES = { 'listen-tap': ListenTapGame, 'shadow-karaoke': ShadowKaraokeGame, 'word-swap-race': WordSwapRaceGame }
+const GAMES = {
+  'listen-tap': ListenTapGame,
+  'shadow-karaoke': ShadowKaraokeGame,
+  'word-swap-race': WordSwapRaceGame,
+  'minimal-pair-duel': MinimalPairDuelGame,
+  'read-tap': ReadTapGame,
+}
 
 export default function LessonPlayer({ lesson, stage, onlyItemIds }) {
   const navigate = useNavigate()
@@ -62,7 +76,7 @@ export default function LessonPlayer({ lesson, stage, onlyItemIds }) {
   const missedRef = useRef(new Set())
   const checkedRef = useRef(new Set()) // ข้อที่ได้ตรวจจริง (หน้าสรุปแสดงเฉพาะข้อเหล่านี้)
   const checksRef = useRef({ total: 0, passed: 0 }) // ใช้คิดคะแนนท้ายบท
-  const gameCheckedRef = useRef(new Set()) // ข้อที่เกมรายงานผลแล้ว (นับคะแนนครั้งเดียว)
+  const gameCheckedRef = useRef(new Set()) // `${เกม}:${ข้อ}` ที่เกมรายงานผลแล้ว (นับคะแนนครั้งเดียวต่อเกม)
 
   function earn(amount) {
     xpRef.current += amount
@@ -188,6 +202,27 @@ export default function LessonPlayer({ lesson, stage, onlyItemIds }) {
         />
       )}
 
+      {/* ---------- Stage 6 อ่าน ---------- */}
+      {step.kind === 'phonicsIntro' && (
+        <PhonicsIntroStep
+          lesson={lesson}
+          onDone={() => {
+            const count = lesson.sounds?.length ?? 0
+            earn(XP.listen * count)
+            trackEvent('listen', count)
+            next()
+          }}
+        />
+      )}
+      {READ_VARIANTS[step.kind] && (
+        <ReadAloudStep
+          item={step.item}
+          stage={stage}
+          variant={READ_VARIANTS[step.kind]}
+          onDone={({ passed }) => speakDone(step.item, passed, XP.speak)}
+        />
+      )}
+
       {step.kind === 'lookListen' && (
         <LookListenStep
           item={step.item}
@@ -269,9 +304,10 @@ export default function LessonPlayer({ lesson, stage, onlyItemIds }) {
               earn(GAME_ROUND_XP[step.game])
               trackEvent('gameCorrect')
             }
-            // นับคะแนนท้ายบทข้อละครั้งต่อเกม (Word Swap Race เล่นข้อเดิมได้หลายรอบ)
-            if (gameCheckedRef.current.has(item.id)) return
-            gameCheckedRef.current.add(item.id)
+            // นับคะแนนท้ายบทข้อละครั้งต่อเกม (Word Swap Race เล่นข้อเดิมได้หลายรอบ / phonics มี 2 เกมต่อกัน)
+            const checkKey = `${step.game}:${item.id}`
+            if (gameCheckedRef.current.has(checkKey)) return
+            gameCheckedRef.current.add(checkKey)
             check(item, passed)
           }}
           onFinish={(outcome) => {

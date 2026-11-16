@@ -7,7 +7,8 @@
 //   - ไม่ต้องมี key / บัญชีใด ๆ
 //
 // ทำอะไร:
-//   1) รวบรวมข้อความที่เว็บต้องพูดจาก src/data/lessons.json (ดู src/data/speechTexts.js)
+//   1) รวบรวมข้อความที่เว็บต้องพูดจาก src/data/lessons.json + phonics.json + game.json (ฝึกเสียง)
+//      (ดู src/data/speechTexts.js)
 //   2) สร้างเสียง 2 ความเร็ว: normal (1.0) และ slow (0.75)
 //   3) เข้ารหัสเป็น MP3 → public/audio/<hash>.mp3 (ชื่อไฟล์มาจาก hash ของ เสียง+ความเร็ว+ข้อความ)
 //   4) เขียนสารบัญ src/data/audioManifest.json ให้เว็บรู้ว่าข้อความไหนใช้ไฟล์ไหน
@@ -25,6 +26,8 @@ import { AUDIO_SPEEDS, AUDIO_VOICE, audioPathFor } from '../src/utils/audioPath.
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const LESSONS_FILE = path.join(ROOT, 'src', 'data', 'lessons.json')
+const PHONICS_FILE = path.join(ROOT, 'src', 'data', 'phonics.json')
+const GAME_FILE = path.join(ROOT, 'src', 'data', 'game.json')
 const MANIFEST_FILE = path.join(ROOT, 'src', 'data', 'audioManifest.json')
 const AUDIO_DIR = path.join(ROOT, 'public', 'audio')
 
@@ -61,8 +64,11 @@ function encodeMp3(samples, sampleRate) {
 }
 
 // ---------- เริ่มทำงาน ----------
-const lessonsData = JSON.parse(await fs.readFile(LESSONS_FILE, 'utf8'))
-const texts = collectSpeechTexts(lessonsData)
+const readJson = async (file) => JSON.parse(await fs.readFile(file, 'utf8'))
+const { lessons } = await readJson(LESSONS_FILE)
+const { sounds: phonicsSounds } = await readJson(PHONICS_FILE)
+const { soundPractice } = await readJson(GAME_FILE)
+const texts = collectSpeechTexts({ lessons, soundPractice, phonicsSounds })
 await fs.mkdir(AUDIO_DIR, { recursive: true })
 
 const manifest = { voice: VOICE, normal: {}, slow: {} }

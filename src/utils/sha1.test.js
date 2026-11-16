@@ -4,6 +4,8 @@ import { sha1Hex } from './sha1'
 import { audioPathFor } from './audioPath'
 import { collectSpeechTexts } from '../data/speechTexts'
 import lessonsData from '../data/lessons.json'
+import phonicsData from '../data/phonics.json'
+import gameData from '../data/game.json'
 import audioManifest from '../data/audioManifest.json'
 
 const nodeSha1 = (text) => createHash('sha1').update(text).digest('hex')
@@ -27,7 +29,12 @@ describe('sha1Hex', () => {
 
 describe('audioPathFor', () => {
   it('ชื่อไฟล์ตรงกับที่สคริปต์สร้างเสียงใช้ (audioManifest.json) ทุกข้อความ ทั้งปกติและช้า', () => {
-    for (const text of collectSpeechTexts(lessonsData)) {
+    const texts = collectSpeechTexts({
+      lessons: lessonsData.lessons,
+      soundPractice: gameData.soundPractice,
+      phonicsSounds: phonicsData.sounds,
+    })
+    for (const text of texts) {
       expect(audioPathFor(text, 'normal'), text).toBe(audioManifest.normal[text])
       expect(audioPathFor(text, 'slow'), text).toBe(audioManifest.slow[text])
     }

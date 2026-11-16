@@ -33,6 +33,7 @@ export const AVAILABLE_MISSION_EVENTS = new Set([
   'perfectLesson',
   'xp',
   'review',
+  'sound', // โหมดฝึกเสียง (ขั้นที่ 8 + 21ก)
 ])
 
 export const MISSIONS_PER_DAY = 3

@@ -1,5 +1,15 @@
 import { describe, it, expect } from 'vitest'
-import { buildLessonSteps, GAME_ROUND_XP, isPlayable, LESSON_FLOWS, reviewKindsOf, XP } from './lessonSteps'
+import {
+  buildLessonSteps,
+  flowGames,
+  GAME_BASE,
+  GAME_ROUND_XP,
+  isPlayable,
+  LESSON_FLOWS,
+  readVariantOf,
+  reviewKindsOf,
+  XP,
+} from './lessonSteps'
 import { lessonList, miniGames } from '../data'
 
 const items = [{ id: 'a' }, { id: 'b' }]
@@ -82,17 +92,27 @@ describe('buildLessonSteps', () => {
 })
 
 describe('LESSON_FLOWS', () => {
-  it('ทุกบทใน Stage 1–5 มีตัวเล่นแล้ว', () => {
-    for (const lesson of lessonList.filter((entry) => entry.stageId <= 5)) {
+  it('ทุกบทใน Stage 1–6 มีตัวเล่นแล้ว', () => {
+    for (const lesson of lessonList.filter((entry) => entry.stageId <= 6)) {
       expect(isPlayable(lesson), lesson.id).toBe(true)
     }
   })
 
   it('เกมในบทเป็นมินิเกมที่มีอยู่จริง และมี XP ต่อรอบ', () => {
-    for (const flow of Object.values(LESSON_FLOWS).filter((entry) => entry.game)) {
-      expect(miniGames.some((game) => game.id === flow.game), flow.game).toBe(true)
-      expect(GAME_ROUND_XP[flow.game]).toBeGreaterThan(0)
+    for (const flow of Object.values(LESSON_FLOWS)) {
+      for (const id of flowGames(flow)) {
+        expect(miniGames.some((game) => game.id === (GAME_BASE[id] ?? id)), id).toBe(true)
+        expect(GAME_ROUND_XP[id], id).toBeGreaterThan(0)
+      }
     }
+  })
+
+  it('Stage 6: phonics = เสียงใหม่ → อ่านทีละคำ → Minimal Pair Duel → Read & Tap', () => {
+    const steps = buildLessonSteps(LESSON_FLOWS.phonics, items)
+    expect(describeSteps(steps)).toEqual(['phonicsIntro', 'blend:a', 'blend:b', 'game:minimal-pair-duel', 'game:read-tap'])
+    expect(readVariantOf({ type: 'phonics' })).toBe('blend')
+    expect(readVariantOf({ type: 'sightWords' })).toBe('sight')
+    expect(readVariantOf({ type: 'reading' })).toBe('page')
   })
 
   it('ทุกประเภทบทมีขั้นทบทวน — บทที่ใช้ภาพฉากเดียวกันทั้งบทห้ามใช้เกมแตะภาพ', () => {
