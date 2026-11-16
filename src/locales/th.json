@@ -53,7 +53,13 @@
     "school": "โรงเรียน",
     "friends": "เพื่อน",
     "shopping": "ซื้อของ",
-    "health": "สุขภาพ"
+    "health": "สุขภาพ",
+    "celebrations": "งานฉลอง",
+    "travel": "การเดินทาง",
+    "arts": "ศิลปะและดนตรี",
+    "sports": "กีฬา",
+    "nature": "ธรรมชาติ",
+    "town": "ในเมือง"
   },
   "register": {
     "casual": "กันเอง",

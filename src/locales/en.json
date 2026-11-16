@@ -53,7 +53,13 @@
     "school": "School",
     "friends": "Friends",
     "shopping": "Shopping",
-    "health": "Health"
+    "health": "Health",
+    "celebrations": "Celebrations",
+    "travel": "Travel",
+    "arts": "Arts and music",
+    "sports": "Sports",
+    "nature": "Nature",
+    "town": "Around town"
   },
   "register": {
     "casual": "Casual",
