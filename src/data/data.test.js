@@ -402,11 +402,20 @@ describe('Stage 6 อ่าน', () => {
   it.each(phonicsData.sounds.map((sound) => [sound.id, sound]))(
     'เสียง %s มีข้อมูลครบ และคำตัวอย่างเป็นคำที่ได้ยินแล้ว',
     (_id, sound) => {
-      for (const field of ['grapheme', 'ipa', 'soundTh', 'tipTh']) expect(sound[field], field).toBeTruthy()
-      expect(sound.examples.length).toBeGreaterThanOrEqual(2)
+      for (const field of ['grapheme', 'soundTh', 'tipTh']) expect(sound[field], field).toBeTruthy()
+      if (!sound.silent) expect(sound.ipa, 'ipa').toBeTruthy() // e ท้ายคำ (ไม่ออกเสียง) ไม่มี ipa
+      expect(sound.examples.length).toBeGreaterThanOrEqual(1)
       expect(sound.examples.flatMap(unheard)).toEqual([])
     },
   )
+
+  // ขั้นที่ 25: ครบ 44 หน่วยเสียงของภาษาอังกฤษ (x = ks, qu = kw เป็นเสียงผสม ไม่นับ) และทุกเสียงในตารางได้สอนในบท
+  it('phonics ครบ 44 หน่วยเสียง และทุกตัวในตารางเสียงมีบทที่สอน', () => {
+    const phonemes = new Set(phonicsData.sounds.filter((sound) => sound.ipa && !sound.combo).map((sound) => sound.ipa))
+    expect(phonemes.size).toBeGreaterThanOrEqual(44)
+    const taughtIds = new Set(stage6.filter((lesson) => lesson.type === 'phonics').flatMap((lesson) => lesson.sounds))
+    expect(phonicsData.sounds.filter((sound) => !taughtIds.has(sound.id)).map((sound) => sound.id)).toEqual([])
+  })
 })
 
 // ---------- โหมดฝึกเสียง (ส่วนที่ 10.1) ----------

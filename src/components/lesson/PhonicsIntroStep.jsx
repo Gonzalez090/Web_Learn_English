@@ -21,8 +21,9 @@ const GAP_MS = 350 // พักระหว่างคำตัวอย่า�
 
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
-// "s" → "S s", "sh" → "Sh sh"
+// "s" → "S s", "sh" → "Sh sh" / ตัวสะกดพิเศษ (a_e, th ก้อง, schwa) ใช้ป้ายชื่อของมันเอง
 const bothCases = (grapheme) => `${grapheme.charAt(0).toUpperCase()}${grapheme.slice(1)} ${grapheme}`
+const lettersOf = (sound) => sound.label ?? bothCases(sound.grapheme)
 
 export default function PhonicsIntroStep({ lesson, onDone }) {
   const { t } = useTranslation()
@@ -62,11 +63,12 @@ export default function PhonicsIntroStep({ lesson, onDone }) {
 
       <div key={sound.id} className={styles.card}>
         <span className={styles.letters} lang="en">
-          {bothCases(sound.grapheme)}
+          {lettersOf(sound)}
         </span>
-        <span className={styles.ipa}>/{sound.ipa}/</span>
+        {/* ตัวที่ไม่ออกเสียง (e ท้ายคำ) ไม่มี /ipa/ */}
+        {sound.ipa && <span className={styles.ipa}>/{sound.ipa}/</span>}
         <p className={styles.like} lang="th">
-          {t('phonics.soundLike', { sound: sound.soundTh })}
+          {sound.silent ? t('phonics.silent') : t('phonics.soundLike', { sound: sound.soundTh })}
         </p>
         <p className={styles.tip} lang="th">
           {sound.tipTh}

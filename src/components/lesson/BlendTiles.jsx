@@ -3,7 +3,7 @@
 //   กดไล่เสียง → ไฮไลต์ทีละตัวจากซ้ายไปขวา พร้อมเสียงไทยที่ใกล้เคียงใต้ตัวอักษร (ซ · อิ · ท)
 //   แล้วป้ายเลื่อนชิดกันเป็นคำเดียว → ผู้เรียนออกเสียงตามเองทีละตัว แล้วอ่านทั้งคำ
 //   (TTS ออกเสียงหน่วยเสียงเดี่ยว เช่น /s/ ไม่ได้ → ใช้เสียงไทยใกล้เคียงเป็นตัวช่วยแทน — ยังไม่พูดคำให้ฟัง อ่านเองก่อน)
-// props: units [{ id, grapheme, soundTh }] (จาก utils/reading.js graphemeUnits)
+// props: units [{ id, grapheme, hint, silent }] (จาก utils/reading.js graphemeUnits) — silent = ตัวที่ไม่ออกเสียง (e ท้ายคำ)
 // =========================================================
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -39,12 +39,13 @@ export default function BlendTiles({ units }) {
           const classes = [styles.tile]
           if (index === active) classes.push(styles.active)
           if (blended || index < active) classes.push(styles.done)
+          if (unit.silent) classes.push(styles.silent)
           return (
             <span key={`${unit.id}-${index}`} className={classes.join(' ')}>
               <span className={styles.letter}>{unit.grapheme}</span>
               {/* เสียงไทยใกล้เคียง — โผล่หลังกดไล่เสียง (ลองอ่านเองก่อนได้) */}
               <span className={styles.sound} lang="th" aria-hidden={!hintsShown}>
-                {hintsShown ? unit.soundTh : ' '}
+                {hintsShown ? unit.hint : ' '}
               </span>
             </span>
           )

@@ -65,6 +65,15 @@
   border-color: var(--color-primary);
 }
 
+/* ตัวที่ไม่ออกเสียง (e ท้ายคำ) — จางลง เส้นประ */
+.silent {
+  border-style: dashed;
+}
+
+.silent .letter {
+  opacity: 0.45;
+}
+
 @media (max-width: 359px) {
   .tiles {
     gap: var(--space-1);

@@ -72390,6 +72390,1073 @@
           "acceptAlso": []
         }
       ]
+    },
+    {
+      "id": "s6-u02-phonics",
+      "stageId": 6,
+      "category": "phonics",
+      "type": "phonics",
+      "title": "Sounds: m, d, g, o, c, k",
+      "titleTh": "เสียง m d g o c k",
+      "sounds": [
+        "m",
+        "d",
+        "g",
+        "o",
+        "c",
+        "k",
+        "ck"
+      ],
+      "items": [
+        {
+          "id": "s6-cat",
+          "word": "cat",
+          "graphemes": [
+            "c",
+            "a",
+            "t"
+          ],
+          "pairWith": "can",
+          "meaningTh": "แมว",
+          "readingTh": "แค็ท",
+          "image": "/images/s6-cat.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-sock",
+          "word": "sock",
+          "graphemes": [
+            "s",
+            "o",
+            "ck"
+          ],
+          "pairWith": "sick",
+          "meaningTh": "ถุงเท้า",
+          "readingTh": "ซ็อก",
+          "image": "/images/s6-sock.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-pig",
+          "word": "pig",
+          "graphemes": [
+            "p",
+            "i",
+            "g"
+          ],
+          "pairWith": "big",
+          "meaningTh": "หมู",
+          "readingTh": "พิก",
+          "image": "/images/s6-pig.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-dig",
+          "word": "dig",
+          "graphemes": [
+            "d",
+            "i",
+            "g"
+          ],
+          "pairWith": "dog",
+          "meaningTh": "ขุด",
+          "readingTh": "ดิก",
+          "image": "/images/s6-dig.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-kick",
+          "word": "kick",
+          "graphemes": [
+            "k",
+            "i",
+            "ck"
+          ],
+          "pairWith": "kid",
+          "meaningTh": "เตะ",
+          "readingTh": "คิก",
+          "image": "/images/s6-kick.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-mad",
+          "word": "mad",
+          "graphemes": [
+            "m",
+            "a",
+            "d"
+          ],
+          "pairWith": "sad",
+          "meaningTh": "โกรธ",
+          "readingTh": "แมด",
+          "image": "/images/s6-mad.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u03-phonics",
+      "stageId": 6,
+      "category": "phonics",
+      "type": "phonics",
+      "title": "Sounds: e, u, r, h, b",
+      "titleTh": "เสียง e u r h b",
+      "sounds": [
+        "e",
+        "u",
+        "r",
+        "h",
+        "b"
+      ],
+      "items": [
+        {
+          "id": "s6-bed",
+          "word": "bed",
+          "graphemes": [
+            "b",
+            "e",
+            "d"
+          ],
+          "pairWith": "bad",
+          "meaningTh": "เตียง",
+          "readingTh": "เบด",
+          "image": "/images/s6-bed.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-sun",
+          "word": "sun",
+          "graphemes": [
+            "s",
+            "u",
+            "n"
+          ],
+          "pairWith": "run",
+          "meaningTh": "ดวงอาทิตย์",
+          "readingTh": "ซัน",
+          "image": "/images/s6-sun.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-hat",
+          "word": "hat",
+          "graphemes": [
+            "h",
+            "a",
+            "t"
+          ],
+          "pairWith": "hot",
+          "meaningTh": "หมวก",
+          "readingTh": "แฮท",
+          "image": "/images/s6-hat.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-run",
+          "word": "run",
+          "graphemes": [
+            "r",
+            "u",
+            "n"
+          ],
+          "pairWith": "ran",
+          "meaningTh": "วิ่ง",
+          "readingTh": "รัน",
+          "image": "/images/s6-run.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-duck",
+          "word": "duck",
+          "graphemes": [
+            "d",
+            "u",
+            "ck"
+          ],
+          "pairWith": "back",
+          "meaningTh": "เป็ด",
+          "readingTh": "ดั๊ก",
+          "image": "/images/s6-duck.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-hug",
+          "word": "hug",
+          "graphemes": [
+            "h",
+            "u",
+            "g"
+          ],
+          "pairWith": "bug",
+          "meaningTh": "กอด",
+          "readingTh": "ฮัก",
+          "image": "/images/s6-hug.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u04-phonics",
+      "stageId": 6,
+      "category": "phonics",
+      "type": "phonics",
+      "title": "Sounds: f, l, j, v, w",
+      "titleTh": "เสียง f l j v w",
+      "sounds": [
+        "f",
+        "l",
+        "ll",
+        "ss",
+        "j",
+        "v",
+        "w"
+      ],
+      "items": [
+        {
+          "id": "s6-frog",
+          "word": "frog",
+          "graphemes": [
+            "f",
+            "r",
+            "o",
+            "g"
+          ],
+          "pairWith": "dog",
+          "meaningTh": "กบ",
+          "readingTh": "ฟร็อก",
+          "image": "/images/s6-frog.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-doll",
+          "word": "doll",
+          "graphemes": [
+            "d",
+            "o",
+            "ll"
+          ],
+          "pairWith": "ball",
+          "meaningTh": "ตุ๊กตา",
+          "readingTh": "ด็อล",
+          "image": "/images/s6-doll.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-kiss",
+          "word": "kiss",
+          "graphemes": [
+            "k",
+            "i",
+            "ss"
+          ],
+          "pairWith": "kids",
+          "meaningTh": "หอม/จูบ",
+          "readingTh": "คิส",
+          "image": "/images/s6-kiss.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-jump",
+          "word": "jump",
+          "graphemes": [
+            "j",
+            "u",
+            "m",
+            "p"
+          ],
+          "pairWith": "jam",
+          "meaningTh": "กระโดด",
+          "readingTh": "จัมพ์",
+          "image": "/images/s6-jump.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-vet",
+          "word": "vet",
+          "graphemes": [
+            "v",
+            "e",
+            "t"
+          ],
+          "pairWith": "wet",
+          "meaningTh": "สัตวแพทย์ (หมอรักษาสัตว์)",
+          "readingTh": "เว็ท",
+          "image": "/images/s6-vet.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-wet",
+          "word": "wet",
+          "graphemes": [
+            "w",
+            "e",
+            "t"
+          ],
+          "pairWith": "well",
+          "meaningTh": "เปียก",
+          "readingTh": "เว็ท",
+          "image": "/images/s6-wet.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u05-phonics",
+      "stageId": 6,
+      "category": "phonics",
+      "type": "phonics",
+      "title": "Sounds: y, z, x, qu, ch, sh, ng",
+      "titleTh": "เสียง y z x qu ch sh ng",
+      "sounds": [
+        "y",
+        "z",
+        "zz",
+        "x",
+        "qu",
+        "ch",
+        "sh",
+        "ng"
+      ],
+      "items": [
+        {
+          "id": "s6-fish",
+          "word": "fish",
+          "graphemes": [
+            "f",
+            "i",
+            "sh"
+          ],
+          "pairWith": "ship",
+          "meaningTh": "ปลา",
+          "readingTh": "ฟิช",
+          "image": "/images/s6-fish.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-swing",
+          "word": "swing",
+          "graphemes": [
+            "s",
+            "w",
+            "i",
+            "ng"
+          ],
+          "pairWith": "sing",
+          "meaningTh": "ชิงช้า",
+          "readingTh": "สวิง",
+          "image": "/images/s6-swing.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-box",
+          "word": "box",
+          "graphemes": [
+            "b",
+            "o",
+            "x"
+          ],
+          "pairWith": "bag",
+          "meaningTh": "กล่อง",
+          "readingTh": "บ็อกซ์",
+          "image": "/images/s6-box.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-buzz",
+          "word": "buzz",
+          "graphemes": [
+            "b",
+            "u",
+            "zz"
+          ],
+          "pairWith": "bus",
+          "meaningTh": "เสียงหึ่ง ๆ (ผึ้ง)",
+          "readingTh": "บัซ",
+          "image": "/images/s6-buzz.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-lunch",
+          "word": "lunch",
+          "graphemes": [
+            "l",
+            "u",
+            "n",
+            "ch"
+          ],
+          "pairWith": "munch",
+          "meaningTh": "อาหารกลางวัน",
+          "readingTh": "ลันช์",
+          "image": "/images/s6-lunch.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-yes",
+          "word": "yes",
+          "graphemes": [
+            "y",
+            "e",
+            "s"
+          ],
+          "pairWith": "yet",
+          "meaningTh": "ใช่",
+          "readingTh": "เยส",
+          "image": "/images/s6-yes.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-quack",
+          "word": "quack",
+          "graphemes": [
+            "qu",
+            "a",
+            "ck"
+          ],
+          "pairWith": "back",
+          "meaningTh": "ก้าบ ๆ (เสียงเป็ด)",
+          "readingTh": "แคว็ก",
+          "image": "/images/s6-quack.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u06-phonics",
+      "stageId": 6,
+      "category": "phonics",
+      "type": "phonics",
+      "title": "Sounds: th, ai, ee, igh",
+      "titleTh": "เสียง th ai ee igh",
+      "sounds": [
+        "th",
+        "th-v",
+        "ai",
+        "ee",
+        "igh"
+      ],
+      "items": [
+        {
+          "id": "s6-teeth",
+          "word": "teeth",
+          "graphemes": [
+            "t",
+            "ee",
+            "th"
+          ],
+          "pairWith": "tooth",
+          "meaningTh": "ฟัน",
+          "readingTh": "ทีธ",
+          "image": "/images/s6-teeth.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-bath",
+          "word": "bath",
+          "graphemes": [
+            "b",
+            "a",
+            "th"
+          ],
+          "pairWith": "path",
+          "meaningTh": "อาบน้ำในอ่าง",
+          "readingTh": "แบธ",
+          "image": "/images/s6-bath.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-that",
+          "word": "that",
+          "graphemes": [
+            "th-v",
+            "a",
+            "t"
+          ],
+          "pairWith": "hat",
+          "meaningTh": "อันนั้น/นั่น",
+          "readingTh": "แดท",
+          "image": "/images/s6-that.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-rain",
+          "word": "rain",
+          "graphemes": [
+            "r",
+            "ai",
+            "n"
+          ],
+          "pairWith": "train",
+          "meaningTh": "ฝน",
+          "readingTh": "เรน",
+          "image": "/images/s6-rain.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-sheep",
+          "word": "sheep",
+          "graphemes": [
+            "sh",
+            "ee",
+            "p"
+          ],
+          "pairWith": "ship",
+          "meaningTh": "แกะ",
+          "readingTh": "ชีพ",
+          "image": "/images/s6-sheep.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-light",
+          "word": "light",
+          "graphemes": [
+            "l",
+            "igh",
+            "t"
+          ],
+          "pairWith": "night",
+          "meaningTh": "ไฟ/แสง",
+          "readingTh": "ไลท์",
+          "image": "/images/s6-light.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u07-phonics",
+      "stageId": 6,
+      "category": "phonics",
+      "type": "phonics",
+      "title": "Sounds: oa, oo, ar, or",
+      "titleTh": "เสียง oa oo ar or",
+      "sounds": [
+        "oa",
+        "oo",
+        "oo-short",
+        "ar",
+        "or"
+      ],
+      "items": [
+        {
+          "id": "s6-boat",
+          "word": "boat",
+          "graphemes": [
+            "b",
+            "oa",
+            "t"
+          ],
+          "pairWith": "coat",
+          "meaningTh": "เรือ",
+          "readingTh": "โบท",
+          "image": "/images/s6-boat.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-moon",
+          "word": "moon",
+          "graphemes": [
+            "m",
+            "oo",
+            "n"
+          ],
+          "pairWith": "spoon",
+          "meaningTh": "ดวงจันทร์",
+          "readingTh": "มูน",
+          "image": "/images/s6-moon.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-book",
+          "word": "book",
+          "graphemes": [
+            "b",
+            "oo-short",
+            "k"
+          ],
+          "pairWith": "look",
+          "meaningTh": "หนังสือ",
+          "readingTh": "บุ๊ก",
+          "image": "/images/s6-book.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-car",
+          "word": "car",
+          "graphemes": [
+            "c",
+            "ar"
+          ],
+          "pairWith": "star",
+          "meaningTh": "รถยนต์",
+          "readingTh": "คาร์",
+          "image": "/images/s6-car.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-park",
+          "word": "park",
+          "graphemes": [
+            "p",
+            "ar",
+            "k"
+          ],
+          "pairWith": "dark",
+          "meaningTh": "สวนสาธารณะ",
+          "readingTh": "พาร์ค",
+          "image": "/images/s6-park.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-morning",
+          "word": "morning",
+          "graphemes": [
+            "m",
+            "or",
+            "n",
+            "i",
+            "ng"
+          ],
+          "pairWith": "more",
+          "meaningTh": "ตอนเช้า",
+          "readingTh": "มอร์-นิ่ง",
+          "image": "/images/s6-morning.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u08-phonics",
+      "stageId": 6,
+      "category": "phonics",
+      "type": "phonics",
+      "title": "Sounds: ur, er, ow, oy, ear, air",
+      "titleTh": "เสียง ur er ow oy ear air",
+      "sounds": [
+        "ur",
+        "er",
+        "ow",
+        "oy",
+        "ear",
+        "air"
+      ],
+      "items": [
+        {
+          "id": "s6-turn",
+          "word": "turn",
+          "graphemes": [
+            "t",
+            "ur",
+            "n"
+          ],
+          "pairWith": "hurt",
+          "meaningTh": "พลิก/หมุน",
+          "readingTh": "เทิร์น",
+          "image": "/images/s6-turn.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-her",
+          "word": "her",
+          "graphemes": [
+            "h",
+            "er"
+          ],
+          "pairWith": "hair",
+          "meaningTh": "เธอ (ผู้หญิง)",
+          "readingTh": "เฮอร์",
+          "image": "/images/s6-her.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-cow",
+          "word": "cow",
+          "graphemes": [
+            "c",
+            "ow"
+          ],
+          "pairWith": "now",
+          "meaningTh": "วัว",
+          "readingTh": "คาว",
+          "image": "/images/s6-cow.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-toy",
+          "word": "toy",
+          "graphemes": [
+            "t",
+            "oy"
+          ],
+          "pairWith": "boy",
+          "meaningTh": "ของเล่น",
+          "readingTh": "ทอย",
+          "image": "/images/s6-toy.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-ears",
+          "word": "ears",
+          "graphemes": [
+            "ear",
+            "s"
+          ],
+          "pairWith": "eyes",
+          "meaningTh": "หู",
+          "readingTh": "เอียร์ส",
+          "image": "/images/s6-ears.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-chair",
+          "word": "chair",
+          "graphemes": [
+            "ch",
+            "air"
+          ],
+          "pairWith": "hair",
+          "meaningTh": "เก้าอี้",
+          "readingTh": "แชร์",
+          "image": "/images/s6-chair.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u09-phonics",
+      "stageId": 6,
+      "category": "phonics",
+      "type": "phonics",
+      "title": "Sounds: a_e, i_e, o_e, ure, zh, schwa",
+      "titleTh": "เสียง a_e i_e o_e ure zh และเสียงเบา (schwa)",
+      "sounds": [
+        "a-e",
+        "i-e",
+        "o-e",
+        "e-silent",
+        "schwa",
+        "ure",
+        "s-zh",
+        "ea-short"
+      ],
+      "items": [
+        {
+          "id": "s6-cake",
+          "word": "cake",
+          "graphemes": [
+            "c",
+            "a-e",
+            "k",
+            "e-silent"
+          ],
+          "pairWith": "make",
+          "meaningTh": "เค้ก",
+          "readingTh": "เค้ก",
+          "image": "/images/s6-cake.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-bike",
+          "word": "bike",
+          "graphemes": [
+            "b",
+            "i-e",
+            "k",
+            "e-silent"
+          ],
+          "pairWith": "like",
+          "meaningTh": "จักรยาน",
+          "readingTh": "ไบค์",
+          "image": "/images/s6-bike.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-home",
+          "word": "home",
+          "graphemes": [
+            "h",
+            "o-e",
+            "m",
+            "e-silent"
+          ],
+          "pairWith": "hole",
+          "meaningTh": "บ้าน",
+          "readingTh": "โฮม",
+          "image": "/images/s6-home.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-banana",
+          "word": "banana",
+          "graphemes": [
+            "b",
+            "schwa",
+            "n",
+            "a",
+            "n",
+            "schwa"
+          ],
+          "pairWith": "pajamas",
+          "meaningTh": "กล้วย",
+          "readingTh": "บะ-แน้-หนะ",
+          "image": "/images/s6-banana.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-treasure",
+          "word": "treasure",
+          "graphemes": [
+            "t",
+            "r",
+            "ea-short",
+            "s-zh",
+            "ure"
+          ],
+          "pairWith": "tree",
+          "meaningTh": "สมบัติ",
+          "readingTh": "เทร-เชอร์",
+          "image": "/images/s6-treasure.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-sure",
+          "word": "sure",
+          "graphemes": [
+            "s",
+            "ure"
+          ],
+          "pairWith": "shoe",
+          "meaningTh": "แน่นอน/ได้สิ",
+          "readingTh": "ชัวร์",
+          "image": "/images/s6-sure.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u10-phonics",
+      "stageId": 6,
+      "category": "phonics",
+      "type": "phonics",
+      "title": "More spellings: ay, ea, ir, ou, ew, ph, kn",
+      "titleTh": "ตัวสะกดอื่นของเสียงเดิม ay ea ir ou ew ph kn",
+      "sounds": [
+        "ay",
+        "ea",
+        "ir",
+        "ou",
+        "ew",
+        "ph",
+        "kn"
+      ],
+      "items": [
+        {
+          "id": "s6-play",
+          "word": "play",
+          "graphemes": [
+            "p",
+            "l",
+            "ay"
+          ],
+          "pairWith": "pay",
+          "meaningTh": "เล่น",
+          "readingTh": "เพลย์",
+          "image": "/images/s6-play.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-eat",
+          "word": "eat",
+          "graphemes": [
+            "ea",
+            "t"
+          ],
+          "pairWith": "at",
+          "meaningTh": "กิน",
+          "readingTh": "อีท",
+          "image": "/images/s6-eat.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-bird",
+          "word": "bird",
+          "graphemes": [
+            "b",
+            "ir",
+            "d"
+          ],
+          "pairWith": "bed",
+          "meaningTh": "นก",
+          "readingTh": "เบิร์ด",
+          "image": "/images/s6-bird.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-mouth",
+          "word": "mouth",
+          "graphemes": [
+            "m",
+            "ou",
+            "th"
+          ],
+          "pairWith": "out",
+          "meaningTh": "ปาก",
+          "readingTh": "เมาธ์",
+          "image": "/images/s6-mouth.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-new",
+          "word": "new",
+          "graphemes": [
+            "n",
+            "ew"
+          ],
+          "pairWith": "now",
+          "meaningTh": "ใหม่",
+          "readingTh": "นิว",
+          "image": "/images/s6-new.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-phone",
+          "word": "phone",
+          "graphemes": [
+            "ph",
+            "o-e",
+            "n",
+            "e-silent"
+          ],
+          "pairWith": "home",
+          "meaningTh": "โทรศัพท์",
+          "readingTh": "โฟน",
+          "image": "/images/s6-phone.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-knee",
+          "word": "knee",
+          "graphemes": [
+            "kn",
+            "ee"
+          ],
+          "pairWith": "need",
+          "meaningTh": "เข่า",
+          "readingTh": "นี",
+          "image": "/images/s6-knee.webp",
+          "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        }
+      ]
     }
   ]
 }

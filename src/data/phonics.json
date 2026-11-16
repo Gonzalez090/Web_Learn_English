@@ -6,7 +6,11 @@
       "ipa": "s",
       "soundTh": "ซ",
       "tipTh": "ฟันชิดกัน ปลายลิ้นอยู่หลังฟันบน แล้วปล่อยลมออกยาว ๆ ซซซ เหมือนเสียงงู — ไม่มีสระต่อท้าย",
-      "examples": ["sun", "sock", "see"]
+      "examples": [
+        "sun",
+        "sock",
+        "see"
+      ]
     },
     {
       "id": "a",
@@ -14,7 +18,11 @@
       "ipa": "æ",
       "soundTh": "แอะ",
       "tipTh": "อ้าปากกว้าง ดึงมุมปากออกนิดหนึ่ง แล้วออกเสียง แอะ สั้น ๆ (อยู่ระหว่าง แอ กับ อะ)",
-      "examples": ["apple", "cat", "bag"]
+      "examples": [
+        "apple",
+        "cat",
+        "bag"
+      ]
     },
     {
       "id": "t",
@@ -22,7 +30,11 @@
       "ipa": "t",
       "soundTh": "ท",
       "tipTh": "ปลายลิ้นแตะปุ่มเหงือกหลังฟันบน แล้วปล่อยพร้อมลมพ่นออกมา เหมือน ท สั้น ๆ — ไม่ใช่ ต",
-      "examples": ["toy", "ten", "top"]
+      "examples": [
+        "toy",
+        "ten",
+        "top"
+      ]
     },
     {
       "id": "p",
@@ -30,7 +42,11 @@
       "ipa": "p",
       "soundTh": "พ",
       "tipTh": "ปิดริมฝีปาก แล้วเปิดพร้อมลมพ่นออก เหมือน พ สั้น ๆ — ไม่ใช่ ป (ลองเอามือรองหน้าปากจะรู้สึกลม)",
-      "examples": ["pig", "pen", "park"]
+      "examples": [
+        "pig",
+        "pen",
+        "park"
+      ]
     },
     {
       "id": "i",
@@ -38,7 +54,11 @@
       "ipa": "ɪ",
       "soundTh": "อิ",
       "tipTh": "ออกเสียง อิ สั้น ๆ ปากผ่อนสบาย ไม่ต้องยิงฟัน (เบาและสั้นกว่า อี)",
-      "examples": ["in", "it", "big"]
+      "examples": [
+        "in",
+        "it",
+        "big"
+      ]
     },
     {
       "id": "n",
@@ -46,7 +66,707 @@
       "ipa": "n",
       "soundTh": "น",
       "tipTh": "ปลายลิ้นแตะปุ่มเหงือกหลังฟันบน ปิดปากลมไว้ ให้เสียงออกทางจมูก นนน ลากยาวได้",
-      "examples": ["nose", "nine", "no"]
+      "examples": [
+        "nose",
+        "nine",
+        "no"
+      ]
+    },
+    {
+      "id": "m",
+      "grapheme": "m",
+      "ipa": "m",
+      "soundTh": "ม",
+      "tipTh": "ปิดปากสนิท แล้วฮัมเสียงออกทางจมูก มมม ลากยาวได้",
+      "examples": [
+        "milk",
+        "mommy",
+        "moon"
+      ]
+    },
+    {
+      "id": "d",
+      "grapheme": "d",
+      "ipa": "d",
+      "soundTh": "ด",
+      "tipTh": "ปลายลิ้นแตะปุ่มเหงือกหลังฟันบน แล้วปล่อยพร้อมเปล่งเสียง เหมือน ด สั้น ๆ",
+      "examples": [
+        "daddy",
+        "duck",
+        "door"
+      ]
+    },
+    {
+      "id": "g",
+      "grapheme": "g",
+      "ipa": "g",
+      "soundTh": "ก (ก้อง)",
+      "tipTh": "โคนลิ้นแตะเพดานอ่อน แล้วปล่อยพร้อมเปล่งเสียงในคอ — ก้องกว่า ก ของไทย",
+      "examples": [
+        "go",
+        "good",
+        "girl"
+      ]
+    },
+    {
+      "id": "o",
+      "grapheme": "o",
+      "ipa": "ɑ",
+      "soundTh": "อา (สั้น)",
+      "tipTh": "อ้าปากกว้างแบบหาว ออกเสียง อา สั้น ๆ (สำเนียงอเมริกัน) — hot, top, box",
+      "examples": [
+        "hot",
+        "top",
+        "box"
+      ]
+    },
+    {
+      "id": "c",
+      "grapheme": "c",
+      "ipa": "k",
+      "soundTh": "ค",
+      "tipTh": "โคนลิ้นแตะเพดานอ่อน แล้วปล่อยพร้อมลมพ่น เหมือน ค สั้น ๆ — c หน้า a o u ออกเสียงนี้",
+      "examples": [
+        "cat",
+        "cup",
+        "car"
+      ]
+    },
+    {
+      "id": "k",
+      "grapheme": "k",
+      "ipa": "k",
+      "soundTh": "ค",
+      "tipTh": "เสียงเดียวกับ c — มักใช้ k หน้า e, i (kid, kite)",
+      "examples": [
+        "kick",
+        "kid",
+        "kite"
+      ]
+    },
+    {
+      "id": "ck",
+      "grapheme": "ck",
+      "ipa": "k",
+      "soundTh": "ค",
+      "tipTh": "ck = เสียง ค ตัวเดียว อยู่ท้ายคำหลังสระสั้น (sock, duck)",
+      "examples": [
+        "sock",
+        "duck",
+        "back"
+      ]
+    },
+    {
+      "id": "e",
+      "grapheme": "e",
+      "ipa": "ɛ",
+      "soundTh": "เอะ",
+      "tipTh": "อ้าปากครึ่งหนึ่ง ออกเสียง เอะ สั้น ๆ (bed, egg)",
+      "examples": [
+        "egg",
+        "red",
+        "ten"
+      ]
+    },
+    {
+      "id": "u",
+      "grapheme": "u",
+      "ipa": "ʌ",
+      "soundTh": "อะ",
+      "tipTh": "ปากผ่อนสบาย ออกเสียง อะ สั้น ๆ จากกลางปาก (sun, cup)",
+      "examples": [
+        "up",
+        "cup",
+        "bus"
+      ]
+    },
+    {
+      "id": "r",
+      "grapheme": "r",
+      "ipa": "r",
+      "soundTh": "ร (อเมริกัน)",
+      "tipTh": "ห่อปากเล็กน้อย ม้วนปลายลิ้นขึ้นแต่ไม่แตะเพดาน — ไม่ใช่ ล และไม่รัวลิ้น",
+      "examples": [
+        "red",
+        "run",
+        "rain"
+      ]
+    },
+    {
+      "id": "h",
+      "grapheme": "h",
+      "ipa": "h",
+      "soundTh": "ฮ",
+      "tipTh": "แค่ปล่อยลมหายใจออกเบา ๆ เหมือน ฮ",
+      "examples": [
+        "hat",
+        "hi",
+        "hug"
+      ]
+    },
+    {
+      "id": "b",
+      "grapheme": "b",
+      "ipa": "b",
+      "soundTh": "บ",
+      "tipTh": "ปิดริมฝีปาก แล้วเปิดพร้อมเปล่งเสียง เหมือน บ",
+      "examples": [
+        "ball",
+        "bed",
+        "baby"
+      ]
+    },
+    {
+      "id": "f",
+      "grapheme": "f",
+      "ipa": "f",
+      "soundTh": "ฟ",
+      "tipTh": "ฟันบนแตะริมฝีปากล่างเบา ๆ แล้วเป่าลมออก ฟฟฟ",
+      "examples": [
+        "fish",
+        "five",
+        "food"
+      ]
+    },
+    {
+      "id": "l",
+      "grapheme": "l",
+      "ipa": "l",
+      "soundTh": "ล",
+      "tipTh": "ปลายลิ้นแตะปุ่มเหงือกหลังฟันบนค้างไว้ ให้เสียงออกข้างลิ้น — ไม่ใช่ ร",
+      "examples": [
+        "look",
+        "lion",
+        "light"
+      ]
+    },
+    {
+      "id": "ll",
+      "grapheme": "ll",
+      "ipa": "l",
+      "soundTh": "ล",
+      "tipTh": "ll ท้ายคำ = เสียง ล ตัวเดียว ให้ลิ้นแตะเหงือกค้างไว้ (ball, doll)",
+      "examples": [
+        "ball",
+        "doll",
+        "bell"
+      ]
+    },
+    {
+      "id": "ss",
+      "grapheme": "ss",
+      "ipa": "s",
+      "soundTh": "ซ",
+      "tipTh": "ss ท้ายคำ = เสียง ซ ตัวเดียว (kiss, dress)",
+      "examples": [
+        "kiss",
+        "dress",
+        "mess"
+      ]
+    },
+    {
+      "id": "j",
+      "grapheme": "j",
+      "ipa": "dʒ",
+      "soundTh": "จ (ก้อง)",
+      "tipTh": "ปลายลิ้นแตะเหงือกแล้วปล่อยพร้อมเปล่งเสียง เหมือน จ แต่ก้องกว่า",
+      "examples": [
+        "jump",
+        "juice",
+        "jam"
+      ]
+    },
+    {
+      "id": "v",
+      "grapheme": "v",
+      "ipa": "v",
+      "soundTh": "ฟ (ก้อง)",
+      "tipTh": "ฟันบนแตะริมฝีปากล่าง แล้วเปล่งเสียงให้สั่น — ไม่ใช่ ว",
+      "examples": [
+        "very",
+        "five",
+        "vet"
+      ]
+    },
+    {
+      "id": "w",
+      "grapheme": "w",
+      "ipa": "w",
+      "soundTh": "ว",
+      "tipTh": "ห่อปากกลมแล้วคลายออก เหมือน ว",
+      "examples": [
+        "water",
+        "walk",
+        "wet"
+      ]
+    },
+    {
+      "id": "y",
+      "grapheme": "y",
+      "ipa": "j",
+      "soundTh": "ย",
+      "tipTh": "ยกกลางลิ้นขึ้นใกล้เพดาน เหมือน ย",
+      "examples": [
+        "yes",
+        "yellow",
+        "yummy"
+      ]
+    },
+    {
+      "id": "z",
+      "grapheme": "z",
+      "ipa": "z",
+      "soundTh": "ซ (ก้อง)",
+      "tipTh": "วางลิ้นแบบ s แต่เปล่งเสียงให้คอสั่น เหมือนผึ้ง zzz (ลองจับคอดู)",
+      "examples": [
+        "zoo",
+        "zebra",
+        "zip"
+      ]
+    },
+    {
+      "id": "zz",
+      "grapheme": "zz",
+      "ipa": "z",
+      "soundTh": "ซ (ก้อง)",
+      "tipTh": "zz ท้ายคำ = เสียง z ตัวเดียว (buzz)",
+      "examples": [
+        "buzz"
+      ]
+    },
+    {
+      "id": "x",
+      "grapheme": "x",
+      "ipa": "ks",
+      "soundTh": "คซ",
+      "tipTh": "x = เสียง ค ต่อด้วย ซ เร็ว ๆ (box)",
+      "examples": [
+        "box"
+      ],
+      "combo": true
+    },
+    {
+      "id": "qu",
+      "grapheme": "qu",
+      "ipa": "kw",
+      "soundTh": "คว",
+      "tipTh": "qu = ค กับ ว ติดกัน (quack, quick)",
+      "examples": [
+        "quack",
+        "quick"
+      ],
+      "combo": true
+    },
+    {
+      "id": "ch",
+      "grapheme": "ch",
+      "ipa": "tʃ",
+      "soundTh": "ช",
+      "tipTh": "ปลายลิ้นแตะเหงือกก่อน แล้วปล่อยลมออกทีเดียว เหมือน ช",
+      "examples": [
+        "chair",
+        "cheese",
+        "lunch"
+      ]
+    },
+    {
+      "id": "sh",
+      "grapheme": "sh",
+      "ipa": "ʃ",
+      "soundTh": "ช (ลมยาว)",
+      "tipTh": "ห่อปากยื่นนิด ๆ แล้วปล่อยลมยาว ชู่ว — ไม่มีจังหวะหยุดแบบ ch",
+      "examples": [
+        "shoe",
+        "sheep",
+        "fish"
+      ]
+    },
+    {
+      "id": "ng",
+      "grapheme": "ng",
+      "ipa": "ŋ",
+      "soundTh": "ง",
+      "tipTh": "โคนลิ้นแตะเพดานอ่อน เสียงออกทางจมูก เหมือน ง ท้ายคำ — ไม่มีเสียง ก ต่อท้าย",
+      "examples": [
+        "sing",
+        "ring",
+        "swing"
+      ]
+    },
+    {
+      "id": "th",
+      "grapheme": "th",
+      "ipa": "θ",
+      "soundTh": "ธ (มีลม)",
+      "tipTh": "ปลายลิ้นยื่นระหว่างฟันนิดหนึ่ง แล้วเป่าลมผ่าน — ไม่ใช่ ท หรือ ซ",
+      "examples": [
+        "three",
+        "think",
+        "teeth"
+      ]
+    },
+    {
+      "id": "th-v",
+      "grapheme": "th",
+      "ipa": "ð",
+      "soundTh": "ด (ก้อง)",
+      "tipTh": "วางลิ้นแบบ th แต่เปล่งเสียงให้สั่น (this, that, the)",
+      "examples": [
+        "this",
+        "that",
+        "the"
+      ],
+      "label": "th"
+    },
+    {
+      "id": "ai",
+      "grapheme": "ai",
+      "ipa": "eɪ",
+      "soundTh": "เอ",
+      "tipTh": "เอ แล้วปิดท้ายด้วย อิ เบา ๆ (เอ-อิ)",
+      "examples": [
+        "rain",
+        "train",
+        "wait"
+      ]
+    },
+    {
+      "id": "ee",
+      "grapheme": "ee",
+      "ipa": "iː",
+      "soundTh": "อี",
+      "tipTh": "อี ยาว ยิ้มนิด ๆ (see, tree)",
+      "examples": [
+        "see",
+        "tree",
+        "feet"
+      ]
+    },
+    {
+      "id": "igh",
+      "grapheme": "igh",
+      "ipa": "aɪ",
+      "soundTh": "ไอ",
+      "tipTh": "igh = ไอ (gh ไม่ออกเสียง)",
+      "examples": [
+        "night",
+        "high",
+        "light"
+      ]
+    },
+    {
+      "id": "oa",
+      "grapheme": "oa",
+      "ipa": "oʊ",
+      "soundTh": "โอ",
+      "tipTh": "โอ แล้วห่อปากปิดท้ายด้วย อุ (โอว)",
+      "examples": [
+        "boat",
+        "coat",
+        "goat"
+      ]
+    },
+    {
+      "id": "oo",
+      "grapheme": "oo",
+      "ipa": "uː",
+      "soundTh": "อู",
+      "tipTh": "อู ยาว ห่อปากกลม (moon, food)",
+      "examples": [
+        "moon",
+        "food",
+        "zoo"
+      ]
+    },
+    {
+      "id": "oo-short",
+      "grapheme": "oo",
+      "ipa": "ʊ",
+      "soundTh": "อุ",
+      "tipTh": "อุ สั้น ปากหลวม ๆ (book, look, good)",
+      "examples": [
+        "book",
+        "look",
+        "good"
+      ],
+      "label": "oo"
+    },
+    {
+      "id": "ar",
+      "grapheme": "ar",
+      "ipa": "ɑr",
+      "soundTh": "อาร์",
+      "tipTh": "อา แล้วม้วนลิ้นแบบ r ท้าย (car, star)",
+      "examples": [
+        "car",
+        "star",
+        "park"
+      ]
+    },
+    {
+      "id": "or",
+      "grapheme": "or",
+      "ipa": "ɔr",
+      "soundTh": "ออร์",
+      "tipTh": "ออ แล้วม้วนลิ้นแบบ r ท้าย (for, morning)",
+      "examples": [
+        "for",
+        "storm",
+        "horse"
+      ]
+    },
+    {
+      "id": "ur",
+      "grapheme": "ur",
+      "ipa": "ɝ",
+      "soundTh": "เออร์",
+      "tipTh": "เออ แล้วม้วนลิ้นแบบ r ไปด้วยตลอด (turn, hurt)",
+      "examples": [
+        "turn",
+        "hurt",
+        "fur"
+      ]
+    },
+    {
+      "id": "er",
+      "grapheme": "er",
+      "ipa": "ɝ",
+      "soundTh": "เออร์",
+      "tipTh": "er = เสียงเดียวกับ ur (her, sister)",
+      "examples": [
+        "her",
+        "sister",
+        "water"
+      ]
+    },
+    {
+      "id": "ow",
+      "grapheme": "ow",
+      "ipa": "aʊ",
+      "soundTh": "อาว",
+      "tipTh": "อา แล้วห่อปากเป็น อุ (cow, down)",
+      "examples": [
+        "cow",
+        "down",
+        "now"
+      ]
+    },
+    {
+      "id": "oy",
+      "grapheme": "oy",
+      "ipa": "ɔɪ",
+      "soundTh": "ออย",
+      "tipTh": "ออ แล้วปิดท้ายด้วย อิ (boy, toy)",
+      "examples": [
+        "boy",
+        "toy",
+        "toys"
+      ]
+    },
+    {
+      "id": "ear",
+      "grapheme": "ear",
+      "ipa": "ɪr",
+      "soundTh": "เอียร์",
+      "tipTh": "อี แล้วม้วนลิ้นแบบ r (ear, hear)",
+      "examples": [
+        "ear",
+        "hear",
+        "near"
+      ]
+    },
+    {
+      "id": "air",
+      "grapheme": "air",
+      "ipa": "ɛr",
+      "soundTh": "แอร์",
+      "tipTh": "แอ แล้วม้วนลิ้นแบบ r (hair, chair)",
+      "examples": [
+        "hair",
+        "chair",
+        "fair"
+      ]
+    },
+    {
+      "id": "ure",
+      "grapheme": "ure",
+      "ipa": "ʊr",
+      "soundTh": "อัวร์",
+      "tipTh": "อุ แล้วม้วนลิ้นแบบ r (sure)",
+      "examples": [
+        "sure"
+      ]
+    },
+    {
+      "id": "s-zh",
+      "grapheme": "s",
+      "ipa": "ʒ",
+      "soundTh": "ฌ (ก้อง)",
+      "tipTh": "เหมือนเสียง sh แต่เปล่งเสียงให้คอสั่น (treasure) — เสียงนี้พบน้อย",
+      "examples": [
+        "treasure"
+      ],
+      "label": "s (zh)"
+    },
+    {
+      "id": "ea-short",
+      "grapheme": "ea",
+      "ipa": "ɛ",
+      "soundTh": "เอะ",
+      "tipTh": "ea บางคำออกเสียง เอะ สั้น ๆ (bread, head, treasure)",
+      "examples": [
+        "bread",
+        "head",
+        "treasure"
+      ],
+      "label": "ea (เอะ)"
+    },
+    {
+      "id": "schwa",
+      "grapheme": "a",
+      "ipa": "ə",
+      "soundTh": "เออะ (เบา)",
+      "tipTh": "สระเบา ๆ สั้น ๆ ไม่ลงน้ำหนัก เสียงที่พบบ่อยที่สุดในภาษาอังกฤษ (a ใน banana, about)",
+      "examples": [
+        "banana",
+        "about",
+        "again"
+      ],
+      "label": "a (เออะ)"
+    },
+    {
+      "id": "a-e",
+      "grapheme": "a",
+      "ipa": "eɪ",
+      "soundTh": "เอ",
+      "tipTh": "a…e: e ท้ายคำไม่ออกเสียง แต่ทำให้ a ออกเสียงเป็น เอ (cake, make)",
+      "examples": [
+        "cake",
+        "make",
+        "game"
+      ],
+      "label": "a_e"
+    },
+    {
+      "id": "i-e",
+      "grapheme": "i",
+      "ipa": "aɪ",
+      "soundTh": "ไอ",
+      "tipTh": "i…e: e ท้ายคำทำให้ i ออกเสียงเป็น ไอ (bike, like)",
+      "examples": [
+        "bike",
+        "like",
+        "five"
+      ],
+      "label": "i_e"
+    },
+    {
+      "id": "o-e",
+      "grapheme": "o",
+      "ipa": "oʊ",
+      "soundTh": "โอ",
+      "tipTh": "o…e: e ท้ายคำทำให้ o ออกเสียงเป็น โอ (home, nose)",
+      "examples": [
+        "home",
+        "nose",
+        "phone"
+      ],
+      "label": "o_e"
+    },
+    {
+      "id": "e-silent",
+      "grapheme": "e",
+      "ipa": "",
+      "soundTh": "(เงียบ)",
+      "tipTh": "e ท้ายคำแบบนี้ไม่ออกเสียง — แต่ทำให้สระข้างหน้าออกเสียงยาวเป็นชื่อตัวอักษร",
+      "examples": [
+        "cake",
+        "bike",
+        "home"
+      ],
+      "silent": true,
+      "label": "e (เงียบ)"
+    },
+    {
+      "id": "ay",
+      "grapheme": "ay",
+      "ipa": "eɪ",
+      "soundTh": "เอ",
+      "tipTh": "ay = เสียง เอ แบบ ai มักอยู่ท้ายคำ (play, day)",
+      "examples": [
+        "play",
+        "day",
+        "say"
+      ]
+    },
+    {
+      "id": "ea",
+      "grapheme": "ea",
+      "ipa": "iː",
+      "soundTh": "อี",
+      "tipTh": "ea ส่วนใหญ่ = อี ยาว แบบ ee (eat, sea)",
+      "examples": [
+        "eat",
+        "sea",
+        "tea"
+      ]
+    },
+    {
+      "id": "ir",
+      "grapheme": "ir",
+      "ipa": "ɝ",
+      "soundTh": "เออร์",
+      "tipTh": "ir = เสียงเดียวกับ ur (bird, girl)",
+      "examples": [
+        "bird",
+        "girl",
+        "shirt"
+      ]
+    },
+    {
+      "id": "ou",
+      "grapheme": "ou",
+      "ipa": "aʊ",
+      "soundTh": "อาว",
+      "tipTh": "ou = เสียง อาว แบบ ow (out, house)",
+      "examples": [
+        "out",
+        "house",
+        "mouth"
+      ]
+    },
+    {
+      "id": "ew",
+      "grapheme": "ew",
+      "ipa": "uː",
+      "soundTh": "อู",
+      "tipTh": "ew = อู ยาว แบบ oo (new, blew)",
+      "examples": [
+        "new",
+        "blew"
+      ]
+    },
+    {
+      "id": "ph",
+      "grapheme": "ph",
+      "ipa": "f",
+      "soundTh": "ฟ",
+      "tipTh": "ph = เสียง ฟ (phone, photo)",
+      "examples": [
+        "phone",
+        "photo"
+      ]
+    },
+    {
+      "id": "kn",
+      "grapheme": "kn",
+      "ipa": "n",
+      "soundTh": "น",
+      "tipTh": "kn ต้นคำ: k ไม่ออกเสียง เหลือแค่ น (knee, know)",
+      "examples": [
+        "knee",
+        "know"
+      ]
     }
   ]
 }

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { graphemeUnits, markGrapheme, readingUnits, readProgress, spellUnits } from './reading'
+import { graphemeUnits, markGrapheme, readingUnits, readProgress, shortSoundTh, spellUnits } from './reading'
 
 const sounds = {
   s: { grapheme: 's', soundTh: 'ซ', ipa: 's' },
@@ -12,6 +12,16 @@ describe('reading (ขั้นอ่าน Stage 6)', () => {
     const units = graphemeUnits(['s', 'i', 't'], sounds)
     expect(units.map((unit) => unit.soundTh)).toEqual(['ซ', 'อิ', 'ท'])
     expect(spellUnits(units)).toBe('sit')
+  })
+
+  it('ป้ายตัวอักษรใช้เสียงไทยแบบสั้น และตัวที่ไม่ออกเสียงเป็น –', () => {
+    const more = {
+      ...sounds,
+      r: { grapheme: 'r', soundTh: 'ร (อเมริกัน)' },
+      'e-silent': { grapheme: 'e', soundTh: '(เงียบ)', silent: true },
+    }
+    expect(graphemeUnits(['r', 'e-silent'], more).map((unit) => unit.hint)).toEqual(['ร', '–'])
+    expect(shortSoundTh(more['e-silent'])).toBe('–')
   })
 
   it('ระบายตัวอักษรที่กำลังสอนในคำตัวอย่าง', () => {

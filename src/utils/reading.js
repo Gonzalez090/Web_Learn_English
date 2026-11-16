@@ -12,18 +12,23 @@ const CLOSE_ENOUGH = 0.6
 // ข้ามคำที่ได้ยินเกิน (เช่น um, เสียงรบกวน) ได้ไม่เกินกี่คำ ก่อนถือว่ายังไม่ถึงคำถัดไป
 const LOOK_AHEAD = 3
 
+// เสียงไทยแบบสั้นสำหรับป้ายตัวอักษร: "ร (อเมริกัน)" → "ร" / ตัวที่ไม่ออกเสียง → "–"
+export const shortSoundTh = (sound) => (sound?.silent ? '–' : String(sound?.soundTh ?? '').split(' (')[0])
+
 /**
  * หน่วยเสียงของคำ phonics
  * @param graphemes ['s', 'i', 't'] (id ใน phonics.json)
- * @param soundsById { [id]: { grapheme, soundTh, ipa } }
- * @returns [{ id, grapheme, soundTh, ipa }]
+ * @param soundsById { [id]: { grapheme, soundTh, ipa, silent? } }
+ * @returns [{ id, grapheme, soundTh, hint (เสียงไทยแบบสั้น), ipa, silent }]
  */
 export const graphemeUnits = (graphemes, soundsById) =>
   (graphemes ?? []).map((id) => ({
     id,
     grapheme: soundsById[id]?.grapheme ?? id,
     soundTh: soundsById[id]?.soundTh ?? '',
+    hint: shortSoundTh(soundsById[id]),
     ipa: soundsById[id]?.ipa ?? '',
+    silent: Boolean(soundsById[id]?.silent),
   }))
 
 // หน่วยเสียง → คำที่สะกดได้ (ใช้ตรวจข้อมูล)

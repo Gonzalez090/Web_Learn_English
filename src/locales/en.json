@@ -432,7 +432,8 @@
     "soundLike": "Close to Thai “{{sound}}”",
     "examples": "Words with this sound (tap to hear)",
     "playAgain": "Hear the words again",
-    "nextSound": "Next sound"
+    "nextSound": "Next sound",
+    "silent": "This letter is silent"
   },
   "read": {
     "blendInstruction": "Sound it out, then read the word",
