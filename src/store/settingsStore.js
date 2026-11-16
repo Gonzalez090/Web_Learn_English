@@ -17,6 +17,7 @@ export const DEFAULT_SETTINGS = {
   voiceURI: null, // เสียงอ่านที่เลือก (null = ให้ระบบเลือกเสียง en-US เอง)
   dailyGoal: 10, // เป้าหมายรายวัน (นาที): 5 | 10 | 15 | 20
   soundEffects: true, // เปิด/ปิดเสียงเอฟเฟกต์
+  introSeen: false, // ดูหน้าแนะนำวิธีเรียน (/welcome) แล้วหรือยัง — ยังไม่เคย → หน้าแรกพาไปหน้าแนะนำก่อน
 }
 
 export const useSettingsStore = create(
@@ -39,10 +40,14 @@ export const useSettingsStore = create(
     }),
     {
       name: 'et-settings',
-      version: 1,
+      version: 2,
       storage: createJSONStorage(() => localStorage),
-      // เมื่อ version เพิ่มในขั้นถัด ๆ ไป ให้แปลงข้อมูลเก่าที่นี่
-      migrate: (persisted) => ({ ...DEFAULT_SETTINGS, ...persisted }),
+      // แปลงข้อมูลเก่า: version 1 → 2 เพิ่ม introSeen — ผู้ใช้เดิมใช้เว็บมาแล้ว ไม่ต้องเห็นหน้าแนะนำ
+      migrate: (persisted, version) => ({
+        ...DEFAULT_SETTINGS,
+        ...persisted,
+        ...(version < 2 ? { introSeen: true } : {}),
+      }),
     },
   ),
 )

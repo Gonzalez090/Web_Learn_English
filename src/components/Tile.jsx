@@ -4,6 +4,7 @@
 //   icon  = ไอคอนเส้นจาก lucide (ส่งเป็น component เช่น ICONS.home)
 //   image = ภาพถ่ายย่อ (path ใน public/images) — ใช้แทน icon ได้
 //   locked = ยังล็อกอยู่ → ภาพยังเป็นสีจริง แต่จางลงเล็กน้อย + มีรูปกุญแจทับมุมภาพ
+//   current = รายการที่แนะนำให้ทำต่อ (บทต่อไป) → กรอบเด่น + aria-current="step"
 // layout: 'row' (แนวนอน ใช้ในรายการ) | 'stack' (แนวตั้ง ใช้ในตาราง)
 //
 // TileList — ครอบรายการ Tile เป็น <ul>
@@ -15,12 +16,22 @@ import { ICONS } from '../utils/icons'
 import Picture from './Picture'
 import styles from './Tile.module.css'
 
-export default function Tile({ to, icon: Icon, image, title, description, badge, locked = false, layout = 'row' }) {
-  const classes = [styles.tile, styles[layout], locked && styles.locked].filter(Boolean).join(' ')
+export default function Tile({
+  to,
+  icon: Icon,
+  image,
+  title,
+  description,
+  badge,
+  locked = false,
+  current = false,
+  layout = 'row',
+}) {
+  const classes = [styles.tile, styles[layout], locked && styles.locked, current && styles.current].filter(Boolean).join(' ')
   const LockIcon = ICONS.locked
 
   return (
-    <Link to={to} className={classes}>
+    <Link to={to} className={classes} aria-current={current ? 'step' : undefined}>
       {image ? (
         <span className={styles.thumb}>
           <Picture image={image} size="sm" />

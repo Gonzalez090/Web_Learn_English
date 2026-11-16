@@ -1,5 +1,29 @@
 import { describe, it, expect } from 'vitest'
-import { getStageStatus, computeUnlockedStages, recordLessonResult } from './progress'
+import { getStageStatus, computeUnlockedStages, nextLesson, recordLessonResult } from './progress'
+
+describe('nextLesson (ปุ่มเรียนต่อ)', () => {
+  const lessons = [
+    { id: 's2a', stageId: 2 },
+    { id: 's1a', stageId: 1 },
+    { id: 's1b', stageId: 1 },
+  ]
+  const done = (...ids) => Object.fromEntries(ids.map((id) => [id, { completed: true }]))
+
+  it('บทแรกที่ยังไม่จบ ไล่ตาม Stage ก่อน แล้วตามลำดับในไฟล์', () => {
+    expect(nextLesson(lessons, [1], {})?.id).toBe('s1a')
+    expect(nextLesson(lessons, [1], done('s1a'))?.id).toBe('s1b')
+  })
+
+  it('ข้ามบทใน Stage ที่ยังล็อก / จบหมดแล้ว → null', () => {
+    expect(nextLesson(lessons, [1], done('s1a', 's1b'))).toBeNull()
+    expect(nextLesson(lessons, [1, 2], done('s1a', 's1b'))?.id).toBe('s2a')
+  })
+
+  it('จำกัดเฉพาะ Stage เดียวได้ (ป้าย "บทต่อไป" ในหน้ารายการบท)', () => {
+    expect(nextLesson(lessons, [1, 2], {}, { stageId: 2 })?.id).toBe('s2a')
+    expect(nextLesson(lessons, [1, 2], done('s2a'), { stageId: '2' })).toBeNull()
+  })
+})
 
 describe('computeUnlockedStages', () => {
   const stages = [{ id: 1 }, { id: 2 }, { id: 3 }]

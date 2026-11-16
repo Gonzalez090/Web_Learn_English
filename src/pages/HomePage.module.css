@@ -3,3 +3,64 @@
   flex-direction: column;
   gap: var(--space-3);
 }
+
+/* ปุ่มใหญ่ "เรียนต่อ" (หน้าตาแบบปุ่มหลัก แต่มี 2 บรรทัด: เรียนต่อ + ชื่อบทถัดไป) */
+.continue {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 64px;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 4px 0 var(--color-primary-strong);
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    transform 0.08s,
+    box-shadow 0.08s;
+}
+
+.continue:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 var(--color-primary-strong);
+}
+
+.continue:focus-visible {
+  outline: 3px solid var(--color-primary-strong);
+  outline-offset: 2px;
+}
+
+.continueIcon {
+  flex: none;
+  width: 28px;
+  height: 28px;
+}
+
+.continueText {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.continueTitle {
+  font-size: 1.125rem;
+  font-weight: 800;
+}
+
+/* ชื่อบทถัดไป — ยาวแค่ไหนก็ตัดเป็น … ไม่ดันปุ่มให้สูง */
+.continueLesson {
+  overflow: hidden;
+  font-size: 0.875rem;
+  font-weight: 600;
+  opacity: 0.92;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .continue {
+    transition: none;
+  }
+}

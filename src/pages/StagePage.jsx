@@ -2,12 +2,16 @@
 // StagePage — รายการบทเรียนของ Stage หนึ่ง (/learn/:stageId)
 // - Stage ยังล็อก → แจ้งให้เรียน Stage ก่อนหน้าให้จบก่อน
 // - บทที่เรียนจบแล้ว → ป้าย "ผ่านแล้ว" + คะแนนดีที่สุด
+// - บทแรกที่ยังไม่จบ → ป้าย "บทต่อไป" + กรอบเด่น และเลื่อนจอไปหาให้เอง (Stage 5 มี 230 บท)
+//   ไม่ล็อกบทอื่น — กดเรียนซ้ำหรือเลือกบทอื่นได้
 // =========================================================
+import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { getStage, getLessonsByStage } from '../data'
 import { useLocalized } from '../hooks/useLocalized'
 import { useProgressStore } from '../store/progressStore'
+import { nextLesson } from '../utils/progress'
 import Page from '../components/Page'
 import Tile, { TileList } from '../components/Tile'
 import StatusBadge from '../components/StatusBadge'
@@ -38,6 +42,16 @@ export default function StagePage() {
   const lessonProgress = useProgressStore((state) => state.lessonProgress)
 
   const stage = getStage(stageId)
+  const next = stage ? nextLesson(getLessonsByStage(stage.id), unlockedStages, lessonProgress) : null
+  const nextId = next?.id
+
+  // เปิดหน้า → เลื่อนจอไปบทต่อไป (ถ้าไม่ใช่บทแรก)
+  useEffect(() => {
+    if (!nextId) return
+    const tile = document.querySelector('[aria-current="step"]')
+    if (tile && tile.getBoundingClientRect().top > window.innerHeight * 0.6) tile.scrollIntoView({ block: 'start' })
+  }, [nextId])
+
   if (!stage) return <NotFoundPage />
 
   const stageLessons = getLessonsByStage(stage.id)
@@ -59,6 +73,7 @@ export default function StagePage() {
         <TileList>
           {stageLessons.map((lesson) => {
             const progress = lessonProgress[lesson.id]
+            const isNext = lesson.id === nextId
             const details = [
               TYPE_LABELS.has(lesson.type) && t(`lessonType.${lesson.type}`),
               t(`category.${lesson.category}`),
@@ -72,7 +87,10 @@ export default function StagePage() {
                 image={lesson.image}
                 title={loc(lesson, 'title')}
                 description={details.filter(Boolean).join(' · ')}
-                badge={progress?.completed && <StatusBadge status="completed" />}
+                badge={
+                  (progress?.completed && <StatusBadge status="completed" />) || (isNext && <StatusBadge status="next" />)
+                }
+                current={isNext}
               />
             )
           })}

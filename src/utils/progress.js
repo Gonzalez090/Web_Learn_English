@@ -37,6 +37,27 @@ export function computeUnlockedStages(stages, lessons, unlockedStages, lessonPro
   return { unlockedStages: [...unlocked].sort((a, b) => a - b), newlyUnlocked }
 }
 
+/**
+ * บทถัดไปที่ควรเรียน (ปุ่ม "เรียนต่อ" ในหน้าแรก + ป้าย "บทต่อไป" ในหน้ารายการบท)
+ * = บทแรกที่ยังไม่จบ ไล่ตาม Stage ที่ปลดล็อกแล้ว (น้อยไปมาก) แล้วตามลำดับบทในไฟล์ — ลำดับนี้คือ ฟัง → พูด → อ่าน → เขียน
+ * @param stageId จำกัดเฉพาะ Stage นี้ (ไม่ใส่ = ทุก Stage ที่ปลดล็อก)
+ * @returns บท หรือ null ถ้าเรียนจบทุกบทที่เปิดแล้ว
+ */
+export function nextLesson(lessons, unlockedStages, lessonProgress, { stageId } = {}) {
+  const ordered = lessons
+    .map((lesson, index) => ({ lesson, index }))
+    .sort((a, b) => a.lesson.stageId - b.lesson.stageId || a.index - b.index)
+    .map(({ lesson }) => lesson)
+  return (
+    ordered.find(
+      (lesson) =>
+        unlockedStages.includes(lesson.stageId) &&
+        (stageId === undefined || lesson.stageId === Number(stageId)) &&
+        !lessonProgress[lesson.id]?.completed,
+    ) ?? null
+  )
+}
+
 // บันทึกผลบทเรียน 1 ครั้ง (คืน object ใหม่ ไม่แก้ของเดิม)
 export function recordLessonResult(lessonProgress, lessonId, score, today) {
   const previous = lessonProgress[lessonId] ?? { completed: false, bestScore: 0, attempts: 0 }

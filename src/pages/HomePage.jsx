@@ -1,46 +1,87 @@
 // =========================================================
 // HomePage — หน้าแรก
-//   ปุ่ม "เริ่มแผนวันนี้" / "ทบทวนวันนี้"
-//   การ์ดเลเวล/streak, ภารกิจวันนี้, แผนที่เมือง (ขั้นที่ 14)
-//   ปุ่มลัดไปส่วนต่าง ๆ
+//   เข้าเว็บครั้งแรก → พาไปหน้าแนะนำวิธีเรียน (/welcome) ก่อน
+//   ปุ่มใหญ่ "เรียนต่อ" → บทถัดไปที่ยังไม่จบ (ไล่ Stage ฟัง → พูด → อ่าน → เขียน) — บอกชื่อบทบนปุ่มเลย ไม่ต้องหาเอง
+//     (ขั้นที่ 18 แผนรายวันเสร็จแล้ว ค่อยเปลี่ยนเป็น "เริ่มแผนวันนี้")
+//   ปุ่ม "ทบทวนวันนี้", การ์ดเลเวล/streak, ภารกิจวันนี้, ปุ่มลัดไปส่วนที่เปิดแล้ว
+//   (แผนที่เมือง ขั้นที่ 14 / มินิเกมเล่นแยก ขั้นที่ 17 / คลังวลี ขั้นที่ 10 — ยังไม่แสดง จะได้ไม่หลงเข้าหน้าว่าง)
 // =========================================================
+import { Link, Navigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { getStage, lessonList } from '../data'
+import { useLocalized } from '../hooks/useLocalized'
+import { useProgressStore } from '../store/progressStore'
 import { useReviewStore } from '../store/reviewStore'
+import { useSettingsStore } from '../store/settingsStore'
+import { nextLesson } from '../utils/progress'
 import { dueEntries } from '../utils/review'
 import { todayKey } from '../utils/date'
 import { ICONS } from '../utils/icons'
 import Page from '../components/Page'
 import Section from '../components/Section'
 import Button from '../components/Button'
-import ComingSoon from '../components/ComingSoon'
 import Tile, { TileList } from '../components/Tile'
 import LevelCard from '../components/LevelCard'
 import MissionList from '../components/MissionList'
 import styles from './HomePage.module.css'
 
+// ปุ่มลัดไปส่วนที่ใช้งานได้แล้ว
 const SHORTCUTS = [
   { to: '/learn', icon: ICONS.learn, labelKey: 'home.learnBasics' },
   { to: '/sounds', icon: ICONS.sounds, labelKey: 'home.soundPractice' },
-  { to: '/games', icon: ICONS.games, labelKey: 'home.miniGames' },
-  { to: '/phrases', icon: ICONS.phrases, labelKey: 'home.phrases' },
   { to: '/profile', icon: ICONS.profile, labelKey: 'nav.profile' },
   { to: '/settings', icon: ICONS.settings, labelKey: 'home.settings' },
 ]
 
+// ปุ่มใหญ่ "เรียนต่อ" — บทถัดไป หรือ (เรียนครบทุกบทที่เปิดแล้ว) ไปหน้ารายการ Stage
+function ContinueButton() {
+  const { t } = useTranslation()
+  const loc = useLocalized()
+  const unlockedStages = useProgressStore((state) => state.unlockedStages)
+  const lessonProgress = useProgressStore((state) => state.lessonProgress)
+  const lesson = nextLesson(lessonList, unlockedStages, lessonProgress)
+  const ContinueIcon = ICONS.unlocked
+
+  if (!lesson) {
+    return (
+      <Button to="/learn" size="lg" block icon={ICONS.learn}>
+        {t('home.allDone')}
+      </Button>
+    )
+  }
+
+  const stage = getStage(lesson.stageId)
+  return (
+    <Link to={`/lesson/${lesson.id}`} className={styles.continue}>
+      <ContinueIcon className={styles.continueIcon} aria-hidden="true" />
+      <span className={styles.continueText}>
+        <span className={styles.continueTitle}>{t('home.continue')}</span>
+        <span className={styles.continueLesson}>
+          {t('learn.stageN', { n: stage.id })} · {loc(lesson, 'title')}
+        </span>
+      </span>
+    </Link>
+  )
+}
+
 export default function HomePage() {
   const { t } = useTranslation()
+  const introSeen = useSettingsStore((state) => state.introSeen)
+  // มีความคืบหน้าแล้ว = เคยใช้เว็บแล้ว (ผู้ใช้เดิมที่ไม่เคยเปลี่ยนการตั้งค่า ไม่มี et-settings ให้ย้ายค่า introSeen)
+  const hasProgress = useProgressStore((state) => state.xp > 0 || Object.keys(state.lessonProgress).length > 0)
   // นับเฉพาะรายการที่ถึงกำหนดวันนี้ (หรือค้างจากก่อนหน้า)
   const reviewQueue = useReviewStore((state) => state.reviewQueue)
   const reviewCount = dueEntries(reviewQueue, todayKey()).length
+
+  // เข้าเว็บครั้งแรก (ยังไม่เคยเรียนเลย) → หน้าแนะนำวิธีเรียน
+  if (!introSeen && !hasProgress) return <Navigate to="/welcome" replace />
 
   return (
     <Page title={t('home.title')} subtitle={t('app.tagline')}>
       <LevelCard />
 
       <div className={styles.actions}>
-        <Button to="/plan" size="lg" block icon={ICONS.plan}>
-          {t('home.startPlan')}
-        </Button>
+        <ContinueButton />
         {reviewCount > 0 ? (
           <Button to="/review" variant="secondary" block icon={ICONS.review}>
             {t('home.reviewToday', { count: reviewCount })}
@@ -55,10 +96,6 @@ export default function HomePage() {
 
       <Section title={t('home.todayMissions')}>
         <MissionList />
-      </Section>
-
-      <Section title={t('home.cityMap')}>
-        <ComingSoon step={14} />
       </Section>
 
       <Section title={t('home.shortcuts')}>

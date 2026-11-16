@@ -5,7 +5,7 @@
 // ขั้นที่ 21: ความเร็วเสียงเริ่มต้น, เป้าหมายรายวัน, เสียงเอฟเฟกต์, รีเซ็ตความคืบหน้า
 // =========================================================
 import { useTranslation } from 'react-i18next'
-import { Images } from 'lucide-react'
+import { CircleHelp, Images } from 'lucide-react'
 import { useSettingsStore } from '../store/settingsStore'
 import { useSpeech } from '../hooks/useSpeech'
 import Page from '../components/Page'
@@ -97,6 +97,8 @@ export default function SettingsPage() {
       <ComingSoon step={21} />
 
       <TileList>
+        {/* หน้าแนะนำวิธีเรียน (ที่เห็นตอนเข้าเว็บครั้งแรก) */}
+        <Tile to="/welcome" icon={CircleHelp} title={t('settings.howTo')} description={t('settings.howToHint')} />
         <Tile to="/credits" icon={Images} title={t('credits.title')} description={t('credits.subtitle')} />
       </TileList>
     </Page>

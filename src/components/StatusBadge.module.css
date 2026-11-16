@@ -29,3 +29,9 @@
   background: var(--color-success-soft);
   color: var(--color-success);
 }
+
+/* บทต่อไป (แนะนำให้เรียนบทนี้) */
+.next {
+  background: var(--color-primary);
+  color: var(--color-surface);
+}

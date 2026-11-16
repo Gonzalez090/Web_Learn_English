@@ -1,6 +1,6 @@
 // =========================================================
-// StatusBadge — ป้ายสถานะ: ล็อกอยู่ / เรียนได้ / ผ่านแล้ว
-// status: 'locked' | 'unlocked' | 'completed'
+// StatusBadge — ป้ายสถานะ: ล็อกอยู่ / เรียนได้ / ผ่านแล้ว / บทต่อไป
+// status: 'locked' | 'unlocked' | 'completed' | 'next'
 // =========================================================
 import { useTranslation } from 'react-i18next'
 import { ICONS } from '../utils/icons'
@@ -10,6 +10,7 @@ const STATUS_ICON = {
   locked: ICONS.locked,
   unlocked: ICONS.unlocked,
   completed: ICONS.completed,
+  next: ICONS.unlocked,
 }
 
 export default function StatusBadge({ status }) {

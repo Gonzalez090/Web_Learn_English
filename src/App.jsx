@@ -19,6 +19,7 @@ import GamesPage from './pages/GamesPage'
 import GamePage from './pages/GamePage'
 import SoundPracticePage from './pages/SoundPracticePage'
 import SoundDrillPage from './pages/SoundDrillPage'
+import WelcomePage from './pages/WelcomePage'
 import ProfilePage from './pages/ProfilePage'
 import SpeakingCheckPage from './pages/SpeakingCheckPage'
 import SettingsPage from './pages/SettingsPage'
@@ -56,6 +57,7 @@ export default function App() {
         <Route path="plan" element={<DailyPlanPage />} />
         <Route path="games" element={<GamesPage />} />
         <Route path="games/:gameId" element={<GamePage />} />
+        <Route path="welcome" element={<WelcomePage />} />
         <Route path="sounds" element={<SoundPracticePage />} />
         <Route path="sounds/:soundId" element={<SoundDrillPage />} />
 

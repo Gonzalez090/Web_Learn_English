@@ -48,6 +48,14 @@
     border-color 0.15s;
 }
 
+/* รายการที่แนะนำให้ทำต่อ (บทต่อไป) */
+.current {
+  border-color: var(--color-primary);
+  box-shadow: 0 3px 0 var(--color-primary);
+  /* เลื่อนจอมาที่บทนี้ → เผื่อที่ให้แถบบน (fixed) ไม่บัง */
+  scroll-margin-top: calc(var(--topbar-height) + var(--space-4));
+}
+
 .tile:hover {
   border-color: var(--color-primary);
 }

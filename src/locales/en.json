@@ -25,7 +25,8 @@
   "status": {
     "locked": "Locked",
     "unlocked": "Open",
-    "completed": "Done"
+    "completed": "Done",
+    "next": "Next"
   },
   "common": {
     "comingSoon": "Coming in step {{step}}",
@@ -136,7 +137,9 @@
     "soundPractice": "Sounds",
     "miniGames": "Mini games",
     "phrases": "Phrases",
-    "settings": "Settings"
+    "settings": "Settings",
+    "continue": "Continue",
+    "allDone": "All open lessons done! See all lessons"
   },
   "learn": {
     "title": "Basics",
@@ -303,7 +306,9 @@
     "voiceLoading": "Loading voices…",
     "mic": "Microphone (Say it button)",
     "micPrivacy": "The “Say it” button uses your browser's speech listening. Chrome and Edge send what you say to Google / Microsoft servers to turn it into text, so it needs the internet. This site doesn't record or keep your voice from this button.",
-    "voiceFallbackNote": "The online voice isn't working right now (maybe no internet), so the on-device voice “{{name}}” is used. It will switch back when you're online."
+    "voiceFallbackNote": "The online voice isn't working right now (maybe no internet), so the on-device voice “{{name}}” is used. It will switch back when you're online.",
+    "howTo": "How it works",
+    "howToHint": "See the welcome guide again"
   },
   "credits": {
     "title": "Photo credits",
@@ -445,5 +450,41 @@
     "pictureAfter": "Read first, then see the picture",
     "sightNote": "This word breaks the rules. Learn it by sight.",
     "hint": "Try reading it yourself first"
+  },
+  "welcome": {
+    "title": "Welcome to English Town",
+    "subtitle": "3 things to know before you start",
+    "pageN": "Page {{n}} of {{total}}",
+    "next": "Next",
+    "skip": "Skip and start",
+    "start": "Let's start",
+    "native": {
+      "title": "Learn like a native child",
+      "text": "Native kids listen for a long time, then speak, read and write. Lessons here follow that order in 7 stages. Finish one stage to open the next."
+    },
+    "skills": {
+      "listen": "Listen",
+      "listenStage": "Stage 1",
+      "speak": "Speak",
+      "speakStage": "Stage 2–5",
+      "read": "Read",
+      "readStage": "Stage 6",
+      "write": "Write",
+      "writeStage": "Stage 7"
+    },
+    "guess": {
+      "title": "Listen, look, and guess",
+      "text": "At first there are no words to read. Listen and look at the picture. You remember better than when you translate.",
+      "picture": "Always guess from the picture and sound first. You don’t need every word.",
+      "meaning": "Want the Thai meaning? You can tap to see it any time.",
+      "mistakes": "Mistakes are fine. No lives to lose — you hear the right way, then try again."
+    },
+    "daily": {
+      "title": "Get your mic ready, and learn a little every day",
+      "text": "Tap \"Continue\" on the home page. It always takes you to your next lesson.",
+      "mic": "Use Chrome or Edge, and allow the microphone when asked (Safari on iPhone does not hear speech well).",
+      "daily": "5–20 minutes every day beats one long session. Your streak counts the days.",
+      "review": "Missed items come back for review. If you see \"Review today\", do it first."
+    }
   }
 }
