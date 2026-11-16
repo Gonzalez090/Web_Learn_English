@@ -77,8 +77,9 @@ export const LESSON_FLOWS = {
   },
   // Stage 6 sight words: ดู + ฟังคำ (จำทั้งคำ) → อ่านประโยคที่มีคำนั้น → ฟังแล้วเลือกคำ (คู่คำหน้าตาคล้าย was / saw)
   sightWords: { itemSteps: ['sightWord'], game: 'minimal-pair-duel', review: ['read'] },
-  // Stage 6 อ่านนิทาน: อ่านออกเสียงทีละหน้า (ไฮไลต์คำที่อ่านถึง) → อ่านแล้วแตะภาพ
-  reading: { itemSteps: ['readAloud'], game: 'read-tap', review: ['read'] },
+  // Stage 6 อ่านนิทาน: พ่อแม่อ่านให้ฟังก่อน (ฉบับภาษาเยอะกว่า มีคำใหม่ i+1 — ทางที่คำศัพท์ช่วงนี้โตแบบเด็กเจ้าของภาษา)
+  //   → อ่านฉบับง่ายออกเสียงเองทีละหน้า (ไฮไลต์คำที่อ่านถึง) → อ่านแล้วแตะภาพ
+  reading: { wholeSteps: ['listenStory'], itemSteps: ['readAloud'], game: 'read-tap', review: ['read'] },
 }
 
 // ขั้นอ่านของแต่ละประเภทบท → แบบของ ReadAloudStep (ใช้ทั้งในบทและตอนทบทวน)

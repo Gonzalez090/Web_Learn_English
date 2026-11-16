@@ -20,7 +20,7 @@ import StoryStrip from './StoryStrip'
 import PlayAllButtons from './PlayAllButtons'
 import styles from './Step.module.css'
 
-export default function ListenStoryStep({ items, stage, revealed, onReveal, onDone }) {
+export default function ListenStoryStep({ items, stage, revealed, onReveal, onDone, instructionKey = 'story.listen' }) {
   const { t } = useTranslation()
   const { speak } = useSpeech()
   const display = useSentenceDisplay(stage, { revealed, onReveal })
@@ -58,7 +58,7 @@ export default function ListenStoryStep({ items, stage, revealed, onReveal, onDo
 
   return (
     <div className={styles.step}>
-      <p className={styles.instruction}>{t('story.listen')}</p>
+      <p className={styles.instruction}>{t(instructionKey)}</p>
       <StoryStrip items={items} current={shown} onSelect={selectPanel} />
       <Picture
         image={panel.image}

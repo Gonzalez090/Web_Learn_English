@@ -33,6 +33,7 @@ export function collectSpeechTexts({ lessons, soundPractice = [], phonicsSounds 
       for (const variant of swapVariants(item)) add(variant.text)
       for (const other of item.alsoSay ?? []) add(other.text) // แบบสุภาพ/แบบกันเอง (ประโยคในบริบท)
       add(item.pairWith) // คำคู่ในเกม Minimal Pair Duel (Stage 6)
+      add(item.readAloud) // นิทาน Stage 6: ฉบับพ่อแม่อ่านให้ฟัง
       if (item.target && item.word) add(item.word) // sight word: พูดคำเดี่ยว ๆ ด้วย (ประโยคอยู่ใน target)
     }
   }

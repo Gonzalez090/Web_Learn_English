@@ -449,7 +449,8 @@
     "hearWord": "Hear this word",
     "pictureAfter": "Read first, then see the picture",
     "sightNote": "This word breaks the rules. Learn it by sight.",
-    "hint": "Try reading it yourself first"
+    "hint": "Try reading it yourself first",
+    "listenFirst": "Listen to the story first, then read it yourself"
   },
   "welcome": {
     "title": "Welcome to English Town",

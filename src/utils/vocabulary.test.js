@@ -156,6 +156,28 @@ describe('เนื้อหา Stage 4 (ขั้นที่ 23)', () => {
   })
 })
 
+// ---------- ตรวจเนื้อหา Stage 6 (ขั้นที่ 25): คำใหม่มาจากนิทานที่พ่อแม่อ่านให้ฟังเท่านั้น ----------
+const throughStage6 = lessons.filter((lesson) => lesson.stageId <= 6)
+
+describe('เนื้อหา Stage 6 (ขั้นที่ 25)', () => {
+  it('i+1: ทุกข้อความใน Stage 6 มีคำที่เพิ่งได้ยินครั้งแรกไม่เกิน 2 คำ', () => {
+    const heavy = firstHearings(throughStage6)
+      .filter((entry) => entry.stageId === 6 && entry.newWords.length > 2)
+      .map((entry) => `${entry.lessonId}: ${entry.text}`)
+    expect(heavy).toEqual([])
+  })
+
+  it('i+1: คำที่ได้ยินครั้งแรกไม่เกิน 30% ของคำที่ฟังในบท', () => {
+    const shares = lessonFirstHearingShare(throughStage6).filter((entry) => entry.stageId === 6)
+    expect(shares.filter((entry) => entry.share > 0.3)).toEqual([])
+  })
+
+  // เป้าคำสะสมเด็กเจ้าของภาษา 6 ขวบ (~2,700 คำ) — คำใหม่ของ Stage 6 มาจากการฟังนิทาน (เด็กอ่านเฉพาะคำที่ได้ยินแล้ว)
+  it('คำสะสมถึงจบ Stage 6 อย่างน้อย 2,700 คำ', () => {
+    expect(cumulativeVocabulary(throughStage6)[6]).toBeGreaterThanOrEqual(2700)
+  })
+})
+
 // ---------- ตรวจเนื้อหา Stage 5 (ประโยคบริบท บทสนทนา เรื่องเล่า คำคล้องจอง) ----------
 // ข้อความที่ฟัง = ประโยค/บรรทัดของแต่ละข้อ (คำแทนในขั้นสลับคำมีความหมายไทยกำกับ → นับเป็นคำสะสม แต่ไม่นับใน i+1)
 const throughStage5 = lessons.filter((lesson) => lesson.stageId <= 5)

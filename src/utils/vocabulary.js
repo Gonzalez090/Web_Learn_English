@@ -9,8 +9,9 @@ import { normalizeWord } from './compareWords'
 export const wordsOf = (text) => String(text ?? '').split(/\s+/).flatMap(normalizeWord)
 
 // ข้อความภาษาอังกฤษทั้งหมดของข้อหนึ่งที่ผู้เรียนได้ฟัง/พูด
+// นิทาน Stage 6: ได้ยินฉบับ "พ่อแม่อ่านให้ฟัง" (readAloud) ก่อนอ่านฉบับง่ายเอง → นับก่อน target
 export function itemTexts(item) {
-  return [item.target ?? item.word, item.question, ...(item.parentese ?? [])].filter(Boolean)
+  return [item.readAloud, item.target ?? item.word, item.question, ...(item.parentese ?? [])].filter(Boolean)
 }
 
 // คำเป้าหมายของข้อ (คำ/คำคู่ที่สอน)

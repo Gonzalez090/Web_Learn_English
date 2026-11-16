@@ -72743,7 +72743,10 @@
           "image": "/images/s6-kite-new.webp",
           "register": "neutral",
           "frequency": "common",
-          "acceptAlso": []
+          "acceptAlso": [],
+          "readAloud": "Sam got a brand new kite. It looked just like a big bird!",
+          "readAloudTh": "แซมได้ว่าวใหม่เอี่ยม มันดูเหมือนนกตัวใหญ่เลย!",
+          "readAloudReadingTh": "แซม ก็อท อะ แบรนด์ นิว ไคท์, อิท ลุคท์ จัสท์ ไลค์ อะ บิ๊ก เบิร์ด"
         },
         {
           "id": "s6-kite-hold",
@@ -72753,7 +72756,10 @@
           "image": "/images/s6-kite-hold.webp",
           "register": "neutral",
           "frequency": "common",
-          "acceptAlso": []
+          "acceptAlso": [],
+          "readAloud": "His friend held it up high, and Sam held the long string tightly.",
+          "readAloudTh": "เพื่อนของแซมชูว่าวขึ้นสูง ๆ แล้วแซมก็จับเชือกยาว ๆ ไว้แน่น",
+          "readAloudReadingTh": "ฮิส เฟรนด์ เฮลด์ อิท อัพ ไฮ, แอน แซม เฮลด์ เดอะ ลอง สตริง ไทท์-ลี่"
         },
         {
           "id": "s6-kite-fly",
@@ -72761,6 +72767,169 @@
           "translationTh": "ขึ้น ขึ้น ขึ้น! ว่าวบินขึ้นไปแล้ว!",
           "readingTh": "อัพ, อัพ, อัพ! เดอะ ไคท์ ฟลู",
           "image": "/images/s6-kite-fly.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "readAloud": "Then the wind came. Whoosh! The kite soared up into the sky!",
+          "readAloudTh": "แล้วลมก็พัดมา วู้ช! ว่าวทะยานขึ้นไปบนฟ้า!",
+          "readAloudReadingTh": "เด็น เดอะ วินด์ เคม, วูช, เดอะ ไคท์ ซอร์ด อัพ อิน-ทู เดอะ สกาย"
+        }
+      ]
+    },
+    {
+      "id": "s6-u01-read-mom-wakes",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "Mom wakes up",
+      "titleTh": "แม่ตื่นนอน",
+      "items": [
+        {
+          "id": "s6-r-mom-wakes-1",
+          "target": "Mom is in bed.",
+          "translationTh": "แม่อยู่บนเตียง",
+          "readingTh": "ม็อม อิส อิน เบด",
+          "readAloud": "Beep, beep, beep! The alarm clock rang. Mom yawned and pulled up her sleep mask.",
+          "readAloudTh": "ปี๊บ ปี๊บ ปี๊บ! นาฬิกาปลุกดัง แม่หาวแล้วดึงผ้าปิดตาขึ้น",
+          "readAloudReadingTh": "บี๊ป, บี๊ป, บี๊ป, เดอะ อะ-ลาร์ม คล็อก แรง, ม็อม ยอนด์ แอน พุลด์ อัพ เฮอร์ สลีพ มาสค์",
+          "image": "/images/s6-r-mom-wakes-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-mom-wakes-2",
+          "target": "Mom stretched and smiled.",
+          "translationTh": "แม่บิดขี้เกียจแล้วก็ยิ้ม",
+          "readingTh": "ม็อม สเตรทช์ท์ แอน สไมล์ด์",
+          "readAloud": "She stretched her arms like a lazy cat, smiled, and snuggled back under the blanket.",
+          "readAloudTh": "แม่บิดขี้เกียจเหมือนแมวขี้เกียจ ยิ้ม แล้วซุกตัวกลับเข้าผ้าห่ม",
+          "readAloudReadingTh": "ชี สเตรทช์ท์ เฮอร์ อาร์มส์ ไลค์ อะ เล-ซี่ แค็ท, สไมล์ด์, แอน สนัก-เกิลด์ แบ็ค อัน-เด้อร์ เดอะ แบลง-เก็ท",
+          "image": "/images/s6-r-mom-wakes-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-mom-wakes-3",
+          "target": "Good morning, everybody!",
+          "translationTh": "อรุณสวัสดิ์ทุกคน!",
+          "readingTh": "กู๊ด มอร์-นิ่ง, เอฟ-รี-บอ-ดี้",
+          "readAloud": "Then she hopped out of bed and called, \"Good morning, everybody! Time to get up!\"",
+          "readAloudTh": "แล้วแม่ก็ลุกจากเตียงแล้วร้องเรียก \"อรุณสวัสดิ์ทุกคน! ได้เวลาตื่นแล้ว!\"",
+          "readAloudReadingTh": "เด็น ชี ฮ็อพท์ เอาท์ ออฟ เบด แอน คอลด์, กู๊ด มอร์-นิ่ง, เอฟ-รี-บอ-ดี้, ไทม์ ทะ เก็ท อัพ",
+          "image": "/images/s6-r-mom-wakes-3.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u01-read-ben-school",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "Ben goes to school",
+      "titleTh": "เบนไปโรงเรียน",
+      "items": [
+        {
+          "id": "s6-r-ben-school-1",
+          "target": "Ben ran to school.",
+          "translationTh": "เบนวิ่งไปโรงเรียน",
+          "readingTh": "เบน แรน ทะ สกูล",
+          "readAloud": "Ben could not wait. He dashed down the road to school as fast as he could.",
+          "readAloudTh": "เบนรอไม่ไหวแล้ว เขาวิ่งปรู๊ดไปตามถนนไปโรงเรียนเร็วที่สุดเท่าที่ทำได้",
+          "readAloudReadingTh": "เบน คูด น็อท เวท, ฮี แดชท์ ดาวน์ เดอะ โรด ทะ สกูล แอส ฟาสท์ แอส ฮี คูด",
+          "image": "/images/s6-r-ben-school-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-ben-school-2",
+          "target": "He was so happy.",
+          "translationTh": "เขามีความสุขมาก",
+          "readingTh": "ฮี วอส โซ แฮป-ปี้",
+          "readAloud": "He felt so happy and excited. School was his favorite place in the whole world!",
+          "readAloudTh": "เขารู้สึกมีความสุขและตื่นเต้นมาก โรงเรียนเป็นที่ที่เขาชอบที่สุดในโลก!",
+          "readAloudReadingTh": "ฮี เฟลท์ โซ แฮป-ปี้ แอน เอ็ก-ไซ-ทิด, สกูล วอส ฮิส เฟฟ-เว่อ-ริท เพลซ อิน เดอะ โฮล เวิลด์",
+          "image": "/images/s6-r-ben-school-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-ben-school-3",
+          "target": "He played with his best friend.",
+          "translationTh": "เขาเล่นกับเพื่อนรัก",
+          "readingTh": "ฮี เพลย์ด วิธ ฮิส เบสท์ เฟรนด์",
+          "readAloud": "At recess, he played tag with his best friend until they were breathless.",
+          "readAloudTh": "ตอนพักเล่น เขาเล่นไล่จับกับเพื่อนรักจนหอบแฮ่ก",
+          "readAloudReadingTh": "แอท รี-เซส, ฮี เพลย์ด แท็ก วิธ ฮิส เบสท์ เฟรนด์ อัน-ทิล เดย์ เวอร์ เบรธ-เลส",
+          "image": "/images/s6-r-ben-school-3.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-ben-school-4",
+          "target": "He showed Grandma.",
+          "translationTh": "เขาให้คุณยายดู",
+          "readingTh": "ฮี โชว์ด แกรนด์-มา",
+          "readAloud": "After school, Ben showed Grandma what he learned. She beamed. She was so proud of him.",
+          "readAloudTh": "หลังเลิกเรียน เบนให้คุณยายดูสิ่งที่เขาได้เรียนมา คุณยายยิ้มแก้มปริ ภูมิใจในตัวเขามาก",
+          "readAloudReadingTh": "แอฟ-เท่อร์ สกูล, เบน โชว์ด แกรนด์-มา วอท ฮี เลิร์นด์, ชี บีมด์, ชี วอส โซ พราวด์ ออฟ ฮิม",
+          "image": "/images/s6-r-ben-school-4.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u01-read-teddy",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "Two boys and a teddy",
+      "titleTh": "สองหนุ่มกับตุ๊กตาหมี",
+      "items": [
+        {
+          "id": "s6-r-teddy-1",
+          "target": "Max and Sam found a teddy bear.",
+          "translationTh": "แม็กซ์กับแซมเจอตุ๊กตาหมี",
+          "readingTh": "แม็กซ์ แอน แซม ฟาวด์ อะ เท็ด-ดี้ แบร์",
+          "readAloud": "Max and Sam found an old, raggedy teddy bear at the bottom of the toy box.",
+          "readAloudTh": "แม็กซ์กับแซมเจอตุ๊กตาหมีเก่า ๆ ขาด ๆ อยู่ก้นกล่องของเล่น",
+          "readAloudReadingTh": "แม็กซ์ แอน แซม ฟาวด์ แอน โอลด์, แรก-กะ-ดี้ เท็ด-ดี้ แบร์ แอท เดอะ บ็อท-เทิ่ม ออฟ เดอะ ทอย บ็อกซ์",
+          "image": "/images/s6-r-teddy-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-teddy-2",
+          "target": "They both wanted it.",
+          "translationTh": "ทั้งสองคนอยากได้",
+          "readingTh": "เดย์ โบธ วอน-ทิด อิท",
+          "readAloud": "They both wanted it! They pulled and tugged, and nobody would let go.",
+          "readAloudTh": "ทั้งสองคนอยากได้! ดึงไปดึงมา ไม่มีใครยอมปล่อย",
+          "readAloudReadingTh": "เดย์ โบธ วอน-ทิด อิท, เดย์ พุลด์ แอน ทักด์, แอน โน-บอ-ดี้ วู้ด เล็ท โก",
+          "image": "/images/s6-r-teddy-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-teddy-3",
+          "target": "Let's share him!",
+          "translationTh": "แบ่งกันเล่นนะ!",
+          "readingTh": "เล็ทส์ แชร์ ฮิม",
+          "readAloud": "Then Max had a kind idea. \"Let's share him!\" Now it was their teddy bear.",
+          "readAloudTh": "แล้วแม็กซ์ก็คิดเรื่องใจดีออก \"แบ่งกันเล่นนะ!\" ตอนนี้เป็นตุ๊กตาหมีของทั้งคู่แล้ว",
+          "readAloudReadingTh": "เด็น แม็กซ์ แฮด อะ ไคนด์ ไอ-เดีย, เล็ทส์ แชร์ ฮิม นาว อิท วอส แดร์ เท็ด-ดี้ แบร์",
+          "image": "/images/s6-r-teddy-3.webp",
           "register": "neutral",
           "frequency": "common",
           "acceptAlso": []
@@ -73259,6 +73428,241 @@
       ]
     },
     {
+      "id": "s6-u02-read-leo",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "Leo at the playground",
+      "titleTh": "เลโอที่สนามเด็กเล่น",
+      "items": [
+        {
+          "id": "s6-r-leo-1",
+          "target": "Leo went to the playground.",
+          "translationTh": "เลโอไปสนามเด็กเล่น",
+          "readingTh": "ลี-โอ เว็นท์ ทะ เดอะ เพลย์-กราวนด์",
+          "readAloud": "Leo went skipping to the playground with his big brother on a bright, sunny afternoon.",
+          "readAloudTh": "เลโอกระโดดโลดเต้นไปสนามเด็กเล่นกับพี่ชายในบ่ายวันที่แดดสดใส",
+          "readAloudReadingTh": "ลี-โอ เว็นท์ สกิพ-พิ่ง ทะ เดอะ เพลย์-กราวนด์ วิธ ฮิส บิ๊ก บรา-เธ่อร์ ออน อะ ไบรท์, ซัน-นี่ อาฟ-เตอร์-นูน",
+          "image": "/images/s6-r-leo-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-leo-2",
+          "target": "He climbed up the steps.",
+          "translationTh": "เขาปีนขึ้นบันได",
+          "readingTh": "ฮี ไคลม์ด อัพ เดอะ สเต็ปส์",
+          "readAloud": "First, he climbed up the steps all by himself, holding the rail, one careful step at a time.",
+          "readAloudTh": "อย่างแรก เขาปีนขึ้นบันไดเองคนเดียว จับราวไว้ ทีละขั้นอย่างระวัง",
+          "readAloudReadingTh": "เฟิร์สท์, ฮี ไคลม์ด อัพ เดอะ สเต็ปส์ ออล บาย ฮิม-เซลฟ์, โฮล-ดิ้ง เดอะ เรล, วัน แคร์-ฟูล สเต็ป แอท อะ ไทม์",
+          "image": "/images/s6-r-leo-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-leo-3",
+          "target": "Go, Leo, go!",
+          "translationTh": "สู้ ๆ เลโอ!",
+          "readingTh": "โก, ลี-โอ, โก",
+          "readAloud": "Then he climbed the big green wall. His brother cheered, \"Go, Leo! You're so mighty!\"",
+          "readAloudTh": "แล้วเขาก็ปีนกำแพงสีเขียวใหญ่ พี่ชายเชียร์ \"สู้ ๆ เลโอ! เก่งสุด ๆ!\"",
+          "readAloudReadingTh": "เด็น ฮี ไคลม์ด เดอะ บิ๊ก กรีน วอล, ฮิส บรา-เธ่อร์ เชียร์ด, โก, ลี-โอ, ยัวร์ โซ ไม-ตี้",
+          "image": "/images/s6-r-leo-3.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u02-read-blocks",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "Building together",
+      "titleTh": "ต่อด้วยกัน",
+      "items": [
+        {
+          "id": "s6-r-blocks-1",
+          "target": "Tom and his brother love blocks.",
+          "translationTh": "ทอมกับน้องชายชอบบล็อก",
+          "readingTh": "ทอม แอน ฮิส บรา-เธ่อร์ ลัฟ บล็อกส์",
+          "readAloud": "Tom and his little brother love building with wooden blocks.",
+          "readAloudTh": "ทอมกับน้องชายชอบต่อบล็อกไม้มาก",
+          "readAloudReadingTh": "ทอม แอน ฮิส ลิท-เทิ่ล บรา-เธ่อร์ ลัฟ บิล-ดิ้ง วิธ วู้ด-เดิ้น บล็อกส์",
+          "image": "/images/s6-r-blocks-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-blocks-2",
+          "target": "Tom made a long wall.",
+          "translationTh": "ทอมต่อกำแพงยาว",
+          "readingTh": "ทอม เมด อะ ลอง วอล",
+          "readAloud": "Tom built a long, sturdy wall with blocks of every color: red, blue, green, and yellow.",
+          "readAloudTh": "ทอมต่อกำแพงยาวแข็งแรงด้วยบล็อกทุกสี ทั้งแดง ฟ้า เขียว และเหลือง",
+          "readAloudReadingTh": "ทอม บิลท์ อะ ลอง, สเตอร์-ดี้ วอล วิธ บล็อกส์ ออฟ เอฟ-วรี่ คัล-เลอร์, เรด, บลู, กรีน, แอน เยล-โล่ว์",
+          "image": "/images/s6-r-blocks-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-blocks-3",
+          "target": "Tom gave him a block.",
+          "translationTh": "ทอมยื่นบล็อกให้น้อง",
+          "readingTh": "ทอม เกฟว์ ฮิม อะ บล็อก",
+          "readAloud": "His brother wanted to help too, so Tom kindly handed him a block.",
+          "readAloudTh": "น้องชายอยากช่วยด้วย ทอมเลยใจดียื่นบล็อกให้หนึ่งอัน",
+          "readAloudReadingTh": "ฮิส บรา-เธ่อร์ วอน-ทิด ทะ เฮลพ์ ทู, โซ ทอม ไคนด์-ลี่ แฮน-ดิด ฮิม อะ บล็อก",
+          "image": "/images/s6-r-blocks-3.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-blocks-4",
+          "target": "They made a funny robot!",
+          "translationTh": "พวกเขาทำหุ่นยนต์ตลก ๆ!",
+          "readingTh": "เดย์ เมด อะ ฟัน-นี่ โร-บ็อท",
+          "readAloud": "Look! Together they made a silly robot with a square head and skinny arms.",
+          "readAloudTh": "ดูสิ! สองคนช่วยกันทำหุ่นยนต์ตลก ๆ หัวสี่เหลี่ยม แขนผอม ๆ",
+          "readAloudReadingTh": "ลุค, ทะ-เก็ธ-เธ่อร์ เดย์ เมด อะ ซิล-ลี่ โร-บ็อท วิธ อะ สแควร์ เฮด แอน สกิน-นี่ อาร์มส์",
+          "image": "/images/s6-r-blocks-4.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u02-read-brothers",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "Grumpy brothers",
+      "titleTh": "สองพี่น้องขี้งอน",
+      "items": [
+        {
+          "id": "s6-r-brothers-1",
+          "target": "Max and Sam were sad.",
+          "translationTh": "แม็กซ์กับแซมเศร้า",
+          "readingTh": "แม็กซ์ แอน แซม เวอร์ แซด",
+          "readAloud": "Max and Sam had a big fight. Now they were both grumpy and sulky.",
+          "readAloudTh": "แม็กซ์กับแซมทะเลาะกันใหญ่ ตอนนี้ทั้งคู่หงุดหงิดแล้วก็งอน",
+          "readAloudReadingTh": "แม็กซ์ แอน แซม แฮด อะ บิ๊ก ไฟท์, นาว เดย์ เวอร์ โบธ กรัม-ปี้ แอน ซัล-กี้",
+          "image": "/images/s6-r-brothers-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-brothers-2",
+          "target": "Sam hid his face.",
+          "translationTh": "แซมซ่อนหน้า",
+          "readingTh": "แซม ฮิด ฮิส เฟส",
+          "readAloud": "Sam hid his face behind his hands, and Max scowled and looked away.",
+          "readAloudTh": "แซมเอามือปิดหน้า ส่วนแม็กซ์ทำหน้าบึ้งแล้วหันไปทางอื่น",
+          "readAloudReadingTh": "แซม ฮิด ฮิส เฟส บิ-ไฮนด์ ฮิส แฮนด์ส, แอน แม็กซ์ สเกาลด์ แอน ลุคท์ อะ-เวย์",
+          "image": "/images/s6-r-brothers-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-brothers-3",
+          "target": "Sam hugged his teddy bear.",
+          "translationTh": "แซมกอดตุ๊กตาหมี",
+          "readingTh": "แซม ฮักด์ ฮิส เท็ด-ดี้ แบร์",
+          "readAloud": "Sam hugged his teddy bear tight. He felt lonely and sad.",
+          "readAloudTh": "แซมกอดตุ๊กตาหมีแน่น เขารู้สึกเหงาและเศร้า",
+          "readAloudReadingTh": "แซม ฮักด์ ฮิส เท็ด-ดี้ แบร์ ไททฺ, ฮี เฟลท์ โลน-ลี่ แอน แซด",
+          "image": "/images/s6-r-brothers-3.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-brothers-4",
+          "target": "I'm sorry, Sam.",
+          "translationTh": "ขอโทษนะแซม",
+          "readingTh": "อายม์ ซอ-รี่, แซม",
+          "readAloud": "Then Max said, \"I'm sorry, Sam.\" \"Me too,\" said Sam, and they shook hands.",
+          "readAloudTh": "แล้วแม็กซ์ก็พูดว่า \"ขอโทษนะแซม\" \"ฉันก็ขอโทษ\" แซมตอบ แล้วทั้งคู่ก็จับมือคืนดีกัน",
+          "readAloudReadingTh": "เด็น แม็กซ์ เซด, อายม์ ซอ-รี่, แซม มี ทู เซด แซม, แอน เดย์ ชุค แฮนด์ส",
+          "image": "/images/s6-r-brothers-4.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u02-read-picnic",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "A picnic with Dad",
+      "titleTh": "ปิกนิกกับพ่อ",
+      "items": [
+        {
+          "id": "s6-r-picnic-1",
+          "target": "Dad made a picnic.",
+          "translationTh": "พ่อทำปิกนิก",
+          "readingTh": "แด็ด เมด อะ พิค-นิค",
+          "readAloud": "Dad packed a yummy picnic in a big wicker basket for the kids.",
+          "readAloudTh": "พ่อจัดปิกนิกอร่อย ๆ ใส่ตะกร้าหวายใบใหญ่ให้ลูก ๆ",
+          "readAloudReadingTh": "แด็ด แพ็คท์ อะ ยัม-มี่ พิค-นิค อิน อะ บิ๊ก วิค-เกอร์ บาส-เก็ท ฟอร์ เดอะ คิดส์",
+          "image": "/images/s6-r-picnic-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-picnic-2",
+          "target": "He gave them sandwiches.",
+          "translationTh": "พ่อให้แซนด์วิช",
+          "readingTh": "ฮี เกฟว์ เดม แซนด์-วิช-ชิส",
+          "readAloud": "He gave them cheese sandwiches, crunchy carrots, and seedless grapes.",
+          "readAloudTh": "พ่อให้แซนด์วิชชีส แครอทกรอบ ๆ และองุ่นไร้เมล็ด",
+          "readAloudReadingTh": "ฮี เกฟว์ เดม ชีส แซนด์-วิช-ชิส, ครัน-ชี่ แคร์-เริทส์, แอน ซีด-เลส เกรพส์",
+          "image": "/images/s6-r-picnic-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-picnic-3",
+          "target": "They ate on the blanket.",
+          "translationTh": "พวกเขากินบนผ้าห่ม",
+          "readingTh": "เดย์ เอท ออน เดอะ แบลง-เก็ท",
+          "readAloud": "They sat on a soft, striped blanket and ate together under a leafy tree.",
+          "readAloudTh": "พวกเขานั่งบนผ้าห่มลายทางนุ่ม ๆ แล้วกินด้วยกันใต้ต้นไม้ใบดก",
+          "readAloudReadingTh": "เดย์ แซท ออน อะ ซอฟท์, สไตรพท์ แบลง-เก็ท แอน เอท ทะ-เก็ธ-เธ่อร์ อัน-เด้อร์ อะ ลี-ฟี่ ทรี",
+          "image": "/images/s6-r-picnic-3.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-picnic-4",
+          "target": "They had warm tea.",
+          "translationTh": "พวกเขาดื่มชาอุ่น ๆ",
+          "readingTh": "เดย์ แฮด วอร์ม ที",
+          "readAloud": "Then they sipped and slurped warm tea from a shiny thermos. Yum!",
+          "readAloudTh": "แล้วก็จิบชาอุ่น ๆ ซู้ดซ้าดจากกระติกเงาวับ อร่อย!",
+          "readAloudReadingTh": "เด็น เดย์ ซิพท์ แอน สเลิร์พท์ วอร์ม ที ฟรอม อะ ไช-นี่ เธอร์-มอส, ยัม",
+          "image": "/images/s6-r-picnic-4.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
       "id": "s6-u03-phonics",
       "stageId": 6,
       "category": "phonics",
@@ -73743,6 +74147,241 @@
           "image": "/images/s6-sw-that.webp",
           "register": "neutral",
           "frequency": "very-common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u03-read-family-cookies",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "Christmas cookies",
+      "titleTh": "คุกกี้คริสต์มาส",
+      "items": [
+        {
+          "id": "s6-r-family-cookies-1",
+          "target": "Dad and Emma made cookies.",
+          "translationTh": "พ่อกับเอ็มม่าทำคุกกี้",
+          "readingTh": "แด็ด แอน เอ็ม-ม่า เมด คุก-กี้ส์",
+          "readAloud": "Dad and Emma mixed sticky cookie dough at the kitchen table.",
+          "readAloudTh": "พ่อกับเอ็มม่าผสมแป้งคุกกี้เหนียว ๆ ที่โต๊ะในครัว",
+          "readAloudReadingTh": "แด็ด แอน เอ็ม-ม่า มิกซ์ท สติ-กี้ คุก-กี้ โด แอท เดอะ คิท-เช่น เท-เบิ้ล",
+          "image": "/images/s6-r-family-cookies-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-family-cookies-2",
+          "target": "Mom showed her the shapes.",
+          "translationTh": "แม่ให้ดูรูปต่าง ๆ",
+          "readingTh": "ม็อม โชว์ด เฮอร์ เดอะ เชปส์",
+          "readAloud": "Mom showed her how to press the cookie cutters into the dough.",
+          "readAloudTh": "แม่สอนวิธีกดพิมพ์คุกกี้ลงบนแป้ง",
+          "readAloudReadingTh": "ม็อม โชว์ด เฮอร์ ฮาว ทะ เพรส เดอะ คุก-กี้ คัท-เทอร์ส อิน-ทู เดอะ โด",
+          "image": "/images/s6-r-family-cookies-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-family-cookies-3",
+          "target": "Emma cut out a star.",
+          "translationTh": "เอ็มม่าตัดรูปดาว",
+          "readingTh": "เอ็ม-ม่า คัท เอาท์ อะ สตาร์",
+          "readAloud": "Then Emma cut out a star all by herself. It was a little lopsided, but it was perfect!",
+          "readAloudTh": "แล้วเอ็มม่าก็ตัดรูปดาวเองคนเดียว เบี้ยวนิดหน่อย แต่สวยที่สุดเลย!",
+          "readAloudReadingTh": "เด็น เอ็ม-ม่า คัท เอาท์ อะ สตาร์ ออล บาย เฮอร์-เซลฟ์, อิท วอส อะ ลิท-เทิ่ล ล็อพ-ไซ-ดิด, บัท อิท วอส เพอร์-เฟคท์",
+          "image": "/images/s6-r-family-cookies-3.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-family-cookies-4",
+          "target": "Look, I did it!",
+          "translationTh": "ดูสิ หนูทำได้!",
+          "readingTh": "ลุค, ไอ ดิด อิท",
+          "readAloud": "\"Look, I did it!\" she shouted, and she waved her floury hand.",
+          "readAloudTh": "\"ดูสิ หนูทำได้!\" เธอตะโกน แล้วโบกมือที่เปื้อนแป้ง",
+          "readAloudReadingTh": "ลุค, ไอ ดิด อิท ชี เชาท์-ทิด, แอน ชี เวฟด์ เฮอร์ ฟลาว-เออ-รี่ แฮนด์",
+          "image": "/images/s6-r-family-cookies-4.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u03-read-little-chefs",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "Two little chefs",
+      "titleTh": "เชฟตัวน้อยสองคน",
+      "items": [
+        {
+          "id": "s6-r-little-chefs-1",
+          "target": "Tom was ready to cook.",
+          "translationTh": "ทอมพร้อมทำอาหารแล้ว",
+          "readingTh": "ทอม วอส เร-ดี้ ทะ คุก",
+          "readAloud": "Tom put on his tall white chef hat. He was ready to whip up a treat!",
+          "readAloudTh": "ทอมใส่หมวกเชฟสีขาวทรงสูง พร้อมทำขนมอร่อย ๆ แล้ว!",
+          "readAloudReadingTh": "ทอม พุท ออน ฮิส ทอล ไวท์ เชฟ แฮท, ฮี วอส เร-ดี้ ทะ วิพ อัพ อะ ทรีท",
+          "image": "/images/s6-r-little-chefs-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-little-chefs-2",
+          "target": "He made a mess.",
+          "translationTh": "เขาทำเลอะเทอะ",
+          "readingTh": "ฮี เมด อะ เมส",
+          "readAloud": "Oops! He made a big, powdery mess on the table with the flour.",
+          "readAloudTh": "อุ๊ย! เขาทำแป้งฟุ้งเลอะเต็มโต๊ะ",
+          "readAloudReadingTh": "อูพส์, ฮี เมด อะ บิ๊ก, พาว-เดอ-รี่ เมส ออน เดอะ เท-เบิ้ล วิธ เดอะ ฟลาว-เออร์",
+          "image": "/images/s6-r-little-chefs-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-little-chefs-3",
+          "target": "Lily wanted to cook too.",
+          "translationTh": "ลิลลี่อยากทำอาหารด้วย",
+          "readingTh": "ลิล-ลี่ วอน-ทิด ทะ คุก ทู",
+          "readAloud": "His sister Lily wanted to help, so she put on a frilly apron.",
+          "readAloudTh": "ลิลลี่น้องสาวของเขาอยากช่วย เลยใส่ผ้ากันเปื้อนลายระบาย",
+          "readAloudReadingTh": "ฮิส ซิส-เต้อร์ ลิล-ลี่ วอน-ทิด ทะ เฮลพ์, โซ ชี พุท ออน อะ ฟริล-ลี่ เอ-เพริน",
+          "image": "/images/s6-r-little-chefs-3.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-little-chefs-4",
+          "target": "She threw the flour up!",
+          "translationTh": "เธอโยนแป้งขึ้นไป!",
+          "readingTh": "ชี ทรู เดอะ ฟลาว-เออร์ อัพ",
+          "readAloud": "She threw flour high in the air. It looked like snowflakes falling down!",
+          "readAloudTh": "เธอโยนแป้งขึ้นไปสูง ๆ ดูเหมือนเกล็ดหิมะกำลังตกเลย!",
+          "readAloudReadingTh": "ชี ทรู ฟลาว-เออร์ ไฮ อิน เดอะ แอร์, อิท ลุคท์ ไลค์ สโนว์-เฟลคส์ ฟอล-ลิ่ง ดาวน์",
+          "image": "/images/s6-r-little-chefs-4.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u03-read-shopping",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "Mom goes shopping",
+      "titleTh": "แม่ไปซื้อของ",
+      "items": [
+        {
+          "id": "s6-r-shopping-1",
+          "target": "Mom went to the shop.",
+          "translationTh": "แม่ไปร้าน",
+          "readingTh": "ม็อม เว็นท์ ทะ เดอะ ช็อป",
+          "readAloud": "Mom pushed the shopping cart into the bustling supermarket.",
+          "readAloudTh": "แม่เข็นรถเข็นเข้าไปในซูเปอร์มาร์เก็ตที่คึกคัก",
+          "readAloudReadingTh": "ม็อม พุชท์ เดอะ ช็อป-ปิ้ง คาร์ท อิน-ทู เดอะ บัส-ซลิ่ง ซู-เปอร์-มาร์-เก็ต",
+          "image": "/images/s6-r-shopping-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-shopping-2",
+          "target": "She got two bags of chips.",
+          "translationTh": "แม่หยิบมันฝรั่งทอดสองถุง",
+          "readingTh": "ชี ก็อท ทู แบ็กส์ ออฟ ชิพส์",
+          "readAloud": "She picked two big, rustly bags of salty chips from the shelf.",
+          "readAloudTh": "แม่หยิบมันฝรั่งทอดเค็ม ๆ ถุงใหญ่กรอบแกรบสองถุงจากชั้น",
+          "readAloudReadingTh": "ชี พิคท์ ทู บิ๊ก, รัส-ลี่ แบ็กส์ ออฟ ซอล-ตี้ ชิพส์ ฟรอม เดอะ เชลฟ์",
+          "image": "/images/s6-r-shopping-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-shopping-3",
+          "target": "She got drinks for the party.",
+          "translationTh": "แม่หยิบเครื่องดื่มไปงานปาร์ตี้",
+          "readingTh": "ชี ก็อท ดริงค์ส ฟอร์ เดอะ พาร์-ตี้",
+          "readAloud": "Then she grabbed some cold drinks for the party. Everything was ready!",
+          "readAloudTh": "แล้วแม่ก็หยิบเครื่องดื่มเย็น ๆ ไปงานปาร์ตี้ ทุกอย่างพร้อมแล้ว!",
+          "readAloudReadingTh": "เด็น ชี แกรบด์ ซัม โคลด์ ดริงค์ส ฟอร์ เดอะ พาร์-ตี้, เอฟ-วรี่-ธิง วอส เร-ดี้",
+          "image": "/images/s6-r-shopping-3.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u03-read-splash",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "Splash!",
+      "titleTh": "ซ่า!",
+      "items": [
+        {
+          "id": "s6-r-splash-1",
+          "target": "Kofi had a bath in the sun.",
+          "translationTh": "โคฟีอาบน้ำกลางแดด",
+          "readingTh": "โค-ฟี่ แฮด อะ แบธ อิน เดอะ ซัน",
+          "readAloud": "On a sizzling hot afternoon, Kofi had his bath outside in a big plastic tub.",
+          "readAloudTh": "บ่ายวันที่ร้อนจัด โคฟีอาบน้ำข้างนอกในอ่างพลาสติกใบใหญ่",
+          "readAloudReadingTh": "ออน อะ ซิซ-ลิ่ง ฮ็อท อาฟ-เตอร์-นูน, โค-ฟี่ แฮด ฮิส แบธ เอ้าท์-ไซด์ อิน อะ บิ๊ก แพลส-ติก ทับ",
+          "image": "/images/s6-r-splash-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-splash-2",
+          "target": "Splash! The water was cold!",
+          "translationTh": "ซ่า! น้ำเย็นมาก!",
+          "readingTh": "สแปลช, เดอะ ว้อ-เท่อร์ วอส โคลด์",
+          "readAloud": "Splash! The cold water poured down on his head. He gasped!",
+          "readAloudTh": "ซ่า! น้ำเย็น ๆ ราดลงมาบนหัว เขาสะดุ้งเฮือก!",
+          "readAloudReadingTh": "สแปลช, เดอะ โคลด์ ว้อ-เท่อร์ พอร์ด ดาวน์ ออน ฮิส เฮด, ฮี แกสพ์ท",
+          "image": "/images/s6-r-splash-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-splash-3",
+          "target": "He laughed and laughed.",
+          "translationTh": "เขาหัวเราะไม่หยุด",
+          "readingTh": "ฮี ลาฟท์ แอน ลาฟท์",
+          "readAloud": "He giggled and wriggled. The cold water tickled!",
+          "readAloudTh": "เขาหัวเราะคิกคักแล้วดิ้นไปมา น้ำเย็นทำให้จั๊กจี้!",
+          "readAloudReadingTh": "ฮี กิก-เกิลด์ แอน ริก-เกิลด์, เดอะ โคลด์ ว้อ-เท่อร์ ทิค-เคิ่ลด์",
+          "image": "/images/s6-r-splash-3.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-splash-4",
+          "target": "Now I'm all clean!",
+          "translationTh": "ตอนนี้หนูสะอาดแล้ว!",
+          "readingTh": "นาว อายม์ ออล คลีน",
+          "readAloud": "\"Now I'm all clean and shiny!\" he said with a great big grin.",
+          "readAloudTh": "\"ตอนนี้หนูสะอาดเอี่ยมแล้ว!\" เขาพูดพร้อมยิ้มแป้น",
+          "readAloudReadingTh": "นาว อายม์ ออล คลีน แอน ไช-นี่ ฮี เซด วิธ อะ เกรท บิ๊ก กริน",
+          "image": "/images/s6-r-splash-4.webp",
+          "register": "neutral",
+          "frequency": "common",
           "acceptAlso": []
         }
       ]
@@ -74241,6 +74880,228 @@
       ]
     },
     {
+      "id": "s6-u04-read-rainy-day",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "Jack in the rain",
+      "titleTh": "แจ็คกับสายฝน",
+      "items": [
+        {
+          "id": "s6-r-rainy-day-1",
+          "target": "Jack went out in the rain.",
+          "translationTh": "แจ็คออกไปกลางฝน",
+          "readingTh": "แจ็ค เว็นท์ เอาท์ อิน เดอะ เรน",
+          "readAloud": "Jack and his little brother put on their boots and went out in the drizzly rain.",
+          "readAloudTh": "แจ็คกับน้องชายใส่รองเท้าบูตแล้วออกไปเล่นกลางฝนปรอย ๆ",
+          "readAloudReadingTh": "แจ็ค แอน ฮิส ลิท-เทิ่ล บรา-เธ่อร์ พุท ออน แดร์ บูทส์ แอน เว็นท์ เอาท์ อิน เดอะ ดริซ-ลี่ เรน",
+          "image": "/images/s6-r-rainy-day-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-rainy-day-2",
+          "target": "His brother had an umbrella.",
+          "translationTh": "น้องชายมีร่ม",
+          "readingTh": "ฮิส บรา-เธ่อร์ แฮด แอน อัม-เบรล-ล่า",
+          "readAloud": "His brother carried a huge black umbrella. It was ginormous!",
+          "readAloudTh": "น้องชายถือร่มสีดำคันใหญ่มาก ใหญ่เบ้อเริ่มเลย!",
+          "readAloudReadingTh": "ฮิส บรา-เธ่อร์ แคร์-รี่ด อะ ฮิวจ์ แบล็ค อัม-เบรล-ล่า, อิท วอส ไจ-นอร์-มัส",
+          "image": "/images/s6-r-rainy-day-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-rainy-day-3",
+          "target": "Jack jumped in a puddle.",
+          "translationTh": "แจ็คกระโดดลงแอ่งน้ำ",
+          "readingTh": "แจ็ค จัมพ์ท์ อิน อะ พัด-เดิ่ล",
+          "readAloud": "Jack jumped right into a deep puddle. Splash! Water sprayed everywhere.",
+          "readAloudTh": "แจ็คกระโดดลงแอ่งน้ำลึก ซ่า! น้ำกระเซ็นไปทั่ว",
+          "readAloudReadingTh": "แจ็ค จัมพ์ท์ ไรท์ อิน-ทู อะ ดีพ พัด-เดิ่ล, สแปลช, ว้อ-เท่อร์ สเปรด เอฟ-วรี่-แวร์",
+          "image": "/images/s6-r-rainy-day-3.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-rainy-day-4",
+          "target": "They sat under the umbrella.",
+          "translationTh": "พวกเขานั่งใต้ร่ม",
+          "readingTh": "เดย์ แซท อัน-เด้อร์ เดอะ อัม-เบรล-ล่า",
+          "readAloud": "Then they sat together under one umbrella and listened to the raindrops.",
+          "readAloudTh": "แล้วทั้งคู่ก็นั่งด้วยกันใต้ร่มคันเดียว ฟังเสียงเม็ดฝน",
+          "readAloudReadingTh": "เด็น เดย์ แซท ทะ-เก็ธ-เธ่อร์ อัน-เด้อร์ วัน อัม-เบรล-ล่า แอน ลิส-เซินด์ ทะ เดอะ เรน-ดร็อพส์",
+          "image": "/images/s6-r-rainy-day-4.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u04-read-hill-walk",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "A walk in the rain",
+      "titleTh": "เดินเล่นตอนฝนตก",
+      "items": [
+        {
+          "id": "s6-r-hill-walk-1",
+          "target": "It was a cloudy day.",
+          "translationTh": "วันนั้นมีเมฆเยอะ",
+          "readingTh": "อิท วอส อะ คลาว-ดี้ เดย์",
+          "readAloud": "It was a gray, cloudy day on top of the grassy hill.",
+          "readAloudTh": "วันนั้นท้องฟ้าครึ้มมีเมฆบนยอดเนินที่มีหญ้าเขียว",
+          "readAloudReadingTh": "อิท วอส อะ เกรย์, คลาว-ดี้ เดย์ ออน ท็อป ออฟ เดอะ แกรส-ซี่ ฮิล",
+          "image": "/images/s6-r-hill-walk-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-hill-walk-2",
+          "target": "Mia went for a walk with Mom.",
+          "translationTh": "มีอาไปเดินเล่นกับแม่",
+          "readingTh": "มี-อา เว็นท์ ฟอร์ อะ ว้อค วิธ ม็อม",
+          "readAloud": "Mia and her mom went for a walk in their raincoats.",
+          "readAloudTh": "มีอากับแม่ใส่เสื้อกันฝนออกไปเดินเล่น",
+          "readAloudReadingTh": "มี-อา แอน เฮอร์ ม็อม เว็นท์ ฟอร์ อะ ว้อค อิน แดร์ เรน-โคทส์",
+          "image": "/images/s6-r-hill-walk-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-hill-walk-3",
+          "target": "Mia stood under the umbrella.",
+          "translationTh": "มีอายืนใต้ร่ม",
+          "readingTh": "มี-อา สตูด อัน-เด้อร์ เดอะ อัม-เบรล-ล่า",
+          "readAloud": "Mia stood under the big umbrella and listened to the pitter-patter of the rain.",
+          "readAloudTh": "มีอายืนใต้ร่มคันใหญ่แล้วฟังเสียงฝนตกเปาะแปะ",
+          "readAloudReadingTh": "มี-อา สตูด อัน-เด้อร์ เดอะ บิ๊ก อัม-เบรล-ล่า แอน ลิส-เซินด์ ทะ เดอะ พิท-เทอร์-แพท-เทอร์ ออฟ เดอะ เรน",
+          "image": "/images/s6-r-hill-walk-3.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-hill-walk-4",
+          "target": "I love the rain!",
+          "translationTh": "หนูชอบฝน!",
+          "readingTh": "ไอ ลัฟ เดอะ เรน",
+          "readAloud": "\"I love the rain!\" she said, and she spun around in a big, twirly circle.",
+          "readAloudTh": "\"หนูชอบฝน!\" เธอพูด แล้วหมุนตัวเป็นวงกลมใหญ่",
+          "readAloudReadingTh": "ไอ ลัฟ เดอะ เรน ชี เซด, แอน ชี สปัน อะ-ราวนด์ อิน อะ บิ๊ก, ทเวอร์-ลี่ เซอร์-เคิ่ล",
+          "image": "/images/s6-r-hill-walk-4.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u04-read-autumn-girl",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "Ella and the leaves",
+      "titleTh": "เอลล่ากับใบไม้",
+      "items": [
+        {
+          "id": "s6-r-autumn-girl-1",
+          "target": "Ella played with the leaves.",
+          "translationTh": "เอลล่าเล่นกับใบไม้",
+          "readingTh": "เอล-ล่า เพลย์ด วิธ เดอะ ลีฟส์",
+          "readAloud": "Ella played in the park while orange and brown leaves drifted down all around her.",
+          "readAloudTh": "เอลล่าเล่นในสวนขณะที่ใบไม้สีส้มและน้ำตาลปลิวลงมารอบตัว",
+          "readAloudReadingTh": "เอล-ล่า เพลย์ด อิน เดอะ พาร์ค ไวล์ ออ-เรนจ์ แอน บราวน์ ลีฟส์ ดริฟ-ทิด ดาวน์ ออล อะ-ราวนด์ เฮอร์",
+          "image": "/images/s6-r-autumn-girl-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-autumn-girl-2",
+          "target": "She saw leaves in a puddle.",
+          "translationTh": "เธอเห็นใบไม้ในแอ่งน้ำ",
+          "readingTh": "ชี ซอว์ ลีฟส์ อิน อะ พัด-เดิ่ล",
+          "readAloud": "She saw red and orange leaves floating in a puddle, like tiny sailboats.",
+          "readAloudTh": "เธอเห็นใบไม้สีแดงและส้มลอยอยู่ในแอ่งน้ำ เหมือนเรือใบลำจิ๋ว",
+          "readAloudReadingTh": "ชี ซอว์ เรด แอน ออ-เรนจ์ ลีฟส์ โฟล-ทิ่ง อิน อะ พัด-เดิ่ล, ไลค์ ไท-นี่ เซล-โบทส์",
+          "image": "/images/s6-r-autumn-girl-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-autumn-girl-3",
+          "target": "She walked home with her dog.",
+          "translationTh": "เธอเดินกลับบ้านกับหมา",
+          "readingTh": "ชี วอล์คท์ โฮม วิธ เฮอร์ ด็อก",
+          "readAloud": "Then she walked home, and her fluffy dog scampered along, crunching leaves.",
+          "readAloudTh": "แล้วเธอก็เดินกลับบ้าน หมาขนปุยวิ่งดุ๊กดิ๊กตามไป เหยียบใบไม้ดังกรอบแกรบ",
+          "readAloudReadingTh": "เด็น ชี วอล์คท์ โฮม, แอน เฮอร์ ฟลัฟ-ฟี่ ด็อก สแกม-เพอร์ด อะ-ลอง, ครัน-ชิ่ง ลีฟส์",
+          "image": "/images/s6-r-autumn-girl-3.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u04-read-gray-cat",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "The gray cat",
+      "titleTh": "แมวสีเทา",
+      "items": [
+        {
+          "id": "s6-r-gray-cat-1",
+          "target": "Anna went for a walk.",
+          "translationTh": "แอนนาไปเดินเล่น",
+          "readingTh": "แอน-น่า เว็นท์ ฟอร์ อะ ว้อค",
+          "readAloud": "Anna and Grandma went for a walk down the quiet, narrow street.",
+          "readAloudTh": "แอนนากับคุณยายไปเดินเล่นบนถนนแคบ ๆ ที่เงียบสงบ",
+          "readAloudReadingTh": "แอน-น่า แอน แกรนด์-มา เว็นท์ ฟอร์ อะ ว้อค ดาวน์ เดอะ ไคว-เอ็ท, แน-โรว์ สตรีท",
+          "image": "/images/s6-r-gray-cat-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-gray-cat-2",
+          "target": "A gray cat came to say hi.",
+          "translationTh": "แมวสีเทามาทักทาย",
+          "readingTh": "อะ เกรย์ แค็ท เคม ทะ เซย์ ไฮ",
+          "readAloud": "A friendly gray cat came out to say hello. It had soft fur and long whiskers.",
+          "readAloudTh": "แมวสีเทาที่เป็นมิตรเดินออกมาทักทาย มันมีขนนุ่มและหนวดยาว",
+          "readAloudReadingTh": "อะ เฟรนด์-ลี่ เกรย์ แค็ท เคม เอาท์ ทะ เซย์ เฮล-โล, อิท แฮด ซอฟท์ เฟอร์ แอน ลอง วิส-เกอร์ส",
+          "image": "/images/s6-r-gray-cat-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-gray-cat-3",
+          "target": "Anna showed the cat her toy.",
+          "translationTh": "แอนนาเอาของเล่นให้แมวดู",
+          "readingTh": "แอน-น่า โชว์ด เดอะ แค็ท เฮอร์ ทอย",
+          "readAloud": "Anna showed the cat her toy. The cat sniffed it and purred.",
+          "readAloudTh": "แอนนาเอาของเล่นให้แมวดู แมวดมแล้วทำเสียงครืดคราด",
+          "readAloudReadingTh": "แอน-น่า โชว์ด เดอะ แค็ท เฮอร์ ทอย, เดอะ แค็ท สนิฟท์ อิท แอน เพิร์ด",
+          "image": "/images/s6-r-gray-cat-3.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
       "id": "s6-u05-phonics",
       "stageId": 6,
       "category": "phonics",
@@ -74657,6 +75518,228 @@
       ]
     },
     {
+      "id": "s6-u05-read-black-cat",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "A new friend",
+      "titleTh": "เพื่อนใหม่",
+      "items": [
+        {
+          "id": "s6-r-black-cat-1",
+          "target": "They found a cat.",
+          "translationTh": "พวกเขาเจอแมว",
+          "readingTh": "เดย์ ฟาวด์ อะ แค็ท",
+          "readAloud": "Kate and her little brother found a black and white cat sitting on the doorstep.",
+          "readAloudTh": "เคทกับน้องชายเจอแมวสีขาวดำนั่งอยู่หน้าประตูบ้าน",
+          "readAloudReadingTh": "เคท แอน เฮอร์ ลิท-เทิ่ล บรา-เธ่อร์ ฟาวด์ อะ แบล็ค แอน ไวท์ แค็ท ซิท-ทิ่ง ออน เดอะ ดอร์-สเต็พ",
+          "image": "/images/s6-r-black-cat-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-black-cat-2",
+          "target": "They sat down to say hi.",
+          "translationTh": "พวกเขานั่งลงทักทาย",
+          "readingTh": "เดย์ แซท ดาวน์ ทะ เซย์ ไฮ",
+          "readAloud": "They tiptoed over and sat down quietly, so they would not scare it.",
+          "readAloudTh": "พวกเขาย่องเข้าไปใกล้แล้วนั่งลงเงียบ ๆ จะได้ไม่ทำให้แมวตกใจ",
+          "readAloudReadingTh": "เดย์ ทิพ-โทด โอ-เวอร์ แอน แซท ดาวน์ ไคว-เอ็ท-ลี่, โซ เดย์ วู้ด น็อท สแคร์ อิท",
+          "image": "/images/s6-r-black-cat-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-black-cat-3",
+          "target": "The cat sniffed his hand.",
+          "translationTh": "แมวดมมือของเขา",
+          "readingTh": "เดอะ แค็ท สนิฟท์ ฮิส แฮนด์",
+          "readAloud": "The cat sniffed his hand with its cold, twitchy nose. It tickled!",
+          "readAloudTh": "แมวดมมือของเขาด้วยจมูกเย็น ๆ ที่กระดุกกระดิก จั๊กจี้จัง!",
+          "readAloudReadingTh": "เดอะ แค็ท สนิฟท์ ฮิส แฮนด์ วิธ อิทส์ โคลด์, ทวิช-ชี่ โนส, อิท ทิค-เคิ่ลด์",
+          "image": "/images/s6-r-black-cat-3.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u05-read-baby-goats",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "The baby goats",
+      "titleTh": "ลูกแพะ",
+      "items": [
+        {
+          "id": "s6-r-baby-goats-1",
+          "target": "The mother goat had two babies.",
+          "translationTh": "แม่แพะมีลูกสองตัว",
+          "readingTh": "เดอะ มัธ-เธอร์ โกท แฮด ทู เบ-บี้ส์",
+          "readAloud": "On the farm, the mother goat had two tiny, bleating babies.",
+          "readAloudTh": "ที่ฟาร์ม แม่แพะมีลูกตัวจิ๋วสองตัวที่ร้องแบะ ๆ",
+          "readAloudReadingTh": "ออน เดอะ ฟาร์ม, เดอะ มัธ-เธอร์ โกท แฮด ทู ไท-นี่, บลี-ทิ่ง เบ-บี้ส์",
+          "image": "/images/s6-r-baby-goats-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-baby-goats-2",
+          "target": "One baby went for a walk.",
+          "translationTh": "ลูกแพะตัวหนึ่งออกไปเดินเล่น",
+          "readingTh": "วัน เบ-บี้ เว็นท์ ฟอร์ อะ ว้อค",
+          "readAloud": "One brave baby goat went for a little stroll on its wobbly legs.",
+          "readAloudTh": "ลูกแพะตัวหนึ่งที่กล้าหาญออกไปเดินเล่นด้วยขาที่ยังเดินเตาะแตะ",
+          "readAloudReadingTh": "วัน เบรฟ เบ-บี้ โกท เว็นท์ ฟอร์ อะ ลิท-เทิ่ล สโตรล ออน อิทส์ วอบ-บลี่ เล็กส์",
+          "image": "/images/s6-r-baby-goats-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-baby-goats-3",
+          "target": "It found yummy leaves.",
+          "translationTh": "มันเจอใบไม้อร่อย ๆ",
+          "readingTh": "อิท ฟาวด์ ยัม-มี่ ลีฟส์",
+          "readAloud": "It found some yummy green leaves on a tree and nibbled them.",
+          "readAloudTh": "มันเจอใบไม้สีเขียวอร่อย ๆ บนต้นไม้ แล้วค่อย ๆ แทะกิน",
+          "readAloudReadingTh": "อิท ฟาวด์ ซัม ยัม-มี่ กรีน ลีฟส์ ออน อะ ทรี แอน นิบ-เบิลด์ เดม",
+          "image": "/images/s6-r-baby-goats-3.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-baby-goats-4",
+          "target": "It lay down for a nap.",
+          "translationTh": "มันนอนงีบ",
+          "readingTh": "อิท เลย์ ดาวน์ ฟอร์ อะ แนป",
+          "readAloud": "Then it curled up in the soft hay and fell fast asleep.",
+          "readAloudTh": "แล้วมันก็ขดตัวบนฟางนุ่ม ๆ และหลับปุ๋ย",
+          "readAloudReadingTh": "เด็น อิท เคิร์ลด์ อัพ อิน เดอะ ซอฟท์ เฮย์ แอน เฟล ฟาสท์ อะ-สลีพ",
+          "image": "/images/s6-r-baby-goats-4.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u05-read-horse",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "Amy and her horse",
+      "titleTh": "เอมี่กับม้าของเธอ",
+      "items": [
+        {
+          "id": "s6-r-horse-1",
+          "target": "Amy ran to see her horse.",
+          "translationTh": "เอมี่วิ่งไปหาม้า",
+          "readingTh": "เอ-มี่ แรน ทะ ซี เฮอร์ ฮอร์ส",
+          "readAloud": "Amy ran to the stable to see her horse, Snowy.",
+          "readAloudTh": "เอมี่วิ่งไปที่คอกม้าเพื่อไปหาม้าของเธอชื่อสโนวี่",
+          "readAloudReadingTh": "เอ-มี่ แรน ทะ เดอะ สเต-เบิ้ล ทะ ซี เฮอร์ ฮอร์ส, สโนว์-อี้",
+          "image": "/images/s6-r-horse-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-horse-2",
+          "target": "She patted his nose.",
+          "translationTh": "เธอลูบจมูกม้า",
+          "readingTh": "ชี แพท-ทิด ฮิส โนส",
+          "readAloud": "She patted his soft nose very gently. Snowy nuzzled her hand.",
+          "readAloudTh": "เธอลูบจมูกนุ่ม ๆ ของมันเบา ๆ สโนวี่เอาจมูกมาคลอเคลียมือเธอ",
+          "readAloudReadingTh": "ชี แพท-ทิด ฮิส ซอฟท์ โนส เว-รี่ เจนท์-ลี่, สโนว์-อี้ นัซ-เซิลด์ เฮอร์ แฮนด์",
+          "image": "/images/s6-r-horse-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-horse-3",
+          "target": "Hi, Snowy! I missed you!",
+          "translationTh": "หวัดดีสโนวี่! คิดถึงจัง!",
+          "readingTh": "ไฮ, สโนว์-อี้, ไอ มิสท์ ยู",
+          "readAloud": "\"Hi, Snowy! I missed you so much,\" she whispered sweetly.",
+          "readAloudTh": "\"หวัดดีสโนวี่! คิดถึงมากเลย\" เธอกระซิบอย่างอ่อนโยน",
+          "readAloudReadingTh": "ไฮ, สโนว์-อี้, ไอ มิสท์ ยู โซ มัช ชี วิส-เพอร์ด สวีท-ลี่",
+          "image": "/images/s6-r-horse-3.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-horse-4",
+          "target": "She gave him a big hug.",
+          "translationTh": "เธอกอดม้าแน่น ๆ",
+          "readingTh": "ชี เกฟว์ ฮิม อะ บิ๊ก ฮัก",
+          "readAloud": "Then she gave him a big hug around his neck. He smelled like hay.",
+          "readAloudTh": "แล้วเธอก็กอดคอมันแน่น ๆ ตัวมันมีกลิ่นฟาง",
+          "readAloudReadingTh": "เด็น ชี เกฟว์ ฮิม อะ บิ๊ก ฮัก อะ-ราวนด์ ฮิส เน็ค, ฮี สเมลด์ ไลค์ เฮย์",
+          "image": "/images/s6-r-horse-4.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u05-read-lily-fever",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "Lily has a fever",
+      "titleTh": "ลิลลี่เป็นไข้",
+      "items": [
+        {
+          "id": "s6-r-lily-fever-1",
+          "target": "Lily felt sick.",
+          "translationTh": "ลิลลี่ไม่สบาย",
+          "readingTh": "ลิล-ลี่ เฟลท์ ซิค",
+          "readAloud": "Lily had been sick and feverish all night, so Mom and Dad came to check on her.",
+          "readAloudTh": "ลิลลี่ไม่สบายตัวรุม ๆ มาทั้งคืน แม่กับพ่อเลยมาดูอาการ",
+          "readAloudReadingTh": "ลิล-ลี่ แฮด บีน ซิค แอน ฟี-เวอร์-ริช ออล ไนท์, โซ ม็อม แอน แด็ด เคม ทะ เช็ค ออน เฮอร์",
+          "image": "/images/s6-r-lily-fever-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-lily-fever-2",
+          "target": "She had a fever.",
+          "translationTh": "ลิลลี่เป็นไข้",
+          "readingTh": "ชี แฮด อะ ฟี-เวอร์",
+          "readAloud": "Mom checked her temperature. She had a high fever and a sniffly nose.",
+          "readAloudTh": "แม่วัดไข้ให้ ลิลลี่ไข้ขึ้นสูงแล้วก็มีน้ำมูก",
+          "readAloudReadingTh": "ม็อม เช็คท์ เฮอร์ เทม-เพอ-เร-เชอร์, ชี แฮด อะ ไฮ ฟี-เวอร์ แอน อะ สนิฟ-ลี่ โนส",
+          "image": "/images/s6-r-lily-fever-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-lily-fever-3",
+          "target": "Her bunny stayed with her.",
+          "translationTh": "ตุ๊กตากระต่ายอยู่กับเธอ",
+          "readingTh": "เฮอร์ บัน-นี่ สเตย์ด วิธ เฮอร์",
+          "readAloud": "Her toy bunny stayed close by all day and kept her company.",
+          "readAloudTh": "ตุ๊กตากระต่ายอยู่ข้าง ๆ ทั้งวัน คอยเป็นเพื่อนเธอ",
+          "readAloudReadingTh": "เฮอร์ ทอย บัน-นี่ สเตย์ด โคลส บาย ออล เดย์ แอน เค็พท์ เฮอร์ คัม-พะ-นี",
+          "image": "/images/s6-r-lily-fever-3.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
       "id": "s6-u06-phonics",
       "stageId": 6,
       "category": "phonics",
@@ -75047,6 +76130,228 @@
           "image": "/images/s6-sw-buy.webp",
           "register": "neutral",
           "frequency": "very-common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u06-read-first-birthday",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "Ava turns one",
+      "titleTh": "อาวาอายุครบหนึ่งขวบ",
+      "items": [
+        {
+          "id": "s6-r-first-birthday-1",
+          "target": "It was Ava's birthday.",
+          "translationTh": "วันนี้วันเกิดของอาวา",
+          "readingTh": "อิท วอส เอ-ว่าส์ เบิร์ธ-เดย์",
+          "readAloud": "It was Ava's very first birthday! She looked up at the colorful balloons.",
+          "readAloudTh": "วันนี้เป็นวันเกิดครั้งแรกของอาวา! เธอมองขึ้นไปที่ลูกโป่งหลากสี",
+          "readAloudReadingTh": "อิท วอส เอ-ว่าส์ เว-รี่ เฟิร์สท์ เบิร์ธ-เดย์, ชี ลุคท์ อัพ แอท เดอะ คัล-เลอร์-ฟูล บะ-ลูนส์",
+          "image": "/images/s6-r-first-birthday-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-first-birthday-2",
+          "target": "Then she started to cry.",
+          "translationTh": "แล้วเธอก็เริ่มร้องไห้",
+          "readingTh": "เด็น ชี สตาร์-ทิด ทะ คราย",
+          "readAloud": "Then everyone sang very loudly, and she started to cry.",
+          "readAloudTh": "แล้วทุกคนก็ร้องเพลงเสียงดังมาก เธอเลยเริ่มร้องไห้",
+          "readAloudReadingTh": "เด็น เอฟ-วรี่-วัน แซง เว-รี่ ลาวด์-ลี่, แอน ชี สตาร์-ทิด ทะ คราย",
+          "image": "/images/s6-r-first-birthday-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-first-birthday-3",
+          "target": "Mom brought a pink cake.",
+          "translationTh": "แม่เอาเค้กสีชมพูมา",
+          "readingTh": "ม็อม บรอท อะ พิงค์ เค้ก",
+          "readAloud": "Mom brought out a big pink cake with one tiny, flickering candle.",
+          "readAloudTh": "แม่ยกเค้กสีชมพูก้อนใหญ่ที่มีเทียนเล่มจิ๋วไฟริบหรี่ออกมา",
+          "readAloudReadingTh": "ม็อม บรอท เอาท์ อะ บิ๊ก พิงค์ เค้ก วิธ วัน ไท-นี่, ฟลิค-เคอ-ริ่ง แคน-เดิ้ล",
+          "image": "/images/s6-r-first-birthday-3.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-first-birthday-4",
+          "target": "Ava smiled.",
+          "translationTh": "อาวายิ้ม",
+          "readingTh": "เอ-ว่า สไมล์ด์",
+          "readAloud": "Ava smiled again. She loved her special, cheery party!",
+          "readAloudTh": "อาวายิ้มอีกครั้ง เธอชอบงานปาร์ตี้พิเศษแสนสนุกของเธอมาก!",
+          "readAloudReadingTh": "เอ-ว่า สไมล์ด์ อะ-เกน, ชี ลัฟด์ เฮอร์ สเปช-เชิ่ล, เชีย-รี่ พาร์-ตี้",
+          "image": "/images/s6-r-first-birthday-4.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u06-read-birthday-box",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "The birthday box",
+      "titleTh": "กล่องวันเกิด",
+      "items": [
+        {
+          "id": "s6-r-birthday-box-1",
+          "target": "Kai had a crown.",
+          "translationTh": "ไคมีมงกุฎ",
+          "readingTh": "ไค แฮด อะ คราวน์",
+          "readAloud": "Kai turned six today! He wore a shiny paper crown on his birthday.",
+          "readAloudTh": "ไคอายุครบหกขวบวันนี้! เขาใส่มงกุฎกระดาษเงาวับในวันเกิด",
+          "readAloudReadingTh": "ไค เทิร์นด์ ซิกซ์ ทะ-เดย์, ฮี วอร์ อะ ไช-นี่ เพ-เพอร์ คราวน์ ออน ฮิส เบิร์ธ-เดย์",
+          "image": "/images/s6-r-birthday-box-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-birthday-box-2",
+          "target": "He sat in a box.",
+          "translationTh": "เขานั่งในกล่อง",
+          "readingTh": "ฮี แซท อิน อะ บ็อกซ์",
+          "readAloud": "He sat in a big cardboard box with a red balloon bobbing above him.",
+          "readAloudTh": "เขานั่งในกล่องกระดาษใบใหญ่ มีลูกโป่งสีแดงลอยดุ๊กดิ๊กอยู่ข้างบน",
+          "readAloudReadingTh": "ฮี แซท อิน อะ บิ๊ก คาร์ด-บอร์ด บ็อกซ์ วิธ อะ เรด บะ-ลูน บ็อบ-บิ้ง อะ-บัฟ ฮิม",
+          "image": "/images/s6-r-birthday-box-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-birthday-box-3",
+          "target": "He sat with his teddy bear.",
+          "translationTh": "เขานั่งกับตุ๊กตาหมี",
+          "readingTh": "ฮี แซท วิธ ฮิส เท็ด-ดี้ แบร์",
+          "readAloud": "Then he climbed out and sat next to his cuddly teddy bear, his best buddy.",
+          "readAloudTh": "แล้วเขาก็ปีนออกมานั่งข้างตุ๊กตาหมีนุ่มนิ่ม เพื่อนซี้ของเขา",
+          "readAloudReadingTh": "เด็น ฮี ไคลม์ด เอาท์ แอน แซท เน็กซ์ ทะ ฮิส คัด-ลี่ เท็ด-ดี้ แบร์, ฮิส เบสท์ บัด-ดี้",
+          "image": "/images/s6-r-birthday-box-3.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-birthday-box-4",
+          "target": "He looked at his crown.",
+          "translationTh": "เขามองมงกุฎ",
+          "readingTh": "ฮี ลุคท์ แอท ฮิส คราวน์",
+          "readAloud": "He took off his crown and looked at it closely. What a great day!",
+          "readAloudTh": "เขาถอดมงกุฎออกแล้วมองดูใกล้ ๆ ช่างเป็นวันที่ดีจริง ๆ!",
+          "readAloudReadingTh": "ฮี ทุค ออฟ ฮิส คราวน์ แอน ลุคท์ แอท อิท โคลส-ลี่, วอท อะ เกรท เดย์",
+          "image": "/images/s6-r-birthday-box-4.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u06-read-toy-car",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "The little blue car",
+      "titleTh": "รถคันเล็กสีฟ้า",
+      "items": [
+        {
+          "id": "s6-r-toy-car-1",
+          "target": "Ann and Ben sat in a car.",
+          "translationTh": "แอนกับเบนนั่งในรถ",
+          "readingTh": "แอน แอน เบน แซท อิน อะ คาร์",
+          "readAloud": "Ann and Ben sat in a little blue toy car in the backyard.",
+          "readAloudTh": "แอนกับเบนนั่งในรถของเล่นคันเล็กสีฟ้าที่สนามหลังบ้าน",
+          "readAloudReadingTh": "แอน แอน เบน แซท อิน อะ ลิท-เทิ่ล บลู ทอย คาร์ อิน เดอะ แบค-ยาร์ด",
+          "image": "/images/s6-r-toy-car-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-toy-car-2",
+          "target": "Ann drove the car.",
+          "translationTh": "แอนขับรถ",
+          "readingTh": "แอน โดรฟ เดอะ คาร์",
+          "readAloud": "Ann gripped the wheel and drove. Beep, beep!",
+          "readAloudTh": "แอนจับพวงมาลัยแน่นแล้วขับไป ปี๊บ ปี๊บ!",
+          "readAloudReadingTh": "แอน กริพท์ เดอะ วีล แอน โดรฟ, บี๊ป, บี๊ป",
+          "image": "/images/s6-r-toy-car-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-toy-car-3",
+          "target": "What a fun ride!",
+          "translationTh": "นั่งรถสนุกจัง!",
+          "readingTh": "วอท อะ ฟัน ไรด์",
+          "readAloud": "They smiled and waved. What a fun, zippy ride!",
+          "readAloudTh": "ทั้งคู่ยิ้มแล้วโบกมือ นั่งรถซิ่งสนุกจัง!",
+          "readAloudReadingTh": "เดย์ สไมล์ด์ แอน เวฟด์, วอท อะ ฟัน, ซิพ-พี่ ไรด์",
+          "image": "/images/s6-r-toy-car-3.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u06-read-suitcase",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "Ready for a trip",
+      "titleTh": "พร้อมไปเที่ยว",
+      "items": [
+        {
+          "id": "s6-r-suitcase-1",
+          "target": "Zoe had a big suitcase.",
+          "translationTh": "โซอี้มีกระเป๋าเดินทางใบใหญ่",
+          "readingTh": "โซ-อี้ แฮด อะ บิ๊ก ซูท-เคส",
+          "readAloud": "Zoe packed a big blue suitcase and put on her cool, heart-shaped sunglasses.",
+          "readAloudTh": "โซอี้จัดกระเป๋าเดินทางใบใหญ่สีฟ้า แล้วใส่แว่นกันแดดรูปหัวใจเท่ ๆ",
+          "readAloudReadingTh": "โซ-อี้ แพ็คท์ อะ บิ๊ก บลู ซูท-เคส แอน พุท ออน เฮอร์ คูล, ฮาร์ท-เชพท์ ซัน-กลาส-เซส",
+          "image": "/images/s6-r-suitcase-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-suitcase-2",
+          "target": "She waited for the car.",
+          "translationTh": "เธอรอรถ",
+          "readingTh": "ชี เว-ทิด ฟอร์ เดอะ คาร์",
+          "readAloud": "She sat down next to it and waited and waited. Tick-tock, tick-tock!",
+          "readAloudTh": "เธอนั่งลงข้าง ๆ แล้วรอไปเรื่อย ๆ ติ๊กต็อก ติ๊กต็อก!",
+          "readAloudReadingTh": "ชี แซท ดาวน์ เน็กซ์ ทะ อิท แอน เว-ทิด แอน เว-ทิด, ทิค-ท็อค, ทิค-ท็อค",
+          "image": "/images/s6-r-suitcase-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-suitcase-3",
+          "target": "Where is the car?",
+          "translationTh": "รถอยู่ไหน?",
+          "readingTh": "แวร์ อิส เดอะ คาร์",
+          "readAloud": "Then she sat on top of it with a big sigh and grumbled, \"Where's the car?\"",
+          "readAloudTh": "แล้วเธอก็นั่งบนกระเป๋า ถอนหายใจยาวแล้วบ่นว่า \"รถอยู่ไหนเนี่ย?\"",
+          "readAloudReadingTh": "เด็น ชี แซท ออน ท็อป ออฟ อิท วิธ อะ บิ๊ก ซาย แอน กรัม-เบิลด์, แวร์ส เดอะ คาร์",
+          "image": "/images/s6-r-suitcase-3.webp",
+          "register": "neutral",
+          "frequency": "common",
           "acceptAlso": []
         }
       ]
@@ -75448,6 +76753,241 @@
       ]
     },
     {
+      "id": "s6-u07-read-train-ride",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "Ella on the train",
+      "titleTh": "เอลล่าบนรถไฟ",
+      "items": [
+        {
+          "id": "s6-r-train-ride-1",
+          "target": "Ella was on the train.",
+          "translationTh": "เอลล่าอยู่บนรถไฟ",
+          "readingTh": "เอล-ล่า วอส ออน เดอะ เทรน",
+          "readAloud": "Ella was on a long train journey. She called Grandma to say she was coming.",
+          "readAloudTh": "เอลล่านั่งรถไฟเดินทางไกล เธอโทรบอกคุณยายว่ากำลังไป",
+          "readAloudReadingTh": "เอล-ล่า วอส ออน อะ ลอง เทรน เจอร์-นี่, ชี คอลด์ แกรนด์-มา ทะ เซย์ ชี วอส คัม-มิ่ง",
+          "image": "/images/s6-r-train-ride-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-train-ride-2",
+          "target": "She looked at the trees.",
+          "translationTh": "เธอมองต้นไม้",
+          "readingTh": "ชี ลุคท์ แอท เดอะ ทรีส์",
+          "readAloud": "She looked out the window at the trees rushing by.",
+          "readAloudTh": "เธอมองออกไปนอกหน้าต่าง เห็นต้นไม้วิ่งผ่านไปเร็ว ๆ",
+          "readAloudReadingTh": "ชี ลุคท์ เอาท์ เดอะ วิน-โดว์ แอท เดอะ ทรีส์ รัช-ชิ่ง บาย",
+          "image": "/images/s6-r-train-ride-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-train-ride-3",
+          "target": "Grandma was waiting!",
+          "translationTh": "คุณยายรออยู่!",
+          "readingTh": "แกรนด์-มา วอส เว-ทิ่ง",
+          "readAloud": "She smiled. Grandma would be waiting on the platform!",
+          "readAloudTh": "เธอยิ้ม คุณยายคงรออยู่ที่ชานชาลาแล้ว!",
+          "readAloudReadingTh": "ชี สไมล์ด์, แกรนด์-มา วู้ด บี เว-ทิ่ง ออน เดอะ แพลท-ฟอร์ม",
+          "image": "/images/s6-r-train-ride-3.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u07-read-station",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "At the old station",
+      "titleTh": "ที่สถานีเก่า",
+      "items": [
+        {
+          "id": "s6-r-station-1",
+          "target": "Tom walked to the train.",
+          "translationTh": "ทอมเดินไปที่รถไฟ",
+          "readingTh": "ทอม วอล์คท์ ทะ เดอะ เทรน",
+          "readAloud": "Tom walked to the old train with his little suitcase and a woolly hat.",
+          "readAloudTh": "ทอมเดินไปที่รถไฟเก่าพร้อมกระเป๋าใบเล็กและหมวกไหมพรม",
+          "readAloudReadingTh": "ทอม วอล์คท์ ทะ เดอะ โอลด์ เทรน วิธ ฮิส ลิท-เทิ่ล ซูท-เคส แอน อะ วูล-ลี่ แฮท",
+          "image": "/images/s6-r-station-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-station-2",
+          "target": "The engine was black and red.",
+          "translationTh": "หัวรถจักรสีดำกับแดง",
+          "readingTh": "เดอะ เอน-จิน วอส แบล็ค แอน เรด",
+          "readAloud": "The big engine was black and red, and it puffed out white steam.",
+          "readAloudTh": "หัวรถจักรคันใหญ่สีดำแดง พ่นไอน้ำสีขาวออกมา",
+          "readAloudReadingTh": "เดอะ บิ๊ก เอน-จิน วอส แบล็ค แอน เรด, แอน อิท พัฟท์ เอาท์ ไวท์ สตีม",
+          "image": "/images/s6-r-station-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-station-3",
+          "target": "He waited.",
+          "translationTh": "เขารอ",
+          "readingTh": "ฮี เว-ทิด",
+          "readAloud": "He crossed his arms, tapped his foot, and waited patiently.",
+          "readAloudTh": "เขากอดอก เคาะเท้า แล้วรออย่างใจเย็น",
+          "readAloudReadingTh": "ฮี ครอสท์ ฮิส อาร์มส์, แทพท์ ฮิส ฟุท, แอน เว-ทิด เพ-เชินท์-ลี่",
+          "image": "/images/s6-r-station-3.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-station-4",
+          "target": "It was time to go!",
+          "translationTh": "ได้เวลาไปแล้ว!",
+          "readingTh": "อิท วอส ไทม์ ทะ โก",
+          "readAloud": "\"All aboard!\" called the conductor. It was time to depart!",
+          "readAloudTh": "\"ทุกคนขึ้นรถได้!\" พนักงานตรวจตั๋วตะโกน ได้เวลาออกเดินทางแล้ว!",
+          "readAloudReadingTh": "ออล อะ-บอร์ด คอลด์ เดอะ คอน-ดัค-เท่อร์, อิท วอส ไทม์ ทะ ดิ-พาร์ท",
+          "image": "/images/s6-r-station-4.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u07-read-red-bucket",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "The red bucket",
+      "titleTh": "ถังสีแดง",
+      "items": [
+        {
+          "id": "s6-r-red-bucket-1",
+          "target": "Rosie went to the sea.",
+          "translationTh": "โรซี่ไปทะเล",
+          "readingTh": "โร-ซี่ เว็นท์ ทะ เดอะ ซี",
+          "readAloud": "Rosie walked down to the sea with her shiny red pail.",
+          "readAloudTh": "โรซี่เดินลงไปที่ทะเลพร้อมถังสีแดงเงาวับ",
+          "readAloudReadingTh": "โร-ซี่ วอล์คท์ ดาวน์ ทะ เดอะ ซี วิธ เฮอร์ ไช-นี่ เรด เพล",
+          "image": "/images/s6-r-red-bucket-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-red-bucket-2",
+          "target": "She ran in the water.",
+          "translationTh": "เธอวิ่งในน้ำ",
+          "readingTh": "ชี แรน อิน เดอะ ว้อ-เท่อร์",
+          "readAloud": "She squealed and splashed in the foamy water.",
+          "readAloudTh": "เธอกรี๊ดด้วยความสนุกแล้ววิ่งเล่นน้ำที่มีฟองฟู่",
+          "readAloudReadingTh": "ชี สควีลด์ แอน สแปลชท์ อิน เดอะ โฟ-มี่ ว้อ-เท่อร์",
+          "image": "/images/s6-r-red-bucket-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-red-bucket-3",
+          "target": "Her brother sat on the sand.",
+          "translationTh": "น้องชายนั่งบนทราย",
+          "readingTh": "เฮอร์ บรา-เธ่อร์ แซท ออน เดอะ แซนด์",
+          "readAloud": "Her brother sat on the warm sand and watched her frolic.",
+          "readAloudTh": "น้องชายนั่งบนทรายอุ่น ๆ แล้วดูเธอวิ่งเล่นอย่างสนุก",
+          "readAloudReadingTh": "เฮอร์ บรา-เธ่อร์ แซท ออน เดอะ วอร์ม แซนด์ แอน ว็อชท์ เฮอร์ ฟรอ-ลิค",
+          "image": "/images/s6-r-red-bucket-3.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-red-bucket-4",
+          "target": "The water was cold!",
+          "translationTh": "น้ำเย็นมาก!",
+          "readingTh": "เดอะ ว้อ-เท่อร์ วอส โคลด์",
+          "readAloud": "Rosie came back, laughing and shivering. The water was nippy!",
+          "readAloudTh": "โรซี่กลับมาหัวเราะไปตัวสั่นไป น้ำเย็นจี๊ดเลย!",
+          "readAloudReadingTh": "โร-ซี่ เคม แบ็ค, ลาฟ-ฟิ่ง แอน ชีฟ-เว่อ-ริ่ง, เดอะ ว้อ-เท่อร์ วอส นิพ-พี่",
+          "image": "/images/s6-r-red-bucket-4.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u07-read-yellow-boots",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "Yellow boots",
+      "titleTh": "รองเท้าบูตสีเหลือง",
+      "items": [
+        {
+          "id": "s6-r-yellow-boots-1",
+          "target": "Finn had yellow boots.",
+          "translationTh": "ฟินน์มีรองเท้าบูตสีเหลือง",
+          "readingTh": "ฟิน แฮด เยล-โล่ว์ บูทส์",
+          "readAloud": "Finn wore his bright yellow boots to the seashore.",
+          "readAloudTh": "ฟินน์ใส่รองเท้าบูตสีเหลืองสดไปริมทะเล",
+          "readAloudReadingTh": "ฟิน วอร์ ฮิส ไบรท์ เยล-โล่ว์ บูทส์ ทะ เดอะ ซี-ชอร์",
+          "image": "/images/s6-r-yellow-boots-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-yellow-boots-2",
+          "target": "He dug in the sand.",
+          "translationTh": "เขาขุดทราย",
+          "readingTh": "ฮี ดัก อิน เดอะ แซนด์",
+          "readAloud": "He dug a deep hole in the wet, squelchy sand with his hands.",
+          "readAloudTh": "เขาใช้มือขุดหลุมลึกในทรายเปียกแฉะ",
+          "readAloudReadingTh": "ฮี ดัก อะ ดีพ โฮล อิน เดอะ เว็ท, สเควล-ชี่ แซนด์ วิธ ฮิส แฮนด์ส",
+          "image": "/images/s6-r-yellow-boots-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-yellow-boots-3",
+          "target": "He carried his bucket.",
+          "translationTh": "เขาถือถัง",
+          "readingTh": "ฮี แคร์-รี่ด ฮิส บัค-เค็ท",
+          "readAloud": "He carried his bucket down to the frothy water.",
+          "readAloudTh": "เขาถือถังลงไปที่น้ำทะเลที่มีฟอง",
+          "readAloudReadingTh": "ฮี แคร์-รี่ด ฮิส บัค-เค็ท ดาวน์ ทะ เดอะ ฟรอ-ธี่ ว้อ-เท่อร์",
+          "image": "/images/s6-r-yellow-boots-3.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-yellow-boots-4",
+          "target": "He filled it up.",
+          "translationTh": "เขาตักใส่จนเต็ม",
+          "readingTh": "ฮี ฟิลด์ อิท อัพ",
+          "readAloud": "Then he filled it with sand and water to make a wonky castle.",
+          "readAloudTh": "แล้วเขาก็ตักทรายกับน้ำใส่ถังเพื่อทำปราสาทเบี้ยว ๆ",
+          "readAloudReadingTh": "เด็น ฮี ฟิลด์ อิท วิธ แซนด์ แอน ว้อ-เท่อร์ ทะ เมค อะ วอง-กี้ แคส-เซิ่ล",
+          "image": "/images/s6-r-yellow-boots-4.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
       "id": "s6-u08-phonics",
       "stageId": 6,
       "category": "phonics",
@@ -75834,6 +77374,241 @@
           "image": "/images/s6-sw-write.webp",
           "register": "casual",
           "frequency": "very-common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u08-read-woodwork",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "The hammer and the saw",
+      "titleTh": "ค้อนกับเลื่อย",
+      "items": [
+        {
+          "id": "s6-r-woodwork-1",
+          "target": "They found a saw and a hammer.",
+          "translationTh": "พวกเขาเจอเลื่อยกับค้อน",
+          "readingTh": "เดย์ ฟาวด์ อะ ซอว์ แอน อะ แฮม-เมอร์",
+          "readAloud": "Jack and his little brother found a saw and a hammer in the garage.",
+          "readAloudTh": "แจ็คกับน้องชายเจอเลื่อยกับค้อนในโรงรถ",
+          "readAloudReadingTh": "แจ็ค แอน ฮิส ลิท-เทิ่ล บรา-เธ่อร์ ฟาวด์ อะ ซอว์ แอน อะ แฮม-เมอร์ อิน เดอะ กะ-ราจ",
+          "image": "/images/s6-r-woodwork-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-woodwork-2",
+          "target": "Jack cut the wood.",
+          "translationTh": "แจ็คตัดไม้",
+          "readingTh": "แจ็ค คัท เดอะ วู้ด",
+          "readAloud": "Jack sawed the plank carefully, and his brother held up the hammer.",
+          "readAloudTh": "แจ็คเลื่อยแผ่นไม้อย่างระวัง ส่วนน้องชายชูค้อนขึ้น",
+          "readAloudReadingTh": "แจ็ค ซอด เดอะ แพลงค์ แคร์-ฟู-ลี่, แอน ฮิส บรา-เธ่อร์ เฮลด์ อัพ เดอะ แฮม-เมอร์",
+          "image": "/images/s6-r-woodwork-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-woodwork-3",
+          "target": "They worked together.",
+          "translationTh": "พวกเขาทำงานด้วยกัน",
+          "readingTh": "เดย์ เวิร์คท์ ทะ-เก็ธ-เธ่อร์",
+          "readAloud": "They worked hard together to build a birdhouse.",
+          "readAloudTh": "พวกเขาช่วยกันทำงานหนักเพื่อสร้างบ้านนก",
+          "readAloudReadingTh": "เดย์ เวิร์คท์ ฮาร์ด ทะ-เก็ธ-เธ่อร์ ทะ บิลด์ อะ เบิร์ด-เฮาส์",
+          "image": "/images/s6-r-woodwork-3.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-woodwork-4",
+          "target": "At last, it was done!",
+          "translationTh": "ในที่สุดก็เสร็จ!",
+          "readingTh": "แอท ลาสท์, อิท วอส ดัน",
+          "readAloud": "At last, it was done! They grinned from ear to ear.",
+          "readAloudTh": "ในที่สุดก็เสร็จ! ทั้งคู่ยิ้มแก้มปริ",
+          "readAloudReadingTh": "แอท ลาสท์, อิท วอส ดัน, เดย์ กรินด์ ฟรอม เอียร์ ทะ เอียร์",
+          "image": "/images/s6-r-woodwork-4.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u08-read-clay-friends",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "Clay monsters",
+      "titleTh": "สัตว์ประหลาดดินน้ำมัน",
+      "items": [
+        {
+          "id": "s6-r-clay-friends-1",
+          "target": "Two friends made monsters.",
+          "translationTh": "เพื่อนสองคนทำสัตว์ประหลาด",
+          "readingTh": "ทู เฟรนด์ส เมด มอน-สเตอร์ส",
+          "readAloud": "Two friends made kooky little monsters out of soft clay.",
+          "readAloudTh": "เพื่อนสองคนปั้นสัตว์ประหลาดตัวเล็กแปลก ๆ จากดินน้ำมันนุ่ม ๆ",
+          "readAloudReadingTh": "ทู เฟรนด์ส เมด คู-กี้ ลิท-เทิ่ล มอน-สเตอร์ส เอาท์ ออฟ ซอฟท์ เคลย์",
+          "image": "/images/s6-r-clay-friends-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-clay-friends-2",
+          "target": "They rolled the clay.",
+          "translationTh": "พวกเขาคลึงดินน้ำมัน",
+          "readingTh": "เดย์ โรลด์ เดอะ เคลย์",
+          "readAloud": "They rolled, squeezed, and pressed the clay into shapes.",
+          "readAloudTh": "พวกเขาคลึง บีบ และกดดินน้ำมันเป็นรูปต่าง ๆ",
+          "readAloudReadingTh": "เดย์ โรลด์, สควีซด์, แอน เพรสท์ เดอะ เคลย์ อิน-ทู เชปส์",
+          "image": "/images/s6-r-clay-friends-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-clay-friends-3",
+          "target": "They drew in the air.",
+          "translationTh": "พวกเขาวาดกลางอากาศ",
+          "readingTh": "เดย์ ดรู อิน เดอะ แอร์",
+          "readAloud": "Then they pretended to draw in the air with an invisible magic pen.",
+          "readAloudTh": "แล้วก็ทำเป็นวาดรูปกลางอากาศด้วยปากกาวิเศษล่องหน",
+          "readAloudReadingTh": "เด็น เดย์ พรี-เทน-ดิด ทะ ดรอว์ อิน เดอะ แอร์ วิธ แอน อิน-วิ-ซิ-เบิ้ล แมจ-จิค เพ็น",
+          "image": "/images/s6-r-clay-friends-3.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-clay-friends-4",
+          "target": "Look! A spooky tree!",
+          "translationTh": "ดูสิ! ต้นไม้น่ากลัว!",
+          "readingTh": "ลุค, อะ สปู-กี้ ทรี",
+          "readAloud": "Look! They made a wacky, spooky tree with a tall black hat. How strange!",
+          "readAloudTh": "ดูสิ! พวกเขาทำต้นไม้หน้าตาพิลึกน่ากลัวใส่หมวกดำทรงสูง แปลกจัง!",
+          "readAloudReadingTh": "ลุค, เดย์ เมด อะ แวค-กี้, สปู-กี้ ทรี วิธ อะ ทอล แบล็ค แฮท, ฮาว สเตรนจ์",
+          "image": "/images/s6-r-clay-friends-4.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u08-read-guitar-girl",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "Lucy and her guitar",
+      "titleTh": "ลูซี่กับกีตาร์",
+      "items": [
+        {
+          "id": "s6-r-guitar-girl-1",
+          "target": "Lucy took her guitar.",
+          "translationTh": "ลูซี่ถือกีตาร์ไป",
+          "readingTh": "ลู-ซี่ ทุค เฮอร์ กิ-ตาร์",
+          "readAloud": "Lucy took her guitar outside on a warm, golden afternoon.",
+          "readAloudTh": "ลูซี่ถือกีตาร์ออกไปข้างนอกในบ่ายวันที่อากาศอุ่นและแดดสีทอง",
+          "readAloudReadingTh": "ลู-ซี่ ทุค เฮอร์ กิ-ตาร์ เอ้าท์-ไซด์ ออน อะ วอร์ม, โกล-เด้น อาฟ-เตอร์-นูน",
+          "image": "/images/s6-r-guitar-girl-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-guitar-girl-2",
+          "target": "She played a song.",
+          "translationTh": "เธอเล่นเพลง",
+          "readingTh": "ชี เพลย์ด อะ ซอง",
+          "readAloud": "She sat on the fence and played a sweet, merry song.",
+          "readAloudTh": "เธอนั่งบนรั้วแล้วเล่นเพลงไพเราะสนุกสนาน",
+          "readAloudReadingTh": "ชี แซท ออน เดอะ เฟนซ์ แอน เพลย์ด อะ สวีท, เมอ-รี่ ซอง",
+          "image": "/images/s6-r-guitar-girl-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-guitar-girl-3",
+          "target": "She sat on the grass and sang.",
+          "translationTh": "เธอนั่งบนหญ้าแล้วร้องเพลง",
+          "readingTh": "ชี แซท ออน เดอะ กราส แอน แซง",
+          "readAloud": "Then she sat on the grass and hummed along.",
+          "readAloudTh": "แล้วเธอก็นั่งบนหญ้าและฮัมเพลงตาม",
+          "readAloudReadingTh": "เด็น ชี แซท ออน เดอะ กราส แอน ฮัมด์ อะ-ลอง",
+          "image": "/images/s6-r-guitar-girl-3.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-guitar-girl-4",
+          "target": "She lay in the sun.",
+          "translationTh": "เธอนอนกลางแดด",
+          "readingTh": "ชี เลย์ อิน เดอะ ซัน",
+          "readAloud": "At last, she lay down and basked in the sun.",
+          "readAloudTh": "สุดท้ายเธอก็นอนลงอาบแดดอุ่น ๆ",
+          "readAloudReadingTh": "แอท ลาสท์, ชี เลย์ ดาวน์ แอน บาสค์ท อิน เดอะ ซัน",
+          "image": "/images/s6-r-guitar-girl-4.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u08-read-twirl",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "Twirling in the garden",
+      "titleTh": "หมุนตัวในสวน",
+      "items": [
+        {
+          "id": "s6-r-twirl-1",
+          "target": "Grace had a pink tutu.",
+          "translationTh": "เกรซมีกระโปรงตูตูสีชมพู",
+          "readingTh": "เกรซ แฮด อะ พิงค์ ทู-ทู",
+          "readAloud": "Grace twirled and twirled in her pink tutu like a graceful ballerina.",
+          "readAloudTh": "เกรซหมุนตัวไปเรื่อย ๆ ในกระโปรงตูตูสีชมพูเหมือนนักบัลเล่ต์ที่สง่างาม",
+          "readAloudReadingTh": "เกรซ ทเวิร์ลด์ แอน ทเวิร์ลด์ อิน เฮอร์ พิงค์ ทู-ทู ไลค์ อะ เกรซ-ฟูล แบล-เลอ-รี-น่า",
+          "image": "/images/s6-r-twirl-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-twirl-2",
+          "target": "She walked with her sister.",
+          "translationTh": "เธอเดินกับน้องสาว",
+          "readingTh": "ชี วอล์คท์ วิธ เฮอร์ ซิส-เต้อร์",
+          "readAloud": "She walked with her little sister, hand in hand, under the tall, shady trees.",
+          "readAloudTh": "เธอเดินจูงมือกับน้องสาวใต้ต้นไม้สูงที่ร่มรื่น",
+          "readAloudReadingTh": "ชี วอล์คท์ วิธ เฮอร์ ลิท-เทิ่ล ซิส-เต้อร์, แฮนด์ อิน แฮนด์, อัน-เด้อร์ เดอะ ทอล, เช-ดี้ ทรีส์",
+          "image": "/images/s6-r-twirl-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-twirl-3",
+          "target": "She danced on the path.",
+          "translationTh": "เธอเต้นบนทางเดิน",
+          "readingTh": "ชี แดนซ์ท์ ออน เดอะ พาธ",
+          "readAloud": "Then she danced down the garden path, light as a fluttering feather.",
+          "readAloudTh": "แล้วเธอก็เต้นไปตามทางเดินในสวน เบาเหมือนขนนกที่ปลิวไหว",
+          "readAloudReadingTh": "เด็น ชี แดนซ์ท์ ดาวน์ เดอะ การ์-เดิ่น พาธ, ไลท์ แอส อะ ฟลัท-เทอ-ริ่ง เฟ-เธอร์",
+          "image": "/images/s6-r-twirl-3.webp",
+          "register": "neutral",
+          "frequency": "common",
           "acceptAlso": []
         }
       ]
@@ -76239,6 +78014,254 @@
           "image": "/images/s6-sw-hot.webp",
           "register": "neutral",
           "frequency": "very-common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u09-read-number-fifteen",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "Number fifteen",
+      "titleTh": "หมายเลขสิบห้า",
+      "items": [
+        {
+          "id": "s6-r-number-fifteen-1",
+          "target": "Max had a red shirt.",
+          "translationTh": "แม็กซ์มีเสื้อสีแดง",
+          "readingTh": "แม็กซ์ แฮด อะ เรด เชิร์ท",
+          "readAloud": "Max was seven years old and super speedy. He wore a red shirt with the number fifteen.",
+          "readAloudTh": "แม็กซ์อายุเจ็ดขวบและวิ่งเร็วมาก เขาใส่เสื้อสีแดงเบอร์สิบห้า",
+          "readAloudReadingTh": "แม็กซ์ วอส เซฟ-เว่น เยียร์ส โอลด์ แอน ซู-เปอร์ สปี-ดี้, ฮี วอร์ อะ เรด เชิร์ท วิธ เดอะ นัม-เบอร์ ฟิฟ-ทีน",
+          "image": "/images/s6-r-number-fifteen-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-number-fifteen-2",
+          "target": "He ran fast.",
+          "translationTh": "เขาวิ่งเร็ว",
+          "readingTh": "ฮี แรน ฟาสท์",
+          "readAloud": "He ran fast across the field, like a cheetah.",
+          "readAloudTh": "เขาวิ่งเร็วข้ามสนามเหมือนเสือชีตาห์",
+          "readAloudReadingTh": "ฮี แรน ฟาสท์ อะ-ครอส เดอะ ฟีลด์, ไลค์ อะ ชี-ต้า",
+          "image": "/images/s6-r-number-fifteen-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-number-fifteen-3",
+          "target": "He kicked the ball.",
+          "translationTh": "เขาเตะลูกบอล",
+          "readingTh": "ฮี คิคท์ เดอะ บอล",
+          "readAloud": "He kicked the ball really hard, and it flew toward the goal.",
+          "readAloudTh": "เขาเตะลูกบอลแรงมาก ลูกพุ่งไปทางประตู",
+          "readAloudReadingTh": "ฮี คิคท์ เดอะ บอล เรีย-ลี่ ฮาร์ด, แอน อิท ฟลู ทอร์ด เดอะ โกล",
+          "image": "/images/s6-r-number-fifteen-3.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-number-fifteen-4",
+          "target": "He played with his team.",
+          "translationTh": "เขาเล่นกับทีม",
+          "readingTh": "ฮี เพลย์ด วิธ ฮิส ทีม",
+          "readAloud": "Then he played with his team. Everyone cheered and whooped.",
+          "readAloudTh": "แล้วเขาก็เล่นกับทีม ทุกคนเชียร์และโห่ร้องดีใจ",
+          "readAloudReadingTh": "เด็น ฮี เพลย์ด วิธ ฮิส ทีม, เอฟ-วรี่-วัน เชียร์ด แอน วูพท์",
+          "image": "/images/s6-r-number-fifteen-4.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u09-read-skateboard",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "Nina's skateboard",
+      "titleTh": "สเกตบอร์ดของนีน่า",
+      "items": [
+        {
+          "id": "s6-r-skateboard-1",
+          "target": "Nina had a skateboard.",
+          "translationTh": "นีน่ามีสเกตบอร์ด",
+          "readingTh": "นี-น่า แฮด อะ สเกท-บอร์ด",
+          "readAloud": "Nina had a cool skateboard with bright green wheels.",
+          "readAloudTh": "นีน่ามีสเกตบอร์ดเท่ ๆ ล้อสีเขียวสด",
+          "readAloudReadingTh": "นี-น่า แฮด อะ คูล สเกท-บอร์ด วิธ ไบรท์ กรีน วีลส์",
+          "image": "/images/s6-r-skateboard-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-skateboard-2",
+          "target": "She sat down to rest.",
+          "translationTh": "เธอนั่งพัก",
+          "readingTh": "ชี แซท ดาวน์ ทะ เรสท์",
+          "readAloud": "She sat down next to her board to rest her achy legs.",
+          "readAloudTh": "เธอนั่งลงข้างบอร์ดเพื่อพักขาที่ปวดเมื่อย",
+          "readAloudReadingTh": "ชี แซท ดาวน์ เน็กซ์ ทะ เฮอร์ บอร์ด ทะ เรสท์ เฮอร์ เอ-คี่ เล็กส์",
+          "image": "/images/s6-r-skateboard-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-skateboard-3",
+          "target": "She rolled on the board.",
+          "translationTh": "เธอไถบอร์ด",
+          "readingTh": "ชี โรลด์ ออน เดอะ บอร์ด",
+          "readAloud": "Then she sat on the board and rolled slowly along the curvy path.",
+          "readAloudTh": "แล้วเธอก็นั่งบนบอร์ดแล้วไถไปช้า ๆ ตามทางเดินที่คดเคี้ยว",
+          "readAloudReadingTh": "เด็น ชี แซท ออน เดอะ บอร์ด แอน โรลด์ สโลว์-ลี่ อะ-ลอง เดอะ เคิร์-วี่ พาธ",
+          "image": "/images/s6-r-skateboard-3.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-skateboard-4",
+          "target": "She held it up high.",
+          "translationTh": "เธอชูมันขึ้นสูง",
+          "readingTh": "ชี เฮลด์ อิท อัพ ไฮ",
+          "readAloud": "She held it up high and smiled proudly. \"I did it!\"",
+          "readAloudTh": "เธอชูบอร์ดขึ้นสูงแล้วยิ้มอย่างภูมิใจ \"หนูทำได้!\"",
+          "readAloudReadingTh": "ชี เฮลด์ อิท อัพ ไฮ แอน สไมล์ด์ พราวด์-ลี่, ไอ ดิด อิท",
+          "image": "/images/s6-r-skateboard-4.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u09-read-forest-sisters",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "A walk in the woods",
+      "titleTh": "เดินเล่นในป่า",
+      "items": [
+        {
+          "id": "s6-r-forest-sisters-1",
+          "target": "Two sisters went for a walk.",
+          "translationTh": "พี่น้องสองคนไปเดินเล่น",
+          "readingTh": "ทู ซิส-เตอร์ส เว็นท์ ฟอร์ อะ ว้อค",
+          "readAloud": "Two sisters went for a long walk in the misty woods near their house.",
+          "readAloudTh": "พี่น้องสองคนไปเดินเล่นไกล ๆ ในป่าที่มีหมอกใกล้บ้าน",
+          "readAloudReadingTh": "ทู ซิส-เตอร์ส เว็นท์ ฟอร์ อะ ลอง ว้อค อิน เดอะ มิส-ตี้ วู้ดส์ เนียร์ แดร์ เฮาส์",
+          "image": "/images/s6-r-forest-sisters-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-forest-sisters-2",
+          "target": "Eva found a stick.",
+          "translationTh": "อีว่าเจอไม้",
+          "readingTh": "อี-ว่า ฟาวด์ อะ สติ๊ก",
+          "readAloud": "Eva found a long, crooked stick under an old tree.",
+          "readAloudTh": "อีว่าเจอไม้ยาว ๆ คดงอใต้ต้นไม้เก่า",
+          "readAloudReadingTh": "อี-ว่า ฟาวด์ อะ ลอง, ครุค-คิด สติ๊ก อัน-เด้อร์ แอน โอลด์ ทรี",
+          "image": "/images/s6-r-forest-sisters-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-forest-sisters-3",
+          "target": "They had a big hug.",
+          "translationTh": "ทั้งคู่กอดกันแน่น ๆ",
+          "readingTh": "เดย์ แฮด อะ บิ๊ก ฮัก",
+          "readAloud": "They gave each other a big, loving hug.",
+          "readAloudTh": "ทั้งคู่กอดกันแน่น ๆ อย่างรักใคร่",
+          "readAloudReadingTh": "เดย์ เกฟว์ อีช อัท-เธอร์ อะ บิ๊ก, ลัฟ-วิ่ง ฮัก",
+          "image": "/images/s6-r-forest-sisters-3.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-forest-sisters-4",
+          "target": "They walked together.",
+          "translationTh": "ทั้งคู่เดินด้วยกัน",
+          "readingTh": "เดย์ วอล์คท์ ทะ-เก็ธ-เธ่อร์",
+          "readAloud": "Then they walked down the path together, side by side, chatting happily.",
+          "readAloudTh": "แล้วทั้งคู่ก็เดินไปตามทางด้วยกัน เคียงข้างกัน คุยกันอย่างมีความสุข",
+          "readAloudReadingTh": "เด็น เดย์ วอล์คท์ ดาวน์ เดอะ พาธ ทะ-เก็ธ-เธ่อร์, ไซด์ บาย ไซด์, แช-ทิ่ง แฮพ-พิ-ลี่",
+          "image": "/images/s6-r-forest-sisters-4.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u09-read-bubbles",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "Bubbles in the garden",
+      "titleTh": "ฟองสบู่ในสวน",
+      "items": [
+        {
+          "id": "s6-r-bubbles-1",
+          "target": "Rose sat in the garden.",
+          "translationTh": "โรสนั่งในสวน",
+          "readingTh": "โรส แซท อิน เดอะ การ์-เดิ่น",
+          "readAloud": "Baby Rose sat in the sunny garden in her pretty, ruffled dress.",
+          "readAloudTh": "หนูน้อยโรสนั่งในสวนที่แดดส่องในชุดกระโปรงระบายสวย ๆ",
+          "readAloudReadingTh": "เบ-บี้ โรส แซท อิน เดอะ ซัน-นี่ การ์-เดิ่น อิน เฮอร์ พริท-ตี้, รัฟ-เฟิลด์ เดรส",
+          "image": "/images/s6-r-bubbles-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-bubbles-2",
+          "target": "Big bubbles floated by.",
+          "translationTh": "ฟองสบู่ใหญ่ ๆ ลอยผ่าน",
+          "readingTh": "บิ๊ก บับ-เบิ้ลส์ โฟล-ทิด บาย",
+          "readAloud": "Big, shimmering bubbles floated all around her like magic balls.",
+          "readAloudTh": "ฟองสบู่ใหญ่ ๆ ระยิบระยับลอยรอบตัวเหมือนลูกบอลวิเศษ",
+          "readAloudReadingTh": "บิ๊ก, ชิม-เมอ-ริ่ง บับ-เบิ้ลส์ โฟล-ทิด ออล อะ-ราวนด์ เฮอร์ ไลค์ แมจ-จิค บอลส์",
+          "image": "/images/s6-r-bubbles-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-bubbles-3",
+          "target": "She tried to catch them.",
+          "translationTh": "เธอพยายามจับ",
+          "readingTh": "ชี ไทรด์ ทะ แค็ทช์ เดม",
+          "readAloud": "She reached out her little hands to catch them. Pop! They burst!",
+          "readAloudTh": "เธอยื่นมือน้อย ๆ ไปจับ ป๊อก! ฟองแตกเลย!",
+          "readAloudReadingTh": "ชี รีชท์ เอาท์ เฮอร์ ลิท-เทิ่ล แฮนด์ส ทะ แค็ทช์ เดม, ป๊อป, เดย์ เบิร์สท์",
+          "image": "/images/s6-r-bubbles-3.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-bubbles-4",
+          "target": "She said hi to the dog.",
+          "translationTh": "เธอทักทายหมา",
+          "readingTh": "ชี เซด ไฮ ทะ เดอะ ด็อก",
+          "readAloud": "Then she crawled over to say hi to the dog.",
+          "readAloudTh": "แล้วเธอก็คลานไปทักทายหมา",
+          "readAloudReadingTh": "เด็น ชี ครอลด์ โอ-เวอร์ ทะ เซย์ ไฮ ทะ เดอะ ด็อก",
+          "image": "/images/s6-r-bubbles-4.webp",
+          "register": "neutral",
+          "frequency": "common",
           "acceptAlso": []
         }
       ]
@@ -76677,6 +78700,376 @@
           "readingTh": "โน, อิทส์ วอร์ม",
           "image": "/images/s6-sw-warm.webp",
           "register": "neutral",
+          "frequency": "very-common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u10-read-calling-grandma",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "Calling Grandma",
+      "titleTh": "โทรหาคุณยาย",
+      "items": [
+        {
+          "id": "s6-r-calling-grandma-1",
+          "target": "Priya called Grandma.",
+          "translationTh": "ปรียาโทรหาคุณยาย",
+          "readingTh": "พรี-ย่า คอลด์ แกรนด์-มา",
+          "readAloud": "Grandma and Grandpa live far away, so Priya had a video call with them.",
+          "readAloudTh": "คุณยายกับคุณตาอยู่ไกล ปรียาเลยวิดีโอคอลหา",
+          "readAloudReadingTh": "แกรนด์-มา แอน แกรนด์-ป้า ลิฟว์ ฟาร์ อะ-เวย์, โซ พรี-ย่า แฮด อะ วิ-ดี-โอ คอล วิธ เดม",
+          "image": "/images/s6-r-calling-grandma-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-calling-grandma-2",
+          "target": "Priya laughed.",
+          "translationTh": "ปรียาหัวเราะ",
+          "readingTh": "พรี-ย่า ลาฟท์",
+          "readAloud": "Grandma told a silly joke, and Priya chuckled.",
+          "readAloudTh": "คุณยายเล่ามุกตลก ปรียาหัวเราะคิก ๆ",
+          "readAloudReadingTh": "แกรนด์-มา โทลด์ อะ ซิล-ลี่ โจ๊ค, แอน พรี-ย่า ชัค-เคิลด์",
+          "image": "/images/s6-r-calling-grandma-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-calling-grandma-3",
+          "target": "Her brother said hi too.",
+          "translationTh": "น้องชายทักทายด้วย",
+          "readingTh": "เฮอร์ บรา-เธ่อร์ เซด ไฮ ทู",
+          "readAloud": "Her little brother peeked in to say hi too.",
+          "readAloudTh": "น้องชายชะโงกหน้าเข้ามาทักทายด้วย",
+          "readAloudReadingTh": "เฮอร์ ลิท-เทิ่ล บรา-เธ่อร์ พีคท์ อิน ทะ เซย์ ไฮ ทู",
+          "image": "/images/s6-r-calling-grandma-3.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-calling-grandma-4",
+          "target": "Bye-bye, Grandma!",
+          "translationTh": "บ๊ายบายค่ะคุณยาย!",
+          "readingTh": "บาย-บาย, แกรนด์-มา",
+          "readAloud": "Priya waved and blew a big smooch. \"Bye-bye, Grandma! See you soon!\"",
+          "readAloudTh": "ปรียาโบกมือแล้วส่งจุ๊บใหญ่ ๆ \"บ๊ายบายค่ะคุณยาย! แล้วเจอกันนะ!\"",
+          "readAloudReadingTh": "พรี-ย่า เวฟด์ แอน บลู อะ บิ๊ก สมูช, บาย-บาย, แกรนด์-มา, ซี ยู ซูน",
+          "image": "/images/s6-r-calling-grandma-4.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u10-read-cousins",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "Cousins come to visit",
+      "titleTh": "ลูกพี่ลูกน้องมาเยี่ยม",
+      "items": [
+        {
+          "id": "s6-r-cousins-1",
+          "target": "Leo looked at his book.",
+          "translationTh": "ลีโอดูหนังสือ",
+          "readingTh": "ลี-โอ ลุคท์ แอท ฮิส บุ๊ก",
+          "readAloud": "Baby Leo was looking at his picture book on the plush rug.",
+          "readAloudTh": "หนูน้อยลีโอกำลังดูสมุดภาพบนพรมนุ่มฟู",
+          "readAloudReadingTh": "เบ-บี้ ลี-โอ วอส ลุค-กิ้ง แอท ฮิส พิค-เช่อร์ บุ๊ก ออน เดอะ พลัช รัก",
+          "image": "/images/s6-r-cousins-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-cousins-2",
+          "target": "Mia came to read with him.",
+          "translationTh": "มีอามาอ่านกับเขา",
+          "readingTh": "มี-อา เคม ทะ รีด วิธ ฮิม",
+          "readAloud": "His cousin Mia came to visit. \"Shall we read together?\" she asked.",
+          "readAloudTh": "มีอาลูกพี่ลูกน้องมาเยี่ยม \"อ่านด้วยกันไหม?\" เธอถาม",
+          "readAloudReadingTh": "ฮิส คัซ-ซิน มี-อา เคม ทะ วิซ-ซิท, แชล วี รีด ทะ-เก็ธ-เธ่อร์ ชี อาสค์ท",
+          "image": "/images/s6-r-cousins-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-cousins-3",
+          "target": "Aunt Kate read a story.",
+          "translationTh": "ป้าเคทอ่านนิทาน",
+          "readingTh": "อานท์ เคท รีด อะ สตอ-รี่",
+          "readAloud": "Aunt Kate read a story to Mia in a funny, croaky voice.",
+          "readAloudTh": "ป้าเคทอ่านนิทานให้มีอาฟังด้วยเสียงแหบ ๆ ตลก ๆ",
+          "readAloudReadingTh": "อานท์ เคท รีด อะ สตอ-รี่ ทะ มี-อา อิน อะ ฟัน-นี่, โคร-กี้ วอยซ์",
+          "image": "/images/s6-r-cousins-3.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-cousins-4",
+          "target": "Uncle Tom read one too.",
+          "translationTh": "ลุงทอมก็อ่านด้วย",
+          "readingTh": "อัง-เคิ่ล ทอม รีด วัน ทู",
+          "readAloud": "Then Uncle Tom read one too. It was the coziest day ever!",
+          "readAloudTh": "แล้วลุงทอมก็อ่านอีกเรื่อง เป็นวันที่อบอุ่นที่สุดเลย!",
+          "readAloudReadingTh": "เด็น อัง-เคิ่ล ทอม รีด วัน ทู, อิท วอส เดอะ โค-ซี่-เอสท์ เดย์ เอฟ-เวอร์",
+          "image": "/images/s6-r-cousins-4.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u10-read-library",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "Hanna at the library",
+      "titleTh": "ฮันนาที่ห้องสมุด",
+      "items": [
+        {
+          "id": "s6-r-library-1",
+          "target": "Hanna went to the library.",
+          "translationTh": "ฮันนาไปห้องสมุด",
+          "readingTh": "ฮัน-น่า เว็นท์ ทะ เดอะ ไล-บรา-รี่",
+          "readAloud": "Hanna went to the library. It was enormous! There were so many books, she could not count them all!",
+          "readAloudTh": "ฮันนาไปห้องสมุด ใหญ่โตมาก! มีหนังสือเยอะจนนับไม่หมด!",
+          "readAloudReadingTh": "ฮัน-น่า เว็นท์ ทะ เดอะ ไล-บรา-รี่, อิท วอส อิ-นอร์-มัส, แดร์ เวอร์ โซ เม-นี่ บุ๊คส์, ชี คูด น็อท เคานท์ เดม ออล",
+          "image": "/images/s6-r-library-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-library-2",
+          "target": "She took a big book.",
+          "translationTh": "เธอหยิบหนังสือเล่มใหญ่",
+          "readingTh": "ชี ทุค อะ บิ๊ก บุ๊ก",
+          "readAloud": "She took a big, heavy book about dinosaurs off the shelf.",
+          "readAloudTh": "เธอหยิบหนังสือเล่มใหญ่หนัก ๆ เกี่ยวกับไดโนเสาร์ลงมาจากชั้น",
+          "readAloudReadingTh": "ชี ทุค อะ บิ๊ก, เฮฟ-วี่ บุ๊ก อะ-เบาท์ ได-โน-ซอร์ส ออฟ เดอะ เชลฟ์",
+          "image": "/images/s6-r-library-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-library-3",
+          "target": "She sat down to read.",
+          "translationTh": "เธอนั่งลงอ่าน",
+          "readingTh": "ชี แซท ดาวน์ ทะ รีด",
+          "readAloud": "She sat down at a round table near the window to read in peace.",
+          "readAloudTh": "เธอนั่งลงที่โต๊ะกลมใกล้หน้าต่างเพื่ออ่านอย่างสงบ",
+          "readAloudReadingTh": "ชี แซท ดาวน์ แอท อะ ราวนด์ เท-เบิ้ล เนียร์ เดอะ วิน-โดว์ ทะ รีด อิน พีซ",
+          "image": "/images/s6-r-library-3.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-library-4",
+          "target": "She read and read!",
+          "translationTh": "เธออ่านไปเรื่อย ๆ!",
+          "readingTh": "ชี รีด แอน รีด",
+          "readAloud": "It was so quiet. She read and read until closing time.",
+          "readAloudTh": "เงียบมาก เธออ่านไปเรื่อย ๆ จนห้องสมุดปิด",
+          "readAloudReadingTh": "อิท วอส โซ ไคว-เอ็ท, ชี รีด แอน รีด อัน-ทิล โคล-ซิ่ง ไทม์",
+          "image": "/images/s6-r-library-4.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u10-read-bus-ride",
+      "stageId": 6,
+      "category": "reading",
+      "type": "reading",
+      "title": "A bus ride",
+      "titleTh": "นั่งรถบัส",
+      "items": [
+        {
+          "id": "s6-r-bus-ride-1",
+          "target": "Mila and her brother rode the bus.",
+          "translationTh": "มิลากับน้องชายนั่งรถบัส",
+          "readingTh": "มี-ล่า แอน เฮอร์ บรา-เธ่อร์ โรด เดอะ บัส",
+          "readAloud": "Mila and her brother rode the big, rumbly city bus into town.",
+          "readAloudTh": "มิลากับน้องชายนั่งรถบัสคันใหญ่เสียงครืดคราดเข้าไปในเมือง",
+          "readAloudReadingTh": "มี-ล่า แอน เฮอร์ บรา-เธ่อร์ โรด เดอะ บิ๊ก, รัม-บลี่ ซิ-ตี้ บัส อิน-ทู ทาวน์",
+          "image": "/images/s6-r-bus-ride-1.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-bus-ride-2",
+          "target": "Mila told him a secret.",
+          "translationTh": "มิลาบอกความลับเขา",
+          "readingTh": "มี-ล่า โทลด์ ฮิม อะ ซี-เคร็ท",
+          "readAloud": "Mila whispered a secret in her brother's ear. He giggled and blushed.",
+          "readAloudTh": "มิลากระซิบความลับข้างหูน้องชาย เขาหัวเราะคิกคักหน้าแดง",
+          "readAloudReadingTh": "มี-ล่า วิส-เพอร์ด อะ ซี-เคร็ท อิน เฮอร์ บรา-เธอร์ส เอียร์, ฮี กิก-เกิลด์ แอน บลัชท์",
+          "image": "/images/s6-r-bus-ride-2.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-bus-ride-3",
+          "target": "She gave him her toy.",
+          "translationTh": "เธอให้ของเล่นเขา",
+          "readingTh": "ชี เกฟว์ ฮิม เฮอร์ ทอย",
+          "readAloud": "Mila gave her floppy, fluffy toy to her brother to hold.",
+          "readAloudTh": "มิลาส่งตุ๊กตาขนปุยตัวนิ่มให้น้องชายถือ",
+          "readAloudReadingTh": "มี-ล่า เกฟว์ เฮอร์ ฟล็อป-ปี้, ฟลัฟ-ฟี่ ทอย ทะ เฮอร์ บรา-เธ่อร์ ทะ โฮลด์",
+          "image": "/images/s6-r-bus-ride-3.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-r-bus-ride-4",
+          "target": "They sat close together.",
+          "translationTh": "ทั้งคู่นั่งชิดกัน",
+          "readingTh": "เดย์ แซท โคลส ทะ-เก็ธ-เธ่อร์",
+          "readAloud": "They huddled close together and watched the town whiz by.",
+          "readAloudTh": "ทั้งคู่นั่งเบียดชิดกันแล้วดูเมืองวิ่งผ่านไปเร็ว ๆ",
+          "readAloudReadingTh": "เดย์ ฮัด-เดิลด์ โคลส ทะ-เก็ธ-เธ่อร์ แอน ว็อชท์ เดอะ ทาวน์ วิซ บาย",
+          "image": "/images/s6-r-bus-ride-4.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        }
+      ]
+    },
+    {
+      "id": "s6-u10-sight-late",
+      "stageId": 6,
+      "category": "sight-words",
+      "type": "sightWords",
+      "title": "Sight words: could, live, been",
+      "titleTh": "คำที่ต้องจำ ชุดที่ 36",
+      "items": [
+        {
+          "id": "s6-sw-could",
+          "word": "could",
+          "pairWith": "cold",
+          "meaningTh": "ทำได้ (อดีตของ can)",
+          "wordReadingTh": "คูด",
+          "target": "He could not wait!",
+          "translationTh": "เขารอไม่ไหวแล้ว!",
+          "readingTh": "ฮี คูด น็อท เวท",
+          "image": "/images/s6-sw-could.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-sw-live",
+          "word": "live",
+          "pairWith": "like",
+          "meaningTh": "อาศัยอยู่",
+          "wordReadingTh": "ลิฟว์",
+          "target": "They live far away.",
+          "translationTh": "พวกเขาอยู่ไกล",
+          "readingTh": "เดย์ ลิฟว์ ฟาร์ อะ-เวย์",
+          "image": "/images/s6-sw-live.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-sw-been",
+          "word": "been",
+          "pairWith": "bee",
+          "meaningTh": "เป็น/อยู่ (ใช้กับ have/has/had)",
+          "wordReadingTh": "บีน",
+          "target": "Lily had been sick.",
+          "translationTh": "ลิลลี่ไม่สบายมาสักพักแล้ว",
+          "readingTh": "ลิล-ลี่ แฮด บีน ซิค",
+          "image": "/images/s6-sw-been.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-sw-their",
+          "word": "their",
+          "pairWith": "there",
+          "meaningTh": "ของพวกเขา",
+          "wordReadingTh": "แดร์",
+          "target": "They put on their boots.",
+          "translationTh": "พวกเขาใส่รองเท้าบูตของตัวเอง",
+          "readingTh": "เดย์ พุท ออน แดร์ บูทส์",
+          "image": "/images/s6-sw-their.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-sw-kind",
+          "word": "kind",
+          "pairWith": "find",
+          "meaningTh": "ใจดี",
+          "wordReadingTh": "ไคนด์",
+          "target": "That was so kind!",
+          "translationTh": "ใจดีจังเลย!",
+          "readingTh": "แดท วอส โซ ไคนด์",
+          "image": "/images/s6-sw-kind.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-sw-six",
+          "word": "six",
+          "pairWith": "sit",
+          "meaningTh": "หก",
+          "wordReadingTh": "ซิกซ์",
+          "target": "Kai is six today!",
+          "translationTh": "วันนี้ไคอายุหกขวบ!",
+          "readingTh": "ไค อิส ซิกซ์ ทะ-เดย์",
+          "image": "/images/s6-sw-six.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-sw-seven",
+          "word": "seven",
+          "pairWith": "even",
+          "meaningTh": "เจ็ด",
+          "wordReadingTh": "เซฟ-เว่น",
+          "target": "Max is seven.",
+          "translationTh": "แม็กซ์อายุเจ็ดขวบ",
+          "readingTh": "แม็กซ์ อิส เซฟ-เว่น",
+          "image": "/images/s6-sw-seven.webp",
+          "register": "casual",
+          "frequency": "very-common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s6-sw-shall",
+          "word": "shall",
+          "pairWith": "small",
+          "meaningTh": "จะ…กันไหม (ชวน เช่น Shall we…?)",
+          "wordReadingTh": "แชล",
+          "target": "Shall we read?",
+          "translationTh": "อ่านด้วยกันไหม?",
+          "readingTh": "แชล วี รีด",
+          "image": "/images/s6-sw-shall.webp",
+          "register": "casual",
           "frequency": "very-common",
           "acceptAlso": []
         }

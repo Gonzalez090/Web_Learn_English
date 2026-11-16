@@ -15,7 +15,7 @@
 import { useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { buildLessonSteps, GAME_ROUND_XP, LESSON_FLOWS, READ_VARIANTS, XP } from '../../utils/lessonSteps'
-import { prepareLessonItems } from '../../utils/lessonItems'
+import { prepareLessonItems, readAloudItems } from '../../utils/lessonItems'
 import { useProgressStore } from '../../store/progressStore'
 import { useReviewStore } from '../../store/reviewStore'
 import LookListenStep from './LookListenStep'
@@ -176,7 +176,14 @@ export default function LessonPlayer({ lesson, stage, onlyItemIds }) {
 
       {/* ---------- เรื่องเล่าจากภาพ ---------- */}
       {step.kind === 'listenStory' && (
-        <ListenStoryStep items={allItems} stage={stage} {...wholeReveal} onDone={listenedWhole} />
+        // นิทาน Stage 6: ฟังฉบับ "พ่อแม่อ่านให้ฟัง" ก่อน แล้วค่อยอ่านฉบับง่ายเอง
+        <ListenStoryStep
+          items={lesson.type === 'reading' ? readAloudItems(allItems) : allItems}
+          stage={stage}
+          instructionKey={lesson.type === 'reading' ? 'read.listenFirst' : undefined}
+          {...wholeReveal}
+          onDone={listenedWhole}
+        />
       )}
       {step.kind === 'tellStory' && (
         <TellStoryStep

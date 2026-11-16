@@ -352,13 +352,24 @@ describe('Stage 6 อ่าน', () => {
     }
   })
 
-  it('ทุกคำที่ให้อ่าน + คำคู่ในเกม ได้ยินแล้วใน Stage 1–5', () => {
-    const problems = stage6
-      .flatMap((lesson) => lesson.items)
-      .flatMap((item) => [item.word, item.target, item.pairWith].filter(Boolean).map((text) => [item.id, text]))
-      .filter(([, text]) => unheard(text).length > 0)
-      .map(([id, text]) => `${id}: ${unheard(text).join(', ')}`)
+  // ไล่ตามลำดับบทจริง: คำที่ได้ยินจากส่วน "พ่อแม่อ่านให้ฟัง" ของนิทาน นับว่าได้ยินแล้วสำหรับบทหลังจากนั้น
+  it('ทุกคำที่ให้อ่าน + คำคู่ในเกม ได้ยินมาก่อน (Stage 1–5 หรือนิทานที่พ่อแม่อ่านให้ฟังก่อนหน้า)', () => {
+    const heard = new Set(heardBefore)
+    const problems = []
+    for (const item of stage6.flatMap((lesson) => lesson.items)) {
+      for (const word of wordsOf(item.readAloud ?? '')) heard.add(word)
+      for (const text of [item.word, item.target, item.pairWith].filter(Boolean)) {
+        const unknown = wordsOf(text).filter((word) => !heard.has(word))
+        if (unknown.length) problems.push(`${item.id}: ${unknown.join(', ')}`)
+      }
+    }
     expect(problems).toEqual([])
+  })
+
+  it('sight words ครบ 220 คำของ Dolch ไม่ซ้ำกัน', () => {
+    const words = stage6.filter((lesson) => lesson.type === 'sightWords').flatMap((lesson) => lesson.items.map((item) => item.word))
+    expect(new Set(words).size).toBe(words.length)
+    expect(words.length).toBeGreaterThanOrEqual(220)
   })
 
   it('ทุกข้อมีคำตอบที่ยอมรับเพิ่ม (acceptAlso) และคำคู่ในเกมไม่ซ้ำกับคำของข้อ', () => {
@@ -391,11 +402,16 @@ describe('Stage 6 อ่าน', () => {
     }
   })
 
-  it('อ่านนิทาน: เรื่องละ 3–6 หน้า ทุกหน้ามีภาพของตัวเอง', () => {
-    for (const lesson of stage6.filter((entry) => entry.type === 'reading')) {
+  it('อ่านนิทาน: 40 เรื่อง เรื่องละ 3–6 หน้า ทุกหน้ามีภาพของตัวเอง + ฉบับพ่อแม่อ่านให้ฟังพร้อมคำแปล', () => {
+    const readers = stage6.filter((entry) => entry.type === 'reading')
+    expect(readers.length).toBeGreaterThanOrEqual(40)
+    for (const lesson of readers) {
       expect(lesson.items.length, lesson.id).toBeGreaterThanOrEqual(3)
       expect(lesson.items.length, lesson.id).toBeLessThanOrEqual(6)
       expect(new Set(lesson.items.map((item) => item.image)).size, lesson.id).toBe(lesson.items.length)
+      for (const item of lesson.items) {
+        expect(item.readAloud && item.readAloudTh && item.readAloudReadingTh, item.id).toBeTruthy()
+      }
     }
   })
 

@@ -87,6 +87,24 @@ export function prepareLessonItems(lesson) {
   })
 }
 
+/**
+ * นิทาน Stage 6: หน้าแบบ "พ่อแม่อ่านให้ฟัง" (readAloud) ใช้กับขั้นฟังทั้งเรื่อง — ขั้นอ่านเองใช้ target เดิม
+ * หน้าที่ไม่มี readAloud คืนตามเดิม
+ */
+export const readAloudItems = (items) =>
+  (items ?? []).map((item) =>
+    item.readAloud
+      ? {
+          ...item,
+          target: item.readAloud,
+          translationTh: item.readAloudTh,
+          readingTh: item.readAloudReadingTh,
+          stressWords: undefined,
+          intonation: undefined,
+        }
+      : item,
+  )
+
 // ผู้พูดของบรรทัด (บทสนทนา) → { id, name, nameTh } หรือ null
 export const speakerOf = (lesson, item) => lesson?.speakers?.find((speaker) => speaker.id === item?.speaker) ?? null
 
