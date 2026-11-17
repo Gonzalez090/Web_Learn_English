@@ -28,6 +28,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const LESSONS_FILE = path.join(ROOT, 'src', 'data', 'lessons.json')
 const PHONICS_FILE = path.join(ROOT, 'src', 'data', 'phonics.json')
 const GAME_FILE = path.join(ROOT, 'src', 'data', 'game.json')
+const PHRASES_FILE = path.join(ROOT, 'src', 'data', 'phrases.json')
 const MANIFEST_FILE = path.join(ROOT, 'src', 'data', 'audioManifest.json')
 const AUDIO_DIR = path.join(ROOT, 'public', 'audio')
 
@@ -68,7 +69,8 @@ const readJson = async (file) => JSON.parse(await fs.readFile(file, 'utf8'))
 const { lessons } = await readJson(LESSONS_FILE)
 const { sounds: phonicsSounds } = await readJson(PHONICS_FILE)
 const { soundPractice } = await readJson(GAME_FILE)
-const texts = collectSpeechTexts({ lessons, soundPractice, phonicsSounds })
+const phrases = await readJson(PHRASES_FILE)
+const texts = collectSpeechTexts({ lessons, soundPractice, phonicsSounds, phrases })
 await fs.mkdir(AUDIO_DIR, { recursive: true })
 
 const manifest = { voice: VOICE, normal: {}, slow: {} }

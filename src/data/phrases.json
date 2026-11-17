@@ -1,4 +1,851 @@
 {
-  "phrases": [],
-  "textbookVsReal": []
+  "situations": [
+    { "id": "greetings", "name": "Hellos & goodbyes", "nameTh": "ทักทาย / บอกลา", "image": "/images/phrases-greetings.webp" },
+    { "id": "food", "name": "Ordering food", "nameTh": "สั่งอาหาร", "image": "/images/phrases-food.webp" },
+    { "id": "help", "name": "Asking for help", "nameTh": "ขอให้ช่วย", "image": "/images/phrases-help.webp" },
+    { "id": "decline", "name": "Saying no politely", "nameTh": "ปฏิเสธอย่างสุภาพ", "image": "/images/phrases-decline.webp" },
+    { "id": "feelings", "name": "Talking about feelings", "nameTh": "แสดงความรู้สึก", "image": "/images/phrases-feelings.webp" },
+    { "id": "invite", "name": "Making plans with friends", "nameTh": "ชวนเพื่อน", "image": "/images/phrases-invite.webp" }
+  ],
+  "phrases": [
+    {
+      "id": "ph-greetings-1",
+      "situation": "greetings",
+      "text": "Hey, how's it going?",
+      "meaningTh": "เฮ้ เป็นไงบ้าง",
+      "readingTh": "เฮ, ฮาวส์ อิท โก-อิ้ง",
+      "register": "casual",
+      "frequency": "very-common",
+      "examples": [
+        { "text": "Hey, how's it going? I haven't seen you in ages!", "translationTh": "เฮ้ เป็นไงบ้าง ไม่เจอกันนานเลย!" },
+        { "text": "Hey, how's it going? You look tired.", "translationTh": "เฮ้ เป็นไงบ้าง ดูเหนื่อย ๆ นะ" }
+      ]
+    },
+    {
+      "id": "ph-greetings-2",
+      "situation": "greetings",
+      "text": "Not bad, you?",
+      "meaningTh": "ก็ดีนะ แล้วเธอล่ะ",
+      "readingTh": "น็อท แบด, ยู",
+      "register": "casual",
+      "frequency": "very-common",
+      "examples": [
+        { "text": "Not bad, you? Did you have a good weekend?", "translationTh": "ก็ดีนะ แล้วเธอล่ะ เสาร์อาทิตย์สนุกไหม" },
+        { "text": "Not bad, you? I heard you got a new job.", "translationTh": "ก็ดีนะ แล้วเธอล่ะ ได้ยินว่าได้งานใหม่นี่" }
+      ],
+      "thaiMistake": {
+        "wrong": "I'm fine, thank you. And you?",
+        "right": "Not bad, you?",
+        "noteTh": "ประโยคในตำราไม่ผิด แต่ฟังเป็นทางการเกินไปเวลาคุยกับเพื่อน"
+      }
+    },
+    {
+      "id": "ph-greetings-3",
+      "situation": "greetings",
+      "text": "Long time no see!",
+      "meaningTh": "ไม่ได้เจอกันนานเลย!",
+      "readingTh": "ลอง ไทม์ โน ซี",
+      "register": "casual",
+      "frequency": "common",
+      "examples": [
+        { "text": "Long time no see! How have you been?", "translationTh": "ไม่ได้เจอกันนานเลย! เป็นยังไงบ้าง" },
+        { "text": "Wow, long time no see! You look great.", "translationTh": "ว้าว ไม่ได้เจอกันนานเลย! ดูดีมากเลยนะ" }
+      ]
+    },
+    {
+      "id": "ph-greetings-4",
+      "situation": "greetings",
+      "text": "Nice to meet you.",
+      "meaningTh": "ยินดีที่ได้รู้จัก",
+      "readingTh": "ไนซ์ ทะ มีท ยู",
+      "register": "neutral",
+      "frequency": "very-common",
+      "examples": [
+        { "text": "Hi, I'm Mia. Nice to meet you.", "translationTh": "สวัสดี ฉันชื่อมีอา ยินดีที่ได้รู้จัก" },
+        { "text": "Nice to meet you too. I've heard a lot about you.", "translationTh": "ยินดีที่ได้รู้จักเหมือนกัน ได้ยินเรื่องคุณมาเยอะเลย" }
+      ]
+    },
+    {
+      "id": "ph-greetings-5",
+      "situation": "greetings",
+      "text": "What's up?",
+      "meaningTh": "ว่าไง / มีอะไรใหม่ไหม",
+      "readingTh": "วอทส์ อัพ",
+      "register": "casual",
+      "frequency": "very-common",
+      "noteTh": "ใช้ทักเพื่อนสนิท ตอบสั้น ๆ ว่า “Not much, you?” ก็พอ",
+      "examples": [
+        { "text": "What's up? You look excited.", "translationTh": "ว่าไง ดูตื่นเต้นนะ" },
+        { "text": "Hey, what's up? Wanna grab lunch?", "translationTh": "เฮ้ ว่าไง ไปกินข้าวเที่ยงกันไหม" }
+      ]
+    },
+    {
+      "id": "ph-greetings-6",
+      "situation": "greetings",
+      "text": "See you later!",
+      "meaningTh": "แล้วเจอกันนะ!",
+      "readingTh": "ซี ยู เล-เท่อร์",
+      "register": "casual",
+      "frequency": "very-common",
+      "examples": [
+        { "text": "Okay, I gotta go. See you later!", "translationTh": "โอเค ต้องไปแล้ว แล้วเจอกันนะ!" },
+        { "text": "See you later! Text me when you get home.", "translationTh": "แล้วเจอกันนะ! ถึงบ้านแล้วทักมาบอกด้วย" }
+      ]
+    },
+    {
+      "id": "ph-greetings-7",
+      "situation": "greetings",
+      "text": "Take care!",
+      "meaningTh": "ดูแลตัวเองนะ!",
+      "readingTh": "เทค แคร์",
+      "register": "neutral",
+      "frequency": "very-common",
+      "examples": [
+        { "text": "Bye, take care!", "translationTh": "บาย ดูแลตัวเองนะ!" },
+        { "text": "Take care, and say hi to your mom for me.", "translationTh": "ดูแลตัวเองนะ แล้วฝากสวัสดีคุณแม่ด้วย" }
+      ]
+    },
+    {
+      "id": "ph-greetings-8",
+      "situation": "greetings",
+      "text": "I gotta go.",
+      "meaningTh": "ต้องไปแล้วนะ",
+      "readingTh": "อาย ก็อต-ตะ โก",
+      "register": "casual",
+      "frequency": "very-common",
+      "examples": [
+        { "text": "Sorry, I gotta go. My bus is here.", "translationTh": "ขอโทษนะ ต้องไปแล้ว รถเมล์มาแล้ว" },
+        { "text": "I gotta go, but let's catch up soon.", "translationTh": "ต้องไปแล้ว แต่ไว้มาคุยกันใหม่นะ" }
+      ]
+    },
+
+    {
+      "id": "ph-food-1",
+      "situation": "food",
+      "text": "Can I get a coffee?",
+      "meaningTh": "ขอกาแฟแก้วนึงได้ไหม",
+      "readingTh": "แคน อาย เก็ท อะ คอฟ-ฟี่",
+      "register": "neutral",
+      "frequency": "very-common",
+      "examples": [
+        { "text": "Hi, can I get a coffee, please?", "translationTh": "สวัสดี ขอกาแฟแก้วนึงได้ไหม" },
+        { "text": "Can I get a coffee and a muffin?", "translationTh": "ขอกาแฟกับมัฟฟินได้ไหม" }
+      ],
+      "thaiMistake": {
+        "wrong": "I want coffee.",
+        "right": "Can I get a coffee?",
+        "noteTh": "“I want …” ฟังห้วนไปเวลาสั่งของ เจ้าของภาษาใช้ “Can I get …?” หรือ “I'll have …”"
+      }
+    },
+    {
+      "id": "ph-food-2",
+      "situation": "food",
+      "text": "I'll have the chicken.",
+      "meaningTh": "เอาเป็นไก่ (สั่งเมนู)",
+      "readingTh": "อายล์ แฮฟว์ เดอะ ชิค-เค่น",
+      "register": "neutral",
+      "frequency": "very-common",
+      "examples": [
+        { "text": "I'll have the chicken, please.", "translationTh": "เอาเป็นไก่ค่ะ/ครับ" },
+        { "text": "Um, I think I'll have the chicken too.", "translationTh": "อืม เอาเป็นไก่เหมือนกันดีกว่า" }
+      ]
+    },
+    {
+      "id": "ph-food-3",
+      "situation": "food",
+      "text": "For here or to go?",
+      "meaningTh": "ทานที่นี่หรือกลับบ้าน",
+      "readingTh": "ฟอร์ เฮียร์ ออร์ ทะ โก",
+      "register": "neutral",
+      "frequency": "very-common",
+      "noteTh": "พนักงานร้านกาแฟ/ฟาสต์ฟู้ดในอเมริกาถามบ่อย ตอบ “To go, please.” (อังกฤษใช้ “eat in or take away?”)",
+      "examples": [
+        { "text": "Is that for here or to go?", "translationTh": "ทานที่นี่หรือกลับบ้านคะ/ครับ" },
+        { "text": "For here or to go? We have seats upstairs.", "translationTh": "ทานที่นี่หรือกลับบ้าน ข้างบนมีที่นั่งนะ" }
+      ],
+      "thaiMistake": {
+        "wrong": "Take home.",
+        "right": "To go, please.",
+        "noteTh": "สั่งกลับบ้านพูดว่า “to go” (อเมริกา) หรือ “take away” (อังกฤษ)"
+      }
+    },
+    {
+      "id": "ph-food-4",
+      "situation": "food",
+      "text": "Could I see the menu?",
+      "meaningTh": "ขอดูเมนูหน่อยได้ไหม",
+      "readingTh": "คูด อาย ซี เดอะ เมน-นิว",
+      "register": "neutral",
+      "frequency": "common",
+      "examples": [
+        { "text": "Excuse me, could I see the menu?", "translationTh": "ขอโทษนะ ขอดูเมนูหน่อยได้ไหม" },
+        { "text": "Could I see the menu again? I want dessert.", "translationTh": "ขอดูเมนูอีกทีได้ไหม อยากสั่งของหวาน" }
+      ]
+    },
+    {
+      "id": "ph-food-5",
+      "situation": "food",
+      "text": "What do you recommend?",
+      "meaningTh": "แนะนำอะไรดี",
+      "readingTh": "วอท ดู ยู เร็ค-คะ-เมนด์",
+      "register": "neutral",
+      "frequency": "common",
+      "examples": [
+        { "text": "It's my first time here. What do you recommend?", "translationTh": "มาที่นี่ครั้งแรก แนะนำอะไรดี" },
+        { "text": "What do you recommend for someone who doesn't eat meat?", "translationTh": "คนไม่กินเนื้อสัตว์ แนะนำอะไรดี" }
+      ]
+    },
+    {
+      "id": "ph-food-6",
+      "situation": "food",
+      "text": "Can we get the check?",
+      "meaningTh": "เช็กบิลด้วย",
+      "readingTh": "แคน วี เก็ท เดอะ เช็ค",
+      "register": "neutral",
+      "frequency": "very-common",
+      "examples": [
+        { "text": "Excuse me, can we get the check?", "translationTh": "ขอโทษนะ เช็กบิลด้วย" },
+        { "text": "That was great. Can we get the check, please?", "translationTh": "อร่อยมาก เช็กบิลด้วยนะ" }
+      ],
+      "thaiMistake": {
+        "wrong": "Check bill, please.",
+        "right": "Can we get the check?",
+        "noteTh": "“check bill” เป็นอังกฤษแบบไทย ๆ — อเมริกาใช้ the check อังกฤษใช้ the bill"
+      }
+    },
+    {
+      "id": "ph-food-7",
+      "situation": "food",
+      "text": "No ice, please.",
+      "meaningTh": "ไม่ใส่น้ำแข็งนะ",
+      "readingTh": "โน ไอซ์, พลีส",
+      "register": "neutral",
+      "frequency": "common",
+      "examples": [
+        { "text": "A Coke, no ice, please.", "translationTh": "โค้กแก้วนึง ไม่ใส่น้ำแข็งนะ" },
+        { "text": "Can I get a lemonade? No ice, please.", "translationTh": "ขอเลมอนเนดได้ไหม ไม่ใส่น้ำแข็งนะ" }
+      ]
+    },
+    {
+      "id": "ph-food-8",
+      "situation": "food",
+      "text": "That's all, thanks.",
+      "meaningTh": "แค่นี้แหละ ขอบคุณ",
+      "readingTh": "แดทส์ ออล, แธงส์",
+      "register": "neutral",
+      "frequency": "very-common",
+      "examples": [
+        { "text": "No, that's all, thanks.", "translationTh": "ไม่แล้ว แค่นี้แหละ ขอบคุณ" },
+        { "text": "That's all, thanks. How much is it?", "translationTh": "แค่นี้แหละ ขอบคุณ เท่าไหร่คะ/ครับ" }
+      ]
+    },
+
+    {
+      "id": "ph-help-1",
+      "situation": "help",
+      "text": "Could you give me a hand?",
+      "meaningTh": "ช่วยหน่อยได้ไหม",
+      "readingTh": "คูด ยู กิฟว์ มี อะ แฮนด์",
+      "register": "neutral",
+      "frequency": "common",
+      "examples": [
+        { "text": "These boxes are heavy. Could you give me a hand?", "translationTh": "กล่องพวกนี้หนัก ช่วยหน่อยได้ไหม" },
+        { "text": "Could you give me a hand with my bags?", "translationTh": "ช่วยถือกระเป๋าหน่อยได้ไหม" }
+      ]
+    },
+    {
+      "id": "ph-help-2",
+      "situation": "help",
+      "text": "Can you help me out?",
+      "meaningTh": "ช่วยฉันหน่อยได้ไหม",
+      "readingTh": "แคน ยู เฮลพ์ มี เอาท์",
+      "register": "casual",
+      "frequency": "very-common",
+      "examples": [
+        { "text": "Can you help me out? My phone died.", "translationTh": "ช่วยหน่อยได้ไหม แบตมือถือหมด" },
+        { "text": "I'm kind of lost. Can you help me out?", "translationTh": "ฉันหลงทางนิดหน่อย ช่วยหน่อยได้ไหม" }
+      ]
+    },
+    {
+      "id": "ph-help-3",
+      "situation": "help",
+      "text": "Sorry to bother you.",
+      "meaningTh": "ขอโทษที่รบกวนนะ",
+      "readingTh": "ซอ-รี่ ทะ บอ-เธ่อร์ ยู",
+      "register": "neutral",
+      "frequency": "common",
+      "examples": [
+        { "text": "Sorry to bother you, but where's the restroom?", "translationTh": "ขอโทษที่รบกวนนะ ห้องน้ำอยู่ไหน" },
+        { "text": "Sorry to bother you. Could you take our photo?", "translationTh": "ขอโทษที่รบกวนนะ ช่วยถ่ายรูปให้หน่อยได้ไหม" }
+      ]
+    },
+    {
+      "id": "ph-help-4",
+      "situation": "help",
+      "text": "Could you say that again?",
+      "meaningTh": "ช่วยพูดอีกครั้งได้ไหม",
+      "readingTh": "คูด ยู เซย์ แดท อะ-เกน",
+      "register": "neutral",
+      "frequency": "very-common",
+      "examples": [
+        { "text": "Sorry, could you say that again?", "translationTh": "ขอโทษนะ ช่วยพูดอีกครั้งได้ไหม" },
+        { "text": "Could you say that again, a bit slower?", "translationTh": "ช่วยพูดอีกครั้งได้ไหม ช้าลงนิดนึง" }
+      ],
+      "thaiMistake": {
+        "wrong": "Please repeat again.",
+        "right": "Could you say that again?",
+        "noteTh": "repeat แปลว่า “พูดซ้ำ” อยู่แล้ว ไม่ต้องใส่ again ซ้ำ"
+      }
+    },
+    {
+      "id": "ph-help-5",
+      "situation": "help",
+      "text": "How do you say this in English?",
+      "meaningTh": "อันนี้ภาษาอังกฤษพูดว่าอะไร",
+      "readingTh": "ฮาว ดู ยู เซย์ ดิส อิน อิง-กลิช",
+      "register": "neutral",
+      "frequency": "common",
+      "examples": [
+        { "text": "Excuse me, how do you say this in English?", "translationTh": "ขอโทษนะ อันนี้ภาษาอังกฤษพูดว่าอะไร" },
+        { "text": "How do you say this in English? It's a kind of fruit.", "translationTh": "อันนี้ภาษาอังกฤษพูดว่าอะไร มันเป็นผลไม้ชนิดหนึ่ง" }
+      ]
+    },
+    {
+      "id": "ph-help-6",
+      "situation": "help",
+      "text": "Could you show me how?",
+      "meaningTh": "ช่วยทำให้ดูหน่อยได้ไหม",
+      "readingTh": "คูด ยู โชว์ มี ฮาว",
+      "register": "neutral",
+      "frequency": "common",
+      "examples": [
+        { "text": "I don't know how to use this machine. Could you show me how?", "translationTh": "ไม่รู้วิธีใช้เครื่องนี้ ช่วยทำให้ดูหน่อยได้ไหม" },
+        { "text": "That looks hard. Could you show me how?", "translationTh": "ดูยากจัง ช่วยทำให้ดูหน่อยได้ไหม" }
+      ]
+    },
+    {
+      "id": "ph-help-7",
+      "situation": "help",
+      "text": "I'm looking for the station.",
+      "meaningTh": "ฉันกำลังหาสถานีอยู่",
+      "readingTh": "อายม์ ลุค-กิ้ง ฟอร์ เดอะ สเต-ชั่น",
+      "register": "neutral",
+      "frequency": "very-common",
+      "examples": [
+        { "text": "Excuse me, I'm looking for the station.", "translationTh": "ขอโทษนะ ฉันกำลังหาสถานีอยู่" },
+        { "text": "I'm looking for the station. Is it far from here?", "translationTh": "ฉันกำลังหาสถานีอยู่ ไกลจากตรงนี้ไหม" }
+      ]
+    },
+    {
+      "id": "ph-help-8",
+      "situation": "help",
+      "text": "Thanks a lot, I owe you one.",
+      "meaningTh": "ขอบคุณมาก ติดไว้ก่อนนะ (ไว้ตอบแทน)",
+      "readingTh": "แธงส์ อะ ล็อท, อาย โอ ยู วัน",
+      "register": "casual",
+      "frequency": "common",
+      "examples": [
+        { "text": "You fixed it? Thanks a lot, I owe you one.", "translationTh": "ซ่อมได้แล้วเหรอ ขอบคุณมาก ติดไว้ก่อนนะ" },
+        { "text": "Thanks a lot, I owe you one. Lunch is on me.", "translationTh": "ขอบคุณมาก ติดไว้ก่อนนะ มื้อเที่ยงฉันเลี้ยงเอง" }
+      ]
+    },
+
+    {
+      "id": "ph-decline-1",
+      "situation": "decline",
+      "text": "I'm good, thanks.",
+      "meaningTh": "ไม่เป็นไร ขอบคุณ (ตอนปฏิเสธของที่มีคนเสนอ)",
+      "readingTh": "อายม์ กู๊ด, แธงส์",
+      "register": "casual",
+      "frequency": "very-common",
+      "noteTh": "I'm good ตรงนี้แปลว่า “ไม่เอาแล้ว” ไม่ได้แปลว่า “ฉันสบายดี”",
+      "examples": [
+        { "text": "I'm good, thanks. I'm full.", "translationTh": "ไม่เป็นไร ขอบคุณ อิ่มแล้ว" },
+        { "text": "No, I'm good, thanks. I already have one.", "translationTh": "ไม่เป็นไร ขอบคุณ มีแล้วอันนึง" }
+      ]
+    },
+    {
+      "id": "ph-decline-2",
+      "situation": "decline",
+      "text": "Maybe next time.",
+      "meaningTh": "ไว้คราวหน้านะ",
+      "readingTh": "เมย์-บี เน็กซ์ท ไทม์",
+      "register": "casual",
+      "frequency": "very-common",
+      "examples": [
+        { "text": "I can't come tonight. Maybe next time.", "translationTh": "คืนนี้ไปไม่ได้ ไว้คราวหน้านะ" },
+        { "text": "Maybe next time. I'm really tired today.", "translationTh": "ไว้คราวหน้านะ วันนี้เหนื่อยมากเลย" }
+      ]
+    },
+    {
+      "id": "ph-decline-3",
+      "situation": "decline",
+      "text": "I'd love to, but I can't.",
+      "meaningTh": "อยากไปมากเลย แต่ไปไม่ได้",
+      "readingTh": "อายด์ ลัฟว์ ทู, บัท อาย แคนท์",
+      "register": "neutral",
+      "frequency": "very-common",
+      "examples": [
+        { "text": "I'd love to, but I can't. I have to work.", "translationTh": "อยากไปมากเลย แต่ไปไม่ได้ ต้องทำงาน" },
+        { "text": "Thanks for asking. I'd love to, but I can't this week.", "translationTh": "ขอบคุณที่ชวนนะ อยากไปมาก แต่อาทิตย์นี้ไม่ได้" }
+      ]
+    },
+    {
+      "id": "ph-decline-4",
+      "situation": "decline",
+      "text": "I'm afraid I can't make it.",
+      "meaningTh": "เกรงว่าจะไปไม่ได้",
+      "readingTh": "อายม์ อะ-เฟรด อาย แคนท์ เมค อิท",
+      "register": "formal",
+      "frequency": "common",
+      "noteTh": "สุภาพ ใช้กับเจ้านาย ลูกค้า หรือคนที่ไม่สนิท",
+      "examples": [
+        { "text": "I'm afraid I can't make it on Friday.", "translationTh": "เกรงว่าวันศุกร์จะไปไม่ได้" },
+        { "text": "Thank you for the invitation, but I'm afraid I can't make it.", "translationTh": "ขอบคุณที่เชิญนะคะ/ครับ แต่เกรงว่าจะไปไม่ได้" }
+      ]
+    },
+    {
+      "id": "ph-decline-5",
+      "situation": "decline",
+      "text": "I'm just looking, thanks.",
+      "meaningTh": "แค่ดูเฉย ๆ ขอบคุณ",
+      "readingTh": "อายม์ จัสท์ ลุค-กิ้ง, แธงส์",
+      "register": "neutral",
+      "frequency": "very-common",
+      "noteTh": "ตอบพนักงานร้านที่ถามว่า “Can I help you?”",
+      "examples": [
+        { "text": "Oh, I'm just looking, thanks.", "translationTh": "อ๋อ แค่ดูเฉย ๆ ขอบคุณ" },
+        { "text": "I'm just looking, thanks. Maybe later.", "translationTh": "แค่ดูเฉย ๆ ขอบคุณ เดี๋ยวค่อยว่ากัน" }
+      ]
+    },
+    {
+      "id": "ph-decline-6",
+      "situation": "decline",
+      "text": "That's not really my thing.",
+      "meaningTh": "ไม่ค่อยใช่แนวฉันเท่าไหร่",
+      "readingTh": "แดทส์ น็อท เรีย-ลี่ มาย ธิง",
+      "register": "casual",
+      "frequency": "common",
+      "examples": [
+        { "text": "Horror movies? That's not really my thing.", "translationTh": "หนังผีเหรอ ไม่ค่อยใช่แนวฉันเท่าไหร่" },
+        { "text": "Karaoke? Sorry, that's not really my thing.", "translationTh": "คาราโอเกะเหรอ ขอโทษนะ ไม่ค่อยใช่แนวฉันเท่าไหร่" }
+      ]
+    },
+    {
+      "id": "ph-decline-7",
+      "situation": "decline",
+      "text": "Let me think about it.",
+      "meaningTh": "ขอคิดดูก่อนนะ",
+      "readingTh": "เล็ท มี ธิงค์ อะ-เบาท์ อิท",
+      "register": "neutral",
+      "frequency": "very-common",
+      "examples": [
+        { "text": "It sounds fun. Let me think about it.", "translationTh": "ฟังดูสนุกนะ ขอคิดดูก่อน" },
+        { "text": "Let me think about it and get back to you.", "translationTh": "ขอคิดดูก่อน แล้วจะบอกอีกที" }
+      ]
+    },
+    {
+      "id": "ph-decline-8",
+      "situation": "decline",
+      "text": "No worries.",
+      "meaningTh": "ไม่เป็นไรเลย",
+      "readingTh": "โน เวอ-รี่ส์",
+      "register": "casual",
+      "frequency": "very-common",
+      "noteTh": "ตอบตอนอีกฝ่ายขอโทษหรือขอบคุณ",
+      "examples": [
+        { "text": "No worries, it happens.", "translationTh": "ไม่เป็นไรเลย เรื่องแบบนี้เกิดขึ้นได้" },
+        { "text": "No worries, we can do it another day.", "translationTh": "ไม่เป็นไรเลย ไว้วันอื่นก็ได้" }
+      ]
+    },
+
+    {
+      "id": "ph-feelings-1",
+      "situation": "feelings",
+      "text": "I'm so excited!",
+      "meaningTh": "ตื่นเต้นมากเลย!",
+      "readingTh": "อายม์ โซ อิค-ไซ-ทิด",
+      "register": "casual",
+      "frequency": "very-common",
+      "examples": [
+        { "text": "We leave for Japan tomorrow. I'm so excited!", "translationTh": "พรุ่งนี้ไปญี่ปุ่นแล้ว ตื่นเต้นมากเลย!" },
+        { "text": "I'm so excited about the concert!", "translationTh": "ตื่นเต้นเรื่องคอนเสิร์ตมากเลย!" }
+      ],
+      "thaiMistake": {
+        "wrong": "I'm exciting!",
+        "right": "I'm so excited!",
+        "noteTh": "exciting = สิ่งนั้นน่าตื่นเต้น / excited = เรารู้สึกตื่นเต้น"
+      }
+    },
+    {
+      "id": "ph-feelings-2",
+      "situation": "feelings",
+      "text": "I'm so bored.",
+      "meaningTh": "เบื่อมากเลย",
+      "readingTh": "อายม์ โซ บอร์ด",
+      "register": "casual",
+      "frequency": "very-common",
+      "examples": [
+        { "text": "There's nothing to do. I'm so bored.", "translationTh": "ไม่มีอะไรทำเลย เบื่อมาก" },
+        { "text": "I'm so bored. Wanna go out?", "translationTh": "เบื่อมากเลย ออกไปข้างนอกกันไหม" }
+      ],
+      "thaiMistake": {
+        "wrong": "I'm boring.",
+        "right": "I'm so bored.",
+        "noteTh": "I'm boring แปลว่า “ฉันเป็นคนน่าเบื่อ”"
+      }
+    },
+    {
+      "id": "ph-feelings-3",
+      "situation": "feelings",
+      "text": "I'm kinda tired.",
+      "meaningTh": "เหนื่อยนิดหน่อย",
+      "readingTh": "อายม์ ไคน์-ดะ ไท-เอิร์ด",
+      "register": "casual",
+      "frequency": "very-common",
+      "examples": [
+        { "text": "I'm kinda tired. I didn't sleep well.", "translationTh": "เหนื่อยนิดหน่อย เมื่อคืนนอนไม่ค่อยหลับ" },
+        { "text": "Can we stop for a bit? I'm kinda tired.", "translationTh": "พักแป๊บนึงได้ไหม เหนื่อยนิดหน่อย" }
+      ]
+    },
+    {
+      "id": "ph-feelings-4",
+      "situation": "feelings",
+      "text": "That's awesome!",
+      "meaningTh": "เจ๋งมาก!",
+      "readingTh": "แดทส์ ออ-ซั่ม",
+      "register": "casual",
+      "frequency": "very-common",
+      "examples": [
+        { "text": "You passed the test? That's awesome!", "translationTh": "สอบผ่านแล้วเหรอ เจ๋งมาก!" },
+        { "text": "That's awesome! Congrats!", "translationTh": "เจ๋งมาก! ยินดีด้วยนะ!" }
+      ]
+    },
+    {
+      "id": "ph-feelings-5",
+      "situation": "feelings",
+      "text": "I'm a bit stressed out.",
+      "meaningTh": "เครียดนิดหน่อย",
+      "readingTh": "อายม์ อะ บิท สเตรสท์ เอาท์",
+      "register": "casual",
+      "frequency": "common",
+      "examples": [
+        { "text": "I have three exams this week. I'm a bit stressed out.", "translationTh": "อาทิตย์นี้สอบสามวิชา เครียดนิดหน่อย" },
+        { "text": "I'm a bit stressed out about work.", "translationTh": "เครียดเรื่องงานนิดหน่อย" }
+      ]
+    },
+    {
+      "id": "ph-feelings-6",
+      "situation": "feelings",
+      "text": "I can't wait!",
+      "meaningTh": "รอไม่ไหวแล้ว!",
+      "readingTh": "อาย แคนท์ เวท",
+      "register": "casual",
+      "frequency": "very-common",
+      "examples": [
+        { "text": "The trip is next week. I can't wait!", "translationTh": "ทริปอาทิตย์หน้าแล้ว รอไม่ไหวแล้ว!" },
+        { "text": "Pizza tonight? I can't wait!", "translationTh": "คืนนี้กินพิซซ่าเหรอ รอไม่ไหวแล้ว!" }
+      ]
+    },
+    {
+      "id": "ph-feelings-7",
+      "situation": "feelings",
+      "text": "I feel bad about it.",
+      "meaningTh": "รู้สึกผิด/ไม่สบายใจเรื่องนั้น",
+      "readingTh": "อาย ฟีล แบด อะ-เบาท์ อิท",
+      "register": "neutral",
+      "frequency": "common",
+      "examples": [
+        { "text": "I forgot her birthday. I feel bad about it.", "translationTh": "ลืมวันเกิดเขา รู้สึกผิดมาก" },
+        { "text": "I yelled at him, and I feel bad about it.", "translationTh": "ตะคอกใส่เขาไป รู้สึกไม่ดีเลย" }
+      ]
+    },
+    {
+      "id": "ph-feelings-8",
+      "situation": "feelings",
+      "text": "No way!",
+      "meaningTh": "ไม่จริงน่า!",
+      "readingTh": "โน เวย์",
+      "register": "casual",
+      "frequency": "very-common",
+      "noteTh": "ใช้ตอนตกใจหรือไม่อยากเชื่อ (เรื่องดีหรือร้ายก็ได้)",
+      "examples": [
+        { "text": "No way! You won the game?", "translationTh": "ไม่จริงน่า! ชนะแล้วเหรอ" },
+        { "text": "No way! That's so cool.", "translationTh": "ไม่จริงน่า! เจ๋งมาก" }
+      ]
+    },
+
+    {
+      "id": "ph-invite-1",
+      "situation": "invite",
+      "text": "Wanna grab a coffee?",
+      "meaningTh": "ไปกินกาแฟกันไหม",
+      "readingTh": "วอน-นะ แกรบ อะ คอฟ-ฟี่",
+      "register": "casual",
+      "frequency": "very-common",
+      "examples": [
+        { "text": "I'm free after class. Wanna grab a coffee?", "translationTh": "เลิกเรียนแล้วว่างนะ ไปกินกาแฟกันไหม" },
+        { "text": "Wanna grab a coffee this afternoon?", "translationTh": "บ่ายนี้ไปกินกาแฟกันไหม" }
+      ]
+    },
+    {
+      "id": "ph-invite-2",
+      "situation": "invite",
+      "text": "Are you free this weekend?",
+      "meaningTh": "เสาร์อาทิตย์นี้ว่างไหม",
+      "readingTh": "อาร์ ยู ฟรี ดิส วีค-เอนด์",
+      "register": "neutral",
+      "frequency": "very-common",
+      "examples": [
+        { "text": "Are you free this weekend? Let's see a movie.", "translationTh": "เสาร์อาทิตย์นี้ว่างไหม ไปดูหนังกัน" },
+        { "text": "Hey, are you free this weekend? I'm having a party.", "translationTh": "เฮ้ เสาร์อาทิตย์นี้ว่างไหม จัดปาร์ตี้อยู่" }
+      ]
+    },
+    {
+      "id": "ph-invite-3",
+      "situation": "invite",
+      "text": "Let's hang out sometime.",
+      "meaningTh": "ไว้มาเจอกันบ้างนะ",
+      "readingTh": "เล็ทส์ แฮง เอาท์ ซัม-ไทม์",
+      "register": "casual",
+      "frequency": "common",
+      "examples": [
+        { "text": "It was nice meeting you. Let's hang out sometime.", "translationTh": "ดีใจที่ได้รู้จักนะ ไว้มาเจอกันบ้าง" },
+        { "text": "Let's hang out sometime next week.", "translationTh": "อาทิตย์หน้าไว้มาเจอกันนะ" }
+      ]
+    },
+    {
+      "id": "ph-invite-4",
+      "situation": "invite",
+      "text": "Do you wanna come?",
+      "meaningTh": "อยากมาด้วยไหม",
+      "readingTh": "ดู ยู วอน-นะ คัม",
+      "register": "casual",
+      "frequency": "very-common",
+      "examples": [
+        { "text": "We're going to the beach. Do you wanna come?", "translationTh": "พวกเราจะไปทะเล อยากมาด้วยไหม" },
+        { "text": "I'm making dinner tonight. Do you wanna come?", "translationTh": "คืนนี้ทำอาหารเย็น อยากมาด้วยไหม" }
+      ]
+    },
+    {
+      "id": "ph-invite-5",
+      "situation": "invite",
+      "text": "How about Saturday?",
+      "meaningTh": "วันเสาร์ดีไหม",
+      "readingTh": "ฮาว อะ-เบาท์ แซท-เทอร์-เดย์",
+      "register": "neutral",
+      "frequency": "very-common",
+      "examples": [
+        { "text": "I can't do Friday. How about Saturday?", "translationTh": "วันศุกร์ไม่ได้ วันเสาร์ดีไหม" },
+        { "text": "How about Saturday at seven?", "translationTh": "วันเสาร์ตอนหนึ่งทุ่มดีไหม" }
+      ]
+    },
+    {
+      "id": "ph-invite-6",
+      "situation": "invite",
+      "text": "Sounds good!",
+      "meaningTh": "ได้เลย / ฟังดูดีนะ",
+      "readingTh": "ซาวด์ส กู๊ด",
+      "register": "casual",
+      "frequency": "very-common",
+      "examples": [
+        { "text": "Pizza at six? Sounds good!", "translationTh": "พิซซ่าตอนหกโมงเหรอ ได้เลย!" },
+        { "text": "Sounds good! See you there.", "translationTh": "ได้เลย! เจอกันที่นั่นนะ" }
+      ]
+    },
+    {
+      "id": "ph-invite-7",
+      "situation": "invite",
+      "text": "I'm down.",
+      "meaningTh": "เอาด้วย / ไปด้วย",
+      "readingTh": "อายม์ ดาวน์",
+      "register": "casual",
+      "frequency": "common",
+      "noteTh": "สแลงทั่วไป ใช้กับเพื่อน ไม่ใช้กับเจ้านายหรือคนไม่สนิท",
+      "examples": [
+        { "text": "Karaoke tonight? I'm down.", "translationTh": "คืนนี้คาราโอเกะเหรอ เอาด้วย" },
+        { "text": "If you're going to the park, I'm down.", "translationTh": "ถ้าจะไปสวนสาธารณะ ไปด้วย" }
+      ]
+    },
+    {
+      "id": "ph-invite-8",
+      "situation": "invite",
+      "text": "Count me in!",
+      "meaningTh": "นับฉันด้วย!",
+      "readingTh": "เคานท์ มี อิน",
+      "register": "casual",
+      "frequency": "common",
+      "examples": [
+        { "text": "A road trip? Count me in!", "translationTh": "ขับรถเที่ยวเหรอ นับฉันด้วย!" },
+        { "text": "Count me in! What time should I come?", "translationTh": "นับฉันด้วย! ให้ไปกี่โมง" }
+      ]
+    }
+  ],
+  "textbookVsReal": [
+    {
+      "id": "tvr-how-are-you",
+      "situation": "greetings",
+      "meaningTh": "ทักทายถามว่าเป็นยังไงบ้าง",
+      "textbook": "How are you?",
+      "real": [
+        { "text": "How's it going?", "register": "casual" },
+        { "text": "How are you doing?", "register": "neutral" }
+      ],
+      "noteTh": "How are you? ไม่ผิด แต่เจ้าของภาษาทักเพื่อนแบบสบาย ๆ กว่านี้"
+    },
+    {
+      "id": "tvr-fine-thank-you",
+      "situation": "greetings",
+      "meaningTh": "ตอบว่าสบายดี แล้วถามกลับ",
+      "textbook": "I'm fine, thank you. And you?",
+      "real": [
+        { "text": "Not bad, you?", "register": "casual" },
+        { "text": "Pretty good, you?", "register": "casual" }
+      ],
+      "noteTh": "ประโยคในตำราฟังแข็งเหมือนท่องจำ — ตอบสั้น ๆ แล้วถามกลับก็พอ"
+    },
+    {
+      "id": "tvr-goodbye",
+      "situation": "greetings",
+      "meaningTh": "บอกลาเพื่อน",
+      "textbook": "Goodbye.",
+      "real": [
+        { "text": "See you later!", "register": "casual" },
+        { "text": "Take care!", "register": "neutral" }
+      ],
+      "noteTh": "Goodbye ฟังจริงจัง เหมือนจะไม่ได้เจอกันอีกนาน"
+    },
+    {
+      "id": "tvr-order",
+      "situation": "food",
+      "meaningTh": "สั่งกาแฟ",
+      "textbook": "I would like to order a coffee.",
+      "real": [
+        { "text": "Can I get a coffee?", "register": "neutral" },
+        { "text": "I'll have a coffee, please.", "register": "neutral" }
+      ],
+      "noteTh": "ไม่ต้องพูดคำว่า order — บอกของที่อยากได้เลย"
+    },
+    {
+      "id": "tvr-bill",
+      "situation": "food",
+      "meaningTh": "ขอเช็กบิล",
+      "textbook": "Please give me the bill.",
+      "real": [
+        { "text": "Can we get the check?", "register": "neutral" },
+        { "text": "Could we get the bill, please?", "register": "neutral" }
+      ],
+      "noteTh": "ขึ้นต้นด้วย Please give me ฟังเหมือนสั่ง — ใช้ “Can we get …?” สุภาพกว่า"
+    },
+    {
+      "id": "tvr-delicious",
+      "situation": "food",
+      "meaningTh": "ชมว่าอาหารอร่อย",
+      "textbook": "It is very delicious.",
+      "real": [
+        { "text": "This is so good!", "register": "casual" },
+        { "text": "This is amazing!", "register": "casual" }
+      ],
+      "noteTh": "delicious แปลว่าอร่อยมากอยู่แล้ว เจ้าของภาษาเลยไม่ค่อยพูด very delicious"
+    },
+    {
+      "id": "tvr-dont-understand",
+      "situation": "help",
+      "meaningTh": "บอกว่าฟังไม่ทัน / ไม่เข้าใจ",
+      "textbook": "I don't understand.",
+      "real": [
+        { "text": "Sorry, I didn't catch that.", "register": "neutral" },
+        { "text": "Come again?", "register": "casual" }
+      ],
+      "noteTh": "I don't understand ฟังเหมือนไม่เข้าใจทั้งเรื่อง — ถ้าแค่ฟังไม่ทันให้ใช้ I didn't catch that"
+    },
+    {
+      "id": "tvr-help-me",
+      "situation": "help",
+      "meaningTh": "ขอให้ช่วย",
+      "textbook": "Please help me.",
+      "real": [
+        { "text": "Could you give me a hand?", "register": "neutral" },
+        { "text": "Can you help me out?", "register": "casual" }
+      ],
+      "noteTh": "Please help me! ฟังเหมือนเหตุฉุกเฉิน — เรื่องทั่วไปใช้ give me a hand / help me out"
+    },
+    {
+      "id": "tvr-speak-slowly",
+      "situation": "help",
+      "meaningTh": "ขอให้พูดช้าลง",
+      "textbook": "Please speak slowly.",
+      "real": [
+        { "text": "Could you slow down a bit?", "register": "neutral" },
+        { "text": "Sorry, could you say that again?", "register": "neutral" }
+      ],
+      "noteTh": "ขอแบบเป็นคำถาม (Could you …?) ฟังสุภาพกว่าประโยคคำสั่ง"
+    },
+    {
+      "id": "tvr-no-thank-you",
+      "situation": "decline",
+      "meaningTh": "ปฏิเสธของที่มีคนเสนอให้",
+      "textbook": "No, thank you. I don't want it.",
+      "real": [
+        { "text": "I'm good, thanks.", "register": "casual" },
+        { "text": "Nah, I'm good.", "register": "casual" }
+      ],
+      "noteTh": "I don't want it ฟังห้วนเหมือนไม่ชอบของนั้น — I'm good, thanks นุ่มนวลกว่า"
+    },
+    {
+      "id": "tvr-cannot-go",
+      "situation": "decline",
+      "meaningTh": "บอกว่าไปไม่ได้",
+      "textbook": "I cannot go.",
+      "real": [
+        { "text": "I can't make it.", "register": "neutral" },
+        { "text": "I'd love to, but I can't.", "register": "neutral" }
+      ],
+      "noteTh": "make it = ไปทัน/ไปได้ ใช้บอกว่าไปงานหรือนัดไม่ได้"
+    },
+    {
+      "id": "tvr-very-happy",
+      "situation": "feelings",
+      "meaningTh": "บอกว่าดีใจมาก",
+      "textbook": "I am very happy.",
+      "real": [
+        { "text": "I'm so happy!", "register": "casual" },
+        { "text": "This is the best!", "register": "casual" }
+      ],
+      "noteTh": "พูดจริงใช้รูปย่อ (I'm) กับ so — ฟังมีอารมณ์กว่า I am very"
+    },
+    {
+      "id": "tvr-very-tired",
+      "situation": "feelings",
+      "meaningTh": "บอกว่าเหนื่อยมาก",
+      "textbook": "I am very tired.",
+      "real": [
+        { "text": "I'm exhausted.", "register": "neutral" },
+        { "text": "I'm beat.", "register": "casual" }
+      ],
+      "noteTh": "exhausted = เหนื่อยมาก ๆ / I'm beat เป็นสแลงใช้กับเพื่อน"
+    },
+    {
+      "id": "tvr-drink-coffee",
+      "situation": "invite",
+      "meaningTh": "ชวนไปกินกาแฟ",
+      "textbook": "Would you like to drink coffee with me?",
+      "real": [
+        { "text": "Wanna grab a coffee?", "register": "casual" },
+        { "text": "Let's get coffee!", "register": "casual" }
+      ],
+      "noteTh": "grab a coffee = ไปกินกาแฟกันแบบสบาย ๆ — drink coffee with me ฟังแข็งและเหมือนชวนเดต"
+    },
+    {
+      "id": "tvr-agree",
+      "situation": "invite",
+      "meaningTh": "ตอบตกลงตามแผนที่เพื่อนชวน",
+      "textbook": "Yes, I agree.",
+      "real": [
+        { "text": "Sounds good!", "register": "casual" },
+        { "text": "Sounds like a plan!", "register": "casual" }
+      ],
+      "noteTh": "I agree ใช้ตอนเห็นด้วยกับความคิดเห็น — ตกลงนัดใช้ Sounds good!"
+    }
+  ]
 }

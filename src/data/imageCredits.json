@@ -1,4 +1,46 @@
 {
+  "phrases-decline": {
+    "provider": "pixabay",
+    "sourceId": 5842706,
+    "photographer": "ottawagraphics",
+    "photographerUrl": "https://pixabay.com/users/ottawagraphics-3815775/",
+    "pageUrl": "https://pixabay.com/photos/teenager-hoodie-hand-no-gesture-5842706/"
+  },
+  "phrases-feelings": {
+    "provider": "pixabay",
+    "sourceId": 4676679,
+    "photographer": "Engin_Akyurt",
+    "photographerUrl": "https://pixabay.com/users/Engin_Akyurt-3656355/",
+    "pageUrl": "https://pixabay.com/photos/model-human-expression-view-girl-4676679/"
+  },
+  "phrases-food": {
+    "provider": "pixabay",
+    "sourceId": 2609042,
+    "photographer": "StockSnap",
+    "photographerUrl": "https://pixabay.com/users/StockSnap-894430/",
+    "pageUrl": "https://pixabay.com/photos/business-establishments-shops-2609042/"
+  },
+  "phrases-greetings": {
+    "provider": "pixabay",
+    "sourceId": 10383557,
+    "photographer": "Feygrace",
+    "photographerUrl": "https://pixabay.com/users/Feygrace-51357910/",
+    "pageUrl": "https://pixabay.com/photos/supermarket-shopping-cashier-10383557/"
+  },
+  "phrases-help": {
+    "provider": "pixabay",
+    "sourceId": 1255442,
+    "photographer": "gavilla",
+    "photographerUrl": "https://pixabay.com/users/gavilla-1862695/",
+    "pageUrl": "https://pixabay.com/photos/friends-lost-people-talking-1255442/"
+  },
+  "phrases-invite": {
+    "provider": "pixabay",
+    "sourceId": 2425121,
+    "photographer": "5688709",
+    "photographerUrl": "https://pixabay.com/users/5688709-5688709/",
+    "pageUrl": "https://pixabay.com/photos/merry-christmas-man-woman-dog-pet-2425121/"
+  },
   "s1-apple": {
     "provider": "pixabay",
     "sourceId": 7932156,

@@ -4,7 +4,7 @@
 //   ปุ่มใหญ่ "เรียนต่อ" → บทถัดไปที่ยังไม่จบ (ไล่ Stage ฟัง → พูด → อ่าน → เขียน) — บอกชื่อบทบนปุ่มเลย ไม่ต้องหาเอง
 //     (ขั้นที่ 18 แผนรายวันเสร็จแล้ว ค่อยเปลี่ยนเป็น "เริ่มแผนวันนี้")
 //   ปุ่ม "ทบทวนวันนี้", การ์ดเลเวล/streak, ภารกิจวันนี้, ปุ่มลัดไปส่วนที่เปิดแล้ว
-//   (แผนที่เมือง ขั้นที่ 14 / มินิเกมเล่นแยก ขั้นที่ 17 / คลังวลี ขั้นที่ 10 — ยังไม่แสดง จะได้ไม่หลงเข้าหน้าว่าง)
+//   (แผนที่เมือง ขั้นที่ 14 / มินิเกมเล่นแยก ขั้นที่ 17 — ยังไม่แสดง จะได้ไม่หลงเข้าหน้าว่าง / คลังวลีเปิดแล้วในขั้นที่ 10)
 // =========================================================
 import { Link, Navigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
@@ -28,6 +28,7 @@ import styles from './HomePage.module.css'
 // ปุ่มลัดไปส่วนที่ใช้งานได้แล้ว
 const SHORTCUTS = [
   { to: '/learn', icon: ICONS.learn, labelKey: 'home.learnBasics' },
+  { to: '/phrases', icon: ICONS.phrases, labelKey: 'home.phrases' },
   { to: '/sounds', icon: ICONS.sounds, labelKey: 'home.soundPractice' },
   { to: '/profile', icon: ICONS.profile, labelKey: 'nav.profile' },
   { to: '/settings', icon: ICONS.settings, labelKey: 'home.settings' },

@@ -5,6 +5,7 @@ import { describe, it, expect } from 'vitest'
 import { miniGames, soundPractice } from './index.js'
 import lessonsData from './lessons.json'
 import phonicsData from './phonics.json'
+import phrasesData from './phrases.json'
 import imageCredits from './imageCredits.json'
 import { collectSpeechTexts } from './speechTexts.js'
 import { swapVariants } from '../utils/swap.js'
@@ -24,7 +25,7 @@ const { stages, lessons } = lessonsData
 // ทุกข้อความที่เว็บพูดต้องมีไฟล์เสียง Kokoro ทั้งความเร็วปกติและช้า
 // (เพิ่ม/แก้เนื้อหาแล้ว test นี้ไม่ผ่าน → รัน npm run audio)
 describe('ไฟล์เสียงเจ้าของภาษา (Kokoro)', () => {
-  const texts = collectSpeechTexts({ lessons, soundPractice, phonicsSounds: phonicsData.sounds })
+  const texts = collectSpeechTexts({ lessons, soundPractice, phonicsSounds: phonicsData.sounds, phrases: phrasesData })
   const fileOf = (audioPath) => fileURLToPath(new URL(`../../public${audioPath}`, import.meta.url))
 
   it.each(texts)('"%s" มีไฟล์เสียงปกติและช้า และไฟล์มีอยู่จริง', (text) => {
@@ -525,6 +526,61 @@ describe('Stage 7 เขียน', () => {
   })
 })
 
+// ---------- คลังวลี + คำในตำรา vs ใช้จริง (ส่วนที่ 5, ขั้นที่ 10) ----------
+describe('คลังวลี (phrases.json)', () => {
+  const { situations, phrases, textbookVsReal } = phrasesData
+  const situationIds = situations.map((situation) => situation.id)
+
+  it('6 สถานการณ์ขึ้นไป สถานการณ์ละ ≥ 8 วลี / id ไม่ซ้ำ / ภาพ = /images/phrases-<id>.webp', () => {
+    expect(situations.length).toBeGreaterThanOrEqual(6)
+    expect(new Set(situationIds).size).toBe(situationIds.length)
+    for (const situation of situations) {
+      expect(situation.name && situation.nameTh, situation.id).toBeTruthy()
+      expect(situation.image).toBe(`/images/phrases-${situation.id}.webp`)
+      expect(phrases.filter((phrase) => phrase.situation === situation.id).length, situation.id).toBeGreaterThanOrEqual(8)
+    }
+    const ids = phrases.map((phrase) => phrase.id)
+    expect(new Set(ids).size).toBe(ids.length)
+  })
+
+  it.each(phrases.map((phrase) => [phrase.id, phrase]))('%s มีข้อมูลครบ + ตัวอย่าง 2 ประโยคที่มีวลีนั้น', (_id, phrase) => {
+    expect(situationIds).toContain(phrase.situation)
+    expect(phrase.text && phrase.meaningTh && phrase.readingTh).toBeTruthy()
+    expect(REGISTERS).toContain(phrase.register)
+    expect(FREQUENCIES).toContain(phrase.frequency)
+    expect(phrase.examples).toHaveLength(2)
+    // ตัวอย่างต้องใช้วลีนั้นจริง (ไม่สนตัวพิมพ์/เครื่องหมาย)
+    for (const example of phrase.examples) {
+      expect(example.translationTh, example.text).toBeTruthy()
+      expect(normalize(example.text), example.text).toContain(normalize(phrase.text))
+    }
+    if (phrase.thaiMistake) {
+      expect(phrase.thaiMistake.wrong && phrase.thaiMistake.right && phrase.thaiMistake.noteTh).toBeTruthy()
+      expect(normalize(phrase.thaiMistake.right)).not.toBe(normalize(phrase.thaiMistake.wrong))
+    }
+  })
+
+  it('คำในตำรา vs ใช้จริง ≥ 15 คู่: แบบพูดจริง 1–3 แบบต่างจากแบบในตำรา + เหตุผลภาษาไทย', () => {
+    expect(textbookVsReal.length).toBeGreaterThanOrEqual(15)
+    expect(new Set(textbookVsReal.map((pair) => pair.id)).size).toBe(textbookVsReal.length)
+    for (const pair of textbookVsReal) {
+      expect(situationIds, pair.id).toContain(pair.situation)
+      expect(pair.textbook && pair.meaningTh && pair.noteTh, pair.id).toBeTruthy()
+      expect(pair.real.length, pair.id).toBeGreaterThanOrEqual(1)
+      for (const real of pair.real) {
+        expect(REGISTERS, pair.id).toContain(real.register)
+        expect(normalize(real.text), pair.id).not.toBe(normalize(pair.textbook))
+      }
+    }
+  })
+
+  it('ทุกสถานการณ์มีคู่ในตำรา vs ใช้จริงอย่างน้อย 2 คู่ (เกมของสถานการณ์นั้น)', () => {
+    for (const id of situationIds) {
+      expect(textbookVsReal.filter((pair) => pair.situation === id).length, id).toBeGreaterThanOrEqual(2)
+    }
+  })
+})
+
 // ---------- โหมดฝึกเสียง (ส่วนที่ 10.1) ----------
 describe('โหมดฝึกเสียง (soundPractice)', () => {
   it('มีเสียงหลัก th, r/l, v/w (+ อื่น ๆ) id ไม่ซ้ำ', () => {
@@ -550,6 +606,7 @@ describe('ภาพถ่ายประกอบ', () => {
       ...stages.map((stage) => stage.image),
       ...allItems.map(({ item }) => item.image),
       ...allItems.flatMap(({ item }) => (item.lines ?? []).map((line) => line.image)),
+      ...phrasesData.situations.map((situation) => situation.image),
     ]),
   ]
   // '/images/x.webp' → ไฟล์จริงใน public/images/x.webp

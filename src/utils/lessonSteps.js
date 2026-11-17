@@ -158,6 +158,7 @@ export const GAME_ROUND_XP = {
   'word-swap-race': XP.raceSwap,
   'minimal-pair-duel': XP.gameCorrect,
   'read-tap': XP.gameCorrect,
+  'real-or-textbook': XP.gameCorrect,
 }
 
 // ลองพูดได้ไม่จำกัด แต่ครบกี่ครั้งแล้วให้กด "ไปต่อ" ได้ (ข้อนั้นเข้ารายการทบทวน)

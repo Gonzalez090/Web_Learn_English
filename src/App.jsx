@@ -12,6 +12,7 @@ import LessonSummaryPage from './pages/LessonSummaryPage'
 import PlacePage from './pages/PlacePage'
 import TalkPage from './pages/TalkPage'
 import PhrasesPage from './pages/PhrasesPage'
+import PhraseSituationPage from './pages/PhraseSituationPage'
 import RealVsTextbookPage from './pages/RealVsTextbookPage'
 import DailyPlanPage from './pages/DailyPlanPage'
 import GamesPage from './pages/GamesPage'
@@ -52,6 +53,7 @@ export default function App() {
         <Route path="talk/:scenarioId" element={<TalkPage />} />
         <Route path="phrases" element={<PhrasesPage />} />
         <Route path="phrases/real-vs-textbook" element={<RealVsTextbookPage />} />
+        <Route path="phrases/:situationId" element={<PhraseSituationPage />} />
 
         {/* เรียนต่อเนื่อง */}
         <Route path="review" element={<ReviewPage />} />

@@ -20,6 +20,7 @@ export const stages = stageData
 // บทเรียนทุกบทแบบย่อ { id, stageId, category, type, title, titleTh, itemCount, image } — ⚠️ ไม่มี items
 export const lessonList = lessonListData
 export const { phrases, textbookVsReal } = phrasesData
+export const phraseSituations = phrasesData.situations
 export const { scenarios } = scenariosData
 export const { cityMap, npcs } = worldData
 export const { dailyMissionPool, miniGames, milestones, soundPractice } = gameData
@@ -37,6 +38,11 @@ export const getLessonMeta = (lessonId) => lessonList.find((lesson) => lesson.id
 
 // หามินิเกมจาก id
 export const getMiniGame = (gameId) => miniGames.find((game) => game.id === gameId)
+
+// คลังวลี: สถานการณ์จาก id / วลี + คู่ "คำในตำรา vs ใช้จริง" ของสถานการณ์นั้น
+export const getPhraseSituation = (situationId) => phraseSituations.find((situation) => situation.id === situationId)
+export const phrasesOf = (situationId) => phrases.filter((phrase) => phrase.situation === situationId)
+export const textbookPairsOf = (situationId) => textbookVsReal.filter((pair) => pair.situation === situationId)
 
 // ---------- โหลดเนื้อหาเต็ม (มี items) ----------
 // คืน promise ตัวเดิมทุกครั้งที่ขอซ้ำ (React use() ต้องการแบบนี้) — โหลดไม่สำเร็จ (เช่น เน็ตหลุด) ลบออกจากที่จำ ให้ลองใหม่ได้

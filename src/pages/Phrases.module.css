@@ -1,0 +1,98 @@
+/* หน้าคลังวลี + คำในตำรา vs คำที่ใช้จริง */
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin: 0 0 var(--space-4);
+  padding: 0;
+  list-style: none;
+}
+
+/* การ์ด 1 คู่: ในตำรา vs ใช้จริง */
+.pair {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.pairMeaning {
+  font-weight: 800;
+}
+
+.pairRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1) var(--space-2);
+}
+
+.pairLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--color-muted);
+  font-size: 0.8125rem;
+  font-weight: 800;
+}
+
+.pairIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.textbookText {
+  flex: 1;
+  min-width: 0;
+  /* สีจางเฉย ๆ ไม่ขีดฆ่า — ประโยคในตำราไม่ได้ผิด แค่ไม่ค่อยมีใครพูด */
+  color: var(--color-muted);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.pairReal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+  background: var(--color-success-soft);
+}
+
+.pairReal .pairLabel {
+  color: var(--color-success);
+}
+
+.realList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.realText {
+  flex: 1;
+  min-width: 0;
+  font-size: 1.0625rem;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.registerTag {
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  color: var(--color-muted);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.pairNote {
+  color: var(--color-text);
+  font-size: 0.9375rem;
+}

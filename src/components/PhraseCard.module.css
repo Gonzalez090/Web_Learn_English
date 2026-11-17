@@ -1,0 +1,146 @@
+/* การ์ดวลี (คลังวลีใช้งานจริง) */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: 0 3px 0 var(--color-border);
+}
+
+.text {
+  font-size: 1.375rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.meaning {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.tag {
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-soft);
+  color: var(--color-muted);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.note {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+  background: var(--color-primary-soft);
+  color: var(--color-primary-strong);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.noteIcon {
+  flex: none;
+  width: 18px;
+  height: 18px;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-muted);
+  font-size: 0.8125rem;
+  font-weight: 800;
+}
+
+.examples {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.exampleList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.example {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.exampleText {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.exampleMeaning {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* คนไทยมักพูดว่า … → แบบที่เจ้าของภาษาพูด */
+.mistake {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  background: #fff4e5;
+}
+
+.mistakeRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+  font-weight: 800;
+}
+
+.wrong {
+  color: var(--color-muted);
+  text-decoration: line-through;
+}
+
+.right {
+  color: var(--color-success);
+}
+
+.arrow {
+  width: 18px;
+  height: 18px;
+  color: var(--color-muted);
+}
+
+.mistakeNote {
+  color: #8a4b00;
+  font-size: 0.875rem;
+  font-weight: 600;
+}

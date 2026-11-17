@@ -14,8 +14,9 @@ import { swapVariants } from '../utils/swap.js'
  * @param lessons        บทเรียนทั้งหมด (lessons.json)
  * @param soundPractice  ชุดฝึกเสียง (game.json) — คู่คำ think / sink …
  * @param phonicsSounds  เสียง phonics (phonics.json) — คำตัวอย่างของแต่ละเสียง
+ * @param phrases        คลังวลี (phrases.json) { phrases, textbookVsReal }
  */
-export function collectSpeechTexts({ lessons, soundPractice = [], phonicsSounds = [] }) {
+export function collectSpeechTexts({ lessons, soundPractice = [], phonicsSounds = [], phrases = {} }) {
   const texts = new Set()
   const add = (text) => {
     const clean = typeof text === 'string' ? text.trim() : ''
@@ -49,6 +50,17 @@ export function collectSpeechTexts({ lessons, soundPractice = [], phonicsSounds 
       add(pair.a)
       add(pair.b)
     }
+  }
+
+  // คลังวลี: วลี + ประโยคตัวอย่าง / คำในตำรา vs คำที่ใช้จริง (ทั้งสองแบบถูกไวยากรณ์ — ฟังเทียบได้)
+  // ⚠️ ไม่สร้างเสียงให้ thaiMistake.wrong (ภาษาอังกฤษที่ผิด — ไม่ให้ได้ยินเป็นตัวอย่าง)
+  for (const phrase of phrases.phrases ?? []) {
+    add(phrase.text)
+    for (const example of phrase.examples ?? []) add(example.text)
+  }
+  for (const pair of phrases.textbookVsReal ?? []) {
+    add(pair.textbook)
+    for (const real of pair.real ?? []) add(real.text)
   }
 
   // คำขึ้นต้นตอนทวนกลับ ("Yes!", "Listen." …) — พูดคู่กับประโยคที่ถูก

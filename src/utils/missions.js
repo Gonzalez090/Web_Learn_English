@@ -36,6 +36,7 @@ export const AVAILABLE_MISSION_EVENTS = new Set([
   'review',
   'sound', // โหมดฝึกเสียง (ขั้นที่ 8 + 21ก)
   'writePass', // แบบฝึกเขียน (ขั้นที่ 9)
+  'phrase', // คลังวลี: พูดตามวลีผ่าน (ขั้นที่ 10)
 ])
 
 export const MISSIONS_PER_DAY = 3
