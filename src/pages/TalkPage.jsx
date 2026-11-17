@@ -24,6 +24,9 @@ import ConversationSummary from '../components/talk/ConversationSummary'
 import NotFoundPage from './NotFoundPage'
 import styles from './Talk.module.css'
 
+// ระดับ/โหมด (ขั้นที่ 12) — อยู่ใน URL ?mode= เหมือน seed: ปกติ / ยาก (ซ่อนตัวเลือก) / Speed Order (จับเวลา — เฉพาะสถานการณ์ที่ speedOrder)
+const MODES = ['normal', 'hard', 'speed']
+
 // สถานการณ์อื่นแบบสุ่ม (ไม่ซ้ำอันเดิม)
 function otherScenarioId(currentId) {
   const others = scenarios.filter((scenario) => scenario.id !== currentId)
@@ -43,10 +46,21 @@ export default function TalkPage() {
 
   const seedParam = Number(searchParams.get('seed'))
   const seed = searchParams.has('seed') && Number.isInteger(seedParam) && seedParam >= 0 ? seedParam : null
+  const modeParam = searchParams.get('mode')
+  const playMode = MODES.includes(modeParam) && (modeParam !== 'speed' || scenario?.speedOrder) ? modeParam : 'normal'
+  // แก้ค่าใน URL โดยคงค่าอื่นไว้ (seed / mode)
+  const updateParams = (changes, options) =>
+    setSearchParams((current) => {
+      const next = new URLSearchParams(current)
+      for (const [key, value] of Object.entries(changes)) next.set(key, String(value))
+      return next
+    }, options)
+
   // ไม่มี seed ใน URL → สุ่มแล้วใส่ (แทนที่ประวัติ ไม่ต้องกดย้อนกลับ 2 ครั้ง)
   useEffect(() => {
-    if (seed === null) setSearchParams({ seed: String(randomSeed()) }, { replace: true })
-  }, [seed, setSearchParams])
+    if (seed === null) updateParams({ seed: randomSeed() }, { replace: true })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [seed])
 
   const conversation = useMemo(
     () => (scenario && seed !== null ? buildConversation(scenario, seed) : null),
@@ -68,15 +82,18 @@ export default function TalkPage() {
     setMode('play')
   }
 
+  // ระดับยาก = พูดเองไม่ดูตัวเลือก → XP เท่า "ใช้เอง"
   function linePass() {
-    addXp(XP.speak)
-    setXp((value) => value + XP.speak)
+    const gain = playMode === 'hard' ? XP.speakOwn : XP.speak
+    addXp(gain)
+    setXp((value) => value + gain)
     trackEvent('speakPass')
   }
 
   function finish(outcome) {
     trackEvent('conversation')
-    const skipped = Object.keys(outcome.outcomes).filter((id) => outcome.outcomes[id] === 'skipped')
+    if (playMode === 'speed') trackEvent('gamePlay') // Speed Order = มินิเกม
+    const skipped = Object.keys(outcome.outcomes).filter((id) => outcome.outcomes[id] !== 'passed')
     addMissed(talkLessonId(scenario.id), skipped)
     setResult(outcome)
     setMode('done')
@@ -84,14 +101,16 @@ export default function TalkPage() {
   }
 
   function again() {
-    setSearchParams({ seed: String(randomSeed()) })
+    updateParams({ seed: randomSeed() })
     start()
   }
 
   function newScenario() {
-    navigate(`/talk/${otherScenarioId(scenario.id)}?seed=${randomSeed()}`)
+    navigate(`/talk/${otherScenarioId(scenario.id)}?seed=${randomSeed()}&mode=${playMode === 'hard' ? 'hard' : 'normal'}`)
     setMode('intro')
   }
+
+  const modeChoices = MODES.filter((value) => value !== 'speed' || scenario.speedOrder)
 
   function addReview() {
     const ids = scenario.turns.filter((turn) => turn.speaker === 'user').map((turn) => turn.id)
@@ -107,7 +126,20 @@ export default function TalkPage() {
           <p className={styles.goal}>
             <span className={styles.goalLabel}>{t('talk.goal')}</span> <span lang="th">{scenario.goalTh}</span>
           </p>
-          <p className={styles.note}>{t('talk.introNote')}</p>
+          <div className={styles.modes} role="group" aria-label={t('talk.modeLabel')}>
+            {modeChoices.map((value) => (
+              <Button
+                key={value}
+                size="sm"
+                variant={playMode === value ? 'primary' : 'secondary'}
+                aria-pressed={playMode === value}
+                onClick={() => updateParams({ mode: value }, { replace: true })}
+              >
+                {t(`talk.mode.${value}`)}
+              </Button>
+            ))}
+          </div>
+          <p className={styles.note}>{t(`talk.modeNote.${playMode}`)}</p>
           <Button block size="lg" icon={MessagesSquare} onClick={start}>
             {t('talk.start')}
           </Button>
@@ -119,6 +151,7 @@ export default function TalkPage() {
           key={`${scenario.id}:${seed}`}
           scenario={scenario}
           conversation={conversation}
+          mode={playMode}
           onLinePass={linePass}
           onFinish={finish}
         />

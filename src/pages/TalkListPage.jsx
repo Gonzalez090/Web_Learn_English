@@ -5,7 +5,7 @@
 // =========================================================
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { Dices } from 'lucide-react'
+import { Dices, Timer } from 'lucide-react'
 import { scenarios } from '../data'
 import { useLocalized } from '../hooks/useLocalized'
 import { randomSeed } from '../utils/conversation'
@@ -25,12 +25,22 @@ export default function TalkListPage() {
     navigate(`/talk/${scenario.id}?seed=${randomSeed()}`)
   }
 
+  // มินิเกม Speed Order (ขั้นที่ 12): บทสนทนาสุ่มแบบจับเวลา — สุ่มจากสถานการณ์ที่สั่งของ (speedOrder)
+  function speedOrder() {
+    const choices = scenarios.filter((scenario) => scenario.speedOrder)
+    const scenario = choices[Math.floor(Math.random() * choices.length)]
+    navigate(`/talk/${scenario.id}?seed=${randomSeed()}&mode=speed`)
+  }
+
   return (
     <Page title={t('talk.title')} subtitle={t('talk.subtitle')} backTo="/">
       <div className={styles.randomBox}>
         <p className={styles.note}>{t('talk.randomNote')}</p>
         <Button block size="lg" icon={Dices} onClick={randomScenario}>
           {t('talk.random')}
+        </Button>
+        <Button block variant="secondary" icon={Timer} onClick={speedOrder}>
+          {t('talk.speedOrder')}
         </Button>
       </div>
       <Section title={t('talk.pick')}>

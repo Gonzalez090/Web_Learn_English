@@ -34,6 +34,7 @@ export default function ConversationSummary({
   const display = useSentenceDisplay(useMemo(() => getStage(5), []))
   const userLines = conversation.lines.filter((line) => line.speaker === 'user')
   const passedCount = userLines.filter((line) => outcomes[line.id] === 'passed').length
+  const timeupCount = userLines.filter((line) => outcomes[line.id] === 'timeup').length // Speed Order
   const partner = loc(scenario.partner, 'name')
 
   return (
@@ -41,6 +42,8 @@ export default function ConversationSummary({
       <div className={styles.result} role="status">
         <p className={styles.resultTitle}>{t('talk.doneTitle')}</p>
         <p>{t('talk.doneCount', { n: passedCount, total: userLines.length })}</p>
+        {timeupCount > 0 && <p>{t('talk.timeupCount', { n: timeupCount })}</p>}
+        {conversation.twist && <p className={styles.twistNote}>{t('talk.twist', { title: conversation.twist.titleTh })}</p>}
         {xp > 0 && <p className={styles.resultXp}>{t('phrases.gameXp', { xp })}</p>}
       </div>
 

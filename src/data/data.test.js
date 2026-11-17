@@ -612,8 +612,11 @@ describe('บทสนทนาสุ่ม (scenarios.json)', () => {
         expect(values.length, name).toBeGreaterThanOrEqual(2)
         for (const value of values) expect(value.en && value.th, name).toBeTruthy()
       }
+      // twist (ขั้นที่ 12): สถานการณ์ละ ≥ 2 แบบ มีชื่อไทย — บรรทัดของ twist ตรวจแบบเดียวกับบทหลัก
+      expect(scenario.twists?.length ?? 0).toBeGreaterThanOrEqual(2)
+      for (const twist of scenario.twists ?? []) expect(twist.id && twist.titleTh && twist.afterTurn, twist.id).toBeTruthy()
       const usedSlots = []
-      for (const turn of scenario.turns) {
+      for (const turn of [...scenario.turns, ...(scenario.twists ?? []).flatMap((twist) => twist.turns)]) {
         if (turn.speaker === 'npc') {
           expect(turn.variants.length, turn.id).toBeGreaterThanOrEqual(3)
           for (const variant of turn.variants) {

@@ -42,16 +42,47 @@ export const defaultSlotValues = (scenario) =>
 
 export const randomSeed = () => Math.floor(Math.random() * 1_000_000_000)
 
+// เหตุการณ์ไม่คาดคิด (twist) เกิด 30% ของรอบ (สเปกส่วนที่ 6) — สุ่มด้วยตัวสุ่มแยก → บทหลักของ seed เดิมไม่เปลี่ยนเพราะ twist
+export const TWIST_CHANCE = 0.3
+
+/**
+ * เลือก twist ของรอบนี้
+ * @param twist 'auto' (สุ่ม 30%) | null (ไม่มี) | id ของ twist (บังคับ — ใช้ทดสอบ)
+ */
+export function pickTwist(scenario, seed, twist = 'auto') {
+  const twists = scenario.twists ?? []
+  if (!twists.length || twist === null) return null
+  if (twist !== 'auto') return twists.find((entry) => entry.id === twist) ?? null
+  const random = createRandom((seed ^ 0x5bd1e995) >>> 0)
+  return random() < TWIST_CHANCE ? twists[Math.floor(random() * twists.length)] : null
+}
+
+// ลำดับ turn ของรอบนี้: แทรก twist ต่อจาก afterTurn และตัดบรรทัดที่ไม่เข้ากับ twist แล้ว (skip)
+function turnsWithTwist(scenario, twist) {
+  if (!twist) return scenario.turns
+  const skip = new Set(twist.skip ?? [])
+  return scenario.turns.flatMap((turn) => {
+    if (skip.has(turn.id)) return []
+    return turn.id === twist.afterTurn ? [turn, ...twist.turns.map((entry) => ({ ...entry, twist: true }))] : [turn]
+  })
+}
+
+// ทุก turn ของสถานการณ์ (บทหลัก + ทุก twist) — ใช้ทำเสียงและรายการทบทวน
+const allTurns = (scenario) => [...scenario.turns, ...(scenario.twists ?? []).flatMap((twist) => twist.turns)]
+
 /**
  * สร้างบทสนทนา 1 รอบ
- * @returns { seed, values, lines: [npc { id, speaker, target, translationTh } | user { id, speaker, hintTh, options, requiredWords, acceptedAnswers, freeAnswer }] }
+ * @param options.twist 'auto' | null | id ของ twist
+ * @returns { seed, values, twist: { id, title, titleTh } | null,
+ *            lines: [npc { id, speaker, target, translationTh, twist? } | user { id, speaker, hintTh, options, requiredWords, acceptedAnswers, freeAnswer, twist? }] }
  */
-export function buildConversation(scenario, seed) {
+export function buildConversation(scenario, seed, { twist: twistOption = 'auto' } = {}) {
   const random = createRandom(seed)
   const values = Object.fromEntries(
     Object.entries(scenario.slots ?? {}).map(([name, list]) => [name, list[Math.floor(random() * list.length)]]),
   )
-  const lines = scenario.turns.map((turn) => {
+  const twist = pickTwist(scenario, seed, twistOption)
+  const lines = turnsWithTwist(scenario, twist).map((turn) => {
     if (turn.speaker === 'npc') {
       const variant = turn.variants[Math.floor(random() * turn.variants.length)]
       return {
@@ -59,6 +90,7 @@ export function buildConversation(scenario, seed) {
         speaker: 'npc',
         target: fillSlots(variant.text, values),
         translationTh: fillSlots(variant.th, values, 'th'),
+        twist: Boolean(turn.twist),
       }
     }
     return {
@@ -69,9 +101,11 @@ export function buildConversation(scenario, seed) {
       requiredWords: (turn.requiredWords ?? []).map((entry) => fillKeyword(entry, values)),
       acceptedAnswers: (turn.acceptedAnswers ?? []).map((answer) => fillSlots(answer, values)),
       freeAnswer: Boolean(turn.freeAnswer),
+      twist: Boolean(turn.twist),
     }
   })
-  return { seed, values, lines }
+  const twistInfo = twist ? { id: twist.id, title: twist.title, titleTh: twist.titleTh } : null
+  return { seed, values, twist: twistInfo, lines }
 }
 
 const transcriptsOf = (alternatives) =>
@@ -126,7 +160,7 @@ function expandText(text, slots) {
 // ข้อความภาษาอังกฤษที่บทสนทนานี้อาจพูด (บทอีกฝ่ายทุกแบบ + ตัวเลือกของเรา) × ทุกค่าของช่อง
 export function expandScenarioTexts(scenario) {
   const texts = new Set()
-  for (const turn of scenario.turns) {
+  for (const turn of allTurns(scenario)) {
     const sources = turn.speaker === 'npc' ? turn.variants.map((variant) => variant.text) : turn.userOptions.map((o) => o.text)
     for (const source of sources) for (const text of expandText(source, scenario.slots)) texts.add(text)
   }
@@ -147,7 +181,7 @@ export function talkReviewLesson(scenario) {
     type: 'talk',
     title: scenario.name,
     titleTh: scenario.nameTh,
-    items: scenario.turns
+    items: allTurns(scenario)
       .filter((turn) => turn.speaker === 'user')
       .map((turn) => {
         const [first, ...others] = turn.userOptions.map((option) => fillSlots(option.text, values))

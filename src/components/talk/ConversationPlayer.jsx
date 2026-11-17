@@ -4,19 +4,21 @@
 //   ตาเรา: คำใบ้ภาษาไทย (ต้องพูดอะไร) + ตัวเลือก 2–3 แบบ (กันเอง / ทั่วไป / สุภาพ — ฟังได้) → แตะไมค์พูดแบบไหนก็ได้
 //          ตรวจ: ใกล้ตัวเลือก ≥ 70% หรือมีคำสำคัญครบ (utils/conversation.js checkUserTurn) → ผ่านแล้วขึ้นกล่องแชตขวา
 //          ยังไม่ผ่าน → ทวนกลับด้วยตัวเลือกแรก / ลองครบ 3 ครั้ง (หรือไมค์ใช้ไม่ได้) → "ไปต่อ" (บรรทัดนั้นเข้ารายการทบทวน)
-//   จบ → onFinish({ outcomes: { [lineId]: 'passed' | 'skipped' }, said: { [lineId]: ข้อความที่พูด } })
-// props: scenario, conversation (ผลจาก buildConversation), onLinePass(line), onFinish
+//   จบ → onFinish({ outcomes: { [lineId]: 'passed' | 'skipped' | 'timeup' }, said: { [lineId]: ข้อความที่พูด } })
+//   mode (ขั้นที่ 12): 'normal' / 'hard' (ซ่อนตัวเลือก เหลือแค่คำใบ้ไทย) / 'speed' (Speed Order: ตาเรามีเวลา 15 วิ หมดแล้วไปต่อเอง)
+//   twist: ป้าย "เหตุการณ์ไม่คาดคิด" ก่อนบรรทัดแรกของ twist
+// props: scenario, conversation (ผลจาก buildConversation), mode, onLinePass(line), onFinish
 // =========================================================
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { Fragment, useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Languages, MessageCircleQuestion } from 'lucide-react'
+import { Languages, MessageCircleQuestion, Zap } from 'lucide-react'
 import { getStage } from '../../data'
 import { useSpeech } from '../../hooks/useSpeech'
 import { useLocalized } from '../../hooks/useLocalized'
 import { useSentenceDisplay } from '../../hooks/useSentenceDisplay'
 import { checkUserTurn } from '../../utils/conversation'
 import { MAX_ATTEMPTS_BEFORE_SKIP } from '../../utils/lessonSteps'
-import { isBlockingMicError, isRecognitionSupported } from '../../utils/recognition'
+import { abortListening, isBlockingMicError, isRecognitionSupported } from '../../utils/recognition'
 import { scrollIntoViewGently } from '../../utils/scroll'
 import MicButton from '../MicButton'
 import Button from '../Button'
@@ -27,10 +29,11 @@ import styles from './ConversationPlayer.module.css'
 
 const OTHER_PAUSE_MS = 500 // พักหลังอีกฝ่ายพูดจบ
 const PASS_PAUSE_MS = 1400 // พูดผ่านแล้ว โชว์ผลแป๊บหนึ่งก่อนไปต่อ
+const SPEED_TIME_MS = 15000 // Speed Order: เวลาตอบต่อตา (อ่านคำใบ้ + พูด + ระบบถอดเสียง)
 
 const npcSpeakKey = (line) => `talk:${line.id}`
 
-export default function ConversationPlayer({ scenario, conversation, onLinePass, onFinish }) {
+export default function ConversationPlayer({ scenario, conversation, mode = 'normal', onLinePass, onFinish }) {
   const { t } = useTranslation()
   const loc = useLocalized()
   const { speak } = useSpeech()
@@ -55,6 +58,23 @@ export default function ConversationPlayer({ scenario, conversation, onLinePass,
   const myTurn = line?.speaker === 'user'
   const canSkip = attempts >= MAX_ATTEMPTS_BEFORE_SKIP || blocked
   const partner = loc(scenario.partner, 'name')
+  const hard = mode === 'hard'
+  const speed = mode === 'speed'
+  const firstTwistIndex = lines.findIndex((entry) => entry.twist)
+
+  // Speed Order: หมดเวลา → หยุดไมค์ แล้วไปบรรทัดถัดไป (บรรทัดนั้นเข้ารายการทบทวน)
+  useEffect(() => {
+    if (!speed || !myTurn || passed) return undefined
+    const timer = setTimeout(() => {
+      abortListening()
+      setSaid((current) => ({ ...current, [line.id]: line.options[0].text }))
+      setOutcomes((current) => ({ ...current, [line.id]: 'timeup' }))
+      advance()
+    }, SPEED_TIME_MS)
+    return () => clearTimeout(timer)
+    // เริ่มนับใหม่เมื่อเปลี่ยนตา / หยุดเมื่อพูดผ่าน
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [speed, myTurn, passed, turn])
 
   function advance() {
     setTurn((value) => value + 1)
@@ -126,7 +146,7 @@ export default function ConversationPlayer({ scenario, conversation, onLinePass,
         {visible.map((entry, index) => {
           const mine = entry.speaker === 'user'
           if (mine && !said[entry.id]) return null // ตาเรายังไม่ได้พูด → ยังไม่มีกล่องแชต
-          return (
+          const bubble = (
             <DialogueBubble
               key={entry.id}
               ref={index === turn ? activeRef : undefined}
@@ -138,6 +158,16 @@ export default function ConversationPlayer({ scenario, conversation, onLinePass,
               display={mine ? undefined : display}
               speakKey={mine ? `talk:${entry.id}:me` : npcSpeakKey(entry)}
             />
+          )
+          if (index !== firstTwistIndex || !conversation.twist) return bubble
+          return (
+            <Fragment key={entry.id}>
+              <p className={styles.twistBanner} role="status">
+                <Zap className={styles.hintIcon} aria-hidden="true" />
+                {t('talk.twist', { title: conversation.twist.titleTh })}
+              </p>
+              {bubble}
+            </Fragment>
           )
         })}
       </div>
@@ -157,24 +187,35 @@ export default function ConversationPlayer({ scenario, conversation, onLinePass,
                 <span className={styles.hintLabel}>{t('talk.yourTurn')}</span> {line.hintTh}
               </span>
             </p>
-            <p className={styles.optionsLabel}>{t('talk.options')}</p>
-            <ul className={styles.options}>
-              {line.options.map((option, index) => (
-                <li key={option.text} className={styles.option}>
-                  <span className={styles.optionText} lang="en">
-                    {option.text}
-                  </span>
-                  <span className={styles.register}>{t(`register.${option.register}`)}</span>
-                  <LineButton text={option.text} speakKey={`talk:${line.id}:opt${index}`} label={t('talk.hearOption')} />
-                </li>
-              ))}
-            </ul>
+            {speed && (
+              <div className={styles.timer} aria-label={t('talk.timer')}>
+                <span key={line.id} className={styles.timerBar} style={{ animationDuration: `${SPEED_TIME_MS}ms` }} />
+              </div>
+            )}
+            {hard ? (
+              <p className={styles.optionsLabel}>{t('talk.hardNote')}</p>
+            ) : (
+              <>
+                <p className={styles.optionsLabel}>{t('talk.options')}</p>
+                <ul className={styles.options}>
+                  {line.options.map((option, index) => (
+                    <li key={option.text} className={styles.option}>
+                      <span className={styles.optionText} lang="en">
+                        {option.text}
+                      </span>
+                      <span className={styles.register}>{t(`register.${option.register}`)}</span>
+                      <LineButton text={option.text} speakKey={`talk:${line.id}:opt${index}`} label={t('talk.hearOption')} />
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
             <MicButton
               key={line.id}
               target={line.options[0].text}
               evaluate={(alternatives, attempt) => checkUserTurn(line, alternatives, { attempt })}
               speakId={`talk:${line.id}:mic`}
-              label={t('talk.speak')}
+              label={hard ? t('talk.speakOwn') : t('talk.speak')}
               onResult={handleResult}
               onError={handleError}
             />

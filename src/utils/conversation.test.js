@@ -5,6 +5,7 @@ import {
   defaultSlotValues,
   expandScenarioTexts,
   fillSlots,
+  pickTwist,
   slotsIn,
   talkReviewLesson,
 } from './conversation'
@@ -41,6 +42,37 @@ describe('buildConversation', () => {
   })
 })
 
+describe('twists (ขั้นที่ 12)', () => {
+  it('เกิดราว 30% ของรอบ (สุ่ม 400 seed) และ seed เดิมได้ twist เดิม', () => {
+    const hits = Array.from({ length: 400 }, (_, seed) => pickTwist(cafe, seed)).filter(Boolean).length
+    expect(hits / 400).toBeGreaterThan(0.2)
+    expect(hits / 400).toBeLessThan(0.4)
+    expect(pickTwist(cafe, 123)).toEqual(pickTwist(cafe, 123))
+  })
+
+  it('แทรกต่อจาก afterTurn และตัดบรรทัดใน skip ออก', () => {
+    const cash = buildConversation(cafe, 1, { twist: 'cafe-cash-only' })
+    const ids = cash.lines.map((line) => line.id)
+    expect(cash.twist.titleTh).toBe('เครื่องรูดบัตรเสีย')
+    expect(ids.indexOf('cafe-t2-1')).toBe(ids.indexOf('cafe-8') + 1)
+    expect(ids).not.toContain('cafe-9')
+    expect(cash.lines.find((line) => line.id === 'cafe-t2-2').twist).toBe(true)
+    expect(buildConversation(cafe, 1, { twist: null }).twist).toBeNull()
+  })
+
+  it('ทุก twist ของทุกสถานการณ์: afterTurn / skip มีอยู่จริง', () => {
+    for (const scenario of scenarios) {
+      const ids = new Set(scenario.turns.map((turn) => turn.id))
+      for (const twist of scenario.twists ?? []) {
+        expect(ids.has(twist.afterTurn), twist.id).toBe(true)
+        for (const id of twist.skip ?? []) expect(ids.has(id), `${twist.id}: ${id}`).toBe(true)
+        const lines = buildConversation(scenario, 5, { twist: twist.id }).lines
+        expect(lines.some((line) => line.twist), twist.id).toBe(true)
+      }
+    }
+  })
+})
+
 describe('checkUserTurn', () => {
   const line = buildConversation(cafe, 1).lines.find((entry) => entry.id === 'cafe-2')
   const drink = buildConversation(cafe, 1).values.drink
@@ -70,8 +102,10 @@ describe('expandScenarioTexts / talkReviewLesson', () => {
   it('ทุกข้อความที่บทสนทนาอาจพูดอยู่ในรายการเสียง (สุ่ม 50 รอบ)', () => {
     for (const scenario of scenarios) {
       const texts = new Set(expandScenarioTexts(scenario))
+      const twistOptions = ['auto', null, ...(scenario.twists ?? []).map((twist) => twist.id)]
       for (let seed = 0; seed < 50; seed += 1) {
-        for (const line of buildConversation(scenario, seed).lines) {
+        const twist = twistOptions[seed % twistOptions.length]
+        for (const line of buildConversation(scenario, seed, { twist }).lines) {
           if (line.speaker === 'npc') expect(texts.has(line.target), line.target).toBe(true)
           else for (const option of line.options) expect(texts.has(option.text), option.text).toBe(true)
         }
@@ -82,7 +116,10 @@ describe('expandScenarioTexts / talkReviewLesson', () => {
   it('บทเรียนสำหรับทบทวน: บรรทัดของเรา ใช้ค่าแรกของช่อง (คงที่)', () => {
     const lesson = talkReviewLesson(cafe)
     expect(lesson.id).toBe('talk-cafe')
-    expect(lesson.items.map((item) => item.id)).toEqual(cafe.turns.filter((t) => t.speaker === 'user').map((t) => t.id))
+    const userTurnIds = [...cafe.turns, ...cafe.twists.flatMap((twist) => twist.turns)]
+      .filter((turn) => turn.speaker === 'user')
+      .map((turn) => turn.id)
+    expect(lesson.items.map((item) => item.id)).toEqual(userTurnIds)
     expect(lesson.items[0].target).toContain(defaultSlotValues(cafe).drink.en)
   })
 })
