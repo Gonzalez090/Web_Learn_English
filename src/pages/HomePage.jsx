@@ -29,6 +29,7 @@ import styles from './HomePage.module.css'
 const SHORTCUTS = [
   { to: '/learn', icon: ICONS.learn, labelKey: 'home.learnBasics' },
   { to: '/phrases', icon: ICONS.phrases, labelKey: 'home.phrases' },
+  { to: '/talk', icon: ICONS.talk, labelKey: 'home.talk' },
   { to: '/sounds', icon: ICONS.sounds, labelKey: 'home.soundPractice' },
   { to: '/profile', icon: ICONS.profile, labelKey: 'nav.profile' },
   { to: '/settings', icon: ICONS.settings, labelKey: 'home.settings' },

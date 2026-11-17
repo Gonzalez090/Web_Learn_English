@@ -9,14 +9,16 @@
 // =========================================================
 import { RECAST_OPENERS } from '../utils/recast.js'
 import { swapVariants } from '../utils/swap.js'
+import { expandScenarioTexts } from '../utils/conversation.js'
 
 /**
  * @param lessons        บทเรียนทั้งหมด (lessons.json)
  * @param soundPractice  ชุดฝึกเสียง (game.json) — คู่คำ think / sink …
  * @param phonicsSounds  เสียง phonics (phonics.json) — คำตัวอย่างของแต่ละเสียง
  * @param phrases        คลังวลี (phrases.json) { phrases, textbookVsReal }
+ * @param scenarios      บทสนทนาสุ่ม (scenarios.json) — บทอีกฝ่ายทุกแบบ + ตัวเลือกของเรา × ทุกค่าของช่องสุ่ม
  */
-export function collectSpeechTexts({ lessons, soundPractice = [], phonicsSounds = [], phrases = {} }) {
+export function collectSpeechTexts({ lessons, soundPractice = [], phonicsSounds = [], phrases = {}, scenarios = [] }) {
   const texts = new Set()
   const add = (text) => {
     const clean = typeof text === 'string' ? text.trim() : ''
@@ -62,6 +64,9 @@ export function collectSpeechTexts({ lessons, soundPractice = [], phonicsSounds 
     add(pair.textbook)
     for (const real of pair.real ?? []) add(real.text)
   }
+
+  // บทสนทนาสุ่ม (ช่องสุ่มค่า → สร้างเสียงให้ทุกค่าที่สุ่มได้)
+  for (const scenario of scenarios) for (const text of expandScenarioTexts(scenario)) add(text)
 
   // คำขึ้นต้นตอนทวนกลับ ("Yes!", "Listen." …) — พูดคู่กับประโยคที่ถูก
   for (const opener of [...RECAST_OPENERS.error, ...RECAST_OPENERS.model]) add(opener)

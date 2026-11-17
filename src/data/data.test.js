@@ -6,6 +6,8 @@ import { miniGames, soundPractice } from './index.js'
 import lessonsData from './lessons.json'
 import phonicsData from './phonics.json'
 import phrasesData from './phrases.json'
+import scenariosData from './scenarios.json'
+import { slotsIn } from '../utils/conversation.js'
 import imageCredits from './imageCredits.json'
 import { collectSpeechTexts } from './speechTexts.js'
 import { swapVariants } from '../utils/swap.js'
@@ -25,7 +27,13 @@ const { stages, lessons } = lessonsData
 // ทุกข้อความที่เว็บพูดต้องมีไฟล์เสียง Kokoro ทั้งความเร็วปกติและช้า
 // (เพิ่ม/แก้เนื้อหาแล้ว test นี้ไม่ผ่าน → รัน npm run audio)
 describe('ไฟล์เสียงเจ้าของภาษา (Kokoro)', () => {
-  const texts = collectSpeechTexts({ lessons, soundPractice, phonicsSounds: phonicsData.sounds, phrases: phrasesData })
+  const texts = collectSpeechTexts({
+    lessons,
+    soundPractice,
+    phonicsSounds: phonicsData.sounds,
+    phrases: phrasesData,
+    scenarios: scenariosData.scenarios,
+  })
   const fileOf = (audioPath) => fileURLToPath(new URL(`../../public${audioPath}`, import.meta.url))
 
   it.each(texts)('"%s" มีไฟล์เสียงปกติและช้า และไฟล์มีอยู่จริง', (text) => {
@@ -581,6 +589,56 @@ describe('คลังวลี (phrases.json)', () => {
   })
 })
 
+// ---------- บทสนทนาสุ่ม (ส่วนที่ 6, ขั้นที่ 11) ----------
+describe('บทสนทนาสุ่ม (scenarios.json)', () => {
+  const { scenarios } = scenariosData
+
+  it('มี 5 สถานการณ์ตามสเปก id ไม่ซ้ำ / ภาพ = /images/talk-<id>.webp', () => {
+    const ids = scenarios.map((scenario) => scenario.id)
+    expect(ids).toEqual(expect.arrayContaining(['cafe', 'store', 'old-friend', 'directions', 'hotel']))
+    expect(new Set(ids).size).toBe(ids.length)
+    for (const scenario of scenarios) expect(scenario.image).toBe(`/images/talk-${scenario.id}.webp`)
+  })
+
+  it.each(scenarios.map((scenario) => [scenario.id, scenario]))(
+    '%s: ≥ 6 turns, บทอีกฝ่าย ≥ 3 แบบ (+ไทย), ตัวเลือกของเรา 2–3 แบบ, ช่องที่ใช้มีค่าครบ',
+    (_id, scenario) => {
+      expect(scenario.name && scenario.nameTh && scenario.goalTh && scenario.partner?.nameTh).toBeTruthy()
+      expect(scenario.turns.length).toBeGreaterThanOrEqual(6)
+      const turnIds = scenario.turns.map((turn) => turn.id)
+      expect(new Set(turnIds).size).toBe(turnIds.length)
+      const slotNames = Object.keys(scenario.slots ?? {})
+      for (const [name, values] of Object.entries(scenario.slots ?? {})) {
+        expect(values.length, name).toBeGreaterThanOrEqual(2)
+        for (const value of values) expect(value.en && value.th, name).toBeTruthy()
+      }
+      const usedSlots = []
+      for (const turn of scenario.turns) {
+        if (turn.speaker === 'npc') {
+          expect(turn.variants.length, turn.id).toBeGreaterThanOrEqual(3)
+          for (const variant of turn.variants) {
+            expect(variant.text && variant.th, turn.id).toBeTruthy()
+            // ช่องในคำแปลไทยต้องตรงกับในภาษาอังกฤษ
+            expect(slotsIn(variant.th).sort(), turn.id).toEqual(slotsIn(variant.text).sort())
+            usedSlots.push(...slotsIn(variant.text))
+          }
+        } else {
+          expect(turn.speaker, turn.id).toBe('user')
+          expect(turn.hintTh, turn.id).toBeTruthy()
+          expect(turn.userOptions.length, turn.id).toBeGreaterThanOrEqual(2)
+          expect(turn.userOptions.length, turn.id).toBeLessThanOrEqual(3)
+          for (const option of turn.userOptions) {
+            expect(REGISTERS, turn.id).toContain(option.register)
+            usedSlots.push(...slotsIn(option.text))
+          }
+          usedSlots.push(...slotsIn(turn.hintTh), ...(turn.requiredWords ?? []).flatMap(slotsIn))
+        }
+      }
+      expect([...new Set(usedSlots)].filter((name) => !slotNames.includes(name))).toEqual([])
+    },
+  )
+})
+
 // ---------- โหมดฝึกเสียง (ส่วนที่ 10.1) ----------
 describe('โหมดฝึกเสียง (soundPractice)', () => {
   it('มีเสียงหลัก th, r/l, v/w (+ อื่น ๆ) id ไม่ซ้ำ', () => {
@@ -607,6 +665,7 @@ describe('ภาพถ่ายประกอบ', () => {
       ...allItems.map(({ item }) => item.image),
       ...allItems.flatMap(({ item }) => (item.lines ?? []).map((line) => line.image)),
       ...phrasesData.situations.map((situation) => situation.image),
+      ...scenariosData.scenarios.map((scenario) => scenario.image),
     ]),
   ]
   // '/images/x.webp' → ไฟล์จริงใน public/images/x.webp

@@ -139,6 +139,7 @@
     "soundPractice": "Sounds",
     "miniGames": "Mini games",
     "phrases": "Phrases",
+    "talk": "Random talk",
     "settings": "Settings",
     "continue": "Continue",
     "allDone": "All open lessons done! See all lessons"
@@ -237,7 +238,30 @@
     "title": "Place"
   },
   "talk": {
-    "title": "Random talk"
+    "title": "Random talk",
+    "subtitle": "Real-life chats with people in town. Different every time.",
+    "randomNote": "The other person says things differently, and prices, menus and times change every round.",
+    "random": "Random situation",
+    "pick": "Or pick a situation",
+    "with": "Talking with: {{name}}",
+    "goal": "Goal:",
+    "introNote": "They speak first. On your turn you get a Thai hint and examples. Say it any way you like.",
+    "start": "Start talking",
+    "you": "You",
+    "yourTurn": "Your turn:",
+    "options": "You can say (or use your own words):",
+    "hearOption": "Hear this sentence",
+    "speak": "Speak",
+    "speakHint": "Tap “Speak” and answer in English. Try as many times as you like.",
+    "otherSpeaking": "{{name}} is talking…",
+    "doneTitle": "Nice chat! All done!",
+    "doneCount": "{{n}} of {{total}} turns passed",
+    "again": "Play again (same situation)",
+    "newScenario": "New random situation",
+    "addReview": "Add my lines to review",
+    "reviewAdded": "Added to review",
+    "transcript": "Full conversation",
+    "newPhrases": "New phrases you can use"
   },
   "phrases": {
     "title": "Real-life phrases",

@@ -15090,5 +15090,40 @@
     "photographer": "klimkin",
     "photographerUrl": "https://pixabay.com/users/klimkin-1298145/",
     "pageUrl": "https://pixabay.com/photos/merry-christmas-kids-girls-writing-1093758/"
+  },
+  "talk-cafe": {
+    "provider": "pixabay",
+    "sourceId": 2609042,
+    "photographer": "StockSnap",
+    "photographerUrl": "https://pixabay.com/users/StockSnap-894430/",
+    "pageUrl": "https://pixabay.com/photos/business-establishments-shops-2609042/"
+  },
+  "talk-directions": {
+    "provider": "pixabay",
+    "sourceId": 1255442,
+    "photographer": "gavilla",
+    "photographerUrl": "https://pixabay.com/users/gavilla-1862695/",
+    "pageUrl": "https://pixabay.com/photos/friends-lost-people-talking-1255442/"
+  },
+  "talk-hotel": {
+    "provider": "pixabay",
+    "sourceId": 5975962,
+    "photographer": "Rodrigo_SalomonHC",
+    "photographerUrl": "https://pixabay.com/users/Rodrigo_SalomonHC-20127871/",
+    "pageUrl": "https://pixabay.com/photos/receptionists-phone-call-hotel-5975962/"
+  },
+  "talk-old-friend": {
+    "provider": "pixabay",
+    "sourceId": 4788167,
+    "photographer": "Polifoto",
+    "photographerUrl": "https://pixabay.com/users/Polifoto-15011787/",
+    "pageUrl": "https://pixabay.com/photos/merry-christmas-embrace-hug-4788167/"
+  },
+  "talk-store": {
+    "provider": "pixabay",
+    "sourceId": 7368231,
+    "photographer": "Surprising_Media",
+    "photographerUrl": "https://pixabay.com/users/Surprising_Media-11873433/",
+    "pageUrl": "https://pixabay.com/photos/woman-store-kiosk-buying-a-drink-7368231/"
   }
 }

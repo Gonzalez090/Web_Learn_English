@@ -84,6 +84,8 @@ export const LESSON_FLOWS = {
   reading: { wholeSteps: ['listenStory'], itemSteps: ['readAloud'], game: 'read-tap', review: ['read'] },
   // Stage 7 เขียน: แบบฝึกเรียงจากง่ายไปยากตามลำดับข้อในบท (ไม่มีมินิเกม — สเปกส่วนที่ 8.2)
   writing: { itemSteps: ['write'], review: ['write'] },
+  // บทสนทนาสุ่ม (ขั้นที่ 11 — เล่นที่ /talk ไม่ใช่ใน LessonPlayer): ใช้แค่ตอนทบทวน = พูดบรรทัดของเราอีกครั้ง
+  talk: { review: ['speak'] },
 }
 
 // แบบฝึกเขียนอิสระ (เขียนเองทั้งประโยค/เรื่อง) = "ใช้เอง" ได้ XP มากกว่า

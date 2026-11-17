@@ -1,3 +1,637 @@
 {
-  "scenarios": []
+  "scenarios": [
+    {
+      "id": "cafe",
+      "name": "At the café",
+      "nameTh": "ร้านกาแฟ",
+      "goalTh": "สั่งเครื่องดื่ม บอกชื่อ แล้วจ่ายเงิน",
+      "image": "/images/talk-cafe.webp",
+      "level": 1,
+      "placeId": "cafe",
+      "npcId": "mia",
+      "partner": { "name": "Barista", "nameTh": "บาริสต้า" },
+      "slots": {
+        "drink": [
+          { "en": "a latte", "th": "ลาเต้", "key": "latte" },
+          { "en": "an iced coffee", "th": "กาแฟเย็น", "key": "iced coffee" },
+          { "en": "a cappuccino", "th": "คาปูชิโน่", "key": "cappuccino" }
+        ],
+        "price": [
+          { "en": "four fifty", "th": "4.50 ดอลลาร์" },
+          { "en": "five twenty-five", "th": "5.25 ดอลลาร์" },
+          { "en": "three seventy-five", "th": "3.75 ดอลลาร์" }
+        ],
+        "name": [
+          { "en": "Alex", "th": "Alex" },
+          { "en": "Jamie", "th": "Jamie" },
+          { "en": "Sam", "th": "Sam" }
+        ]
+      },
+      "turns": [
+        {
+          "id": "cafe-1",
+          "speaker": "npc",
+          "variants": [
+            { "text": "Hi there! What can I get you?", "th": "สวัสดีค่ะ รับอะไรดีคะ" },
+            { "text": "Hey! What can I get started for you?", "th": "เฮ้! ให้เริ่มทำอะไรให้ดีคะ" },
+            { "text": "Hi! What would you like today?", "th": "สวัสดีค่ะ วันนี้รับอะไรดีคะ" }
+          ]
+        },
+        {
+          "id": "cafe-2",
+          "speaker": "user",
+          "hintTh": "สั่ง{drink}",
+          "userOptions": [
+            { "text": "Can I get {drink}, please?", "register": "neutral" },
+            { "text": "I'll have {drink}, please.", "register": "neutral" },
+            { "text": "Could I please have {drink}?", "register": "formal" }
+          ],
+          "requiredWords": ["{drink}"]
+        },
+        {
+          "id": "cafe-3",
+          "speaker": "npc",
+          "variants": [
+            { "text": "Sure! What size?", "th": "ได้เลยค่ะ ขนาดไหนคะ" },
+            { "text": "You got it. What size would you like?", "th": "ได้ค่ะ เอาแก้วขนาดไหนดีคะ" },
+            { "text": "Okay! Small, medium, or large?", "th": "โอเคค่ะ เล็ก กลาง หรือใหญ่คะ" }
+          ]
+        },
+        {
+          "id": "cafe-4",
+          "speaker": "user",
+          "hintTh": "ขอแก้วขนาดกลาง",
+          "userOptions": [
+            { "text": "Medium, please.", "register": "neutral" },
+            { "text": "Can I get a medium?", "register": "neutral" },
+            { "text": "Uh, medium's good.", "register": "casual" }
+          ],
+          "requiredWords": ["medium"]
+        },
+        {
+          "id": "cafe-5",
+          "speaker": "npc",
+          "variants": [
+            { "text": "Can I get a name for the order?", "th": "ขอชื่อสำหรับออร์เดอร์หน่อยค่ะ" },
+            { "text": "And what's the name for that?", "th": "แล้วใช้ชื่ออะไรดีคะ" },
+            { "text": "Okay, and your name?", "th": "โอเค แล้วชื่ออะไรคะ" }
+          ]
+        },
+        {
+          "id": "cafe-6",
+          "speaker": "user",
+          "hintTh": "บอกชื่อของคุณ (หรือใช้ชื่อ {name})",
+          "userOptions": [
+            { "text": "It's {name}.", "register": "neutral" },
+            { "text": "{name}.", "register": "casual" }
+          ],
+          "freeAnswer": true
+        },
+        {
+          "id": "cafe-7",
+          "speaker": "npc",
+          "variants": [
+            { "text": "Great. That'll be {price}.", "th": "เรียบร้อยค่ะ ทั้งหมด {price}" },
+            { "text": "Okay, that's {price}.", "th": "โอเคค่ะ {price}" },
+            { "text": "Your total is {price}.", "th": "ทั้งหมด {price} ค่ะ" }
+          ]
+        },
+        {
+          "id": "cafe-8",
+          "speaker": "user",
+          "hintTh": "ถามว่าจ่ายด้วยบัตรได้ไหม",
+          "userOptions": [
+            { "text": "Can I pay by card?", "register": "neutral" },
+            { "text": "Do you take cards?", "register": "neutral" },
+            { "text": "Card's okay, right?", "register": "casual" }
+          ],
+          "requiredWords": ["card"]
+        },
+        {
+          "id": "cafe-9",
+          "speaker": "npc",
+          "variants": [
+            { "text": "Yep! Just tap it here. It'll be ready in a minute.", "th": "ได้ค่ะ แตะบัตรตรงนี้เลย อีกแป๊บเดียวได้ค่ะ" },
+            { "text": "Of course. We'll call your name when it's ready.", "th": "ได้ค่ะ เสร็จแล้วจะเรียกชื่อนะคะ" },
+            { "text": "Sure thing. Grab a seat, it won't be long.", "th": "ได้เลยค่ะ นั่งรอได้เลย ไม่นานค่ะ" }
+          ]
+        },
+        {
+          "id": "cafe-10",
+          "speaker": "user",
+          "hintTh": "ขอบคุณ",
+          "userOptions": [
+            { "text": "Thanks so much!", "register": "casual" },
+            { "text": "Awesome, thanks!", "register": "casual" },
+            { "text": "Thank you.", "register": "neutral" }
+          ],
+          "requiredWords": ["thanks/thank"]
+        }
+      ]
+    },
+    {
+      "id": "store",
+      "name": "At the convenience store",
+      "nameTh": "ร้านสะดวกซื้อ",
+      "goalTh": "ถามหาของ แล้วจ่ายเงินที่เคาน์เตอร์",
+      "image": "/images/talk-store.webp",
+      "level": 1,
+      "placeId": "store",
+      "npcId": "jake",
+      "partner": { "name": "Cashier", "nameTh": "พนักงานแคชเชียร์" },
+      "slots": {
+        "item": [
+          { "en": "batteries", "th": "ถ่าน", "key": "batteries" },
+          { "en": "phone chargers", "th": "ที่ชาร์จมือถือ", "key": "charger" },
+          { "en": "umbrellas", "th": "ร่ม", "key": "umbrella" }
+        ],
+        "aisle": [
+          { "en": "aisle three", "th": "ช่องที่ 3" },
+          { "en": "aisle five", "th": "ช่องที่ 5" },
+          { "en": "the back", "th": "ด้านหลังร้าน" }
+        ],
+        "price": [
+          { "en": "six forty", "th": "6.40 ดอลลาร์" },
+          { "en": "eight ninety-nine", "th": "8.99 ดอลลาร์" },
+          { "en": "twelve fifty", "th": "12.50 ดอลลาร์" }
+        ]
+      },
+      "turns": [
+        {
+          "id": "store-1",
+          "speaker": "npc",
+          "variants": [
+            { "text": "Hi! Let me know if you need anything.", "th": "สวัสดีครับ ต้องการอะไรบอกได้เลยนะ" },
+            { "text": "Hey there! Can I help you find something?", "th": "หวัดดีครับ ให้ช่วยหาอะไรไหม" },
+            { "text": "Hi! Looking for anything in particular?", "th": "สวัสดีครับ หาอะไรอยู่หรือเปล่า" }
+          ]
+        },
+        {
+          "id": "store-2",
+          "speaker": "user",
+          "hintTh": "ถามว่าร้านมี{item}ไหม",
+          "userOptions": [
+            { "text": "Do you have any {item}?", "register": "neutral" },
+            { "text": "Do you guys sell {item}?", "register": "casual" },
+            { "text": "Excuse me, where can I find {item}?", "register": "neutral" }
+          ],
+          "requiredWords": ["{item}"]
+        },
+        {
+          "id": "store-3",
+          "speaker": "npc",
+          "variants": [
+            { "text": "Yeah, they're in {aisle}.", "th": "มีครับ อยู่{aisle}" },
+            { "text": "Sure, check {aisle}.", "th": "มีครับ ลองดูที่{aisle}" },
+            { "text": "We do! They're over in {aisle}.", "th": "มีครับ อยู่ทางโน้น{aisle}" }
+          ]
+        },
+        {
+          "id": "store-4",
+          "speaker": "user",
+          "hintTh": "ขอบคุณ",
+          "userOptions": [
+            { "text": "Great, thanks!", "register": "casual" },
+            { "text": "Thank you!", "register": "neutral" },
+            { "text": "Cool, thanks.", "register": "casual" }
+          ],
+          "requiredWords": ["thanks/thank"]
+        },
+        {
+          "id": "store-5",
+          "speaker": "npc",
+          "variants": [
+            { "text": "Did you find everything okay?", "th": "ได้ของครบไหมครับ" },
+            { "text": "Is that everything for you?", "th": "แค่นี้ใช่ไหมครับ" },
+            { "text": "Anything else today?", "th": "วันนี้รับอะไรเพิ่มไหมครับ" }
+          ]
+        },
+        {
+          "id": "store-6",
+          "speaker": "user",
+          "hintTh": "บอกว่าแค่นี้แหละ",
+          "userOptions": [
+            { "text": "Yeah, that's it.", "register": "casual" },
+            { "text": "That's all, thanks.", "register": "neutral" },
+            { "text": "Yes, that's everything.", "register": "neutral" }
+          ],
+          "acceptedAnswers": ["That's everything.", "That's it, thanks.", "No, that's all."]
+        },
+        {
+          "id": "store-7",
+          "speaker": "npc",
+          "variants": [
+            { "text": "Okay, that's {price}. Do you need a bag?", "th": "โอเคครับ {price} รับถุงไหมครับ" },
+            { "text": "It's {price}, please. Want a bag?", "th": "{price} ครับ เอาถุงไหม" },
+            { "text": "That comes to {price}. Need a bag?", "th": "ทั้งหมด {price} ครับ ต้องการถุงไหม" }
+          ]
+        },
+        {
+          "id": "store-8",
+          "speaker": "user",
+          "hintTh": "บอกว่าไม่เอาถุง",
+          "userOptions": [
+            { "text": "No, I'm good, thanks.", "register": "casual" },
+            { "text": "No thanks, I've got one.", "register": "neutral" },
+            { "text": "No bag, thanks.", "register": "casual" }
+          ],
+          "requiredWords": ["no"]
+        },
+        {
+          "id": "store-9",
+          "speaker": "npc",
+          "variants": [
+            { "text": "Here's your receipt. Have a good one!", "th": "นี่ใบเสร็จครับ ขอให้เป็นวันที่ดีนะ" },
+            { "text": "Alright, you're all set. Have a nice day!", "th": "เรียบร้อยครับ ขอให้เป็นวันที่ดี" },
+            { "text": "Thanks! Have a good night!", "th": "ขอบคุณครับ ราตรีสวัสดิ์นะ" }
+          ]
+        },
+        {
+          "id": "store-10",
+          "speaker": "user",
+          "hintTh": "ขอบคุณ แล้วอวยพรกลับ",
+          "userOptions": [
+            { "text": "Thanks, you too!", "register": "casual" },
+            { "text": "You too, bye!", "register": "casual" },
+            { "text": "Thank you, have a nice day.", "register": "neutral" }
+          ],
+          "requiredWords": ["you"]
+        }
+      ]
+    },
+    {
+      "id": "old-friend",
+      "name": "Bumping into an old friend",
+      "nameTh": "เจอเพื่อนเก่า",
+      "goalTh": "ทักทาย เล่าว่าเพิ่งกลับมาจากไหน แล้วนัดเจอกันใหม่",
+      "image": "/images/talk-old-friend.webp",
+      "level": 1,
+      "placeId": "park",
+      "npcId": "sam",
+      "partner": { "name": "Old friend", "nameTh": "เพื่อนเก่า" },
+      "slots": {
+        "place": [
+          { "en": "Japan", "th": "ญี่ปุ่น" },
+          { "en": "Australia", "th": "ออสเตรเลีย" },
+          { "en": "London", "th": "ลอนดอน" }
+        ],
+        "day": [
+          { "en": "Saturday", "th": "วันเสาร์" },
+          { "en": "Sunday", "th": "วันอาทิตย์" },
+          { "en": "Friday night", "th": "คืนวันศุกร์", "key": "Friday" }
+        ]
+      },
+      "turns": [
+        {
+          "id": "old-friend-1",
+          "speaker": "npc",
+          "variants": [
+            { "text": "No way! Is that you? Long time no see!", "th": "ไม่จริงน่า! นั่นเธอใช่ไหม ไม่เจอกันนานเลย!" },
+            { "text": "Hey! Oh my gosh, it's been forever!", "th": "เฮ้! ตายแล้ว ไม่เจอกันนานมากเลย!" },
+            { "text": "Wait, is that you? Wow, it's been ages!", "th": "เดี๋ยวนะ นั่นเธอเหรอ ว้าว ไม่เจอกันตั้งนาน!" }
+          ]
+        },
+        {
+          "id": "old-friend-2",
+          "speaker": "user",
+          "hintTh": "ทักกลับว่าไม่ได้เจอกันนานเลย",
+          "userOptions": [
+            { "text": "Hey! Long time no see!", "register": "casual" },
+            { "text": "Wow, it's been ages!", "register": "casual" },
+            { "text": "Hi! It's so good to see you!", "register": "neutral" }
+          ],
+          "requiredWords": ["long time/ages/forever/good to see"]
+        },
+        {
+          "id": "old-friend-3",
+          "speaker": "npc",
+          "variants": [
+            { "text": "How have you been?", "th": "เป็นยังไงบ้าง" },
+            { "text": "So how's everything going?", "th": "แล้วชีวิตเป็นไงบ้าง" },
+            { "text": "What have you been up to?", "th": "ช่วงนี้ทำอะไรอยู่บ้าง" }
+          ]
+        },
+        {
+          "id": "old-friend-4",
+          "speaker": "user",
+          "hintTh": "บอกว่าสบายดี เพิ่งกลับมาจาก{place}",
+          "userOptions": [
+            { "text": "Pretty good! I just got back from {place}.", "register": "casual" },
+            { "text": "Not bad. I was in {place} for a while.", "register": "neutral" },
+            { "text": "Good! I've been living in {place}.", "register": "neutral" }
+          ],
+          "requiredWords": ["{place}"]
+        },
+        {
+          "id": "old-friend-5",
+          "speaker": "npc",
+          "variants": [
+            { "text": "Oh, that's awesome! How was it?", "th": "โห เจ๋งมาก! เป็นไงบ้าง" },
+            { "text": "No way! That's so cool. Did you like it?", "th": "จริงเหรอ! เจ๋งมาก ชอบไหม" },
+            { "text": "Nice! How was it there?", "th": "ดีจัง! ที่นั่นเป็นยังไงบ้าง" }
+          ]
+        },
+        {
+          "id": "old-friend-6",
+          "speaker": "user",
+          "hintTh": "บอกว่าดีมาก ชอบมาก",
+          "userOptions": [
+            { "text": "It was amazing!", "register": "casual" },
+            { "text": "I loved it!", "register": "casual" },
+            { "text": "It was really great, thanks.", "register": "neutral" }
+          ],
+          "acceptedAnswers": ["It was great!", "It was awesome!", "I really liked it."]
+        },
+        {
+          "id": "old-friend-7",
+          "speaker": "npc",
+          "variants": [
+            { "text": "We should totally catch up. Are you free on {day}?", "th": "เราต้องมานั่งคุยกันแล้ว {day}ว่างไหม" },
+            { "text": "Let's grab a coffee sometime! How about {day}?", "th": "ไปกินกาแฟกันสักวันนะ! {day}ดีไหม" },
+            { "text": "We gotta hang out! Are you free {day}?", "th": "ต้องนัดเจอกันแล้ว! {day}ว่างไหม" }
+          ]
+        },
+        {
+          "id": "old-friend-8",
+          "speaker": "user",
+          "hintTh": "ตอบตกลงไปตามนัด",
+          "userOptions": [
+            { "text": "Sounds good!", "register": "casual" },
+            { "text": "Yeah, I'm down!", "register": "casual" },
+            { "text": "{day} works for me.", "register": "neutral" }
+          ],
+          "acceptedAnswers": ["Sure!", "Yeah, sounds good!", "That works for me.", "Sure, I'm free."]
+        },
+        {
+          "id": "old-friend-9",
+          "speaker": "npc",
+          "variants": [
+            { "text": "Awesome! I'll text you.", "th": "เยี่ยม! เดี๋ยวทักไปนะ" },
+            { "text": "Great! Is your number still the same?", "th": "ดีเลย! เบอร์ยังเหมือนเดิมใช่ไหม" },
+            { "text": "Perfect! Send me a message, okay?", "th": "เยี่ยม! ส่งข้อความมานะ โอเคไหม" }
+          ]
+        },
+        {
+          "id": "old-friend-10",
+          "speaker": "user",
+          "hintTh": "บอกลา แล้วเจอกัน",
+          "userOptions": [
+            { "text": "Sure! See you then!", "register": "casual" },
+            { "text": "Okay, see you later!", "register": "casual" },
+            { "text": "Great, see you soon!", "register": "neutral" }
+          ],
+          "requiredWords": ["see you"]
+        }
+      ]
+    },
+    {
+      "id": "directions",
+      "name": "Asking for directions",
+      "nameTh": "ถามทาง",
+      "goalTh": "ถามทางไปสถานที่ ทวนเส้นทาง แล้วขอบคุณ",
+      "image": "/images/talk-directions.webp",
+      "level": 1,
+      "placeId": "home",
+      "npcId": "rose",
+      "partner": { "name": "Local", "nameTh": "คนแถวนั้น" },
+      "slots": {
+        "place": [
+          { "en": "the train station", "th": "สถานีรถไฟ", "key": "station" },
+          { "en": "the post office", "th": "ไปรษณีย์", "key": "post office" },
+          { "en": "the library", "th": "ห้องสมุด", "key": "library" }
+        ],
+        "dir": [
+          { "en": "left", "th": "ซ้าย" },
+          { "en": "right", "th": "ขวา" }
+        ],
+        "minutes": [
+          { "en": "five", "th": "5" },
+          { "en": "ten", "th": "10" }
+        ]
+      },
+      "turns": [
+        {
+          "id": "directions-1",
+          "speaker": "user",
+          "hintTh": "ขอโทษ แล้วถามทางไป{place}",
+          "userOptions": [
+            { "text": "Excuse me, how do I get to {place}?", "register": "neutral" },
+            { "text": "Sorry to bother you, where's {place}?", "register": "neutral" },
+            { "text": "Hi, is {place} near here?", "register": "casual" }
+          ],
+          "requiredWords": ["{place}"]
+        },
+        {
+          "id": "directions-2",
+          "speaker": "npc",
+          "variants": [
+            { "text": "Oh, sure. Go straight and turn {dir} at the lights.", "th": "อ๋อ ได้สิ ตรงไปแล้วเลี้ยว{dir}ที่ไฟแดง" },
+            { "text": "Yeah, it's close. Just go straight, then turn {dir} at the lights.", "th": "ใกล้ ๆ นี่เอง ตรงไปแล้วเลี้ยว{dir}ที่ไฟแดง" },
+            { "text": "Sure! Walk down this street and take a {dir} at the lights.", "th": "ได้เลย เดินไปตามถนนนี้ แล้วเลี้ยว{dir}ที่ไฟแดง" }
+          ]
+        },
+        {
+          "id": "directions-3",
+          "speaker": "user",
+          "hintTh": "ทวนว่าเลี้ยว{dir}ที่ไฟแดง",
+          "userOptions": [
+            { "text": "Turn {dir} at the lights?", "register": "neutral" },
+            { "text": "So, {dir} at the lights?", "register": "casual" },
+            { "text": "Okay, {dir} at the traffic lights.", "register": "neutral" }
+          ],
+          "requiredWords": ["{dir}"]
+        },
+        {
+          "id": "directions-4",
+          "speaker": "npc",
+          "variants": [
+            { "text": "Yep! It's on your {dir}. You can't miss it.", "th": "ใช่ อยู่ทาง{dir}มือ หาไม่ยากหรอก" },
+            { "text": "That's right. It's right there on the {dir}.", "th": "ใช่แล้ว อยู่ตรงนั้นเลยทาง{dir}" },
+            { "text": "Exactly. You'll see it on your {dir}.", "th": "ใช่เลย จะเห็นอยู่ทาง{dir}มือ" }
+          ]
+        },
+        {
+          "id": "directions-5",
+          "speaker": "user",
+          "hintTh": "ถามว่าไกลจากตรงนี้ไหม",
+          "userOptions": [
+            { "text": "Is it far from here?", "register": "neutral" },
+            { "text": "How long does it take to walk?", "register": "neutral" },
+            { "text": "Can I walk there?", "register": "casual" }
+          ],
+          "requiredWords": ["far/walk/how long"]
+        },
+        {
+          "id": "directions-6",
+          "speaker": "npc",
+          "variants": [
+            { "text": "Not really, maybe {minutes} minutes on foot.", "th": "ไม่ไกลหรอก เดินประมาณ {minutes} นาที" },
+            { "text": "It's about a {minutes}-minute walk.", "th": "เดินไปประมาณ {minutes} นาที" },
+            { "text": "Nah, it's like {minutes} minutes.", "th": "ไม่หรอก ประมาณ {minutes} นาทีเอง" }
+          ]
+        },
+        {
+          "id": "directions-7",
+          "speaker": "user",
+          "hintTh": "ขอบคุณมาก",
+          "userOptions": [
+            { "text": "Thanks a lot!", "register": "casual" },
+            { "text": "Great, thank you so much!", "register": "neutral" },
+            { "text": "Awesome, thanks for your help!", "register": "casual" }
+          ],
+          "requiredWords": ["thanks/thank"]
+        },
+        {
+          "id": "directions-8",
+          "speaker": "npc",
+          "variants": [
+            { "text": "No problem! Have a good one.", "th": "ไม่เป็นไรเลย ขอให้เป็นวันที่ดีนะ" },
+            { "text": "You're welcome. Good luck!", "th": "ยินดีจ้ะ โชคดีนะ" },
+            { "text": "Anytime! Enjoy your day.", "th": "ได้เสมอ ขอให้สนุกนะ" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hotel",
+      "name": "Checking in at a hotel",
+      "nameTh": "เช็คอินโรงแรม",
+      "goalTh": "เช็คอิน บอกชื่อ ยืนยันจำนวนคืน แล้วถามเวลาอาหารเช้า",
+      "image": "/images/talk-hotel.webp",
+      "level": 1,
+      "placeId": "airport",
+      "npcId": "receptionist",
+      "partner": { "name": "Receptionist", "nameTh": "พนักงานต้อนรับ" },
+      "slots": {
+        "surname": [
+          { "en": "Lee", "th": "Lee" },
+          { "en": "Kim", "th": "Kim" },
+          { "en": "Chen", "th": "Chen" }
+        ],
+        "nights": [
+          { "en": "two nights", "th": "2 คืน", "key": "two" },
+          { "en": "three nights", "th": "3 คืน", "key": "three" }
+        ],
+        "room": [
+          { "en": "four-twelve", "th": "412" },
+          { "en": "two-oh-eight", "th": "208" },
+          { "en": "five-fifteen", "th": "515" }
+        ],
+        "time": [
+          { "en": "seven", "th": "7 โมงเช้า" },
+          { "en": "six thirty", "th": "6 โมงครึ่ง" }
+        ]
+      },
+      "turns": [
+        {
+          "id": "hotel-1",
+          "speaker": "npc",
+          "variants": [
+            { "text": "Good evening! Are you checking in?", "th": "สวัสดีค่ะ มาเช็คอินใช่ไหมคะ" },
+            { "text": "Hi, welcome! Checking in today?", "th": "สวัสดีค่ะ ยินดีต้อนรับ วันนี้มาเช็คอินใช่ไหมคะ" },
+            { "text": "Good afternoon. How can I help you?", "th": "สวัสดีค่ะ มีอะไรให้ช่วยไหมคะ" }
+          ]
+        },
+        {
+          "id": "hotel-2",
+          "speaker": "user",
+          "hintTh": "บอกว่ามาเช็คอิน และมีจองไว้แล้ว",
+          "userOptions": [
+            { "text": "Hi, I'd like to check in, please.", "register": "neutral" },
+            { "text": "Yes, I have a reservation.", "register": "neutral" },
+            { "text": "Hi, checking in, please.", "register": "casual" }
+          ],
+          "requiredWords": ["check in/reservation/booking"]
+        },
+        {
+          "id": "hotel-3",
+          "speaker": "npc",
+          "variants": [
+            { "text": "Sure. Can I get your last name, please?", "th": "ได้ค่ะ ขอนามสกุลด้วยค่ะ" },
+            { "text": "Great. What's the name on the reservation?", "th": "ได้ค่ะ จองไว้ในชื่ออะไรคะ" },
+            { "text": "Of course. May I have your name, please?", "th": "ได้ค่ะ ขอทราบชื่อด้วยค่ะ" }
+          ]
+        },
+        {
+          "id": "hotel-4",
+          "speaker": "user",
+          "hintTh": "บอกนามสกุลของคุณ (หรือใช้ {surname})",
+          "userOptions": [
+            { "text": "It's {surname}.", "register": "neutral" },
+            { "text": "Sure, it's {surname}.", "register": "neutral" }
+          ],
+          "freeAnswer": true
+        },
+        {
+          "id": "hotel-5",
+          "speaker": "npc",
+          "variants": [
+            { "text": "Thank you. I see you're staying for {nights}.", "th": "ขอบคุณค่ะ เห็นว่าพัก {nights} นะคะ" },
+            { "text": "Okay, I found it. That's {nights}, right?", "th": "เจอแล้วค่ะ พัก {nights} ใช่ไหมคะ" },
+            { "text": "Got it. {nights}, is that correct?", "th": "ได้ค่ะ {nights} ถูกต้องไหมคะ" }
+          ]
+        },
+        {
+          "id": "hotel-6",
+          "speaker": "user",
+          "hintTh": "ตอบว่าใช่ ถูกต้อง",
+          "userOptions": [
+            { "text": "Yes, that's right.", "register": "neutral" },
+            { "text": "Yep, that's correct.", "register": "casual" },
+            { "text": "That's right, thanks.", "register": "neutral" }
+          ],
+          "requiredWords": ["right/correct/yes/yep"]
+        },
+        {
+          "id": "hotel-7",
+          "speaker": "npc",
+          "variants": [
+            { "text": "Here's your key. You're in room {room}.", "th": "นี่กุญแจค่ะ ห้อง {room} ค่ะ" },
+            { "text": "Alright, you're in room {room}. Here's your key card.", "th": "เรียบร้อยค่ะ ห้อง {room} นี่คีย์การ์ดค่ะ" },
+            { "text": "Room {room}. Here's your key.", "th": "ห้อง {room} ค่ะ นี่กุญแจค่ะ" }
+          ]
+        },
+        {
+          "id": "hotel-8",
+          "speaker": "user",
+          "hintTh": "ถามว่าอาหารเช้าเริ่มกี่โมง",
+          "userOptions": [
+            { "text": "What time is breakfast?", "register": "neutral" },
+            { "text": "When does breakfast start?", "register": "neutral" },
+            { "text": "Could you tell me what time breakfast is?", "register": "formal" }
+          ],
+          "requiredWords": ["breakfast"]
+        },
+        {
+          "id": "hotel-9",
+          "speaker": "npc",
+          "variants": [
+            { "text": "Breakfast starts at {time}, on the first floor.", "th": "อาหารเช้าเริ่ม {time} ที่ชั้นหนึ่งค่ะ" },
+            { "text": "It's from {time} to ten, in the lobby.", "th": "ตั้งแต่ {time} ถึงสิบโมง ที่ล็อบบี้ค่ะ" },
+            { "text": "We serve breakfast from {time} in the restaurant.", "th": "เสิร์ฟอาหารเช้าตั้งแต่ {time} ที่ห้องอาหารค่ะ" }
+          ]
+        },
+        {
+          "id": "hotel-10",
+          "speaker": "user",
+          "hintTh": "ขอบคุณ",
+          "userOptions": [
+            { "text": "Perfect, thank you!", "register": "neutral" },
+            { "text": "Great, thanks!", "register": "casual" },
+            { "text": "Thank you very much.", "register": "formal" }
+          ],
+          "requiredWords": ["thanks/thank"]
+        },
+        {
+          "id": "hotel-11",
+          "speaker": "npc",
+          "variants": [
+            { "text": "You're welcome. Enjoy your stay!", "th": "ยินดีค่ะ ขอให้พักผ่อนให้สบายนะคะ" },
+            { "text": "My pleasure. Have a great stay!", "th": "ยินดีค่ะ ขอให้พักอย่างมีความสุขค่ะ" },
+            { "text": "Anytime! Let us know if you need anything.", "th": "ได้เสมอค่ะ ต้องการอะไรบอกได้เลยนะคะ" }
+          ]
+        }
+      ]
+    }
+  ]
 }

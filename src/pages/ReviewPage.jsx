@@ -4,9 +4,10 @@
 // - มี → ReviewPlayer (เกม + พูดตาม) → สรุปว่าแต่ละข้อเลื่อนไปอีกกี่วัน / กลับมาพรุ่งนี้ / จำได้แล้ว
 // รายการรอบนี้ถูก "จับภาพ" ตอนเริ่ม → ระหว่างเล่นคิวเปลี่ยนก็ไม่กระทบ
 // =========================================================
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { getLessonMeta, getStage } from '../data'
+import { getLessonMeta, getStage, scenarios } from '../data'
+import { talkReviewLesson } from '../utils/conversation'
 import { englishTextMode } from '../utils/display'
 import { useLessonsOfStages } from '../hooks/useLessons'
 import { useReviewStore } from '../store/reviewStore'
@@ -40,7 +41,9 @@ export default function ReviewPage() {
   // โหลดเนื้อหาเฉพาะ Stage ที่มีข้ออยู่ในคิว — จับชุด Stage ไว้ตั้งแต่เปิดหน้า
   // (ระหว่างทบทวน คิวมีแต่ข้อเดิมเปลี่ยนรอบ ไม่มีบทใหม่เข้ามา → ไม่ต้องโหลด/รอใหม่กลางทาง)
   const [stageIds] = useState(() => queue.map((entry) => getLessonMeta(entry.lessonId)?.stageId).filter(Boolean))
-  const lessons = useLessonsOfStages(stageIds)
+  const stageLessons = useLessonsOfStages(stageIds)
+  // บทสนทนาสุ่ม (ขั้นที่ 11): บรรทัดของเราที่ข้าม/เพิ่มเข้ารายการทบทวน อยู่ในบทเรียนเสมือน talk-<id> (ข้อมูลอยู่ในไฟล์หลักแล้ว)
+  const lessons = useMemo(() => [...stageLessons, ...scenarios.map(talkReviewLesson)], [stageLessons])
 
   const [round, setRound] = useState(0) // เพิ่มขึ้น = เริ่มทบทวนรอบใหม่
   const [session, setSession] = useState(() => buildReviewItems(queue, lessons, todayKey()))

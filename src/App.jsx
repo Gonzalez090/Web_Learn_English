@@ -11,6 +11,7 @@ import StagePage from './pages/StagePage'
 import LessonSummaryPage from './pages/LessonSummaryPage'
 import PlacePage from './pages/PlacePage'
 import TalkPage from './pages/TalkPage'
+import TalkListPage from './pages/TalkListPage'
 import PhrasesPage from './pages/PhrasesPage'
 import PhraseSituationPage from './pages/PhraseSituationPage'
 import RealVsTextbookPage from './pages/RealVsTextbookPage'
@@ -50,6 +51,7 @@ export default function App() {
 
         {/* เมือง + ภาษาชีวิตจริง */}
         <Route path="place/:placeId" element={<PlacePage />} />
+        <Route path="talk" element={<TalkListPage />} />
         <Route path="talk/:scenarioId" element={<TalkPage />} />
         <Route path="phrases" element={<PhrasesPage />} />
         <Route path="phrases/real-vs-textbook" element={<RealVsTextbookPage />} />
