@@ -17,7 +17,7 @@ import { RECAST_OPENERS } from './recast.js'
 export const KEYWORD_PASS_RATIO = 0.6
 
 // กริยาอดีต/รูปพิเศษที่พบบ่อยในการเล่าเรื่อง → รูปปกติ
-const IRREGULAR = {
+export const IRREGULAR = {
   went: 'go', gone: 'go', goes: 'go', ran: 'run', ate: 'eat', saw: 'see', seen: 'see', got: 'get', came: 'come',
   made: 'make', found: 'find', took: 'take', gave: 'give', said: 'say', sat: 'sit', slept: 'sleep',
   felt: 'feel', fell: 'fall', threw: 'throw', caught: 'catch', hid: 'hide', built: 'build', drank: 'drink',

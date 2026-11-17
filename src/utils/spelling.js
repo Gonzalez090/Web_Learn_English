@@ -13,7 +13,7 @@
 // ตัวพิมพ์ใหญ่ต้นประโยค / จุดท้ายประโยค / ' ในรูปย่อ ไม่หักคะแนน แต่มีคำแนะนำเบา ๆ (tips)
 // =========================================================
 import { normalizeWord } from './compareWords.js'
-import { checkKeywords, stem } from './storyCheck.js'
+import { checkKeywords, IRREGULAR } from './storyCheck.js'
 
 export const SPELLING_MODES = ['sound', 'exact']
 // ประโยคที่นับได้ต้องมีอย่างน้อย 3 คำ ("Up, up, up!" / "The kite flew!")
@@ -266,6 +266,29 @@ export const hasThaiLetters = (text) => /[฀-๿]/.test(String(text ?? ''))
 // ตัดเครื่องหมายหน้า/หลังคำ แต่คงตัวพิมพ์ใหญ่ไว้ ("Sam," → "Sam")
 const bareWord = (display) => display.replace(/^[^A-Za-z0-9']+|[^A-Za-z0-9']+$/g, '')
 
+/**
+ * word เป็นรูปผันปกติของ base ไหม (kite → kites, hug → hugged / hugging, smile → smiled / smiling, baby → babies)
+ * — ต้องผันถูกจริง ("snifed" ไม่ใช่รูปผันของ "sniff") → คำที่สะกดพลาดยังได้คำแนะนำ
+ */
+export function isInflectionOf(word, base) {
+  if (!word || !base || word === base) return false
+  const last = base.at(-1)
+  // คำสั้นแบบ พยัญชนะ-สระ-พยัญชนะ (hug, sit, stop) ต้องเบิ้ลตัวท้ายก่อน -ed / -ing (hugged ไม่ใช่ huged)
+  const mustDouble =
+    /[^aeiou][aeiou][b-df-hj-np-tv-z]$/.test(base) &&
+    !/[wxy]$/.test(base) &&
+    (base.length === 3 || (base.length === 4 && /^[^aeiou]{2}/.test(base)))
+  const endings = mustDouble ? ['s'] : ['s', 'es', 'ed', 'd', 'ing', 'er', 'est']
+  if (endings.some((ending) => word === base + ending)) return true
+  if (last === 'e' && ['ing', 'er', 'est'].some((ending) => word === base.slice(0, -1) + ending)) return true
+  if (/[^aeiou]y$/.test(base) && ['ies', 'ied', 'ier', 'iest'].some((ending) => word === base.slice(0, -1) + ending)) return true
+  return /[b-df-hj-np-tv-z]$/.test(base) && ['ed', 'ing', 'er', 'est'].some((ending) => word === base + last + ending)
+}
+
+// รูปพิเศษของคำเดียวกัน (fly / flew / flies, hide / hid, run / ran — ตาราง IRREGULAR ใน storyCheck.js)
+const baseOf = (word) => IRREGULAR[word] ?? word
+const sameIrregular = (a, b) => a !== b && baseOf(a) === baseOf(b) && (IRREGULAR[a] !== undefined || IRREGULAR[b] !== undefined)
+
 // คำในประโยคตัวอย่าง + คำสำคัญ → Map(clean → คำที่แสดง) ใช้เสนอคำที่สะกดถูก
 function knownWordsOf(models, requiredWords) {
   const known = new Map()
@@ -292,10 +315,14 @@ export function checkFreeWriting(
   { requiredWords = [], models = [], mode = 'exact', minSentences = 1, requireAll = false } = {},
 ) {
   const known = knownWordsOf(models, requiredWords)
-  const knownStems = new Set([...known.keys()].map(stem))
+  const knownList = [...known.keys()]
   const hints = []
   const corrected = writtenWords(text).map(({ display, clean }) => {
-    if (known.has(clean) || COMMON_WORDS.has(clean) || knownStems.has(stem(clean))) return clean
+    const realWord =
+      known.has(clean) ||
+      COMMON_WORDS.has(clean) ||
+      knownList.some((word) => isInflectionOf(clean, word) || isInflectionOf(word, clean) || sameIrregular(clean, word))
+    if (realWord) return clean
     let best = null
     for (const word of known.keys()) {
       const status = spellingStatus(word, clean)

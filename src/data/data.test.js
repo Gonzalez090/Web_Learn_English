@@ -449,6 +449,13 @@ describe('Stage 7 เขียน', () => {
   )
   const modelsOf = (item) => [item.target, ...(item.examples ?? []).map((example) => example.text)]
 
+  // ขั้นที่ 26: เป้าแบบฝึกเขียน 150 + ช่วงแรกยอมรับสะกดตามเสียง แล้วค่อยเข้มขึ้น (หลักข้อ 11)
+  it('แบบฝึกเขียน ≥ 150 ข้อ และบทที่สะกดตามเสียงได้มาก่อนบทที่ต้องสะกดตรงทั้งหมด', () => {
+    expect(items7.length).toBeGreaterThanOrEqual(150)
+    const modes = stage7.map((lesson) => lesson.spelling)
+    expect(modes.lastIndexOf('sound')).toBeLessThan(modes.indexOf('exact'))
+  })
+
   it('มีแบบฝึกครบ 5 แบบ แต่ละบทเรียงจากง่ายไปยาก + บอกระดับการตรวจตัวสะกด (บทแรกสะกดตามเสียงได้)', () => {
     expect(stage7.length).toBeGreaterThanOrEqual(1)
     expect(new Set(items7.map((item) => item.exercise))).toEqual(new Set(EXERCISES))

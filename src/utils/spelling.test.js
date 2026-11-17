@@ -6,6 +6,7 @@ import {
   countSentences,
   editDistance,
   hasThaiLetters,
+  isInflectionOf,
   isPassingStatus,
   soundKey,
   spellingStatus,
@@ -168,9 +169,31 @@ describe('checkFreeWriting', () => {
     expect(exact.hints).toHaveLength(1)
   })
 
-  it('คำจริงที่ไม่อยู่ในตัวอย่าง (คำ Dolch / รูปอดีต) ไม่ถูกแนะนำให้แก้', () => {
-    const result = checkFreeWriting('Sam went out. His kites flew.', { requiredWords: ['kite'], models: ['Sam wants a kite.'] })
+  it('คำจริงที่ไม่อยู่ในตัวอย่าง (คำ Dolch / รูปผัน / รูปพิเศษ) ไม่ถูกแนะนำให้แก้', () => {
+    const result = checkFreeWriting('Sam went out. His kites flew. He hide.', {
+      requiredWords: ['kite'],
+      models: ['Sam wants a kite.', 'Sam hid his face.', 'It can fly.'],
+    })
     expect(result.hints).toEqual([])
+  })
+
+  it('สะกดรูปผันพลาด (snifed) → ยังได้คำแนะนำ และระดับ exact ยังไม่ผ่าน', () => {
+    const result = checkFreeWriting('They found a cat. They sat down. The cat snifed his hand.', {
+      requiredWords: ['cat', 'sniffed'],
+      models: ['The cat sniffed his hand.'],
+      minSentences: 3,
+    })
+    expect(result.hints).toEqual([{ typed: 'snifed', suggestion: 'sniffed', status: 'sound' }])
+    expect(result.passed).toBe(false)
+  })
+
+  it('isInflectionOf: รูปผันปกติที่ถูกเท่านั้น', () => {
+    expect(isInflectionOf('kites', 'kite')).toBe(true)
+    expect(isInflectionOf('hugged', 'hug')).toBe(true)
+    expect(isInflectionOf('smiling', 'smile')).toBe(true)
+    expect(isInflectionOf('babies', 'baby')).toBe(true)
+    expect(isInflectionOf('snifed', 'sniff')).toBe(false)
+    expect(isInflectionOf('huged', 'hug')).toBe(false)
   })
 
   it('เรื่องสั้น: ต้องครบจำนวนประโยค + คำสำคัญ ≥ 60%', () => {

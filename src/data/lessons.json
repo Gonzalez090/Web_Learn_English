@@ -79085,12 +79085,12 @@
       "spelling": "sound",
       "items": [
         {
-          "id": "s7-kite-word",
+          "id": "s7-kite-dict",
           "exercise": "dictation",
           "target": "kite",
           "meaningTh": "ว่าว",
           "readingTh": "ไคท์",
-          "image": "/images/s7-kite-word.webp",
+          "image": "/images/s7-kite-dict.webp",
           "register": "neutral",
           "frequency": "common",
           "acceptAlso": []
@@ -79136,7 +79136,7 @@
           ],
           "requiredWords": [
             "kite",
-            "fly/up/high"
+            "fly/flew/up"
           ]
         },
         {
@@ -79181,20 +79181,632 @@
       ]
     },
     {
+      "id": "s7-u01-write-mom-wakes",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "Mom wakes up",
+      "titleTh": "แม่ตื่นนอน",
+      "spelling": "sound",
+      "items": [
+        {
+          "id": "s7-mom-wakes-dict",
+          "exercise": "dictation",
+          "target": "bed",
+          "meaningTh": "เตียง",
+          "readingTh": "เบด",
+          "image": "/images/s7-mom-wakes-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-mom-wakes-fill",
+          "exercise": "fill",
+          "target": "Mom stretched and smiled.",
+          "translationTh": "แม่บิดขี้เกียจแล้วก็ยิ้ม",
+          "readingTh": "ม็อม สเตรทช์ท์ แอน สไมล์ด์",
+          "image": "/images/s7-mom-wakes-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "smiled"
+        },
+        {
+          "id": "s7-mom-wakes-order",
+          "exercise": "order",
+          "target": "Good morning, everybody!",
+          "translationTh": "อรุณสวัสดิ์ทุกคน!",
+          "readingTh": "กู๊ด มอร์-นิ่ง, เอฟ-รี-บอ-ดี้",
+          "image": "/images/s7-mom-wakes-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-mom-wakes-describe",
+          "exercise": "describe",
+          "target": "Mom is in bed.",
+          "translationTh": "แม่อยู่บนเตียง",
+          "readingTh": "ม็อม อิส อิน เบด",
+          "image": "/images/s7-mom-wakes-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "requiredWords": [
+            "Mom",
+            "bed"
+          ]
+        },
+        {
+          "id": "s7-mom-wakes-story",
+          "exercise": "story",
+          "target": "Mom is in bed. Mom stretched and smiled. Good morning, everybody!",
+          "translationTh": "แม่อยู่บนเตียง แม่บิดขี้เกียจแล้วก็ยิ้ม อรุณสวัสดิ์ทุกคน!",
+          "readingTh": "ม็อม อิส อิน เบด, ม็อม สเตรทช์ท์ แอน สไมล์ด์, กู๊ด มอร์-นิ่ง, เอฟ-รี-บอ-ดี้",
+          "image": "/images/s7-mom-wakes-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "Mom is in bed.",
+              "translationTh": "แม่อยู่บนเตียง",
+              "readingTh": "ม็อม อิส อิน เบด",
+              "image": "/images/s7-mom-wakes-story-1.webp"
+            },
+            {
+              "text": "Mom stretched and smiled.",
+              "translationTh": "แม่บิดขี้เกียจแล้วก็ยิ้ม",
+              "readingTh": "ม็อม สเตรทช์ท์ แอน สไมล์ด์",
+              "image": "/images/s7-mom-wakes-story-2.webp"
+            },
+            {
+              "text": "Good morning, everybody!",
+              "translationTh": "อรุณสวัสดิ์ทุกคน!",
+              "readingTh": "กู๊ด มอร์-นิ่ง, เอฟ-รี-บอ-ดี้",
+              "image": "/images/s7-mom-wakes-story-3.webp"
+            }
+          ],
+          "requiredWords": [
+            "Mom",
+            "bed",
+            "smiled",
+            "morning"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
+      "id": "s7-u01-write-ben-school",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "Ben goes to school",
+      "titleTh": "เบนไปโรงเรียน",
+      "spelling": "sound",
+      "items": [
+        {
+          "id": "s7-ben-school-dict",
+          "exercise": "dictation",
+          "target": "school",
+          "meaningTh": "โรงเรียน",
+          "readingTh": "สกูล",
+          "image": "/images/s7-ben-school-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-ben-school-fill",
+          "exercise": "fill",
+          "target": "He was so happy.",
+          "translationTh": "เขามีความสุขมาก",
+          "readingTh": "ฮี วอส โซ แฮป-ปี้",
+          "image": "/images/s7-ben-school-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "happy"
+        },
+        {
+          "id": "s7-ben-school-order",
+          "exercise": "order",
+          "target": "He played with his best friend.",
+          "translationTh": "เขาเล่นกับเพื่อนรัก",
+          "readingTh": "ฮี เพลย์ด วิธ ฮิส เบสท์ เฟรนด์",
+          "image": "/images/s7-ben-school-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-ben-school-describe",
+          "exercise": "describe",
+          "target": "Ben ran to school.",
+          "translationTh": "เบนวิ่งไปโรงเรียน",
+          "readingTh": "เบน แรน ทะ สกูล",
+          "image": "/images/s7-ben-school-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "requiredWords": [
+            "school",
+            "ran/run/go/went"
+          ]
+        },
+        {
+          "id": "s7-ben-school-story",
+          "exercise": "story",
+          "target": "Ben ran to school. He was so happy. He played with his best friend. He showed Grandma.",
+          "translationTh": "เบนวิ่งไปโรงเรียน เขามีความสุขมาก เขาเล่นกับเพื่อนรัก เขาให้คุณยายดู",
+          "readingTh": "เบน แรน ทะ สกูล, ฮี วอส โซ แฮป-ปี้, ฮี เพลย์ด วิธ ฮิส เบสท์ เฟรนด์, ฮี โชว์ด แกรนด์-มา",
+          "image": "/images/s7-ben-school-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "Ben ran to school.",
+              "translationTh": "เบนวิ่งไปโรงเรียน",
+              "readingTh": "เบน แรน ทะ สกูล",
+              "image": "/images/s7-ben-school-story-1.webp"
+            },
+            {
+              "text": "He was so happy.",
+              "translationTh": "เขามีความสุขมาก",
+              "readingTh": "ฮี วอส โซ แฮป-ปี้",
+              "image": "/images/s7-ben-school-story-2.webp"
+            },
+            {
+              "text": "He played with his best friend.",
+              "translationTh": "เขาเล่นกับเพื่อนรัก",
+              "readingTh": "ฮี เพลย์ด วิธ ฮิส เบสท์ เฟรนด์",
+              "image": "/images/s7-ben-school-story-3.webp"
+            },
+            {
+              "text": "He showed Grandma.",
+              "translationTh": "เขาให้คุณยายดู",
+              "readingTh": "ฮี โชว์ด แกรนด์-มา",
+              "image": "/images/s7-ben-school-story-4.webp"
+            }
+          ],
+          "requiredWords": [
+            "Ben",
+            "school",
+            "happy",
+            "friend"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
+      "id": "s7-u01-write-teddy",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "Two boys and a teddy",
+      "titleTh": "สองหนุ่มกับตุ๊กตาหมี",
+      "spelling": "sound",
+      "items": [
+        {
+          "id": "s7-teddy-dict",
+          "exercise": "dictation",
+          "target": "bear",
+          "meaningTh": "หมี",
+          "readingTh": "แบร์",
+          "image": "/images/s7-teddy-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-teddy-fill",
+          "exercise": "fill",
+          "target": "They both wanted it.",
+          "translationTh": "ทั้งสองคนอยากได้",
+          "readingTh": "เดย์ โบธ วอน-ทิด อิท",
+          "image": "/images/s7-teddy-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "wanted"
+        },
+        {
+          "id": "s7-teddy-order",
+          "exercise": "order",
+          "target": "Let's share him!",
+          "translationTh": "แบ่งกันเล่นนะ!",
+          "readingTh": "เล็ทส์ แชร์ ฮิม",
+          "image": "/images/s7-teddy-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-teddy-describe",
+          "exercise": "describe",
+          "target": "Max and Sam found a teddy bear.",
+          "translationTh": "แม็กซ์กับแซมเจอตุ๊กตาหมี",
+          "readingTh": "แม็กซ์ แอน แซม ฟาวด์ อะ เท็ด-ดี้ แบร์",
+          "image": "/images/s7-teddy-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "requiredWords": [
+            "teddy/bear",
+            "found/find"
+          ]
+        },
+        {
+          "id": "s7-teddy-story",
+          "exercise": "story",
+          "target": "Max and Sam found a teddy bear. They both wanted it. Let's share him!",
+          "translationTh": "แม็กซ์กับแซมเจอตุ๊กตาหมี ทั้งสองคนอยากได้ แบ่งกันเล่นนะ!",
+          "readingTh": "แม็กซ์ แอน แซม ฟาวด์ อะ เท็ด-ดี้ แบร์, เดย์ โบธ วอน-ทิด อิท, เล็ทส์ แชร์ ฮิม",
+          "image": "/images/s7-teddy-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "Max and Sam found a teddy bear.",
+              "translationTh": "แม็กซ์กับแซมเจอตุ๊กตาหมี",
+              "readingTh": "แม็กซ์ แอน แซม ฟาวด์ อะ เท็ด-ดี้ แบร์",
+              "image": "/images/s7-teddy-story-1.webp"
+            },
+            {
+              "text": "They both wanted it.",
+              "translationTh": "ทั้งสองคนอยากได้",
+              "readingTh": "เดย์ โบธ วอน-ทิด อิท",
+              "image": "/images/s7-teddy-story-2.webp"
+            },
+            {
+              "text": "Let's share him!",
+              "translationTh": "แบ่งกันเล่นนะ!",
+              "readingTh": "เล็ทส์ แชร์ ฮิม",
+              "image": "/images/s7-teddy-story-3.webp"
+            }
+          ],
+          "requiredWords": [
+            "Max",
+            "Sam",
+            "teddy/bear",
+            "share"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
+      "id": "s7-u02-write-leo",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "Leo at the playground",
+      "titleTh": "เลโอที่สนามเด็กเล่น",
+      "spelling": "sound",
+      "items": [
+        {
+          "id": "s7-leo-dict",
+          "exercise": "dictation",
+          "target": "steps",
+          "meaningTh": "ขั้นบันได",
+          "readingTh": "สเต็ปส์",
+          "image": "/images/s7-leo-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-leo-fill",
+          "exercise": "fill",
+          "target": "Leo went to the playground.",
+          "translationTh": "เลโอไปสนามเด็กเล่น",
+          "readingTh": "ลี-โอ เว็นท์ ทะ เดอะ เพลย์-กราวนด์",
+          "image": "/images/s7-leo-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "playground"
+        },
+        {
+          "id": "s7-leo-order",
+          "exercise": "order",
+          "target": "Go, Leo, go!",
+          "translationTh": "สู้ ๆ เลโอ!",
+          "readingTh": "โก, ลี-โอ, โก",
+          "image": "/images/s7-leo-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-leo-describe",
+          "exercise": "describe",
+          "target": "He climbed up the steps.",
+          "translationTh": "เขาปีนขึ้นบันได",
+          "readingTh": "ฮี ไคลม์ด อัพ เดอะ สเต็ปส์",
+          "image": "/images/s7-leo-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "requiredWords": [
+            "climbed",
+            "steps/up"
+          ]
+        },
+        {
+          "id": "s7-leo-story",
+          "exercise": "story",
+          "target": "Leo went to the playground. He climbed up the steps. Go, Leo, go!",
+          "translationTh": "เลโอไปสนามเด็กเล่น เขาปีนขึ้นบันได สู้ ๆ เลโอ!",
+          "readingTh": "ลี-โอ เว็นท์ ทะ เดอะ เพลย์-กราวนด์, ฮี ไคลม์ด อัพ เดอะ สเต็ปส์, โก, ลี-โอ, โก",
+          "image": "/images/s7-leo-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "Leo went to the playground.",
+              "translationTh": "เลโอไปสนามเด็กเล่น",
+              "readingTh": "ลี-โอ เว็นท์ ทะ เดอะ เพลย์-กราวนด์",
+              "image": "/images/s7-leo-story-1.webp"
+            },
+            {
+              "text": "He climbed up the steps.",
+              "translationTh": "เขาปีนขึ้นบันได",
+              "readingTh": "ฮี ไคลม์ด อัพ เดอะ สเต็ปส์",
+              "image": "/images/s7-leo-story-2.webp"
+            },
+            {
+              "text": "Go, Leo, go!",
+              "translationTh": "สู้ ๆ เลโอ!",
+              "readingTh": "โก, ลี-โอ, โก",
+              "image": "/images/s7-leo-story-3.webp"
+            }
+          ],
+          "requiredWords": [
+            "Leo",
+            "playground",
+            "climbed",
+            "go"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
+      "id": "s7-u02-write-blocks",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "Building together",
+      "titleTh": "ต่อด้วยกัน",
+      "spelling": "sound",
+      "items": [
+        {
+          "id": "s7-blocks-dict",
+          "exercise": "dictation",
+          "target": "block",
+          "meaningTh": "บล็อกตัวต่อ",
+          "readingTh": "บล็อก",
+          "image": "/images/s7-blocks-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-blocks-fill",
+          "exercise": "fill",
+          "target": "Tom made a long wall.",
+          "translationTh": "ทอมต่อกำแพงยาว",
+          "readingTh": "ทอม เมด อะ ลอง วอล",
+          "image": "/images/s7-blocks-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "wall"
+        },
+        {
+          "id": "s7-blocks-order",
+          "exercise": "order",
+          "target": "They made a funny robot!",
+          "translationTh": "พวกเขาทำหุ่นยนต์ตลก ๆ!",
+          "readingTh": "เดย์ เมด อะ ฟัน-นี่ โร-บ็อท",
+          "image": "/images/s7-blocks-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-blocks-describe",
+          "exercise": "describe",
+          "target": "Tom and his brother love blocks.",
+          "translationTh": "ทอมกับน้องชายชอบบล็อก",
+          "readingTh": "ทอม แอน ฮิส บรา-เธ่อร์ ลัฟ บล็อกส์",
+          "image": "/images/s7-blocks-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "requiredWords": [
+            "brother",
+            "blocks/block"
+          ]
+        },
+        {
+          "id": "s7-blocks-story",
+          "exercise": "story",
+          "target": "Tom and his brother love blocks. Tom made a long wall. Tom gave him a block. They made a funny robot!",
+          "translationTh": "ทอมกับน้องชายชอบบล็อก ทอมต่อกำแพงยาว ทอมยื่นบล็อกให้น้อง พวกเขาทำหุ่นยนต์ตลก ๆ!",
+          "readingTh": "ทอม แอน ฮิส บรา-เธ่อร์ ลัฟ บล็อกส์, ทอม เมด อะ ลอง วอล, ทอม เกฟว์ ฮิม อะ บล็อก, เดย์ เมด อะ ฟัน-นี่ โร-บ็อท",
+          "image": "/images/s7-blocks-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "Tom and his brother love blocks.",
+              "translationTh": "ทอมกับน้องชายชอบบล็อก",
+              "readingTh": "ทอม แอน ฮิส บรา-เธ่อร์ ลัฟ บล็อกส์",
+              "image": "/images/s7-blocks-story-1.webp"
+            },
+            {
+              "text": "Tom made a long wall.",
+              "translationTh": "ทอมต่อกำแพงยาว",
+              "readingTh": "ทอม เมด อะ ลอง วอล",
+              "image": "/images/s7-blocks-story-2.webp"
+            },
+            {
+              "text": "Tom gave him a block.",
+              "translationTh": "ทอมยื่นบล็อกให้น้อง",
+              "readingTh": "ทอม เกฟว์ ฮิม อะ บล็อก",
+              "image": "/images/s7-blocks-story-3.webp"
+            },
+            {
+              "text": "They made a funny robot!",
+              "translationTh": "พวกเขาทำหุ่นยนต์ตลก ๆ!",
+              "readingTh": "เดย์ เมด อะ ฟัน-นี่ โร-บ็อท",
+              "image": "/images/s7-blocks-story-4.webp"
+            }
+          ],
+          "requiredWords": [
+            "Tom",
+            "blocks/block",
+            "wall",
+            "robot"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
+      "id": "s7-u02-write-brothers",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "Grumpy brothers",
+      "titleTh": "สองพี่น้องขี้งอน",
+      "spelling": "sound",
+      "items": [
+        {
+          "id": "s7-brothers-dict",
+          "exercise": "dictation",
+          "target": "sad",
+          "meaningTh": "เศร้า",
+          "readingTh": "แซด",
+          "image": "/images/s7-brothers-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-brothers-fill",
+          "exercise": "fill",
+          "target": "Sam hugged his teddy bear.",
+          "translationTh": "แซมกอดตุ๊กตาหมี",
+          "readingTh": "แซม ฮักด์ ฮิส เท็ด-ดี้ แบร์",
+          "image": "/images/s7-brothers-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "hugged"
+        },
+        {
+          "id": "s7-brothers-order",
+          "exercise": "order",
+          "target": "I'm sorry, Sam.",
+          "translationTh": "ขอโทษนะแซม",
+          "readingTh": "อายม์ ซอ-รี่, แซม",
+          "image": "/images/s7-brothers-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-brothers-describe",
+          "exercise": "describe",
+          "target": "Sam hid his face.",
+          "translationTh": "แซมซ่อนหน้า",
+          "readingTh": "แซม ฮิด ฮิส เฟส",
+          "image": "/images/s7-brothers-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "requiredWords": [
+            "hid",
+            "face"
+          ]
+        },
+        {
+          "id": "s7-brothers-story",
+          "exercise": "story",
+          "target": "Max and Sam were sad. Sam hid his face. Sam hugged his teddy bear. I'm sorry, Sam.",
+          "translationTh": "แม็กซ์กับแซมเศร้า แซมซ่อนหน้า แซมกอดตุ๊กตาหมี ขอโทษนะแซม",
+          "readingTh": "แม็กซ์ แอน แซม เวอร์ แซด, แซม ฮิด ฮิส เฟส, แซม ฮักด์ ฮิส เท็ด-ดี้ แบร์, อายม์ ซอ-รี่, แซม",
+          "image": "/images/s7-brothers-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "Max and Sam were sad.",
+              "translationTh": "แม็กซ์กับแซมเศร้า",
+              "readingTh": "แม็กซ์ แอน แซม เวอร์ แซด",
+              "image": "/images/s7-brothers-story-1.webp"
+            },
+            {
+              "text": "Sam hid his face.",
+              "translationTh": "แซมซ่อนหน้า",
+              "readingTh": "แซม ฮิด ฮิส เฟส",
+              "image": "/images/s7-brothers-story-2.webp"
+            },
+            {
+              "text": "Sam hugged his teddy bear.",
+              "translationTh": "แซมกอดตุ๊กตาหมี",
+              "readingTh": "แซม ฮักด์ ฮิส เท็ด-ดี้ แบร์",
+              "image": "/images/s7-brothers-story-3.webp"
+            },
+            {
+              "text": "I'm sorry, Sam.",
+              "translationTh": "ขอโทษนะแซม",
+              "readingTh": "อายม์ ซอ-รี่, แซม",
+              "image": "/images/s7-brothers-story-4.webp"
+            }
+          ],
+          "requiredWords": [
+            "sad",
+            "hid",
+            "hugged/hug",
+            "sorry"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
       "id": "s7-u01-write-picnic",
       "stageId": 7,
       "category": "writing",
       "type": "writing",
       "title": "A picnic with Dad",
       "titleTh": "ปิกนิกกับพ่อ",
-      "spelling": "exact",
+      "spelling": "sound",
       "items": [
         {
           "id": "s7-picnic-dict",
           "exercise": "dictation",
-          "target": "Dad made a picnic.",
-          "translationTh": "พ่อทำปิกนิก",
-          "readingTh": "แด็ด เมด อะ พิค-นิค",
+          "target": "picnic",
+          "meaningTh": "ปิกนิก",
+          "readingTh": "พิค-นิค",
           "image": "/images/s7-picnic-dict.webp",
           "register": "neutral",
           "frequency": "common",
@@ -79285,6 +79897,3205 @@
             "picnic",
             "sandwiches",
             "blanket/tea"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
+      "id": "s7-u03-write-family-cookies",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "Christmas cookies",
+      "titleTh": "คุกกี้คริสต์มาส",
+      "spelling": "sound",
+      "items": [
+        {
+          "id": "s7-family-cookies-dict",
+          "exercise": "dictation",
+          "target": "star",
+          "meaningTh": "ดาว",
+          "readingTh": "สตาร์",
+          "image": "/images/s7-family-cookies-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-family-cookies-fill",
+          "exercise": "fill",
+          "target": "Dad and Emma made cookies.",
+          "translationTh": "พ่อกับเอ็มม่าทำคุกกี้",
+          "readingTh": "แด็ด แอน เอ็ม-ม่า เมด คุก-กี้ส์",
+          "image": "/images/s7-family-cookies-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "cookies"
+        },
+        {
+          "id": "s7-family-cookies-order",
+          "exercise": "order",
+          "target": "Emma cut out a star.",
+          "translationTh": "เอ็มม่าตัดรูปดาว",
+          "readingTh": "เอ็ม-ม่า คัท เอาท์ อะ สตาร์",
+          "image": "/images/s7-family-cookies-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-family-cookies-describe",
+          "exercise": "describe",
+          "target": "Mom showed her the shapes.",
+          "translationTh": "แม่ให้ดูรูปต่าง ๆ",
+          "readingTh": "ม็อม โชว์ด เฮอร์ เดอะ เชปส์",
+          "image": "/images/s7-family-cookies-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "requiredWords": [
+            "Mom",
+            "shapes"
+          ]
+        },
+        {
+          "id": "s7-family-cookies-story",
+          "exercise": "story",
+          "target": "Dad and Emma made cookies. Mom showed her the shapes. Emma cut out a star. Look, I did it!",
+          "translationTh": "พ่อกับเอ็มม่าทำคุกกี้ แม่ให้ดูรูปต่าง ๆ เอ็มม่าตัดรูปดาว ดูสิ หนูทำได้!",
+          "readingTh": "แด็ด แอน เอ็ม-ม่า เมด คุก-กี้ส์, ม็อม โชว์ด เฮอร์ เดอะ เชปส์, เอ็ม-ม่า คัท เอาท์ อะ สตาร์, ลุค, ไอ ดิด อิท",
+          "image": "/images/s7-family-cookies-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "Dad and Emma made cookies.",
+              "translationTh": "พ่อกับเอ็มม่าทำคุกกี้",
+              "readingTh": "แด็ด แอน เอ็ม-ม่า เมด คุก-กี้ส์",
+              "image": "/images/s7-family-cookies-story-1.webp"
+            },
+            {
+              "text": "Mom showed her the shapes.",
+              "translationTh": "แม่ให้ดูรูปต่าง ๆ",
+              "readingTh": "ม็อม โชว์ด เฮอร์ เดอะ เชปส์",
+              "image": "/images/s7-family-cookies-story-2.webp"
+            },
+            {
+              "text": "Emma cut out a star.",
+              "translationTh": "เอ็มม่าตัดรูปดาว",
+              "readingTh": "เอ็ม-ม่า คัท เอาท์ อะ สตาร์",
+              "image": "/images/s7-family-cookies-story-3.webp"
+            },
+            {
+              "text": "Look, I did it!",
+              "translationTh": "ดูสิ หนูทำได้!",
+              "readingTh": "ลุค, ไอ ดิด อิท",
+              "image": "/images/s7-family-cookies-story-4.webp"
+            }
+          ],
+          "requiredWords": [
+            "Emma",
+            "cookies",
+            "star",
+            "made/make"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
+      "id": "s7-u03-write-little-chefs",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "Two little chefs",
+      "titleTh": "เชฟตัวน้อยสองคน",
+      "spelling": "sound",
+      "items": [
+        {
+          "id": "s7-little-chefs-dict",
+          "exercise": "dictation",
+          "target": "cook",
+          "meaningTh": "ทำอาหาร",
+          "readingTh": "คุก",
+          "image": "/images/s7-little-chefs-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-little-chefs-fill",
+          "exercise": "fill",
+          "target": "She threw the flour up!",
+          "translationTh": "เธอโยนแป้งขึ้นไป!",
+          "readingTh": "ชี ทรู เดอะ ฟลาว-เออร์ อัพ",
+          "image": "/images/s7-little-chefs-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "flour"
+        },
+        {
+          "id": "s7-little-chefs-order",
+          "exercise": "order",
+          "target": "Tom was ready to cook.",
+          "translationTh": "ทอมพร้อมทำอาหารแล้ว",
+          "readingTh": "ทอม วอส เร-ดี้ ทะ คุก",
+          "image": "/images/s7-little-chefs-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-little-chefs-describe",
+          "exercise": "describe",
+          "target": "He made a mess.",
+          "translationTh": "เขาทำเลอะเทอะ",
+          "readingTh": "ฮี เมด อะ เมส",
+          "image": "/images/s7-little-chefs-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "requiredWords": [
+            "mess",
+            "made/make"
+          ]
+        },
+        {
+          "id": "s7-little-chefs-story",
+          "exercise": "story",
+          "target": "Tom was ready to cook. He made a mess. Lily wanted to cook too. She threw the flour up!",
+          "translationTh": "ทอมพร้อมทำอาหารแล้ว เขาทำเลอะเทอะ ลิลลี่อยากทำอาหารด้วย เธอโยนแป้งขึ้นไป!",
+          "readingTh": "ทอม วอส เร-ดี้ ทะ คุก, ฮี เมด อะ เมส, ลิล-ลี่ วอน-ทิด ทะ คุก ทู, ชี ทรู เดอะ ฟลาว-เออร์ อัพ",
+          "image": "/images/s7-little-chefs-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "Tom was ready to cook.",
+              "translationTh": "ทอมพร้อมทำอาหารแล้ว",
+              "readingTh": "ทอม วอส เร-ดี้ ทะ คุก",
+              "image": "/images/s7-little-chefs-story-1.webp"
+            },
+            {
+              "text": "He made a mess.",
+              "translationTh": "เขาทำเลอะเทอะ",
+              "readingTh": "ฮี เมด อะ เมส",
+              "image": "/images/s7-little-chefs-story-2.webp"
+            },
+            {
+              "text": "Lily wanted to cook too.",
+              "translationTh": "ลิลลี่อยากทำอาหารด้วย",
+              "readingTh": "ลิล-ลี่ วอน-ทิด ทะ คุก ทู",
+              "image": "/images/s7-little-chefs-story-3.webp"
+            },
+            {
+              "text": "She threw the flour up!",
+              "translationTh": "เธอโยนแป้งขึ้นไป!",
+              "readingTh": "ชี ทรู เดอะ ฟลาว-เออร์ อัพ",
+              "image": "/images/s7-little-chefs-story-4.webp"
+            }
+          ],
+          "requiredWords": [
+            "Tom",
+            "Lily",
+            "cook",
+            "flour/mess"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
+      "id": "s7-u03-write-shopping",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "Mom goes shopping",
+      "titleTh": "แม่ไปซื้อของ",
+      "spelling": "sound",
+      "items": [
+        {
+          "id": "s7-shopping-dict",
+          "exercise": "dictation",
+          "target": "shop",
+          "meaningTh": "ร้านค้า",
+          "readingTh": "ช็อป",
+          "image": "/images/s7-shopping-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-shopping-fill",
+          "exercise": "fill",
+          "target": "She got two bags of chips.",
+          "translationTh": "แม่หยิบมันฝรั่งทอดสองถุง",
+          "readingTh": "ชี ก็อท ทู แบ็กส์ ออฟ ชิพส์",
+          "image": "/images/s7-shopping-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "chips"
+        },
+        {
+          "id": "s7-shopping-order",
+          "exercise": "order",
+          "target": "Mom went to the shop.",
+          "translationTh": "แม่ไปร้าน",
+          "readingTh": "ม็อม เว็นท์ ทะ เดอะ ช็อป",
+          "image": "/images/s7-shopping-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-shopping-describe",
+          "exercise": "describe",
+          "target": "She got drinks for the party.",
+          "translationTh": "แม่หยิบเครื่องดื่มไปงานปาร์ตี้",
+          "readingTh": "ชี ก็อท ดริงค์ส ฟอร์ เดอะ พาร์-ตี้",
+          "image": "/images/s7-shopping-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "requiredWords": [
+            "drinks",
+            "party"
+          ]
+        },
+        {
+          "id": "s7-shopping-story",
+          "exercise": "story",
+          "target": "Mom went to the shop. She got two bags of chips. She got drinks for the party.",
+          "translationTh": "แม่ไปร้าน แม่หยิบมันฝรั่งทอดสองถุง แม่หยิบเครื่องดื่มไปงานปาร์ตี้",
+          "readingTh": "ม็อม เว็นท์ ทะ เดอะ ช็อป, ชี ก็อท ทู แบ็กส์ ออฟ ชิพส์, ชี ก็อท ดริงค์ส ฟอร์ เดอะ พาร์-ตี้",
+          "image": "/images/s7-shopping-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "Mom went to the shop.",
+              "translationTh": "แม่ไปร้าน",
+              "readingTh": "ม็อม เว็นท์ ทะ เดอะ ช็อป",
+              "image": "/images/s7-shopping-story-1.webp"
+            },
+            {
+              "text": "She got two bags of chips.",
+              "translationTh": "แม่หยิบมันฝรั่งทอดสองถุง",
+              "readingTh": "ชี ก็อท ทู แบ็กส์ ออฟ ชิพส์",
+              "image": "/images/s7-shopping-story-2.webp"
+            },
+            {
+              "text": "She got drinks for the party.",
+              "translationTh": "แม่หยิบเครื่องดื่มไปงานปาร์ตี้",
+              "readingTh": "ชี ก็อท ดริงค์ส ฟอร์ เดอะ พาร์-ตี้",
+              "image": "/images/s7-shopping-story-3.webp"
+            }
+          ],
+          "requiredWords": [
+            "Mom",
+            "shop",
+            "chips",
+            "drinks"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
+      "id": "s7-u03-write-splash",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "Splash!",
+      "titleTh": "ซ่า!",
+      "spelling": "sound",
+      "items": [
+        {
+          "id": "s7-splash-dict",
+          "exercise": "dictation",
+          "target": "bath",
+          "meaningTh": "อาบน้ำในอ่าง",
+          "readingTh": "บาธ",
+          "image": "/images/s7-splash-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-splash-fill",
+          "exercise": "fill",
+          "target": "Splash! The water was cold!",
+          "translationTh": "ซ่า! น้ำเย็นมาก!",
+          "readingTh": "สแปลช, เดอะ ว้อ-เท่อร์ วอส โคลด์",
+          "image": "/images/s7-splash-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "water"
+        },
+        {
+          "id": "s7-splash-order",
+          "exercise": "order",
+          "target": "He laughed and laughed.",
+          "translationTh": "เขาหัวเราะไม่หยุด",
+          "readingTh": "ฮี ลาฟท์ แอน ลาฟท์",
+          "image": "/images/s7-splash-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-splash-describe",
+          "exercise": "describe",
+          "target": "Kofi had a bath in the sun.",
+          "translationTh": "โคฟีอาบน้ำกลางแดด",
+          "readingTh": "โค-ฟี่ แฮด อะ แบธ อิน เดอะ ซัน",
+          "image": "/images/s7-splash-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "requiredWords": [
+            "bath",
+            "sun"
+          ]
+        },
+        {
+          "id": "s7-splash-story",
+          "exercise": "story",
+          "target": "Kofi had a bath in the sun. Splash! The water was cold! He laughed and laughed. Now I'm all clean!",
+          "translationTh": "โคฟีอาบน้ำกลางแดด ซ่า! น้ำเย็นมาก! เขาหัวเราะไม่หยุด ตอนนี้หนูสะอาดแล้ว!",
+          "readingTh": "โค-ฟี่ แฮด อะ แบธ อิน เดอะ ซัน, สแปลช, เดอะ ว้อ-เท่อร์ วอส โคลด์, ฮี ลาฟท์ แอน ลาฟท์, นาว อายม์ ออล คลีน",
+          "image": "/images/s7-splash-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "Kofi had a bath in the sun.",
+              "translationTh": "โคฟีอาบน้ำกลางแดด",
+              "readingTh": "โค-ฟี่ แฮด อะ แบธ อิน เดอะ ซัน",
+              "image": "/images/s7-splash-story-1.webp"
+            },
+            {
+              "text": "Splash! The water was cold!",
+              "translationTh": "ซ่า! น้ำเย็นมาก!",
+              "readingTh": "สแปลช, เดอะ ว้อ-เท่อร์ วอส โคลด์",
+              "image": "/images/s7-splash-story-2.webp"
+            },
+            {
+              "text": "He laughed and laughed.",
+              "translationTh": "เขาหัวเราะไม่หยุด",
+              "readingTh": "ฮี ลาฟท์ แอน ลาฟท์",
+              "image": "/images/s7-splash-story-3.webp"
+            },
+            {
+              "text": "Now I'm all clean!",
+              "translationTh": "ตอนนี้หนูสะอาดแล้ว!",
+              "readingTh": "นาว อายม์ ออล คลีน",
+              "image": "/images/s7-splash-story-4.webp"
+            }
+          ],
+          "requiredWords": [
+            "Kofi",
+            "bath",
+            "water",
+            "laughed/laugh"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
+      "id": "s7-u04-write-rainy-day",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "Jack in the rain",
+      "titleTh": "แจ็คกับสายฝน",
+      "spelling": "sound",
+      "items": [
+        {
+          "id": "s7-rainy-day-dict",
+          "exercise": "dictation",
+          "target": "rain",
+          "meaningTh": "ฝน",
+          "readingTh": "เรน",
+          "image": "/images/s7-rainy-day-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-rainy-day-fill",
+          "exercise": "fill",
+          "target": "Jack jumped in a puddle.",
+          "translationTh": "แจ็คกระโดดลงแอ่งน้ำ",
+          "readingTh": "แจ็ค จัมพ์ท์ อิน อะ พัด-เดิ่ล",
+          "image": "/images/s7-rainy-day-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "puddle"
+        },
+        {
+          "id": "s7-rainy-day-order",
+          "exercise": "order",
+          "target": "They sat under the umbrella.",
+          "translationTh": "พวกเขานั่งใต้ร่ม",
+          "readingTh": "เดย์ แซท อัน-เด้อร์ เดอะ อัม-เบรล-ล่า",
+          "image": "/images/s7-rainy-day-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-rainy-day-describe",
+          "exercise": "describe",
+          "target": "His brother had an umbrella.",
+          "translationTh": "น้องชายมีร่ม",
+          "readingTh": "ฮิส บรา-เธ่อร์ แฮด แอน อัม-เบรล-ล่า",
+          "image": "/images/s7-rainy-day-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "requiredWords": [
+            "brother",
+            "umbrella"
+          ]
+        },
+        {
+          "id": "s7-rainy-day-story",
+          "exercise": "story",
+          "target": "Jack went out in the rain. His brother had an umbrella. Jack jumped in a puddle. They sat under the umbrella.",
+          "translationTh": "แจ็คออกไปกลางฝน น้องชายมีร่ม แจ็คกระโดดลงแอ่งน้ำ พวกเขานั่งใต้ร่ม",
+          "readingTh": "แจ็ค เว็นท์ เอาท์ อิน เดอะ เรน, ฮิส บรา-เธ่อร์ แฮด แอน อัม-เบรล-ล่า, แจ็ค จัมพ์ท์ อิน อะ พัด-เดิ่ล, เดย์ แซท อัน-เด้อร์ เดอะ อัม-เบรล-ล่า",
+          "image": "/images/s7-rainy-day-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "Jack went out in the rain.",
+              "translationTh": "แจ็คออกไปกลางฝน",
+              "readingTh": "แจ็ค เว็นท์ เอาท์ อิน เดอะ เรน",
+              "image": "/images/s7-rainy-day-story-1.webp"
+            },
+            {
+              "text": "His brother had an umbrella.",
+              "translationTh": "น้องชายมีร่ม",
+              "readingTh": "ฮิส บรา-เธ่อร์ แฮด แอน อัม-เบรล-ล่า",
+              "image": "/images/s7-rainy-day-story-2.webp"
+            },
+            {
+              "text": "Jack jumped in a puddle.",
+              "translationTh": "แจ็คกระโดดลงแอ่งน้ำ",
+              "readingTh": "แจ็ค จัมพ์ท์ อิน อะ พัด-เดิ่ล",
+              "image": "/images/s7-rainy-day-story-3.webp"
+            },
+            {
+              "text": "They sat under the umbrella.",
+              "translationTh": "พวกเขานั่งใต้ร่ม",
+              "readingTh": "เดย์ แซท อัน-เด้อร์ เดอะ อัม-เบรล-ล่า",
+              "image": "/images/s7-rainy-day-story-4.webp"
+            }
+          ],
+          "requiredWords": [
+            "Jack",
+            "rain",
+            "umbrella",
+            "jumped/jump/puddle"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
+      "id": "s7-u04-write-hill-walk",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "A walk in the rain",
+      "titleTh": "เดินเล่นตอนฝนตก",
+      "spelling": "sound",
+      "items": [
+        {
+          "id": "s7-hill-walk-dict",
+          "exercise": "dictation",
+          "target": "walk",
+          "meaningTh": "เดินเล่น",
+          "readingTh": "วอล์ค",
+          "image": "/images/s7-hill-walk-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-hill-walk-fill",
+          "exercise": "fill",
+          "target": "It was a cloudy day.",
+          "translationTh": "วันนั้นมีเมฆเยอะ",
+          "readingTh": "อิท วอส อะ คลาว-ดี้ เดย์",
+          "image": "/images/s7-hill-walk-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "cloudy"
+        },
+        {
+          "id": "s7-hill-walk-order",
+          "exercise": "order",
+          "target": "I love the rain!",
+          "translationTh": "หนูชอบฝน!",
+          "readingTh": "ไอ ลัฟ เดอะ เรน",
+          "image": "/images/s7-hill-walk-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-hill-walk-describe",
+          "exercise": "describe",
+          "target": "Mia stood under the umbrella.",
+          "translationTh": "มีอายืนใต้ร่ม",
+          "readingTh": "มี-อา สตูด อัน-เด้อร์ เดอะ อัม-เบรล-ล่า",
+          "image": "/images/s7-hill-walk-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "requiredWords": [
+            "Mia",
+            "umbrella"
+          ]
+        },
+        {
+          "id": "s7-hill-walk-story",
+          "exercise": "story",
+          "target": "It was a cloudy day. Mia went for a walk with Mom. Mia stood under the umbrella. I love the rain!",
+          "translationTh": "วันนั้นมีเมฆเยอะ มีอาไปเดินเล่นกับแม่ มีอายืนใต้ร่ม หนูชอบฝน!",
+          "readingTh": "อิท วอส อะ คลาว-ดี้ เดย์, มี-อา เว็นท์ ฟอร์ อะ ว้อค วิธ ม็อม, มี-อา สตูด อัน-เด้อร์ เดอะ อัม-เบรล-ล่า, ไอ ลัฟ เดอะ เรน",
+          "image": "/images/s7-hill-walk-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "It was a cloudy day.",
+              "translationTh": "วันนั้นมีเมฆเยอะ",
+              "readingTh": "อิท วอส อะ คลาว-ดี้ เดย์",
+              "image": "/images/s7-hill-walk-story-1.webp"
+            },
+            {
+              "text": "Mia went for a walk with Mom.",
+              "translationTh": "มีอาไปเดินเล่นกับแม่",
+              "readingTh": "มี-อา เว็นท์ ฟอร์ อะ ว้อค วิธ ม็อม",
+              "image": "/images/s7-hill-walk-story-2.webp"
+            },
+            {
+              "text": "Mia stood under the umbrella.",
+              "translationTh": "มีอายืนใต้ร่ม",
+              "readingTh": "มี-อา สตูด อัน-เด้อร์ เดอะ อัม-เบรล-ล่า",
+              "image": "/images/s7-hill-walk-story-3.webp"
+            },
+            {
+              "text": "I love the rain!",
+              "translationTh": "หนูชอบฝน!",
+              "readingTh": "ไอ ลัฟ เดอะ เรน",
+              "image": "/images/s7-hill-walk-story-4.webp"
+            }
+          ],
+          "requiredWords": [
+            "Mia",
+            "walk",
+            "umbrella",
+            "rain"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
+      "id": "s7-u04-write-autumn-girl",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "Ella and the leaves",
+      "titleTh": "เอลล่ากับใบไม้",
+      "spelling": "sound",
+      "items": [
+        {
+          "id": "s7-autumn-girl-dict",
+          "exercise": "dictation",
+          "target": "dog",
+          "meaningTh": "หมา",
+          "readingTh": "ด็อก",
+          "image": "/images/s7-autumn-girl-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-autumn-girl-fill",
+          "exercise": "fill",
+          "target": "Ella played with the leaves.",
+          "translationTh": "เอลล่าเล่นกับใบไม้",
+          "readingTh": "เอล-ล่า เพลย์ด วิธ เดอะ ลีฟส์",
+          "image": "/images/s7-autumn-girl-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "leaves"
+        },
+        {
+          "id": "s7-autumn-girl-order",
+          "exercise": "order",
+          "target": "She saw leaves in a puddle.",
+          "translationTh": "เธอเห็นใบไม้ในแอ่งน้ำ",
+          "readingTh": "ชี ซอว์ ลีฟส์ อิน อะ พัด-เดิ่ล",
+          "image": "/images/s7-autumn-girl-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-autumn-girl-describe",
+          "exercise": "describe",
+          "target": "She walked home with her dog.",
+          "translationTh": "เธอเดินกลับบ้านกับหมา",
+          "readingTh": "ชี วอล์คท์ โฮม วิธ เฮอร์ ด็อก",
+          "image": "/images/s7-autumn-girl-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "requiredWords": [
+            "dog",
+            "walked/walk/home"
+          ]
+        },
+        {
+          "id": "s7-autumn-girl-story",
+          "exercise": "story",
+          "target": "Ella played with the leaves. She saw leaves in a puddle. She walked home with her dog.",
+          "translationTh": "เอลล่าเล่นกับใบไม้ เธอเห็นใบไม้ในแอ่งน้ำ เธอเดินกลับบ้านกับหมา",
+          "readingTh": "เอล-ล่า เพลย์ด วิธ เดอะ ลีฟส์, ชี ซอว์ ลีฟส์ อิน อะ พัด-เดิ่ล, ชี วอล์คท์ โฮม วิธ เฮอร์ ด็อก",
+          "image": "/images/s7-autumn-girl-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "Ella played with the leaves.",
+              "translationTh": "เอลล่าเล่นกับใบไม้",
+              "readingTh": "เอล-ล่า เพลย์ด วิธ เดอะ ลีฟส์",
+              "image": "/images/s7-autumn-girl-story-1.webp"
+            },
+            {
+              "text": "She saw leaves in a puddle.",
+              "translationTh": "เธอเห็นใบไม้ในแอ่งน้ำ",
+              "readingTh": "ชี ซอว์ ลีฟส์ อิน อะ พัด-เดิ่ล",
+              "image": "/images/s7-autumn-girl-story-2.webp"
+            },
+            {
+              "text": "She walked home with her dog.",
+              "translationTh": "เธอเดินกลับบ้านกับหมา",
+              "readingTh": "ชี วอล์คท์ โฮม วิธ เฮอร์ ด็อก",
+              "image": "/images/s7-autumn-girl-story-3.webp"
+            }
+          ],
+          "requiredWords": [
+            "Ella",
+            "leaves",
+            "puddle",
+            "dog"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
+      "id": "s7-u04-write-gray-cat",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "The gray cat",
+      "titleTh": "แมวสีเทา",
+      "spelling": "sound",
+      "items": [
+        {
+          "id": "s7-gray-cat-dict",
+          "exercise": "dictation",
+          "target": "cat",
+          "meaningTh": "แมว",
+          "readingTh": "แคท",
+          "image": "/images/s7-gray-cat-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-gray-cat-fill",
+          "exercise": "fill",
+          "target": "A gray cat came to say hi.",
+          "translationTh": "แมวสีเทามาทักทาย",
+          "readingTh": "อะ เกรย์ แค็ท เคม ทะ เซย์ ไฮ",
+          "image": "/images/s7-gray-cat-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "gray"
+        },
+        {
+          "id": "s7-gray-cat-order",
+          "exercise": "order",
+          "target": "Anna went for a walk.",
+          "translationTh": "แอนนาไปเดินเล่น",
+          "readingTh": "แอน-น่า เว็นท์ ฟอร์ อะ ว้อค",
+          "image": "/images/s7-gray-cat-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-gray-cat-describe",
+          "exercise": "describe",
+          "target": "Anna showed the cat her toy.",
+          "translationTh": "แอนนาเอาของเล่นให้แมวดู",
+          "readingTh": "แอน-น่า โชว์ด เดอะ แค็ท เฮอร์ ทอย",
+          "image": "/images/s7-gray-cat-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "requiredWords": [
+            "cat",
+            "toy"
+          ]
+        },
+        {
+          "id": "s7-gray-cat-story",
+          "exercise": "story",
+          "target": "Anna went for a walk. A gray cat came to say hi. Anna showed the cat her toy.",
+          "translationTh": "แอนนาไปเดินเล่น แมวสีเทามาทักทาย แอนนาเอาของเล่นให้แมวดู",
+          "readingTh": "แอน-น่า เว็นท์ ฟอร์ อะ ว้อค, อะ เกรย์ แค็ท เคม ทะ เซย์ ไฮ, แอน-น่า โชว์ด เดอะ แค็ท เฮอร์ ทอย",
+          "image": "/images/s7-gray-cat-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "Anna went for a walk.",
+              "translationTh": "แอนนาไปเดินเล่น",
+              "readingTh": "แอน-น่า เว็นท์ ฟอร์ อะ ว้อค",
+              "image": "/images/s7-gray-cat-story-1.webp"
+            },
+            {
+              "text": "A gray cat came to say hi.",
+              "translationTh": "แมวสีเทามาทักทาย",
+              "readingTh": "อะ เกรย์ แค็ท เคม ทะ เซย์ ไฮ",
+              "image": "/images/s7-gray-cat-story-2.webp"
+            },
+            {
+              "text": "Anna showed the cat her toy.",
+              "translationTh": "แอนนาเอาของเล่นให้แมวดู",
+              "readingTh": "แอน-น่า โชว์ด เดอะ แค็ท เฮอร์ ทอย",
+              "image": "/images/s7-gray-cat-story-3.webp"
+            }
+          ],
+          "requiredWords": [
+            "Anna",
+            "cat",
+            "gray",
+            "toy"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
+      "id": "s7-u05-write-black-cat",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "A new friend",
+      "titleTh": "เพื่อนใหม่",
+      "spelling": "exact",
+      "items": [
+        {
+          "id": "s7-black-cat-dict",
+          "exercise": "dictation",
+          "target": "They found a cat.",
+          "translationTh": "พวกเขาเจอแมว",
+          "readingTh": "เดย์ ฟาวด์ อะ แค็ท",
+          "image": "/images/s7-black-cat-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-black-cat-fill",
+          "exercise": "fill",
+          "target": "The cat sniffed his hand.",
+          "translationTh": "แมวดมมือของเขา",
+          "readingTh": "เดอะ แค็ท สนิฟท์ ฮิส แฮนด์",
+          "image": "/images/s7-black-cat-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "sniffed"
+        },
+        {
+          "id": "s7-black-cat-order",
+          "exercise": "order",
+          "target": "They sat down to say hi.",
+          "translationTh": "พวกเขานั่งลงทักทาย",
+          "readingTh": "เดย์ แซท ดาวน์ ทะ เซย์ ไฮ",
+          "image": "/images/s7-black-cat-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-black-cat-describe",
+          "exercise": "describe",
+          "target": "They found a cat.",
+          "translationTh": "พวกเขาเจอแมว",
+          "readingTh": "เดย์ ฟาวด์ อะ แค็ท",
+          "image": "/images/s7-black-cat-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "requiredWords": [
+            "cat",
+            "found/find"
+          ]
+        },
+        {
+          "id": "s7-black-cat-story",
+          "exercise": "story",
+          "target": "They found a cat. They sat down to say hi. The cat sniffed his hand.",
+          "translationTh": "พวกเขาเจอแมว พวกเขานั่งลงทักทาย แมวดมมือของเขา",
+          "readingTh": "เดย์ ฟาวด์ อะ แค็ท, เดย์ แซท ดาวน์ ทะ เซย์ ไฮ, เดอะ แค็ท สนิฟท์ ฮิส แฮนด์",
+          "image": "/images/s7-black-cat-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "They found a cat.",
+              "translationTh": "พวกเขาเจอแมว",
+              "readingTh": "เดย์ ฟาวด์ อะ แค็ท",
+              "image": "/images/s7-black-cat-story-1.webp"
+            },
+            {
+              "text": "They sat down to say hi.",
+              "translationTh": "พวกเขานั่งลงทักทาย",
+              "readingTh": "เดย์ แซท ดาวน์ ทะ เซย์ ไฮ",
+              "image": "/images/s7-black-cat-story-2.webp"
+            },
+            {
+              "text": "The cat sniffed his hand.",
+              "translationTh": "แมวดมมือของเขา",
+              "readingTh": "เดอะ แค็ท สนิฟท์ ฮิส แฮนด์",
+              "image": "/images/s7-black-cat-story-3.webp"
+            }
+          ],
+          "requiredWords": [
+            "cat",
+            "found/find",
+            "sat/sit",
+            "sniffed"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
+      "id": "s7-u05-write-baby-goats",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "The baby goats",
+      "titleTh": "ลูกแพะ",
+      "spelling": "exact",
+      "items": [
+        {
+          "id": "s7-baby-goats-dict",
+          "exercise": "dictation",
+          "target": "It found yummy leaves.",
+          "translationTh": "มันเจอใบไม้อร่อย ๆ",
+          "readingTh": "อิท ฟาวด์ ยัม-มี่ ลีฟส์",
+          "image": "/images/s7-baby-goats-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-baby-goats-fill",
+          "exercise": "fill",
+          "target": "The mother goat had two babies.",
+          "translationTh": "แม่แพะมีลูกสองตัว",
+          "readingTh": "เดอะ มัธ-เธอร์ โกท แฮด ทู เบ-บี้ส์",
+          "image": "/images/s7-baby-goats-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "babies"
+        },
+        {
+          "id": "s7-baby-goats-order",
+          "exercise": "order",
+          "target": "One baby went for a walk.",
+          "translationTh": "ลูกแพะตัวหนึ่งออกไปเดินเล่น",
+          "readingTh": "วัน เบ-บี้ เว็นท์ ฟอร์ อะ ว้อค",
+          "image": "/images/s7-baby-goats-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-baby-goats-describe",
+          "exercise": "describe",
+          "target": "It lay down for a nap.",
+          "translationTh": "มันนอนงีบ",
+          "readingTh": "อิท เลย์ ดาวน์ ฟอร์ อะ แนป",
+          "image": "/images/s7-baby-goats-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "requiredWords": [
+            "nap",
+            "lay/down"
+          ]
+        },
+        {
+          "id": "s7-baby-goats-story",
+          "exercise": "story",
+          "target": "The mother goat had two babies. One baby went for a walk. It found yummy leaves. It lay down for a nap.",
+          "translationTh": "แม่แพะมีลูกสองตัว ลูกแพะตัวหนึ่งออกไปเดินเล่น มันเจอใบไม้อร่อย ๆ มันนอนงีบ",
+          "readingTh": "เดอะ มัธ-เธอร์ โกท แฮด ทู เบ-บี้ส์, วัน เบ-บี้ เว็นท์ ฟอร์ อะ ว้อค, อิท ฟาวด์ ยัม-มี่ ลีฟส์, อิท เลย์ ดาวน์ ฟอร์ อะ แนป",
+          "image": "/images/s7-baby-goats-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "The mother goat had two babies.",
+              "translationTh": "แม่แพะมีลูกสองตัว",
+              "readingTh": "เดอะ มัธ-เธอร์ โกท แฮด ทู เบ-บี้ส์",
+              "image": "/images/s7-baby-goats-story-1.webp"
+            },
+            {
+              "text": "One baby went for a walk.",
+              "translationTh": "ลูกแพะตัวหนึ่งออกไปเดินเล่น",
+              "readingTh": "วัน เบ-บี้ เว็นท์ ฟอร์ อะ ว้อค",
+              "image": "/images/s7-baby-goats-story-2.webp"
+            },
+            {
+              "text": "It found yummy leaves.",
+              "translationTh": "มันเจอใบไม้อร่อย ๆ",
+              "readingTh": "อิท ฟาวด์ ยัม-มี่ ลีฟส์",
+              "image": "/images/s7-baby-goats-story-3.webp"
+            },
+            {
+              "text": "It lay down for a nap.",
+              "translationTh": "มันนอนงีบ",
+              "readingTh": "อิท เลย์ ดาวน์ ฟอร์ อะ แนป",
+              "image": "/images/s7-baby-goats-story-4.webp"
+            }
+          ],
+          "requiredWords": [
+            "goat",
+            "babies/baby",
+            "leaves",
+            "nap"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
+      "id": "s7-u05-write-horse",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "Amy and her horse",
+      "titleTh": "เอมี่กับม้าของเธอ",
+      "spelling": "exact",
+      "items": [
+        {
+          "id": "s7-horse-dict",
+          "exercise": "dictation",
+          "target": "She patted his nose.",
+          "translationTh": "เธอลูบจมูกม้า",
+          "readingTh": "ชี แพท-ทิด ฮิส โนส",
+          "image": "/images/s7-horse-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-horse-fill",
+          "exercise": "fill",
+          "target": "Hi, Snowy! I missed you!",
+          "translationTh": "หวัดดีสโนวี่! คิดถึงจัง!",
+          "readingTh": "ไฮ, สโนว์-อี้, ไอ มิสท์ ยู",
+          "image": "/images/s7-horse-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "missed"
+        },
+        {
+          "id": "s7-horse-order",
+          "exercise": "order",
+          "target": "She gave him a big hug.",
+          "translationTh": "เธอกอดม้าแน่น ๆ",
+          "readingTh": "ชี เกฟว์ ฮิม อะ บิ๊ก ฮัก",
+          "image": "/images/s7-horse-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-horse-describe",
+          "exercise": "describe",
+          "target": "Amy ran to see her horse.",
+          "translationTh": "เอมี่วิ่งไปหาม้า",
+          "readingTh": "เอ-มี่ แรน ทะ ซี เฮอร์ ฮอร์ส",
+          "image": "/images/s7-horse-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "requiredWords": [
+            "Amy",
+            "horse"
+          ]
+        },
+        {
+          "id": "s7-horse-story",
+          "exercise": "story",
+          "target": "Amy ran to see her horse. She patted his nose. Hi, Snowy! I missed you! She gave him a big hug.",
+          "translationTh": "เอมี่วิ่งไปหาม้า เธอลูบจมูกม้า หวัดดีสโนวี่! คิดถึงจัง! เธอกอดม้าแน่น ๆ",
+          "readingTh": "เอ-มี่ แรน ทะ ซี เฮอร์ ฮอร์ส, ชี แพท-ทิด ฮิส โนส, ไฮ, สโนว์-อี้, ไอ มิสท์ ยู, ชี เกฟว์ ฮิม อะ บิ๊ก ฮัก",
+          "image": "/images/s7-horse-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "Amy ran to see her horse.",
+              "translationTh": "เอมี่วิ่งไปหาม้า",
+              "readingTh": "เอ-มี่ แรน ทะ ซี เฮอร์ ฮอร์ส",
+              "image": "/images/s7-horse-story-1.webp"
+            },
+            {
+              "text": "She patted his nose.",
+              "translationTh": "เธอลูบจมูกม้า",
+              "readingTh": "ชี แพท-ทิด ฮิส โนส",
+              "image": "/images/s7-horse-story-2.webp"
+            },
+            {
+              "text": "Hi, Snowy! I missed you!",
+              "translationTh": "หวัดดีสโนวี่! คิดถึงจัง!",
+              "readingTh": "ไฮ, สโนว์-อี้, ไอ มิสท์ ยู",
+              "image": "/images/s7-horse-story-3.webp"
+            },
+            {
+              "text": "She gave him a big hug.",
+              "translationTh": "เธอกอดม้าแน่น ๆ",
+              "readingTh": "ชี เกฟว์ ฮิม อะ บิ๊ก ฮัก",
+              "image": "/images/s7-horse-story-4.webp"
+            }
+          ],
+          "requiredWords": [
+            "Amy",
+            "horse",
+            "nose",
+            "hug"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
+      "id": "s7-u05-write-lily-fever",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "Lily has a fever",
+      "titleTh": "ลิลลี่เป็นไข้",
+      "spelling": "exact",
+      "items": [
+        {
+          "id": "s7-lily-fever-dict",
+          "exercise": "dictation",
+          "target": "She had a fever.",
+          "translationTh": "ลิลลี่เป็นไข้",
+          "readingTh": "ชี แฮด อะ ฟี-เวอร์",
+          "image": "/images/s7-lily-fever-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-lily-fever-fill",
+          "exercise": "fill",
+          "target": "Lily felt sick.",
+          "translationTh": "ลิลลี่ไม่สบาย",
+          "readingTh": "ลิล-ลี่ เฟลท์ ซิค",
+          "image": "/images/s7-lily-fever-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "sick"
+        },
+        {
+          "id": "s7-lily-fever-order",
+          "exercise": "order",
+          "target": "Her bunny stayed with her.",
+          "translationTh": "ตุ๊กตากระต่ายอยู่กับเธอ",
+          "readingTh": "เฮอร์ บัน-นี่ สเตย์ด วิธ เฮอร์",
+          "image": "/images/s7-lily-fever-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-lily-fever-describe",
+          "exercise": "describe",
+          "target": "Lily felt sick.",
+          "translationTh": "ลิลลี่ไม่สบาย",
+          "readingTh": "ลิล-ลี่ เฟลท์ ซิค",
+          "image": "/images/s7-lily-fever-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "requiredWords": [
+            "Lily",
+            "sick"
+          ]
+        },
+        {
+          "id": "s7-lily-fever-story",
+          "exercise": "story",
+          "target": "Lily felt sick. She had a fever. Her bunny stayed with her.",
+          "translationTh": "ลิลลี่ไม่สบาย ลิลลี่เป็นไข้ ตุ๊กตากระต่ายอยู่กับเธอ",
+          "readingTh": "ลิล-ลี่ เฟลท์ ซิค, ชี แฮด อะ ฟี-เวอร์, เฮอร์ บัน-นี่ สเตย์ด วิธ เฮอร์",
+          "image": "/images/s7-lily-fever-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "Lily felt sick.",
+              "translationTh": "ลิลลี่ไม่สบาย",
+              "readingTh": "ลิล-ลี่ เฟลท์ ซิค",
+              "image": "/images/s7-lily-fever-story-1.webp"
+            },
+            {
+              "text": "She had a fever.",
+              "translationTh": "ลิลลี่เป็นไข้",
+              "readingTh": "ชี แฮด อะ ฟี-เวอร์",
+              "image": "/images/s7-lily-fever-story-2.webp"
+            },
+            {
+              "text": "Her bunny stayed with her.",
+              "translationTh": "ตุ๊กตากระต่ายอยู่กับเธอ",
+              "readingTh": "เฮอร์ บัน-นี่ สเตย์ด วิธ เฮอร์",
+              "image": "/images/s7-lily-fever-story-3.webp"
+            }
+          ],
+          "requiredWords": [
+            "Lily",
+            "sick",
+            "fever",
+            "bunny"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
+      "id": "s7-u06-write-first-birthday",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "Ava turns one",
+      "titleTh": "อาวาอายุครบหนึ่งขวบ",
+      "spelling": "exact",
+      "items": [
+        {
+          "id": "s7-first-birthday-dict",
+          "exercise": "dictation",
+          "target": "Ava smiled.",
+          "translationTh": "อาวายิ้ม",
+          "readingTh": "เอ-ว่า สไมล์ด์",
+          "image": "/images/s7-first-birthday-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-first-birthday-fill",
+          "exercise": "fill",
+          "target": "It was Ava's birthday.",
+          "translationTh": "วันนี้วันเกิดของอาวา",
+          "readingTh": "อิท วอส เอ-ว่าส์ เบิร์ธ-เดย์",
+          "image": "/images/s7-first-birthday-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "birthday"
+        },
+        {
+          "id": "s7-first-birthday-order",
+          "exercise": "order",
+          "target": "Then she started to cry.",
+          "translationTh": "แล้วเธอก็เริ่มร้องไห้",
+          "readingTh": "เด็น ชี สตาร์-ทิด ทะ คราย",
+          "image": "/images/s7-first-birthday-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-first-birthday-describe",
+          "exercise": "describe",
+          "target": "Mom brought a pink cake.",
+          "translationTh": "แม่เอาเค้กสีชมพูมา",
+          "readingTh": "ม็อม บรอท อะ พิงค์ เค้ก",
+          "image": "/images/s7-first-birthday-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "requiredWords": [
+            "cake",
+            "pink/Mom"
+          ]
+        },
+        {
+          "id": "s7-first-birthday-story",
+          "exercise": "story",
+          "target": "It was Ava's birthday. Then she started to cry. Mom brought a pink cake. Ava smiled.",
+          "translationTh": "วันนี้วันเกิดของอาวา แล้วเธอก็เริ่มร้องไห้ แม่เอาเค้กสีชมพูมา อาวายิ้ม",
+          "readingTh": "อิท วอส เอ-ว่าส์ เบิร์ธ-เดย์, เด็น ชี สตาร์-ทิด ทะ คราย, ม็อม บรอท อะ พิงค์ เค้ก, เอ-ว่า สไมล์ด์",
+          "image": "/images/s7-first-birthday-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "It was Ava's birthday.",
+              "translationTh": "วันนี้วันเกิดของอาวา",
+              "readingTh": "อิท วอส เอ-ว่าส์ เบิร์ธ-เดย์",
+              "image": "/images/s7-first-birthday-story-1.webp"
+            },
+            {
+              "text": "Then she started to cry.",
+              "translationTh": "แล้วเธอก็เริ่มร้องไห้",
+              "readingTh": "เด็น ชี สตาร์-ทิด ทะ คราย",
+              "image": "/images/s7-first-birthday-story-2.webp"
+            },
+            {
+              "text": "Mom brought a pink cake.",
+              "translationTh": "แม่เอาเค้กสีชมพูมา",
+              "readingTh": "ม็อม บรอท อะ พิงค์ เค้ก",
+              "image": "/images/s7-first-birthday-story-3.webp"
+            },
+            {
+              "text": "Ava smiled.",
+              "translationTh": "อาวายิ้ม",
+              "readingTh": "เอ-ว่า สไมล์ด์",
+              "image": "/images/s7-first-birthday-story-4.webp"
+            }
+          ],
+          "requiredWords": [
+            "Ava",
+            "birthday",
+            "cry",
+            "cake"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
+      "id": "s7-u06-write-birthday-box",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "The birthday box",
+      "titleTh": "กล่องวันเกิด",
+      "spelling": "exact",
+      "items": [
+        {
+          "id": "s7-birthday-box-dict",
+          "exercise": "dictation",
+          "target": "He sat in a box.",
+          "translationTh": "เขานั่งในกล่อง",
+          "readingTh": "ฮี แซท อิน อะ บ็อกซ์",
+          "image": "/images/s7-birthday-box-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-birthday-box-fill",
+          "exercise": "fill",
+          "target": "He looked at his crown.",
+          "translationTh": "เขามองมงกุฎ",
+          "readingTh": "ฮี ลุคท์ แอท ฮิส คราวน์",
+          "image": "/images/s7-birthday-box-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "looked"
+        },
+        {
+          "id": "s7-birthday-box-order",
+          "exercise": "order",
+          "target": "He sat with his teddy bear.",
+          "translationTh": "เขานั่งกับตุ๊กตาหมี",
+          "readingTh": "ฮี แซท วิธ ฮิส เท็ด-ดี้ แบร์",
+          "image": "/images/s7-birthday-box-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-birthday-box-describe",
+          "exercise": "describe",
+          "target": "Kai had a crown.",
+          "translationTh": "ไคมีมงกุฎ",
+          "readingTh": "ไค แฮด อะ คราวน์",
+          "image": "/images/s7-birthday-box-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "requiredWords": [
+            "crown"
+          ]
+        },
+        {
+          "id": "s7-birthday-box-story",
+          "exercise": "story",
+          "target": "Kai had a crown. He sat in a box. He sat with his teddy bear. He looked at his crown.",
+          "translationTh": "ไคมีมงกุฎ เขานั่งในกล่อง เขานั่งกับตุ๊กตาหมี เขามองมงกุฎ",
+          "readingTh": "ไค แฮด อะ คราวน์, ฮี แซท อิน อะ บ็อกซ์, ฮี แซท วิธ ฮิส เท็ด-ดี้ แบร์, ฮี ลุคท์ แอท ฮิส คราวน์",
+          "image": "/images/s7-birthday-box-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "Kai had a crown.",
+              "translationTh": "ไคมีมงกุฎ",
+              "readingTh": "ไค แฮด อะ คราวน์",
+              "image": "/images/s7-birthday-box-story-1.webp"
+            },
+            {
+              "text": "He sat in a box.",
+              "translationTh": "เขานั่งในกล่อง",
+              "readingTh": "ฮี แซท อิน อะ บ็อกซ์",
+              "image": "/images/s7-birthday-box-story-2.webp"
+            },
+            {
+              "text": "He sat with his teddy bear.",
+              "translationTh": "เขานั่งกับตุ๊กตาหมี",
+              "readingTh": "ฮี แซท วิธ ฮิส เท็ด-ดี้ แบร์",
+              "image": "/images/s7-birthday-box-story-3.webp"
+            },
+            {
+              "text": "He looked at his crown.",
+              "translationTh": "เขามองมงกุฎ",
+              "readingTh": "ฮี ลุคท์ แอท ฮิส คราวน์",
+              "image": "/images/s7-birthday-box-story-4.webp"
+            }
+          ],
+          "requiredWords": [
+            "Kai",
+            "crown",
+            "box",
+            "teddy/bear"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
+      "id": "s7-u06-write-toy-car",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "The little blue car",
+      "titleTh": "รถคันเล็กสีฟ้า",
+      "spelling": "exact",
+      "items": [
+        {
+          "id": "s7-toy-car-dict",
+          "exercise": "dictation",
+          "target": "Ann drove the car.",
+          "translationTh": "แอนขับรถ",
+          "readingTh": "แอน โดรฟ เดอะ คาร์",
+          "image": "/images/s7-toy-car-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-toy-car-fill",
+          "exercise": "fill",
+          "target": "What a fun ride!",
+          "translationTh": "นั่งรถสนุกจัง!",
+          "readingTh": "วอท อะ ฟัน ไรด์",
+          "image": "/images/s7-toy-car-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "ride"
+        },
+        {
+          "id": "s7-toy-car-order",
+          "exercise": "order",
+          "target": "Ann and Ben sat in a car.",
+          "translationTh": "แอนกับเบนนั่งในรถ",
+          "readingTh": "แอน แอน เบน แซท อิน อะ คาร์",
+          "image": "/images/s7-toy-car-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-toy-car-describe",
+          "exercise": "describe",
+          "target": "Ann drove the car.",
+          "translationTh": "แอนขับรถ",
+          "readingTh": "แอน โดรฟ เดอะ คาร์",
+          "image": "/images/s7-toy-car-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "requiredWords": [
+            "drove",
+            "car"
+          ]
+        },
+        {
+          "id": "s7-toy-car-story",
+          "exercise": "story",
+          "target": "Ann and Ben sat in a car. Ann drove the car. What a fun ride!",
+          "translationTh": "แอนกับเบนนั่งในรถ แอนขับรถ นั่งรถสนุกจัง!",
+          "readingTh": "แอน แอน เบน แซท อิน อะ คาร์, แอน โดรฟ เดอะ คาร์, วอท อะ ฟัน ไรด์",
+          "image": "/images/s7-toy-car-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "Ann and Ben sat in a car.",
+              "translationTh": "แอนกับเบนนั่งในรถ",
+              "readingTh": "แอน แอน เบน แซท อิน อะ คาร์",
+              "image": "/images/s7-toy-car-story-1.webp"
+            },
+            {
+              "text": "Ann drove the car.",
+              "translationTh": "แอนขับรถ",
+              "readingTh": "แอน โดรฟ เดอะ คาร์",
+              "image": "/images/s7-toy-car-story-2.webp"
+            },
+            {
+              "text": "What a fun ride!",
+              "translationTh": "นั่งรถสนุกจัง!",
+              "readingTh": "วอท อะ ฟัน ไรด์",
+              "image": "/images/s7-toy-car-story-3.webp"
+            }
+          ],
+          "requiredWords": [
+            "Ann",
+            "Ben",
+            "car",
+            "ride/drove"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
+      "id": "s7-u06-write-suitcase",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "Ready for a trip",
+      "titleTh": "พร้อมไปเที่ยว",
+      "spelling": "exact",
+      "items": [
+        {
+          "id": "s7-suitcase-dict",
+          "exercise": "dictation",
+          "target": "Where is the car?",
+          "translationTh": "รถอยู่ไหน?",
+          "readingTh": "แวร์ อิส เดอะ คาร์",
+          "image": "/images/s7-suitcase-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-suitcase-fill",
+          "exercise": "fill",
+          "target": "Zoe had a big suitcase.",
+          "translationTh": "โซอี้มีกระเป๋าเดินทางใบใหญ่",
+          "readingTh": "โซ-อี้ แฮด อะ บิ๊ก ซูท-เคส",
+          "image": "/images/s7-suitcase-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "suitcase"
+        },
+        {
+          "id": "s7-suitcase-order",
+          "exercise": "order",
+          "target": "She waited for the car.",
+          "translationTh": "เธอรอรถ",
+          "readingTh": "ชี เว-ทิด ฟอร์ เดอะ คาร์",
+          "image": "/images/s7-suitcase-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-suitcase-describe",
+          "exercise": "describe",
+          "target": "Zoe had a big suitcase.",
+          "translationTh": "โซอี้มีกระเป๋าเดินทางใบใหญ่",
+          "readingTh": "โซ-อี้ แฮด อะ บิ๊ก ซูท-เคส",
+          "image": "/images/s7-suitcase-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "requiredWords": [
+            "suitcase",
+            "big/Zoe"
+          ]
+        },
+        {
+          "id": "s7-suitcase-story",
+          "exercise": "story",
+          "target": "Zoe had a big suitcase. She waited for the car. Where is the car?",
+          "translationTh": "โซอี้มีกระเป๋าเดินทางใบใหญ่ เธอรอรถ รถอยู่ไหน?",
+          "readingTh": "โซ-อี้ แฮด อะ บิ๊ก ซูท-เคส, ชี เว-ทิด ฟอร์ เดอะ คาร์, แวร์ อิส เดอะ คาร์",
+          "image": "/images/s7-suitcase-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "Zoe had a big suitcase.",
+              "translationTh": "โซอี้มีกระเป๋าเดินทางใบใหญ่",
+              "readingTh": "โซ-อี้ แฮด อะ บิ๊ก ซูท-เคส",
+              "image": "/images/s7-suitcase-story-1.webp"
+            },
+            {
+              "text": "She waited for the car.",
+              "translationTh": "เธอรอรถ",
+              "readingTh": "ชี เว-ทิด ฟอร์ เดอะ คาร์",
+              "image": "/images/s7-suitcase-story-2.webp"
+            },
+            {
+              "text": "Where is the car?",
+              "translationTh": "รถอยู่ไหน?",
+              "readingTh": "แวร์ อิส เดอะ คาร์",
+              "image": "/images/s7-suitcase-story-3.webp"
+            }
+          ],
+          "requiredWords": [
+            "Zoe",
+            "suitcase",
+            "waited/wait",
+            "car"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
+      "id": "s7-u07-write-train-ride",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "Ella on the train",
+      "titleTh": "เอลล่าบนรถไฟ",
+      "spelling": "exact",
+      "items": [
+        {
+          "id": "s7-train-ride-dict",
+          "exercise": "dictation",
+          "target": "Grandma was waiting!",
+          "translationTh": "คุณยายรออยู่!",
+          "readingTh": "แกรนด์-มา วอส เว-ทิ่ง",
+          "image": "/images/s7-train-ride-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-train-ride-fill",
+          "exercise": "fill",
+          "target": "She looked at the trees.",
+          "translationTh": "เธอมองต้นไม้",
+          "readingTh": "ชี ลุคท์ แอท เดอะ ทรีส์",
+          "image": "/images/s7-train-ride-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "trees"
+        },
+        {
+          "id": "s7-train-ride-order",
+          "exercise": "order",
+          "target": "Ella was on the train.",
+          "translationTh": "เอลล่าอยู่บนรถไฟ",
+          "readingTh": "เอล-ล่า วอส ออน เดอะ เทรน",
+          "image": "/images/s7-train-ride-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-train-ride-describe",
+          "exercise": "describe",
+          "target": "She looked at the trees.",
+          "translationTh": "เธอมองต้นไม้",
+          "readingTh": "ชี ลุคท์ แอท เดอะ ทรีส์",
+          "image": "/images/s7-train-ride-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "requiredWords": [
+            "looked/look",
+            "trees"
+          ]
+        },
+        {
+          "id": "s7-train-ride-story",
+          "exercise": "story",
+          "target": "Ella was on the train. She looked at the trees. Grandma was waiting!",
+          "translationTh": "เอลล่าอยู่บนรถไฟ เธอมองต้นไม้ คุณยายรออยู่!",
+          "readingTh": "เอล-ล่า วอส ออน เดอะ เทรน, ชี ลุคท์ แอท เดอะ ทรีส์, แกรนด์-มา วอส เว-ทิ่ง",
+          "image": "/images/s7-train-ride-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "Ella was on the train.",
+              "translationTh": "เอลล่าอยู่บนรถไฟ",
+              "readingTh": "เอล-ล่า วอส ออน เดอะ เทรน",
+              "image": "/images/s7-train-ride-story-1.webp"
+            },
+            {
+              "text": "She looked at the trees.",
+              "translationTh": "เธอมองต้นไม้",
+              "readingTh": "ชี ลุคท์ แอท เดอะ ทรีส์",
+              "image": "/images/s7-train-ride-story-2.webp"
+            },
+            {
+              "text": "Grandma was waiting!",
+              "translationTh": "คุณยายรออยู่!",
+              "readingTh": "แกรนด์-มา วอส เว-ทิ่ง",
+              "image": "/images/s7-train-ride-story-3.webp"
+            }
+          ],
+          "requiredWords": [
+            "Ella",
+            "train",
+            "trees",
+            "Grandma"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
+      "id": "s7-u07-write-station",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "At the old station",
+      "titleTh": "ที่สถานีเก่า",
+      "spelling": "exact",
+      "items": [
+        {
+          "id": "s7-station-dict",
+          "exercise": "dictation",
+          "target": "It was time to go!",
+          "translationTh": "ได้เวลาไปแล้ว!",
+          "readingTh": "อิท วอส ไทม์ ทะ โก",
+          "image": "/images/s7-station-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-station-fill",
+          "exercise": "fill",
+          "target": "The engine was black and red.",
+          "translationTh": "หัวรถจักรสีดำกับแดง",
+          "readingTh": "เดอะ เอน-จิน วอส แบล็ค แอน เรด",
+          "image": "/images/s7-station-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "engine"
+        },
+        {
+          "id": "s7-station-order",
+          "exercise": "order",
+          "target": "Tom walked to the train.",
+          "translationTh": "ทอมเดินไปที่รถไฟ",
+          "readingTh": "ทอม วอล์คท์ ทะ เดอะ เทรน",
+          "image": "/images/s7-station-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-station-describe",
+          "exercise": "describe",
+          "target": "The engine was black and red.",
+          "translationTh": "หัวรถจักรสีดำกับแดง",
+          "readingTh": "เดอะ เอน-จิน วอส แบล็ค แอน เรด",
+          "image": "/images/s7-station-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "requiredWords": [
+            "engine/train",
+            "black/red"
+          ]
+        },
+        {
+          "id": "s7-station-story",
+          "exercise": "story",
+          "target": "Tom walked to the train. The engine was black and red. He waited. It was time to go!",
+          "translationTh": "ทอมเดินไปที่รถไฟ หัวรถจักรสีดำกับแดง เขารอ ได้เวลาไปแล้ว!",
+          "readingTh": "ทอม วอล์คท์ ทะ เดอะ เทรน, เดอะ เอน-จิน วอส แบล็ค แอน เรด, ฮี เว-ทิด, อิท วอส ไทม์ ทะ โก",
+          "image": "/images/s7-station-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "Tom walked to the train.",
+              "translationTh": "ทอมเดินไปที่รถไฟ",
+              "readingTh": "ทอม วอล์คท์ ทะ เดอะ เทรน",
+              "image": "/images/s7-station-story-1.webp"
+            },
+            {
+              "text": "The engine was black and red.",
+              "translationTh": "หัวรถจักรสีดำกับแดง",
+              "readingTh": "เดอะ เอน-จิน วอส แบล็ค แอน เรด",
+              "image": "/images/s7-station-story-2.webp"
+            },
+            {
+              "text": "He waited.",
+              "translationTh": "เขารอ",
+              "readingTh": "ฮี เว-ทิด",
+              "image": "/images/s7-station-story-3.webp"
+            },
+            {
+              "text": "It was time to go!",
+              "translationTh": "ได้เวลาไปแล้ว!",
+              "readingTh": "อิท วอส ไทม์ ทะ โก",
+              "image": "/images/s7-station-story-4.webp"
+            }
+          ],
+          "requiredWords": [
+            "Tom",
+            "train",
+            "engine",
+            "waited/wait"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
+      "id": "s7-u07-write-red-bucket",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "The red bucket",
+      "titleTh": "ถังสีแดง",
+      "spelling": "exact",
+      "items": [
+        {
+          "id": "s7-red-bucket-dict",
+          "exercise": "dictation",
+          "target": "The water was cold!",
+          "translationTh": "น้ำเย็นมาก!",
+          "readingTh": "เดอะ ว้อ-เท่อร์ วอส โคลด์",
+          "image": "/images/s7-red-bucket-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-red-bucket-fill",
+          "exercise": "fill",
+          "target": "Rosie went to the sea.",
+          "translationTh": "โรซี่ไปทะเล",
+          "readingTh": "โร-ซี่ เว็นท์ ทะ เดอะ ซี",
+          "image": "/images/s7-red-bucket-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "sea"
+        },
+        {
+          "id": "s7-red-bucket-order",
+          "exercise": "order",
+          "target": "She ran in the water.",
+          "translationTh": "เธอวิ่งในน้ำ",
+          "readingTh": "ชี แรน อิน เดอะ ว้อ-เท่อร์",
+          "image": "/images/s7-red-bucket-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-red-bucket-describe",
+          "exercise": "describe",
+          "target": "Her brother sat on the sand.",
+          "translationTh": "น้องชายนั่งบนทราย",
+          "readingTh": "เฮอร์ บรา-เธ่อร์ แซท ออน เดอะ แซนด์",
+          "image": "/images/s7-red-bucket-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "requiredWords": [
+            "brother",
+            "sand"
+          ]
+        },
+        {
+          "id": "s7-red-bucket-story",
+          "exercise": "story",
+          "target": "Rosie went to the sea. She ran in the water. Her brother sat on the sand. The water was cold!",
+          "translationTh": "โรซี่ไปทะเล เธอวิ่งในน้ำ น้องชายนั่งบนทราย น้ำเย็นมาก!",
+          "readingTh": "โร-ซี่ เว็นท์ ทะ เดอะ ซี, ชี แรน อิน เดอะ ว้อ-เท่อร์, เฮอร์ บรา-เธ่อร์ แซท ออน เดอะ แซนด์, เดอะ ว้อ-เท่อร์ วอส โคลด์",
+          "image": "/images/s7-red-bucket-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "Rosie went to the sea.",
+              "translationTh": "โรซี่ไปทะเล",
+              "readingTh": "โร-ซี่ เว็นท์ ทะ เดอะ ซี",
+              "image": "/images/s7-red-bucket-story-1.webp"
+            },
+            {
+              "text": "She ran in the water.",
+              "translationTh": "เธอวิ่งในน้ำ",
+              "readingTh": "ชี แรน อิน เดอะ ว้อ-เท่อร์",
+              "image": "/images/s7-red-bucket-story-2.webp"
+            },
+            {
+              "text": "Her brother sat on the sand.",
+              "translationTh": "น้องชายนั่งบนทราย",
+              "readingTh": "เฮอร์ บรา-เธ่อร์ แซท ออน เดอะ แซนด์",
+              "image": "/images/s7-red-bucket-story-3.webp"
+            },
+            {
+              "text": "The water was cold!",
+              "translationTh": "น้ำเย็นมาก!",
+              "readingTh": "เดอะ ว้อ-เท่อร์ วอส โคลด์",
+              "image": "/images/s7-red-bucket-story-4.webp"
+            }
+          ],
+          "requiredWords": [
+            "Rosie",
+            "sea",
+            "water",
+            "sand"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
+      "id": "s7-u07-write-yellow-boots",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "Yellow boots",
+      "titleTh": "รองเท้าบูตสีเหลือง",
+      "spelling": "exact",
+      "items": [
+        {
+          "id": "s7-yellow-boots-dict",
+          "exercise": "dictation",
+          "target": "He filled it up.",
+          "translationTh": "เขาตักใส่จนเต็ม",
+          "readingTh": "ฮี ฟิลด์ อิท อัพ",
+          "image": "/images/s7-yellow-boots-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-yellow-boots-fill",
+          "exercise": "fill",
+          "target": "Finn had yellow boots.",
+          "translationTh": "ฟินน์มีรองเท้าบูตสีเหลือง",
+          "readingTh": "ฟิน แฮด เยล-โล่ว์ บูทส์",
+          "image": "/images/s7-yellow-boots-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "yellow"
+        },
+        {
+          "id": "s7-yellow-boots-order",
+          "exercise": "order",
+          "target": "He dug in the sand.",
+          "translationTh": "เขาขุดทราย",
+          "readingTh": "ฮี ดัก อิน เดอะ แซนด์",
+          "image": "/images/s7-yellow-boots-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-yellow-boots-describe",
+          "exercise": "describe",
+          "target": "He carried his bucket.",
+          "translationTh": "เขาถือถัง",
+          "readingTh": "ฮี แคร์-รี่ด ฮิส บัค-เค็ท",
+          "image": "/images/s7-yellow-boots-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "requiredWords": [
+            "bucket",
+            "carried/carry"
+          ]
+        },
+        {
+          "id": "s7-yellow-boots-story",
+          "exercise": "story",
+          "target": "Finn had yellow boots. He dug in the sand. He carried his bucket. He filled it up.",
+          "translationTh": "ฟินน์มีรองเท้าบูตสีเหลือง เขาขุดทราย เขาถือถัง เขาตักใส่จนเต็ม",
+          "readingTh": "ฟิน แฮด เยล-โล่ว์ บูทส์, ฮี ดัก อิน เดอะ แซนด์, ฮี แคร์-รี่ด ฮิส บัค-เค็ท, ฮี ฟิลด์ อิท อัพ",
+          "image": "/images/s7-yellow-boots-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "Finn had yellow boots.",
+              "translationTh": "ฟินน์มีรองเท้าบูตสีเหลือง",
+              "readingTh": "ฟิน แฮด เยล-โล่ว์ บูทส์",
+              "image": "/images/s7-yellow-boots-story-1.webp"
+            },
+            {
+              "text": "He dug in the sand.",
+              "translationTh": "เขาขุดทราย",
+              "readingTh": "ฮี ดัก อิน เดอะ แซนด์",
+              "image": "/images/s7-yellow-boots-story-2.webp"
+            },
+            {
+              "text": "He carried his bucket.",
+              "translationTh": "เขาถือถัง",
+              "readingTh": "ฮี แคร์-รี่ด ฮิส บัค-เค็ท",
+              "image": "/images/s7-yellow-boots-story-3.webp"
+            },
+            {
+              "text": "He filled it up.",
+              "translationTh": "เขาตักใส่จนเต็ม",
+              "readingTh": "ฮี ฟิลด์ อิท อัพ",
+              "image": "/images/s7-yellow-boots-story-4.webp"
+            }
+          ],
+          "requiredWords": [
+            "Finn",
+            "boots",
+            "sand",
+            "bucket"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
+      "id": "s7-u08-write-woodwork",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "The hammer and the saw",
+      "titleTh": "ค้อนกับเลื่อย",
+      "spelling": "exact",
+      "items": [
+        {
+          "id": "s7-woodwork-dict",
+          "exercise": "dictation",
+          "target": "They found a saw and a hammer.",
+          "translationTh": "พวกเขาเจอเลื่อยกับค้อน",
+          "readingTh": "เดย์ ฟาวด์ อะ ซอว์ แอน อะ แฮม-เมอร์",
+          "image": "/images/s7-woodwork-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-woodwork-fill",
+          "exercise": "fill",
+          "target": "They worked together.",
+          "translationTh": "พวกเขาทำงานด้วยกัน",
+          "readingTh": "เดย์ เวิร์คท์ ทะ-เก็ธ-เธ่อร์",
+          "image": "/images/s7-woodwork-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "together"
+        },
+        {
+          "id": "s7-woodwork-order",
+          "exercise": "order",
+          "target": "At last, it was done!",
+          "translationTh": "ในที่สุดก็เสร็จ!",
+          "readingTh": "แอท ลาสท์, อิท วอส ดัน",
+          "image": "/images/s7-woodwork-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-woodwork-describe",
+          "exercise": "describe",
+          "target": "Jack cut the wood.",
+          "translationTh": "แจ็คตัดไม้",
+          "readingTh": "แจ็ค คัท เดอะ วู้ด",
+          "image": "/images/s7-woodwork-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "requiredWords": [
+            "cut",
+            "wood"
+          ]
+        },
+        {
+          "id": "s7-woodwork-story",
+          "exercise": "story",
+          "target": "They found a saw and a hammer. Jack cut the wood. They worked together. At last, it was done!",
+          "translationTh": "พวกเขาเจอเลื่อยกับค้อน แจ็คตัดไม้ พวกเขาทำงานด้วยกัน ในที่สุดก็เสร็จ!",
+          "readingTh": "เดย์ ฟาวด์ อะ ซอว์ แอน อะ แฮม-เมอร์, แจ็ค คัท เดอะ วู้ด, เดย์ เวิร์คท์ ทะ-เก็ธ-เธ่อร์, แอท ลาสท์, อิท วอส ดัน",
+          "image": "/images/s7-woodwork-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "They found a saw and a hammer.",
+              "translationTh": "พวกเขาเจอเลื่อยกับค้อน",
+              "readingTh": "เดย์ ฟาวด์ อะ ซอว์ แอน อะ แฮม-เมอร์",
+              "image": "/images/s7-woodwork-story-1.webp"
+            },
+            {
+              "text": "Jack cut the wood.",
+              "translationTh": "แจ็คตัดไม้",
+              "readingTh": "แจ็ค คัท เดอะ วู้ด",
+              "image": "/images/s7-woodwork-story-2.webp"
+            },
+            {
+              "text": "They worked together.",
+              "translationTh": "พวกเขาทำงานด้วยกัน",
+              "readingTh": "เดย์ เวิร์คท์ ทะ-เก็ธ-เธ่อร์",
+              "image": "/images/s7-woodwork-story-3.webp"
+            },
+            {
+              "text": "At last, it was done!",
+              "translationTh": "ในที่สุดก็เสร็จ!",
+              "readingTh": "แอท ลาสท์, อิท วอส ดัน",
+              "image": "/images/s7-woodwork-story-4.webp"
+            }
+          ],
+          "requiredWords": [
+            "saw/hammer",
+            "Jack",
+            "wood",
+            "together"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
+      "id": "s7-u08-write-clay-friends",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "Clay monsters",
+      "titleTh": "สัตว์ประหลาดดินน้ำมัน",
+      "spelling": "exact",
+      "items": [
+        {
+          "id": "s7-clay-friends-dict",
+          "exercise": "dictation",
+          "target": "Two friends made monsters.",
+          "translationTh": "เพื่อนสองคนทำสัตว์ประหลาด",
+          "readingTh": "ทู เฟรนด์ส เมด มอน-สเตอร์ส",
+          "image": "/images/s7-clay-friends-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-clay-friends-fill",
+          "exercise": "fill",
+          "target": "They rolled the clay.",
+          "translationTh": "พวกเขาคลึงดินน้ำมัน",
+          "readingTh": "เดย์ โรลด์ เดอะ เคลย์",
+          "image": "/images/s7-clay-friends-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "clay"
+        },
+        {
+          "id": "s7-clay-friends-order",
+          "exercise": "order",
+          "target": "They drew in the air.",
+          "translationTh": "พวกเขาวาดกลางอากาศ",
+          "readingTh": "เดย์ ดรู อิน เดอะ แอร์",
+          "image": "/images/s7-clay-friends-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-clay-friends-describe",
+          "exercise": "describe",
+          "target": "Look! A spooky tree!",
+          "translationTh": "ดูสิ! ต้นไม้น่ากลัว!",
+          "readingTh": "ลุค, อะ สปู-กี้ ทรี",
+          "image": "/images/s7-clay-friends-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "requiredWords": [
+            "spooky",
+            "tree"
+          ]
+        },
+        {
+          "id": "s7-clay-friends-story",
+          "exercise": "story",
+          "target": "Two friends made monsters. They rolled the clay. They drew in the air. Look! A spooky tree!",
+          "translationTh": "เพื่อนสองคนทำสัตว์ประหลาด พวกเขาคลึงดินน้ำมัน พวกเขาวาดกลางอากาศ ดูสิ! ต้นไม้น่ากลัว!",
+          "readingTh": "ทู เฟรนด์ส เมด มอน-สเตอร์ส, เดย์ โรลด์ เดอะ เคลย์, เดย์ ดรู อิน เดอะ แอร์, ลุค, อะ สปู-กี้ ทรี",
+          "image": "/images/s7-clay-friends-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "Two friends made monsters.",
+              "translationTh": "เพื่อนสองคนทำสัตว์ประหลาด",
+              "readingTh": "ทู เฟรนด์ส เมด มอน-สเตอร์ส",
+              "image": "/images/s7-clay-friends-story-1.webp"
+            },
+            {
+              "text": "They rolled the clay.",
+              "translationTh": "พวกเขาคลึงดินน้ำมัน",
+              "readingTh": "เดย์ โรลด์ เดอะ เคลย์",
+              "image": "/images/s7-clay-friends-story-2.webp"
+            },
+            {
+              "text": "They drew in the air.",
+              "translationTh": "พวกเขาวาดกลางอากาศ",
+              "readingTh": "เดย์ ดรู อิน เดอะ แอร์",
+              "image": "/images/s7-clay-friends-story-3.webp"
+            },
+            {
+              "text": "Look! A spooky tree!",
+              "translationTh": "ดูสิ! ต้นไม้น่ากลัว!",
+              "readingTh": "ลุค, อะ สปู-กี้ ทรี",
+              "image": "/images/s7-clay-friends-story-4.webp"
+            }
+          ],
+          "requiredWords": [
+            "friends/friend",
+            "monsters",
+            "clay",
+            "tree"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
+      "id": "s7-u08-write-guitar-girl",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "Lucy and her guitar",
+      "titleTh": "ลูซี่กับกีตาร์",
+      "spelling": "exact",
+      "items": [
+        {
+          "id": "s7-guitar-girl-dict",
+          "exercise": "dictation",
+          "target": "She sat on the grass and sang.",
+          "translationTh": "เธอนั่งบนหญ้าแล้วร้องเพลง",
+          "readingTh": "ชี แซท ออน เดอะ กราส แอน แซง",
+          "image": "/images/s7-guitar-girl-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-guitar-girl-fill",
+          "exercise": "fill",
+          "target": "Lucy took her guitar.",
+          "translationTh": "ลูซี่ถือกีตาร์ไป",
+          "readingTh": "ลู-ซี่ ทุค เฮอร์ กิ-ตาร์",
+          "image": "/images/s7-guitar-girl-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "guitar"
+        },
+        {
+          "id": "s7-guitar-girl-order",
+          "exercise": "order",
+          "target": "She lay in the sun.",
+          "translationTh": "เธอนอนกลางแดด",
+          "readingTh": "ชี เลย์ อิน เดอะ ซัน",
+          "image": "/images/s7-guitar-girl-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-guitar-girl-describe",
+          "exercise": "describe",
+          "target": "She played a song.",
+          "translationTh": "เธอเล่นเพลง",
+          "readingTh": "ชี เพลย์ด อะ ซอง",
+          "image": "/images/s7-guitar-girl-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "requiredWords": [
+            "played/play",
+            "song"
+          ]
+        },
+        {
+          "id": "s7-guitar-girl-story",
+          "exercise": "story",
+          "target": "Lucy took her guitar. She played a song. She sat on the grass and sang. She lay in the sun.",
+          "translationTh": "ลูซี่ถือกีตาร์ไป เธอเล่นเพลง เธอนั่งบนหญ้าแล้วร้องเพลง เธอนอนกลางแดด",
+          "readingTh": "ลู-ซี่ ทุค เฮอร์ กิ-ตาร์, ชี เพลย์ด อะ ซอง, ชี แซท ออน เดอะ กราส แอน แซง, ชี เลย์ อิน เดอะ ซัน",
+          "image": "/images/s7-guitar-girl-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "Lucy took her guitar.",
+              "translationTh": "ลูซี่ถือกีตาร์ไป",
+              "readingTh": "ลู-ซี่ ทุค เฮอร์ กิ-ตาร์",
+              "image": "/images/s7-guitar-girl-story-1.webp"
+            },
+            {
+              "text": "She played a song.",
+              "translationTh": "เธอเล่นเพลง",
+              "readingTh": "ชี เพลย์ด อะ ซอง",
+              "image": "/images/s7-guitar-girl-story-2.webp"
+            },
+            {
+              "text": "She sat on the grass and sang.",
+              "translationTh": "เธอนั่งบนหญ้าแล้วร้องเพลง",
+              "readingTh": "ชี แซท ออน เดอะ กราส แอน แซง",
+              "image": "/images/s7-guitar-girl-story-3.webp"
+            },
+            {
+              "text": "She lay in the sun.",
+              "translationTh": "เธอนอนกลางแดด",
+              "readingTh": "ชี เลย์ อิน เดอะ ซัน",
+              "image": "/images/s7-guitar-girl-story-4.webp"
+            }
+          ],
+          "requiredWords": [
+            "Lucy",
+            "guitar",
+            "song",
+            "sun/grass"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
+      "id": "s7-u08-write-twirl",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "Twirling in the garden",
+      "titleTh": "หมุนตัวในสวน",
+      "spelling": "exact",
+      "items": [
+        {
+          "id": "s7-twirl-dict",
+          "exercise": "dictation",
+          "target": "She walked with her sister.",
+          "translationTh": "เธอเดินกับน้องสาว",
+          "readingTh": "ชี วอล์คท์ วิธ เฮอร์ ซิส-เต้อร์",
+          "image": "/images/s7-twirl-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-twirl-fill",
+          "exercise": "fill",
+          "target": "She danced on the path.",
+          "translationTh": "เธอเต้นบนทางเดิน",
+          "readingTh": "ชี แดนซ์ท์ ออน เดอะ พาธ",
+          "image": "/images/s7-twirl-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "danced"
+        },
+        {
+          "id": "s7-twirl-order",
+          "exercise": "order",
+          "target": "Grace had a pink tutu.",
+          "translationTh": "เกรซมีกระโปรงตูตูสีชมพู",
+          "readingTh": "เกรซ แฮด อะ พิงค์ ทู-ทู",
+          "image": "/images/s7-twirl-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-twirl-describe",
+          "exercise": "describe",
+          "target": "Grace had a pink tutu.",
+          "translationTh": "เกรซมีกระโปรงตูตูสีชมพู",
+          "readingTh": "เกรซ แฮด อะ พิงค์ ทู-ทู",
+          "image": "/images/s7-twirl-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "requiredWords": [
+            "Grace",
+            "tutu"
+          ]
+        },
+        {
+          "id": "s7-twirl-story",
+          "exercise": "story",
+          "target": "Grace had a pink tutu. She walked with her sister. She danced on the path.",
+          "translationTh": "เกรซมีกระโปรงตูตูสีชมพู เธอเดินกับน้องสาว เธอเต้นบนทางเดิน",
+          "readingTh": "เกรซ แฮด อะ พิงค์ ทู-ทู, ชี วอล์คท์ วิธ เฮอร์ ซิส-เต้อร์, ชี แดนซ์ท์ ออน เดอะ พาธ",
+          "image": "/images/s7-twirl-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "Grace had a pink tutu.",
+              "translationTh": "เกรซมีกระโปรงตูตูสีชมพู",
+              "readingTh": "เกรซ แฮด อะ พิงค์ ทู-ทู",
+              "image": "/images/s7-twirl-story-1.webp"
+            },
+            {
+              "text": "She walked with her sister.",
+              "translationTh": "เธอเดินกับน้องสาว",
+              "readingTh": "ชี วอล์คท์ วิธ เฮอร์ ซิส-เต้อร์",
+              "image": "/images/s7-twirl-story-2.webp"
+            },
+            {
+              "text": "She danced on the path.",
+              "translationTh": "เธอเต้นบนทางเดิน",
+              "readingTh": "ชี แดนซ์ท์ ออน เดอะ พาธ",
+              "image": "/images/s7-twirl-story-3.webp"
+            }
+          ],
+          "requiredWords": [
+            "Grace",
+            "tutu",
+            "sister",
+            "danced/dance"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
+      "id": "s7-u09-write-number-fifteen",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "Number fifteen",
+      "titleTh": "หมายเลขสิบห้า",
+      "spelling": "exact",
+      "items": [
+        {
+          "id": "s7-number-fifteen-dict",
+          "exercise": "dictation",
+          "target": "He played with his team.",
+          "translationTh": "เขาเล่นกับทีม",
+          "readingTh": "ฮี เพลย์ด วิธ ฮิส ทีม",
+          "image": "/images/s7-number-fifteen-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-number-fifteen-fill",
+          "exercise": "fill",
+          "target": "He kicked the ball.",
+          "translationTh": "เขาเตะลูกบอล",
+          "readingTh": "ฮี คิคท์ เดอะ บอล",
+          "image": "/images/s7-number-fifteen-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "kicked"
+        },
+        {
+          "id": "s7-number-fifteen-order",
+          "exercise": "order",
+          "target": "Max had a red shirt.",
+          "translationTh": "แม็กซ์มีเสื้อสีแดง",
+          "readingTh": "แม็กซ์ แฮด อะ เรด เชิร์ท",
+          "image": "/images/s7-number-fifteen-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-number-fifteen-describe",
+          "exercise": "describe",
+          "target": "He ran fast.",
+          "translationTh": "เขาวิ่งเร็ว",
+          "readingTh": "ฮี แรน ฟาสท์",
+          "image": "/images/s7-number-fifteen-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "requiredWords": [
+            "ran/run",
+            "fast"
+          ]
+        },
+        {
+          "id": "s7-number-fifteen-story",
+          "exercise": "story",
+          "target": "Max had a red shirt. He ran fast. He kicked the ball. He played with his team.",
+          "translationTh": "แม็กซ์มีเสื้อสีแดง เขาวิ่งเร็ว เขาเตะลูกบอล เขาเล่นกับทีม",
+          "readingTh": "แม็กซ์ แฮด อะ เรด เชิร์ท, ฮี แรน ฟาสท์, ฮี คิคท์ เดอะ บอล, ฮี เพลย์ด วิธ ฮิส ทีม",
+          "image": "/images/s7-number-fifteen-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "Max had a red shirt.",
+              "translationTh": "แม็กซ์มีเสื้อสีแดง",
+              "readingTh": "แม็กซ์ แฮด อะ เรด เชิร์ท",
+              "image": "/images/s7-number-fifteen-story-1.webp"
+            },
+            {
+              "text": "He ran fast.",
+              "translationTh": "เขาวิ่งเร็ว",
+              "readingTh": "ฮี แรน ฟาสท์",
+              "image": "/images/s7-number-fifteen-story-2.webp"
+            },
+            {
+              "text": "He kicked the ball.",
+              "translationTh": "เขาเตะลูกบอล",
+              "readingTh": "ฮี คิคท์ เดอะ บอล",
+              "image": "/images/s7-number-fifteen-story-3.webp"
+            },
+            {
+              "text": "He played with his team.",
+              "translationTh": "เขาเล่นกับทีม",
+              "readingTh": "ฮี เพลย์ด วิธ ฮิส ทีม",
+              "image": "/images/s7-number-fifteen-story-4.webp"
+            }
+          ],
+          "requiredWords": [
+            "Max",
+            "shirt",
+            "ball",
+            "team"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
+      "id": "s7-u09-write-skateboard",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "Nina's skateboard",
+      "titleTh": "สเกตบอร์ดของนีน่า",
+      "spelling": "exact",
+      "items": [
+        {
+          "id": "s7-skateboard-dict",
+          "exercise": "dictation",
+          "target": "She sat down to rest.",
+          "translationTh": "เธอนั่งพัก",
+          "readingTh": "ชี แซท ดาวน์ ทะ เรสท์",
+          "image": "/images/s7-skateboard-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-skateboard-fill",
+          "exercise": "fill",
+          "target": "Nina had a skateboard.",
+          "translationTh": "นีน่ามีสเกตบอร์ด",
+          "readingTh": "นี-น่า แฮด อะ สเกท-บอร์ด",
+          "image": "/images/s7-skateboard-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "skateboard"
+        },
+        {
+          "id": "s7-skateboard-order",
+          "exercise": "order",
+          "target": "She held it up high.",
+          "translationTh": "เธอชูมันขึ้นสูง",
+          "readingTh": "ชี เฮลด์ อิท อัพ ไฮ",
+          "image": "/images/s7-skateboard-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-skateboard-describe",
+          "exercise": "describe",
+          "target": "She rolled on the board.",
+          "translationTh": "เธอไถบอร์ด",
+          "readingTh": "ชี โรลด์ ออน เดอะ บอร์ด",
+          "image": "/images/s7-skateboard-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "requiredWords": [
+            "board/skateboard",
+            "rolled"
+          ]
+        },
+        {
+          "id": "s7-skateboard-story",
+          "exercise": "story",
+          "target": "Nina had a skateboard. She sat down to rest. She rolled on the board. She held it up high.",
+          "translationTh": "นีน่ามีสเกตบอร์ด เธอนั่งพัก เธอไถบอร์ด เธอชูมันขึ้นสูง",
+          "readingTh": "นี-น่า แฮด อะ สเกท-บอร์ด, ชี แซท ดาวน์ ทะ เรสท์, ชี โรลด์ ออน เดอะ บอร์ด, ชี เฮลด์ อิท อัพ ไฮ",
+          "image": "/images/s7-skateboard-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "Nina had a skateboard.",
+              "translationTh": "นีน่ามีสเกตบอร์ด",
+              "readingTh": "นี-น่า แฮด อะ สเกท-บอร์ด",
+              "image": "/images/s7-skateboard-story-1.webp"
+            },
+            {
+              "text": "She sat down to rest.",
+              "translationTh": "เธอนั่งพัก",
+              "readingTh": "ชี แซท ดาวน์ ทะ เรสท์",
+              "image": "/images/s7-skateboard-story-2.webp"
+            },
+            {
+              "text": "She rolled on the board.",
+              "translationTh": "เธอไถบอร์ด",
+              "readingTh": "ชี โรลด์ ออน เดอะ บอร์ด",
+              "image": "/images/s7-skateboard-story-3.webp"
+            },
+            {
+              "text": "She held it up high.",
+              "translationTh": "เธอชูมันขึ้นสูง",
+              "readingTh": "ชี เฮลด์ อิท อัพ ไฮ",
+              "image": "/images/s7-skateboard-story-4.webp"
+            }
+          ],
+          "requiredWords": [
+            "Nina",
+            "skateboard/board",
+            "rest",
+            "held/hold"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
+      "id": "s7-u09-write-forest-sisters",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "A walk in the woods",
+      "titleTh": "เดินเล่นในป่า",
+      "spelling": "exact",
+      "items": [
+        {
+          "id": "s7-forest-sisters-dict",
+          "exercise": "dictation",
+          "target": "Two sisters went for a walk.",
+          "translationTh": "พี่น้องสองคนไปเดินเล่น",
+          "readingTh": "ทู ซิส-เตอร์ส เว็นท์ ฟอร์ อะ ว้อค",
+          "image": "/images/s7-forest-sisters-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-forest-sisters-fill",
+          "exercise": "fill",
+          "target": "Eva found a stick.",
+          "translationTh": "อีว่าเจอไม้",
+          "readingTh": "อี-ว่า ฟาวด์ อะ สติ๊ก",
+          "image": "/images/s7-forest-sisters-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "stick"
+        },
+        {
+          "id": "s7-forest-sisters-order",
+          "exercise": "order",
+          "target": "They had a big hug.",
+          "translationTh": "ทั้งคู่กอดกันแน่น ๆ",
+          "readingTh": "เดย์ แฮด อะ บิ๊ก ฮัก",
+          "image": "/images/s7-forest-sisters-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-forest-sisters-describe",
+          "exercise": "describe",
+          "target": "They walked together.",
+          "translationTh": "ทั้งคู่เดินด้วยกัน",
+          "readingTh": "เดย์ วอล์คท์ ทะ-เก็ธ-เธ่อร์",
+          "image": "/images/s7-forest-sisters-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "requiredWords": [
+            "walked/walk",
+            "together"
+          ]
+        },
+        {
+          "id": "s7-forest-sisters-story",
+          "exercise": "story",
+          "target": "Two sisters went for a walk. Eva found a stick. They had a big hug. They walked together.",
+          "translationTh": "พี่น้องสองคนไปเดินเล่น อีว่าเจอไม้ ทั้งคู่กอดกันแน่น ๆ ทั้งคู่เดินด้วยกัน",
+          "readingTh": "ทู ซิส-เตอร์ส เว็นท์ ฟอร์ อะ ว้อค, อี-ว่า ฟาวด์ อะ สติ๊ก, เดย์ แฮด อะ บิ๊ก ฮัก, เดย์ วอล์คท์ ทะ-เก็ธ-เธ่อร์",
+          "image": "/images/s7-forest-sisters-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "Two sisters went for a walk.",
+              "translationTh": "พี่น้องสองคนไปเดินเล่น",
+              "readingTh": "ทู ซิส-เตอร์ส เว็นท์ ฟอร์ อะ ว้อค",
+              "image": "/images/s7-forest-sisters-story-1.webp"
+            },
+            {
+              "text": "Eva found a stick.",
+              "translationTh": "อีว่าเจอไม้",
+              "readingTh": "อี-ว่า ฟาวด์ อะ สติ๊ก",
+              "image": "/images/s7-forest-sisters-story-2.webp"
+            },
+            {
+              "text": "They had a big hug.",
+              "translationTh": "ทั้งคู่กอดกันแน่น ๆ",
+              "readingTh": "เดย์ แฮด อะ บิ๊ก ฮัก",
+              "image": "/images/s7-forest-sisters-story-3.webp"
+            },
+            {
+              "text": "They walked together.",
+              "translationTh": "ทั้งคู่เดินด้วยกัน",
+              "readingTh": "เดย์ วอล์คท์ ทะ-เก็ธ-เธ่อร์",
+              "image": "/images/s7-forest-sisters-story-4.webp"
+            }
+          ],
+          "requiredWords": [
+            "sisters/sister",
+            "walk",
+            "stick",
+            "hug"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
+      "id": "s7-u09-write-bubbles",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "Bubbles in the garden",
+      "titleTh": "ฟองสบู่ในสวน",
+      "spelling": "exact",
+      "items": [
+        {
+          "id": "s7-bubbles-dict",
+          "exercise": "dictation",
+          "target": "She said hi to the dog.",
+          "translationTh": "เธอทักทายหมา",
+          "readingTh": "ชี เซด ไฮ ทะ เดอะ ด็อก",
+          "image": "/images/s7-bubbles-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-bubbles-fill",
+          "exercise": "fill",
+          "target": "Big bubbles floated by.",
+          "translationTh": "ฟองสบู่ใหญ่ ๆ ลอยผ่าน",
+          "readingTh": "บิ๊ก บับ-เบิ้ลส์ โฟล-ทิด บาย",
+          "image": "/images/s7-bubbles-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "bubbles"
+        },
+        {
+          "id": "s7-bubbles-order",
+          "exercise": "order",
+          "target": "She tried to catch them.",
+          "translationTh": "เธอพยายามจับ",
+          "readingTh": "ชี ไทรด์ ทะ แค็ทช์ เดม",
+          "image": "/images/s7-bubbles-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-bubbles-describe",
+          "exercise": "describe",
+          "target": "Rose sat in the garden.",
+          "translationTh": "โรสนั่งในสวน",
+          "readingTh": "โรส แซท อิน เดอะ การ์-เดิ่น",
+          "image": "/images/s7-bubbles-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "requiredWords": [
+            "Rose",
+            "garden"
+          ]
+        },
+        {
+          "id": "s7-bubbles-story",
+          "exercise": "story",
+          "target": "Rose sat in the garden. Big bubbles floated by. She tried to catch them. She said hi to the dog.",
+          "translationTh": "โรสนั่งในสวน ฟองสบู่ใหญ่ ๆ ลอยผ่าน เธอพยายามจับ เธอทักทายหมา",
+          "readingTh": "โรส แซท อิน เดอะ การ์-เดิ่น, บิ๊ก บับ-เบิ้ลส์ โฟล-ทิด บาย, ชี ไทรด์ ทะ แค็ทช์ เดม, ชี เซด ไฮ ทะ เดอะ ด็อก",
+          "image": "/images/s7-bubbles-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "Rose sat in the garden.",
+              "translationTh": "โรสนั่งในสวน",
+              "readingTh": "โรส แซท อิน เดอะ การ์-เดิ่น",
+              "image": "/images/s7-bubbles-story-1.webp"
+            },
+            {
+              "text": "Big bubbles floated by.",
+              "translationTh": "ฟองสบู่ใหญ่ ๆ ลอยผ่าน",
+              "readingTh": "บิ๊ก บับ-เบิ้ลส์ โฟล-ทิด บาย",
+              "image": "/images/s7-bubbles-story-2.webp"
+            },
+            {
+              "text": "She tried to catch them.",
+              "translationTh": "เธอพยายามจับ",
+              "readingTh": "ชี ไทรด์ ทะ แค็ทช์ เดม",
+              "image": "/images/s7-bubbles-story-3.webp"
+            },
+            {
+              "text": "She said hi to the dog.",
+              "translationTh": "เธอทักทายหมา",
+              "readingTh": "ชี เซด ไฮ ทะ เดอะ ด็อก",
+              "image": "/images/s7-bubbles-story-4.webp"
+            }
+          ],
+          "requiredWords": [
+            "Rose",
+            "garden",
+            "bubbles",
+            "catch"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
+      "id": "s7-u10-write-cousins",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "Cousins come to visit",
+      "titleTh": "ลูกพี่ลูกน้องมาเยี่ยม",
+      "spelling": "exact",
+      "items": [
+        {
+          "id": "s7-cousins-dict",
+          "exercise": "dictation",
+          "target": "Mia came to read with him.",
+          "translationTh": "มีอามาอ่านกับเขา",
+          "readingTh": "มี-อา เคม ทะ รีด วิธ ฮิม",
+          "image": "/images/s7-cousins-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-cousins-fill",
+          "exercise": "fill",
+          "target": "Aunt Kate read a story.",
+          "translationTh": "ป้าเคทอ่านนิทาน",
+          "readingTh": "อานท์ เคท รีด อะ สตอ-รี่",
+          "image": "/images/s7-cousins-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "story"
+        },
+        {
+          "id": "s7-cousins-order",
+          "exercise": "order",
+          "target": "Uncle Tom read one too.",
+          "translationTh": "ลุงทอมก็อ่านด้วย",
+          "readingTh": "อัง-เคิ่ล ทอม รีด วัน ทู",
+          "image": "/images/s7-cousins-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-cousins-describe",
+          "exercise": "describe",
+          "target": "Leo looked at his book.",
+          "translationTh": "ลีโอดูหนังสือ",
+          "readingTh": "ลี-โอ ลุคท์ แอท ฮิส บุ๊ก",
+          "image": "/images/s7-cousins-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "requiredWords": [
+            "book",
+            "looked/look"
+          ]
+        },
+        {
+          "id": "s7-cousins-story",
+          "exercise": "story",
+          "target": "Leo looked at his book. Mia came to read with him. Aunt Kate read a story. Uncle Tom read one too.",
+          "translationTh": "ลีโอดูหนังสือ มีอามาอ่านกับเขา ป้าเคทอ่านนิทาน ลุงทอมก็อ่านด้วย",
+          "readingTh": "ลี-โอ ลุคท์ แอท ฮิส บุ๊ก, มี-อา เคม ทะ รีด วิธ ฮิม, อานท์ เคท รีด อะ สตอ-รี่, อัง-เคิ่ล ทอม รีด วัน ทู",
+          "image": "/images/s7-cousins-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "Leo looked at his book.",
+              "translationTh": "ลีโอดูหนังสือ",
+              "readingTh": "ลี-โอ ลุคท์ แอท ฮิส บุ๊ก",
+              "image": "/images/s7-cousins-story-1.webp"
+            },
+            {
+              "text": "Mia came to read with him.",
+              "translationTh": "มีอามาอ่านกับเขา",
+              "readingTh": "มี-อา เคม ทะ รีด วิธ ฮิม",
+              "image": "/images/s7-cousins-story-2.webp"
+            },
+            {
+              "text": "Aunt Kate read a story.",
+              "translationTh": "ป้าเคทอ่านนิทาน",
+              "readingTh": "อานท์ เคท รีด อะ สตอ-รี่",
+              "image": "/images/s7-cousins-story-3.webp"
+            },
+            {
+              "text": "Uncle Tom read one too.",
+              "translationTh": "ลุงทอมก็อ่านด้วย",
+              "readingTh": "อัง-เคิ่ล ทอม รีด วัน ทู",
+              "image": "/images/s7-cousins-story-4.webp"
+            }
+          ],
+          "requiredWords": [
+            "Leo",
+            "Mia",
+            "read",
+            "story/book"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
+      "id": "s7-u10-write-library",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "Hanna at the library",
+      "titleTh": "ฮันนาที่ห้องสมุด",
+      "spelling": "exact",
+      "items": [
+        {
+          "id": "s7-library-dict",
+          "exercise": "dictation",
+          "target": "She sat down to read.",
+          "translationTh": "เธอนั่งลงอ่าน",
+          "readingTh": "ชี แซท ดาวน์ ทะ รีด",
+          "image": "/images/s7-library-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-library-fill",
+          "exercise": "fill",
+          "target": "Hanna went to the library.",
+          "translationTh": "ฮันนาไปห้องสมุด",
+          "readingTh": "ฮัน-น่า เว็นท์ ทะ เดอะ ไล-บรา-รี่",
+          "image": "/images/s7-library-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "library"
+        },
+        {
+          "id": "s7-library-order",
+          "exercise": "order",
+          "target": "She took a big book.",
+          "translationTh": "เธอหยิบหนังสือเล่มใหญ่",
+          "readingTh": "ชี ทุค อะ บิ๊ก บุ๊ก",
+          "image": "/images/s7-library-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-library-describe",
+          "exercise": "describe",
+          "target": "She read and read!",
+          "translationTh": "เธออ่านไปเรื่อย ๆ!",
+          "readingTh": "ชี รีด แอน รีด",
+          "image": "/images/s7-library-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "requiredWords": [
+            "read"
+          ]
+        },
+        {
+          "id": "s7-library-story",
+          "exercise": "story",
+          "target": "Hanna went to the library. She took a big book. She sat down to read. She read and read!",
+          "translationTh": "ฮันนาไปห้องสมุด เธอหยิบหนังสือเล่มใหญ่ เธอนั่งลงอ่าน เธออ่านไปเรื่อย ๆ!",
+          "readingTh": "ฮัน-น่า เว็นท์ ทะ เดอะ ไล-บรา-รี่, ชี ทุค อะ บิ๊ก บุ๊ก, ชี แซท ดาวน์ ทะ รีด, ชี รีด แอน รีด",
+          "image": "/images/s7-library-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "Hanna went to the library.",
+              "translationTh": "ฮันนาไปห้องสมุด",
+              "readingTh": "ฮัน-น่า เว็นท์ ทะ เดอะ ไล-บรา-รี่",
+              "image": "/images/s7-library-story-1.webp"
+            },
+            {
+              "text": "She took a big book.",
+              "translationTh": "เธอหยิบหนังสือเล่มใหญ่",
+              "readingTh": "ชี ทุค อะ บิ๊ก บุ๊ก",
+              "image": "/images/s7-library-story-2.webp"
+            },
+            {
+              "text": "She sat down to read.",
+              "translationTh": "เธอนั่งลงอ่าน",
+              "readingTh": "ชี แซท ดาวน์ ทะ รีด",
+              "image": "/images/s7-library-story-3.webp"
+            },
+            {
+              "text": "She read and read!",
+              "translationTh": "เธออ่านไปเรื่อย ๆ!",
+              "readingTh": "ชี รีด แอน รีด",
+              "image": "/images/s7-library-story-4.webp"
+            }
+          ],
+          "requiredWords": [
+            "Hanna",
+            "library",
+            "book",
+            "read"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
+      "id": "s7-u10-write-bus-ride",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "A bus ride",
+      "titleTh": "นั่งรถบัส",
+      "spelling": "exact",
+      "items": [
+        {
+          "id": "s7-bus-ride-dict",
+          "exercise": "dictation",
+          "target": "Mila and her brother rode the bus.",
+          "translationTh": "มิลากับน้องชายนั่งรถบัส",
+          "readingTh": "มี-ล่า แอน เฮอร์ บรา-เธ่อร์ โรด เดอะ บัส",
+          "image": "/images/s7-bus-ride-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-bus-ride-fill",
+          "exercise": "fill",
+          "target": "Mila told him a secret.",
+          "translationTh": "มิลาบอกความลับเขา",
+          "readingTh": "มี-ล่า โทลด์ ฮิม อะ ซี-เคร็ท",
+          "image": "/images/s7-bus-ride-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "secret"
+        },
+        {
+          "id": "s7-bus-ride-order",
+          "exercise": "order",
+          "target": "She gave him her toy.",
+          "translationTh": "เธอให้ของเล่นเขา",
+          "readingTh": "ชี เกฟว์ ฮิม เฮอร์ ทอย",
+          "image": "/images/s7-bus-ride-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-bus-ride-describe",
+          "exercise": "describe",
+          "target": "They sat close together.",
+          "translationTh": "ทั้งคู่นั่งชิดกัน",
+          "readingTh": "เดย์ แซท โคลส ทะ-เก็ธ-เธ่อร์",
+          "image": "/images/s7-bus-ride-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "requiredWords": [
+            "sat/sit",
+            "together/close"
+          ]
+        },
+        {
+          "id": "s7-bus-ride-story",
+          "exercise": "story",
+          "target": "Mila and her brother rode the bus. Mila told him a secret. She gave him her toy. They sat close together.",
+          "translationTh": "มิลากับน้องชายนั่งรถบัส มิลาบอกความลับเขา เธอให้ของเล่นเขา ทั้งคู่นั่งชิดกัน",
+          "readingTh": "มี-ล่า แอน เฮอร์ บรา-เธ่อร์ โรด เดอะ บัส, มี-ล่า โทลด์ ฮิม อะ ซี-เคร็ท, ชี เกฟว์ ฮิม เฮอร์ ทอย, เดย์ แซท โคลส ทะ-เก็ธ-เธ่อร์",
+          "image": "/images/s7-bus-ride-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "Mila and her brother rode the bus.",
+              "translationTh": "มิลากับน้องชายนั่งรถบัส",
+              "readingTh": "มี-ล่า แอน เฮอร์ บรา-เธ่อร์ โรด เดอะ บัส",
+              "image": "/images/s7-bus-ride-story-1.webp"
+            },
+            {
+              "text": "Mila told him a secret.",
+              "translationTh": "มิลาบอกความลับเขา",
+              "readingTh": "มี-ล่า โทลด์ ฮิม อะ ซี-เคร็ท",
+              "image": "/images/s7-bus-ride-story-2.webp"
+            },
+            {
+              "text": "She gave him her toy.",
+              "translationTh": "เธอให้ของเล่นเขา",
+              "readingTh": "ชี เกฟว์ ฮิม เฮอร์ ทอย",
+              "image": "/images/s7-bus-ride-story-3.webp"
+            },
+            {
+              "text": "They sat close together.",
+              "translationTh": "ทั้งคู่นั่งชิดกัน",
+              "readingTh": "เดย์ แซท โคลส ทะ-เก็ธ-เธ่อร์",
+              "image": "/images/s7-bus-ride-story-4.webp"
+            }
+          ],
+          "requiredWords": [
+            "Mila",
+            "bus",
+            "secret",
+            "toy"
           ],
           "minSentences": 3,
           "maxSentences": 5
