@@ -6,7 +6,8 @@
 // =========================================================
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { getStage } from '../data'
+import { cityMap, getStage } from '../data'
+import { placesUnlockedBy } from '../utils/places'
 import { useLesson } from '../hooks/useLessons'
 import { useLocalized } from '../hooks/useLocalized'
 import { englishTextMode } from '../utils/display'
@@ -111,6 +112,17 @@ export default function LessonSummaryPage() {
           <span className={styles.unlockedText}>{t('lesson.stageUnlocked', { n: stageId })}</span>
           <Button to={`/learn/${stageId}`} size="sm">
             {t('lesson.goStage')}
+          </Button>
+        </div>
+      ))}
+
+      {/* ผ่าน Stage แล้วเปิดสถานที่ใหม่ในแผนที่เมือง (ขั้นที่ 14) */}
+      {placesUnlockedBy(cityMap, result.newlyUnlocked).map((place) => (
+        <div key={place.placeId} className={styles.unlocked} role="status">
+          <UnlockIcon className={styles.unlockIcon} aria-hidden="true" />
+          <span className={styles.unlockedText}>{t('place.unlockedTitle', { name: loc(place, 'name') })}</span>
+          <Button to={`/place/${place.placeId}`} size="sm">
+            {t('place.visit')}
           </Button>
         </div>
       ))}

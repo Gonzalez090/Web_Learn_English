@@ -7,6 +7,7 @@ import lessonsData from './lessons.json'
 import phonicsData from './phonics.json'
 import phrasesData from './phrases.json'
 import scenariosData from './scenarios.json'
+import worldData from './world.json'
 import { slotsIn } from '../utils/conversation.js'
 import imageCredits from './imageCredits.json'
 import { collectSpeechTexts } from './speechTexts.js'
@@ -642,6 +643,30 @@ describe('บทสนทนาสุ่ม (scenarios.json)', () => {
   )
 })
 
+// ---------- แผนที่เมือง (ส่วนที่ 7, ขั้นที่ 14) ----------
+describe('แผนที่เมือง (world.json)', () => {
+  const { cityMap } = worldData
+
+  it('7 สถานที่ตามสเปก: บ้านเปิดตั้งแต่แรก ที่เหลือผ่าน Stage 1–6 ตามลำดับ', () => {
+    expect(cityMap.map((place) => place.placeId)).toEqual(['home', 'store', 'cafe', 'park', 'restaurant', 'office', 'airport'])
+    expect(cityMap.map((place) => place.unlockAfterStage)).toEqual([null, 1, 2, 3, 4, 5, 6])
+    for (const place of cityMap) {
+      expect(place.name && place.nameTh && place.description && place.descriptionTh, place.placeId).toBeTruthy()
+      expect(place.image).toBe(`/images/place-${place.placeId}.webp`)
+    }
+  })
+
+  it('วลีของสถานที่มีอยู่ในคลังวลี / บทสนทนาสุ่มชี้ไปสถานที่ที่มีจริง', () => {
+    const situationIds = phrasesData.situations.map((situation) => situation.id)
+    const placeIds = cityMap.map((place) => place.placeId)
+    for (const place of cityMap) {
+      expect(place.phraseGroups.length, place.placeId).toBeGreaterThanOrEqual(1)
+      for (const id of place.phraseGroups) expect(situationIds, place.placeId).toContain(id)
+    }
+    for (const scenario of scenariosData.scenarios) expect(placeIds, scenario.id).toContain(scenario.placeId)
+  })
+})
+
 // ---------- โหมดฝึกเสียง (ส่วนที่ 10.1) ----------
 describe('โหมดฝึกเสียง (soundPractice)', () => {
   it('มีเสียงหลัก th, r/l, v/w (+ อื่น ๆ) id ไม่ซ้ำ', () => {
@@ -669,6 +694,7 @@ describe('ภาพถ่ายประกอบ', () => {
       ...allItems.flatMap(({ item }) => (item.lines ?? []).map((line) => line.image)),
       ...phrasesData.situations.map((situation) => situation.image),
       ...scenariosData.scenarios.map((scenario) => scenario.image),
+      ...worldData.cityMap.map((place) => place.image),
     ]),
   ]
   // '/images/x.webp' → ไฟล์จริงใน public/images/x.webp

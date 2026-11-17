@@ -1388,5 +1388,10 @@
   "phrases-invite": "friends drinking coffee together",
   "talk-store": "convenience store cashier customer",
   "talk-old-friend": "two friends meeting hug street",
-  "talk-hotel": "hotel reception check in"
+  "talk-hotel": "hotel reception check in",
+  "place-home": "cozy house front door street",
+  "place-park": "city park people walking",
+  "place-restaurant": "restaurant dining room people",
+  "place-office": "modern office coworkers",
+  "place-airport": "airport terminal travelers"
 }

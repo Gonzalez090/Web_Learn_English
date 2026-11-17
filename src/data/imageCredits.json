@@ -41,6 +41,55 @@
     "photographerUrl": "https://pixabay.com/users/5688709-5688709/",
     "pageUrl": "https://pixabay.com/photos/merry-christmas-man-woman-dog-pet-2425121/"
   },
+  "place-airport": {
+    "provider": "pixabay",
+    "sourceId": 2373727,
+    "photographer": "JESHOOTS-com",
+    "photographerUrl": "https://pixabay.com/users/JESHOOTS-com-264599/",
+    "pageUrl": "https://pixabay.com/photos/airport-woman-flight-boarding-2373727/"
+  },
+  "place-cafe": {
+    "provider": "pixabay",
+    "sourceId": 2609042,
+    "photographer": "StockSnap",
+    "photographerUrl": "https://pixabay.com/users/StockSnap-894430/",
+    "pageUrl": "https://pixabay.com/photos/business-establishments-shops-2609042/"
+  },
+  "place-home": {
+    "provider": "pixabay",
+    "sourceId": 2606818,
+    "photographer": "StockSnap",
+    "photographerUrl": "https://pixabay.com/users/StockSnap-894430/",
+    "pageUrl": "https://pixabay.com/photos/house-home-door-sidewalk-2606818/"
+  },
+  "place-office": {
+    "provider": "pixabay",
+    "sourceId": 10503583,
+    "photographer": "sakibmia24",
+    "photographerUrl": "https://pixabay.com/users/sakibmia24-57634147/",
+    "pageUrl": "https://pixabay.com/photos/office-environment-discussion-10503583/"
+  },
+  "place-park": {
+    "provider": "pixabay",
+    "sourceId": 2680612,
+    "photographer": "LauraTara",
+    "photographerUrl": "https://pixabay.com/users/LauraTara-6167959/",
+    "pageUrl": "https://pixabay.com/photos/path-people-outside-outdoor-2680612/"
+  },
+  "place-restaurant": {
+    "provider": "pixabay",
+    "sourceId": 4011989,
+    "photographer": "dnovac",
+    "photographerUrl": "https://pixabay.com/users/dnovac-485744/",
+    "pageUrl": "https://pixabay.com/photos/restaurant-paris-france-bistro-4011989/"
+  },
+  "place-store": {
+    "provider": "pixabay",
+    "sourceId": 7368231,
+    "photographer": "Surprising_Media",
+    "photographerUrl": "https://pixabay.com/users/Surprising_Media-11873433/",
+    "pageUrl": "https://pixabay.com/photos/woman-store-kiosk-buying-a-drink-7368231/"
+  },
   "s1-apple": {
     "provider": "pixabay",
     "sourceId": 7932156,

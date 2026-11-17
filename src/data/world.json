@@ -1,4 +1,75 @@
 {
-  "cityMap": [],
+  "cityMap": [
+    {
+      "placeId": "home",
+      "name": "Home",
+      "nameTh": "บ้าน",
+      "description": "Your new place in town. Ask the neighbors for directions.",
+      "descriptionTh": "บ้านใหม่ของคุณในเมือง — เริ่มจากทักทายเพื่อนบ้านและถามทาง",
+      "image": "/images/place-home.webp",
+      "unlockAfterStage": null,
+      "phraseGroups": ["greetings", "help"]
+    },
+    {
+      "placeId": "store",
+      "name": "Convenience store",
+      "nameTh": "ร้านสะดวกซื้อ",
+      "description": "Find what you need and pay at the counter.",
+      "descriptionTh": "หาของที่ต้องการ แล้วจ่ายเงินที่เคาน์เตอร์",
+      "image": "/images/place-store.webp",
+      "unlockAfterStage": 1,
+      "phraseGroups": ["decline", "help"]
+    },
+    {
+      "placeId": "cafe",
+      "name": "Café",
+      "nameTh": "ร้านกาแฟ",
+      "description": "Order your favorite drink like a local.",
+      "descriptionTh": "สั่งเครื่องดื่มแบบคนท้องถิ่น",
+      "image": "/images/place-cafe.webp",
+      "unlockAfterStage": 2,
+      "phraseGroups": ["food"]
+    },
+    {
+      "placeId": "park",
+      "name": "Park",
+      "nameTh": "สวนสาธารณะ",
+      "description": "Bump into friends and make weekend plans.",
+      "descriptionTh": "เจอเพื่อน คุยเรื่องความรู้สึก แล้วนัดเที่ยวสุดสัปดาห์",
+      "image": "/images/place-park.webp",
+      "unlockAfterStage": 3,
+      "phraseGroups": ["invite", "feelings", "greetings"]
+    },
+    {
+      "placeId": "restaurant",
+      "name": "Restaurant",
+      "nameTh": "ร้านอาหาร",
+      "description": "Order a meal, ask for ideas, and get the check.",
+      "descriptionTh": "สั่งอาหาร ถามเมนูแนะนำ แล้วเช็กบิล",
+      "image": "/images/place-restaurant.webp",
+      "unlockAfterStage": 4,
+      "phraseGroups": ["food", "decline"]
+    },
+    {
+      "placeId": "office",
+      "name": "Office",
+      "nameTh": "ออฟฟิศ",
+      "description": "Ask coworkers for help and say no politely.",
+      "descriptionTh": "ขอให้เพื่อนร่วมงานช่วย และปฏิเสธอย่างสุภาพ",
+      "image": "/images/place-office.webp",
+      "unlockAfterStage": 5,
+      "phraseGroups": ["help", "decline", "feelings"]
+    },
+    {
+      "placeId": "airport",
+      "name": "Airport & hotel",
+      "nameTh": "สนามบินและโรงแรม",
+      "description": "Travel, check in, and handle surprises.",
+      "descriptionTh": "เดินทาง เช็คอินโรงแรม และรับมือเรื่องไม่คาดคิด",
+      "image": "/images/place-airport.webp",
+      "unlockAfterStage": 6,
+      "phraseGroups": ["help", "greetings"]
+    }
+  ],
   "npcs": []
 }

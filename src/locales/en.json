@@ -140,6 +140,7 @@
     "miniGames": "Mini games",
     "phrases": "Phrases",
     "talk": "Random talk",
+    "cityMap": "City map",
     "settings": "Settings",
     "continue": "Continue",
     "allDone": "All open lessons done! See all lessons"
@@ -235,7 +236,17 @@
     "back": "Back to Learn"
   },
   "place": {
-    "title": "Place"
+    "title": "Place",
+    "locked": "Not open yet. Finish Stage {{n}} to unlock this place.",
+    "talk": "Talk to people here",
+    "noTalk": "No random talks here yet. Practice the phrases below for now.",
+    "phrases": "Phrases for this place",
+    "npcSoon": "Coming soon: locals who remember you and become your friends.",
+    "unlockedTitle": "New place unlocked: {{name}}",
+    "visit": "Visit"
+  },
+  "map": {
+    "unlockAt": "Finish Stage {{n}} to unlock"
   },
   "talk": {
     "title": "Random talk",

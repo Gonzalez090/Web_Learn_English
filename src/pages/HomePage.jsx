@@ -23,6 +23,7 @@ import Button from '../components/Button'
 import Tile, { TileList } from '../components/Tile'
 import LevelCard from '../components/LevelCard'
 import MissionList from '../components/MissionList'
+import CityMap from '../components/CityMap'
 import styles from './HomePage.module.css'
 
 // ปุ่มลัดไปส่วนที่ใช้งานได้แล้ว
@@ -98,6 +99,11 @@ export default function HomePage() {
 
       <Section title={t('home.todayMissions')}>
         <MissionList />
+      </Section>
+
+      {/* แผนที่เมือง (ขั้นที่ 14): ผ่าน Stage แล้วปลดล็อกสถานที่ */}
+      <Section title={t('home.cityMap')}>
+        <CityMap />
       </Section>
 
       <Section title={t('home.shortcuts')}>
