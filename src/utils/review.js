@@ -31,6 +31,8 @@ export const dueEntries = (queue, today) => queue.filter((entry) => entry.dueDat
 
 // ทบทวนได้ครั้งละไม่เกินกี่ข้อ (ที่เหลือยังค้างอยู่ ทบทวนต่อรอบหน้าได้)
 export const MAX_REVIEW_PER_SESSION = 10
+// ทบทวนสั้น ๆ ตอนกลับมาหลังหายไปนาน (คำทัก "Long time no see!" — /review?short=1)
+export const SHORT_REVIEW_COUNT = 5
 
 /**
  * บันทึกผลทบทวน 1 ข้อ

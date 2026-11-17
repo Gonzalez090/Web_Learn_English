@@ -30,6 +30,7 @@ const PHONICS_FILE = path.join(ROOT, 'src', 'data', 'phonics.json')
 const GAME_FILE = path.join(ROOT, 'src', 'data', 'game.json')
 const PHRASES_FILE = path.join(ROOT, 'src', 'data', 'phrases.json')
 const SCENARIOS_FILE = path.join(ROOT, 'src', 'data', 'scenarios.json')
+const WORLD_FILE = path.join(ROOT, 'src', 'data', 'world.json')
 const MANIFEST_FILE = path.join(ROOT, 'src', 'data', 'audioManifest.json')
 const AUDIO_DIR = path.join(ROOT, 'public', 'audio')
 
@@ -72,7 +73,8 @@ const { sounds: phonicsSounds } = await readJson(PHONICS_FILE)
 const { soundPractice } = await readJson(GAME_FILE)
 const phrases = await readJson(PHRASES_FILE)
 const { scenarios } = await readJson(SCENARIOS_FILE)
-const texts = collectSpeechTexts({ lessons, soundPractice, phonicsSounds, phrases, scenarios })
+const { npcs } = await readJson(WORLD_FILE)
+const texts = collectSpeechTexts({ lessons, soundPractice, phonicsSounds, phrases, scenarios, npcs })
 await fs.mkdir(AUDIO_DIR, { recursive: true })
 
 const manifest = { voice: VOICE, normal: {}, slow: {} }

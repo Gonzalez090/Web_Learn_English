@@ -1,4 +1,39 @@
 {
+  "npc-dana": {
+    "provider": "pixabay",
+    "sourceId": 5975962,
+    "photographer": "Rodrigo_SalomonHC",
+    "photographerUrl": "https://pixabay.com/users/Rodrigo_SalomonHC-20127871/",
+    "pageUrl": "https://pixabay.com/photos/receptionists-phone-call-hotel-5975962/"
+  },
+  "npc-jake": {
+    "provider": "pixabay",
+    "sourceId": 2202472,
+    "photographer": "WikimediaImages",
+    "photographerUrl": "https://pixabay.com/users/WikimediaImages-1185597/",
+    "pageUrl": "https://pixabay.com/photos/people-man-famous-portrait-todd-2202472/"
+  },
+  "npc-mia": {
+    "provider": "pixabay",
+    "sourceId": 1274361,
+    "photographer": "TheDigitalChronicles",
+    "photographerUrl": "https://pixabay.com/users/TheDigitalChronicles-481870/",
+    "pageUrl": "https://pixabay.com/photos/woman-brunette-portrait-model-1274361/"
+  },
+  "npc-rose": {
+    "provider": "pixabay",
+    "sourceId": 506341,
+    "photographer": "Almadrava",
+    "photographerUrl": "https://pixabay.com/users/Almadrava-506431/",
+    "pageUrl": "https://pixabay.com/photos/grandma-old-age-old-woman-506341/"
+  },
+  "npc-sam": {
+    "provider": "pixabay",
+    "sourceId": 3366016,
+    "photographer": "Michelle-Maria",
+    "photographerUrl": "https://pixabay.com/users/Michelle-Maria-165491/",
+    "pageUrl": "https://pixabay.com/photos/young-man-people-person-outdoors-3366016/"
+  },
   "phrases-decline": {
     "provider": "pixabay",
     "sourceId": 5842706,

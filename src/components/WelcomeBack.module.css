@@ -1,0 +1,76 @@
+/* คำทัก "Long time no see!" บนหน้าแรก (ขั้นที่ 15) */
+.banner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-lg);
+  background: var(--color-primary-soft);
+}
+
+.close {
+  position: absolute;
+  top: var(--space-1);
+  right: var(--space-1);
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--color-primary-strong);
+  cursor: pointer;
+}
+
+.close svg {
+  width: 20px;
+  height: 20px;
+}
+
+.top {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding-right: 36px;
+}
+
+.top .avatar {
+  --frame: 64px;
+  border-radius: var(--radius-full);
+}
+
+.bubble {
+  min-width: 0;
+}
+
+.speaker {
+  color: var(--color-primary-strong);
+  font-size: 0.8125rem;
+  font-weight: 800;
+}
+
+.line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 1.125rem;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.meaning {
+  margin-top: 2px;
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.note {
+  font-size: 0.9375rem;
+  font-weight: 700;
+}

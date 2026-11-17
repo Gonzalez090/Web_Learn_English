@@ -36,6 +36,10 @@ export const getLessonsByStage = (stageId) => lessonList.filter((lesson) => less
 // บทเรียนแบบย่อจาก id (ไม่มี → null)
 export const getLessonMeta = (lessonId) => lessonList.find((lesson) => lesson.id === lessonId) ?? null
 
+// NPC จาก id / NPC ประจำสถานที่ (ขั้นที่ 15) — ไม่มี → null
+export const getNpc = (npcId) => npcs.find((npc) => npc.id === npcId) ?? null
+export const npcOfPlace = (placeId) => npcs.find((npc) => npc.placeId === placeId) ?? null
+
 // หามินิเกมจาก id
 export const getMiniGame = (gameId) => miniGames.find((game) => game.id === gameId)
 

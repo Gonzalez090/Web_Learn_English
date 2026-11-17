@@ -24,6 +24,7 @@ import Tile, { TileList } from '../components/Tile'
 import LevelCard from '../components/LevelCard'
 import MissionList from '../components/MissionList'
 import CityMap from '../components/CityMap'
+import WelcomeBack from '../components/WelcomeBack'
 import styles from './HomePage.module.css'
 
 // ปุ่มลัดไปส่วนที่ใช้งานได้แล้ว
@@ -81,6 +82,9 @@ export default function HomePage() {
 
   return (
     <Page title={t('home.title')} subtitle={t('app.tagline')}>
+      {/* หายไป ≥ 3 วัน → NPC ทัก "Long time no see!" + ทบทวนสั้น ๆ (ขั้นที่ 15) */}
+      <WelcomeBack reviewCount={reviewCount} />
+
       <LevelCard />
 
       <div className={styles.actions}>

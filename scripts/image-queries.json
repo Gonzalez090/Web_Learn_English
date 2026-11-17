@@ -1393,5 +1393,10 @@
   "place-park": "city park people walking",
   "place-restaurant": "restaurant dining room people",
   "place-office": "modern office coworkers",
-  "place-airport": "airport terminal travelers"
+  "place-airport": "airport terminal travelers",
+  "npc-rose": "smiling elderly woman portrait garden",
+  "npc-jake": "young man smiling portrait casual",
+  "npc-mia": "young woman barista smiling portrait",
+  "npc-sam": "friendly young man portrait outdoors",
+  "npc-dana": "hotel receptionist woman smiling"
 }

@@ -140,7 +140,6 @@
     "miniGames": "Mini games",
     "phrases": "Phrases",
     "talk": "Random talk",
-    "cityMap": "City map",
     "settings": "Settings",
     "continue": "Continue",
     "allDone": "All open lessons done! See all lessons"
@@ -241,9 +240,9 @@
     "talk": "Talk to people here",
     "noTalk": "No random talks here yet. Practice the phrases below for now.",
     "phrases": "Phrases for this place",
-    "npcSoon": "Coming soon: locals who remember you and become your friends.",
     "unlockedTitle": "New place unlocked: {{name}}",
-    "visit": "Visit"
+    "visit": "Visit",
+    "npc": "Who's here"
   },
   "map": {
     "unlockAt": "Finish Stage {{n}} to unlock"
@@ -441,7 +440,9 @@
     "missionDone": "Mission done! +{{xp}} XP",
     "freezeUsed": "Streak Freeze used",
     "freezeText": "You missed yesterday, but your {{count}}-day streak is safe!",
-    "dismiss": "Close"
+    "dismiss": "Close",
+    "friendshipUp": "You and {{name}} are closer!",
+    "friendshipLevel": "Now: {{level}} — new things to talk about"
   },
   "sentence": {
     "stressHint": "Stressed word",
@@ -553,11 +554,23 @@
     "check": "Check",
     "hint": "Try it yourself first. Try as many times as you like.",
     "freeHint": "Write it your way and use the key words. After checking, you'll see an example.",
-    "praise": ["Great spelling!", "That's right! Well done", "Awesome! Perfect"],
+    "praise": [
+      "Great spelling!",
+      "That's right! Well done",
+      "Awesome! Perfect"
+    ],
     "closePass": "So close! That counts in this lesson. Here's the real spelling.",
     "closeRetry": "So close! Check the spelling and try again.",
-    "encourage": ["That's OK. Look at the answer and try again.", "Almost! Try again.", "Take your time. Look at the example."],
-    "freePraise": ["Great writing!", "Nice! You wrote it yourself.", "Awesome! Compare it with the example."],
+    "encourage": [
+      "That's OK. Look at the answer and try again.",
+      "Almost! Try again.",
+      "Take your time. Look at the example."
+    ],
+    "freePraise": [
+      "Great writing!",
+      "Nice! You wrote it yourself.",
+      "Awesome! Compare it with the example."
+    ],
     "youWrote": "You wrote:",
     "answer": "Answer:",
     "hearAnswer": "Hear this sentence",
@@ -619,5 +632,30 @@
       "daily": "5–20 minutes every day beats one long session. Your streak counts the days.",
       "review": "Missed items come back for review. If you see \"Review today\", do it first."
     }
+  },
+  "npc": {
+    "friendship": "Friendship",
+    "level": {
+      "0": "Stranger",
+      "1": "Acquaintance",
+      "2": "Friend",
+      "3": "Good friend"
+    },
+    "toNext": "Talks left to become {{level}}: {{count}}",
+    "maxLevel": "Best friends now!",
+    "chats": "Things to talk about — closer friends share more",
+    "hearLine": "Listen",
+    "hearReply": "Listen to the reply",
+    "youReply": "You can say",
+    "lockedChat": "Unlocks at: {{level}}",
+    "howToFriend": "Finish random talks with {{name}} to get closer and unlock new chats.",
+    "gained": "You and {{name}} are closer now! +1"
+  },
+  "welcomeBack": {
+    "title": "Welcome back",
+    "dismiss": "Close",
+    "note": "You were away for {{days}} days. Let's keep going!",
+    "noteReview": "You were away for {{days}} days. Warm up with a quick review.",
+    "shortReview": "Quick review ({{count}})"
   }
 }

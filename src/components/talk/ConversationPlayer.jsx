@@ -7,7 +7,8 @@
 //   จบ → onFinish({ outcomes: { [lineId]: 'passed' | 'skipped' | 'timeup' }, said: { [lineId]: ข้อความที่พูด } })
 //   mode (ขั้นที่ 12): 'normal' / 'hard' (ซ่อนตัวเลือก เหลือแค่คำใบ้ไทย) / 'speed' (Speed Order: ตาเรามีเวลา 15 วิ หมดแล้วไปต่อเอง)
 //   twist: ป้าย "เหตุการณ์ไม่คาดคิด" ก่อนบรรทัดแรกของ twist
-// props: scenario, conversation (ผลจาก buildConversation), mode, onLinePass(line), onFinish
+//   npcRate (ขั้นที่ 15): ความเร็วเสียงของอีกฝ่ายตามนิสัย NPC — ป้าโรสพูดช้า = 'slow'
+// props: scenario, conversation (ผลจาก buildConversation), mode, npcRate, onLinePass(line), onFinish
 // =========================================================
 import { Fragment, useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -33,7 +34,14 @@ const SPEED_TIME_MS = 15000 // Speed Order: เวลาตอบต่อตา
 
 const npcSpeakKey = (line) => `talk:${line.id}`
 
-export default function ConversationPlayer({ scenario, conversation, mode = 'normal', onLinePass, onFinish }) {
+export default function ConversationPlayer({
+  scenario,
+  conversation,
+  mode = 'normal',
+  npcRate = 'normal',
+  onLinePass,
+  onFinish,
+}) {
   const { t } = useTranslation()
   const loc = useLocalized()
   const { speak } = useSpeech()
@@ -87,7 +95,7 @@ export default function ConversationPlayer({ scenario, conversation, mode = 'nor
     if (!line || myTurn) return undefined
     let active = true
     let timer
-    speak(line.target, { key: npcSpeakKey(line) }).finally(() => {
+    speak(line.target, { key: npcSpeakKey(line), rate: npcRate }).finally(() => {
       if (active) timer = setTimeout(advance, OTHER_PAUSE_MS)
     })
     return () => {

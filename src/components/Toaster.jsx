@@ -1,11 +1,11 @@
 // =========================================================
 // Toaster — แสดงข้อความแจ้งเตือนสั้น ๆ เหนือแถบเมนูล่าง แล้วหายเองใน 4 วินาที
-// (ขึ้นเลเวล / ภารกิจสำเร็จ / ใช้ Streak Freeze) — ข้อมูลจาก toastStore
+// (ขึ้นเลเวล / ภารกิจสำเร็จ / ใช้ Streak Freeze / สนิทกับ NPC มากขึ้น) — ข้อมูลจาก toastStore
 // =========================================================
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Snowflake, Trophy, X } from 'lucide-react'
-import { dailyMissionPool } from '../data'
+import { dailyMissionPool, getNpc } from '../data'
 import { useToastStore } from '../store/toastStore'
 import { useLocalized } from '../hooks/useLocalized'
 import { titleKeyForLevel } from '../utils/level'
@@ -34,6 +34,14 @@ function useToastContent(toast) {
       Icon: ICONS.missions,
       title: t('toast.missionDone', { xp: toast.xp }),
       text: mission ? loc(mission, 'title') : '',
+    }
+  }
+  if (toast.kind === 'friendship') {
+    const npc = getNpc(toast.npcId)
+    return {
+      Icon: ICONS.friendship,
+      title: t('toast.friendshipUp', { name: npc ? loc(npc, 'name') : '' }),
+      text: t('toast.friendshipLevel', { level: t(`npc.level.${toast.level}`) }),
     }
   }
   return { Icon: Snowflake, title: t('toast.freezeUsed'), text: t('toast.freezeText', { count: toast.count }) }

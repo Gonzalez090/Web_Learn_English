@@ -1,12 +1,12 @@
 // =========================================================
 // PlacePage — สถานที่ในเมือง (/place/:placeId) (ส่วนที่ 7)
-//   ภาพสถานที่ → บทสนทนาสุ่มที่เกิดที่นี่ (+ Speed Order ถ้ามี) → วลีที่ใช้ที่นี่ (จากคลังวลี)
-//   ยังล็อก → บอกว่าต้องผ่าน Stage ไหน + ปุ่มไปเรียนต่อ / NPC ประจำสถานที่มาในขั้นที่ 15
+//   ภาพสถานที่ → NPC ประจำสถานที่ + ความสนิท (ขั้นที่ 15) → บทสนทนาสุ่มที่เกิดที่นี่ (+ Speed Order ถ้ามี)
+//   → วลีที่ใช้ที่นี่ (จากคลังวลี) / ยังล็อก → บอกว่าต้องผ่าน Stage ไหน + ปุ่มไปเรียนต่อ
 // =========================================================
 import { useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Timer } from 'lucide-react'
-import { cityMap, getPhraseSituation, scenarios } from '../data'
+import { cityMap, getPhraseSituation, npcOfPlace, scenarios } from '../data'
 import { useLocalized } from '../hooks/useLocalized'
 import { useProgressStore } from '../store/progressStore'
 import { isPlaceUnlocked } from '../utils/places'
@@ -16,6 +16,7 @@ import Section from '../components/Section'
 import Picture from '../components/Picture'
 import Button from '../components/Button'
 import Tile, { TileList } from '../components/Tile'
+import NpcCard from '../components/NpcCard'
 import NotFoundPage from './NotFoundPage'
 import styles from './Talk.module.css'
 
@@ -24,12 +25,14 @@ export default function PlacePage() {
   const { t } = useTranslation()
   const loc = useLocalized()
   const unlockedStages = useProgressStore((state) => state.unlockedStages)
+  const friendship = useProgressStore((state) => state.npcFriendship)
   const place = cityMap.find((entry) => entry.placeId === placeId)
   if (!place) return <NotFoundPage />
 
   const unlocked = isPlaceUnlocked(place, unlockedStages)
   const talks = scenarios.filter((scenario) => scenario.placeId === place.placeId)
   const situations = place.phraseGroups.map(getPhraseSituation).filter(Boolean)
+  const npc = npcOfPlace(place.placeId)
 
   return (
     <Page title={loc(place, 'name')} subtitle={loc(place, 'description')} backTo="/">
@@ -46,6 +49,11 @@ export default function PlacePage() {
         </div>
       ) : (
         <>
+          {npc && (
+            <Section title={t('place.npc')} description={t('npc.howToFriend', { name: loc(npc, 'name') })}>
+              <NpcCard npc={npc} points={friendship[npc.id] ?? 0} />
+            </Section>
+          )}
           <Section title={t('place.talk')}>
             {talks.length ? (
               <TileList>
@@ -86,7 +94,6 @@ export default function PlacePage() {
               ))}
             </TileList>
           </Section>
-          <p className={styles.note}>{t('place.npcSoon')}</p>
         </>
       )}
     </Page>

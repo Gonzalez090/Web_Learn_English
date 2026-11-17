@@ -17,8 +17,16 @@ import { expandScenarioTexts } from '../utils/conversation.js'
  * @param phonicsSounds  เสียง phonics (phonics.json) — คำตัวอย่างของแต่ละเสียง
  * @param phrases        คลังวลี (phrases.json) { phrases, textbookVsReal }
  * @param scenarios      บทสนทนาสุ่ม (scenarios.json) — บทอีกฝ่ายทุกแบบ + ตัวเลือกของเรา × ทุกค่าของช่องสุ่ม
+ * @param npcs           NPC (world.json) — คำทัก "Long time no see!" + บทคุยแต่ละระดับความสนิท (NPC พูด + ประโยคตอบ)
  */
-export function collectSpeechTexts({ lessons, soundPractice = [], phonicsSounds = [], phrases = {}, scenarios = [] }) {
+export function collectSpeechTexts({
+  lessons,
+  soundPractice = [],
+  phonicsSounds = [],
+  phrases = {},
+  scenarios = [],
+  npcs = [],
+}) {
   const texts = new Set()
   const add = (text) => {
     const clean = typeof text === 'string' ? text.trim() : ''
@@ -67,6 +75,15 @@ export function collectSpeechTexts({ lessons, soundPractice = [], phonicsSounds 
 
   // บทสนทนาสุ่ม (ช่องสุ่มค่า → สร้างเสียงให้ทุกค่าที่สุ่มได้)
   for (const scenario of scenarios) for (const text of expandScenarioTexts(scenario)) add(text)
+
+  // NPC ประจำสถานที่ (ขั้นที่ 15)
+  for (const npc of npcs) {
+    add(npc.welcomeBack?.text)
+    for (const level of npc.levels ?? []) {
+      add(level.npc.text)
+      add(level.reply.text)
+    }
+  }
 
   // คำขึ้นต้นตอนทวนกลับ ("Yes!", "Listen." …) — พูดคู่กับประโยคที่ถูก
   for (const opener of [...RECAST_OPENERS.error, ...RECAST_OPENERS.model]) add(opener)

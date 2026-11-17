@@ -4,6 +4,7 @@
 // วันที่ทั้งหมดใช้รูปแบบ 'YYYY-MM-DD' ตามเวลาเครื่อง (ไม่ใช้ UTC)
 // เลเวลและฉายาคำนวณจาก xp ไม่เก็บซ้ำ (utils/level.js)
 // ได้ XP จากการเรียน → นับ streak วันนี้ + ภารกิจ "เก็บ XP" คืบหน้า
+// คุยกับ NPC จบ → ความสนิทเพิ่ม (utils/friendship.js) / เปิดเว็บ → บันทึกวันที่เข้า (คำทักเมื่อหายไปนาน)
 // เหตุการณ์อื่น (พูดผ่าน, จบบท ฯลฯ) → trackEvent → ภารกิจคืบหน้า → สำเร็จได้ XP รางวัล
 // ขึ้นเลเวล / ภารกิจสำเร็จ / ใช้ Streak Freeze → แจ้งผ่าน toastStore
 // =========================================================
@@ -15,6 +16,7 @@ import { todayKey } from '../utils/date'
 import { levelFromXp } from '../utils/level'
 import { recordActivity } from '../utils/streak'
 import { applyMissionEvent, ensureDailyMissions, missionReward } from '../utils/missions'
+import { addFriendship, recordVisit as visitResult } from '../utils/friendship'
 import { useToastStore } from './toastStore'
 
 // ค่าเริ่มต้นของผู้เรียนใหม่
@@ -29,7 +31,8 @@ export const INITIAL_PROGRESS = {
   npcFriendship: {}, // { [npcId]: แต้มความสนิท } (ขั้นที่ 15)
   dailyMissions: { date: null, missions: [] }, // ภารกิจของวันนี้ [{ id, progress, done }]
   speakingMinutes: {}, // { 'YYYY-MM-DD': นาทีที่พูด } (ขั้นที่ 18)
-  lastVisitDate: null, // ใช้ตรวจว่าหายไปหลายวันหรือไม่ (ขั้นที่ 15)
+  lastVisitDate: null, // วันที่เข้าเว็บล่าสุด — ใช้ตรวจว่าหายไปหลายวันหรือไม่ (ขั้นที่ 15)
+  welcomeBack: null, // { date, days } หายไป ≥ 3 วัน → NPC ทัก "Long time no see!" บนหน้าแรกวันนั้น (ปิดแล้ว = null)
 }
 
 // แจ้งผู้ใช้หลัง XP/ภารกิจเปลี่ยน
@@ -95,6 +98,25 @@ export const useProgressStore = create(
         const state = get()
         const daily = ensureDailyMissions(state.dailyMissions, dailyMissionPool, todayKey())
         if (daily !== state.dailyMissions) set({ dailyMissions: daily })
+      },
+
+      // เปิดเว็บ → บันทึกวันที่เข้า (หายไป ≥ 3 วัน → ตั้งคำทัก "Long time no see!" ของวันนี้)
+      recordVisit: () => {
+        const state = get()
+        const next = visitResult(state, todayKey())
+        if (next.lastVisitDate !== state.lastVisitDate || next.welcomeBack !== state.welcomeBack) set(next)
+      },
+
+      // ปิดคำทัก "Long time no see!"
+      dismissWelcomeBack: () => set({ welcomeBack: null }),
+
+      // คุยบทสนทนาสุ่มจบกับ NPC → ความสนิท +1 + ภารกิจ "คุยกับ NPC" (ขึ้นระดับ → แจ้งเตือน)
+      talkWithNpc: (npcId) => {
+        if (!npcId) return
+        const { friendship, levelUp } = addFriendship(get().npcFriendship, npcId)
+        set({ npcFriendship: friendship })
+        if (levelUp !== null) useToastStore.getState().show({ kind: 'friendship', npcId, level: levelUp })
+        get().trackEvent('npcTalk')
       },
 
       // จบบทเรียน → บันทึกผล + ปลดล็อก Stage ถัดไปถ้าผ่านครบ

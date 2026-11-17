@@ -1477,7 +1477,7 @@
       "image": "/images/talk-hotel.webp",
       "level": 1,
       "placeId": "airport",
-      "npcId": "receptionist",
+      "npcId": "dana",
       "partner": {
         "name": "Receptionist",
         "nameTh": "พนักงานต้อนรับ"

@@ -1,0 +1,175 @@
+/* การ์ด NPC ประจำสถานที่ (ขั้นที่ 15) */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: 0 3px 0 var(--color-border);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* ภาพคนแบบวงกลม — หน้าคนส่วนใหญ่อยู่ครึ่งบนของภาพ */
+.header .avatar {
+  --frame: 84px;
+  border-radius: var(--radius-full);
+}
+
+.header .avatar img {
+  object-position: center 25%;
+}
+
+.who {
+  min-width: 0;
+}
+
+.name {
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.role {
+  color: var(--color-primary-strong);
+  font-size: 0.875rem;
+  font-weight: 800;
+}
+
+.style {
+  margin-top: 2px;
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* แถบความสนิท */
+.meter {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.meterTop {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 800;
+}
+
+.heart {
+  width: 20px;
+  height: 20px;
+  color: var(--color-streak);
+}
+
+.bar {
+  height: 10px;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-soft);
+  overflow: hidden;
+}
+
+.fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--color-streak);
+  transition: width 0.3s ease;
+}
+
+.meterNote {
+  color: var(--color-muted);
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+/* เรื่องที่คุยกันได้ */
+.label {
+  margin-bottom: var(--space-2);
+  color: var(--color-muted);
+  font-size: 0.8125rem;
+  font-weight: 800;
+}
+
+.chatList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: 0;
+  list-style: none;
+}
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-soft);
+}
+
+.line {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.reply {
+  padding-left: var(--space-1);
+}
+
+.replyIcon {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  color: var(--color-primary);
+}
+
+.lineText {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.speaker {
+  color: var(--color-primary-strong);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.meaning {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.practice {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.locked {
+  flex-direction: row;
+  align-items: center;
+  background: var(--color-locked-bg);
+  color: var(--color-locked-text);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.lockIcon {
+  flex: none;
+  width: 18px;
+  height: 18px;
+}

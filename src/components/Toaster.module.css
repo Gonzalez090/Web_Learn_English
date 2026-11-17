@@ -102,3 +102,7 @@
     animation: none;
   }
 }
+
+.friendship {
+  border-color: var(--color-primary);
+}

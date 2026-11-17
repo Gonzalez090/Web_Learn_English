@@ -16,7 +16,8 @@ import { LESSON_FLOWS } from '../utils/lessonSteps.js'
 import { prepareLessonItems } from '../utils/lessonItems.js'
 import { checkKeywords } from '../utils/storyCheck.js'
 import { graphemeUnits, spellUnits } from '../utils/reading.js'
-import { checkFreeWriting, SPELLING_MODES, splitBlank } from '../utils/spelling.js'
+import { checkFreeWriting, hasThaiLetters, SPELLING_MODES, splitBlank } from '../utils/spelling.js'
+import { FRIENDSHIP_THRESHOLDS } from '../utils/friendship.js'
 import { itemTexts, wordsOf } from '../utils/vocabulary.js'
 import audioManifest from './audioManifest.json'
 import th from '../locales/th.json'
@@ -34,6 +35,7 @@ describe('ไฟล์เสียงเจ้าของภาษา (Kokoro)'
     phonicsSounds: phonicsData.sounds,
     phrases: phrasesData,
     scenarios: scenariosData.scenarios,
+    npcs: worldData.npcs,
   })
   const fileOf = (audioPath) => fileURLToPath(new URL(`../../public${audioPath}`, import.meta.url))
 
@@ -667,6 +669,45 @@ describe('แผนที่เมือง (world.json)', () => {
   })
 })
 
+// ---------- NPC + ความสนิท (ขั้นที่ 15) ----------
+describe('NPC (world.json npcs)', () => {
+  const { npcs, cityMap } = worldData
+  const placeIds = cityMap.map((place) => place.placeId)
+
+  it('NPC 4–6 ตัว id ไม่ซ้ำ ประจำสถานที่ที่มีจริง สถานที่ละไม่เกิน 1 คน', () => {
+    expect(npcs.length).toBeGreaterThanOrEqual(4)
+    expect(npcs.length).toBeLessThanOrEqual(6)
+    expect(new Set(npcs.map((npc) => npc.id)).size).toBe(npcs.length)
+    expect(new Set(npcs.map((npc) => npc.placeId)).size).toBe(npcs.length)
+    for (const npc of npcs) expect(placeIds, npc.id).toContain(npc.placeId)
+  })
+
+  it.each(npcs.map((npc) => [npc.id, npc]))('%s ข้อมูลครบ + บทคุยครบทุกระดับความสนิท', (_id, npc) => {
+    for (const field of ['name', 'nameTh', 'role', 'roleTh', 'personality', 'personalityTh', 'speakingStyle']) {
+      expect(npc[field], field).toBeTruthy()
+    }
+    expect(['normal', 'slow']).toContain(npc.speechRate)
+    expect(npc.image).toBe(`/images/npc-${npc.id}.webp`)
+    expect(npc.welcomeBack.text).toMatch(/long time no see/i)
+    expect(npc.welcomeBack.translationTh).toBeTruthy()
+    expect(npc.levels).toHaveLength(FRIENDSHIP_THRESHOLDS.length)
+    for (const level of npc.levels) {
+      for (const line of [level.npc, level.reply]) {
+        expect(line.text && line.translationTh, JSON.stringify(line)).toBeTruthy()
+        expect(hasThaiLetters(line.text), line.text).toBe(false)
+      }
+    }
+  })
+
+  it('บทสนทนาสุ่มทุกบทชี้ NPC ที่มีจริง และอยู่สถานที่เดียวกับ NPC', () => {
+    for (const scenario of scenariosData.scenarios) {
+      const npc = npcs.find((entry) => entry.id === scenario.npcId)
+      expect(npc, scenario.id).toBeTruthy()
+      expect(npc.placeId, scenario.id).toBe(scenario.placeId)
+    }
+  })
+})
+
 // ---------- โหมดฝึกเสียง (ส่วนที่ 10.1) ----------
 describe('โหมดฝึกเสียง (soundPractice)', () => {
   it('มีเสียงหลัก th, r/l, v/w (+ อื่น ๆ) id ไม่ซ้ำ', () => {
@@ -695,6 +736,7 @@ describe('ภาพถ่ายประกอบ', () => {
       ...phrasesData.situations.map((situation) => situation.image),
       ...scenariosData.scenarios.map((scenario) => scenario.image),
       ...worldData.cityMap.map((place) => place.image),
+      ...worldData.npcs.map((npc) => npc.image),
     ]),
   ]
   // '/images/x.webp' → ไฟล์จริงใน public/images/x.webp

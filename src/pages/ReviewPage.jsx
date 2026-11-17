@@ -6,13 +6,20 @@
 // =========================================================
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useSearchParams } from 'react-router-dom'
 import { getLessonMeta, getStage, scenarios } from '../data'
 import { talkReviewLesson } from '../utils/conversation'
 import { englishTextMode } from '../utils/display'
 import { useLessonsOfStages } from '../hooks/useLessons'
 import { useReviewStore } from '../store/reviewStore'
 import { useProgressStore } from '../store/progressStore'
-import { buildReviewItems, dueEntries, nextDueDate } from '../utils/review'
+import {
+  buildReviewItems,
+  dueEntries,
+  MAX_REVIEW_PER_SESSION,
+  nextDueDate,
+  SHORT_REVIEW_COUNT,
+} from '../utils/review'
 import { formatDateKey, todayKey } from '../utils/date'
 import { ICONS } from '../utils/icons'
 import Page from '../components/Page'
@@ -46,7 +53,10 @@ export default function ReviewPage() {
   const lessons = useMemo(() => [...stageLessons, ...scenarios.map(talkReviewLesson)], [stageLessons])
 
   const [round, setRound] = useState(0) // เพิ่มขึ้น = เริ่มทบทวนรอบใหม่
-  const [session, setSession] = useState(() => buildReviewItems(queue, lessons, todayKey()))
+  // ?short=1 (กลับมาหลังหายไปนาน — คำทัก "Long time no see!") → ทบทวนสั้น ๆ แค่ 5 ข้อแรก
+  const [searchParams] = useSearchParams()
+  const limit = searchParams.get('short') ? SHORT_REVIEW_COUNT : MAX_REVIEW_PER_SESSION
+  const [session, setSession] = useState(() => buildReviewItems(queue, lessons, todayKey(), limit))
   const [summary, setSummary] = useState(null) // [{ item, outcome }]
 
   const today = todayKey()

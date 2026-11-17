@@ -8,7 +8,10 @@
       "descriptionTh": "บ้านใหม่ของคุณในเมือง — เริ่มจากทักทายเพื่อนบ้านและถามทาง",
       "image": "/images/place-home.webp",
       "unlockAfterStage": null,
-      "phraseGroups": ["greetings", "help"]
+      "phraseGroups": [
+        "greetings",
+        "help"
+      ]
     },
     {
       "placeId": "store",
@@ -18,7 +21,10 @@
       "descriptionTh": "หาของที่ต้องการ แล้วจ่ายเงินที่เคาน์เตอร์",
       "image": "/images/place-store.webp",
       "unlockAfterStage": 1,
-      "phraseGroups": ["decline", "help"]
+      "phraseGroups": [
+        "decline",
+        "help"
+      ]
     },
     {
       "placeId": "cafe",
@@ -28,7 +34,9 @@
       "descriptionTh": "สั่งเครื่องดื่มแบบคนท้องถิ่น",
       "image": "/images/place-cafe.webp",
       "unlockAfterStage": 2,
-      "phraseGroups": ["food"]
+      "phraseGroups": [
+        "food"
+      ]
     },
     {
       "placeId": "park",
@@ -38,7 +46,11 @@
       "descriptionTh": "เจอเพื่อน คุยเรื่องความรู้สึก แล้วนัดเที่ยวสุดสัปดาห์",
       "image": "/images/place-park.webp",
       "unlockAfterStage": 3,
-      "phraseGroups": ["invite", "feelings", "greetings"]
+      "phraseGroups": [
+        "invite",
+        "feelings",
+        "greetings"
+      ]
     },
     {
       "placeId": "restaurant",
@@ -48,7 +60,10 @@
       "descriptionTh": "สั่งอาหาร ถามเมนูแนะนำ แล้วเช็กบิล",
       "image": "/images/place-restaurant.webp",
       "unlockAfterStage": 4,
-      "phraseGroups": ["food", "decline"]
+      "phraseGroups": [
+        "food",
+        "decline"
+      ]
     },
     {
       "placeId": "office",
@@ -58,7 +73,11 @@
       "descriptionTh": "ขอให้เพื่อนร่วมงานช่วย และปฏิเสธอย่างสุภาพ",
       "image": "/images/place-office.webp",
       "unlockAfterStage": 5,
-      "phraseGroups": ["help", "decline", "feelings"]
+      "phraseGroups": [
+        "help",
+        "decline",
+        "feelings"
+      ]
     },
     {
       "placeId": "airport",
@@ -68,8 +87,307 @@
       "descriptionTh": "เดินทาง เช็คอินโรงแรม และรับมือเรื่องไม่คาดคิด",
       "image": "/images/place-airport.webp",
       "unlockAfterStage": 6,
-      "phraseGroups": ["help", "greetings"]
+      "phraseGroups": [
+        "help",
+        "greetings"
+      ]
     }
   ],
-  "npcs": []
+  "npcs": [
+    {
+      "id": "rose",
+      "name": "Rose",
+      "nameTh": "ป้าโรส",
+      "placeId": "home",
+      "role": "Your next-door neighbor",
+      "roleTh": "เพื่อนบ้านติดกัน",
+      "personality": "Kind and patient. Speaks slowly and politely.",
+      "personalityTh": "ใจดี ใจเย็น พูดช้า ๆ สุภาพ — เหมาะกับการเริ่มฝึกฟัง",
+      "speakingStyle": "slow-polite",
+      "speechRate": "slow",
+      "image": "/images/npc-rose.webp",
+      "welcomeBack": {
+        "text": "Oh, there you are! Long time no see, dear!",
+        "translationTh": "อ้าว มาแล้ว! ไม่ได้เจอกันตั้งนานเลยนะจ๊ะ"
+      },
+      "levels": [
+        {
+          "npc": {
+            "text": "Oh, hello! You must be the new neighbor. I'm Rose.",
+            "translationTh": "อ้าว สวัสดีจ้ะ! คุณคงเป็นเพื่อนบ้านคนใหม่สินะ ป้าชื่อโรสจ้ะ"
+          },
+          "reply": {
+            "text": "Hi, Rose! Nice to meet you.",
+            "translationTh": "สวัสดีครับ/ค่ะ ป้าโรส ยินดีที่ได้รู้จัก"
+          }
+        },
+        {
+          "npc": {
+            "text": "Good morning, dear. Are you settling in okay?",
+            "translationTh": "อรุณสวัสดิ์จ้ะ ย้ายมาอยู่แล้วเป็นยังไงบ้าง ลงตัวไหม"
+          },
+          "reply": {
+            "text": "Yeah, slowly. Thanks for asking!",
+            "translationTh": "ค่อย ๆ ลงตัวครับ/ค่ะ ขอบคุณที่ถามนะ"
+          }
+        },
+        {
+          "npc": {
+            "text": "I baked too many cookies again. Would you like some?",
+            "translationTh": "ป้าอบคุกกี้เยอะเกินอีกแล้ว เอาไปกินหน่อยไหมจ๊ะ"
+          },
+          "reply": {
+            "text": "Aw, that's so sweet. I'd love some!",
+            "translationTh": "โห ใจดีจัง อยากได้มากเลย"
+          }
+        },
+        {
+          "npc": {
+            "text": "You know, you're welcome here anytime. Just knock on my door.",
+            "translationTh": "รู้ไหม มาหาป้าได้ทุกเมื่อเลยนะ แค่มาเคาะประตู"
+          },
+          "reply": {
+            "text": "Thanks, Rose. That means a lot.",
+            "translationTh": "ขอบคุณครับ/ค่ะ ป้าโรส ซึ้งใจมากเลย"
+          }
+        }
+      ]
+    },
+    {
+      "id": "jake",
+      "name": "Jake",
+      "nameTh": "เจค",
+      "placeId": "store",
+      "role": "Cashier at the convenience store",
+      "roleTh": "พนักงานแคชเชียร์ร้านสะดวกซื้อ",
+      "personality": "Chill and easygoing. Talks like a friend.",
+      "personalityTh": "สบาย ๆ เป็นกันเอง พูดเหมือนคุยกับเพื่อน",
+      "speakingStyle": "casual",
+      "speechRate": "normal",
+      "image": "/images/npc-jake.webp",
+      "welcomeBack": {
+        "text": "Hey! Long time no see! Where've you been?",
+        "translationTh": "เฮ้! ไม่เจอกันนานเลย หายไปไหนมา"
+      },
+      "levels": [
+        {
+          "npc": {
+            "text": "Hey. Find everything okay?",
+            "translationTh": "หวัดดี หาของเจอครบไหม"
+          },
+          "reply": {
+            "text": "Yeah, I'm good, thanks.",
+            "translationTh": "เจอครบ โอเคเลย ขอบคุณ"
+          }
+        },
+        {
+          "npc": {
+            "text": "Oh hey, it's you again! How's it going?",
+            "translationTh": "อ้าว นายเองอีกแล้ว! เป็นไงบ้าง"
+          },
+          "reply": {
+            "text": "Not bad, you?",
+            "translationTh": "ก็ดีนะ แล้วนายล่ะ"
+          }
+        },
+        {
+          "npc": {
+            "text": "Dude, you gotta try these new chips. They're so good.",
+            "translationTh": "เฮ้ย ต้องลองมันฝรั่งทอดรสใหม่นี่นะ อร่อยมาก"
+          },
+          "reply": {
+            "text": "No way, I'll grab a bag.",
+            "translationTh": "จริงดิ งั้นขอหยิบสักถุง"
+          }
+        },
+        {
+          "npc": {
+            "text": "A few of us are gonna hang out on Friday. Wanna come?",
+            "translationTh": "วันศุกร์พวกเราจะไปเที่ยวกัน มาด้วยกันไหม"
+          },
+          "reply": {
+            "text": "Sure, sounds fun! Count me in.",
+            "translationTh": "ได้เลย ฟังดูสนุก นับฉันด้วยคน"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mia",
+      "name": "Mia",
+      "nameTh": "มีอา",
+      "placeId": "cafe",
+      "role": "Barista at the café",
+      "roleTh": "บาริสต้าร้านกาแฟ",
+      "personality": "Bubbly and quick. Uses a lot of slang.",
+      "personalityTh": "ร่าเริง พูดเร็ว ใช้สแลงเยอะ — ฝึกฟังภาษาแบบวัยรุ่น",
+      "speakingStyle": "fast-slang",
+      "speechRate": "normal",
+      "image": "/images/npc-mia.webp",
+      "welcomeBack": {
+        "text": "Hey, stranger! Long time no see! The usual?",
+        "translationTh": "อ้าว คนหายสาบสูญ! ไม่เจอกันนานเลย เหมือนเดิมไหม"
+      },
+      "levels": [
+        {
+          "npc": {
+            "text": "Hi! What can I get started for you?",
+            "translationTh": "สวัสดีค่ะ! รับอะไรดีคะ"
+          },
+          "reply": {
+            "text": "Can I get a latte, please?",
+            "translationTh": "ขอลาเต้แก้วนึงครับ/ค่ะ"
+          }
+        },
+        {
+          "npc": {
+            "text": "Hey, you're back! The usual?",
+            "translationTh": "อ้าว มาอีกแล้ว! เหมือนเดิมไหม"
+          },
+          "reply": {
+            "text": "Yes, please. You remembered!",
+            "translationTh": "ใช่เลย จำได้ด้วย!"
+          }
+        },
+        {
+          "npc": {
+            "text": "Honestly, the new oat latte is so good. You should try it.",
+            "translationTh": "บอกเลย โอ๊ตลาเต้ตัวใหม่อร่อยมาก ต้องลอง"
+          },
+          "reply": {
+            "text": "Okay, I'm sold. Let's do it.",
+            "translationTh": "โอเค โดนป้ายยาแล้ว เอาอันนั้นเลย"
+          }
+        },
+        {
+          "npc": {
+            "text": "Ugh, today's been crazy. Thanks for being my favorite customer.",
+            "translationTh": "เฮ้อ วันนี้วุ่นสุด ๆ ขอบคุณที่เป็นลูกค้าคนโปรดนะ"
+          },
+          "reply": {
+            "text": "Aw, hang in there. You're doing great!",
+            "translationTh": "โอ๋ ๆ สู้ ๆ นะ ทำได้ดีมากแล้ว"
+          }
+        }
+      ]
+    },
+    {
+      "id": "sam",
+      "name": "Sam",
+      "nameTh": "แซม",
+      "placeId": "park",
+      "role": "An old friend you ran into",
+      "roleTh": "เพื่อนเก่าที่บังเอิญเจอกัน",
+      "personality": "Warm and chatty. Loves catching up.",
+      "personalityTh": "อบอุ่น ช่างคุย ชอบถามไถ่สารทุกข์สุกดิบ",
+      "speakingStyle": "friendly",
+      "speechRate": "normal",
+      "image": "/images/npc-sam.webp",
+      "welcomeBack": {
+        "text": "Hey! Long time no see! How've you been?",
+        "translationTh": "เฮ้! ไม่เจอกันนานเลย เป็นไงบ้าง"
+      },
+      "levels": [
+        {
+          "npc": {
+            "text": "Hey! Wait, is that you? It's been forever!",
+            "translationTh": "เฮ้! เดี๋ยวนะ นั่นนายใช่ไหม ไม่เจอกันเป็นชาติแล้ว!"
+          },
+          "reply": {
+            "text": "Sam! Oh my gosh, how are you?",
+            "translationTh": "แซม! ตายแล้ว เป็นไงบ้าง"
+          }
+        },
+        {
+          "npc": {
+            "text": "Wanna grab a coffee and catch up sometime?",
+            "translationTh": "ไว้ไปกินกาแฟคุยอัปเดตกันไหม"
+          },
+          "reply": {
+            "text": "Yeah, totally. Let's do it.",
+            "translationTh": "ได้เลย ไปกัน"
+          }
+        },
+        {
+          "npc": {
+            "text": "I'm going for a run in the park tomorrow. You in?",
+            "translationTh": "พรุ่งนี้จะไปวิ่งในสวน ไปด้วยกันไหม"
+          },
+          "reply": {
+            "text": "Sure, what time?",
+            "translationTh": "ได้สิ กี่โมงล่ะ"
+          }
+        },
+        {
+          "npc": {
+            "text": "Seriously, I'm so glad we ran into each other again.",
+            "translationTh": "จริง ๆ นะ ดีใจมากที่ได้เจอกันอีก"
+          },
+          "reply": {
+            "text": "Me too. Let's keep in touch.",
+            "translationTh": "เหมือนกัน ติดต่อกันไว้นะ"
+          }
+        }
+      ]
+    },
+    {
+      "id": "dana",
+      "name": "Dana",
+      "nameTh": "ดาน่า",
+      "placeId": "airport",
+      "role": "Hotel receptionist",
+      "roleTh": "พนักงานต้อนรับโรงแรม",
+      "personality": "Polite and professional. Speaks clearly.",
+      "personalityTh": "สุภาพ เป็นทางการ พูดชัด — ฝึกภาษาแบบงานบริการ",
+      "speakingStyle": "formal",
+      "speechRate": "normal",
+      "image": "/images/npc-dana.webp",
+      "welcomeBack": {
+        "text": "Welcome back! Long time no see. How was your trip?",
+        "translationTh": "ยินดีต้อนรับกลับมาค่ะ ไม่ได้เจอกันนานเลย เดินทางเป็นยังไงบ้างคะ"
+      },
+      "levels": [
+        {
+          "npc": {
+            "text": "Good evening, and welcome. How may I help you?",
+            "translationTh": "สวัสดีตอนเย็นค่ะ ยินดีต้อนรับ มีอะไรให้ช่วยไหมคะ"
+          },
+          "reply": {
+            "text": "Hi, I have a reservation.",
+            "translationTh": "สวัสดีครับ/ค่ะ จองห้องไว้แล้ว"
+          }
+        },
+        {
+          "npc": {
+            "text": "Welcome back. It's nice to see you again.",
+            "translationTh": "ยินดีต้อนรับกลับมาค่ะ ดีใจที่ได้เจออีก"
+          },
+          "reply": {
+            "text": "Thanks. It's good to be back.",
+            "translationTh": "ขอบคุณครับ/ค่ะ ดีใจที่ได้กลับมา"
+          }
+        },
+        {
+          "npc": {
+            "text": "If you need anything during your stay, just let me know.",
+            "translationTh": "ระหว่างเข้าพักถ้าต้องการอะไร บอกได้เลยนะคะ"
+          },
+          "reply": {
+            "text": "Thank you, I really appreciate it.",
+            "translationTh": "ขอบคุณมาก ซาบซึ้งจริง ๆ"
+          }
+        },
+        {
+          "npc": {
+            "text": "I've upgraded your room today. Enjoy the view!",
+            "translationTh": "วันนี้อัปเกรดห้องให้แล้วนะคะ ชมวิวให้เต็มที่เลย"
+          },
+          "reply": {
+            "text": "Wow, thank you so much!",
+            "translationTh": "ว้าว ขอบคุณมาก ๆ เลย"
+          }
+        }
+      ]
+    }
+  ]
 }

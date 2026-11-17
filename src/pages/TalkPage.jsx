@@ -4,13 +4,14 @@
 //   seed อยู่ใน URL → เปิดลิงก์เดิม = บทสนทนาเดิม (ทดสอบซ้ำได้) / ไม่มี seed → สุ่มให้แล้วใส่ใน URL
 //   "สุ่มอีกรอบ" = seed ใหม่ สถานการณ์เดิม / "สุ่มสถานการณ์ใหม่" = สถานการณ์อื่น + seed ใหม่
 //   XP: พูดผ่าน 1 บรรทัด = พูดตาม 15 / จบบท = ภารกิจ "คุยบทสนทนาสุ่มจบ 1 รอบ"
+//   NPC ประจำสถานที่ (ขั้นที่ 15): ชื่อ + ความสนิทบนหน้า intro, เสียงตามนิสัย (ป้าโรสพูดช้า), คุยจบ = ความสนิท +1
 //   บรรทัดที่ข้าม → เข้ารายการทบทวนเอง / ปุ่ม "เพิ่มเข้ารายการทบทวน" = บรรทัดของเราทั้งหมด (บทเรียน talk-<id>)
 // =========================================================
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { MessagesSquare } from 'lucide-react'
-import { scenarios } from '../data'
+import { getNpc, scenarios } from '../data'
 import { useLocalized } from '../hooks/useLocalized'
 import { useProgressStore } from '../store/progressStore'
 import { useReviewStore } from '../store/reviewStore'
@@ -21,11 +22,28 @@ import Picture from '../components/Picture'
 import Button from '../components/Button'
 import ConversationPlayer from '../components/talk/ConversationPlayer'
 import ConversationSummary from '../components/talk/ConversationSummary'
+import { FriendshipMeter } from '../components/NpcCard'
 import NotFoundPage from './NotFoundPage'
 import styles from './Talk.module.css'
 
 // ระดับ/โหมด (ขั้นที่ 12) — อยู่ใน URL ?mode= เหมือน seed: ปกติ / ยาก (ซ่อนตัวเลือก) / Speed Order (จับเวลา — เฉพาะสถานการณ์ที่ speedOrder)
 const MODES = ['normal', 'hard', 'speed']
+
+// NPC ที่คุยด้วย: ภาพ + ชื่อ + บทบาท + ระดับความสนิท (หน้า intro)
+function NpcBadge({ npc, points }) {
+  const loc = useLocalized()
+  return (
+    <div className={styles.npcBadge}>
+      <Picture image={npc.image} size="xs" alt="" className={styles.npcAvatar} />
+      <div className={styles.npcWho}>
+        <p className={styles.npcName}>
+          {loc(npc, 'name')} <span className={styles.npcRole}>· {loc(npc, 'role')}</span>
+        </p>
+        <FriendshipMeter points={points} />
+      </div>
+    </div>
+  )
+}
 
 // สถานการณ์อื่นแบบสุ่ม (ไม่ซ้ำอันเดิม)
 function otherScenarioId(currentId) {
@@ -42,7 +60,15 @@ export default function TalkPage() {
   const addXp = useProgressStore((state) => state.addXp)
   const trackEvent = useProgressStore((state) => state.trackEvent)
   const addMissed = useReviewStore((state) => state.addMissed)
-  const scenario = scenarios.find((entry) => entry.id === scenarioId)
+  const talkWithNpc = useProgressStore((state) => state.talkWithNpc)
+  const friendship = useProgressStore((state) => state.npcFriendship)
+  const baseScenario = scenarios.find((entry) => entry.id === scenarioId)
+  // NPC ประจำสถานที่ (ขั้นที่ 15) → อีกฝ่ายใช้ชื่อ NPC ในกล่องแชต (บาริสต้า → Mia)
+  const npc = baseScenario ? getNpc(baseScenario.npcId) : null
+  const scenario = useMemo(
+    () => (baseScenario && npc ? { ...baseScenario, partner: { name: npc.name, nameTh: npc.nameTh } } : baseScenario),
+    [baseScenario, npc],
+  )
 
   const seedParam = Number(searchParams.get('seed'))
   const seed = searchParams.has('seed') && Number.isInteger(seedParam) && seedParam >= 0 ? seedParam : null
@@ -72,6 +98,16 @@ export default function TalkPage() {
   const [xp, setXp] = useState(0)
   const [reviewAdded, setReviewAdded] = useState(false)
 
+  // เปลี่ยนสถานการณ์ในหน้าเดิม (ย้อนกลับ/ไปหน้าถัดไปของเบราว์เซอร์) → กลับไปหน้าเริ่ม ไม่ให้ผลของบทเก่าค้าง
+  const [shownScenarioId, setShownScenarioId] = useState(scenarioId)
+  if (shownScenarioId !== scenarioId) {
+    setShownScenarioId(scenarioId)
+    setMode('intro')
+    setResult(null)
+    setXp(0)
+    setReviewAdded(false)
+  }
+
   if (!scenario) return <NotFoundPage />
   if (!conversation) return null
 
@@ -92,6 +128,7 @@ export default function TalkPage() {
 
   function finish(outcome) {
     trackEvent('conversation')
+    if (npc) talkWithNpc(npc.id) // คุยจบ 1 รอบ = ความสนิท +1 + ภารกิจ "คุยกับ NPC"
     if (playMode === 'speed') trackEvent('gamePlay') // Speed Order = มินิเกม
     const skipped = Object.keys(outcome.outcomes).filter((id) => outcome.outcomes[id] !== 'passed')
     addMissed(talkLessonId(scenario.id), skipped)
@@ -123,6 +160,7 @@ export default function TalkPage() {
       {mode === 'intro' && (
         <div className={styles.intro}>
           <Picture image={scenario.image} size="fill" alt="" className={styles.introPicture} />
+          {npc && <NpcBadge npc={npc} points={friendship[npc.id] ?? 0} />}
           <p className={styles.goal}>
             <span className={styles.goalLabel}>{t('talk.goal')}</span> <span lang="th">{scenario.goalTh}</span>
           </p>
@@ -152,9 +190,17 @@ export default function TalkPage() {
           scenario={scenario}
           conversation={conversation}
           mode={playMode}
+          npcRate={npc?.speechRate}
           onLinePass={linePass}
           onFinish={finish}
         />
+      )}
+
+      {mode === 'done' && result && npc && (
+        <div className={styles.friendNote} role="status">
+          <p className={styles.friendGain}>{t('npc.gained', { name: loc(npc, 'name') })}</p>
+          <FriendshipMeter points={friendship[npc.id] ?? 0} />
+        </div>
       )}
 
       {mode === 'done' && result && (
