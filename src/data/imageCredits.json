@@ -12634,6 +12634,125 @@
     "photographerUrl": "https://pixabay.com/users/Alexas_Fotos-686414/",
     "pageUrl": "https://pixabay.com/photos/puzzle-last-part-joining-together-3223941/"
   },
+  "s7-kite-describe": {
+    "provider": "pixabay",
+    "sourceId": 7782102,
+    "photographer": "trungkhang",
+    "photographerUrl": "https://pixabay.com/users/trungkhang-29069499/",
+    "pageUrl": "https://pixabay.com/photos/child-boy-play-kite-kite-flying-7782102/"
+  },
+  "s7-kite-fill": {
+    "provider": "pixabay",
+    "sourceId": 7782105,
+    "photographer": "trungkhang",
+    "photographerUrl": "https://pixabay.com/users/trungkhang-29069499/",
+    "pageUrl": "https://pixabay.com/photos/children-boys-play-kite-7782105/"
+  },
+  "s7-kite-order": {
+    "provider": "pixabay",
+    "sourceId": 7782103,
+    "photographer": "trungkhang",
+    "photographerUrl": "https://pixabay.com/users/trungkhang-29069499/",
+    "pageUrl": "https://pixabay.com/photos/child-boy-play-kite-kite-flying-7782103/"
+  },
+  "s7-kite-story": {
+    "provider": "pixabay",
+    "sourceId": 7782103,
+    "photographer": "trungkhang",
+    "photographerUrl": "https://pixabay.com/users/trungkhang-29069499/",
+    "pageUrl": "https://pixabay.com/photos/child-boy-play-kite-kite-flying-7782103/"
+  },
+  "s7-kite-story-1": {
+    "provider": "pixabay",
+    "sourceId": 7782103,
+    "photographer": "trungkhang",
+    "photographerUrl": "https://pixabay.com/users/trungkhang-29069499/",
+    "pageUrl": "https://pixabay.com/photos/child-boy-play-kite-kite-flying-7782103/"
+  },
+  "s7-kite-story-2": {
+    "provider": "pixabay",
+    "sourceId": 7782105,
+    "photographer": "trungkhang",
+    "photographerUrl": "https://pixabay.com/users/trungkhang-29069499/",
+    "pageUrl": "https://pixabay.com/photos/children-boys-play-kite-7782105/"
+  },
+  "s7-kite-story-3": {
+    "provider": "pixabay",
+    "sourceId": 7782102,
+    "photographer": "trungkhang",
+    "photographerUrl": "https://pixabay.com/users/trungkhang-29069499/",
+    "pageUrl": "https://pixabay.com/photos/child-boy-play-kite-kite-flying-7782102/"
+  },
+  "s7-kite-word": {
+    "provider": "pixabay",
+    "sourceId": 7782103,
+    "photographer": "trungkhang",
+    "photographerUrl": "https://pixabay.com/users/trungkhang-29069499/",
+    "pageUrl": "https://pixabay.com/photos/child-boy-play-kite-kite-flying-7782103/"
+  },
+  "s7-picnic-describe": {
+    "provider": "pixabay",
+    "sourceId": 5185414,
+    "photographer": "Sunriseforever",
+    "photographerUrl": "https://pixabay.com/users/Sunriseforever-6314823/",
+    "pageUrl": "https://pixabay.com/photos/family-father-kids-picnic-thermos-5185414/"
+  },
+  "s7-picnic-dict": {
+    "provider": "pixabay",
+    "sourceId": 5174650,
+    "photographer": "Sunriseforever",
+    "photographerUrl": "https://pixabay.com/users/Sunriseforever-6314823/",
+    "pageUrl": "https://pixabay.com/photos/picnic-family-kids-dad-father-5174650/"
+  },
+  "s7-picnic-fill": {
+    "provider": "pixabay",
+    "sourceId": 5185457,
+    "photographer": "Sunriseforever",
+    "photographerUrl": "https://pixabay.com/users/Sunriseforever-6314823/",
+    "pageUrl": "https://pixabay.com/photos/mom-mother-family-kids-picnic-5185457/"
+  },
+  "s7-picnic-order": {
+    "provider": "pixabay",
+    "sourceId": 5185573,
+    "photographer": "Sunriseforever",
+    "photographerUrl": "https://pixabay.com/users/Sunriseforever-6314823/",
+    "pageUrl": "https://pixabay.com/photos/mom-mother-family-kids-picnic-5185573/"
+  },
+  "s7-picnic-story": {
+    "provider": "pixabay",
+    "sourceId": 5174650,
+    "photographer": "Sunriseforever",
+    "photographerUrl": "https://pixabay.com/users/Sunriseforever-6314823/",
+    "pageUrl": "https://pixabay.com/photos/picnic-family-kids-dad-father-5174650/"
+  },
+  "s7-picnic-story-1": {
+    "provider": "pixabay",
+    "sourceId": 5174650,
+    "photographer": "Sunriseforever",
+    "photographerUrl": "https://pixabay.com/users/Sunriseforever-6314823/",
+    "pageUrl": "https://pixabay.com/photos/picnic-family-kids-dad-father-5174650/"
+  },
+  "s7-picnic-story-2": {
+    "provider": "pixabay",
+    "sourceId": 5185414,
+    "photographer": "Sunriseforever",
+    "photographerUrl": "https://pixabay.com/users/Sunriseforever-6314823/",
+    "pageUrl": "https://pixabay.com/photos/family-father-kids-picnic-thermos-5185414/"
+  },
+  "s7-picnic-story-3": {
+    "provider": "pixabay",
+    "sourceId": 5185457,
+    "photographer": "Sunriseforever",
+    "photographerUrl": "https://pixabay.com/users/Sunriseforever-6314823/",
+    "pageUrl": "https://pixabay.com/photos/mom-mother-family-kids-picnic-5185457/"
+  },
+  "s7-picnic-story-4": {
+    "provider": "pixabay",
+    "sourceId": 5185573,
+    "photographer": "Sunriseforever",
+    "photographerUrl": "https://pixabay.com/users/Sunriseforever-6314823/",
+    "pageUrl": "https://pixabay.com/photos/mom-mother-family-kids-picnic-5185573/"
+  },
   "stage-1": {
     "provider": "pixabay",
     "sourceId": 84628,

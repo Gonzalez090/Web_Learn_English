@@ -16,6 +16,7 @@ export const MISSION_EVENTS = {
   perfectLesson: 4, // จบบทได้ 100%
   xp: 13, // เก็บ XP จากการเรียน (ไม่นับ XP รางวัลภารกิจ)
   sound: 8, // ฝึกเสียงที่คนไทยออกยาก 1 ชุด
+  writePass: 9, // แบบฝึกเขียนผ่าน 1 ข้อ (Stage 7)
   phrase: 10, // ฝึกวลีใช้งานจริง 1 วลี
   conversation: 11, // คุยบทสนทนาสุ่มจบ 1 รอบ
   npcTalk: 15, // คุยกับ NPC 1 ครั้ง
@@ -34,6 +35,7 @@ export const AVAILABLE_MISSION_EVENTS = new Set([
   'xp',
   'review',
   'sound', // โหมดฝึกเสียง (ขั้นที่ 8 + 21ก)
+  'writePass', // แบบฝึกเขียน (ขั้นที่ 9)
 ])
 
 export const MISSIONS_PER_DAY = 3

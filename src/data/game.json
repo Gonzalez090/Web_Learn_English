@@ -113,6 +113,14 @@
       "titleTh": "ทบทวน 5 รายการ"
     },
     {
+      "id": "write-5",
+      "event": "writePass",
+      "target": 5,
+      "xp": 15,
+      "title": "Write 5 things right",
+      "titleTh": "เขียนผ่าน 5 ข้อ"
+    },
+    {
       "id": "speak-minutes-3",
       "event": "speakingMinutes",
       "target": 3,

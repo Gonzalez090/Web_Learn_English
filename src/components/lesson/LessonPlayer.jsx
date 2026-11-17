@@ -1,7 +1,7 @@
 // =========================================================
 // LessonPlayer — ตัวเล่นบทเรียน (ส่วนที่ 4)
 // - ลำดับขั้นอ่านจาก utils/lessonSteps.js: ขั้นทั้งบท (ฟังทั้งบท/เลือกบท/เล่นบทบาท) → ทีละข้อ (ฟัง → พูดตาม → สลับคำ)
-//   → มินิเกม → (Stage 4+) รอบใช้เอง
+//   → มินิเกม → (Stage 4+) รอบใช้เอง / Stage 7 = แบบฝึกเขียนทีละข้อ (WriteStep)
 // - ข้อของบทสนทนา/คำคล้องจองเตรียมก่อนเล่น (บรรทัดก่อนหน้าเป็นตัวนำ, ขั้นเติมคำ) — utils/lessonItems.js
 // - ได้ XP ทันทีที่ทำแต่ละขั้นสำเร็จ (ออกกลางคันก็ได้ XP ที่ทำไปแล้ว) + แจ้งเหตุการณ์ให้ภารกิจรายวัน
 // - ข้อที่พูดไม่ผ่าน / เกมไม่ผ่านรอบนั้น → เข้ารายการทบทวน
@@ -14,7 +14,7 @@
 // =========================================================
 import { useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { buildLessonSteps, GAME_ROUND_XP, LESSON_FLOWS, READ_VARIANTS, XP } from '../../utils/lessonSteps'
+import { buildLessonSteps, GAME_ROUND_XP, LESSON_FLOWS, READ_VARIANTS, writeXp, XP } from '../../utils/lessonSteps'
 import { prepareLessonItems, readAloudItems } from '../../utils/lessonItems'
 import { useProgressStore } from '../../store/progressStore'
 import { useReviewStore } from '../../store/reviewStore'
@@ -32,6 +32,7 @@ import ListenRhymeStep from './ListenRhymeStep'
 import RhymeFillStep from './RhymeFillStep'
 import PhonicsIntroStep from './PhonicsIntroStep'
 import ReadAloudStep from './ReadAloudStep'
+import WriteStep from './WriteStep'
 import PlayerFrame from './PlayerFrame'
 import ListenTapGame from '../games/ListenTapGame'
 import ShadowKaraokeGame from '../games/ShadowKaraokeGame'
@@ -227,6 +228,23 @@ export default function LessonPlayer({ lesson, stage, onlyItemIds }) {
           stage={stage}
           variant={READ_VARIANTS[step.kind]}
           onDone={({ passed }) => speakDone(step.item, passed, XP.speak)}
+        />
+      )}
+
+      {/* ---------- Stage 7 เขียน ---------- */}
+      {step.kind === 'write' && (
+        <WriteStep
+          item={step.item}
+          stage={stage}
+          mode={lesson.spelling}
+          onDone={({ passed }) => {
+            if (passed) {
+              earn(writeXp(step.item))
+              trackEvent('writePass')
+            }
+            check(step.item, passed)
+            next()
+          }}
         />
       )}
 

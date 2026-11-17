@@ -79074,6 +79074,222 @@
           "acceptAlso": []
         }
       ]
+    },
+    {
+      "id": "s7-u01-write-kite",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "Sam's kite",
+      "titleTh": "ว่าวของแซม",
+      "spelling": "sound",
+      "items": [
+        {
+          "id": "s7-kite-word",
+          "exercise": "dictation",
+          "target": "kite",
+          "meaningTh": "ว่าว",
+          "readingTh": "ไคท์",
+          "image": "/images/s7-kite-word.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-kite-fill",
+          "exercise": "fill",
+          "target": "His friend held it up high.",
+          "translationTh": "เพื่อนของแซมชูว่าวขึ้นสูง ๆ",
+          "readingTh": "ฮิซ เฟรนด์ เฮลด์ อิท อัพ ไฮ",
+          "image": "/images/s7-kite-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "held"
+        },
+        {
+          "id": "s7-kite-order",
+          "exercise": "order",
+          "target": "Sam got a new kite.",
+          "translationTh": "แซมได้ว่าวตัวใหม่",
+          "readingTh": "แซม ก็อท อะ นิว ไคท์",
+          "image": "/images/s7-kite-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-kite-describe",
+          "exercise": "describe",
+          "target": "The kite flew up high.",
+          "translationTh": "ว่าวบินขึ้นไปสูง",
+          "readingTh": "เดอะ ไคท์ ฟลู อัพ ไฮ",
+          "image": "/images/s7-kite-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "examples": [
+            {
+              "text": "Up, up, up! The kite flew!",
+              "translationTh": "ขึ้น ขึ้น ขึ้น! ว่าวบินขึ้นไปแล้ว!"
+            }
+          ],
+          "requiredWords": [
+            "kite",
+            "fly/up/high"
+          ]
+        },
+        {
+          "id": "s7-kite-story",
+          "exercise": "story",
+          "target": "Sam got a new kite. His friend held it up high. Up, up, up! The kite flew!",
+          "translationTh": "แซมได้ว่าวตัวใหม่ เพื่อนของแซมชูว่าวขึ้นสูง ๆ ขึ้น ขึ้น ขึ้น! ว่าวบินขึ้นไปแล้ว!",
+          "readingTh": "แซม ก็อท อะ นิว ไคท์, ฮิซ เฟรนด์ เฮลด์ อิท อัพ ไฮ, อัพ, อัพ, อัพ! เดอะ ไคท์ ฟลู",
+          "image": "/images/s7-kite-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "Sam got a new kite.",
+              "translationTh": "แซมได้ว่าวตัวใหม่",
+              "readingTh": "แซม ก็อท อะ นิว ไคท์",
+              "image": "/images/s7-kite-story-1.webp"
+            },
+            {
+              "text": "His friend held it up high.",
+              "translationTh": "เพื่อนของแซมชูว่าวขึ้นสูง ๆ",
+              "readingTh": "ฮิซ เฟรนด์ เฮลด์ อิท อัพ ไฮ",
+              "image": "/images/s7-kite-story-2.webp"
+            },
+            {
+              "text": "Up, up, up! The kite flew!",
+              "translationTh": "ขึ้น ขึ้น ขึ้น! ว่าวบินขึ้นไปแล้ว!",
+              "readingTh": "อัพ, อัพ, อัพ! เดอะ ไคท์ ฟลู",
+              "image": "/images/s7-kite-story-3.webp"
+            }
+          ],
+          "requiredWords": [
+            "Sam",
+            "kite",
+            "friend/held/hold",
+            "fly/up"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
+    },
+    {
+      "id": "s7-u01-write-picnic",
+      "stageId": 7,
+      "category": "writing",
+      "type": "writing",
+      "title": "A picnic with Dad",
+      "titleTh": "ปิกนิกกับพ่อ",
+      "spelling": "exact",
+      "items": [
+        {
+          "id": "s7-picnic-dict",
+          "exercise": "dictation",
+          "target": "Dad made a picnic.",
+          "translationTh": "พ่อทำปิกนิก",
+          "readingTh": "แด็ด เมด อะ พิค-นิค",
+          "image": "/images/s7-picnic-dict.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-picnic-fill",
+          "exercise": "fill",
+          "target": "They ate on the blanket.",
+          "translationTh": "พวกเขากินบนผ้าห่ม",
+          "readingTh": "เดย์ เอท ออน เดอะ แบลง-เก็ท",
+          "image": "/images/s7-picnic-fill.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "blank": "blanket"
+        },
+        {
+          "id": "s7-picnic-order",
+          "exercise": "order",
+          "target": "They had warm tea.",
+          "translationTh": "พวกเขาดื่มชาอุ่น ๆ",
+          "readingTh": "เดย์ แฮด วอร์ม ที",
+          "image": "/images/s7-picnic-order.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": []
+        },
+        {
+          "id": "s7-picnic-describe",
+          "exercise": "describe",
+          "target": "He gave them sandwiches.",
+          "translationTh": "พ่อให้แซนด์วิช",
+          "readingTh": "ฮี เกฟว์ เดม แซนด์-วิช-ชิส",
+          "image": "/images/s7-picnic-describe.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "examples": [
+            {
+              "text": "They had sandwiches.",
+              "translationTh": "พวกเขากินแซนด์วิช"
+            }
+          ],
+          "requiredWords": [
+            "sandwiches",
+            "gave/give/ate/eat/had/have"
+          ]
+        },
+        {
+          "id": "s7-picnic-story",
+          "exercise": "story",
+          "target": "Dad made a picnic. He gave them sandwiches. They ate on the blanket. They had warm tea.",
+          "translationTh": "พ่อทำปิกนิก พ่อให้แซนด์วิช พวกเขากินบนผ้าห่ม พวกเขาดื่มชาอุ่น ๆ",
+          "readingTh": "แด็ด เมด อะ พิค-นิค, ฮี เกฟว์ เดม แซนด์-วิช-ชิส, เดย์ เอท ออน เดอะ แบลง-เก็ท, เดย์ แฮด วอร์ม ที",
+          "image": "/images/s7-picnic-story.webp",
+          "register": "neutral",
+          "frequency": "common",
+          "acceptAlso": [],
+          "lines": [
+            {
+              "text": "Dad made a picnic.",
+              "translationTh": "พ่อทำปิกนิก",
+              "readingTh": "แด็ด เมด อะ พิค-นิค",
+              "image": "/images/s7-picnic-story-1.webp"
+            },
+            {
+              "text": "He gave them sandwiches.",
+              "translationTh": "พ่อให้แซนด์วิช",
+              "readingTh": "ฮี เกฟว์ เดม แซนด์-วิช-ชิส",
+              "image": "/images/s7-picnic-story-2.webp"
+            },
+            {
+              "text": "They ate on the blanket.",
+              "translationTh": "พวกเขากินบนผ้าห่ม",
+              "readingTh": "เดย์ เอท ออน เดอะ แบลง-เก็ท",
+              "image": "/images/s7-picnic-story-3.webp"
+            },
+            {
+              "text": "They had warm tea.",
+              "translationTh": "พวกเขาดื่มชาอุ่น ๆ",
+              "readingTh": "เดย์ แฮด วอร์ม ที",
+              "image": "/images/s7-picnic-story-4.webp"
+            }
+          ],
+          "requiredWords": [
+            "Dad",
+            "picnic",
+            "sandwiches",
+            "blanket/tea"
+          ],
+          "minSentences": 3,
+          "maxSentences": 5
+        }
+      ]
     }
   ]
 }

@@ -18,6 +18,8 @@
 // Stage 6 อ่าน: phonics (เสียงใหม่ → ไล่เสียงแล้วอ่านทั้งคำ → Minimal Pair Duel → Read & Tap),
 //   sight words (ดู+ฟังคำ → อ่านประโยค → Minimal Pair Duel), อ่านนิทาน (อ่านทีละหน้า → Read & Tap)
 //   ขั้นอ่าน (blend / sightWord / readAloud) = ReadAloudStep — ทบทวนแบบ 'read' (อ่านออกเสียงอีกครั้ง)
+// Stage 7 เขียน: ขั้น 'write' ทีละข้อ (WriteStep เลือกแบบฝึกตาม item.exercise: ฟังแล้วพิมพ์ → เติมคำ → เรียงคำ
+//   → บรรยายภาพ → เรื่องสั้น) — ทบทวนแบบ 'write' (ทำแบบฝึกเดิมอีกครั้ง)
 // เพิ่มประเภทบทใหม่ = เพิ่มค่าตรงนี้ + component ของขั้นใหม่ใน LessonPlayer
 // =========================================================
 
@@ -80,7 +82,13 @@ export const LESSON_FLOWS = {
   // Stage 6 อ่านนิทาน: พ่อแม่อ่านให้ฟังก่อน (ฉบับภาษาเยอะกว่า มีคำใหม่ i+1 — ทางที่คำศัพท์ช่วงนี้โตแบบเด็กเจ้าของภาษา)
   //   → อ่านฉบับง่ายออกเสียงเองทีละหน้า (ไฮไลต์คำที่อ่านถึง) → อ่านแล้วแตะภาพ
   reading: { wholeSteps: ['listenStory'], itemSteps: ['readAloud'], game: 'read-tap', review: ['read'] },
+  // Stage 7 เขียน: แบบฝึกเรียงจากง่ายไปยากตามลำดับข้อในบท (ไม่มีมินิเกม — สเปกส่วนที่ 8.2)
+  writing: { itemSteps: ['write'], review: ['write'] },
 }
+
+// แบบฝึกเขียนอิสระ (เขียนเองทั้งประโยค/เรื่อง) = "ใช้เอง" ได้ XP มากกว่า
+const FREE_WRITING = new Set(['describe', 'story'])
+export const writeXp = (item) => (FREE_WRITING.has(item?.exercise) ? XP.writeOwn : XP.write)
 
 // ขั้นอ่านของแต่ละประเภทบท → แบบของ ReadAloudStep (ใช้ทั้งในบทและตอนทบทวน)
 export const READ_VARIANTS = { blend: 'blend', sightWord: 'sight', readAloud: 'page' }
@@ -122,7 +130,7 @@ export function buildLessonSteps(flow, items, { retry = false } = {}) {
   ]
 }
 
-// ขั้นทบทวนของข้อจากบทประเภทนี้ ('tap' / 'speak' / 'read')
+// ขั้นทบทวนของข้อจากบทประเภทนี้ ('tap' / 'speak' / 'read' / 'write')
 export const reviewKindsOf = (lesson) => LESSON_FLOWS[lesson?.type]?.review ?? []
 
 // XP ตามสเปก 8.1: ฟัง 5, พูดตาม 15, พูดเองไม่ดูข้อความ 25
@@ -132,7 +140,18 @@ export const reviewKindsOf = (lesson) => LESSON_FLOWS[lesson?.type]?.review ?? [
 //   ฟังทั้งบท (บทสนทนา/เรื่องเล่า/คำคล้องจอง) = ฟัง 5 ต่อบรรทัด/ภาพ
 //   เติมคำคล้องจองถูกตั้งแต่ครั้งแรก = ฟัง 5 / เล่นบทบาทผ่าน 1 บรรทัด = พูดตาม 15 (รอบซ่อนบท = 25) / เล่าเรื่องเองผ่าน 1 ภาพ = 25
 //   Stage 6: ฟังเสียงใหม่ = ฟัง 5 ต่อเสียง / อ่านออกเสียงผ่าน = พูดตาม 15 / Minimal Pair Duel, Read & Tap ถูกตั้งแต่ครั้งแรก = 5
-export const XP = { listen: 5, speak: 15, speakOwn: 25, gameCorrect: 5, swap: 5, raceSwap: 3, rhymeFill: 5 }
+//   Stage 7: ฟังแล้วพิมพ์ / เติมคำ / เรียงคำ ผ่าน = 15 (เท่าพูดตาม) / บรรยายภาพ / เรื่องสั้น ผ่าน = 25 (เท่าใช้เอง)
+export const XP = {
+  listen: 5,
+  speak: 15,
+  speakOwn: 25,
+  gameCorrect: 5,
+  swap: 5,
+  raceSwap: 3,
+  rhymeFill: 5,
+  write: 15,
+  writeOwn: 25,
+}
 export const GAME_ROUND_XP = {
   'listen-tap': XP.gameCorrect,
   'shadow-karaoke': XP.speak,

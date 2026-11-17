@@ -35,7 +35,8 @@
     "lineCount": "Lines: {{count}}",
     "pictureCount": "Pictures: {{count}}",
     "wordCount": "Words: {{count}}",
-    "pageCount": "Pages: {{count}}"
+    "pageCount": "Pages: {{count}}",
+    "exerciseCount": "Exercises: {{count}}"
   },
   "category": {
     "home-family": "Home & family",
@@ -65,7 +66,8 @@
     "town": "Around town",
     "phonics": "Phonics",
     "sight-words": "Sight words",
-    "reading": "Reading"
+    "reading": "Reading",
+    "writing": "Writing practice"
   },
   "register": {
     "casual": "Casual",
@@ -237,7 +239,7 @@
   },
   "review": {
     "title": "Today's review",
-    "subtitle": "{{count}} due today. Listen, tap, and say it.",
+    "subtitle": "{{count}} due today. Listen, say, read, or write it again.",
     "doneTitle": "Review done. Great job!",
     "doneCount": "You remembered {{passed}} of {{total}}.",
     "resultTitle": "How each one went",
@@ -451,6 +453,57 @@
     "sightNote": "This word breaks the rules. Learn it by sight.",
     "hint": "Try reading it yourself first",
     "listenFirst": "Listen to the story first, then read it yourself"
+  },
+  "write": {
+    "dictationInstruction": "Listen and type what you hear",
+    "fillInstruction": "Listen and fill in the missing word",
+    "orderInstruction": "Put the words in order",
+    "describeInstruction": "Write one sentence about the picture",
+    "storyInstruction": "Write a short story ({{min}}–{{max}} sentences) about the pictures",
+    "modeSound": "This lesson: spelling by sound is OK",
+    "modeExact": "This lesson: spell it exactly",
+    "inputLabel": "Type your answer in English",
+    "blankLabel": "Missing word",
+    "placeholderWord": "Type the word you hear",
+    "placeholderSentence": "Type the sentence you hear",
+    "placeholderEnglish": "Write in English",
+    "placeholderStory": "Write your story in English (one sentence per line is fine)",
+    "letters": "Letters: {{count}}",
+    "words": "Words: {{count}}",
+    "pictureAfter": "Type first, then you'll see the picture",
+    "check": "Check",
+    "hint": "Try it yourself first. Try as many times as you like.",
+    "freeHint": "Write it your way and use the key words. After checking, you'll see an example.",
+    "praise": ["Great spelling!", "That's right! Well done", "Awesome! Perfect"],
+    "closePass": "So close! That counts in this lesson. Here's the real spelling.",
+    "closeRetry": "So close! Check the spelling and try again.",
+    "encourage": ["That's OK. Look at the answer and try again.", "Almost! Try again.", "Take your time. Look at the example."],
+    "freePraise": ["Great writing!", "Nice! You wrote it yourself.", "Awesome! Compare it with the example."],
+    "youWrote": "You wrote:",
+    "answer": "Answer:",
+    "hearAnswer": "Hear this sentence",
+    "tip": {
+      "capital": "Start a sentence with a capital letter, like Sam or The.",
+      "period": "End a sentence with . or ! or ?",
+      "apostrophe": "Don't forget the ' in short forms, like don't or let's."
+    },
+    "thaiKeyboard": "You're typing in Thai. Switch your keyboard to English first.",
+    "tilesAnswer": "Your sentence",
+    "tilesBank": "Words",
+    "tilesEmpty": "Tap the words below (drag to move them)",
+    "tileAdd": "Add {{word}}",
+    "tileRemove": "Remove {{word}}",
+    "orderHint": "Use all the words, then tap “Check”. Tap a word in your sentence to take it out.",
+    "orderRetry": "The orange words are in the wrong place. Try moving them.",
+    "sentenceCount": "Sentences: {{count}} (at least {{min}})",
+    "needSentences": "Write a bit more: at least {{min}} sentences, 3+ words each (now {{count}})",
+    "needKeywords": "Try using the key words without a check mark",
+    "needSpelling": "This lesson needs exact spelling. Fix the words below first.",
+    "used": "Used",
+    "spellingHints": "Almost! Try spelling it like this:",
+    "examples": "Example sentences from a native speaker",
+    "exampleStory": "Example story from a native speaker",
+    "compareNote": "Compare it with yours. It doesn't have to be the same."
   },
   "welcome": {
     "title": "Welcome to English Town",

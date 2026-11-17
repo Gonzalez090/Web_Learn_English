@@ -12,6 +12,7 @@ import { LESSON_FLOWS } from '../utils/lessonSteps.js'
 import { prepareLessonItems } from '../utils/lessonItems.js'
 import { checkKeywords } from '../utils/storyCheck.js'
 import { graphemeUnits, spellUnits } from '../utils/reading.js'
+import { checkFreeWriting, SPELLING_MODES, splitBlank } from '../utils/spelling.js'
 import { itemTexts, wordsOf } from '../utils/vocabulary.js'
 import audioManifest from './audioManifest.json'
 import th from '../locales/th.json'
@@ -434,6 +435,89 @@ describe('Stage 6 อ่าน', () => {
   })
 })
 
+// ---------- Stage 7 เขียน (ขั้นที่ 9) ----------
+// หลักข้อ 11 "เขียนหลังอ่าน": ทุกคำที่ให้เขียน (คำตอบ / ตัวอย่าง / คำสำคัญ) ต้องเคยอ่านแล้วใน Stage 6
+describe('Stage 7 เขียน', () => {
+  const stage7 = lessons.filter((lesson) => lesson.stageId === 7)
+  const items7 = stage7.flatMap((lesson) => lesson.items)
+  const EXERCISES = ['dictation', 'fill', 'order', 'describe', 'story']
+  const readInStage6 = new Set(
+    lessons
+      .filter((lesson) => lesson.stageId === 6)
+      .flatMap((lesson) => lesson.items)
+      .flatMap((item) => wordsOf(item.target ?? item.word)),
+  )
+  const modelsOf = (item) => [item.target, ...(item.examples ?? []).map((example) => example.text)]
+
+  it('มีแบบฝึกครบ 5 แบบ แต่ละบทเรียงจากง่ายไปยาก + บอกระดับการตรวจตัวสะกด (บทแรกสะกดตามเสียงได้)', () => {
+    expect(stage7.length).toBeGreaterThanOrEqual(1)
+    expect(new Set(items7.map((item) => item.exercise))).toEqual(new Set(EXERCISES))
+    for (const lesson of stage7) {
+      expect(lesson.type, lesson.id).toBe('writing')
+      expect(SPELLING_MODES, lesson.id).toContain(lesson.spelling)
+      const order = lesson.items.map((item) => EXERCISES.indexOf(item.exercise))
+      expect(order.every((value, index) => value >= 0 && (index === 0 || value >= order[index - 1])), lesson.id).toBe(true)
+    }
+    expect(stage7[0].spelling).toBe('sound')
+  })
+
+  it('ทุกคำที่ให้เขียน (คำตอบ / ตัวอย่าง / บรรทัดเรื่อง / คำสำคัญ) เคยอ่านแล้วใน Stage 6', () => {
+    const problems = []
+    for (const item of items7) {
+      const texts = [
+        ...modelsOf(item),
+        item.blank,
+        ...(item.lines ?? []).map((line) => line.text),
+        ...(item.requiredWords ?? []).flatMap((entry) => entry.split('/')),
+      ].filter(Boolean)
+      const unread = texts.flatMap(wordsOf).filter((word) => !readInStage6.has(word))
+      if (unread.length) problems.push(`${item.id}: ${[...new Set(unread)].join(', ')}`)
+    }
+    expect(problems).toEqual([])
+  })
+
+  it('เติมคำ: คำที่ให้เติมอยู่ในประโยค / เรียงคำ: 3–8 คำ', () => {
+    for (const item of items7.filter((entry) => entry.exercise === 'fill')) {
+      expect(splitBlank(item.target, item.blank).found, item.id).toBe(true)
+    }
+    for (const item of items7.filter((entry) => entry.exercise === 'order')) {
+      const count = item.target.split(/\s+/).length
+      expect(count, item.id).toBeGreaterThanOrEqual(3)
+      expect(count, item.id).toBeLessThanOrEqual(8)
+    }
+  })
+
+  it('บรรยายภาพ: มีคำสำคัญ และประโยคตัวอย่างทุกแบบผ่านเกณฑ์ตรวจของตัวเอง', () => {
+    for (const item of items7.filter((entry) => entry.exercise === 'describe')) {
+      expect(item.requiredWords?.length, item.id).toBeGreaterThanOrEqual(1)
+      for (const model of modelsOf(item)) {
+        const check = checkFreeWriting(model, { requiredWords: item.requiredWords, models: modelsOf(item), requireAll: true })
+        expect(check.passed, `${item.id}: ${model}`).toBe(true)
+      }
+    }
+  })
+
+  it('เรื่องสั้น: 3–4 ภาพ (ภาพของตัวเองทุกภาพ) + เรื่องตัวอย่างผ่านเกณฑ์ตรวจของตัวเอง', () => {
+    for (const item of items7.filter((entry) => entry.exercise === 'story')) {
+      expect(item.lines.length, item.id).toBeGreaterThanOrEqual(3)
+      expect(item.lines.length, item.id).toBeLessThanOrEqual(4)
+      item.lines.forEach((line, index) => {
+        expect(line.image, item.id).toBe(`/images/${item.id}-${index + 1}.webp`)
+        expect(line.text && line.translationTh, item.id).toBeTruthy()
+      })
+      expect(item.target, item.id).toBe(item.lines.map((line) => line.text).join(' '))
+      expect(item.minSentences, item.id).toBeLessThanOrEqual(item.lines.length)
+      const check = checkFreeWriting(item.target, {
+        requiredWords: item.requiredWords,
+        models: item.lines.map((line) => line.text),
+        minSentences: item.minSentences,
+      })
+      expect(check.passed, item.id).toBe(true)
+      expect(check.keywords.found, item.id).toBe(item.requiredWords.length)
+    }
+  })
+})
+
 // ---------- โหมดฝึกเสียง (ส่วนที่ 10.1) ----------
 describe('โหมดฝึกเสียง (soundPractice)', () => {
   it('มีเสียงหลัก th, r/l, v/w (+ อื่น ๆ) id ไม่ซ้ำ', () => {
@@ -453,8 +537,14 @@ describe('โหมดฝึกเสียง (soundPractice)', () => {
 })
 
 describe('ภาพถ่ายประกอบ', () => {
-  // บทสนทนา/คำคล้องจองใช้ภาพเดียวกันทั้งบท → นับภาพละครั้ง
-  const imagePaths = [...new Set([...stages.map((stage) => stage.image), ...allItems.map(({ item }) => item.image)])]
+  // บทสนทนา/คำคล้องจองใช้ภาพเดียวกันทั้งบท → นับภาพละครั้ง / เรื่องสั้น Stage 7 มีภาพของแต่ละบรรทัดด้วย
+  const imagePaths = [
+    ...new Set([
+      ...stages.map((stage) => stage.image),
+      ...allItems.map(({ item }) => item.image),
+      ...allItems.flatMap(({ item }) => (item.lines ?? []).map((line) => line.image)),
+    ]),
+  ]
   // '/images/x.webp' → ไฟล์จริงใน public/images/x.webp
   const fileOf = (imagePath) => fileURLToPath(new URL(`../../public${imagePath}`, import.meta.url))
   const idOf = (imagePath) => imagePath.replace('/images/', '').replace('.webp', '')

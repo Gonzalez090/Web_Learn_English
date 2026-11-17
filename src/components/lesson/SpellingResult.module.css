@@ -1,0 +1,137 @@
+/* ผลตรวจงานเขียน (หน้าตาเดียวกับผลการพูด SpeechResult) */
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  text-align: left;
+  animation: pop 0.25s ease-out;
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.96);
+    opacity: 0;
+  }
+}
+
+.passed {
+  background: var(--color-success-soft);
+}
+
+.retry {
+  background: #fff4e5;
+}
+
+.headline {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9375rem;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.passed .headline {
+  color: var(--color-success);
+}
+
+.retry .headline {
+  color: #8a4b00;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* ป้าย | คำ (ตัดบรรทัดได้) */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 8px;
+  min-width: 0;
+}
+
+.label {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  font-weight: 800;
+}
+
+.words {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 6px;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.correct {
+  color: var(--color-success);
+}
+
+.sound,
+.close {
+  color: #b45309;
+  text-decoration: underline wavy;
+  text-underline-offset: 4px;
+}
+
+.missed {
+  color: var(--color-danger);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.extra {
+  color: var(--color-muted);
+  text-decoration: line-through;
+}
+
+/* คำตอบที่ถูก (ทวนกลับแบบงานเขียน) */
+.answer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+}
+
+.answer .row {
+  flex: 1;
+}
+
+.answerIcon {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  color: var(--color-primary);
+}
+
+/* คำในคำตอบที่ต้องแก้ */
+.fix {
+  color: var(--color-primary-strong);
+  font-weight: 900;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.tips {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+  padding-left: var(--space-4);
+  color: var(--color-muted);
+  font-size: 0.8125rem;
+  font-weight: 700;
+}

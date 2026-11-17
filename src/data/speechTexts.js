@@ -35,6 +35,9 @@ export function collectSpeechTexts({ lessons, soundPractice = [], phonicsSounds 
       add(item.pairWith) // คำคู่ในเกม Minimal Pair Duel (Stage 6)
       add(item.readAloud) // นิทาน Stage 6: ฉบับพ่อแม่อ่านให้ฟัง
       if (item.target && item.word) add(item.word) // sight word: พูดคำเดี่ยว ๆ ด้วย (ประโยคอยู่ใน target)
+      // Stage 7 เขียน: ประโยคตัวอย่างแบบอื่น (บรรยายภาพ) + เรื่องตัวอย่างทีละภาพ (เรื่องสั้น)
+      for (const example of item.examples ?? []) add(example.text)
+      for (const line of item.lines ?? []) add(line.text)
     }
   }
 

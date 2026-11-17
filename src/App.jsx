@@ -13,7 +13,6 @@ import PlacePage from './pages/PlacePage'
 import TalkPage from './pages/TalkPage'
 import PhrasesPage from './pages/PhrasesPage'
 import RealVsTextbookPage from './pages/RealVsTextbookPage'
-import ReviewPage from './pages/ReviewPage'
 import DailyPlanPage from './pages/DailyPlanPage'
 import GamesPage from './pages/GamesPage'
 import GamePage from './pages/GamePage'
@@ -31,6 +30,8 @@ const CreditsPage = lazy(() => import('./pages/CreditsPage'))
 // หน้าบทเรียน = ตัวเล่นบท + ทุกขั้น + มินิเกม (โค้ดก้อนใหญ่ที่สุด) → แยกไฟล์ โหลดเมื่อเข้าบทเรียน
 // เปิดเว็บครั้งแรกจึงเร็วขึ้น (ระหว่างโหลดแสดงตัวโหลดของ AppLayout เหมือนตอนรอเนื้อหาบท)
 const LessonPage = lazy(() => import('./pages/LessonPage'))
+// หน้าทบทวนใช้ขั้นต่าง ๆ ของบทเรียนชุดเดียวกัน (พูด / อ่าน / เขียน / เกมแตะภาพ) → แยกไฟล์ด้วย ใช้โค้ดร่วมกับหน้าบทเรียน
+const ReviewPage = lazy(() => import('./pages/ReviewPage'))
 
 // หน้าทดสอบ /dev โหลดเฉพาะตอน npm run dev (ตอน build จริงโค้ดส่วนนี้ถูกตัดทิ้ง)
 const DevPage = import.meta.env.DEV ? lazy(() => import('./pages/DevPage')) : null

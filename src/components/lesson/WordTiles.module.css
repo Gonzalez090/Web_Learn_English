@@ -1,0 +1,124 @@
+/* ป้ายคำของแบบฝึกเรียงคำ */
+.board {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: 100%;
+}
+
+/* แถวบน: ประโยคของผู้เรียน */
+.answer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 64px;
+  padding: var(--space-2);
+  border: 2px dashed var(--color-primary);
+  border-radius: var(--radius-md);
+  background: var(--color-primary-soft);
+  transition: background-color 0.15s ease;
+}
+
+.answerActive {
+  background: #d3e1ff;
+}
+
+.empty {
+  width: 100%;
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* แถวล่าง: คำที่ให้มา */
+.bank {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 48px;
+}
+
+.tile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: var(--space-1) var(--space-3);
+  border: 2px solid var(--color-border);
+  border-bottom-width: 4px;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font: inherit;
+  font-size: 1.0625rem;
+  font-weight: 800;
+  cursor: grab;
+  /* ลากด้วยนิ้วได้โดยจอไม่เลื่อนตาม */
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.tile:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.tile:disabled {
+  cursor: default;
+}
+
+/* ช่องของคำที่ใช้แล้ว (แถวล่างไม่ขยับ) */
+.placeholder {
+  border-style: dashed;
+  border-bottom-width: 2px;
+  background: transparent;
+  color: transparent;
+  cursor: default;
+}
+
+/* ป้ายที่กำลังลาก (ตัวจริงจางลง / ตัวลอยตามนิ้ว) */
+.lifted {
+  opacity: 0.35;
+}
+
+.ghost {
+  position: fixed;
+  z-index: 50;
+  border-color: var(--color-primary);
+  box-shadow: 0 8px 20px rgb(0 0 0 / 0.18);
+  pointer-events: none;
+  cursor: grabbing;
+}
+
+/* ขีดบอกตำแหน่งที่จะวาง */
+.caret {
+  align-self: stretch;
+  width: 4px;
+  min-height: 40px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+}
+
+/* หลังตรวจ: อยู่ถูกที่ = เขียว / ยังไม่ถูกที่ = ส้ม */
+.correct {
+  border-color: var(--color-success);
+  background: var(--color-success-soft);
+  color: var(--color-success);
+}
+
+.retry {
+  border-color: #f0b46a;
+  background: #fff4e5;
+  color: #8a4b00;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .answer {
+    transition: none;
+  }
+}

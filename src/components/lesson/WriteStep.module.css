@@ -1,0 +1,209 @@
+/* ชิ้นส่วนที่แบบฝึกเขียน (Stage 7) ใช้ร่วมกัน */
+
+/* ป้ายระดับการตรวจของบท */
+.modeNote {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 12px;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-soft);
+  color: var(--color-muted);
+  font-size: 0.8125rem;
+  font-weight: 800;
+}
+
+.modeIcon {
+  width: 16px;
+  height: 16px;
+}
+
+/* ภาพ + ความหมายที่เฉลยหลังลองเขียน */
+.reveal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+  animation: show 0.25s ease-out;
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+}
+
+.meaning {
+  color: var(--color-muted);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* ประโยคที่มีช่องเติมคำ */
+.sentence {
+  width: 100%;
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 2.2;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+/* ตัวนับประโยค (เรื่องสั้น) — ครบแล้วเป็นสีเขียว */
+.counterDone {
+  color: var(--color-success);
+  font-size: 0.875rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+/* สิ่งที่ยังต้องเติม (งานเขียนอิสระ) */
+.reasons {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+  padding-left: var(--space-4);
+  color: #8a4b00;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+/* ป้ายคำสำคัญ */
+.keywordRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.keywordLabel {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  font-weight: 800;
+}
+
+.keywords {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.keyword,
+.keywordFound {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px 12px;
+  border-radius: var(--radius-full);
+  font-weight: 800;
+}
+
+.keyword {
+  border: 1px dashed var(--color-primary);
+  background: var(--color-primary-soft);
+  color: var(--color-primary-strong);
+}
+
+.keywordFound {
+  border: 1px solid var(--color-success);
+  background: var(--color-surface);
+  color: var(--color-success);
+}
+
+.keywordIcon {
+  width: 16px;
+  height: 16px;
+}
+
+/* คำแนะนำตัวสะกด: kiet → kite */
+.hintBox {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 8px;
+}
+
+.spellingHints {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  list-style: none;
+}
+
+.suggestion {
+  color: var(--color-primary-strong);
+}
+
+/* ประโยค/เรื่องตัวอย่างของเจ้าของภาษา */
+.models {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+}
+
+.modelsTitle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-text);
+  font-size: 0.875rem;
+  font-weight: 800;
+}
+
+.modelList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.modelLine {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.modelText {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.modelMeaning {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.compareNote {
+  color: var(--color-muted);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    animation: none;
+  }
+}

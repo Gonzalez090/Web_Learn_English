@@ -13,9 +13,10 @@ import {
 const DAY = '2026-11-13'
 
 describe('ข้อมูลภารกิจรายวัน (game.json)', () => {
-  it('มี 15 แบบ id ไม่ซ้ำ และข้อมูลครบ', () => {
-    expect(dailyMissionPool).toHaveLength(15)
-    expect(new Set(dailyMissionPool.map((m) => m.id)).size).toBe(15)
+  // สเปก 15 แบบ + "เขียนผ่าน 5 ข้อ" (ขั้นที่ 9 — ผู้ใช้อนุมัติ 2026-11-17)
+  it('มี 16 แบบ id ไม่ซ้ำ และข้อมูลครบ', () => {
+    expect(dailyMissionPool).toHaveLength(16)
+    expect(new Set(dailyMissionPool.map((m) => m.id)).size).toBe(16)
     for (const mission of dailyMissionPool) {
       expect(mission.title && mission.titleTh).toBeTruthy()
       expect(Number.isInteger(mission.target) && mission.target > 0).toBe(true)

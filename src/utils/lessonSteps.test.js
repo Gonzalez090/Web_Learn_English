@@ -8,6 +8,7 @@ import {
   LESSON_FLOWS,
   readVariantOf,
   reviewKindsOf,
+  writeXp,
   XP,
 } from './lessonSteps'
 import { lessonList, miniGames } from '../data'
@@ -92,10 +93,19 @@ describe('buildLessonSteps', () => {
 })
 
 describe('LESSON_FLOWS', () => {
-  it('ทุกบทใน Stage 1–6 มีตัวเล่นแล้ว', () => {
-    for (const lesson of lessonList.filter((entry) => entry.stageId <= 6)) {
+  it('ทุกบทใน Stage 1–7 มีตัวเล่นแล้ว', () => {
+    for (const lesson of lessonList) {
       expect(isPlayable(lesson), lesson.id).toBe(true)
     }
+  })
+
+  it('Stage 7: แบบฝึกเขียนทีละข้อ (ไม่มีเกม) — ทบทวนด้วยการเขียนอีกครั้ง / เขียนอิสระได้ XP เท่า "ใช้เอง"', () => {
+    expect(describeSteps(buildLessonSteps(LESSON_FLOWS.writing, items))).toEqual(['write:a', 'write:b'])
+    expect(reviewKindsOf({ type: 'writing' })).toEqual(['write'])
+    expect(writeXp({ exercise: 'dictation' })).toBe(XP.speak)
+    expect(writeXp({ exercise: 'order' })).toBe(XP.write)
+    expect(writeXp({ exercise: 'describe' })).toBe(XP.speakOwn)
+    expect(writeXp({ exercise: 'story' })).toBe(XP.writeOwn)
   })
 
   it('เกมในบทเป็นมินิเกมที่มีอยู่จริง และมี XP ต่อรอบ', () => {

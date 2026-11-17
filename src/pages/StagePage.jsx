@@ -32,6 +32,7 @@ const COUNT_KEYS = {
   phonics: 'common.wordCount',
   sightWords: 'common.wordCount',
   reading: 'common.pageCount',
+  writing: 'common.exerciseCount',
 }
 
 export default function StagePage() {
