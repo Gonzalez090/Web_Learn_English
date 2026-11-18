@@ -313,7 +313,9 @@
     "gameScore": "เลือกถูก {{n}} จาก {{total}} รอบ",
     "gameXp": "+{{xp}} XP",
     "playAgain": "เล่นอีกครั้ง",
-    "backToList": "กลับไปดูวลี"
+    "backToList": "กลับไปดูวลี",
+    "groups": "หมวดย่อย",
+    "nextGroup": "หมวดถัดไป: {{name}}"
   },
   "review": {
     "title": "ทบทวนวันนี้",

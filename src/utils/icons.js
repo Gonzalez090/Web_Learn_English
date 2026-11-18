@@ -5,6 +5,7 @@
 // =========================================================
 import {
   ArrowLeft,
+  ArrowRight,
   AudioLines,
   BookOpen,
   BookOpenCheck,
@@ -69,6 +70,7 @@ export const ICONS = {
 
   // อื่น ๆ
   back: ArrowLeft,
+  next: ArrowRight,
   soon: Construction,
 }
 

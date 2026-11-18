@@ -1398,5 +1398,10 @@
   "npc-jake": "young man smiling portrait casual",
   "npc-mia": "young woman barista smiling portrait",
   "npc-sam": "friendly young man portrait outdoors",
-  "npc-dana": "hotel receptionist woman smiling"
+  "npc-dana": "hotel receptionist woman smiling",
+  "phrases-apologize": "man apologizing to woman",
+  "phrases-shopping": "woman shopping clothes store",
+  "phrases-directions": "tourists looking at city map",
+  "phrases-work": "coworkers talking office",
+  "phrases-phone": "woman talking on phone smiling"
 }

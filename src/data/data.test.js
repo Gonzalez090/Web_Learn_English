@@ -542,16 +542,38 @@ describe('คลังวลี (phrases.json)', () => {
   const { situations, phrases, textbookVsReal } = phrasesData
   const situationIds = situations.map((situation) => situation.id)
 
-  it('6 สถานการณ์ขึ้นไป สถานการณ์ละ ≥ 8 วลี / id ไม่ซ้ำ / ภาพ = /images/phrases-<id>.webp', () => {
-    expect(situations.length).toBeGreaterThanOrEqual(6)
+  // ขั้นที่ 27: 11 สถานการณ์ตามส่วนที่ 5 รวม ~1,000 วลี แต่ละสถานการณ์แบ่งหมวดย่อย (หน้าเว็บแสดงทีละหมวด)
+  it('11 สถานการณ์ขึ้นไป รวม ≥ 1,000 วลี / id ไม่ซ้ำ / ภาพ = /images/phrases-<id>.webp', () => {
+    expect(situations.length).toBeGreaterThanOrEqual(11)
+    expect(phrases.length).toBeGreaterThanOrEqual(1000)
     expect(new Set(situationIds).size).toBe(situationIds.length)
     for (const situation of situations) {
       expect(situation.name && situation.nameTh, situation.id).toBeTruthy()
       expect(situation.image).toBe(`/images/phrases-${situation.id}.webp`)
-      expect(phrases.filter((phrase) => phrase.situation === situation.id).length, situation.id).toBeGreaterThanOrEqual(8)
+      expect(phrases.filter((phrase) => phrase.situation === situation.id).length, situation.id).toBeGreaterThanOrEqual(80)
     }
     const ids = phrases.map((phrase) => phrase.id)
     expect(new Set(ids).size).toBe(ids.length)
+    // วลีเดียวกันห้ามซ้ำทั้งคลัง (เสียง/การ์ดซ้ำ)
+    const texts = phrases.map((phrase) => normalize(phrase.text))
+    expect(new Set(texts).size).toBe(texts.length)
+  })
+
+  it('ทุกสถานการณ์มีหมวดย่อย ≥ 5 หมวด หมวดละ ≥ 6 วลี / ทุกวลีอยู่ในหมวดของสถานการณ์ตัวเอง', () => {
+    for (const situation of situations) {
+      expect(situation.groups.length, situation.id).toBeGreaterThanOrEqual(5)
+      const groupIds = situation.groups.map((group) => group.id)
+      expect(new Set(groupIds).size, situation.id).toBe(groupIds.length)
+      for (const group of situation.groups) {
+        expect(group.name && group.nameTh, `${situation.id}/${group.id}`).toBeTruthy()
+        const count = phrases.filter((phrase) => phrase.situation === situation.id && phrase.group === group.id).length
+        expect(count, `${situation.id}/${group.id}`).toBeGreaterThanOrEqual(6)
+      }
+    }
+    for (const phrase of phrases) {
+      const situation = situations.find((entry) => entry.id === phrase.situation)
+      expect(situation.groups.map((group) => group.id), phrase.id).toContain(phrase.group)
+    }
   })
 
   it.each(phrases.map((phrase) => [phrase.id, phrase]))('%s มีข้อมูลครบ + ตัวอย่าง 2 ประโยคที่มีวลีนั้น', (_id, phrase) => {

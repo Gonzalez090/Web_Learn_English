@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react'
 import basicSsl from '@vitejs/plugin-basic-ssl'
 import { defineConfig } from 'vite'
 import { INDEX_MODULE_ID, STAGE_MODULE_PREFIX, indexModuleCode, stageModuleCode } from './src/data/lessonChunks.js'
+import { PHRASES_INDEX_ID, SITUATION_MODULE_PREFIX, phrasesIndexCode, situationModuleCode } from './src/data/phraseChunks.js'
 
 // =========================================================
 // แบ่งข้อมูลบทเรียนเป็นก้อน (โหลดเฉพาะที่ต้องใช้) — รายละเอียดดู src/data/lessonChunks.js
@@ -11,28 +12,53 @@ import { INDEX_MODULE_ID, STAGE_MODULE_PREFIX, indexModuleCode, stageModuleCode 
 //   import('virtual:lessons/stage-N')            → เนื้อหาเต็มของ Stage N (ไฟล์ JS แยก โหลดตอนเข้าบท)
 // แก้ lessons.json → Vite โหลดโมดูลเหล่านี้ใหม่เอง (addWatchFile)
 // =========================================================
-const LESSONS_FILE = fileURLToPath(new URL('./src/data/lessons.json', import.meta.url))
+// คลังวลี (ขั้นที่ 27) ใช้วิธีเดียวกัน — ดู src/data/phraseChunks.js
+//   import ... from 'virtual:phrases'                  → สารบัญสถานการณ์ + คู่ในตำรา vs ใช้จริง
+//   import('virtual:phrases/situation-<id>')           → วลีของสถานการณ์นั้น (โหลดตอนเปิดหน้าสถานการณ์)
+// =========================================================
+const dataFile = (name) => fileURLToPath(new URL(`./src/data/${name}`, import.meta.url))
 
-function lessonChunks() {
-  const read = () => JSON.parse(fs.readFileSync(LESSONS_FILE, 'utf8'))
+// plugin แบ่งไฟล์ JSON เป็นโมดูลเสมือน: indexId = สารบัญ, prefix + key = ก้อนย่อย
+function jsonChunks({ name, file, indexId, prefix, indexCode, chunkCode }) {
+  const read = () => JSON.parse(fs.readFileSync(file, 'utf8'))
   return {
-    name: 'lesson-chunks',
+    name,
     resolveId(id) {
-      return id === INDEX_MODULE_ID || id.startsWith(STAGE_MODULE_PREFIX) ? `\0${id}` : null
+      return id === indexId || id.startsWith(prefix) ? `\0${id}` : null
     },
     load(id) {
-      if (id === `\0${INDEX_MODULE_ID}`) {
-        this.addWatchFile(LESSONS_FILE)
-        return indexModuleCode(read())
+      if (id === `\0${indexId}`) {
+        this.addWatchFile(file)
+        return indexCode(read())
       }
-      if (id.startsWith(`\0${STAGE_MODULE_PREFIX}`)) {
-        this.addWatchFile(LESSONS_FILE)
-        return stageModuleCode(read(), Number(id.slice(STAGE_MODULE_PREFIX.length + 1)))
+      if (id.startsWith(`\0${prefix}`)) {
+        this.addWatchFile(file)
+        return chunkCode(read(), id.slice(prefix.length + 1))
       }
       return null
     },
   }
 }
+
+const lessonChunks = () =>
+  jsonChunks({
+    name: 'lesson-chunks',
+    file: dataFile('lessons.json'),
+    indexId: INDEX_MODULE_ID,
+    prefix: STAGE_MODULE_PREFIX,
+    indexCode: indexModuleCode,
+    chunkCode: (data, key) => stageModuleCode(data, Number(key)),
+  })
+
+const phraseChunks = () =>
+  jsonChunks({
+    name: 'phrase-chunks',
+    file: dataFile('phrases.json'),
+    indexId: PHRASES_INDEX_ID,
+    prefix: SITUATION_MODULE_PREFIX,
+    indexCode: phrasesIndexCode,
+    chunkCode: situationModuleCode,
+  })
 
 // =========================================================
 // ความปลอดภัยของเว็บจริง (ใส่ตอน build เท่านั้น)
@@ -91,7 +117,7 @@ const PREVIEW_SECURITY_HEADERS = {
 // - npm run build     → เว็บจริงใน dist/ (ไม่มี source map → คนเปิด F12 ไม่เห็นโค้ดต้นฉบับ/คอมเมนต์)
 // =========================================================
 export default defineConfig(({ mode }) => ({
-  plugins: [react(), lessonChunks(), securityMetaTags(), mode === 'phone' && basicSsl()].filter(Boolean),
+  plugins: [react(), lessonChunks(), phraseChunks(), securityMetaTags(), mode === 'phone' && basicSsl()].filter(Boolean),
   build: {
     sourcemap: false,
   },

@@ -4,14 +4,15 @@
 //   lessons.json   → stages + บทเรียน — แบ่งก้อนโดย plugin ใน vite.config.js (ดู lessonChunks.js):
 //                    สารบัญ (lessonList: บทแบบย่อ ไม่มี items) อยู่ในไฟล์หลัก
 //                    เนื้อหาเต็มราย Stage โหลดเมื่อต้องใช้ → loadStageLessons() / hooks/useLessons.js
-//   phrases.json   → phrases, textbookVsReal          (ขั้นที่ 10)
+//   phrases.json   → สถานการณ์ + textbookVsReal (ขั้นที่ 10) — แบ่งก้อนรายสถานการณ์ (ดู phraseChunks.js):
+//                    วลีเต็มโหลดเมื่อเปิดหน้าสถานการณ์ → loadSituationPhrases() / hooks/usePhrases.js (ขั้นที่ 27)
 //   scenarios.json → scenarios                        (ขั้นที่ 11–12)
 //   world.json     → cityMap, npcs                    (ขั้นที่ 14–15)
 //   game.json      → dailyMissionPool, miniGames, milestones, soundPractice
 //   imageCredits.json → นำเข้าตรงในหน้าเครดิต (โหลดเฉพาะตอนเปิดหน้านั้น)
 // =========================================================
 import { stages as stageData, lessonList as lessonListData, stageLoaders } from 'virtual:lessons'
-import phrasesData from './phrases.json'
+import { situations as situationData, textbookVsReal as textbookPairs, situationLoaders } from 'virtual:phrases'
 import scenariosData from './scenarios.json'
 import worldData from './world.json'
 import gameData from './game.json'
@@ -19,8 +20,9 @@ import gameData from './game.json'
 export const stages = stageData
 // บทเรียนทุกบทแบบย่อ { id, stageId, category, type, title, titleTh, itemCount, image } — ⚠️ ไม่มี items
 export const lessonList = lessonListData
-export const { phrases, textbookVsReal } = phrasesData
-export const phraseSituations = phrasesData.situations
+// คลังวลี: สถานการณ์แบบย่อ { id, name, nameTh, image, groups[], phraseCount } — ⚠️ วลีเต็มโหลดแยก (loadSituationPhrases)
+export const phraseSituations = situationData
+export const textbookVsReal = textbookPairs
 export const { scenarios } = scenariosData
 export const { cityMap, npcs } = worldData
 export const { dailyMissionPool, miniGames, milestones, soundPractice } = gameData
@@ -43,9 +45,8 @@ export const npcOfPlace = (placeId) => npcs.find((npc) => npc.placeId === placeI
 // หามินิเกมจาก id
 export const getMiniGame = (gameId) => miniGames.find((game) => game.id === gameId)
 
-// คลังวลี: สถานการณ์จาก id / วลี + คู่ "คำในตำรา vs ใช้จริง" ของสถานการณ์นั้น
+// คลังวลี: สถานการณ์จาก id / คู่ "คำในตำรา vs ใช้จริง" ของสถานการณ์นั้น
 export const getPhraseSituation = (situationId) => phraseSituations.find((situation) => situation.id === situationId)
-export const phrasesOf = (situationId) => phrases.filter((phrase) => phrase.situation === situationId)
 export const textbookPairsOf = (situationId) => textbookVsReal.filter((pair) => pair.situation === situationId)
 
 // ---------- โหลดเนื้อหาเต็ม (มี items) ----------
@@ -87,6 +88,25 @@ export function loadLessonsOfStages(stageIds) {
     groupCache.set(key, promise)
   }
   return groupCache.get(key)
+}
+
+const situationCache = new Map()
+
+// วลีเต็มของสถานการณ์หนึ่ง (ไม่มีสถานการณ์นี้ → [])
+export function loadSituationPhrases(situationId) {
+  if (!situationCache.has(situationId)) {
+    const loader = situationLoaders[situationId]
+    const promise = loader
+      ? loader()
+          .then((module) => module.default)
+          .catch((error) => {
+            situationCache.delete(situationId)
+            throw error
+          })
+      : Promise.resolve([])
+    situationCache.set(situationId, promise)
+  }
+  return situationCache.get(situationId)
 }
 
 // ทุกบท (ใช้ในหน้า /dev)

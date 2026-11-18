@@ -4,7 +4,7 @@
 //   + หน้า "คำในตำรา vs คำที่เจ้าของภาษาใช้จริง" (+ เกม Real or Textbook?)
 // =========================================================
 import { useTranslation } from 'react-i18next'
-import { phraseSituations, phrasesOf, textbookVsReal } from '../data'
+import { phraseSituations, textbookVsReal } from '../data'
 import { useLocalized } from '../hooks/useLocalized'
 import { ICONS } from '../utils/icons'
 import Page from '../components/Page'
@@ -25,7 +25,7 @@ export default function PhrasesPage() {
               to={`/phrases/${situation.id}`}
               image={situation.image}
               title={loc(situation, 'name')}
-              description={t('phrases.count', { count: phrasesOf(situation.id).length })}
+              description={t('phrases.count', { count: situation.phraseCount })}
             />
           ))}
         </TileList>

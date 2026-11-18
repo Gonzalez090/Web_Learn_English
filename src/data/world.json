@@ -10,7 +10,8 @@
       "unlockAfterStage": null,
       "phraseGroups": [
         "greetings",
-        "help"
+        "help",
+        "apologize"
       ]
     },
     {
@@ -22,8 +23,8 @@
       "image": "/images/place-store.webp",
       "unlockAfterStage": 1,
       "phraseGroups": [
-        "decline",
-        "help"
+        "shopping",
+        "decline"
       ]
     },
     {
@@ -35,7 +36,8 @@
       "image": "/images/place-cafe.webp",
       "unlockAfterStage": 2,
       "phraseGroups": [
-        "food"
+        "food",
+        "invite"
       ]
     },
     {
@@ -74,9 +76,9 @@
       "image": "/images/place-office.webp",
       "unlockAfterStage": 5,
       "phraseGroups": [
-        "help",
-        "decline",
-        "feelings"
+        "work",
+        "phone",
+        "help"
       ]
     },
     {
@@ -88,8 +90,9 @@
       "image": "/images/place-airport.webp",
       "unlockAfterStage": 6,
       "phraseGroups": [
+        "directions",
         "help",
-        "greetings"
+        "phone"
       ]
     }
   ],

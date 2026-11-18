@@ -34,12 +34,26 @@
     "photographerUrl": "https://pixabay.com/users/Michelle-Maria-165491/",
     "pageUrl": "https://pixabay.com/photos/young-man-people-person-outdoors-3366016/"
   },
+  "phrases-apologize": {
+    "provider": "pixabay",
+    "sourceId": 824194,
+    "photographer": "MasterTux",
+    "photographerUrl": "https://pixabay.com/users/MasterTux-470906/",
+    "pageUrl": "https://pixabay.com/photos/i-beg-your-pardon-glasses-rose-3d-824194/"
+  },
   "phrases-decline": {
     "provider": "pixabay",
     "sourceId": 5842706,
     "photographer": "ottawagraphics",
     "photographerUrl": "https://pixabay.com/users/ottawagraphics-3815775/",
     "pageUrl": "https://pixabay.com/photos/teenager-hoodie-hand-no-gesture-5842706/"
+  },
+  "phrases-directions": {
+    "provider": "pixabay",
+    "sourceId": 4695579,
+    "photographer": "pasja1000",
+    "photographerUrl": "https://pixabay.com/users/pasja1000-6355831/",
+    "pageUrl": "https://pixabay.com/photos/city-plan-helsinki-male-especially-4695579/"
   },
   "phrases-feelings": {
     "provider": "pixabay",
@@ -75,6 +89,27 @@
     "photographer": "5688709",
     "photographerUrl": "https://pixabay.com/users/5688709-5688709/",
     "pageUrl": "https://pixabay.com/photos/merry-christmas-man-woman-dog-pet-2425121/"
+  },
+  "phrases-phone": {
+    "provider": "pixabay",
+    "sourceId": 5190644,
+    "photographer": "VinzentWeinbeer",
+    "photographerUrl": "https://pixabay.com/users/VinzentWeinbeer-5342962/",
+    "pageUrl": "https://pixabay.com/photos/make-a-phone-call-mobile-phone-5190644/"
+  },
+  "phrases-shopping": {
+    "provider": "pixabay",
+    "sourceId": 2351761,
+    "photographer": "Alterfines",
+    "photographerUrl": "https://pixabay.com/users/Alterfines-1302079/",
+    "pageUrl": "https://pixabay.com/photos/t-shirt-fashion-drawing-2351761/"
+  },
+  "phrases-work": {
+    "provider": "pixabay",
+    "sourceId": 1702648,
+    "photographer": "jamesoladujoye",
+    "photographerUrl": "https://pixabay.com/users/jamesoladujoye-3409212/",
+    "pageUrl": "https://pixabay.com/photos/listen-informal-meeting-chatting-1702648/"
   },
   "place-airport": {
     "provider": "pixabay",

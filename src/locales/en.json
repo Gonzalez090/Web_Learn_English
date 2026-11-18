@@ -313,7 +313,9 @@
     "gameScore": "{{n}} of {{total}} right",
     "gameXp": "+{{xp}} XP",
     "playAgain": "Play again",
-    "backToList": "Back to the phrases"
+    "backToList": "Back to the phrases",
+    "groups": "Topics",
+    "nextGroup": "Next topic: {{name}}"
   },
   "review": {
     "title": "Today's review",
