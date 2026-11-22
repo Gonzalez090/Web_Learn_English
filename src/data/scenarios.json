@@ -1888,6 +1888,1636 @@
           ]
         }
       ]
+    },
+    {
+      "id": "restaurant",
+      "name": "Dinner at a restaurant",
+      "nameTh": "กินข้าวที่ร้านอาหาร",
+      "goalTh": "สั่งเครื่องดื่ม ถามเมนูแนะนำ สั่งอาหาร แล้วขอเช็กบิล",
+      "image": "/images/talk-restaurant.webp",
+      "level": 1,
+      "placeId": "restaurant",
+      "npcId": "oliver",
+      "partner": {
+        "name": "Waiter",
+        "nameTh": "พนักงานเสิร์ฟ"
+      },
+      "slots": {
+        "drink": [
+          {
+            "en": "an iced tea",
+            "th": "ชาเย็น",
+            "key": "iced tea"
+          },
+          {
+            "en": "a lemonade",
+            "th": "น้ำมะนาว",
+            "key": "lemonade"
+          },
+          {
+            "en": "a sparkling water",
+            "th": "น้ำโซดา",
+            "key": "sparkling"
+          }
+        ],
+        "dish": [
+          {
+            "en": "the chicken curry",
+            "th": "แกงกะหรี่ไก่",
+            "key": "curry"
+          },
+          {
+            "en": "the mushroom pasta",
+            "th": "พาสต้าเห็ด",
+            "key": "pasta"
+          },
+          {
+            "en": "the fish tacos",
+            "th": "ทาโก้ปลา",
+            "key": "tacos"
+          }
+        ]
+      },
+      "turns": [
+        {
+          "id": "restaurant-1",
+          "speaker": "npc",
+          "variants": [
+            {
+              "text": "Hi there, I'm Oliver. Can I get you something to drink?",
+              "th": "สวัสดีครับ ผมโอลิเวอร์ รับเครื่องดื่มอะไรดีครับ"
+            },
+            {
+              "text": "Good evening! I'll be looking after you tonight. Anything to drink?",
+              "th": "สวัสดีตอนเย็นครับ คืนนี้ผมดูแลโต๊ะนี้ รับเครื่องดื่มไหมครับ"
+            },
+            {
+              "text": "Hello! Welcome in. What can I get you to drink?",
+              "th": "สวัสดีครับ ยินดีต้อนรับ รับเครื่องดื่มอะไรดีครับ"
+            }
+          ]
+        },
+        {
+          "id": "restaurant-2",
+          "speaker": "user",
+          "hintTh": "สั่ง{drink}",
+          "userOptions": [
+            {
+              "text": "Can I get {drink}, please?",
+              "register": "neutral"
+            },
+            {
+              "text": "I'll have {drink}.",
+              "register": "casual"
+            },
+            {
+              "text": "Could I have {drink}, please?",
+              "register": "neutral"
+            }
+          ],
+          "requiredWords": [
+            "{drink}"
+          ]
+        },
+        {
+          "id": "restaurant-3",
+          "speaker": "npc",
+          "variants": [
+            {
+              "text": "Sure thing. Are you ready to order, or do you need a minute?",
+              "th": "ได้เลยครับ พร้อมสั่งอาหารหรือยัง หรือขอดูเมนูอีกสักครู่ครับ"
+            },
+            {
+              "text": "Lovely. Do you know what you want, or should I come back?",
+              "th": "ได้ครับ รู้หรือยังว่าจะทานอะไร หรือให้ผมกลับมาใหม่ครับ"
+            },
+            {
+              "text": "Coming right up. Have you had a look at the menu?",
+              "th": "ได้เลยครับ ดูเมนูแล้วหรือยังครับ"
+            }
+          ]
+        },
+        {
+          "id": "restaurant-4",
+          "speaker": "user",
+          "hintTh": "ถามว่ามีอะไรแนะนำบ้าง",
+          "userOptions": [
+            {
+              "text": "What do you recommend?",
+              "register": "neutral"
+            },
+            {
+              "text": "What's good here?",
+              "register": "casual"
+            },
+            {
+              "text": "Do you have any recommendations?",
+              "register": "neutral"
+            }
+          ],
+          "requiredWords": [
+            "recommend/good/recommendations"
+          ]
+        },
+        {
+          "id": "restaurant-5",
+          "speaker": "npc",
+          "variants": [
+            {
+              "text": "{dish} is really popular. It's my favourite, actually.",
+              "th": "{dish}ขายดีมากครับ จริง ๆ เป็นเมนูโปรดของผมเลย"
+            },
+            {
+              "text": "Honestly, you can't go wrong with {dish}.",
+              "th": "บอกตรง ๆ สั่ง{dish}ไม่มีผิดหวังครับ"
+            },
+            {
+              "text": "Most people love {dish}. It's brilliant.",
+              "th": "คนส่วนใหญ่ชอบ{dish}ครับ อร่อยมาก"
+            }
+          ]
+        },
+        {
+          "id": "restaurant-6",
+          "speaker": "user",
+          "hintTh": "บอกว่าน่าสนใจ แล้วสั่ง{dish}",
+          "userOptions": [
+            {
+              "text": "Sounds great. I'll have {dish}.",
+              "register": "casual"
+            },
+            {
+              "text": "Okay, I'll go with {dish}.",
+              "register": "casual"
+            },
+            {
+              "text": "I'd like {dish}, please.",
+              "register": "neutral"
+            }
+          ],
+          "requiredWords": [
+            "{dish}"
+          ]
+        },
+        {
+          "id": "restaurant-7",
+          "speaker": "npc",
+          "variants": [
+            {
+              "text": "Great choice! Anything else for you?",
+              "th": "เลือกได้ดีครับ รับอะไรเพิ่มไหมครับ"
+            },
+            {
+              "text": "Perfect. Can I get you anything else?",
+              "th": "เยี่ยมครับ รับอะไรอีกไหมครับ"
+            },
+            {
+              "text": "Good call. Will that be all?",
+              "th": "เลือกถูกแล้วครับ แค่นี้นะครับ"
+            }
+          ]
+        },
+        {
+          "id": "restaurant-8",
+          "speaker": "user",
+          "hintTh": "บอกว่าแค่นี้ก่อน ขอบคุณ",
+          "userOptions": [
+            {
+              "text": "That's it for now, thanks.",
+              "register": "casual"
+            },
+            {
+              "text": "No, I'm good, thanks.",
+              "register": "casual"
+            },
+            {
+              "text": "That's all, thank you.",
+              "register": "neutral"
+            }
+          ],
+          "requiredWords": [
+            "now/good/all"
+          ]
+        },
+        {
+          "id": "restaurant-9",
+          "speaker": "npc",
+          "variants": [
+            {
+              "text": "How is everything? Can I get you anything else?",
+              "th": "อาหารเป็นยังไงบ้างครับ รับอะไรเพิ่มไหมครับ"
+            },
+            {
+              "text": "Is everything okay with your meal?",
+              "th": "อาหารโอเคไหมครับ"
+            },
+            {
+              "text": "How was everything tonight?",
+              "th": "คืนนี้อาหารเป็นยังไงบ้างครับ"
+            }
+          ]
+        },
+        {
+          "id": "restaurant-10",
+          "speaker": "user",
+          "hintTh": "บอกว่าอร่อยมาก แล้วขอเช็กบิล",
+          "userOptions": [
+            {
+              "text": "Everything was great. Can we get the check, please?",
+              "register": "neutral"
+            },
+            {
+              "text": "It was delicious! Could I get the bill?",
+              "register": "neutral"
+            },
+            {
+              "text": "So good, thanks. Check, please!",
+              "register": "casual"
+            }
+          ],
+          "requiredWords": [
+            "check/bill"
+          ]
+        },
+        {
+          "id": "restaurant-11",
+          "speaker": "npc",
+          "variants": [
+            {
+              "text": "Of course. I'll be right back with that.",
+              "th": "ได้เลยครับ เดี๋ยวผมนำมาให้ครับ"
+            },
+            {
+              "text": "No problem. Thanks so much for coming in!",
+              "th": "ได้ครับ ขอบคุณมากที่มาทานนะครับ"
+            },
+            {
+              "text": "Certainly. I hope to see you again soon!",
+              "th": "ได้เลยครับ หวังว่าจะได้เจออีกเร็ว ๆ นี้นะครับ"
+            }
+          ]
+        }
+      ],
+      "twists": [
+        {
+          "id": "restaurant-sold-out",
+          "title": "Sold out!",
+          "titleTh": "เมนูหมด",
+          "afterTurn": "restaurant-6",
+          "turns": [
+            {
+              "id": "restaurant-t1-1",
+              "speaker": "npc",
+              "variants": [
+                {
+                  "text": "Oh, I'm so sorry. We've just run out of {dish}. Can I get you something else?",
+                  "th": "อ้าว ขอโทษจริง ๆ ครับ {dish}เพิ่งหมดไป รับอย่างอื่นแทนไหมครับ"
+                },
+                {
+                  "text": "Ah, bad news, I'm afraid. The kitchen is out of {dish}.",
+                  "th": "แย่หน่อยครับ ในครัว{dish}หมดแล้ว"
+                },
+                {
+                  "text": "So sorry! {dish} just sold out tonight.",
+                  "th": "ขอโทษครับ! {dish}คืนนี้ขายหมดแล้ว"
+                }
+              ]
+            },
+            {
+              "id": "restaurant-t1-2",
+              "speaker": "user",
+              "hintTh": "บอกว่าไม่เป็นไร เอาเบอร์เกอร์แทน",
+              "userOptions": [
+                {
+                  "text": "Oh, no worries. I'll have the burger, then.",
+                  "register": "casual"
+                },
+                {
+                  "text": "That's okay. Can I get the burger instead?",
+                  "register": "neutral"
+                },
+                {
+                  "text": "Oh, okay. The burger sounds good.",
+                  "register": "casual"
+                }
+              ],
+              "requiredWords": [
+                "burger"
+              ]
+            },
+            {
+              "id": "restaurant-t1-3",
+              "speaker": "npc",
+              "variants": [
+                {
+                  "text": "Lovely. One burger, coming right up!",
+                  "th": "ได้ครับ เบอร์เกอร์หนึ่งที่ กำลังมาครับ!"
+                },
+                {
+                  "text": "Good choice. The burger is really good, too.",
+                  "th": "เลือกได้ดีครับ เบอร์เกอร์ก็อร่อยมาก"
+                },
+                {
+                  "text": "Perfect. Thanks for being so understanding.",
+                  "th": "เยี่ยมครับ ขอบคุณที่เข้าใจนะครับ"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "restaurant-wrong-order",
+          "title": "Wrong order",
+          "titleTh": "ได้อาหารผิด",
+          "afterTurn": "restaurant-8",
+          "turns": [
+            {
+              "id": "restaurant-t2-1",
+              "speaker": "npc",
+              "variants": [
+                {
+                  "text": "Here you go! One cheeseburger with fries.",
+                  "th": "นี่ครับ ชีสเบอร์เกอร์กับเฟรนช์ฟรายส์หนึ่งที่"
+                },
+                {
+                  "text": "Here we are. The cheeseburger for you!",
+                  "th": "มาแล้วครับ ชีสเบอร์เกอร์ของคุณ!"
+                },
+                {
+                  "text": "Enjoy! One cheeseburger, extra cheese.",
+                  "th": "ทานให้อร่อยครับ ชีสเบอร์เกอร์เพิ่มชีสหนึ่งที่"
+                }
+              ]
+            },
+            {
+              "id": "restaurant-t2-2",
+              "speaker": "user",
+              "hintTh": "บอกอย่างสุภาพว่าไม่ใช่ของเรา เราสั่ง{dish}",
+              "userOptions": [
+                {
+                  "text": "Sorry, I think that's not mine. I ordered {dish}.",
+                  "register": "neutral"
+                },
+                {
+                  "text": "Oh, sorry, I actually ordered {dish}.",
+                  "register": "casual"
+                },
+                {
+                  "text": "Excuse me, I think there's a mistake. I had {dish}.",
+                  "register": "neutral"
+                }
+              ],
+              "requiredWords": [
+                "{dish}"
+              ]
+            },
+            {
+              "id": "restaurant-t2-3",
+              "speaker": "npc",
+              "variants": [
+                {
+                  "text": "Oh, my mistake! I'll fix that right away.",
+                  "th": "อ้าว ผมผิดเองครับ เดี๋ยวแก้ให้เดี๋ยวนี้เลย"
+                },
+                {
+                  "text": "So sorry about that! Your food is on its way.",
+                  "th": "ขอโทษจริง ๆ ครับ อาหารของคุณกำลังมาครับ"
+                },
+                {
+                  "text": "Oh dear, I do apologise. Back in a minute!",
+                  "th": "ตายจริง ขอโทษด้วยครับ เดี๋ยวกลับมานะครับ"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "coworker",
+      "name": "Chatting with a coworker",
+      "nameTh": "คุยกับเพื่อนร่วมงาน",
+      "goalTh": "ทักทายเรื่องวันหยุด ช่วยงานเพื่อน แล้วนัดกินข้าวกลางวัน",
+      "image": "/images/talk-coworker.webp",
+      "level": 1,
+      "placeId": "office",
+      "npcId": "nina",
+      "partner": {
+        "name": "Coworker",
+        "nameTh": "เพื่อนร่วมงาน"
+      },
+      "slots": {
+        "task": [
+          {
+            "en": "this spreadsheet",
+            "th": "สเปรดชีตนี้",
+            "key": "spreadsheet"
+          },
+          {
+            "en": "the printer",
+            "th": "เครื่องพิมพ์",
+            "key": "printer"
+          },
+          {
+            "en": "these slides",
+            "th": "สไลด์พวกนี้",
+            "key": "slides"
+          }
+        ],
+        "time": [
+          {
+            "en": "twelve",
+            "th": "เที่ยง"
+          },
+          {
+            "en": "twelve thirty",
+            "th": "เที่ยงครึ่ง"
+          },
+          {
+            "en": "one",
+            "th": "บ่ายโมง"
+          }
+        ]
+      },
+      "turns": [
+        {
+          "id": "coworker-1",
+          "speaker": "npc",
+          "variants": [
+            {
+              "text": "Morning! How was your weekend?",
+              "th": "อรุณสวัสดิ์! วันหยุดเป็นยังไงบ้าง"
+            },
+            {
+              "text": "Hey, good morning! Did you have a nice weekend?",
+              "th": "เฮ้ อรุณสวัสดิ์! วันหยุดสนุกไหม"
+            },
+            {
+              "text": "Hi! How was the weekend?",
+              "th": "หวัดดี! วันหยุดเป็นไงบ้าง"
+            }
+          ]
+        },
+        {
+          "id": "coworker-2",
+          "speaker": "user",
+          "hintTh": "ตอบว่าดี แล้วถามกลับ",
+          "userOptions": [
+            {
+              "text": "Pretty good, thanks. How about you?",
+              "register": "casual"
+            },
+            {
+              "text": "It was nice and relaxing. You?",
+              "register": "casual"
+            },
+            {
+              "text": "Not bad! How was yours?",
+              "register": "casual"
+            }
+          ],
+          "requiredWords": [
+            "you/yours"
+          ]
+        },
+        {
+          "id": "coworker-3",
+          "speaker": "npc",
+          "variants": [
+            {
+              "text": "Good, thanks! Hey, are you busy right now?",
+              "th": "ดีจ้ะ ขอบคุณ เอ้อ ตอนนี้ยุ่งอยู่ไหม"
+            },
+            {
+              "text": "Pretty chill. Um, do you have a sec?",
+              "th": "ชิล ๆ เอ่อ มีเวลาสักแป๊บไหม"
+            },
+            {
+              "text": "Great, thanks. Are you free for a minute?",
+              "th": "ดีมาก ขอบคุณ ว่างสักนาทีไหม"
+            }
+          ]
+        },
+        {
+          "id": "coworker-4",
+          "speaker": "user",
+          "hintTh": "บอกว่าไม่ยุ่ง แล้วถามว่ามีอะไร",
+          "userOptions": [
+            {
+              "text": "Not really. What's up?",
+              "register": "casual"
+            },
+            {
+              "text": "I've got a few minutes. What do you need?",
+              "register": "neutral"
+            },
+            {
+              "text": "Sure, what's up?",
+              "register": "casual"
+            }
+          ],
+          "requiredWords": [
+            "up/need"
+          ]
+        },
+        {
+          "id": "coworker-5",
+          "speaker": "npc",
+          "variants": [
+            {
+              "text": "Could you help me with {task}? I can't figure it out.",
+              "th": "ช่วยเรื่อง{task}หน่อยได้ไหม ฉันคิดไม่ออกเลย"
+            },
+            {
+              "text": "I'm stuck on {task}. Can you take a look?",
+              "th": "ฉันติดเรื่อง{task}อยู่ ช่วยดูหน่อยได้ไหม"
+            },
+            {
+              "text": "Do you know how {task} works? I need some help.",
+              "th": "รู้ไหมว่า{task}ใช้ยังไง ฉันต้องการความช่วยเหลือหน่อย"
+            }
+          ]
+        },
+        {
+          "id": "coworker-6",
+          "speaker": "user",
+          "hintTh": "ตอบว่าได้ เดี๋ยวช่วยดูให้",
+          "userOptions": [
+            {
+              "text": "Sure, no problem. Let me take a look.",
+              "register": "casual"
+            },
+            {
+              "text": "Of course. What's the problem?",
+              "register": "neutral"
+            },
+            {
+              "text": "Yeah, I can help with that.",
+              "register": "casual"
+            }
+          ],
+          "requiredWords": [
+            "sure/course/help/look"
+          ]
+        },
+        {
+          "id": "coworker-7",
+          "speaker": "npc",
+          "variants": [
+            {
+              "text": "Thanks, you're a lifesaver! Do you wanna grab lunch at {time}?",
+              "th": "ขอบคุณนะ ช่วยชีวิตไว้เลย! ไปกินข้าวกลางวันตอน{time}กันไหม"
+            },
+            {
+              "text": "Oh, that fixed it! Thanks! Lunch at {time}? My treat.",
+              "th": "อ้อ ได้แล้ว! ขอบคุณนะ! กินข้าวตอน{time}ไหม ฉันเลี้ยงเอง"
+            },
+            {
+              "text": "Perfect, thank you so much! Are you free for lunch at {time}?",
+              "th": "เยี่ยม ขอบคุณมาก! {time}ว่างไปกินข้าวไหม"
+            }
+          ]
+        },
+        {
+          "id": "coworker-8",
+          "speaker": "user",
+          "hintTh": "ตอบตกลงไปกินข้าวด้วย",
+          "userOptions": [
+            {
+              "text": "Sounds good! Where do you wanna go?",
+              "register": "casual"
+            },
+            {
+              "text": "Sure, I'm in.",
+              "register": "casual"
+            },
+            {
+              "text": "{time} works for me.",
+              "register": "neutral"
+            }
+          ],
+          "requiredWords": [
+            "sounds good/in/works/sure"
+          ]
+        },
+        {
+          "id": "coworker-9",
+          "speaker": "npc",
+          "variants": [
+            {
+              "text": "How about the sushi place across the street?",
+              "th": "ร้านซูชิฝั่งตรงข้ามดีไหม"
+            },
+            {
+              "text": "There's a new taco place around the corner. Wanna try it?",
+              "th": "มีร้านทาโก้เปิดใหม่ตรงหัวมุม ลองไหม"
+            },
+            {
+              "text": "Let's try that little noodle place downstairs.",
+              "th": "ลองร้านก๋วยเตี๋ยวเล็ก ๆ ข้างล่างกันเถอะ"
+            }
+          ]
+        },
+        {
+          "id": "coworker-10",
+          "speaker": "user",
+          "hintTh": "ตกลง แล้วบอกว่าเจอกันตอน{time}",
+          "userOptions": [
+            {
+              "text": "Perfect. See you at {time}!",
+              "register": "casual"
+            },
+            {
+              "text": "Great, see you then!",
+              "register": "casual"
+            },
+            {
+              "text": "Sounds great. I'll meet you at the elevator.",
+              "register": "neutral"
+            }
+          ],
+          "requiredWords": [
+            "see you/meet"
+          ]
+        }
+      ],
+      "twists": [
+        {
+          "id": "coworker-boss",
+          "title": "The boss is calling",
+          "titleTh": "หัวหน้าเรียก",
+          "afterTurn": "coworker-4",
+          "turns": [
+            {
+              "id": "coworker-t1-1",
+              "speaker": "npc",
+              "variants": [
+                {
+                  "text": "Oh, wait. My boss wants to see me now. Can we do this later?",
+                  "th": "อ้าว เดี๋ยวนะ หัวหน้าเรียกพบตอนนี้ ไว้ทีหลังได้ไหม"
+                },
+                {
+                  "text": "Ugh, sorry, I just got a message. I have to see my boss first.",
+                  "th": "โอ๊ย ขอโทษ เพิ่งได้ข้อความ ต้องไปพบหัวหน้าก่อน"
+                },
+                {
+                  "text": "Oops, my boss is waving at me. Give me ten minutes?",
+                  "th": "อุ๊ย หัวหน้ากวักมือเรียก ขอสิบนาทีได้ไหม"
+                }
+              ]
+            },
+            {
+              "id": "coworker-t1-2",
+              "speaker": "user",
+              "hintTh": "บอกว่าไม่เป็นไร ว่างเมื่อไหร่ค่อยมาหา",
+              "userOptions": [
+                {
+                  "text": "Sure, no problem. Just let me know.",
+                  "register": "casual"
+                },
+                {
+                  "text": "Of course. Come find me later.",
+                  "register": "neutral"
+                },
+                {
+                  "text": "No worries. I'll be at my desk.",
+                  "register": "casual"
+                }
+              ],
+              "requiredWords": [
+                "sure/course/worries/problem"
+              ]
+            },
+            {
+              "id": "coworker-t1-3",
+              "speaker": "npc",
+              "variants": [
+                {
+                  "text": "Okay, I'm back! Sorry about that.",
+                  "th": "โอเค กลับมาแล้ว! ขอโทษทีนะ"
+                },
+                {
+                  "text": "Thanks for waiting! That was quick.",
+                  "th": "ขอบคุณที่รอนะ! เร็วกว่าที่คิด"
+                },
+                {
+                  "text": "Phew, I'm back. Where were we?",
+                  "th": "เฮ้อ กลับมาแล้ว เมื่อกี้ถึงไหนแล้วนะ"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "coworker-no-lunch",
+          "title": "Lunch plans change",
+          "titleTh": "นัดกินข้าวต้องเลื่อน",
+          "afterTurn": "coworker-8",
+          "skip": [
+            "coworker-9",
+            "coworker-10"
+          ],
+          "turns": [
+            {
+              "id": "coworker-t2-1",
+              "speaker": "npc",
+              "variants": [
+                {
+                  "text": "Oh no, I just remembered I have a call at {time}. Can we do tomorrow instead?",
+                  "th": "แย่แล้ว เพิ่งนึกได้ว่ามีโทรประชุมตอน{time} เลื่อนเป็นพรุ่งนี้ได้ไหม"
+                },
+                {
+                  "text": "Wait, my meeting got moved to {time}. Rain check? Tomorrow?",
+                  "th": "เดี๋ยวนะ ประชุมถูกเลื่อนมาตอน{time} ขอเลื่อนเป็นพรุ่งนี้ได้ไหม"
+                },
+                {
+                  "text": "Ugh, I totally forgot about my {time} meeting. How about tomorrow?",
+                  "th": "โอ๊ย ลืมไปเลยว่ามีประชุมตอน{time} พรุ่งนี้แทนดีไหม"
+                }
+              ]
+            },
+            {
+              "id": "coworker-t2-2",
+              "speaker": "user",
+              "hintTh": "บอกว่าไม่เป็นไร พรุ่งนี้ได้",
+              "userOptions": [
+                {
+                  "text": "No worries. Tomorrow works for me.",
+                  "register": "casual"
+                },
+                {
+                  "text": "Sure, let's do tomorrow.",
+                  "register": "casual"
+                },
+                {
+                  "text": "That's fine. Maybe tomorrow, then.",
+                  "register": "neutral"
+                }
+              ],
+              "requiredWords": [
+                "tomorrow"
+              ]
+            },
+            {
+              "id": "coworker-t2-3",
+              "speaker": "npc",
+              "variants": [
+                {
+                  "text": "Great, it's a plan! Thanks again for your help.",
+                  "th": "เยี่ยม ตกลงตามนั้น! ขอบคุณอีกครั้งที่ช่วยนะ"
+                },
+                {
+                  "text": "You're the best. Tomorrow, then!",
+                  "th": "ใจดีที่สุดเลย งั้นพรุ่งนี้นะ!"
+                },
+                {
+                  "text": "Awesome. Lunch is on me tomorrow!",
+                  "th": "เยี่ยม พรุ่งนี้ฉันเลี้ยงเอง!"
+                }
+              ]
+            },
+            {
+              "id": "coworker-t2-4",
+              "speaker": "user",
+              "hintTh": "บอกว่ายินดี แล้วลาไปทำงาน",
+              "userOptions": [
+                {
+                  "text": "Anytime! See you later.",
+                  "register": "casual"
+                },
+                {
+                  "text": "No problem. See you tomorrow!",
+                  "register": "casual"
+                },
+                {
+                  "text": "Happy to help. Talk later!",
+                  "register": "neutral"
+                }
+              ],
+              "requiredWords": [
+                "see you/talk/anytime"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tea-with-rose",
+      "name": "Tea at Rose's house",
+      "nameTh": "จิบชาที่บ้านป้าโรส",
+      "goalTh": "รับชา ชมขนม คุยเรื่องครอบครัวของป้าโรส แล้วบอกว่าชีวิตที่นี่เป็นยังไง",
+      "image": "/images/talk-tea-with-rose.webp",
+      "level": 1,
+      "placeId": "home",
+      "npcId": "rose",
+      "minFriendship": 2,
+      "partner": {
+        "name": "Neighbor",
+        "nameTh": "เพื่อนบ้าน"
+      },
+      "slots": {
+        "snack": [
+          {
+            "en": "some lemon cake",
+            "th": "เค้กเลมอน",
+            "key": "cake"
+          },
+          {
+            "en": "some cookies",
+            "th": "คุกกี้",
+            "key": "cookies"
+          },
+          {
+            "en": "some scones",
+            "th": "สโคน",
+            "key": "scones"
+          }
+        ],
+        "family": [
+          {
+            "en": "my granddaughter",
+            "th": "หลานสาว",
+            "key": "granddaughter"
+          },
+          {
+            "en": "my grandson",
+            "th": "หลานชาย",
+            "key": "grandson"
+          }
+        ]
+      },
+      "turns": [
+        {
+          "id": "tea-with-rose-1",
+          "speaker": "npc",
+          "variants": [
+            {
+              "text": "Oh, hello, dear! Come in, come in. Would you like a cup of tea?",
+              "th": "อ้าว สวัสดีจ้ะ เข้ามาสิ ๆ รับชาสักถ้วยไหมจ๊ะ"
+            },
+            {
+              "text": "Hello, love! I'm so glad you came. Shall I put the kettle on?",
+              "th": "สวัสดีจ้ะ ดีใจจังที่มา ต้มน้ำชงชาเลยไหมจ๊ะ"
+            },
+            {
+              "text": "Come in, dear. How about a nice cup of tea?",
+              "th": "เข้ามาสิจ๊ะ ดื่มชาสักถ้วยดีไหม"
+            }
+          ]
+        },
+        {
+          "id": "tea-with-rose-2",
+          "speaker": "user",
+          "hintTh": "ตอบรับอย่างสุภาพ",
+          "userOptions": [
+            {
+              "text": "Yes, please. That would be lovely.",
+              "register": "neutral"
+            },
+            {
+              "text": "I'd love some, thank you.",
+              "register": "neutral"
+            },
+            {
+              "text": "Sure, thanks so much.",
+              "register": "casual"
+            }
+          ],
+          "requiredWords": [
+            "please/love/thanks"
+          ]
+        },
+        {
+          "id": "tea-with-rose-3",
+          "speaker": "npc",
+          "variants": [
+            {
+              "text": "How do you take your tea? Milk and sugar?",
+              "th": "ชอบชาแบบไหนจ๊ะ ใส่นมกับน้ำตาลไหม"
+            },
+            {
+              "text": "Do you take milk or sugar, dear?",
+              "th": "ใส่นมหรือน้ำตาลไหมจ๊ะ"
+            },
+            {
+              "text": "Milk? Sugar? Tell me how you like it.",
+              "th": "นมไหม น้ำตาลไหม บอกมาเลยว่าชอบแบบไหน"
+            }
+          ]
+        },
+        {
+          "id": "tea-with-rose-4",
+          "speaker": "user",
+          "hintTh": "บอกว่าชอบชาแบบไหน",
+          "userOptions": [
+            {
+              "text": "Just milk, please.",
+              "register": "neutral"
+            },
+            {
+              "text": "A little milk, no sugar.",
+              "register": "casual"
+            },
+            {
+              "text": "Both, please.",
+              "register": "neutral"
+            }
+          ],
+          "requiredWords": [
+            "milk/sugar/both"
+          ]
+        },
+        {
+          "id": "tea-with-rose-5",
+          "speaker": "npc",
+          "variants": [
+            {
+              "text": "Here you are. And I made {snack} this morning. Help yourself!",
+              "th": "นี่จ้ะ แล้วป้าทำ{snack}ไว้เมื่อเช้า หยิบได้เลยนะ"
+            },
+            {
+              "text": "There we go. Do try {snack}, I baked it today.",
+              "th": "เรียบร้อย ลองชิม{snack}ดูนะ ป้าอบเองวันนี้"
+            },
+            {
+              "text": "Your tea, dear. And have {snack}, there's plenty.",
+              "th": "ชาของหนูจ้ะ แล้วทาน{snack}ด้วยนะ มีเยอะเลย"
+            }
+          ]
+        },
+        {
+          "id": "tea-with-rose-6",
+          "speaker": "user",
+          "hintTh": "ขอบคุณ แล้วชมว่าอร่อย",
+          "userOptions": [
+            {
+              "text": "Thank you! Wow, this is delicious.",
+              "register": "neutral"
+            },
+            {
+              "text": "Mmm, this is so good!",
+              "register": "casual"
+            },
+            {
+              "text": "Thanks! Did you make this yourself? It's amazing.",
+              "register": "neutral"
+            }
+          ],
+          "requiredWords": [
+            "delicious/good/amazing"
+          ]
+        },
+        {
+          "id": "tea-with-rose-7",
+          "speaker": "npc",
+          "variants": [
+            {
+              "text": "Oh, look. This is a photo of {family}. They just started university.",
+              "th": "นี่ ดูสิ รูปของ{family}ป้า เพิ่งเข้ามหาวิทยาลัยนะ"
+            },
+            {
+              "text": "Let me show you something. That's {family}. They're at university now.",
+              "th": "ป้าจะให้ดูอะไร นั่น{family}ป้า ตอนนี้เรียนมหาวิทยาลัยแล้ว"
+            },
+            {
+              "text": "This is {family}. They're studying in London now, you know.",
+              "th": "นี่{family}ป้า ตอนนี้ไปเรียนที่ลอนดอนนะ"
+            }
+          ]
+        },
+        {
+          "id": "tea-with-rose-8",
+          "speaker": "user",
+          "hintTh": "ชมว่าดีจัง แล้วถามต่อ",
+          "userOptions": [
+            {
+              "text": "Aw, that's so nice! What are they studying?",
+              "register": "casual"
+            },
+            {
+              "text": "Wow, you must be so proud.",
+              "register": "neutral"
+            },
+            {
+              "text": "That's great! Do you miss them?",
+              "register": "casual"
+            }
+          ],
+          "requiredWords": [
+            "nice/proud/great"
+          ]
+        },
+        {
+          "id": "tea-with-rose-9",
+          "speaker": "npc",
+          "variants": [
+            {
+              "text": "Medicine! I'm ever so proud. Anyway, how are you settling in?",
+              "th": "แพทย์จ้ะ! ป้าภูมิใจมาก ว่าแต่หนูอยู่ที่นี่เป็นยังไงบ้าง"
+            },
+            {
+              "text": "Oh, I miss them terribly. But tell me, are you settling in alright?",
+              "th": "ป้าคิดถึงมากเลย แต่บอกป้าหน่อยสิ อยู่ที่นี่ปรับตัวได้ไหม"
+            },
+            {
+              "text": "Very much. But enough about me! How are you finding the neighbourhood?",
+              "th": "มากเลยจ้ะ แต่พอเรื่องป้าแล้ว! หนูว่าแถวนี้เป็นยังไงบ้าง"
+            }
+          ]
+        },
+        {
+          "id": "tea-with-rose-10",
+          "speaker": "user",
+          "hintTh": "บอกว่าชีวิตที่นี่ดีมาก",
+          "userOptions": [
+            {
+              "text": "Really well, thanks. Everyone's so friendly here.",
+              "register": "neutral"
+            },
+            {
+              "text": "Pretty good! I love this neighborhood.",
+              "register": "casual"
+            },
+            {
+              "text": "It's going great, thanks to you.",
+              "register": "casual"
+            }
+          ],
+          "requiredWords": [
+            "well/good/great/love"
+          ]
+        },
+        {
+          "id": "tea-with-rose-11",
+          "speaker": "npc",
+          "variants": [
+            {
+              "text": "Well, you're welcome here anytime, dear. Do come again!",
+              "th": "ยินดีต้อนรับเสมอนะจ๊ะ มาอีกนะ!"
+            },
+            {
+              "text": "That makes me so happy. My door is always open, love.",
+              "th": "ป้าดีใจมาก ประตูบ้านป้าเปิดรอเสมอนะจ๊ะ"
+            },
+            {
+              "text": "Oh, how lovely. Pop by for tea whenever you like!",
+              "th": "ดีจังเลย แวะมาจิบชาได้ทุกเมื่อนะ!"
+            }
+          ]
+        },
+        {
+          "id": "tea-with-rose-12",
+          "speaker": "user",
+          "hintTh": "ขอบคุณที่ชวน แล้วบอกว่าจะมาอีก",
+          "userOptions": [
+            {
+              "text": "Thank you so much, Rose. I will!",
+              "register": "neutral"
+            },
+            {
+              "text": "Thanks for the tea. See you soon!",
+              "register": "casual"
+            },
+            {
+              "text": "I'd love to. Thanks for having me.",
+              "register": "neutral"
+            }
+          ],
+          "requiredWords": [
+            "thank/thanks"
+          ]
+        }
+      ],
+      "twists": [
+        {
+          "id": "tea-with-rose-no-milk",
+          "title": "No milk!",
+          "titleTh": "นมหมด",
+          "afterTurn": "tea-with-rose-2",
+          "skip": [
+            "tea-with-rose-3",
+            "tea-with-rose-4"
+          ],
+          "turns": [
+            {
+              "id": "tea-with-rose-t1-1",
+              "speaker": "npc",
+              "variants": [
+                {
+                  "text": "Oh dear, I've run out of milk! Do you mind your tea black?",
+                  "th": "ตายแล้ว นมหมด! ดื่มชาไม่ใส่นมได้ไหมจ๊ะ"
+                },
+                {
+                  "text": "Oh, silly me. There's no milk left. Is black tea alright?",
+                  "th": "ป้านี่แย่จริง นมหมดแล้ว ชาดำได้ไหมจ๊ะ"
+                },
+                {
+                  "text": "Goodness, the milk's all gone. Will you have it without?",
+                  "th": "ตายจริง นมหมดเกลี้ยง ไม่ใส่นมได้ไหมจ๊ะ"
+                }
+              ]
+            },
+            {
+              "id": "tea-with-rose-t1-2",
+              "speaker": "user",
+              "hintTh": "บอกว่าไม่เป็นไรเลย",
+              "userOptions": [
+                {
+                  "text": "No problem at all.",
+                  "register": "neutral"
+                },
+                {
+                  "text": "That's totally fine.",
+                  "register": "casual"
+                },
+                {
+                  "text": "Black is fine, thanks.",
+                  "register": "casual"
+                }
+              ],
+              "requiredWords": [
+                "problem/fine"
+              ]
+            },
+            {
+              "id": "tea-with-rose-t1-3",
+              "speaker": "npc",
+              "variants": [
+                {
+                  "text": "You're very kind, dear.",
+                  "th": "ใจดีจังเลยจ้ะ"
+                },
+                {
+                  "text": "Oh, good. You're so easygoing!",
+                  "th": "ดีจัง หนูนี่สบาย ๆ จริง ๆ"
+                },
+                {
+                  "text": "Thank goodness. Here you are, then.",
+                  "th": "ค่อยยังชั่ว งั้นนี่จ้ะ"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "tea-with-rose-spill",
+          "title": "Spilled tea",
+          "titleTh": "ชาหก",
+          "afterTurn": "tea-with-rose-6",
+          "turns": [
+            {
+              "id": "tea-with-rose-t2-1",
+              "speaker": "npc",
+              "variants": [
+                {
+                  "text": "Oh! I'm so clumsy. I've just spilled my tea all over the table.",
+                  "th": "อุ๊ย! ป้านี่ซุ่มซ่ามจริง ทำชาหกเต็มโต๊ะเลย"
+                },
+                {
+                  "text": "Oops! There goes my tea. What a mess!",
+                  "th": "อุ๊ย! ชาหกหมดเลย เลอะไปหมด!"
+                },
+                {
+                  "text": "Oh no, my cup! The tea's everywhere.",
+                  "th": "แย่แล้ว ถ้วยป้า! ชาเลอะไปทั่วเลย"
+                }
+              ]
+            },
+            {
+              "id": "tea-with-rose-t2-2",
+              "speaker": "user",
+              "hintTh": "ถามว่าเป็นอะไรไหม แล้วอาสาช่วยเช็ด",
+              "userOptions": [
+                {
+                  "text": "Oh no! Let me help you clean it up.",
+                  "register": "casual"
+                },
+                {
+                  "text": "Don't worry, I'll grab a towel.",
+                  "register": "casual"
+                },
+                {
+                  "text": "Are you okay? Let me help.",
+                  "register": "neutral"
+                }
+              ],
+              "requiredWords": [
+                "help/towel"
+              ]
+            },
+            {
+              "id": "tea-with-rose-t2-3",
+              "speaker": "npc",
+              "variants": [
+                {
+                  "text": "Thank you, dear. You're an angel.",
+                  "th": "ขอบใจจ้ะ หนูนี่เหมือนนางฟ้าเลย"
+                },
+                {
+                  "text": "I'm fine, love. Thank you for helping.",
+                  "th": "ป้าไม่เป็นไรจ้ะ ขอบใจที่ช่วยนะ"
+                },
+                {
+                  "text": "What would I do without you?",
+                  "th": "ถ้าไม่มีหนูป้าจะทำยังไงเนี่ย"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sam-move",
+      "name": "Helping Sam move",
+      "nameTh": "ช่วยแซมย้ายบ้าน",
+      "goalTh": "ยินดีที่แซมย้ายบ้าน รับปากไปช่วย นัดเวลา แล้วถามว่าต้องเอาอะไรไป",
+      "image": "/images/talk-sam-move.webp",
+      "level": 1,
+      "placeId": "park",
+      "npcId": "sam",
+      "minFriendship": 2,
+      "partner": {
+        "name": "Friend",
+        "nameTh": "เพื่อน"
+      },
+      "slots": {
+        "day": [
+          {
+            "en": "Saturday",
+            "th": "วันเสาร์"
+          },
+          {
+            "en": "Sunday",
+            "th": "วันอาทิตย์"
+          }
+        ],
+        "time": [
+          {
+            "en": "nine",
+            "th": "เก้าโมง"
+          },
+          {
+            "en": "ten",
+            "th": "สิบโมง"
+          },
+          {
+            "en": "eleven",
+            "th": "สิบเอ็ดโมง"
+          }
+        ],
+        "food": [
+          {
+            "en": "pizza",
+            "th": "พิซซ่า"
+          },
+          {
+            "en": "tacos",
+            "th": "ทาโก้"
+          },
+          {
+            "en": "burgers",
+            "th": "เบอร์เกอร์"
+          }
+        ]
+      },
+      "turns": [
+        {
+          "id": "sam-move-1",
+          "speaker": "npc",
+          "variants": [
+            {
+              "text": "Hey! So, I've got some big news. I'm moving to a new apartment!",
+              "th": "เฮ้! มีข่าวใหญ่ เรากำลังจะย้ายไปอพาร์ตเมนต์ใหม่!"
+            },
+            {
+              "text": "Guess what? I finally found a new place!",
+              "th": "ทายซิ? ในที่สุดก็หาที่อยู่ใหม่ได้แล้ว!"
+            },
+            {
+              "text": "Dude, I'm moving out! I found a place near the river.",
+              "th": "เฮ้ เรากำลังจะย้ายออก! ได้ห้องใกล้แม่น้ำแล้ว"
+            }
+          ]
+        },
+        {
+          "id": "sam-move-2",
+          "speaker": "user",
+          "hintTh": "แสดงความยินดี แล้วถามว่าย้ายเมื่อไหร่ / ที่ไหน",
+          "userOptions": [
+            {
+              "text": "No way! That's awesome. When?",
+              "register": "casual"
+            },
+            {
+              "text": "Congrats! When are you moving?",
+              "register": "casual"
+            },
+            {
+              "text": "Oh, nice! Where's the new place?",
+              "register": "casual"
+            }
+          ],
+          "requiredWords": [
+            "when/where"
+          ]
+        },
+        {
+          "id": "sam-move-3",
+          "speaker": "npc",
+          "variants": [
+            {
+              "text": "This {day}. Actually, I was wondering if you could give me a hand.",
+              "th": "{day}นี้ จริง ๆ แล้วอยากถามว่ามาช่วยหน่อยได้ไหม"
+            },
+            {
+              "text": "On {day}! Um, could you maybe help me carry some stuff?",
+              "th": "{day}! เอ่อ ช่วยยกของหน่อยได้ไหม"
+            },
+            {
+              "text": "{day}, and I could really use some help.",
+              "th": "{day} แล้วก็อยากได้คนช่วยมากเลย"
+            }
+          ]
+        },
+        {
+          "id": "sam-move-4",
+          "speaker": "user",
+          "hintTh": "ตอบว่ายินดีช่วย",
+          "userOptions": [
+            {
+              "text": "Sure, I'd be happy to help.",
+              "register": "neutral"
+            },
+            {
+              "text": "Of course! What do you need?",
+              "register": "casual"
+            },
+            {
+              "text": "Yeah, count me in.",
+              "register": "casual"
+            }
+          ],
+          "requiredWords": [
+            "help/course/count"
+          ]
+        },
+        {
+          "id": "sam-move-5",
+          "speaker": "npc",
+          "variants": [
+            {
+              "text": "You're the best! Can you come over around {time}?",
+              "th": "เธอดีที่สุดเลย! มาประมาณ{time}ได้ไหม"
+            },
+            {
+              "text": "Thanks, man! Is {time} too early for you?",
+              "th": "ขอบใจนะ! {time}เช้าไปไหม"
+            },
+            {
+              "text": "Awesome! Could you get there by {time}?",
+              "th": "เยี่ยม! มาถึงภายใน{time}ได้ไหม"
+            }
+          ]
+        },
+        {
+          "id": "sam-move-6",
+          "speaker": "user",
+          "hintTh": "ตกลงเรื่องเวลา {time}",
+          "userOptions": [
+            {
+              "text": "{time} works for me.",
+              "register": "neutral"
+            },
+            {
+              "text": "Sure, I'll be there at {time}.",
+              "register": "casual"
+            },
+            {
+              "text": "No problem. See you at {time}.",
+              "register": "casual"
+            }
+          ],
+          "requiredWords": [
+            "{time}"
+          ]
+        },
+        {
+          "id": "sam-move-7",
+          "speaker": "npc",
+          "variants": [
+            {
+              "text": "Cool. I've got a ton of boxes, so wear comfy clothes.",
+              "th": "โอเค กล่องเยอะมาก ใส่ชุดสบาย ๆ มานะ"
+            },
+            {
+              "text": "Great. Fair warning, my couch is super heavy.",
+              "th": "เยี่ยม เตือนไว้ก่อนนะ โซฟาเราหนักมาก"
+            },
+            {
+              "text": "Sweet. It's on the third floor, and there's no elevator.",
+              "th": "ดีเลย ห้องอยู่ชั้นสาม แล้วไม่มีลิฟต์นะ"
+            }
+          ]
+        },
+        {
+          "id": "sam-move-8",
+          "speaker": "user",
+          "hintTh": "รับทราบ แล้วถามว่าต้องเอาอะไรไปไหม",
+          "userOptions": [
+            {
+              "text": "Got it. Should I bring anything?",
+              "register": "casual"
+            },
+            {
+              "text": "Okay! Do you need tape or anything?",
+              "register": "casual"
+            },
+            {
+              "text": "Sounds good. Do you need a car?",
+              "register": "casual"
+            }
+          ],
+          "requiredWords": [
+            "bring/need"
+          ]
+        },
+        {
+          "id": "sam-move-9",
+          "speaker": "npc",
+          "variants": [
+            {
+              "text": "Nah, just bring yourself. I'll order {food} for everyone after.",
+              "th": "ไม่ต้อง มาตัวเปล่าพอ เสร็จแล้วเราสั่ง{food}เลี้ยงทุกคน"
+            },
+            {
+              "text": "Nope, I got everything. {food} is on me afterwards!",
+              "th": "ไม่ต้อง มีครบแล้ว เสร็จแล้วเราเลี้ยง{food}เอง!"
+            },
+            {
+              "text": "Just you! And don't worry, there'll be {food}.",
+              "th": "แค่ตัวเธอพอ! ไม่ต้องห่วง มี{food}กินแน่นอน"
+            }
+          ]
+        },
+        {
+          "id": "sam-move-10",
+          "speaker": "user",
+          "hintTh": "ตอบอย่างดีใจ แล้วบอกว่าเจอกัน",
+          "userOptions": [
+            {
+              "text": "Sweet! I love {food}.",
+              "register": "casual"
+            },
+            {
+              "text": "Sounds like a plan!",
+              "register": "casual"
+            },
+            {
+              "text": "Deal! See you then.",
+              "register": "casual"
+            }
+          ],
+          "requiredWords": [
+            "love/plan/deal"
+          ]
+        }
+      ],
+      "twists": [
+        {
+          "id": "sam-move-truck",
+          "title": "Change of plan",
+          "titleTh": "เปลี่ยนวัน",
+          "afterTurn": "sam-move-4",
+          "turns": [
+            {
+              "id": "sam-move-t1-1",
+              "speaker": "npc",
+              "variants": [
+                {
+                  "text": "Oh, actually, the moving truck is only free on Sunday morning. Is that okay?",
+                  "th": "อ้อ จริง ๆ แล้วรถขนของว่างแค่เช้าวันอาทิตย์ โอเคไหม"
+                },
+                {
+                  "text": "Wait, the truck guy just texted me. Can we do Sunday instead?",
+                  "th": "เดี๋ยวนะ คนขับรถขนของเพิ่งทักมา เปลี่ยนเป็นวันอาทิตย์ได้ไหม"
+                },
+                {
+                  "text": "Ugh, small problem. We have to move on Sunday now. Still free?",
+                  "th": "โอ๊ย มีปัญหานิดหน่อย ต้องย้ายวันอาทิตย์แทน ยังว่างอยู่ไหม"
+                }
+              ]
+            },
+            {
+              "id": "sam-move-t1-2",
+              "speaker": "user",
+              "hintTh": "บอกว่าวันอาทิตย์ก็ได้",
+              "userOptions": [
+                {
+                  "text": "Sunday works too.",
+                  "register": "casual"
+                },
+                {
+                  "text": "Sure, Sunday is fine.",
+                  "register": "casual"
+                },
+                {
+                  "text": "No problem, I'm free on Sunday.",
+                  "register": "neutral"
+                }
+              ],
+              "requiredWords": [
+                "sunday"
+              ]
+            },
+            {
+              "id": "sam-move-t1-3",
+              "speaker": "npc",
+              "variants": [
+                {
+                  "text": "Phew, thanks! You saved me.",
+                  "th": "เฮ้อ ขอบใจนะ! ช่วยชีวิตไว้เลย"
+                },
+                {
+                  "text": "Great, that's a relief.",
+                  "th": "ดีเลย ค่อยโล่งหน่อย"
+                },
+                {
+                  "text": "Awesome. Sunday it is!",
+                  "th": "เยี่ยม งั้นวันอาทิตย์นะ!"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "sam-move-rain",
+          "title": "It's gonna rain",
+          "titleTh": "ฝนจะตก",
+          "afterTurn": "sam-move-6",
+          "turns": [
+            {
+              "id": "sam-move-t2-1",
+              "speaker": "npc",
+              "variants": [
+                {
+                  "text": "Oh, wait. The weather app says it's gonna rain that day. Ugh.",
+                  "th": "อ้าว เดี๋ยวนะ แอปพยากรณ์บอกว่าวันนั้นฝนจะตก แย่เลย"
+                },
+                {
+                  "text": "Bad news. They said there might be a storm.",
+                  "th": "ข่าวร้าย เขาบอกว่าอาจมีพายุ"
+                },
+                {
+                  "text": "Hmm, it's supposed to rain all morning.",
+                  "th": "อืม เขาว่าฝนจะตกทั้งเช้าเลย"
+                }
+              ]
+            },
+            {
+              "id": "sam-move-t2-2",
+              "speaker": "user",
+              "hintTh": "บอกว่าไม่เป็นไร ฝนไม่ทำให้หยุดหรอก",
+              "userOptions": [
+                {
+                  "text": "That's okay. We can cover the boxes.",
+                  "register": "casual"
+                },
+                {
+                  "text": "No worries, a little rain won't stop us.",
+                  "register": "casual"
+                },
+                {
+                  "text": "Should we start earlier, then?",
+                  "register": "neutral"
+                }
+              ],
+              "requiredWords": [
+                "okay/worries/earlier"
+              ]
+            },
+            {
+              "id": "sam-move-t2-3",
+              "speaker": "npc",
+              "variants": [
+                {
+                  "text": "Good idea. Let's just move fast!",
+                  "th": "ความคิดดี งั้นรีบย้ายกันเถอะ!"
+                },
+                {
+                  "text": "You're right. We'll be fine.",
+                  "th": "จริงด้วย ไม่เป็นไรหรอก"
+                },
+                {
+                  "text": "Ha, true. Thanks for being so chill.",
+                  "th": "ฮ่า จริง ขอบใจที่ใจเย็นนะ"
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

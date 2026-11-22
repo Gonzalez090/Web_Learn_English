@@ -6,9 +6,11 @@
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Dices, Timer } from 'lucide-react'
-import { scenarios } from '../data'
+import { getNpc, scenarioList } from '../data'
 import { useLocalized } from '../hooks/useLocalized'
+import { useProgressStore } from '../store/progressStore'
 import { randomSeed } from '../utils/conversation'
+import { isScenarioLocked } from '../utils/friendship'
 import Page from '../components/Page'
 import Section from '../components/Section'
 import Button from '../components/Button'
@@ -19,15 +21,18 @@ export default function TalkListPage() {
   const { t } = useTranslation()
   const loc = useLocalized()
   const navigate = useNavigate()
+  const friendship = useProgressStore((state) => state.npcFriendship)
+  // บทที่ต้องสนิทกับ NPC ก่อน (ขั้นที่ 28-1) ยังเล่นไม่ได้ → ไม่สุ่มเข้า แต่ยังแสดงในรายการ (ล็อก + บอกว่าต้องสนิทกับใคร)
+  const open = scenarioList.filter((scenario) => !isScenarioLocked(scenario, friendship))
 
   function randomScenario() {
-    const scenario = scenarios[Math.floor(Math.random() * scenarios.length)]
+    const scenario = open[Math.floor(Math.random() * open.length)]
     navigate(`/talk/${scenario.id}?seed=${randomSeed()}`)
   }
 
   // มินิเกม Speed Order (ขั้นที่ 12): บทสนทนาสุ่มแบบจับเวลา — สุ่มจากสถานการณ์ที่สั่งของ (speedOrder)
   function speedOrder() {
-    const choices = scenarios.filter((scenario) => scenario.speedOrder)
+    const choices = open.filter((scenario) => scenario.speedOrder)
     const scenario = choices[Math.floor(Math.random() * choices.length)]
     navigate(`/talk/${scenario.id}?seed=${randomSeed()}&mode=speed`)
   }
@@ -45,15 +50,24 @@ export default function TalkListPage() {
       </div>
       <Section title={t('talk.pick')}>
         <TileList>
-          {scenarios.map((scenario) => (
-            <Tile
-              key={scenario.id}
-              to={`/talk/${scenario.id}`}
-              image={scenario.image}
-              title={loc(scenario, 'name')}
-              description={scenario.goalTh}
-            />
-          ))}
+          {scenarioList.map((scenario) => {
+            const locked = isScenarioLocked(scenario, friendship)
+            const npc = getNpc(scenario.npcId)
+            return (
+              <Tile
+                key={scenario.id}
+                to={`/talk/${scenario.id}`}
+                image={scenario.image}
+                title={loc(scenario, 'name')}
+                description={
+                  locked
+                    ? t('talk.lockedShort', { name: loc(npc, 'name'), level: t(`npc.level.${scenario.minFriendship}`) })
+                    : scenario.goalTh
+                }
+                locked={locked}
+              />
+            )
+          })}
         </TileList>
       </Section>
     </Page>

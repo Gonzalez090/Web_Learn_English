@@ -158,9 +158,11 @@ function expandText(text, slots) {
 }
 
 // ข้อความภาษาอังกฤษที่บทสนทนานี้อาจพูด (บทอีกฝ่ายทุกแบบ + ตัวเลือกของเรา) × ทุกค่าของช่อง
-export function expandScenarioTexts(scenario) {
+// speaker = 'npc' | 'user' → เฉพาะบรรทัดของฝ่ายนั้น (ขั้นที่ 28-1: บรรทัด NPC ใช้เสียง Kokoro ของ NPC แยกจากเสียงหลัก)
+export function expandScenarioTexts(scenario, { speaker = null } = {}) {
   const texts = new Set()
   for (const turn of allTurns(scenario)) {
+    if (speaker && turn.speaker !== speaker) continue
     const sources = turn.speaker === 'npc' ? turn.variants.map((variant) => variant.text) : turn.userOptions.map((o) => o.text)
     for (const source of sources) for (const text of expandText(source, scenario.slots)) texts.add(text)
   }

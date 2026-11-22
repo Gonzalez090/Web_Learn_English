@@ -10,7 +10,8 @@ import scenariosData from './scenarios.json'
 import worldData from './world.json'
 import { slotsIn } from '../utils/conversation.js'
 import imageCredits from './imageCredits.json'
-import { collectSpeechTexts } from './speechTexts.js'
+import { collectSpeechTexts, collectVoicedTexts } from './speechTexts.js'
+import { audioPathFor, NPC_VOICES } from '../utils/audioPath.js'
 import { swapVariants } from '../utils/swap.js'
 import { LESSON_FLOWS } from '../utils/lessonSteps.js'
 import { prepareLessonItems } from '../utils/lessonItems.js'
@@ -52,6 +53,37 @@ describe('ไฟล์เสียงเจ้าของภาษา (Kokoro)'
     for (const speed of ['normal', 'slow']) {
       expect(Object.keys(audioManifest[speed]).filter((text) => !used.has(text)), speed).toEqual([])
     }
+  })
+
+  // ขั้นที่ 28-1: NPC พูดด้วยเสียง Kokoro ของตัวเอง (ผสมสำเนียงอเมริกัน + อังกฤษ)
+  const voiced = collectVoicedTexts({ scenarios: scenariosData.scenarios, npcs: worldData.npcs })
+
+  it('NPC ทุกคนมีเสียงของตัวเอง (เสียง Kokoro ที่รองรับ) มีทั้งสำเนียงอเมริกันและอังกฤษ และไม่ซ้ำกัน', () => {
+    const voices = worldData.npcs.map((npc) => npc.voice)
+    for (const npc of worldData.npcs) expect(NPC_VOICES, npc.id).toContain(npc.voice)
+    expect(new Set(voices).size).toBe(voices.length)
+    expect(voices.some((voice) => voice.startsWith('a'))).toBe(true)
+    expect(voices.some((voice) => voice.startsWith('b'))).toBe(true)
+  })
+
+  it.each(Object.keys(voiced))('เสียง NPC %s: ทุกข้อความมีไฟล์ปกติและช้า ชื่อไฟล์ตรงกับที่หน้าเว็บคำนวณ', (voice) => {
+    const missing = []
+    for (const text of voiced[voice]) {
+      for (const speed of ['normal', 'slow']) {
+        const audioPath = audioManifest.voices?.[voice]?.[speed]?.[text]
+        if (audioPath !== audioPathFor(text, speed, voice) || !existsSync(fileOf(audioPath))) missing.push(`${speed}: ${text}`)
+      }
+    }
+    expect(missing.slice(0, 5), `ขาด ${missing.length} ไฟล์ — รัน npm run audio`).toEqual([])
+  })
+
+  it('บรรทัดของ NPC ที่มีเสียงของตัวเองไม่ถูกสร้างซ้ำด้วยเสียงหลัก (ไม่เปลืองไฟล์)', () => {
+    const main = new Set(texts)
+    const onlyVoiced = Object.values(voiced)
+      .flat()
+      .filter((text) => !main.has(text))
+    // (ข้อความเดียวกันที่มีในบทเรียน/คลังวลีด้วย ยังมีเสียงหลักตามปกติ)
+    expect(onlyVoiced.length).toBeGreaterThan(0)
   })
 })
 
@@ -713,7 +745,8 @@ describe('NPC (world.json npcs)', () => {
 
   it('NPC 4–6 ตัว id ไม่ซ้ำ ประจำสถานที่ที่มีจริง สถานที่ละไม่เกิน 1 คน', () => {
     expect(npcs.length).toBeGreaterThanOrEqual(4)
-    expect(npcs.length).toBeLessThanOrEqual(6)
+    // ขั้นที่ 28-1: เพิ่ม NPC ร้านอาหาร (Oliver) + ออฟฟิศ (Nina) → สถานที่ละ 1 คนครบ 7 ที่
+    expect(npcs.length).toBeLessThanOrEqual(7)
     expect(new Set(npcs.map((npc) => npc.id)).size).toBe(npcs.length)
     expect(new Set(npcs.map((npc) => npc.placeId)).size).toBe(npcs.length)
     for (const npc of npcs) expect(placeIds, npc.id).toContain(npc.placeId)

@@ -5,6 +5,7 @@ import basicSsl from '@vitejs/plugin-basic-ssl'
 import { defineConfig } from 'vite'
 import { INDEX_MODULE_ID, STAGE_MODULE_PREFIX, indexModuleCode, stageModuleCode } from './src/data/lessonChunks.js'
 import { PHRASES_INDEX_ID, SITUATION_MODULE_PREFIX, phrasesIndexCode, situationModuleCode } from './src/data/phraseChunks.js'
+import { SCENARIOS_INDEX_ID, SCENARIO_MODULE_PREFIX, scenariosIndexCode, scenarioModuleCode } from './src/data/scenarioChunks.js'
 
 // =========================================================
 // แบ่งข้อมูลบทเรียนเป็นก้อน (โหลดเฉพาะที่ต้องใช้) — รายละเอียดดู src/data/lessonChunks.js
@@ -15,6 +16,9 @@ import { PHRASES_INDEX_ID, SITUATION_MODULE_PREFIX, phrasesIndexCode, situationM
 // คลังวลี (ขั้นที่ 27) ใช้วิธีเดียวกัน — ดู src/data/phraseChunks.js
 //   import ... from 'virtual:phrases'                  → สารบัญสถานการณ์ + คู่ในตำรา vs ใช้จริง
 //   import('virtual:phrases/situation-<id>')           → วลีของสถานการณ์นั้น (โหลดตอนเปิดหน้าสถานการณ์)
+// บทสนทนาสุ่ม (ขั้นที่ 28-1) — ดู src/data/scenarioChunks.js
+//   import ... from 'virtual:scenarios'                → สารบัญสถานการณ์ (ไม่มีบทพูด)
+//   import('virtual:scenarios/scenario-<id>')          → บทพูดเต็มของสถานการณ์นั้น
 // =========================================================
 const dataFile = (name) => fileURLToPath(new URL(`./src/data/${name}`, import.meta.url))
 
@@ -58,6 +62,16 @@ const phraseChunks = () =>
     prefix: SITUATION_MODULE_PREFIX,
     indexCode: phrasesIndexCode,
     chunkCode: situationModuleCode,
+  })
+
+const scenarioChunks = () =>
+  jsonChunks({
+    name: 'scenario-chunks',
+    file: dataFile('scenarios.json'),
+    indexId: SCENARIOS_INDEX_ID,
+    prefix: SCENARIO_MODULE_PREFIX,
+    indexCode: scenariosIndexCode,
+    chunkCode: scenarioModuleCode,
   })
 
 // =========================================================
@@ -117,7 +131,7 @@ const PREVIEW_SECURITY_HEADERS = {
 // - npm run build     → เว็บจริงใน dist/ (ไม่มี source map → คนเปิด F12 ไม่เห็นโค้ดต้นฉบับ/คอมเมนต์)
 // =========================================================
 export default defineConfig(({ mode }) => ({
-  plugins: [react(), lessonChunks(), phraseChunks(), securityMetaTags(), mode === 'phone' && basicSsl()].filter(Boolean),
+  plugins: [react(), lessonChunks(), phraseChunks(), scenarioChunks(), securityMetaTags(), mode === 'phone' && basicSsl()].filter(Boolean),
   build: {
     sourcemap: false,
   },

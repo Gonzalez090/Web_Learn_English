@@ -8,7 +8,8 @@
 //   mode (ขั้นที่ 12): 'normal' / 'hard' (ซ่อนตัวเลือก เหลือแค่คำใบ้ไทย) / 'speed' (Speed Order: ตาเรามีเวลา 15 วิ หมดแล้วไปต่อเอง)
 //   twist: ป้าย "เหตุการณ์ไม่คาดคิด" ก่อนบรรทัดแรกของ twist
 //   npcRate (ขั้นที่ 15): ความเร็วเสียงของอีกฝ่ายตามนิสัย NPC — ป้าโรสพูดช้า = 'slow'
-// props: scenario, conversation (ผลจาก buildConversation), mode, npcRate, onLinePass(line), onFinish
+//   npcVoice (ขั้นที่ 28-1): เสียง Kokoro ของ NPC (สำเนียงอเมริกัน/อังกฤษ) — บรรทัดของเรา/ตัวอย่างใช้เสียงหลักเสมอ
+// props: scenario, conversation (ผลจาก buildConversation), mode, npcRate, npcVoice, onLinePass(line), onFinish
 // =========================================================
 import { Fragment, useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -39,6 +40,7 @@ export default function ConversationPlayer({
   conversation,
   mode = 'normal',
   npcRate = 'normal',
+  npcVoice = null,
   onLinePass,
   onFinish,
 }) {
@@ -95,7 +97,7 @@ export default function ConversationPlayer({
     if (!line || myTurn) return undefined
     let active = true
     let timer
-    speak(line.target, { key: npcSpeakKey(line), rate: npcRate }).finally(() => {
+    speak(line.target, { key: npcSpeakKey(line), rate: npcRate, fileVoice: npcVoice }).finally(() => {
       if (active) timer = setTimeout(advance, OTHER_PAUSE_MS)
     })
     return () => {
@@ -165,6 +167,8 @@ export default function ConversationPlayer({
               status={outcomes[entry.id]}
               display={mine ? undefined : display}
               speakKey={mine ? `talk:${entry.id}:me` : npcSpeakKey(entry)}
+              rate={mine ? 'normal' : npcRate}
+              fileVoice={mine ? null : npcVoice}
             />
           )
           if (index !== firstTwistIndex || !conversation.twist) return bubble

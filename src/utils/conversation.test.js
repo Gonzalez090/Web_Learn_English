@@ -9,7 +9,10 @@ import {
   slotsIn,
   talkReviewLesson,
 } from './conversation'
-import { scenarios } from '../data'
+import scenariosData from '../data/scenarios.json'
+
+// test ใช้ไฟล์ข้อมูลตรง ๆ (หน้าเว็บโหลดบทพูดแยกไฟล์ผ่าน virtual:scenarios — ดู scenarioChunks.js)
+const { scenarios } = scenariosData
 
 const cafe = scenarios.find((scenario) => scenario.id === 'cafe')
 

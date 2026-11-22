@@ -28,6 +28,8 @@ export default function ConversationSummary({
   onAddReview,
   onAgain,
   onNew,
+  npcRate = 'normal',
+  npcVoice = null,
 }) {
   const { t } = useTranslation()
   const loc = useLocalized()
@@ -72,6 +74,8 @@ export default function ConversationSummary({
                 status={outcomes[line.id]}
                 display={mine ? undefined : display}
                 speakKey={`talk-summary:${line.id}`}
+                rate={mine ? 'normal' : npcRate}
+                fileVoice={mine ? null : npcVoice}
               />
             )
           })}

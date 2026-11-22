@@ -72,18 +72,24 @@ export const shouldFallbackToLocal = (errorCode) => FALLBACK_ERRORS.has(errorCod
 
 // ไฟล์เสียงของข้อความนี้ (ชื่อไฟล์คำนวณจากข้อความ — ต้องตรงทุกตัวอักษร) — ความเร็วที่ไม่มีไฟล์ได้ null
 // (ข้อความที่ไม่ได้สร้างเสียงไว้ จะได้ชื่อไฟล์ที่ไม่มีอยู่จริง → เล่นไม่ได้ → ใช้เสียงเบราว์เซอร์แทน)
-export function audioFileFor(text, rate) {
-  return rate === 'normal' || rate === 'slow' ? audioPathFor(text, rate) : null
+export function audioFileFor(text, rate, voice) {
+  return rate === 'normal' || rate === 'slow' ? audioPathFor(text, rate, voice) : null
 }
 
 // แบ่งสิ่งที่ต้องพูดเป็นช่วง ๆ: 1 บรรทัด = 1 ช่วง (เล่นไฟล์ทั้งบรรทัด → น้ำเสียงต่อเนื่องเป็นธรรมชาติ)
 // ถ้าเล่นไฟล์ไม่ได้ ตัวเล่นจะแยกบรรทัดนั้นเป็นทีละประโยคให้เบราว์เซอร์อ่าน
-export function planSegments(input, rate, { useFiles = true } = {}) {
+// fileVoice (ขั้นที่ 28-1) = เสียง Kokoro ของ NPC → file = ไฟล์เสียง NPC, fallbackFile = ไฟล์เสียงหลัก (เผื่อยังไม่ได้สร้าง)
+export function planSegments(input, rate, { useFiles = true, fileVoice = null } = {}) {
   const lines = Array.isArray(input) ? input : [input]
   return lines
     .map((line) => String(line ?? '').trim())
     .filter(Boolean)
-    .map((text) => ({ text, file: useFiles ? audioFileFor(text, rate) : null }))
+    .map((text) => {
+      if (!useFiles) return { text, file: null }
+      const file = audioFileFor(text, rate, fileVoice)
+      const main = audioFileFor(text, rate)
+      return fileVoice && main !== file ? { text, file, fallbackFile: main } : { text, file }
+    })
 }
 
 // ประมาณเวลาพูด (ms) — คนพูดประมาณ 2.5 คำ/วินาที ที่ความเร็ว 1
@@ -234,11 +240,12 @@ function speakChunk(synth, text, rate, voice) {
  * @param input   ข้อความ หรือ array หลายบรรทัด (จะพูดทีละช่วง เว้นช่วงสั้น ๆ)
  * @param options rate: 'normal' | 'slow' | ตัวเลข, key: รหัสของปุ่มที่กด, voiceURI: เสียงเบราว์เซอร์ที่เลือก,
  *                useFiles: ใช้ไฟล์เสียงที่สร้างไว้ถ้ามี (ค่าเริ่มต้น true — ปุ่มลองเสียงในตั้งค่าส่ง false)
+ *                fileVoice: เสียง Kokoro ของ NPC (เช่น 'bf_emma') — ไม่มีไฟล์ของเสียงนี้ → ใช้ไฟล์เสียงหลัก
  * @returns true ถ้าพูดจบครบ, false ถ้าถูกหยุดกลางทาง/เล่นไม่ได้
  */
 export async function speak(
   input,
-  { rate = 'normal', key = null, voiceURI = null, gapMs = 350, useFiles = true } = {},
+  { rate = 'normal', key = null, voiceURI = null, gapMs = 350, useFiles = true, fileVoice = null } = {},
 ) {
   if (!canSpeak) return false
   const synth = isSupported ? window.speechSynthesis : null
@@ -250,7 +257,7 @@ export async function speak(
   if (wasBusy) await wait(80)
   if (myRun !== runId) return false
 
-  const segments = planSegments(input, rate, { useFiles: useFiles && hasAudioElement })
+  const segments = planSegments(input, rate, { useFiles: useFiles && hasAudioElement, fileVoice })
   if (segments.length === 0) return false
 
   const voices = synth ? (state.voices.length ? state.voices : synth.getVoices()) : []
@@ -266,6 +273,8 @@ export async function speak(
 
     // 1) มีไฟล์เสียง → เล่นไฟล์
     let result = segment.file ? await playFile(segment.file) : { ok: false }
+    // 1b) ไฟล์เสียง NPC ยังไม่มี → ไฟล์เสียงหลักของข้อความเดียวกัน
+    if (!result.ok && segment.fallbackFile && myRun === runId) result = await playFile(segment.fallbackFile)
 
     // 2) ไม่มีไฟล์ / เล่นไฟล์ไม่ได้ → ให้เบราว์เซอร์อ่านทีละประโยค
     if (!result.ok && myRun === runId && synth) {

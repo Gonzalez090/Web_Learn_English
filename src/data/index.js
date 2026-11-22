@@ -6,14 +6,15 @@
 //                    เนื้อหาเต็มราย Stage โหลดเมื่อต้องใช้ → loadStageLessons() / hooks/useLessons.js
 //   phrases.json   → สถานการณ์ + textbookVsReal (ขั้นที่ 10) — แบ่งก้อนรายสถานการณ์ (ดู phraseChunks.js):
 //                    วลีเต็มโหลดเมื่อเปิดหน้าสถานการณ์ → loadSituationPhrases() / hooks/usePhrases.js (ขั้นที่ 27)
-//   scenarios.json → scenarios                        (ขั้นที่ 11–12)
+//   scenarios.json → บทสนทนาสุ่ม (ขั้นที่ 11–12) — แบ่งก้อนรายสถานการณ์ (ดู scenarioChunks.js, ขั้นที่ 28-1):
+//                    สารบัญ scenarioList อยู่ในไฟล์หลัก / บทพูดเต็มโหลดเมื่อเปิดเล่น → loadScenario() / hooks/useScenarios.js
 //   world.json     → cityMap, npcs                    (ขั้นที่ 14–15)
 //   game.json      → dailyMissionPool, miniGames, milestones, soundPractice
 //   imageCredits.json → นำเข้าตรงในหน้าเครดิต (โหลดเฉพาะตอนเปิดหน้านั้น)
 // =========================================================
 import { stages as stageData, lessonList as lessonListData, stageLoaders } from 'virtual:lessons'
 import { situations as situationData, textbookVsReal as textbookPairs, situationLoaders } from 'virtual:phrases'
-import scenariosData from './scenarios.json'
+import { scenarioList as scenarioListData, scenarioLoaders } from 'virtual:scenarios'
 import worldData from './world.json'
 import gameData from './game.json'
 
@@ -23,7 +24,9 @@ export const lessonList = lessonListData
 // คลังวลี: สถานการณ์แบบย่อ { id, name, nameTh, image, groups[], phraseCount } — ⚠️ วลีเต็มโหลดแยก (loadSituationPhrases)
 export const phraseSituations = situationData
 export const textbookVsReal = textbookPairs
-export const { scenarios } = scenariosData
+// บทสนทนาสุ่มแบบย่อ { id, name, nameTh, goalTh, image, level, placeId, npcId, speedOrder?, minFriendship?, turnCount }
+//   — ⚠️ ไม่มี turns/twists/slots (โหลดแยก: loadScenario / hooks/useScenarios.js) (ขั้นที่ 28-1)
+export const scenarioList = scenarioListData
 export const { cityMap, npcs } = worldData
 export const { dailyMissionPool, miniGames, milestones, soundPractice } = gameData
 
@@ -41,6 +44,9 @@ export const getLessonMeta = (lessonId) => lessonList.find((lesson) => lesson.id
 // NPC จาก id / NPC ประจำสถานที่ (ขั้นที่ 15) — ไม่มี → null
 export const getNpc = (npcId) => npcs.find((npc) => npc.id === npcId) ?? null
 export const npcOfPlace = (placeId) => npcs.find((npc) => npc.placeId === placeId) ?? null
+
+// บทสนทนาสุ่มแบบย่อจาก id (ไม่มี → null)
+export const getScenarioMeta = (scenarioId) => scenarioList.find((scenario) => scenario.id === scenarioId) ?? null
 
 // หามินิเกมจาก id
 export const getMiniGame = (gameId) => miniGames.find((game) => game.id === gameId)
@@ -107,6 +113,43 @@ export function loadSituationPhrases(situationId) {
     situationCache.set(situationId, promise)
   }
   return situationCache.get(situationId)
+}
+
+const scenarioCache = new Map()
+
+// บทสนทนาสุ่มฉบับเต็มหนึ่งสถานการณ์ (ไม่มี id นี้ → null)
+export function loadScenario(scenarioId) {
+  if (!scenarioCache.has(scenarioId)) {
+    const loader = scenarioLoaders[scenarioId]
+    const promise = loader
+      ? loader()
+          .then((module) => module.default)
+          .catch((error) => {
+            scenarioCache.delete(scenarioId)
+            throw error
+          })
+      : Promise.resolve(null)
+    scenarioCache.set(scenarioId, promise)
+  }
+  return scenarioCache.get(scenarioId)
+}
+
+const scenarioGroupCache = new Map()
+
+// หลายสถานการณ์รวมกัน (ลำดับตาม ids ที่ไม่ซ้ำ, ตัด id ที่ไม่มีออก) — key เดียวกันได้ promise ตัวเดิม
+export function loadScenarios(scenarioIds) {
+  const ids = [...new Set(scenarioIds)].filter((id) => scenarioLoaders[id]).sort()
+  const key = ids.join(',')
+  if (!scenarioGroupCache.has(key)) {
+    const promise = Promise.all(ids.map(loadScenario))
+      .then((list) => list.filter(Boolean))
+      .catch((error) => {
+        scenarioGroupCache.delete(key)
+        throw error
+      })
+    scenarioGroupCache.set(key, promise)
+  }
+  return scenarioGroupCache.get(key)
 }
 
 // ทุกบท (ใช้ในหน้า /dev)

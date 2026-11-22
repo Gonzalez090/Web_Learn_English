@@ -6,7 +6,8 @@
 import { useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Timer } from 'lucide-react'
-import { cityMap, getPhraseSituation, npcOfPlace, scenarios } from '../data'
+import { cityMap, getPhraseSituation, npcOfPlace, scenarioList } from '../data'
+import { isScenarioLocked } from '../utils/friendship'
 import { useLocalized } from '../hooks/useLocalized'
 import { useProgressStore } from '../store/progressStore'
 import { isPlaceUnlocked } from '../utils/places'
@@ -30,7 +31,7 @@ export default function PlacePage() {
   if (!place) return <NotFoundPage />
 
   const unlocked = isPlaceUnlocked(place, unlockedStages)
-  const talks = scenarios.filter((scenario) => scenario.placeId === place.placeId)
+  const talks = scenarioList.filter((scenario) => scenario.placeId === place.placeId)
   const situations = place.phraseGroups.map(getPhraseSituation).filter(Boolean)
   const npc = npcOfPlace(place.placeId)
 
@@ -57,17 +58,29 @@ export default function PlacePage() {
           <Section title={t('place.talk')}>
             {talks.length ? (
               <TileList>
-                {talks.map((scenario) => (
-                  <Tile
-                    key={scenario.id}
-                    to={`/talk/${scenario.id}`}
-                    image={scenario.image}
-                    title={loc(scenario, 'name')}
-                    description={scenario.goalTh}
-                  />
-                ))}
+                {talks.map((scenario) => {
+                  // เรื่องส่วนตัวกับ NPC (ขั้นที่ 28-1): ยังไม่สนิทพอ → ล็อก + บอกระดับที่ต้องถึง
+                  const locked = isScenarioLocked(scenario, friendship)
+                  return (
+                    <Tile
+                      key={scenario.id}
+                      to={`/talk/${scenario.id}`}
+                      image={scenario.image}
+                      title={loc(scenario, 'name')}
+                      description={
+                        locked
+                          ? t('talk.lockedShort', {
+                              name: loc(npc, 'name'),
+                              level: t(`npc.level.${scenario.minFriendship}`),
+                            })
+                          : scenario.goalTh
+                      }
+                      locked={locked}
+                    />
+                  )
+                })}
                 {talks
-                  .filter((scenario) => scenario.speedOrder)
+                  .filter((scenario) => scenario.speedOrder && !isScenarioLocked(scenario, friendship))
                   .map((scenario) => (
                     <Tile
                       key={`${scenario.id}-speed`}

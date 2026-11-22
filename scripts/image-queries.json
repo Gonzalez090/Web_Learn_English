@@ -1403,5 +1403,11 @@
   "phrases-shopping": "woman shopping clothes store",
   "phrases-directions": "tourists looking at city map",
   "phrases-work": "coworkers talking office",
-  "phrases-phone": "woman talking on phone smiling"
+  "phrases-phone": "woman talking on phone smiling",
+  "npc-oliver": "waiter portrait smiling restaurant",
+  "npc-nina": "young woman office portrait smiling",
+  "talk-restaurant": "waiter taking order restaurant table",
+  "talk-coworker": "two coworkers talking desk office",
+  "talk-tea-with-rose": "elderly woman tea cup home",
+  "talk-sam-move": "moving boxes friends apartment"
 }

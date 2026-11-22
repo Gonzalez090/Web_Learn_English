@@ -92,6 +92,7 @@ export default function NpcCard({ npc, points = 0 }) {
                   <LineButton
                     text={entry.npc.text}
                     rate={npc.speechRate}
+                    fileVoice={npc.voice}
                     speakKey={`${npc.id}:l${index}`}
                     label={t('npc.hearLine')}
                   />

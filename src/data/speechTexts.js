@@ -74,13 +74,17 @@ export function collectSpeechTexts({
   }
 
   // บทสนทนาสุ่ม (ช่องสุ่มค่า → สร้างเสียงให้ทุกค่าที่สุ่มได้)
-  for (const scenario of scenarios) for (const text of expandScenarioTexts(scenario)) add(text)
+  //   บรรทัดของเรา = เสียงหลักเสมอ / บรรทัดอีกฝ่าย = เสียงหลักเฉพาะสถานการณ์ที่ NPC ไม่มีเสียงของตัวเอง (ดู collectVoicedTexts)
+  for (const scenario of scenarios) {
+    for (const text of expandScenarioTexts(scenario, { speaker: 'user' })) add(text)
+    if (!npcVoiceOf(npcs, scenario.npcId)) for (const text of expandScenarioTexts(scenario, { speaker: 'npc' })) add(text)
+  }
 
-  // NPC ประจำสถานที่ (ขั้นที่ 15)
+  // NPC ประจำสถานที่ (ขั้นที่ 15): ประโยคตอบของเรา = เสียงหลัก / คำพูดของ NPC = เสียงของ NPC (ถ้ามี)
   for (const npc of npcs) {
-    add(npc.welcomeBack?.text)
+    if (!npc.voice) add(npc.welcomeBack?.text)
     for (const level of npc.levels ?? []) {
-      add(level.npc.text)
+      if (!npc.voice) add(level.npc.text)
       add(level.reply.text)
     }
   }
@@ -89,4 +93,31 @@ export function collectSpeechTexts({
   for (const opener of [...RECAST_OPENERS.error, ...RECAST_OPENERS.model]) add(opener)
 
   return [...texts].sort()
+}
+
+// เสียง Kokoro ของ NPC (world.json npc.voice) — ไม่มี NPC / ไม่ได้กำหนดเสียง → null (ใช้เสียงหลัก)
+export const npcVoiceOf = (npcs, npcId) => npcs.find((npc) => npc.id === npcId)?.voice ?? null
+
+/**
+ * ข้อความที่ NPC พูดด้วยเสียงของตัวเอง (ขั้นที่ 28-1: ผสมสำเนียงอเมริกัน + อังกฤษ)
+ *   บรรทัดอีกฝ่ายในบทสนทนาสุ่ม (ทุก variant × ทุกค่าช่องสุ่ม + twist) + คำทัก "Long time no see!" + คำพูดของ NPC ทุกระดับความสนิท
+ * @returns { [voice]: ข้อความเรียงแล้ว[] }
+ */
+export function collectVoicedTexts({ scenarios = [], npcs = [] }) {
+  const byVoice = new Map()
+  const add = (voice, text) => {
+    const clean = typeof text === 'string' ? text.trim() : ''
+    if (!voice || !clean) return
+    if (!byVoice.has(voice)) byVoice.set(voice, new Set())
+    byVoice.get(voice).add(clean)
+  }
+  for (const scenario of scenarios) {
+    const voice = npcVoiceOf(npcs, scenario.npcId)
+    if (voice) for (const text of expandScenarioTexts(scenario, { speaker: 'npc' })) add(voice, text)
+  }
+  for (const npc of npcs) {
+    add(npc.voice, npc.welcomeBack?.text)
+    for (const level of npc.levels ?? []) add(npc.voice, level.npc.text)
+  }
+  return Object.fromEntries([...byVoice].sort(([a], [b]) => a.localeCompare(b)).map(([voice, set]) => [voice, [...set].sort()]))
 }

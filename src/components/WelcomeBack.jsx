@@ -47,6 +47,7 @@ export default function WelcomeBack({ reviewCount }) {
             <LineButton
               text={npc.welcomeBack.text}
               rate={npc.speechRate}
+              fileVoice={npc.voice}
               speakKey={`${npc.id}:welcome`}
               label={t('npc.hearLine')}
             />

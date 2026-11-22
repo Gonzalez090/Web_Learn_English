@@ -7,6 +7,7 @@
 //            (ตัวเล่นต่อเนื่องหลายบรรทัดใช้รหัสเดียวกัน → ปุ่มของบรรทัดที่กำลังเล่นขึ้นสถานะตามไปด้วย)
 //   label    ชื่อปุ่มสำหรับโปรแกรมอ่านหน้าจอ
 //   rate     'normal' (ค่าเริ่มต้น) | 'slow' — เช่น NPC ที่พูดช้า (ป้าโรส)
+//   fileVoice เสียง Kokoro ของ NPC (world.json npc.voice) — ไม่ใส่ = เสียงหลัก
 // =========================================================
 import { useTranslation } from 'react-i18next'
 import { Square, Volume2 } from 'lucide-react'
@@ -14,7 +15,7 @@ import { useSpeech } from '../../hooks/useSpeech'
 import { abortListening } from '../../utils/recognition'
 import styles from './LineButton.module.css'
 
-export default function LineButton({ text, speakKey, label, rate = 'normal' }) {
+export default function LineButton({ text, speakKey, label, rate = 'normal', fileVoice = null }) {
   const { t } = useTranslation()
   const { speak, stop, speakingKey } = useSpeech()
   const playing = speakingKey === speakKey
@@ -28,7 +29,7 @@ export default function LineButton({ text, speakKey, label, rate = 'normal' }) {
       onClick={() => {
         if (playing) return stop()
         abortListening() // กำลังฟังไมค์อยู่ → หยุดก่อน ไม่ให้ไมค์ได้ยินเสียงตัวอย่าง
-        return speak(text, { key: speakKey, rate })
+        return speak(text, { key: speakKey, rate, fileVoice })
       }}
     >
       <Icon className={styles.icon} aria-hidden="true" />

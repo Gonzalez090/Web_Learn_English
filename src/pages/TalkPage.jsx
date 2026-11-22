@@ -11,8 +11,10 @@ import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { MessagesSquare } from 'lucide-react'
-import { getNpc, scenarios } from '../data'
+import { getNpc, scenarioList } from '../data'
 import { useLocalized } from '../hooks/useLocalized'
+import { useScenario } from '../hooks/useScenarios'
+import { FRIENDSHIP_THRESHOLDS, isScenarioLocked } from '../utils/friendship'
 import { useProgressStore } from '../store/progressStore'
 import { useReviewStore } from '../store/reviewStore'
 import { buildConversation, randomSeed, talkLessonId } from '../utils/conversation'
@@ -45,9 +47,9 @@ function NpcBadge({ npc, points }) {
   )
 }
 
-// สถานการณ์อื่นแบบสุ่ม (ไม่ซ้ำอันเดิม)
-function otherScenarioId(currentId) {
-  const others = scenarios.filter((scenario) => scenario.id !== currentId)
+// สถานการณ์อื่นแบบสุ่ม (ไม่ซ้ำอันเดิม ไม่เอาบทที่ยังล็อกตามความสนิท)
+function otherScenarioId(currentId, friendship) {
+  const others = scenarioList.filter((scenario) => scenario.id !== currentId && !isScenarioLocked(scenario, friendship))
   return others[Math.floor(Math.random() * others.length)]?.id ?? currentId
 }
 
@@ -62,7 +64,8 @@ export default function TalkPage() {
   const addMissed = useReviewStore((state) => state.addMissed)
   const talkWithNpc = useProgressStore((state) => state.talkWithNpc)
   const friendship = useProgressStore((state) => state.npcFriendship)
-  const baseScenario = scenarios.find((entry) => entry.id === scenarioId)
+  // บทพูดเต็มโหลดแยกไฟล์ (ขั้นที่ 28-1) — ระหว่างโหลด AppLayout แสดงตัวโหลด / ไม่มี id นี้ → null
+  const baseScenario = useScenario(scenarioId)
   // NPC ประจำสถานที่ (ขั้นที่ 15) → อีกฝ่ายใช้ชื่อ NPC ในกล่องแชต (บาริสต้า → Mia)
   const npc = baseScenario ? getNpc(baseScenario.npcId) : null
   const scenario = useMemo(
@@ -82,11 +85,11 @@ export default function TalkPage() {
       return next
     }, options)
 
-  // ไม่มี seed ใน URL → สุ่มแล้วใส่ (แทนที่ประวัติ ไม่ต้องกดย้อนกลับ 2 ครั้ง)
+  // ไม่มี seed ใน URL → สุ่มแล้วใส่ (แทนที่ประวัติ ไม่ต้องกดย้อนกลับ 2 ครั้ง) — ไม่มีสถานการณ์นี้ (หน้าไม่พบ) ไม่ต้องใส่
   useEffect(() => {
-    if (seed === null) updateParams({ seed: randomSeed() }, { replace: true })
+    if (seed === null && baseScenario) updateParams({ seed: randomSeed() }, { replace: true })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [seed])
+  }, [seed, baseScenario])
 
   const conversation = useMemo(
     () => (scenario && seed !== null ? buildConversation(scenario, seed) : null),
@@ -143,11 +146,15 @@ export default function TalkPage() {
   }
 
   function newScenario() {
-    navigate(`/talk/${otherScenarioId(scenario.id)}?seed=${randomSeed()}&mode=${playMode === 'hard' ? 'hard' : 'normal'}`)
+    navigate(
+      `/talk/${otherScenarioId(scenario.id, friendship)}?seed=${randomSeed()}&mode=${playMode === 'hard' ? 'hard' : 'normal'}`,
+    )
     setMode('intro')
   }
 
   const modeChoices = MODES.filter((value) => value !== 'speed' || scenario.speedOrder)
+  // เรื่องส่วนตัวกับ NPC (minFriendship) ต้องสนิทถึงระดับก่อน — เข้าทางลิงก์ตรงก็เล่นไม่ได้
+  const locked = isScenarioLocked(scenario, friendship)
 
   function addReview() {
     const ids = scenario.turns.filter((turn) => turn.speaker === 'user').map((turn) => turn.id)
@@ -156,7 +163,11 @@ export default function TalkPage() {
   }
 
   return (
-    <Page title={loc(scenario, 'name')} subtitle={t('talk.with', { name: loc(scenario.partner, 'name') })} backTo="/talk">
+    <Page
+      title={loc(scenario, 'name')}
+      subtitle={t('talk.with', { name: loc(scenario.partner, 'name') })}
+      backTo="/talk"
+    >
       {mode === 'intro' && (
         <div className={styles.intro}>
           <Picture image={scenario.image} size="fill" alt="" className={styles.introPicture} />
@@ -164,23 +175,41 @@ export default function TalkPage() {
           <p className={styles.goal}>
             <span className={styles.goalLabel}>{t('talk.goal')}</span> <span lang="th">{scenario.goalTh}</span>
           </p>
-          <div className={styles.modes} role="group" aria-label={t('talk.modeLabel')}>
-            {modeChoices.map((value) => (
-              <Button
-                key={value}
-                size="sm"
-                variant={playMode === value ? 'primary' : 'secondary'}
-                aria-pressed={playMode === value}
-                onClick={() => updateParams({ mode: value }, { replace: true })}
-              >
-                {t(`talk.mode.${value}`)}
+          {locked ? (
+            <div className={styles.randomBox}>
+              <p className={styles.note}>
+                {t('talk.lockedFriend', {
+                  name: loc(npc, 'name'),
+                  level: t(`npc.level.${scenario.minFriendship}`),
+                  // แถบความสนิทบอกรอบถึง "ระดับถัดไป" ซึ่งอาจยังไม่ถึงระดับที่ปลดล็อก → บอกจำนวนรอบถึงระดับที่ต้องการตรง ๆ
+                  count: Math.max(1, FRIENDSHIP_THRESHOLDS[scenario.minFriendship] - (friendship[npc?.id] ?? 0)),
+                })}
+              </p>
+              <Button block to={npc ? `/place/${npc.placeId}` : '/talk'}>
+                {t('talk.lockedGo', { name: loc(npc, 'name') })}
               </Button>
-            ))}
-          </div>
-          <p className={styles.note}>{t(`talk.modeNote.${playMode}`)}</p>
-          <Button block size="lg" icon={MessagesSquare} onClick={start}>
-            {t('talk.start')}
-          </Button>
+            </div>
+          ) : (
+            <>
+              <div className={styles.modes} role="group" aria-label={t('talk.modeLabel')}>
+                {modeChoices.map((value) => (
+                  <Button
+                    key={value}
+                    size="sm"
+                    variant={playMode === value ? 'primary' : 'secondary'}
+                    aria-pressed={playMode === value}
+                    onClick={() => updateParams({ mode: value }, { replace: true })}
+                  >
+                    {t(`talk.mode.${value}`)}
+                  </Button>
+                ))}
+              </div>
+              <p className={styles.note}>{t(`talk.modeNote.${playMode}`)}</p>
+              <Button block size="lg" icon={MessagesSquare} onClick={start}>
+                {t('talk.start')}
+              </Button>
+            </>
+          )}
         </div>
       )}
 
@@ -191,6 +220,7 @@ export default function TalkPage() {
           conversation={conversation}
           mode={playMode}
           npcRate={npc?.speechRate}
+          npcVoice={npc?.voice}
           onLinePass={linePass}
           onFinish={finish}
         />
@@ -214,6 +244,8 @@ export default function TalkPage() {
           onAddReview={addReview}
           onAgain={again}
           onNew={newScenario}
+          npcRate={npc?.speechRate}
+          npcVoice={npc?.voice}
         />
       )}
     </Page>

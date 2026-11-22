@@ -15,6 +15,7 @@
 //   display      ผลจาก useSentenceDisplay (คำอ่าน/คำแปล)
 //   details      แสดงเสียงพูดเชื่อม (เปิดเฉพาะบรรทัดที่ต้องใช้ ไม่ให้แชตรก)
 //   speakKey     รหัสเสียงของบรรทัดนี้ / canReplay = แสดงปุ่มลำโพง
+//   rate / fileVoice  ความเร็ว + เสียง Kokoro ของผู้พูด (NPC ในบทสนทนาสุ่ม — ขั้นที่ 28-1) ไม่ใส่ = ปกติ + เสียงหลัก
 //   ref          ใช้เลื่อนจอมาที่บรรทัดนี้ (React 19 ส่ง ref เป็น prop ได้)
 // =========================================================
 import { useTranslation } from 'react-i18next'
@@ -38,6 +39,8 @@ export default function DialogueBubble({
   details = false,
   speakKey,
   canReplay = true,
+  rate = 'normal',
+  fileVoice = null,
   ref,
 }) {
   const { t } = useTranslation()
@@ -46,7 +49,13 @@ export default function DialogueBubble({
   return (
     <div ref={ref} className={classes.join(' ')}>
       {canReplay && !cue && !textHidden && (
-        <LineButton text={line.target} speakKey={speakKey} label={t('dialogue.playLine', { name: speakerName })} />
+        <LineButton
+          text={line.target}
+          speakKey={speakKey}
+          rate={rate}
+          fileVoice={fileVoice}
+          label={t('dialogue.playLine', { name: speakerName })}
+        />
       )}
       <div className={styles.body}>
         <span className={styles.speaker}>

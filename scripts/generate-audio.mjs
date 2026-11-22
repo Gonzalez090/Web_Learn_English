@@ -20,7 +20,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { KokoroTTS } from 'kokoro-js'
 import { Mp3Encoder } from '@breezystack/lamejs'
-import { collectSpeechTexts } from '../src/data/speechTexts.js'
+import { collectSpeechTexts, collectVoicedTexts } from '../src/data/speechTexts.js'
 // ชื่อไฟล์ใช้ฟังก์ชันเดียวกับหน้าเว็บ (หน้าเว็บคำนวณชื่อไฟล์เองจากข้อความ) → ต้องตรงกันเสมอ
 import { AUDIO_SPEEDS, AUDIO_VOICE, audioPathFor } from '../src/utils/audioPath.js'
 
@@ -77,15 +77,22 @@ const { npcs } = await readJson(WORLD_FILE)
 const texts = collectSpeechTexts({ lessons, soundPractice, phonicsSounds, phrases, scenarios, npcs })
 await fs.mkdir(AUDIO_DIR, { recursive: true })
 
-const manifest = { voice: VOICE, normal: {}, slow: {} }
+// เสียงของ NPC (ขั้นที่ 28-1): { voice: [ข้อความ] } — ชื่อไฟล์คิดจากเสียงนั้น (audioPathFor(text, speed, voice))
+const voiced = collectVoicedTexts({ scenarios, npcs })
+const manifest = { voice: VOICE, normal: {}, slow: {}, voices: {} }
 const todo = []
-for (const text of texts) {
+async function plan(text, voice, target) {
   for (const speedKey of Object.keys(SPEEDS)) {
-    const audioPath = audioPathFor(text, speedKey)
+    const audioPath = audioPathFor(text, speedKey, voice)
     const fileName = path.basename(audioPath)
-    manifest[speedKey][text] = audioPath
-    if (!(await exists(path.join(AUDIO_DIR, fileName)))) todo.push({ text, speedKey, fileName })
+    target[speedKey][text] = audioPath
+    if (!(await exists(path.join(AUDIO_DIR, fileName)))) todo.push({ text, speedKey, fileName, voice })
   }
+}
+for (const text of texts) await plan(text, VOICE, manifest)
+for (const [voice, list] of Object.entries(voiced)) {
+  manifest.voices[voice] = { normal: {}, slow: {} }
+  for (const text of list) await plan(text, voice, manifest.voices[voice])
 }
 
 // --shard i/n → ทำเฉพาะงานลำดับที่ (index % n) === i-1 (รันหลายตัวพร้อมกันได้ ไม่ทำงานซ้ำกัน)
@@ -93,25 +100,30 @@ const shardArg = process.argv.indexOf('--shard')
 const [shardIndex, shardCount] = shardArg > 0 ? process.argv[shardArg + 1].split('/').map(Number) : [1, 1]
 const myJobs = todo.filter((_, index) => index % shardCount === shardIndex - 1)
 
-console.log(`ข้อความทั้งหมด ${texts.length} | ต้องสร้างใหม่ ${todo.length} ไฟล์ | รอบนี้ทำ ${myJobs.length} ไฟล์ (shard ${shardIndex}/${shardCount})`)
+const voicedCount = Object.values(voiced).reduce((sum, list) => sum + list.length, 0)
+console.log(`ข้อความทั้งหมด ${texts.length} + เสียง NPC ${voicedCount} | ต้องสร้างใหม่ ${todo.length} ไฟล์ | รอบนี้ทำ ${myJobs.length} ไฟล์ (shard ${shardIndex}/${shardCount})`)
 
 if (myJobs.length > 0) {
   console.log(`กำลังโหลดโมเดล ${MODEL_ID} (ครั้งแรกจะดาวน์โหลดราว 90MB)...`)
   const tts = await KokoroTTS.from_pretrained(MODEL_ID, { dtype: 'q8', device: 'cpu' })
 
   for (const [index, job] of myJobs.entries()) {
-    const audio = await tts.generate(job.text, { voice: VOICE, speed: SPEEDS[job.speedKey] })
+    const audio = await tts.generate(job.text, { voice: job.voice, speed: SPEEDS[job.speedKey] })
     const mp3 = encodeMp3(audio.audio, audio.sampling_rate)
     // เขียนไฟล์ชั่วคราวก่อนแล้วค่อยเปลี่ยนชื่อ → หยุดกลางคันก็ไม่มีไฟล์เสียงครึ่ง ๆ กลาง ๆ
     const target = path.join(AUDIO_DIR, job.fileName)
     await fs.writeFile(`${target}.tmp`, mp3)
     await fs.rename(`${target}.tmp`, target)
-    console.log(`[${index + 1}/${myJobs.length}] ${job.speedKey.padEnd(6)} ${Math.round(mp3.length / 1024)}KB  ${job.text}`)
+    console.log(
+      `[${index + 1}/${myJobs.length}] ${job.voice} ${job.speedKey.padEnd(6)} ${Math.round(mp3.length / 1024)}KB  ${job.text}`,
+    )
   }
 }
 
 // ลบไฟล์เสียงที่ไม่ได้ใช้แล้ว (เช่น แก้ข้อความในบทเรียน)
-const used = new Set(Object.values(manifest.normal).concat(Object.values(manifest.slow)).map((p) => path.basename(p)))
+// (รันแบบ --shard ตัวที่จบก่อนจะลบไฟล์ที่ไม่ใช้ — ไฟล์ที่ตัวอื่นกำลังสร้างอยู่ในสารบัญเดียวกัน จึงไม่ถูกลบ)
+const allSets = [manifest, ...Object.values(manifest.voices)]
+const used = new Set(allSets.flatMap((set) => [...Object.values(set.normal), ...Object.values(set.slow)]).map((p) => path.basename(p)))
 for (const file of await fs.readdir(AUDIO_DIR)) {
   if (file.endsWith('.mp3') && !used.has(file)) {
     await fs.unlink(path.join(AUDIO_DIR, file))
@@ -123,6 +135,17 @@ for (const file of await fs.readdir(AUDIO_DIR)) {
 const sortKeys = (obj) => Object.fromEntries(Object.entries(obj).sort(([a], [b]) => a.localeCompare(b)))
 await fs.writeFile(
   MANIFEST_FILE,
-  `${JSON.stringify({ voice: VOICE, normal: sortKeys(manifest.normal), slow: sortKeys(manifest.slow) }, null, 2)}\n`,
+  `${JSON.stringify(
+    {
+      voice: VOICE,
+      normal: sortKeys(manifest.normal),
+      slow: sortKeys(manifest.slow),
+      voices: Object.fromEntries(
+        Object.entries(manifest.voices).map(([voice, set]) => [voice, { normal: sortKeys(set.normal), slow: sortKeys(set.slow) }]),
+      ),
+    },
+    null,
+    2,
+  )}\n`,
 )
 console.log(`เสร็จแล้ว → ${path.relative(ROOT, MANIFEST_FILE)}`)

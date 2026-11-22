@@ -154,7 +154,8 @@
             "translationTh": "ขอบคุณครับ/ค่ะ ป้าโรส ซึ้งใจมากเลย"
           }
         }
-      ]
+      ],
+      "voice": "bf_emma"
     },
     {
       "id": "jake",
@@ -213,7 +214,8 @@
             "translationTh": "ได้เลย ฟังดูสนุก นับฉันด้วยคน"
           }
         }
-      ]
+      ],
+      "voice": "am_michael"
     },
     {
       "id": "mia",
@@ -272,7 +274,8 @@
             "translationTh": "โอ๋ ๆ สู้ ๆ นะ ทำได้ดีมากแล้ว"
           }
         }
-      ]
+      ],
+      "voice": "af_bella"
     },
     {
       "id": "sam",
@@ -331,7 +334,8 @@
             "translationTh": "เหมือนกัน ติดต่อกันไว้นะ"
           }
         }
-      ]
+      ],
+      "voice": "am_puck"
     },
     {
       "id": "dana",
@@ -388,6 +392,127 @@
           "reply": {
             "text": "Wow, thank you so much!",
             "translationTh": "ว้าว ขอบคุณมาก ๆ เลย"
+          }
+        }
+      ],
+      "voice": "bf_isabella"
+    },
+    {
+      "id": "oliver",
+      "name": "Oliver",
+      "nameTh": "โอลิเวอร์",
+      "placeId": "restaurant",
+      "role": "Waiter at the restaurant",
+      "roleTh": "พนักงานเสิร์ฟที่ร้านอาหาร",
+      "personality": "Polite and cheerful. Always has a good tip about the menu.",
+      "personalityTh": "สุภาพ ร่าเริง รู้ว่าเมนูไหนเด็ด (สำเนียงอังกฤษ)",
+      "speakingStyle": "polite-british",
+      "speechRate": "normal",
+      "voice": "bm_george",
+      "image": "/images/npc-oliver.webp",
+      "welcomeBack": {
+        "text": "Well, look who it is! Long time no see! Your usual table?",
+        "translationTh": "อ้าว ดูสิใครมา! ไม่เจอกันนานเลย โต๊ะประจำไหมครับ"
+      },
+      "levels": [
+        {
+          "npc": {
+            "text": "Good evening! Welcome in. Have you been here before?",
+            "translationTh": "สวัสดีตอนเย็นครับ เชิญด้านในครับ เคยมาที่นี่หรือยังครับ"
+          },
+          "reply": {
+            "text": "No, it's my first time.",
+            "translationTh": "ยังเลย มาครั้งแรก"
+          }
+        },
+        {
+          "npc": {
+            "text": "Nice to see you again! The same as last time?",
+            "translationTh": "ดีใจที่ได้เจออีกครับ เอาเหมือนครั้งก่อนไหมครับ"
+          },
+          "reply": {
+            "text": "Yes, please. It was so good.",
+            "translationTh": "ใช่ เอาเหมือนเดิม อร่อยมากเลย"
+          }
+        },
+        {
+          "npc": {
+            "text": "Between you and me, the chef's special today is brilliant.",
+            "translationTh": "บอกกันตรงนี้นะครับ เมนูพิเศษของเชฟวันนี้เด็ดมาก"
+          },
+          "reply": {
+            "text": "Oh, really? I'll try it, then.",
+            "translationTh": "จริงเหรอ งั้นขอลองเลย"
+          }
+        },
+        {
+          "npc": {
+            "text": "You're one of our regulars now. Dessert's on the house tonight!",
+            "translationTh": "ตอนนี้คุณเป็นลูกค้าประจำแล้ว ของหวานคืนนี้ร้านเลี้ยงครับ!"
+          },
+          "reply": {
+            "text": "Aw, thank you! That's so kind.",
+            "translationTh": "โอ้ ขอบคุณมาก ใจดีจัง"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nina",
+      "name": "Nina",
+      "nameTh": "นีน่า",
+      "placeId": "office",
+      "role": "Your coworker at the office",
+      "roleTh": "เพื่อนร่วมงานที่ออฟฟิศ",
+      "personality": "Friendly and helpful. Always up for lunch.",
+      "personalityTh": "เป็นมิตร ชอบช่วยเหลือ ชวนไปกินข้าวกลางวันเสมอ",
+      "speakingStyle": "friendly-work",
+      "speechRate": "normal",
+      "voice": "af_nicole",
+      "image": "/images/npc-nina.webp",
+      "welcomeBack": {
+        "text": "Hey, stranger! Long time no see! Were you on vacation?",
+        "translationTh": "อ้าว คนหายไปไหนมา! ไม่เจอกันนานเลย ไปเที่ยวมาเหรอ"
+      },
+      "levels": [
+        {
+          "npc": {
+            "text": "Hi! You must be new here. I'm Nina, from marketing.",
+            "translationTh": "สวัสดี! คุณคงเป็นคนใหม่ ฉันนีน่า อยู่ฝ่ายการตลาด"
+          },
+          "reply": {
+            "text": "Hi, Nina. Nice to meet you.",
+            "translationTh": "สวัสดีนีน่า ยินดีที่ได้รู้จัก"
+          }
+        },
+        {
+          "npc": {
+            "text": "Morning! Did you see the email from the boss?",
+            "translationTh": "อรุณสวัสดิ์! เห็นอีเมลจากหัวหน้าหรือยัง"
+          },
+          "reply": {
+            "text": "Not yet. I'll check it now.",
+            "translationTh": "ยังเลย เดี๋ยวเช็กเลย"
+          }
+        },
+        {
+          "npc": {
+            "text": "Wanna grab a coffee after this meeting?",
+            "translationTh": "ประชุมเสร็จไปกินกาแฟกันไหม"
+          },
+          "reply": {
+            "text": "Sure, I could use a break.",
+            "translationTh": "ได้สิ กำลังอยากพักพอดี"
+          }
+        },
+        {
+          "npc": {
+            "text": "Honestly, work is so much more fun since you joined.",
+            "translationTh": "พูดจริงนะ ตั้งแต่คุณเข้ามา ทำงานสนุกขึ้นเยอะเลย"
+          },
+          "reply": {
+            "text": "Aw, thanks. I feel the same way.",
+            "translationTh": "โอ้ ขอบคุณนะ รู้สึกเหมือนกันเลย"
           }
         }
       ]

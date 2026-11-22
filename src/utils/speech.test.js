@@ -34,6 +34,14 @@ describe('ไฟล์เสียงที่สร้างไว้ (Kokoro)'
   it('ปิดการใช้ไฟล์ (ปุ่มลองเสียงในตั้งค่า) → ใช้เสียงเบราว์เซอร์ทั้งหมด', () => {
     expect(planSegments(['Big dog!'], 'normal', { useFiles: false })).toEqual([{ text: 'Big dog!', file: null }])
   })
+
+  it('เสียง NPC (ขั้นที่ 28-1): ไฟล์เสียง NPC ก่อน แล้วสำรองด้วยไฟล์เสียงหลัก / เสียงหลักคงชื่อไฟล์เดิม', () => {
+    expect(planSegments('Hi there!', 'slow', { fileVoice: 'bf_emma' })).toEqual([
+      { text: 'Hi there!', file: audioPathFor('Hi there!', 'slow', 'bf_emma'), fallbackFile: audioPathFor('Hi there!', 'slow') },
+    ])
+    expect(audioPathFor('Hi there!', 'slow', 'bf_emma')).not.toBe(audioPathFor('Hi there!', 'slow'))
+    expect(audioPathFor('Hi there!', 'slow', 'af_heart')).toBe(audioPathFor('Hi there!', 'slow'))
+  })
 })
 
 const voice = (name, lang, voiceURI = name, localService = false) => ({ name, lang, voiceURI, localService })

@@ -23,6 +23,13 @@ export function friendshipLevel(points = 0) {
   return level
 }
 
+// บทสนทนาที่ต้องสนิทกับ NPC ก่อน (scenario.minFriendship = ระดับ 1–3, ขั้นที่ 28-1) ยังล็อกอยู่ไหม
+//   ไม่มี minFriendship / ไม่มี npcId → เปิดเสมอ
+export function isScenarioLocked(scenario, friendship = {}) {
+  if (!scenario?.minFriendship || !scenario.npcId) return false
+  return friendshipLevel(friendship[scenario.npcId] ?? 0) < scenario.minFriendship
+}
+
 // ความคืบหน้าไประดับถัดไป → { level, next (null = สูงสุดแล้ว), remaining (คุยอีกกี่ครั้ง), ratio 0–1 }
 export function friendshipProgress(points = 0) {
   const level = friendshipLevel(points)

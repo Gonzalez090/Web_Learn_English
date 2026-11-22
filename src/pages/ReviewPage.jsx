@@ -7,8 +7,9 @@
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSearchParams } from 'react-router-dom'
-import { getLessonMeta, getStage, scenarios } from '../data'
-import { talkReviewLesson } from '../utils/conversation'
+import { getLessonMeta, getStage } from '../data'
+import { talkLessonId, talkReviewLesson } from '../utils/conversation'
+import { useScenarios } from '../hooks/useScenarios'
 import { englishTextMode } from '../utils/display'
 import { useLessonsOfStages } from '../hooks/useLessons'
 import { useReviewStore } from '../store/reviewStore'
@@ -49,8 +50,19 @@ export default function ReviewPage() {
   // (ระหว่างทบทวน คิวมีแต่ข้อเดิมเปลี่ยนรอบ ไม่มีบทใหม่เข้ามา → ไม่ต้องโหลด/รอใหม่กลางทาง)
   const [stageIds] = useState(() => queue.map((entry) => getLessonMeta(entry.lessonId)?.stageId).filter(Boolean))
   const stageLessons = useLessonsOfStages(stageIds)
-  // บทสนทนาสุ่ม (ขั้นที่ 11): บรรทัดของเราที่ข้าม/เพิ่มเข้ารายการทบทวน อยู่ในบทเรียนเสมือน talk-<id> (ข้อมูลอยู่ในไฟล์หลักแล้ว)
-  const lessons = useMemo(() => [...stageLessons, ...scenarios.map(talkReviewLesson)], [stageLessons])
+  // บทสนทนาสุ่ม (ขั้นที่ 11): บรรทัดของเราที่ข้าม/เพิ่มเข้ารายการทบทวน อยู่ในบทเรียนเสมือน talk-<id>
+  //   บทพูดโหลดแยกไฟล์ (ขั้นที่ 28-1) → โหลดเฉพาะสถานการณ์ที่มีบรรทัดอยู่ในคิว (จับชุดไว้ตอนเปิดหน้าเหมือน Stage)
+  const [talkIds] = useState(() =>
+    queue
+      .map((entry) => entry.lessonId)
+      .filter((lessonId) => lessonId.startsWith(talkLessonId('')))
+      .map((lessonId) => lessonId.slice(talkLessonId('').length)),
+  )
+  const talkScenarios = useScenarios(talkIds)
+  const lessons = useMemo(
+    () => [...stageLessons, ...talkScenarios.map(talkReviewLesson)],
+    [stageLessons, talkScenarios],
+  )
 
   const [round, setRound] = useState(0) // เพิ่มขึ้น = เริ่มทบทวนรอบใหม่
   // ?short=1 (กลับมาหลังหายไปนาน — คำทัก "Long time no see!") → ทบทวนสั้น ๆ แค่ 5 ข้อแรก
