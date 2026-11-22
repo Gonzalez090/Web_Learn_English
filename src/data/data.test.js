@@ -8,7 +8,7 @@ import phonicsData from './phonics.json'
 import phrasesData from './phrases.json'
 import scenariosData from './scenarios.json'
 import worldData from './world.json'
-import { slotsIn } from '../utils/conversation.js'
+import { expandScenarioTexts, slotsIn } from '../utils/conversation.js'
 import imageCredits from './imageCredits.json'
 import { collectSpeechTexts, collectVoicedTexts } from './speechTexts.js'
 import { audioPathFor, NPC_VOICES } from '../utils/audioPath.js'
@@ -19,7 +19,7 @@ import { checkKeywords } from '../utils/storyCheck.js'
 import { graphemeUnits, spellUnits } from '../utils/reading.js'
 import { checkFreeWriting, hasThaiLetters, SPELLING_MODES, splitBlank } from '../utils/spelling.js'
 import { FRIENDSHIP_THRESHOLDS } from '../utils/friendship.js'
-import { itemTexts, wordsOf } from '../utils/vocabulary.js'
+import { itemTexts, totalVocabulary, wordsOf } from '../utils/vocabulary.js'
 import audioManifest from './audioManifest.json'
 import th from '../locales/th.json'
 import en from '../locales/en.json'
@@ -665,9 +665,16 @@ describe('คลังวลี (phrases.json)', () => {
 describe('บทสนทนาสุ่ม (scenarios.json)', () => {
   const { scenarios } = scenariosData
 
-  it('มี 5 สถานการณ์ตามสเปก id ไม่ซ้ำ / ภาพ = /images/talk-<id>.webp', () => {
+  it('≥ 30 สถานการณ์ (ขั้นที่ 28-2) ครบตามสเปก id ไม่ซ้ำ / ภาพ = /images/talk-<id>.webp / ทุกสถานที่มี ≥ 3 บท', () => {
     const ids = scenarios.map((scenario) => scenario.id)
-    expect(ids).toEqual(expect.arrayContaining(['cafe', 'store', 'old-friend', 'directions', 'hotel']))
+    expect(ids.length).toBeGreaterThanOrEqual(30)
+    // สเปกส่วนที่ 6: ร้านกาแฟ ร้านสะดวกซื้อ เรียกรถ เจอเพื่อนเก่า สัมภาษณ์งาน เช็คอินโรงแรม ร้านอาหาร ถามทาง เพื่อนร่วมงาน นัดเพื่อน
+    expect(ids).toEqual(
+      expect.arrayContaining(['cafe', 'store', 'taxi', 'old-friend', 'job-interview', 'hotel', 'restaurant', 'directions', 'coworker', 'making-plans']),
+    )
+    for (const place of worldData.cityMap) {
+      expect(scenarios.filter((scenario) => scenario.placeId === place.placeId).length, place.placeId).toBeGreaterThanOrEqual(3)
+    }
     expect(new Set(ids).size).toBe(ids.length)
     for (const scenario of scenarios) expect(scenario.image).toBe(`/images/talk-${scenario.id}.webp`)
   })
@@ -712,6 +719,21 @@ describe('บทสนทนาสุ่ม (scenarios.json)', () => {
       expect([...new Set(usedSlots)].filter((name) => !slotNames.includes(name))).toEqual([])
     },
   )
+})
+
+// ---------- คำรวมทั้งเว็บ (ขั้นที่ 28-2) ----------
+describe('คำรวมทั้งเว็บ ≈ B1', () => {
+  it('Stage 1–7 ≥ 2,700 คำ + โหมดเมือง (วลี/คู่ในตำรา/บทสนทนาสุ่ม/NPC) → รวม ≥ 3,000 คำ', () => {
+    const { stages, city, total } = totalVocabulary({
+      lessons,
+      phrases: phrasesData,
+      scenarioTexts: scenariosData.scenarios.flatMap((scenario) => expandScenarioTexts(scenario)),
+      npcs: worldData.npcs,
+    })
+    expect(stages).toBeGreaterThanOrEqual(2700)
+    expect(city).toBeGreaterThan(0)
+    expect(total).toBeGreaterThanOrEqual(3000)
+  })
 })
 
 // ---------- แผนที่เมือง (ส่วนที่ 7, ขั้นที่ 14) ----------
@@ -769,12 +791,25 @@ describe('NPC (world.json npcs)', () => {
     }
   })
 
-  it('บทสนทนาสุ่มทุกบทชี้ NPC ที่มีจริง และอยู่สถานที่เดียวกับ NPC', () => {
+  it('บทสนทนาสุ่มที่มี NPC ชี้ NPC ที่มีจริงและอยู่สถานที่เดียวกัน / บทกับคนแปลกหน้า (ไม่มี npcId) มีชื่ออีกฝ่าย', () => {
     for (const scenario of scenariosData.scenarios) {
+      if (!scenario.npcId) {
+        expect(scenario.partner?.name && scenario.partner?.nameTh, scenario.id).toBeTruthy()
+        continue
+      }
       const npc = npcs.find((entry) => entry.id === scenario.npcId)
       expect(npc, scenario.id).toBeTruthy()
       expect(npc.placeId, scenario.id).toBe(scenario.placeId)
     }
+  })
+
+  it('บทที่ปลดล็อกตามความสนิท (ขั้นที่ 28): minFriendship 1–3 ต้องมี NPC / NPC ทุกคนมีเรื่องลึกขึ้นอย่างน้อย 1 บท', () => {
+    const gated = scenariosData.scenarios.filter((scenario) => scenario.minFriendship)
+    for (const scenario of gated) {
+      expect(scenario.npcId, scenario.id).toBeTruthy()
+      expect([1, 2, 3], scenario.id).toContain(scenario.minFriendship)
+    }
+    for (const npc of npcs) expect(gated.some((scenario) => scenario.npcId === npc.id), npc.id).toBe(true)
   })
 })
 

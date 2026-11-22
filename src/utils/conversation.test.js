@@ -19,6 +19,13 @@ const cafe = scenarios.find((scenario) => scenario.id === 'cafe')
 describe('fillSlots / slotsIn', () => {
   const values = { drink: { en: 'a latte', th: 'ลาเต้', key: 'latte' }, nights: { en: 'two nights', th: '2 คืน' } }
 
+  it('ช่องที่ขึ้นประโยคใหม่กลางข้อความเป็นตัวใหญ่ / กลางประโยคคงตัวเล็ก (ขั้นที่ 28-2)', () => {
+    const price = { price: { en: 'forty dollars', th: '40 ดอลลาร์' } }
+    expect(fillSlots("Okay, we're here. {price}, please.", price)).toBe("Okay, we're here. Forty dollars, please.")
+    expect(fillSlots('Is that {price}? {price}!', price)).toBe('Is that forty dollars? Forty dollars!')
+    expect(fillSlots('That is {price}.', price)).toBe('That is forty dollars.')
+  })
+
   it('แทนค่าภาษาอังกฤษ/ไทย และขึ้นต้นตัวใหญ่', () => {
     expect(fillSlots('Can I get {drink}, please?', values)).toBe('Can I get a latte, please?')
     expect(fillSlots('{nights}, is that correct?', values)).toBe('Two nights, is that correct?')

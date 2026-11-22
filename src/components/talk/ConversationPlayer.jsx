@@ -176,7 +176,7 @@ export default function ConversationPlayer({
             <Fragment key={entry.id}>
               <p className={styles.twistBanner} role="status">
                 <Zap className={styles.hintIcon} aria-hidden="true" />
-                {t('talk.twist', { title: conversation.twist.titleTh })}
+                {t('talk.twist', { title: loc(conversation.twist, 'title') })}
               </p>
               {bubble}
             </Fragment>

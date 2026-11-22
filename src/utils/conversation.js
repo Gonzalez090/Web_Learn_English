@@ -24,10 +24,14 @@ export const slotsIn = (text) => [...new Set([...String(text ?? '').matchAll(SLO
  * @param lang 'en' | 'th'
  */
 export function fillSlots(text, values, lang = 'en') {
-  const filled = String(text ?? '').replace(SLOT_RE, (whole, name) => {
+  const source = String(text ?? '')
+  const filled = source.replace(SLOT_RE, (whole, name, offset) => {
     const value = values?.[name]
     if (!value) return whole
-    return lang === 'th' ? (value.th ?? value.en) : value.en
+    if (lang === 'th') return value.th ?? value.en
+    // ช่องที่ขึ้นประโยคใหม่กลางข้อความ ("Okay, we're here. {price}, please.") → ตัวใหญ่ด้วย (ขั้นที่ 28-2)
+    const startsSentence = /(^|[.!?]\s+)$/.test(source.slice(0, offset))
+    return startsSentence ? value.en[0].toUpperCase() + value.en.slice(1) : value.en
   })
   return lang === 'en' && filled ? filled[0].toUpperCase() + filled.slice(1) : filled
 }

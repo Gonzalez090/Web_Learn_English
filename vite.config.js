@@ -132,6 +132,9 @@ const PREVIEW_SECURITY_HEADERS = {
 // =========================================================
 export default defineConfig(({ mode }) => ({
   plugins: [react(), lessonChunks(), phraseChunks(), scenarioChunks(), securityMetaTags(), mode === 'phone' && basicSsl()].filter(Boolean),
+  // ไฟล์เสียง (~28,000) + ภาพ (~2,200) ใน public/ ไม่ต้องเฝ้าดู — ตัวเฝ้าไฟล์กิน CPU 100% ตลอดเวลาจนเสียงช้า 10–30 วินาที
+  // (Vite จำรายการไฟล์ใน public/ ตั้งแต่เริ่ม server อยู่แล้ว → สร้างเสียง/ภาพใหม่ต้องรีสตาร์ต npm run dev เหมือนเดิม)
+  server: { watch: { ignored: ['**/public/audio/**', '**/public/images/**'] } },
   build: {
     sourcemap: false,
   },

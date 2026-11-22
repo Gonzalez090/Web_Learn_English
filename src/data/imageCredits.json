@@ -15224,6 +15224,13 @@
     "photographerUrl": "https://pixabay.com/users/klimkin-1298145/",
     "pageUrl": "https://pixabay.com/photos/merry-christmas-kids-girls-writing-1093758/"
   },
+  "talk-airport-checkin": {
+    "provider": "pixabay",
+    "sourceId": 4735067,
+    "photographer": "frank2016wang",
+    "photographerUrl": "https://pixabay.com/users/frank2016wang-7484739/",
+    "pageUrl": "https://pixabay.com/photos/airport-tex-free-madrid-spain-4735067/"
+  },
   "talk-cafe": {
     "provider": "pixabay",
     "sourceId": 2609042,
@@ -15231,12 +15238,26 @@
     "photographerUrl": "https://pixabay.com/users/StockSnap-894430/",
     "pageUrl": "https://pixabay.com/photos/business-establishments-shops-2609042/"
   },
+  "talk-cafe-wifi": {
+    "provider": "pixabay",
+    "sourceId": 2425303,
+    "photographer": "Engin_Akyurt",
+    "photographerUrl": "https://pixabay.com/users/Engin_Akyurt-3656355/",
+    "pageUrl": "https://pixabay.com/photos/coffee-caffeine-beverage-table-2425303/"
+  },
   "talk-coworker": {
     "provider": "pixabay",
     "sourceId": 5382501,
     "photographer": "RonaldCandonga",
     "photographerUrl": "https://pixabay.com/users/RonaldCandonga-17383039/",
     "pageUrl": "https://pixabay.com/photos/job-office-team-business-internet-5382501/"
+  },
+  "talk-dana-local-tips": {
+    "provider": "pixabay",
+    "sourceId": 7874734,
+    "photographer": "Surprising_Media",
+    "photographerUrl": "https://pixabay.com/users/Surprising_Media-11873433/",
+    "pageUrl": "https://pixabay.com/photos/buildings-cityscape-old-town-7874734/"
   },
   "talk-directions": {
     "provider": "pixabay",
@@ -15252,6 +15273,69 @@
     "photographerUrl": "https://pixabay.com/users/Rodrigo_SalomonHC-20127871/",
     "pageUrl": "https://pixabay.com/photos/receptionists-phone-call-hotel-5975962/"
   },
+  "talk-jake-concert": {
+    "provider": "pixabay",
+    "sourceId": 1835431,
+    "photographer": "Pexels",
+    "photographerUrl": "https://pixabay.com/users/Pexels-2286921/",
+    "pageUrl": "https://pixabay.com/photos/audience-concert-guitar-guitarist-1835431/"
+  },
+  "talk-jake-snacks": {
+    "provider": "pixabay",
+    "sourceId": 3912110,
+    "photographer": "JillWellington",
+    "photographerUrl": "https://pixabay.com/users/JillWellington-334088/",
+    "pageUrl": "https://pixabay.com/photos/popcorn-movie-time-snack-delicious-3912110/"
+  },
+  "talk-job-interview": {
+    "provider": "pixabay",
+    "sourceId": 10559064,
+    "photographer": "erwinbosman",
+    "photographerUrl": "https://pixabay.com/users/erwinbosman-50462252/",
+    "pageUrl": "https://pixabay.com/photos/job-interview-handshake-resume-10559064/"
+  },
+  "talk-lost-luggage": {
+    "provider": "pixabay",
+    "sourceId": 64390,
+    "photographer": "Hans",
+    "photographerUrl": "https://pixabay.com/users/Hans-2/",
+    "pageUrl": "https://pixabay.com/photos/luggage-band-conveyor-belt-treadmill-64390/"
+  },
+  "talk-making-plans": {
+    "provider": "pixabay",
+    "sourceId": 8509637,
+    "photographer": "Surprising_Media",
+    "photographerUrl": "https://pixabay.com/users/Surprising_Media-11873433/",
+    "pageUrl": "https://pixabay.com/photos/women-beauty-outdoors-casual-8509637/"
+  },
+  "talk-mia-art-show": {
+    "provider": "pixabay",
+    "sourceId": 362163,
+    "photographer": "RyanMcGuire",
+    "photographerUrl": "https://pixabay.com/users/RyanMcGuire-123690/",
+    "pageUrl": "https://pixabay.com/photos/exhibition-art-gallery-gallery-arts-362163/"
+  },
+  "talk-mia-new-drink": {
+    "provider": "pixabay",
+    "sourceId": 8388244,
+    "photographer": "Max_Dormann",
+    "photographerUrl": "https://pixabay.com/users/Max_Dormann-40441792/",
+    "pageUrl": "https://pixabay.com/photos/coffee-cappuccino-barista-caffeine-8388244/"
+  },
+  "talk-nina-after-work": {
+    "provider": "pixabay",
+    "sourceId": 10184748,
+    "photographer": "geralt",
+    "photographerUrl": "https://pixabay.com/users/geralt-9301/",
+    "pageUrl": "https://pixabay.com/photos/karaoke-singing-friends-party-10184748/"
+  },
+  "talk-nina-meeting": {
+    "provider": "pixabay",
+    "sourceId": 10209984,
+    "photographer": "geralt",
+    "photographerUrl": "https://pixabay.com/users/geralt-9301/",
+    "pageUrl": "https://pixabay.com/photos/business-meeting-leadership-office-10209984/"
+  },
   "talk-old-friend": {
     "provider": "pixabay",
     "sourceId": 4788167,
@@ -15259,12 +15343,61 @@
     "photographerUrl": "https://pixabay.com/users/Polifoto-15011787/",
     "pageUrl": "https://pixabay.com/photos/merry-christmas-embrace-hug-4788167/"
   },
+  "talk-oliver-allergy": {
+    "provider": "pixabay",
+    "sourceId": 705881,
+    "photographer": "IgorSaveliev",
+    "photographerUrl": "https://pixabay.com/users/IgorSaveliev-50922/",
+    "pageUrl": "https://pixabay.com/photos/street-cafe-waiters-milan-italy-705881/"
+  },
   "talk-restaurant": {
     "provider": "pixabay",
     "sourceId": 939434,
     "photographer": "RestaurantAnticaRoma",
     "photographerUrl": "https://pixabay.com/users/RestaurantAnticaRoma-1405821/",
     "pageUrl": "https://pixabay.com/photos/dinner-salad-restaurant-italians-939434/"
+  },
+  "talk-restaurant-booking": {
+    "provider": "pixabay",
+    "sourceId": 5190643,
+    "photographer": "VinzentWeinbeer",
+    "photographerUrl": "https://pixabay.com/users/VinzentWeinbeer-5342962/",
+    "pageUrl": "https://pixabay.com/photos/make-a-phone-call-mobile-phone-5190643/"
+  },
+  "talk-rose-garden": {
+    "provider": "pixabay",
+    "sourceId": 4792038,
+    "photographer": "silviarita",
+    "photographerUrl": "https://pixabay.com/users/silviarita-3142410/",
+    "pageUrl": "https://pixabay.com/photos/woman-seniorin-pensioner-granny-4792038/"
+  },
+  "talk-rose-old-days": {
+    "provider": "pixabay",
+    "sourceId": 4427555,
+    "photographer": "Bellahu123",
+    "photographerUrl": "https://pixabay.com/users/Bellahu123-10783290/",
+    "pageUrl": "https://pixabay.com/photos/memories-review-photos-photo-4427555/"
+  },
+  "talk-rose-package": {
+    "provider": "pixabay",
+    "sourceId": 10186543,
+    "photographer": "u_c48rf6ybx8",
+    "photographerUrl": "https://pixabay.com/users/u_c48rf6ybx8-55127632/",
+    "pageUrl": "https://pixabay.com/photos/package-packaging-delivery-parcel-10186543/"
+  },
+  "talk-sam-big-news": {
+    "provider": "pixabay",
+    "sourceId": 4446884,
+    "photographer": "margarita_kochneva",
+    "photographerUrl": "https://pixabay.com/users/margarita_kochneva-11806996/",
+    "pageUrl": "https://pixabay.com/photos/wall-brick-girlfriend-glasses-4446884/"
+  },
+  "talk-sam-jog": {
+    "provider": "pixabay",
+    "sourceId": 6542646,
+    "photographer": "framepersecC",
+    "photographerUrl": "https://pixabay.com/users/framepersecC-11808179/",
+    "pageUrl": "https://pixabay.com/photos/man-exercise-outdoors-park-street-6542646/"
   },
   "talk-sam-move": {
     "provider": "pixabay",
@@ -15279,6 +15412,20 @@
     "photographer": "Surprising_Media",
     "photographerUrl": "https://pixabay.com/users/Surprising_Media-11873433/",
     "pageUrl": "https://pixabay.com/photos/woman-store-kiosk-buying-a-drink-7368231/"
+  },
+  "talk-store-return": {
+    "provider": "pixabay",
+    "sourceId": 879498,
+    "photographer": "stevepb",
+    "photographerUrl": "https://pixabay.com/users/stevepb-282134/",
+    "pageUrl": "https://pixabay.com/photos/shopping-spending-till-slip-879498/"
+  },
+  "talk-taxi": {
+    "provider": "pixabay",
+    "sourceId": 2253292,
+    "photographer": "rliessum",
+    "photographerUrl": "https://pixabay.com/users/rliessum-5180220/",
+    "pageUrl": "https://pixabay.com/photos/new-york-yellow-cab-cab-city-2253292/"
   },
   "talk-tea-with-rose": {
     "provider": "pixabay",

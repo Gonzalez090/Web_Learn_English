@@ -6,7 +6,7 @@
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Dices, Timer } from 'lucide-react'
-import { getNpc, scenarioList } from '../data'
+import { cityMap, getNpc, scenarioList } from '../data'
 import { useLocalized } from '../hooks/useLocalized'
 import { useProgressStore } from '../store/progressStore'
 import { randomSeed } from '../utils/conversation'
@@ -48,28 +48,36 @@ export default function TalkListPage() {
           {t('talk.speedOrder')}
         </Button>
       </div>
-      <Section title={t('talk.pick')}>
-        <TileList>
-          {scenarioList.map((scenario) => {
-            const locked = isScenarioLocked(scenario, friendship)
-            const npc = getNpc(scenario.npcId)
-            return (
-              <Tile
-                key={scenario.id}
-                to={`/talk/${scenario.id}`}
-                image={scenario.image}
-                title={loc(scenario, 'name')}
-                description={
-                  locked
-                    ? t('talk.lockedShort', { name: loc(npc, 'name'), level: t(`npc.level.${scenario.minFriendship}`) })
-                    : scenario.goalTh
-                }
-                locked={locked}
-              />
-            )
-          })}
-        </TileList>
-      </Section>
+      <p className={styles.note}>{t('talk.pick')}</p>
+      {/* 30 สถานการณ์ (ขั้นที่ 28-2) → แบ่งตามสถานที่ในแผนที่เมือง (ลำดับเดียวกับแผนที่) */}
+      {cityMap.map((place) => {
+        const talks = scenarioList.filter((scenario) => scenario.placeId === place.placeId)
+        if (!talks.length) return null
+        return (
+          <Section key={place.placeId} title={loc(place, 'name')}>
+            <TileList>
+              {talks.map((scenario) => {
+                const locked = isScenarioLocked(scenario, friendship)
+                const npc = getNpc(scenario.npcId)
+                return (
+                  <Tile
+                    key={scenario.id}
+                    to={`/talk/${scenario.id}`}
+                    image={scenario.image}
+                    title={loc(scenario, 'name')}
+                    description={
+                      locked
+                        ? t('talk.lockedShort', { name: loc(npc, 'name'), level: t(`npc.level.${scenario.minFriendship}`) })
+                        : scenario.goalTh
+                    }
+                    locked={locked}
+                  />
+                )
+              })}
+            </TileList>
+          </Section>
+        )
+      })}
     </Page>
   )
 }

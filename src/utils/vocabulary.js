@@ -51,6 +51,26 @@ export function cumulativeVocabulary(lessons) {
 }
 
 /**
+ * คำรวมทั้งเว็บ (ขั้นที่ 28-2: เป้า ~3,000 คำ ≈ B1) = คำสะสม Stage 1–7 + โหมดเมือง
+ *   โหมดเมือง: คลังวลี (วลี + ตัวอย่าง) + คำในตำรา vs ใช้จริง + บทสนทนาสุ่ม (ทุกบรรทัด/ทุกค่าช่องสุ่ม) + คำพูดของ NPC
+ * @param scenarioTexts ข้อความบทสนทนาสุ่มที่แทนค่าช่องแล้ว (expandScenarioTexts — ส่งเข้ามาเพื่อไม่ให้ไฟล์นี้พึ่ง conversation.js)
+ * @returns { stages: จำนวนคำจบ Stage 7, city: คำใหม่จากโหมดเมือง, total }
+ */
+export function totalVocabulary({ lessons, phrases = {}, scenarioTexts = [], npcs = [] }) {
+  const seen = new Set()
+  for (const lesson of lessons) for (const word of lessonWords(lesson)) seen.add(word)
+  const stages = seen.size
+  const texts = [
+    ...(phrases.phrases ?? []).flatMap((phrase) => [phrase.text, ...(phrase.examples ?? []).map((example) => example.text)]),
+    ...(phrases.textbookVsReal ?? []).flatMap((pair) => [pair.textbook, ...pair.real.map((real) => real.text)]),
+    ...scenarioTexts,
+    ...npcs.flatMap((npc) => [npc.welcomeBack?.text, ...(npc.levels ?? []).flatMap((level) => [level.npc.text, level.reply.text])]),
+  ]
+  for (const text of texts) for (const word of wordsOf(text)) seen.add(word)
+  return { stages, city: seen.size - stages, total: seen.size }
+}
+
+/**
  * ของใหม่ในแต่ละบท (เทียบกับทุกบทก่อนหน้า)
  * @returns [{ lessonId, stageId, newWords: [], totalWords, ratio }]
  */
