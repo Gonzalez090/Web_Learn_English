@@ -16,6 +16,8 @@ import { useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { buildLessonSteps, GAME_ROUND_XP, LESSON_FLOWS, READ_VARIANTS, writeXp, XP } from '../../utils/lessonSteps'
 import { prepareLessonItems, readAloudItems } from '../../utils/lessonItems'
+import { lessonRotPairs } from '../../utils/realOrTextbook'
+import { lessonList, textbookVsReal } from '../../data'
 import { useProgressStore } from '../../store/progressStore'
 import { useReviewStore } from '../../store/reviewStore'
 import LookListenStep from './LookListenStep'
@@ -38,6 +40,10 @@ import ListenTapGame from '../games/ListenTapGame'
 import ShadowKaraokeGame from '../games/ShadowKaraokeGame'
 import WordSwapRaceGame from '../games/WordSwapRaceGame'
 import MinimalPairDuelGame from '../games/MinimalPairDuelGame'
+import RealOrTextbookGame from '../games/RealOrTextbookGame'
+
+// ลำดับบททั้งหมด (ใช้หาคู่ Real or Textbook? ของบทที่เรียนมาก่อน)
+const LESSON_ORDER = lessonList.map((entry) => entry.id)
 
 // Read & Tap (Stage 6) = Listen & Tap แบบอ่านเอง
 function ReadTapGame(props) {
@@ -67,7 +73,12 @@ export default function LessonPlayer({ lesson, stage, onlyItemIds }) {
     const selected = onlyItemIds?.length ? allItems.filter((item) => onlyItemIds.includes(item.id)) : []
     return selected.length ? { items: selected, retry: true } : { items: allItems, retry: false }
   }, [allItems, onlyItemIds])
-  const steps = useMemo(() => buildLessonSteps(flow, items, { retry }), [flow, items, retry])
+  // บทสนทนาที่มีคู่ "ในตำรา vs ใช้จริง" (บรรทัดในบทคือแบบที่พูดจริง) → แทรกเกม Real or Textbook? ท้ายบท
+  const rot = useMemo(() => lessonRotPairs(lesson.id, textbookVsReal, LESSON_ORDER), [lesson.id])
+  const steps = useMemo(
+    () => buildLessonSteps(flow, items, { retry, extraGames: rot ? ['real-or-textbook'] : [] }),
+    [flow, items, retry, rot],
+  )
 
   const [index, setIndex] = useState(0)
   const [revealed, setRevealed] = useState({}) // { [itemId | lessonId]: { text, meaning } } ที่กดเปิดดูแล้ว
@@ -317,6 +328,23 @@ export default function LessonPlayer({ lesson, stage, onlyItemIds }) {
           stage={stage}
           mode="own"
           onDone={({ passed }) => speakDone(step.item, passed, XP.speakOwn)}
+        />
+      )}
+      {/* Real or Textbook? = เกมแยกความรู้สึกภาษา (เลือกแบบที่พูดจริง) ได้ XP แต่ไม่นับคะแนนท้ายบท / ไม่เข้ารายการทบทวน
+          เพราะรอบของเกมคือคู่ประโยค ไม่ใช่ข้อของบท (บางรอบมาจากบทก่อน ๆ) */}
+      {step.kind === 'game' && step.game === 'real-or-textbook' && rot && (
+        <RealOrTextbookGame
+          items={rot.own}
+          pool={rot.pool}
+          onRoundResult={(_pair, firstTry) => {
+            if (!firstTry) return
+            earn(GAME_ROUND_XP['real-or-textbook'])
+            trackEvent('gameCorrect')
+          }}
+          onFinish={() => {
+            trackEvent('gamePlay')
+            next()
+          }}
         />
       )}
       {Game && (

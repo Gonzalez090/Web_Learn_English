@@ -21289,6 +21289,1326 @@
         }
       ],
       "noteTh": "คนพูดว่า call ไม่ใช่ telephone และใช้รูปย่อ I'll"
+    },
+    {
+      "id": "tvr-s5-u01-wakeup",
+      "situation": "feelings",
+      "meaningTh": "ขอนอนต่ออีกนิด",
+      "textbook": "I am very sleepy. May I sleep for five more minutes?",
+      "real": [
+        {
+          "text": "Ugh, I'm so tired. Five more minutes?",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u01-wakeup",
+      "itemId": "s5-u01-wakeup-2",
+      "noteTh": "ขอแค่ \"Five more minutes?\" สั้น ๆ ก็เข้าใจแล้ว — คำว่า Ugh บอกอารมณ์ขี้เกียจได้ดีกว่าประโยคยาว"
+    },
+    {
+      "id": "tvr-s5-u01-outfit",
+      "situation": "decline",
+      "meaningTh": "ปฏิเสธของที่ไม่ชอบ",
+      "textbook": "No, thank you. I do not like that shirt.",
+      "real": [
+        {
+          "text": "No, I don't like that one.",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u01-outfit",
+      "itemId": "s5-u01-outfit-4",
+      "noteTh": "ใช้ \"that one\" แทนของที่พูดถึงอยู่แล้ว ไม่ต้องพูดชื่อซ้ำ + ใช้รูปย่อ don't"
+    },
+    {
+      "id": "tvr-s5-u01-coat",
+      "situation": "invite",
+      "meaningTh": "ตอบตกลงแบบสบาย ๆ",
+      "textbook": "Yes, you can wear them.",
+      "real": [
+        {
+          "text": "Sure, why not?",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u01-coat",
+      "itemId": "s5-u01-coat-6",
+      "noteTh": "\"Sure, why not?\" = ได้สิ ทำไมจะไม่ได้ — ตอบตกลงแบบเป็นกันเองที่ได้ยินบ่อยมาก"
+    },
+    {
+      "id": "tvr-s5-u02-order",
+      "situation": "food",
+      "meaningTh": "บอกว่าของหมด แล้วเสนออย่างอื่นแทน",
+      "textbook": "I am sorry. We do not have any syrup. Do you want honey?",
+      "real": [
+        {
+          "text": "Sorry, we're out of syrup. How about honey?",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u02-order",
+      "itemId": "s5-u02-order-3",
+      "noteTh": "be out of … = ของหมด ใช้บ่อยมากทั้งที่บ้านและในร้าน / เสนอทางเลือกด้วย \"How about …?\""
+    },
+    {
+      "id": "tvr-s5-u02-spill",
+      "situation": "apologize",
+      "meaningTh": "บอกว่าไม่เป็นไร เมื่อคนอื่นทำพลาด",
+      "textbook": "It is not a problem. Do not worry about it.",
+      "real": [
+        {
+          "text": "That's okay. Accidents happen.",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u02-spill",
+      "itemId": "s5-u02-spill-2",
+      "noteTh": "\"Accidents happen.\" = ใคร ๆ ก็พลาดได้ — ประโยคปลอบที่เจ้าของภาษาใช้จริง"
+    },
+    {
+      "id": "tvr-s5-u02-cookies",
+      "situation": "decline",
+      "meaningTh": "ปฏิเสธแล้วเสนอสิ่งที่ดีกว่า",
+      "textbook": "No, you cannot eat cookies. We should eat healthy food.",
+      "real": [
+        {
+          "text": "Cookies? No way! Let's eat something healthy.",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u02-cookies",
+      "itemId": "s5-u02-cookies-2",
+      "noteTh": "\"No way!\" = ไม่มีทาง (ปฏิเสธแบบติดตลก) และชวนด้วย Let's … ฟังนุ่มกว่า We should"
+    },
+    {
+      "id": "tvr-s5-u02-toaster",
+      "situation": "food",
+      "meaningTh": "รับคำขอว่า \"ได้เลย\"",
+      "textbook": "Both? Okay, I will give you both.",
+      "real": [
+        {
+          "text": "Both? Okay, you got it.",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u02-toaster",
+      "itemId": "s5-u02-toaster-6",
+      "noteTh": "\"You got it.\" = ได้เลย จัดให้ — พนักงานร้านก็พูดแบบนี้"
+    },
+    {
+      "id": "tvr-s5-u03-bed-head",
+      "situation": "feelings",
+      "meaningTh": "ทักว่าผมยุ่งเพราะเพิ่งตื่น",
+      "textbook": "Your hair is messy because you have just woken up.",
+      "real": [
+        {
+          "text": "Ha! You've got bed head.",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u03-bed-head",
+      "itemId": "s5-u03-bed-head-2",
+      "noteTh": "bed head = ผมยุ่งตอนตื่นนอน คำเดียวจบ ไม่ต้องอธิบายยาว"
+    },
+    {
+      "id": "tvr-s5-u03-hands",
+      "situation": "apologize",
+      "meaningTh": "ยอมรับว่าลืม",
+      "textbook": "I am sorry. I did not remember to wash my hands.",
+      "real": [
+        {
+          "text": "Umm... I forgot.",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u03-hands",
+      "itemId": "s5-u03-hands-2",
+      "noteTh": "\"I forgot.\" สั้นและตรง / Umm… บอกว่ากำลังลังเล — คนพูดจริงไม่ใช้ did not remember"
+    },
+    {
+      "id": "tvr-s5-u04-late",
+      "situation": "work",
+      "meaningTh": "เร่งเพราะกำลังจะสาย",
+      "textbook": "Please hurry. We are late.",
+      "real": [
+        {
+          "text": "Come on, we're running late!",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u04-late",
+      "itemId": "s5-u04-late-1",
+      "noteTh": "running late = กำลังจะสาย (ยังไม่สายจริง) ใช้ทั้งที่บ้านและที่ทำงาน / Come on = เร็วเข้า"
+    },
+    {
+      "id": "tvr-s5-u04-umbrella",
+      "situation": "help",
+      "meaningTh": "บอกว่ากันไว้ก่อนดีกว่า",
+      "textbook": "Yes. It is better to be careful.",
+      "real": [
+        {
+          "text": "Sure! Better safe than sorry!",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u04-umbrella",
+      "itemId": "s5-u04-umbrella-5",
+      "noteTh": "\"Better safe than sorry.\" = กันไว้ดีกว่าแก้ สำนวนที่ใช้บ่อยมาก"
+    },
+    {
+      "id": "tvr-s5-u04-bus",
+      "situation": "greetings",
+      "meaningTh": "บอกลาแล้วนัดเจอกัน",
+      "textbook": "Goodbye, Mother. I will see you after school.",
+      "real": [
+        {
+          "text": "Bye, Mom! See you after school!",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u04-bus",
+      "itemId": "s5-u04-bus-5",
+      "noteTh": "ลาคนในครอบครัวใช้ Bye + See you … สั้น ๆ / Mother ฟังทางการเกินไปสำหรับเรียกแม่"
+    },
+    {
+      "id": "tvr-s5-u05-first-day",
+      "situation": "greetings",
+      "meaningTh": "แนะนำตัว",
+      "textbook": "My name is Lily. Today is my first day at this school.",
+      "real": [
+        {
+          "text": "I'm Lily. It's my first day.",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u05-first-day",
+      "itemId": "s5-u05-first-day-2",
+      "noteTh": "แนะนำตัวแบบสบาย ๆ ใช้ \"I'm …\" — My name is … ไม่ผิดแต่ทางการกว่า"
+    },
+    {
+      "id": "tvr-s5-u05-borrow",
+      "situation": "help",
+      "meaningTh": "ขอยืมของ",
+      "textbook": "Please lend me your red crayon.",
+      "real": [
+        {
+          "text": "Can I borrow your red crayon?",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u05-borrow",
+      "itemId": "s5-u05-borrow-1",
+      "noteTh": "ขอยืมใช้ \"Can I borrow …?\" — Please lend me … ฟังเหมือนสั่ง"
+    },
+    {
+      "id": "tvr-s5-u05-bathroom",
+      "situation": "directions",
+      "meaningTh": "บอกว่าเข้าใจทางแล้ว",
+      "textbook": "I understand. Thank you very much.",
+      "real": [
+        {
+          "text": "Got it. Thank you!",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u05-bathroom",
+      "itemId": "s5-u05-bathroom-5",
+      "noteTh": "\"Got it.\" = เข้าใจแล้ว ใช้ตอนมีคนบอกทางหรืออธิบายอะไรให้"
+    },
+    {
+      "id": "tvr-s5-u05-pickup",
+      "situation": "food",
+      "meaningTh": "บอกว่าหิวมาก",
+      "textbook": "Not now, please. I am very hungry.",
+      "real": [
+        {
+          "text": "Maybe later. I'm starving!",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u05-pickup",
+      "itemId": "s5-u05-pickup-6",
+      "noteTh": "I'm starving! = หิวจะแย่แล้ว (พูดเกินจริงแบบที่ทุกคนพูด) / Maybe later = ไว้ทีหลัง"
+    },
+    {
+      "id": "tvr-s5-u06-tag",
+      "situation": "greetings",
+      "meaningTh": "บอกชื่อแล้วถามชื่ออีกฝ่าย",
+      "textbook": "My name is Mia. What is your name?",
+      "real": [
+        {
+          "text": "I'm Mia. What's yours?",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u06-tag",
+      "itemId": "s5-u06-tag-2",
+      "noteTh": "ถามกลับสั้น ๆ \"What's yours?\" ไม่ต้องพูด your name ซ้ำ"
+    },
+    {
+      "id": "tvr-s5-u06-tag-play",
+      "situation": "invite",
+      "meaningTh": "ชวนเล่นด้วยกัน",
+      "textbook": "My name is Ben. Would you like to play tag with me?",
+      "real": [
+        {
+          "text": "I'm Ben. Do you wanna play tag?",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u06-tag",
+      "itemId": "s5-u06-tag-3",
+      "noteTh": "เด็กและเพื่อนชวนกันด้วย \"Do you wanna …?\" (wanna = want to) — Would you like … สุภาพเกินไประหว่างเพื่อน"
+    },
+    {
+      "id": "tvr-s5-u06-playdate",
+      "situation": "invite",
+      "meaningTh": "ขอให้เพื่อนมาเล่นที่บ้าน",
+      "textbook": "Mother, may Mia come to our house to play?",
+      "real": [
+        {
+          "text": "Mom, can Mia come over to play?",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u06-playdate",
+      "itemId": "s5-u06-playdate-1",
+      "noteTh": "come over = มาที่บ้าน (phrasal verb ที่ใช้บ่อยมาก) ไม่ต้องพูด to our house"
+    },
+    {
+      "id": "tvr-s5-u06-turns",
+      "situation": "help",
+      "meaningTh": "เสนอให้ผลัดกัน",
+      "textbook": "Okay. We will play one by one. You can play first.",
+      "real": [
+        {
+          "text": "Okay, let's take turns. You go first.",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u06-turns",
+      "itemId": "s5-u06-turns-3",
+      "noteTh": "take turns = ผลัดกัน / You go first. = เธอก่อนเลย — วลีที่ใช้ทุกวัน"
+    },
+    {
+      "id": "tvr-s5-u06-sorry",
+      "situation": "apologize",
+      "meaningTh": "ขอโทษที่ทำไม่ดี",
+      "textbook": "Mia, please forgive me for pushing you.",
+      "real": [
+        {
+          "text": "Mia, I'm sorry I pushed you.",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u06-sorry",
+      "itemId": "s5-u06-sorry-1",
+      "noteTh": "ขอโทษใช้ \"I'm sorry (that) …\" บอกสิ่งที่ทำ — please forgive me หนักเกินไปสำหรับเรื่องทั่วไป"
+    },
+    {
+      "id": "tvr-s5-u07-slide",
+      "situation": "invite",
+      "meaningTh": "ชวนเล่นอีกรอบ",
+      "textbook": "Do you want to play on the slide again?",
+      "real": [
+        {
+          "text": "Wanna go again?",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u07-slide",
+      "itemId": "s5-u07-slide-6",
+      "noteTh": "\"Wanna go again?\" = อีกรอบไหม — ไม่ต้องพูดชื่อของเล่นซ้ำเพราะรู้กันอยู่แล้ว"
+    },
+    {
+      "id": "tvr-s5-u07-swing-turn",
+      "situation": "help",
+      "meaningTh": "ขอเล่นบ้าง",
+      "textbook": "Excuse me, I want to play on the swing now.",
+      "real": [
+        {
+          "text": "Excuse me, can I have a turn on the swing?",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u07-swing-turn",
+      "itemId": "s5-u07-swing-turn-1",
+      "noteTh": "ขอผลัดเล่นใช้ \"Can I have a turn …?\" — I want … now ฟังเหมือนเรียกร้อง"
+    },
+    {
+      "id": "tvr-s5-u07-sandbox",
+      "situation": "invite",
+      "meaningTh": "ชวนทำอะไรด้วยกัน",
+      "textbook": "We should make a cake with sand.",
+      "real": [
+        {
+          "text": "Let's make a sand cake!",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u07-sandbox",
+      "itemId": "s5-u07-sandbox-2",
+      "noteTh": "ชวนใช้ \"Let's …!\" — We should … ฟังเหมือนบอกว่าควรทำ ไม่ใช่ชวนสนุก"
+    },
+    {
+      "id": "tvr-s5-u08-robot",
+      "situation": "help",
+      "meaningTh": "ขอดูของที่เสีย",
+      "textbook": "I will look at it now.",
+      "real": [
+        {
+          "text": "Hmm, let me take a look.",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u08-robot",
+      "itemId": "s5-u08-robot-2",
+      "noteTh": "\"Let me take a look.\" = ขอดูหน่อย ใช้ตอนจะช่วยดูของเสีย/ปัญหา"
+    },
+    {
+      "id": "tvr-s5-u08-tea",
+      "situation": "food",
+      "meaningTh": "เสนอเครื่องดื่ม",
+      "textbook": "Do you want to drink tea?",
+      "real": [
+        {
+          "text": "Would you like some tea?",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u08-tea",
+      "itemId": "s5-u08-tea-3",
+      "noteTh": "เสนอของให้แขกใช้ \"Would you like some …?\" — ไม่ต้องมีคำว่า drink"
+    },
+    {
+      "id": "tvr-s5-u09-moving",
+      "situation": "feelings",
+      "meaningTh": "ถามว่าเป็นอะไร เมื่อเห็นอีกฝ่ายเศร้า",
+      "textbook": "Why are you sad? What is your problem?",
+      "real": [
+        {
+          "text": "Hey, why the sad face? What's wrong?",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u09-moving",
+      "itemId": "s5-u09-moving-1",
+      "noteTh": "\"What's wrong?\" = เป็นอะไรไป / ระวัง: What is your problem? ฟังเหมือนหาเรื่อง"
+    },
+    {
+      "id": "tvr-s5-u09-frustrated",
+      "situation": "feelings",
+      "meaningTh": "บอกว่ายากเกินไป ไม่ทำแล้ว",
+      "textbook": "This is very difficult. I do not want to do it anymore.",
+      "real": [
+        {
+          "text": "Ugh! This is too hard! I give up!",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u09-frustrated",
+      "itemId": "s5-u09-frustrated-1",
+      "noteTh": "\"I give up!\" = ยอมแพ้ ไม่ทำแล้ว / พูดง่ายใช้ hard บ่อยกว่า difficult"
+    },
+    {
+      "id": "tvr-s5-u09-guess",
+      "situation": "feelings",
+      "meaningTh": "เปิดเรื่องข่าวดี",
+      "textbook": "Mother, I have something to tell you. I read a whole book today.",
+      "real": [
+        {
+          "text": "Mom, guess what! I read a whole book today!",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u09-guess",
+      "itemId": "s5-u09-guess-1",
+      "noteTh": "\"Guess what!\" = ทายสิ! ใช้เปิดเรื่องที่ตื่นเต้นอยากเล่า"
+    },
+    {
+      "id": "tvr-s5-u09-shy",
+      "situation": "help",
+      "meaningTh": "ขอให้อยู่ด้วยสักพัก",
+      "textbook": "Can you stay with me for a short time?",
+      "real": [
+        {
+          "text": "Can you stay with me for a bit?",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u09-shy",
+      "itemId": "s5-u09-shy-3",
+      "noteTh": "for a bit = สักพัก / แป๊บหนึ่ง ใช้บ่อยกว่า for a short time"
+    },
+    {
+      "id": "tvr-s5-u10-peas",
+      "situation": "shopping",
+      "meaningTh": "ตกลงตามข้อเสนอ",
+      "textbook": "I agree with your idea.",
+      "real": [
+        {
+          "text": "It's a deal!",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u10-peas",
+      "itemId": "s5-u10-peas-6",
+      "noteTh": "\"It's a deal!\" / \"Deal!\" = ตกลงตามนั้น ใช้ตอนต่อรองกันลงตัว"
+    },
+    {
+      "id": "tvr-s5-u10-trade",
+      "situation": "shopping",
+      "meaningTh": "ชวนแลกของ",
+      "textbook": "I have chips. Do you want to exchange your grapes for my chips?",
+      "real": [
+        {
+          "text": "I got chips! Wanna trade some grapes for chips?",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u10-trade",
+      "itemId": "s5-u10-trade-3",
+      "noteTh": "แลกของกันใช้ trade … for … / exchange ฟังเหมือนแลกเงินหรือคืนของที่ร้าน"
+    },
+    {
+      "id": "tvr-s5-u10-after-school",
+      "situation": "food",
+      "meaningTh": "บอกว่าหิว แล้วขอขนม",
+      "textbook": "Father, I am hungry. Please give me some food.",
+      "real": [
+        {
+          "text": "Daddy, I'm hungry. Can I have a snack?",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u10-after-school",
+      "itemId": "s5-u10-after-school-1",
+      "noteTh": "ขอของกินใช้ \"Can I have …?\" — Please give me … ฟังเหมือนสั่ง"
+    },
+    {
+      "id": "tvr-s5-u11-cookies",
+      "situation": "apologize",
+      "meaningTh": "บอกว่าเผลอทำหก",
+      "textbook": "I am sorry. I dropped some sugar.",
+      "real": [
+        {
+          "text": "Oops, I spilled a little.",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u11-cookies",
+      "itemId": "s5-u11-cookies-5",
+      "noteTh": "Oops = อุ๊ย (พลาดนิดหน่อย) / ของเหลวหรือผงหกใช้ spill ไม่ใช่ drop"
+    },
+    {
+      "id": "tvr-s5-u11-pizza",
+      "situation": "invite",
+      "meaningTh": "ชวนช่วยทำอาหาร",
+      "textbook": "We will make pizza at home. Do you want to help me?",
+      "real": [
+        {
+          "text": "Homemade pizza! Wanna help me?",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u11-pizza",
+      "itemId": "s5-u11-pizza-2",
+      "noteTh": "homemade = ทำเองที่บ้าน คำเดียวจบ / Wanna help? ชวนแบบสบาย ๆ"
+    },
+    {
+      "id": "tvr-s5-u12-lost",
+      "situation": "help",
+      "meaningTh": "บอกว่าหาแม่ไม่เจอ",
+      "textbook": "Excuse me. I have lost my mother.",
+      "real": [
+        {
+          "text": "Excuse me, I can't find my mom.",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u12-lost",
+      "itemId": "s5-u12-lost-1",
+      "noteTh": "พลัดหลงใช้ \"I can't find …\" — I have lost my mother อาจฟังเหมือนแม่เสียชีวิตแล้ว"
+    },
+    {
+      "id": "tvr-s5-u12-cereal",
+      "situation": "shopping",
+      "meaningTh": "บอกว่ามีของแถม",
+      "textbook": "But there is a free toy in the box!",
+      "real": [
+        {
+          "text": "But it comes with a free toy!",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u12-cereal",
+      "itemId": "s5-u12-cereal-3",
+      "noteTh": "come with … = มี … แถมมาด้วย ใช้บ่อยเวลาพูดถึงสินค้า"
+    },
+    {
+      "id": "tvr-s5-u12-fruit-stand",
+      "situation": "shopping",
+      "meaningTh": "ถามราคา",
+      "textbook": "Hello. What is the price of the strawberries?",
+      "real": [
+        {
+          "text": "Hi! How much are the strawberries?",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u12-fruit-stand",
+      "itemId": "s5-u12-fruit-stand-1",
+      "noteTh": "ถามราคาใช้ \"How much is/are …?\" — What is the price of … ฟังเหมือนข้อสอบ"
+    },
+    {
+      "id": "tvr-s5-u12-checkout-chat",
+      "situation": "shopping",
+      "meaningTh": "พนักงานถามว่าหาของได้ครบไหม",
+      "textbook": "Hello. Did you find all the things that you wanted?",
+      "real": [
+        {
+          "text": "Hi there! Did you find everything okay?",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u12-checkout-chat",
+      "itemId": "s5-u12-checkout-chat-1",
+      "noteTh": "ประโยคที่แคชเชียร์ในอเมริกาพูดแทบทุกคน — ตอบว่า \"Yes, thanks.\" ก็พอ"
+    },
+    {
+      "id": "tvr-s5-cafe",
+      "situation": "food",
+      "meaningTh": "พนักงานถามว่ารับอะไรดี",
+      "textbook": "Hello. What do you want to order?",
+      "real": [
+        {
+          "text": "Hi there! What can I get you?",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-cafe",
+      "itemId": "s5-cafe-hi",
+      "noteTh": "พนักงานร้านพูด \"What can I get you?\" = รับอะไรดี / What do you want? ฟังห้วน"
+    },
+    {
+      "id": "tvr-s5-u13-waiter",
+      "situation": "food",
+      "meaningTh": "สั่งน้ำเปล่า",
+      "textbook": "I would like to drink water, please.",
+      "real": [
+        {
+          "text": "Just water, please. Thank you!",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u13-waiter",
+      "itemId": "s5-u13-waiter-6",
+      "noteTh": "ตอบพนักงานแค่ชื่อของ + please ก็พอ / Just = แค่ (ไม่เอาอย่างอื่น)"
+    },
+    {
+      "id": "tvr-s5-u13-too-hot",
+      "situation": "food",
+      "meaningTh": "บอกว่าร้อนเกินไป",
+      "textbook": "My soup is very very hot.",
+      "real": [
+        {
+          "text": "Ow! My soup is way too hot!",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u13-too-hot",
+      "itemId": "s5-u13-too-hot-1",
+      "noteTh": "way too … = … เกินไปมาก (way เน้นให้แรงขึ้น) แทนการพูด very ซ้ำ"
+    },
+    {
+      "id": "tvr-s5-u13-dessert",
+      "situation": "food",
+      "meaningTh": "ขอกินของหวาน",
+      "textbook": "I finished my food. May I eat dessert now?",
+      "real": [
+        {
+          "text": "So can I have dessert now?",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u13-dessert",
+      "itemId": "s5-u13-dessert-2",
+      "noteTh": "ขึ้นต้นด้วย So … = งั้น … (ต่อจากที่อีกฝ่ายพูด) / ขอของกินใช้ have ไม่ใช่ eat"
+    },
+    {
+      "id": "tvr-s5-u14-no-bath",
+      "situation": "decline",
+      "meaningTh": "ยอมแต่ขอให้สั้น ๆ",
+      "textbook": "Okay. I will take a bath, but only for a short time.",
+      "real": [
+        {
+          "text": "Oops. Okay, just a quick bath.",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u14-no-bath",
+      "itemId": "s5-u14-no-bath-5",
+      "noteTh": "quick = แป๊บเดียว / เร็ว ๆ — just a quick … ใช้บ่อยมาก (just a quick question, a quick coffee)"
+    },
+    {
+      "id": "tvr-s5-u14-soap",
+      "situation": "feelings",
+      "meaningTh": "บอกว่าแสบ",
+      "textbook": "It is very painful in my eyes.",
+      "real": [
+        {
+          "text": "It stings!",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u14-soap",
+      "itemId": "s5-u14-soap-3",
+      "noteTh": "sting = แสบ (ตา แผล ผึ้งต่อย) คำเดียวจบ ไม่ต้องใช้ painful"
+    },
+    {
+      "id": "tvr-s5-u15-five-more",
+      "situation": "help",
+      "meaningTh": "บอกว่าได้เวลาแล้ว",
+      "textbook": "Please turn off the television. It is time to sleep.",
+      "real": [
+        {
+          "text": "Okay, time to turn off the TV. It's bedtime.",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u15-five-more",
+      "itemId": "s5-u15-five-more-1",
+      "noteTh": "\"Time to …\" = ได้เวลา … แล้ว / พูดทั่วไปใช้ TV ไม่ใช่ television / bedtime = เวลานอน"
+    },
+    {
+      "id": "tvr-s5-u15-which-book",
+      "situation": "feelings",
+      "meaningTh": "แปลกใจที่เลือกอันเดิมอีก",
+      "textbook": "We read the same book last night.",
+      "real": [
+        {
+          "text": "Again? We read that one last night!",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u15-which-book",
+      "itemId": "s5-u15-which-book-3",
+      "noteTh": "\"Again?\" คำเดียวบอกความแปลกใจ / เมื่อคืนคือ last night (ไม่ใช่ yesterday night)"
+    },
+    {
+      "id": "tvr-s5-u15-monster",
+      "situation": "greetings",
+      "meaningTh": "รับคำแล้วบอกฝันดี",
+      "textbook": "Yes, I will. Good night, my child.",
+      "real": [
+        {
+          "text": "Sure thing. Good night, kiddo.",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u15-monster",
+      "itemId": "s5-u15-monster-6",
+      "noteTh": "\"Sure thing.\" = ได้เลย / kiddo = เจ้าตัวเล็ก (พ่อแม่เรียกลูก) — my child ฟังเหมือนในหนังเก่า"
+    },
+    {
+      "id": "tvr-s5-u16-umbrella",
+      "situation": "help",
+      "meaningTh": "เตือนให้ระวัง",
+      "textbook": "Please be careful. You must hold it with two hands.",
+      "real": [
+        {
+          "text": "Careful! Hold it with both hands.",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u16-umbrella",
+      "itemId": "s5-u16-umbrella-4",
+      "noteTh": "เตือนด่วนพูดแค่ \"Careful!\" / สองมือใช้ both hands / must ฟังเหมือนกฎ"
+    },
+    {
+      "id": "tvr-s5-u16-snow-day",
+      "situation": "feelings",
+      "meaningTh": "ชมว่าคิดได้ดี",
+      "textbook": "That is a good idea. We can go now.",
+      "real": [
+        {
+          "text": "Good thinking. Let's go!",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u16-snow-day",
+      "itemId": "s5-u16-snow-day-6",
+      "noteTh": "\"Good thinking.\" = คิดได้ดี ชมตอนอีกฝ่ายนึกถึงสิ่งที่ควรทำ"
+    },
+    {
+      "id": "tvr-s5-u16-storm",
+      "situation": "help",
+      "meaningTh": "บอกว่าเตรียมไว้เผื่อ",
+      "textbook": "Maybe. But we have a flashlight if the lights go out.",
+      "real": [
+        {
+          "text": "Maybe. But we have a flashlight, just in case.",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u16-storm",
+      "itemId": "s5-u16-storm-4",
+      "noteTh": "just in case = เผื่อไว้ ใช้บ่อยมาก ไม่ต้องพูดเงื่อนไขยาว"
+    },
+    {
+      "id": "tvr-s5-u17-cold-morning",
+      "situation": "greetings",
+      "meaningTh": "บอกว่าอากาศค่อนข้างหนาว",
+      "textbook": "The weather outside is very cold.",
+      "real": [
+        {
+          "text": "Hmm, it's pretty cold outside. Look at the window.",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u17-cold-morning",
+      "itemId": "s5-u17-cold-morning-2",
+      "noteTh": "pretty = ค่อนข้าง (ไม่ใช่สวย) / พูดถึงอากาศใช้ it's … ไม่ต้องมีคำว่า weather"
+    },
+    {
+      "id": "tvr-s5-u17-beach-bag",
+      "situation": "help",
+      "meaningTh": "เตือนไม่ให้ลืมของ",
+      "textbook": "Remember to bring your sunglasses also.",
+      "real": [
+        {
+          "text": "Don't forget your sunglasses too.",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u17-beach-bag",
+      "itemId": "s5-u17-beach-bag-3",
+      "noteTh": "\"Don't forget …\" ใช้บ่อยกว่า Remember to … / \"ด้วย\" ท้ายประโยคใช้ too (also มักอยู่กลางประโยค)"
+    },
+    {
+      "id": "tvr-s5-u18-want-puppy",
+      "situation": "decline",
+      "meaningTh": "เตือนว่าเรื่องนี้ไม่ง่าย",
+      "textbook": "It is very difficult to take care of a puppy.",
+      "real": [
+        {
+          "text": "A puppy is a lot of work, you know.",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u18-want-puppy",
+      "itemId": "s5-u18-want-puppy-2",
+      "noteTh": "a lot of work = เหนื่อย / ต้องดูแลเยอะ / you know ท้ายประโยค = รู้ไหม (ไม่ได้ถามจริง)"
+    },
+    {
+      "id": "tvr-s5-u18-neighbor-cat",
+      "situation": "help",
+      "meaningTh": "ขอลูบสัตว์ของคนอื่น",
+      "textbook": "May I touch your cat?",
+      "real": [
+        {
+          "text": "Can I pet her?",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u18-neighbor-cat",
+      "itemId": "s5-u18-neighbor-cat-3",
+      "noteTh": "pet (กริยา) = ลูบสัตว์ / เจ้าของภาษาเรียกสัตว์เลี้ยงว่า he / she ไม่ใช่ it"
+    },
+    {
+      "id": "tvr-s5-u18-fish-food",
+      "situation": "food",
+      "meaningTh": "บอกให้ใส่นิดเดียว",
+      "textbook": "Yes. Please give them only a small amount of food.",
+      "real": [
+        {
+          "text": "Sure. Just a tiny pinch, okay?",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u18-fish-food",
+      "itemId": "s5-u18-fish-food-2",
+      "noteTh": "a pinch = หยิบมือหนึ่ง (นิ้วโป้ง + นิ้วชี้) / ปิดท้าย okay? ให้ฟังนุ่มลง"
+    },
+    {
+      "id": "tvr-s5-u19-zoo-map",
+      "situation": "directions",
+      "meaningTh": "บอกว่าอยู่ข้าง ๆ อะไร",
+      "textbook": "We will look at the map. The elephants are beside the giraffes.",
+      "real": [
+        {
+          "text": "Let's check the map. They're next to the giraffes.",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u19-zoo-map",
+      "itemId": "s5-u19-zoo-map-2",
+      "noteTh": "พูดทั่วไปใช้ next to มากกว่า beside / check the map = ดูแผนที่"
+    },
+    {
+      "id": "tvr-s5-u20-sick-day",
+      "situation": "feelings",
+      "meaningTh": "บอกว่าไม่สบาย",
+      "textbook": "Mother, I am ill.",
+      "real": [
+        {
+          "text": "Mommy, I don't feel good.",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u20-sick-day",
+      "itemId": "s5-u20-sick-day-1",
+      "noteTh": "ไม่สบายพูดว่า \"I don't feel good/well.\" — ระวัง: I'm not comfortable ไม่ได้แปลว่าไม่สบาย"
+    },
+    {
+      "id": "tvr-s5-u20-check-up",
+      "situation": "help",
+      "meaningTh": "หมอถามอาการ",
+      "textbook": "Hello. What is your illness?",
+      "real": [
+        {
+          "text": "Hi there! So, what's the matter?",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u20-check-up",
+      "itemId": "s5-u20-check-up-1",
+      "noteTh": "\"What's the matter?\" = เป็นอะไรมา ใช้ทั้งหมอและคนทั่วไป"
+    },
+    {
+      "id": "tvr-s5-u20-medicine-time",
+      "situation": "food",
+      "meaningTh": "บอกว่าไม่อร่อย",
+      "textbook": "But it does not taste good.",
+      "real": [
+        {
+          "text": "But it tastes yucky!",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u20-medicine-time",
+      "itemId": "s5-u20-medicine-time-2",
+      "noteTh": "yucky = แหวะ / ไม่อร่อย (ภาษาเด็กที่ผู้ใหญ่ก็ใช้ตอนคุยกับเด็ก) / ตรงข้ามคือ yummy"
+    },
+    {
+      "id": "tvr-s5-u20-dentist",
+      "situation": "help",
+      "meaningTh": "บอกให้อ้าปาก",
+      "textbook": "Very good. Please open your mouth widely.",
+      "real": [
+        {
+          "text": "Great job! Open wide, please.",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u20-dentist",
+      "itemId": "s5-u20-dentist-3",
+      "noteTh": "หมอฟันพูด \"Open wide.\" สั้น ๆ ไม่ต้องมีคำว่า mouth"
+    },
+    {
+      "id": "tvr-s5-u21-invite",
+      "situation": "invite",
+      "meaningTh": "ชวนมางานวันเกิด",
+      "textbook": "Leo, I would like to invite you to my birthday party on Saturday.",
+      "real": [
+        {
+          "text": "Leo, my birthday party is on Saturday. Can you come?",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u21-invite",
+      "itemId": "s5-u21-invite-1",
+      "noteTh": "ชวนเพื่อนบอกงานแล้วถาม \"Can you come?\" — I would like to invite you ทางการเหมือนการ์ดเชิญ"
+    },
+    {
+      "id": "tvr-s5-u21-thank-you",
+      "situation": "help",
+      "meaningTh": "อนุญาตให้ทำได้เลย",
+      "textbook": "Yes, you can open it now.",
+      "real": [
+        {
+          "text": "Yeah, go ahead!",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u21-thank-you",
+      "itemId": "s5-u21-thank-you-3",
+      "noteTh": "\"Go ahead!\" = เชิญเลย / ทำได้เลย ใช้ตอบคนที่ขออนุญาต"
+    },
+    {
+      "id": "tvr-s5-u21-bouncy-castle",
+      "situation": "help",
+      "meaningTh": "บอกให้ถอดรองเท้าก่อน",
+      "textbook": "Yes, but you must take off your shoes first.",
+      "real": [
+        {
+          "text": "Sure, but shoes off first.",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u21-bouncy-castle",
+      "itemId": "s5-u21-bouncy-castle-2",
+      "noteTh": "\"Shoes off!\" = ถอดรองเท้า พูดสั้นแบบนี้ได้ (เหมือน hats off, hands up)"
+    },
+    {
+      "id": "tvr-s5-u22-there-yet",
+      "situation": "feelings",
+      "meaningTh": "บ่นว่านานมาก",
+      "textbook": "One more hour? That is a very long time!",
+      "real": [
+        {
+          "text": "One more hour? That's forever!",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u22-there-yet",
+      "itemId": "s5-u22-there-yet-3",
+      "noteTh": "\"That's forever!\" = นานเป็นชาติ (พูดเกินจริง) บ่นว่ารอนาน"
+    },
+    {
+      "id": "tvr-s5-u22-carsick",
+      "situation": "directions",
+      "meaningTh": "ขอให้จอดข้างทาง",
+      "textbook": "Father, please stop the car at the side of the road.",
+      "real": [
+        {
+          "text": "Sure. Daddy, can you pull over, please?",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u22-carsick",
+      "itemId": "s5-u22-carsick-6",
+      "noteTh": "pull over = จอดข้างทาง phrasal verb ที่ใช้กับรถบ่อยมาก"
+    },
+    {
+      "id": "tvr-s5-u22-i-spy",
+      "situation": "decline",
+      "meaningTh": "บอกว่าไม่ใช่ ให้ทายใหม่",
+      "textbook": "No, that is not correct. Please guess again.",
+      "real": [
+        {
+          "text": "Nope! Guess again.",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u22-i-spy",
+      "itemId": "s5-u22-i-spy-3",
+      "noteTh": "Nope = ไม่ใช่ (แบบสบาย ๆ) / เล่นเกมกับเพื่อนไม่ต้องพูดว่า not correct"
+    },
+    {
+      "id": "tvr-s5-u23-bus-driver",
+      "situation": "shopping",
+      "meaningTh": "ยื่นตั๋วให้",
+      "textbook": "Yes, I have a ticket. This is my ticket.",
+      "real": [
+        {
+          "text": "Yep! Here it is.",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u23-bus-driver",
+      "itemId": "s5-u23-bus-driver-4",
+      "noteTh": "ยื่นของให้พูด \"Here it is.\" / \"Here you go.\" ไม่ต้องพูดชื่อของซ้ำ"
+    },
+    {
+      "id": "tvr-s5-u23-train-window",
+      "situation": "directions",
+      "meaningTh": "บอกว่าใกล้ถึงป้ายแล้ว",
+      "textbook": "We will arrive at our station soon. Take your bag.",
+      "real": [
+        {
+          "text": "We're almost at our stop. Get your bag.",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u23-train-window",
+      "itemId": "s5-u23-train-window-6",
+      "noteTh": "our stop = ป้าย/สถานีที่เราจะลง / ใช้ almost at แทน arrive soon / หยิบของใช้ get"
+    },
+    {
+      "id": "tvr-s5-u23-first-flight",
+      "situation": "feelings",
+      "meaningTh": "ปลอบว่าต้องสนุกแน่",
+      "textbook": "Do not worry. It will be fun.",
+      "real": [
+        {
+          "text": "That's okay. It's gonna be fun.",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u23-first-flight",
+      "itemId": "s5-u23-first-flight-3",
+      "noteTh": "gonna = going to พูดเรื่องที่จะเกิดขึ้น ใช้บ่อยกว่า will ในบทสนทนา"
+    },
+    {
+      "id": "tvr-s5-u24-sandcastle",
+      "situation": "invite",
+      "meaningTh": "ชวนทำสิ่งที่สุดยอด",
+      "textbook": "We should build a very big sandcastle.",
+      "real": [
+        {
+          "text": "Let's make the biggest sandcastle ever!",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u24-sandcastle",
+      "itemId": "s5-u24-sandcastle-1",
+      "noteTh": "the biggest … ever = … ที่สุดเท่าที่เคยมี พูดตอนตื่นเต้น"
+    },
+    {
+      "id": "tvr-s5-u24-lifeguard",
+      "situation": "decline",
+      "meaningTh": "ห้ามวิ่ง",
+      "textbook": "Boy, you must not run here.",
+      "real": [
+        {
+          "text": "Hey, buddy! No running, please.",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u24-lifeguard",
+      "itemId": "s5-u24-lifeguard-1",
+      "noteTh": "ป้าย/คำห้ามพูดว่า \"No …ing\" (No running, No smoking) / buddy = เพื่อน เจ้าหนู (เรียกแบบเป็นกันเอง)"
+    },
+    {
+      "id": "tvr-s5-u24-ice-pops",
+      "situation": "food",
+      "meaningTh": "บอกว่าร้อนแล้วขอของเย็น ๆ",
+      "textbook": "Father, the weather is very hot. I want to eat an ice pop.",
+      "real": [
+        {
+          "text": "Daddy, it's so hot! Can I have an ice pop?",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u24-ice-pops",
+      "itemId": "s5-u24-ice-pops-1",
+      "noteTh": "it's so hot! พอ ไม่ต้องมีคำว่า weather / ขอใช้ Can I have …?"
+    },
+    {
+      "id": "tvr-s5-u25-spill",
+      "situation": "help",
+      "meaningTh": "อาสาช่วยเช็ด",
+      "textbook": "I will help you to clean the table.",
+      "real": [
+        {
+          "text": "I'll help wipe it up.",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u25-spill",
+      "itemId": "s5-u25-spill-5",
+      "noteTh": "wipe up = เช็ดให้หมด / help + กริยาได้เลย ไม่ต้องมี to"
+    },
+    {
+      "id": "tvr-s5-u25-card",
+      "situation": "feelings",
+      "meaningTh": "มั่นใจว่าอีกฝ่ายจะชอบ",
+      "textbook": "Grandmother will like it very much.",
+      "real": [
+        {
+          "text": "Grandma is gonna love it!",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u25-card",
+      "itemId": "s5-u25-card-6",
+      "noteTh": "เจ้าของภาษาใช้ love แทน like very much / Grandma ใช้บ่อยกว่า Grandmother"
+    },
+    {
+      "id": "tvr-s5-u26-band",
+      "situation": "invite",
+      "meaningTh": "ชวนตั้งวงดนตรี",
+      "textbook": "We should make a music group.",
+      "real": [
+        {
+          "text": "Let's start a band!",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u26-band",
+      "itemId": "s5-u26-band-1",
+      "noteTh": "start a band = ตั้งวง / start ใช้กับการเริ่มกลุ่ม ธุรกิจ ชมรม"
+    },
+    {
+      "id": "tvr-s5-u26-lullaby",
+      "situation": "help",
+      "meaningTh": "ขอให้ร้องเพลงกล่อม",
+      "textbook": "Father, please sing a song so I can sleep.",
+      "real": [
+        {
+          "text": "Daddy, can you sing me a lullaby?",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u26-lullaby",
+      "itemId": "s5-u26-lullaby-1",
+      "noteTh": "lullaby = เพลงกล่อมนอน / ขอให้ทำอะไรให้ใช้ \"Can you … me …?\""
+    },
+    {
+      "id": "tvr-s5-u27-soccer",
+      "situation": "feelings",
+      "meaningTh": "ชมว่ายิงสวย",
+      "textbook": "You kicked the ball very well. Our team has more points.",
+      "real": [
+        {
+          "text": "Nice shot! We're winning!",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u27-soccer",
+      "itemId": "s5-u27-soccer-4",
+      "noteTh": "ชมสั้น ๆ \"Nice shot!\" / \"Nice one!\" / กำลังนำใช้ We're winning"
+    },
+    {
+      "id": "tvr-s5-u27-new-bike",
+      "situation": "feelings",
+      "meaningTh": "ชมว่าทำได้เยี่ยม",
+      "textbook": "You did very well, my son.",
+      "real": [
+        {
+          "text": "Way to go, champ!",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u27-new-bike",
+      "itemId": "s5-u27-new-bike-6",
+      "noteTh": "\"Way to go!\" = เยี่ยมมาก! / champ = แชมป์ (เรียกเด็กแบบให้กำลังใจ)"
+    },
+    {
+      "id": "tvr-s5-u27-medal",
+      "situation": "feelings",
+      "meaningTh": "ปลอบว่าพยายามเต็มที่แล้ว",
+      "textbook": "It is not important. You tried your best.",
+      "real": [
+        {
+          "text": "That's okay. You tried really hard.",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u27-medal",
+      "itemId": "s5-u27-medal-3",
+      "noteTh": "ปลอบใช้ That's okay / It is not important อาจฟังเหมือนไม่สนใจความรู้สึกเขา"
+    },
+    {
+      "id": "tvr-s5-u28-hike",
+      "situation": "work",
+      "meaningTh": "ขอพัก",
+      "textbook": "Can we stop and rest for a while?",
+      "real": [
+        {
+          "text": "Can we take a break?",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u28-hike",
+      "itemId": "s5-u28-hike-3",
+      "noteTh": "take a break = พัก ใช้ทั้งตอนเดินป่า เรียน และทำงาน"
+    },
+    {
+      "id": "tvr-s5-u28-bug-hunt",
+      "situation": "decline",
+      "meaningTh": "เตือนให้เบามือ",
+      "textbook": "Please be careful. Do not press it too hard.",
+      "real": [
+        {
+          "text": "Be gentle. Don't squish it!",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u28-bug-hunt",
+      "itemId": "s5-u28-bug-hunt-5",
+      "noteTh": "be gentle = เบามือ / squish = บีบจนแบน — สั้นและเห็นภาพกว่า"
+    },
+    {
+      "id": "tvr-s5-u29-door",
+      "situation": "greetings",
+      "meaningTh": "ทักว่าโตขึ้นเยอะ",
+      "textbook": "Hello, my dear. You have grown very much.",
+      "real": [
+        {
+          "text": "Hello, sweetheart! Look how big you are!",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u29-door",
+      "itemId": "s5-u29-door-2",
+      "noteTh": "ญาติผู้ใหญ่ทักเด็กว่า \"Look how big you are!\" / sweetheart = ที่รัก (เรียกเด็กหรือคนรัก)"
+    },
+    {
+      "id": "tvr-s5-u29-call",
+      "situation": "phone",
+      "meaningTh": "ถามว่าได้ยินไหม",
+      "textbook": "Hello, Grandfather. Can you hear my voice?",
+      "real": [
+        {
+          "text": "Hi, Grandpa! Can you hear me?",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u29-call",
+      "itemId": "s5-u29-call-1",
+      "noteTh": "โทรหรือวิดีโอคอลถาม \"Can you hear me?\" ไม่ต้องมีคำว่า voice"
+    },
+    {
+      "id": "tvr-s5-u30-librarian",
+      "situation": "directions",
+      "meaningTh": "ตอบว่ามี แล้วพาไป",
+      "textbook": "Yes, we have them. Please come with me.",
+      "real": [
+        {
+          "text": "We sure do. Follow me!",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u30-librarian",
+      "itemId": "s5-u30-librarian-3",
+      "noteTh": "We sure do. = มีแน่นอน (ตอบคำถาม Do you have …?) / Follow me! = ตามมาเลย"
+    },
+    {
+      "id": "tvr-s5-u30-baker",
+      "situation": "shopping",
+      "meaningTh": "พนักงานถามว่ารับอะไร",
+      "textbook": "Good morning. What do you want to buy today?",
+      "real": [
+        {
+          "text": "Good morning! What would you like today?",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u30-baker",
+      "itemId": "s5-u30-baker-1",
+      "noteTh": "พนักงานถามลูกค้าใช้ \"What would you like?\" สุภาพ / What do you want to buy? ห้วนเกินไป"
+    },
+    {
+      "id": "tvr-s5-u30-lost",
+      "situation": "help",
+      "meaningTh": "ถามคนที่ดูเหมือนหลงทาง",
+      "textbook": "Hello. Do you have a problem?",
+      "real": [
+        {
+          "text": "Hi. Are you okay? Are you lost?",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u30-lost",
+      "itemId": "s5-u30-lost-1",
+      "noteTh": "ถามคนที่ท่าทางไม่ปกติใช้ \"Are you okay?\" / Do you have a problem? ฟังเหมือนหาเรื่อง"
+    },
+    {
+      "id": "tvr-s5-u30-bus-home",
+      "situation": "directions",
+      "meaningTh": "ถามว่าลงป้ายไหน",
+      "textbook": "Mother, at which bus stop do we get off?",
+      "real": [
+        {
+          "text": "Mommy, which stop is ours?",
+          "register": "casual"
+        }
+      ],
+      "lessonId": "s5-u30-bus-home",
+      "itemId": "s5-u30-bus-home-1",
+      "noteTh": "\"Which stop is ours?\" = ป้ายไหนของเรา สั้นกว่าถามเต็มประโยค"
     }
   ]
 }

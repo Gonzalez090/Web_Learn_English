@@ -55,6 +55,7 @@ export const LESSON_FLOWS = {
     review: ['speak'],
   },
   // Stage 5 บทสนทนา: ฟังทั้งบท → เลือกว่าจะเป็นใคร → เล่นบทบาท (เห็นบทของเรา) → เล่นอีกรอบโดยซ่อนบทของเรา
+  //   → (ถ้าบทมีคู่ในตำรา vs ใช้จริง — phrases.json textbookVsReal[].lessonId) เกม Real or Textbook? (ขั้นที่ 27-2)
   //   ฝึกซ้ำ: บรรทัดที่พลาดแบบ "อีกฝ่ายพูด → เราพูด" (พูดตาม → พูดเอง)
   dialogue: {
     wholeSteps: ['listenDialogue', 'chooseRole', 'rolePlay', 'rolePlayOwn'],
@@ -116,15 +117,17 @@ export const isPlayable = (lesson) => Boolean(LESSON_FLOWS[lesson?.type])
  * @param retry ฝึกซ้ำเฉพาะข้อที่พลาด → ใช้ flow.retry ถ้ามี
  * @returns [{ kind: 'listenDialogue' | …, whole: true }, { kind: 'speak' | …, item }, { kind: 'game', game }, …]
  */
-export function buildLessonSteps(flow, items, { retry = false } = {}) {
+export function buildLessonSteps(flow, items, { retry = false, extraGames = [] } = {}) {
   const active = retry && flow.retry ? flow.retry : flow
+  // extraGames = เกมที่แทรกเพิ่มตามข้อมูลของบท (เช่น Real or Textbook? เมื่อบทสนทนามีคู่ในตำรา) — ไม่เล่นตอนฝึกซ้ำ
+  const games = [...flowGames(active), ...(retry ? [] : extraGames)]
   const applies = (kind, item) => !STEP_NEEDS[kind] || Boolean(item[STEP_NEEDS[kind]])
   const perItem = (kinds = []) =>
     items.flatMap((item) => kinds.filter((kind) => applies(kind, item)).map((kind) => ({ kind, item })))
   return [
     ...(active.wholeSteps ?? []).map((kind) => ({ kind, whole: true })),
     ...perItem(active.itemSteps),
-    ...flowGames(active).map((game) => ({ kind: 'game', game })),
+    ...games.map((game) => ({ kind: 'game', game })),
     // รอบใช้เอง: ทำครบทุกข้อก่อน แล้วค่อยวนกลับมาข้อแรก (เว้นระยะให้ได้ดึงความจำ)
     ...(active.afterGameSteps ?? []).flatMap((kind) =>
       items.filter((item) => applies(kind, item)).map((item) => ({ kind, item })),

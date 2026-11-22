@@ -85,6 +85,20 @@ describe('buildLessonSteps', () => {
     ])
   })
 
+  it('เกมเสริมตามข้อมูลของบท (Real or Textbook?) ต่อท้ายเกมของ flow และไม่เล่นตอนฝึกซ้ำ', () => {
+    const extraGames = ['real-or-textbook']
+    expect(describeSteps(buildLessonSteps(LESSON_FLOWS.dialogue, items, { extraGames }))).toEqual([
+      'listenDialogue',
+      'chooseRole',
+      'rolePlay',
+      'rolePlayOwn',
+      'game:real-or-textbook',
+    ])
+    expect(describeSteps(buildLessonSteps(LESSON_FLOWS.dialogue, items, { retry: true, extraGames }))).not.toContain(
+      'game:real-or-textbook',
+    )
+  })
+
   it('เรื่องเล่า: ฟังทั้งเรื่อง → พูดตามทีละภาพ → เกม Listen & Tap → เล่าเองทีละภาพ (ฝึกซ้ำใช้ลำดับเดิม)', () => {
     const expected = ['listenStory', 'speak:a', 'speak:b', 'game:listen-tap', 'tellStory:a', 'tellStory:b']
     expect(describeSteps(buildLessonSteps(LESSON_FLOWS.story, items))).toEqual(expected)

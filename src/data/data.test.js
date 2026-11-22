@@ -593,8 +593,23 @@ describe('คลังวลี (phrases.json)', () => {
     }
   })
 
-  it('คำในตำรา vs ใช้จริง ≥ 15 คู่: แบบพูดจริง 1–3 แบบต่างจากแบบในตำรา + เหตุผลภาษาไทย', () => {
-    expect(textbookVsReal.length).toBeGreaterThanOrEqual(15)
+  it('คู่ที่ผูกบทสนทนา Stage 5: ชี้บรรทัดจริง, แบบพูดจริงแบบแรก = บรรทัดนั้น, บรรทัดละไม่เกิน 1 คู่', () => {
+    const lines = new Map()
+    for (const lesson of lessonsData.lessons.filter((entry) => entry.stageId === 5 && entry.type === 'dialogue'))
+      for (const item of lesson.items) lines.set(item.id, { lessonId: lesson.id, target: item.target })
+    const linked = textbookVsReal.filter((pair) => pair.itemId)
+    expect(linked.length).toBeGreaterThanOrEqual(75)
+    expect(new Set(linked.map((pair) => pair.itemId)).size).toBe(linked.length)
+    for (const pair of linked) {
+      const line = lines.get(pair.itemId)
+      expect(line, pair.id).toBeTruthy()
+      expect(pair.lessonId, pair.id).toBe(line.lessonId)
+      expect(pair.real[0].text, pair.id).toBe(line.target)
+    }
+  })
+
+  it('คำในตำรา vs ใช้จริง ≥ 100 คู่: แบบพูดจริง 1–3 แบบต่างจากแบบในตำรา + เหตุผลภาษาไทย', () => {
+    expect(textbookVsReal.length).toBeGreaterThanOrEqual(100)
     expect(new Set(textbookVsReal.map((pair) => pair.id)).size).toBe(textbookVsReal.length)
     for (const pair of textbookVsReal) {
       expect(situationIds, pair.id).toContain(pair.situation)

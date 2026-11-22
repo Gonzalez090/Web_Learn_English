@@ -8,6 +8,29 @@
 import { shuffle } from './random.js'
 
 export const ROT_ROUNDS = 5
+// เกมในบทเรียนต้องมีอย่างน้อยกี่รอบ (คู่ของบทนี้ + คู่ของบทก่อน ๆ) — น้อยกว่านี้ไม่แทรกเกม
+export const ROT_MIN_ROUNDS = 3
+// คู่จากบทก่อน ๆ ที่ใช้เติมรอบ: เอาเฉพาะบทล่าสุด (ยังจำบรรทัดได้)
+const ROT_RECENT_POOL = 12
+
+/**
+ * คู่ของเกม Real or Textbook? ในบทสนทนา Stage 5 (ขั้นที่ 27-2)
+ *   คู่ที่มี lessonId = แบบพูดจริงคือบรรทัดในบทนั้น → เล่นคู่ของบทนี้ก่อน แล้วเติมด้วยคู่ของบทที่เรียนมาก่อน (ตามลำดับบท)
+ * @param lessonOrder id บทเรียงตามลำดับเรียน (lessonList)
+ * @returns { own, pool } หรือ null = บทนี้ไม่มีคู่ / รวมแล้วไม่ถึง ROT_MIN_ROUNDS
+ */
+export function lessonRotPairs(lessonId, pairs, lessonOrder) {
+  const own = pairs.filter((pair) => pair.lessonId === lessonId)
+  if (!own.length) return null
+  const position = new Map(lessonOrder.map((id, index) => [id, index]))
+  const here = position.get(lessonId) ?? -1
+  const earlier = pairs
+    .filter((pair) => pair.lessonId && pair.lessonId !== lessonId && (position.get(pair.lessonId) ?? Infinity) < here)
+    .sort((a, b) => position.get(a.lessonId) - position.get(b.lessonId))
+    .slice(-ROT_RECENT_POOL)
+  if (own.length + earlier.length < ROT_MIN_ROUNDS) return null
+  return { own, pool: earlier }
+}
 
 /**
  * @param pairs  คู่หลักที่ต้องได้เล่นก่อน (เช่น คู่ของสถานการณ์นั้น)
