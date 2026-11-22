@@ -47,6 +47,7 @@ export default function RealOrTextbookPlay({ pairs, pool = pairs, onPlayingChang
 
   function finish() {
     trackEvent('gamePlay')
+    trackEvent('miniGame') // เกมที่เล่นแยก (หน้าคลังวลี) → ขั้น "มินิเกม" ของแผนวันนี้ (ขั้นที่ 18)
     setResult({ ...tallyRef.current })
     changeMode('done')
   }

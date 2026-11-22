@@ -40,6 +40,7 @@ import { shuffle } from '../../utils/random'
 import Picture from '../Picture'
 import Button from '../Button'
 import SpeechResult from '../SpeechResult'
+import { useProgressStore } from '../../store/progressStore'
 import styles from './ShadowKaraokeGame.module.css'
 
 const TICK_MS = 40 // ความถี่ในการเลื่อนแถบสี
@@ -113,6 +114,8 @@ export default function ShadowKaraokeGame({ items, lenient = false, ordered = fa
       run.token = token
       promise.then((outcome) => {
         run.outcome = outcome
+        // เกมนี้ใช้ไมค์ตรง (ไม่ผ่าน useRecognition) → นับนาทีที่พูดเองตรงนี้ (ขั้นที่ 18)
+        if (outcome.ok) useProgressStore.getState().addSpeakingTime(outcome.speechMs)
       })
       setActiveWord(-1)
       setPhase('countdown')

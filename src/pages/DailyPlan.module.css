@@ -1,0 +1,130 @@
+/* หน้าแผนวันนี้ — เป้าหมาย / รายการขั้น (ขั้นถัดไปเด่น) / นาทีที่พูด */
+.goal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.goalLabel {
+  font-weight: 700;
+}
+
+.allDone {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--color-success-soft);
+  color: var(--color-success);
+}
+
+.allDoneIcon {
+  flex: none;
+  width: 28px;
+  height: 28px;
+}
+
+.allDoneTitle {
+  margin: 0;
+  font-weight: 800;
+}
+
+.allDoneText {
+  margin: var(--space-1) 0 0;
+  color: var(--color-text);
+}
+
+.tasks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.current {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px var(--color-primary-soft);
+}
+
+.finished {
+  background: var(--color-surface-soft);
+}
+
+.number {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary-soft);
+  color: var(--color-primary-strong);
+  font-weight: 800;
+}
+
+.finished .number {
+  background: var(--color-success-soft);
+  color: var(--color-success);
+}
+
+.check {
+  width: 20px;
+  height: 20px;
+}
+
+.taskIcon {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  color: var(--color-muted);
+}
+
+.taskText {
+  flex: 1;
+  min-width: 0;
+}
+
+.taskTitle {
+  margin: 0;
+  font-weight: 700;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  align-items: baseline;
+}
+
+.count {
+  color: var(--color-muted);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.taskDesc {
+  margin: var(--space-1) 0 0;
+  color: var(--color-muted);
+  overflow-wrap: anywhere;
+}
+
+.speakingToday {
+  margin: 0 0 var(--space-3);
+}
+
+/* จอแคบ: ซ่อนไอคอนชนิดขั้น ให้ข้อความมีที่ */
+@media (max-width: 360px) {
+  .taskIcon {
+    display: none;
+  }
+}

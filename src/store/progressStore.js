@@ -17,6 +17,8 @@ import { levelFromXp } from '../utils/level'
 import { recordActivity } from '../utils/streak'
 import { applyMissionEvent, ensureDailyMissions, missionReward } from '../utils/missions'
 import { addFriendship, recordVisit as visitResult } from '../utils/friendship'
+import { applyPlanEvent, ensureDailyPlan, TALK_FROM_STAGE } from '../utils/dailyPlan'
+import { addSpeaking } from '../utils/speaking'
 import { useToastStore } from './toastStore'
 
 // ค่าเริ่มต้นของผู้เรียนใหม่
@@ -30,7 +32,8 @@ export const INITIAL_PROGRESS = {
   collection: [], // วลีที่สะสมได้ (ขั้นที่ 20)
   npcFriendship: {}, // { [npcId]: แต้มความสนิท } (ขั้นที่ 15)
   dailyMissions: { date: null, missions: [] }, // ภารกิจของวันนี้ [{ id, progress, done }]
-  speakingMinutes: {}, // { 'YYYY-MM-DD': นาทีที่พูด } (ขั้นที่ 18)
+  speakingMinutes: {}, // { 'YYYY-MM-DD': นาทีที่พูด (ทศนิยม) } ย้อนหลัง 60 วัน (ขั้นที่ 18 — utils/speaking.js)
+  dailyPlan: null, // แผนของวันนี้ { date, goal, tasks: [{ kind, target, progress }] } (ขั้นที่ 18 — utils/dailyPlan.js)
   lastVisitDate: null, // วันที่เข้าเว็บล่าสุด — ใช้ตรวจว่าหายไปหลายวันหรือไม่ (ขั้นที่ 15)
   welcomeBack: null, // { date, days } หายไป ≥ 3 วัน → NPC ทัก "Long time no see!" บนหน้าแรกวันนั้น (ปิดแล้ว = null)
 }
@@ -83,14 +86,34 @@ export const useProgressStore = create(
         })
       },
 
-      // แจ้งเหตุการณ์ของภารกิจรายวัน (ชนิดเหตุการณ์ดูที่ utils/missions.js)
+      // แจ้งเหตุการณ์ของภารกิจรายวัน (ชนิดเหตุการณ์ดูที่ utils/missions.js) + แผนรายวัน (utils/dailyPlan.js)
       trackEvent: (event, amount = 1) => {
         const state = get()
         const { daily, completed } = missionsAfter(state, event, amount)
-        if (daily === state.dailyMissions) return
+        const planResult = applyPlanEvent(state.dailyPlan, event, amount, todayKey())
+        if (daily === state.dailyMissions && planResult.plan === state.dailyPlan) return
         const nextXp = state.xp + missionReward(completed)
-        set({ dailyMissions: daily, xp: nextXp })
+        set({ dailyMissions: daily, xp: nextXp, dailyPlan: planResult.plan })
         announce({ previousXp: state.xp, nextXp, completed })
+        if (planResult.completed) useToastStore.getState().show({ kind: 'planDone' })
+      },
+
+      // เปิดหน้าแรก/หน้าแผน → แผนของวันนี้ (วันใหม่/เปลี่ยนเป้า → สร้างใหม่) (ขั้นที่ 18)
+      //   goal = et-settings.dailyGoal, reviewDue = รายการทบทวนที่ถึงกำหนดวันนี้ (ส่งมาจากหน้า — store นี้ไม่อ่าน store อื่น)
+      refreshDailyPlan: ({ goal, reviewDue }) => {
+        const state = get()
+        const talkReady = state.unlockedStages.includes(TALK_FROM_STAGE)
+        const plan = ensureDailyPlan(state.dailyPlan, { goal, today: todayKey(), reviewDue, talkReady })
+        if (plan !== state.dailyPlan) set({ dailyPlan: plan })
+      },
+
+      // พูดภาษาอังกฤษผ่านไมค์ (ms ที่ตรวจพบเสียงพูดจริง) → นาทีที่พูดของวันนี้ + ภารกิจ "พูดรวม N นาที" ทุกนาทีเต็ม
+      addSpeakingTime: (ms) => {
+        const state = get()
+        const { minutes, wholeMinutes } = addSpeaking(state.speakingMinutes, todayKey(), ms)
+        if (minutes === state.speakingMinutes) return
+        set({ speakingMinutes: minutes })
+        if (wholeMinutes > 0) get().trackEvent('speakingMinutes', wholeMinutes)
       },
 
       // เปิดหน้าแรกวันใหม่ → สุ่มภารกิจของวันนี้

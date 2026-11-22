@@ -8,6 +8,7 @@
 // component ให้ใช้ผ่าน hook useRecognition() ไม่เรียกไฟล์นี้ตรง ๆ
 // =========================================================
 import { stop as stopSpeech } from './speech'
+import { speechDurationMs } from './speaking'
 
 const RecognitionClass =
   typeof window !== 'undefined' ? window.SpeechRecognition || window.webkitSpeechRecognition : undefined
@@ -35,7 +36,8 @@ let activeSession = null // { recognition, token }
  * เริ่มฟัง 1 ครั้ง (พูดจบแล้วระบบหยุดเอง หรือกด stopListening)
  * @param onInterim ฟังก์ชันรับข้อความระหว่างพูด (แสดงสด ๆ ว่ากำลังได้ยินอะไร)
  * @param maxListenMs ฟังนานสุดกี่ ms
- * @returns Promise<{ ok: true, alternatives: [{ transcript, confidence }] } | { ok: false, error }>
+ * @returns Promise<{ ok: true, alternatives: [{ transcript, confidence }], speechMs } | { ok: false, error }>
+ *   speechMs = เวลาที่พูดจริง (ms) — นับเป็นนาทีที่พูดภาษาอังกฤษ (utils/speaking.js)
  *   error: 'not-allowed' (ไม่อนุญาตไมค์) | 'no-speech' | 'audio-capture' (ไม่มีไมค์) | 'network'
  *          | 'aborted' (ถูกยกเลิก) | 'unsupported' | อื่น ๆ
  */
@@ -57,6 +59,15 @@ export function startListening({ onInterim, maxListenMs = 8000 } = {}) {
   const promise = new Promise((resolve) => {
     let alternatives = []
     let finished = false
+    // ช่วงที่ระบบตรวจพบเสียงพูดจริง (ใช้นับ "นาทีที่พูดภาษาอังกฤษ" — ขั้นที่ 18)
+    let speechStart = null
+    let speechEnd = null
+    recognition.onspeechstart = () => {
+      speechStart = Date.now()
+    }
+    recognition.onspeechend = () => {
+      speechEnd = Date.now()
+    }
     const finish = (result) => {
       if (finished) return
       finished = true
@@ -79,7 +90,15 @@ export function startListening({ onInterim, maxListenMs = 8000 } = {}) {
     }
     recognition.onerror = (event) => finish({ ok: false, error: event.error || 'unknown' })
     recognition.onend = () =>
-      finish(alternatives.length ? { ok: true, alternatives } : { ok: false, error: 'no-speech' })
+      finish(
+        alternatives.length
+          ? {
+              ok: true,
+              alternatives,
+              speechMs: speechDurationMs({ speechStart, speechEnd, transcript: alternatives[0]?.transcript }),
+            }
+          : { ok: false, error: 'no-speech' },
+      )
 
     // กันไมค์ค้าง: ครบเวลาแล้วสั่งหยุด (ระบบจะส่งผลที่ได้ยินมาให้ก่อนจบ)
     const timer = setTimeout(() => recognition.stop(), maxListenMs)

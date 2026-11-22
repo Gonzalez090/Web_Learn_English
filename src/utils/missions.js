@@ -39,6 +39,7 @@ export const AVAILABLE_MISSION_EVENTS = new Set([
   'phrase', // คลังวลี: พูดตามวลีผ่าน (ขั้นที่ 10)
   'conversation', // บทสนทนาสุ่มจบ 1 รอบ (ขั้นที่ 11)
   'npcTalk', // คุยบทสนทนาสุ่มจบกับ NPC ประจำสถานที่ (ขั้นที่ 15)
+  'speakingMinutes', // พูดภาษาอังกฤษครบ 1 นาที (นับจากช่วงที่ไมค์ตรวจพบเสียงพูด — ขั้นที่ 18)
 ])
 
 export const MISSIONS_PER_DAY = 3

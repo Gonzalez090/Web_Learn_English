@@ -132,7 +132,10 @@ export default function TalkPage() {
   function finish(outcome) {
     trackEvent('conversation')
     if (npc) talkWithNpc(npc.id) // คุยจบ 1 รอบ = ความสนิท +1 + ภารกิจ "คุยกับ NPC"
-    if (playMode === 'speed') trackEvent('gamePlay') // Speed Order = มินิเกม
+    if (playMode === 'speed') {
+      trackEvent('gamePlay') // Speed Order = มินิเกม
+      trackEvent('miniGame') // เกมที่เล่นแยก → ขั้น "มินิเกม" ของแผนวันนี้ (ขั้นที่ 18)
+    }
     const skipped = Object.keys(outcome.outcomes).filter((id) => outcome.outcomes[id] !== 'passed')
     addMissed(talkLessonId(scenario.id), skipped)
     setResult(outcome)

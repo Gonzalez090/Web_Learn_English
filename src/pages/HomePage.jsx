@@ -16,6 +16,8 @@ import { useSettingsStore } from '../store/settingsStore'
 import { nextLesson } from '../utils/progress'
 import { dueEntries } from '../utils/review'
 import { todayKey } from '../utils/date'
+import { isPlanDone, isTaskDone } from '../utils/dailyPlan'
+import { useDailyPlan } from '../hooks/useDailyPlan'
 import { ICONS } from '../utils/icons'
 import Page from '../components/Page'
 import Section from '../components/Section'
@@ -68,6 +70,30 @@ function ContinueButton() {
   )
 }
 
+// การ์ด "แผนวันนี้" (ขั้นที่ 18) — ทำแล้วกี่ขั้น / ครบแล้ว → ไปหน้า /plan
+function PlanCard() {
+  const { t } = useTranslation()
+  const plan = useDailyPlan()
+  if (!plan) return null
+  const total = plan.tasks.length
+  const done = plan.tasks.filter(isTaskDone).length
+  const finished = isPlanDone(plan)
+  return (
+    <Link to="/plan" className={finished ? `${styles.plan} ${styles.planDone}` : styles.plan}>
+      <ICONS.plan className={styles.planIcon} aria-hidden="true" />
+      <span className={styles.continueText}>
+        <span className={styles.planTitle}>{t('home.plan', { goal: plan.goal })}</span>
+        <span className={styles.planProgress}>
+          {finished ? t('home.planDone') : t('home.planProgress', { done, total })}
+        </span>
+      </span>
+      <span className={styles.planBar} aria-hidden="true">
+        <span className={styles.planFill} style={{ width: `${Math.round((done / total) * 100)}%` }} />
+      </span>
+    </Link>
+  )
+}
+
 export default function HomePage() {
   const { t } = useTranslation()
   const introSeen = useSettingsStore((state) => state.introSeen)
@@ -88,6 +114,7 @@ export default function HomePage() {
       <LevelCard />
 
       <div className={styles.actions}>
+        <PlanCard />
         <ContinueButton />
         {reviewCount > 0 ? (
           <Button to="/review" variant="secondary" block icon={ICONS.review}>

@@ -11,6 +11,8 @@ import Section from '../components/Section'
 import LevelCard from '../components/LevelCard'
 import Tile, { TileList } from '../components/Tile'
 import ComingSoon from '../components/ComingSoon'
+import SpeakingChart from '../components/SpeakingChart'
+import { todayKey } from '../utils/date'
 import styles from './ProfilePage.module.css'
 
 export default function ProfilePage() {
@@ -19,6 +21,7 @@ export default function ProfilePage() {
   const bestStreak = useProgressStore((state) => state.streak.best ?? state.streak.count)
   const lessonProgress = useProgressStore((state) => state.lessonProgress)
   const unlockedStages = useProgressStore((state) => state.unlockedStages)
+  const speakingMinutes = useProgressStore((state) => state.speakingMinutes)
 
   const lessonsDone = Object.values(lessonProgress).filter((progress) => progress.completed).length
   const stats = [
@@ -51,7 +54,12 @@ export default function ProfilePage() {
           description={t('profile.speakingCheckDesc')}
         />
       </TileList>
-      <ComingSoon step={18} />
+      {/* นาทีที่พูดภาษาอังกฤษ 7 วันล่าสุด (ขั้นที่ 18) */}
+      <Section title={t('plan.speaking')} description={t('plan.speakingNote')}>
+        <SpeakingChart minutes={speakingMinutes} today={todayKey()} />
+      </Section>
+      {/* Collection + ห้องของตัวละคร (ขั้นที่ 20) */}
+      <ComingSoon step={20} />
     </Page>
   )
 }

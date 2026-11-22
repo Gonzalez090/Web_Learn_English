@@ -8,6 +8,7 @@
 // =========================================================
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { abortListening, isRecognitionSupported, startListening, stopListening } from '../utils/recognition'
+import { useProgressStore } from '../store/progressStore'
 
 export function useRecognition() {
   const [status, setStatus] = useState('idle')
@@ -34,6 +35,8 @@ export function useRecognition() {
     if (!mountedRef.current || tokenRef.current !== token) return null
 
     if (result.ok) {
+      // นับนาทีที่พูดภาษาอังกฤษ (ขั้นที่ 18) — ที่เดียวทั้งแอป ทุกหน้าที่ใช้ไมค์ผ่าน hook นี้
+      useProgressStore.getState().addSpeakingTime(result.speechMs)
       setStatus('done')
       return result.alternatives
     }

@@ -74,6 +74,7 @@ export default function SoundDrillPage() {
 
   function finishGame() {
     trackEvent('gamePlay')
+    trackEvent('miniGame') // เกมที่เล่นแยก → ขั้น "มินิเกม" ของแผนวันนี้ (ขั้นที่ 18)
     trackEvent('sound')
     setResult({ ...tallyRef.current })
     setMode('done')

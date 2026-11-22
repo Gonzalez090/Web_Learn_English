@@ -142,7 +142,10 @@
     "talk": "Random talk",
     "settings": "Settings",
     "continue": "Continue",
-    "allDone": "All open lessons done! See all lessons"
+    "allDone": "All open lessons done! See all lessons",
+    "plan": "Today's plan ({{goal}} min)",
+    "planProgress": "{{done}}/{{total}} steps done",
+    "planDone": "Today's plan is done"
   },
   "learn": {
     "title": "Basics",
@@ -337,7 +340,38 @@
     "goLearn": "Learn something new"
   },
   "plan": {
-    "title": "Today's plan"
+    "title": "Today's plan",
+    "subtitle": "In order: review → new lesson → conversation → mini game",
+    "goalLabel": "Daily goal",
+    "goalMinutes": "{{count}} min",
+    "tasks": "Today's steps",
+    "task": {
+      "review": "Review what is due",
+      "lesson": "Learn a new lesson",
+      "talk": "Have a random conversation",
+      "game": "Play a mini game"
+    },
+    "taskDesc": {
+      "review": "Hear, say, read, or write the ones you missed again",
+      "lesson": "Next: {{title}}",
+      "lessonAllDone": "You finished all open lessons. Pick any lesson to redo.",
+      "talk": "Talk with someone in town once",
+      "game": "One short game"
+    },
+    "progress": "{{progress}}/{{target}}",
+    "start": "Start",
+    "done": "Done",
+    "next": "Next step",
+    "allDone": "You finished today's plan. Great job!",
+    "allDoneText": "Come back tomorrow. A little every day is how you learn to speak.",
+    "speaking": "Minutes speaking English",
+    "speakingToday": "Speaking time today",
+    "speakingNote": "Only counts when the mic hears you speak",
+    "minutes": "{{value}} min",
+    "chartLabel": "Chart of minutes speaking English, last 7 days",
+    "chartTotal": "Last 7 days: {{value}} min",
+    "chartEmpty": "No data yet. Use the mic in a lesson to start counting.",
+    "today": "Today"
   },
   "games": {
     "title": "Mini games",
@@ -448,7 +482,9 @@
     "freezeText": "You missed yesterday, but your {{count}}-day streak is safe!",
     "dismiss": "Close",
     "friendshipUp": "You and {{name}} are closer!",
-    "friendshipLevel": "Now: {{level}} — new things to talk about"
+    "friendshipLevel": "Now: {{level}} — new things to talk about",
+    "planDone": "Today's plan is done!",
+    "planDoneText": "Great job. See you tomorrow!"
   },
   "sentence": {
     "stressHint": "Stressed word",

@@ -44,6 +44,9 @@ function useToastContent(toast) {
       text: t('toast.friendshipLevel', { level: t(`npc.level.${toast.level}`) }),
     }
   }
+  if (toast.kind === 'planDone') {
+    return { Icon: ICONS.completed, title: t('toast.planDone'), text: t('toast.planDoneText') }
+  }
   return { Icon: Snowflake, title: t('toast.freezeUsed'), text: t('toast.freezeText', { count: toast.count }) }
 }
 
