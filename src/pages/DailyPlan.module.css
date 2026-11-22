@@ -128,3 +128,32 @@
     display: none;
   }
 }
+
+/* Boss ประจำสัปดาห์ (ขั้นที่ 18-2) */
+.boss {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border: 2px solid var(--color-streak);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.bossDone {
+  border-color: var(--color-success);
+  background: var(--color-success-soft);
+}
+
+.bossPicture {
+  flex: none;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+}
+
+@media (max-width: 360px) {
+  .bossPicture {
+    display: none;
+  }
+}

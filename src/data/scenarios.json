@@ -2164,6 +2164,9 @@
           "title": "Sold out!",
           "titleTh": "เมนูหมด",
           "afterTurn": "restaurant-6",
+          "conflicts": [
+            "restaurant-wrong-order"
+          ],
           "turns": [
             {
               "id": "restaurant-t1-1",
@@ -3145,12 +3148,12 @@
       "slots": {
         "day": [
           {
-            "en": "Saturday",
-            "th": "วันเสาร์"
+            "en": "Friday",
+            "th": "วันศุกร์"
           },
           {
-            "en": "Sunday",
-            "th": "วันอาทิตย์"
+            "en": "Saturday",
+            "th": "วันเสาร์"
           }
         ],
         "time": [
@@ -4621,8 +4624,9 @@
             "th": "ร่ม"
           },
           {
-            "en": "headphones",
-            "th": "หูฟัง"
+            "en": "alarm clock",
+            "th": "นาฬิกาปลุก",
+            "key": "clock"
           }
         ]
       },
@@ -6016,7 +6020,7 @@
           "speaker": "npc",
           "variants": [
             {
-              "text": "Okay, you have to try this. It's a {flavor} latte. I just made it up!",
+              "text": "Okay, you have to try this. It's my new {flavor} latte. I just made it up!",
               "th": "โอเค ต้องลองอันนี้ ลาเต้{flavor} เราเพิ่งคิดเองเลย!"
             },
             {
@@ -6703,11 +6707,11 @@
           "hintTh": "บอกว่ายังไม่มี แล้วชวน{activity}",
           "userOptions": [
             {
-              "text": "Not really. Do you wanna {activity}?",
+              "text": "Nothing yet. Do you wanna {activity}?",
               "register": "casual"
             },
             {
-              "text": "Nothing yet. How about we {activity}?",
+              "text": "No plans yet. How about we {activity}?",
               "register": "casual"
             },
             {
@@ -6764,8 +6768,8 @@
           "speaker": "npc",
           "variants": [
             {
-              "text": "Saturday it is. What time should we meet?",
-              "th": "งั้นวันเสาร์ เจอกันกี่โมงดี"
+              "text": "Great. What time should we meet?",
+              "th": "เยี่ยม เจอกันกี่โมงดี"
             },
             {
               "text": "Cool. What time?",
@@ -7053,7 +7057,7 @@
               "th": "ไม่ต้องห่วง วิ่งสบาย ๆ ไปกัน!"
             },
             {
-              "text": "Ha, me neither. Come on!",
+              "text": "Ha, same here. Come on!",
               "th": "ฮ่า เราก็เหมือนกัน มาเลย!"
             },
             {
@@ -7785,12 +7789,12 @@
           "speaker": "npc",
           "variants": [
             {
-              "text": "Yes, we have a table at {time}. Can I get your name, please?",
-              "th": "ได้ครับ มีโต๊ะว่างตอน{time} ขอชื่อด้วยครับ"
+              "text": "Lovely. Can I get your name, please?",
+              "th": "ได้ครับ ขอชื่อด้วยครับ"
             },
             {
-              "text": "Perfect, {time} is available. And the name for the booking?",
-              "th": "เพอร์เฟกต์ {time}ว่างครับ จองในชื่ออะไรครับ"
+              "text": "Perfect. And the name for the booking?",
+              "th": "เพอร์เฟกต์ครับ จองในชื่ออะไรครับ"
             },
             {
               "text": "Lovely, that's fine. What name should I put it under?",
@@ -8187,16 +8191,16 @@
           "speaker": "npc",
           "variants": [
             {
-              "text": "My pleasure. Your food will be out shortly.",
-              "th": "ยินดีครับ อาหารจะมาในไม่ช้าครับ"
+              "text": "My pleasure. Anything to drink while you wait?",
+              "th": "ยินดีครับ รับเครื่องดื่มระหว่างรอไหมครับ"
             },
             {
               "text": "Not at all. Safety first! Anything to drink?",
               "th": "ไม่เป็นไรครับ ความปลอดภัยมาก่อน รับเครื่องดื่มไหมครับ"
             },
             {
-              "text": "Of course. I'll make sure it's perfect.",
-              "th": "แน่นอนครับ ผมจะดูแลให้เรียบร้อยครับ"
+              "text": "Of course. Can I get you a drink?",
+              "th": "แน่นอนครับ รับเครื่องดื่มไหมครับ"
             }
           ]
         },
@@ -9178,8 +9182,8 @@
           "speaker": "npc",
           "variants": [
             {
-              "text": "Ha! Nobody can. That's the fun part!",
-              "th": "ฮ่า! ไม่มีใครร้องเก่งหรอก นั่นแหละที่สนุก!"
+              "text": "Ha! Nobody sings well at karaoke. That's the fun part!",
+              "th": "ฮ่า! ไม่มีใครร้องคาราโอเกะเก่งหรอก นั่นแหละที่สนุก!"
             },
             {
               "text": "Don't worry, I'm worse. What song will you sing?",

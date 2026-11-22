@@ -15,6 +15,10 @@ import { getNpc, scenarioList } from '../data'
 import { useLocalized } from '../hooks/useLocalized'
 import { useScenario } from '../hooks/useScenarios'
 import { FRIENDSHIP_THRESHOLDS, isScenarioLocked } from '../utils/friendship'
+import { twistsCompatible } from '../data/scenarioChunks'
+import { ICONS } from '../utils/icons'
+import { isWeeklyBoss } from '../utils/boss'
+import { todayKey, weekStartKey } from '../utils/date'
 import { useProgressStore } from '../store/progressStore'
 import { useReviewStore } from '../store/reviewStore'
 import { buildConversation, randomSeed, talkLessonId } from '../utils/conversation'
@@ -29,7 +33,8 @@ import NotFoundPage from './NotFoundPage'
 import styles from './Talk.module.css'
 
 // ระดับ/โหมด (ขั้นที่ 12) — อยู่ใน URL ?mode= เหมือน seed: ปกติ / ยาก (ซ่อนตัวเลือก) / Speed Order (จับเวลา — เฉพาะสถานการณ์ที่ speedOrder)
-const MODES = ['normal', 'hard', 'speed']
+//   + boss (ขั้นที่ 18-2): Boss Conversation รายสัปดาห์ = ยาก + twist ทุกแบบพร้อมกัน — เข้าจากหน้าแผนวันนี้เท่านั้น (ไม่มีปุ่มเลือกในหน้านี้)
+const MODES = ['normal', 'hard', 'speed', 'boss']
 
 // NPC ที่คุยด้วย: ภาพ + ชื่อ + บทบาท + ระดับความสนิท (หน้า intro)
 function NpcBadge({ npc, points }) {
@@ -63,6 +68,8 @@ export default function TalkPage() {
   const trackEvent = useProgressStore((state) => state.trackEvent)
   const addMissed = useReviewStore((state) => state.addMissed)
   const talkWithNpc = useProgressStore((state) => state.talkWithNpc)
+  const completeBoss = useProgressStore((state) => state.completeBoss)
+  const bossWeek = useProgressStore((state) => state.bossWeek)
   const friendship = useProgressStore((state) => state.npcFriendship)
   // บทพูดเต็มโหลดแยกไฟล์ (ขั้นที่ 28-1) — ระหว่างโหลด AppLayout แสดงตัวโหลด / ไม่มี id นี้ → null
   const baseScenario = useScenario(scenarioId)
@@ -76,7 +83,14 @@ export default function TalkPage() {
   const seedParam = Number(searchParams.get('seed'))
   const seed = searchParams.has('seed') && Number.isInteger(seedParam) && seedParam >= 0 ? seedParam : null
   const modeParam = searchParams.get('mode')
-  const playMode = MODES.includes(modeParam) && (modeParam !== 'speed' || scenario?.speedOrder) ? modeParam : 'normal'
+  const modeAllowed =
+    MODES.includes(modeParam) &&
+    (modeParam !== 'speed' || scenario?.speedOrder) &&
+    (modeParam !== 'boss' || (scenario && twistsCompatible(scenario)))
+  const playMode = modeAllowed ? modeParam : 'normal'
+  const boss = playMode === 'boss'
+  // Boss ของสัปดาห์จริง (บทที่ล็อกไว้ + seed ของสัปดาห์) — mode=boss แบบอื่น = ฝึกซ้อม ไม่ได้โบนัส
+  const weeklyBoss = boss && isWeeklyBoss(bossWeek, weekStartKey(todayKey()), scenarioId, seed)
   // แก้ค่าใน URL โดยคงค่าอื่นไว้ (seed / mode)
   const updateParams = (changes, options) =>
     setSearchParams((current) => {
@@ -91,10 +105,11 @@ export default function TalkPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [seed, baseScenario])
 
-  const conversation = useMemo(
-    () => (scenario && seed !== null ? buildConversation(scenario, seed) : null),
-    [scenario, seed],
-  )
+  const conversation = useMemo(() => {
+    if (!scenario || seed === null) return null
+    // Boss: twist ทุกแบบพร้อมกัน / ปกติ: สุ่ม twist 30%
+    return buildConversation(scenario, seed, boss ? { twist: scenario.twists.map((twist) => twist.id) } : undefined)
+  }, [scenario, seed, boss])
   // mode: 'intro' → 'play' → 'done'
   const [mode, setMode] = useState('intro')
   const [result, setResult] = useState(null) // { outcomes, said }
@@ -123,7 +138,7 @@ export default function TalkPage() {
 
   // ระดับยาก = พูดเองไม่ดูตัวเลือก → XP เท่า "ใช้เอง"
   function linePass() {
-    const gain = playMode === 'hard' ? XP.speakOwn : XP.speak
+    const gain = playMode === 'hard' || boss ? XP.speakOwn : XP.speak
     addXp(gain)
     setXp((value) => value + gain)
     trackEvent('speakPass')
@@ -136,6 +151,8 @@ export default function TalkPage() {
       trackEvent('gamePlay') // Speed Order = มินิเกม
       trackEvent('miniGame') // เกมที่เล่นแยก → ขั้น "มินิเกม" ของแผนวันนี้ (ขั้นที่ 18)
     }
+    // ชนะ Boss ของสัปดาห์ครั้งแรก = โบนัส XP (ขั้นที่ 18-2) — store เช็กเองว่าเป็นบท + seed ของสัปดาห์จริง (ไม่ใช่ = ฝึกซ้อม)
+    if (boss) completeBoss(scenario.id, seed)
     const skipped = Object.keys(outcome.outcomes).filter((id) => outcome.outcomes[id] !== 'passed')
     addMissed(talkLessonId(scenario.id), skipped)
     setResult(outcome)
@@ -155,7 +172,7 @@ export default function TalkPage() {
     setMode('intro')
   }
 
-  const modeChoices = MODES.filter((value) => value !== 'speed' || scenario.speedOrder)
+  const modeChoices = MODES.filter((value) => value !== 'boss' && (value !== 'speed' || scenario.speedOrder))
   // เรื่องส่วนตัวกับ NPC (minFriendship) ต้องสนิทถึงระดับก่อน — เข้าทางลิงก์ตรงก็เล่นไม่ได้
   const locked = isScenarioLocked(scenario, friendship)
 
@@ -194,21 +211,34 @@ export default function TalkPage() {
             </div>
           ) : (
             <>
-              <div className={styles.modes} role="group" aria-label={t('talk.modeLabel')}>
-                {modeChoices.map((value) => (
-                  <Button
-                    key={value}
-                    size="sm"
-                    variant={playMode === value ? 'primary' : 'secondary'}
-                    aria-pressed={playMode === value}
-                    onClick={() => updateParams({ mode: value }, { replace: true })}
-                  >
-                    {t(`talk.mode.${value}`)}
-                  </Button>
-                ))}
-              </div>
-              <p className={styles.note}>{t(`talk.modeNote.${playMode}`)}</p>
-              <Button block size="lg" icon={MessagesSquare} onClick={start}>
+              {boss ? (
+                // Boss: ไม่มีปุ่มเลือกระดับ — บอกกติกาแทน
+                <p className={styles.bossNote}>
+                  <ICONS.boss className={styles.hintIcon} aria-hidden="true" />
+                  <span>
+                    {t('talk.bossNote')}
+                    {!weeklyBoss && <span className={styles.bossPractice}>{t('talk.bossPractice')}</span>}
+                  </span>
+                </p>
+              ) : (
+                <>
+                  <div className={styles.modes} role="group" aria-label={t('talk.modeLabel')}>
+                    {modeChoices.map((value) => (
+                      <Button
+                        key={value}
+                        size="sm"
+                        variant={playMode === value ? 'primary' : 'secondary'}
+                        aria-pressed={playMode === value}
+                        onClick={() => updateParams({ mode: value }, { replace: true })}
+                      >
+                        {t(`talk.mode.${value}`)}
+                      </Button>
+                    ))}
+                  </div>
+                  <p className={styles.note}>{t(`talk.modeNote.${playMode}`)}</p>
+                </>
+              )}
+              <Button block size="lg" icon={boss ? ICONS.boss : MessagesSquare} onClick={start}>
                 {t('talk.start')}
               </Button>
             </>

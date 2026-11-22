@@ -295,7 +295,9 @@
       "speed": "Timed game: you have 15 seconds per turn. Answer before the staff gets tired of waiting!"
     },
     "speedOrder": "Speed Order game (timed)",
-    "timeupCount": "Time ran out {{n}} times. Those lines are in your review list."
+    "timeupCount": "Time ran out {{n}} times. Those lines are in your review list.",
+    "bossNote": "Weekly Boss: a long conversation with 2 surprises and no examples, only Thai hints. Each line you pass = 25 XP. Your first win this week = 50 bonus XP.",
+    "bossPractice": "(This is practice, not this week’s Boss, so there is no bonus.)"
   },
   "phrases": {
     "title": "Real-life phrases",
@@ -371,7 +373,17 @@
     "chartLabel": "Chart of minutes speaking English, last 7 days",
     "chartTotal": "Last 7 days: {{value}} min",
     "chartEmpty": "No data yet. Use the mic in a lesson to start counting.",
-    "today": "Today"
+    "today": "Today",
+    "boss": {
+      "title": "Weekly Boss",
+      "desc": "A long conversation + 2 surprises + no examples",
+      "start": "Fight!",
+      "again": "Play again",
+      "done": "You beat this week’s Boss!",
+      "locked": "Finish Stage 4 (speaking in sentences) to unlock the weekly Boss",
+      "none": "No conversation can be a Boss yet. Unlock more places first.",
+      "newWeek": "A new Boss comes every Monday"
+    }
   },
   "games": {
     "title": "Mini games",
@@ -484,7 +496,9 @@
     "friendshipUp": "You and {{name}} are closer!",
     "friendshipLevel": "Now: {{level}} — new things to talk about",
     "planDone": "Today's plan is done!",
-    "planDoneText": "Great job. See you tomorrow!"
+    "planDoneText": "Great job. See you tomorrow!",
+    "bossDone": "You beat the weekly Boss! +{{xp}} XP",
+    "bossDoneText": "Amazing! A new Boss comes next week."
   },
   "sentence": {
     "stressHint": "Stressed word",

@@ -44,6 +44,9 @@ function useToastContent(toast) {
       text: t('toast.friendshipLevel', { level: t(`npc.level.${toast.level}`) }),
     }
   }
+  if (toast.kind === 'bossDone') {
+    return { Icon: ICONS.boss, title: t('toast.bossDone', { xp: toast.xp }), text: t('toast.bossDoneText') }
+  }
   if (toast.kind === 'planDone') {
     return { Icon: ICONS.completed, title: t('toast.planDone'), text: t('toast.planDoneText') }
   }

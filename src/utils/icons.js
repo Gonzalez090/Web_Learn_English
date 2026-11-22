@@ -56,6 +56,7 @@ export const ICONS = {
 
   // ปุ่มลัด / หมวด
   plan: CalendarCheck,
+  boss: Swords, // Boss Conversation รายสัปดาห์ (ขั้นที่ 18-2)
   review: RotateCcw,
   sounds: AudioLines,
   phrases: MessagesSquare,

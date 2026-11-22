@@ -12,7 +12,8 @@ import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
 import { stages, lessonList, dailyMissionPool } from '../data'
 import { computeUnlockedStages, recordLessonResult } from '../utils/progress'
-import { todayKey } from '../utils/date'
+import { todayKey, weekStartKey } from '../utils/date'
+import { BOSS_BONUS_XP, isWeeklyBoss } from '../utils/boss'
 import { levelFromXp } from '../utils/level'
 import { recordActivity } from '../utils/streak'
 import { applyMissionEvent, ensureDailyMissions, missionReward } from '../utils/missions'
@@ -33,6 +34,7 @@ export const INITIAL_PROGRESS = {
   npcFriendship: {}, // { [npcId]: แต้มความสนิท } (ขั้นที่ 15)
   dailyMissions: { date: null, missions: [] }, // ภารกิจของวันนี้ [{ id, progress, done }]
   speakingMinutes: {}, // { 'YYYY-MM-DD': นาทีที่พูด (ทศนิยม) } ย้อนหลัง 60 วัน (ขั้นที่ 18 — utils/speaking.js)
+  bossWeek: null, // Boss Conversation สัปดาห์นี้ { weekId, scenarioId, done } (ขั้นที่ 18-2 — utils/boss.js)
   dailyPlan: null, // แผนของวันนี้ { date, goal, tasks: [{ kind, target, progress }] } (ขั้นที่ 18 — utils/dailyPlan.js)
   lastVisitDate: null, // วันที่เข้าเว็บล่าสุด — ใช้ตรวจว่าหายไปหลายวันหรือไม่ (ขั้นที่ 15)
   welcomeBack: null, // { date, days } หายไป ≥ 3 วัน → NPC ทัก "Long time no see!" บนหน้าแรกวันนั้น (ปิดแล้ว = null)
@@ -105,6 +107,26 @@ export const useProgressStore = create(
         const talkReady = state.unlockedStages.includes(TALK_FROM_STAGE)
         const plan = ensureDailyPlan(state.dailyPlan, { goal, today: todayKey(), reviewDue, talkReady })
         if (plan !== state.dailyPlan) set({ dailyPlan: plan })
+      },
+
+      // ล็อก Boss ของสัปดาห์นี้ไว้ตอนการ์ดแสดงครั้งแรก (ขั้นที่ 18-2) — ความสนิท/สถานที่เปลี่ยนกลางสัปดาห์ บทไม่เปลี่ยนตาม
+      //   (หน้าแผนเรียกใหม่เฉพาะเมื่อขึ้นสัปดาห์ใหม่ หรือบทที่ล็อกไว้เล่นไม่ได้แล้ว)
+      pinBoss: (scenarioId) => {
+        const state = get()
+        const weekId = weekStartKey(todayKey())
+        if (state.bossWeek?.weekId === weekId && (state.bossWeek.done || state.bossWeek.scenarioId === scenarioId)) return
+        set({ bossWeek: { weekId, scenarioId, done: false } })
+      },
+
+      // คุย Boss Conversation จบ (ขั้นที่ 18-2) → ชนะครั้งแรกของสัปดาห์ = โบนัส XP + แจ้งเตือน
+      //   นับเฉพาะ Boss ที่ล็อกไว้ของสัปดาห์นี้ + seed ของสัปดาห์ (เปิด mode=boss บทอื่น/seed อื่นจาก URL = ฝึกซ้อม ไม่ได้โบนัส)
+      completeBoss: (scenarioId, seed) => {
+        const state = get()
+        const weekId = weekStartKey(todayKey())
+        if (!isWeeklyBoss(state.bossWeek, weekId, scenarioId, seed) || state.bossWeek.done) return
+        set({ bossWeek: { ...state.bossWeek, done: true } })
+        get().addXp(BOSS_BONUS_XP)
+        useToastStore.getState().show({ kind: 'bossDone', xp: BOSS_BONUS_XP })
       },
 
       // พูดภาษาอังกฤษผ่านไมค์ (ms ที่ตรวจพบเสียงพูดจริง) → นาทีที่พูดของวันนี้ + ภารกิจ "พูดรวม N นาที" ทุกนาทีเต็ม

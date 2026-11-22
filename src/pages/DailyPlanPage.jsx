@@ -5,13 +5,18 @@
 //   ขั้นถัดไปเด่น (ปุ่มเริ่มหลัก) / ขั้นที่ทำแล้วติ๊กถูก / ครบทุกขั้น → ข้อความชม
 //   + นาทีที่พูดภาษาอังกฤษวันนี้ + กราฟ 7 วัน (SpeakingChart)
 // =========================================================
+import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { getLessonMeta, lessonList } from '../data'
+import { cityMap, getLessonMeta, getScenarioMeta, lessonList, scenarioList } from '../data'
+import { bossDoneThisWeek, bossSeed, currentBoss } from '../utils/boss'
+import { isScenarioLocked } from '../utils/friendship'
+import { isPlaceUnlocked } from '../utils/places'
+import Picture from '../components/Picture'
 import { useLocalized } from '../hooks/useLocalized'
 import { useDailyPlan } from '../hooks/useDailyPlan'
 import { useProgressStore } from '../store/progressStore'
 import { useSettingsStore } from '../store/settingsStore'
-import { todayKey } from '../utils/date'
+import { todayKey, weekStartKey } from '../utils/date'
 import { nextLesson } from '../utils/progress'
 import { isPlanDone, isTaskDone, nextPlanTask, PLAN_GOALS, TALK_FROM_STAGE } from '../utils/dailyPlan'
 import { ICONS } from '../utils/icons'
@@ -24,6 +29,57 @@ import { formatMinutes } from '../utils/speaking'
 import styles from './DailyPlan.module.css'
 
 const TASK_ICON = { review: ICONS.review, lesson: ICONS.learn, talk: ICONS.talk, game: ICONS.games }
+
+// Boss Conversation ประจำสัปดาห์ (ส่วนที่ 8.3, ขั้นที่ 18-2) — บทเดิม seed เดิมทั้งสัปดาห์ (utils/boss.js)
+function BossCard() {
+  const { t } = useTranslation()
+  const loc = useLocalized()
+  const unlockedStages = useProgressStore((state) => state.unlockedStages)
+  const friendship = useProgressStore((state) => state.npcFriendship)
+  const bossWeek = useProgressStore((state) => state.bossWeek)
+  const weekId = weekStartKey(todayKey())
+  const ready = unlockedStages.includes(TALK_FROM_STAGE)
+  const available = (scenario) => {
+    const place = cityMap.find((entry) => entry.placeId === scenario.placeId)
+    return Boolean(place && isPlaceUnlocked(place, unlockedStages)) && !isScenarioLocked(scenario, friendship)
+  }
+  const pinBoss = useProgressStore((state) => state.pinBoss)
+  const done = bossDoneThisWeek(bossWeek, weekId)
+  // บทที่ล็อกไว้ของสัปดาห์ (ความสนิท/สถานที่เปลี่ยนกลางสัปดาห์ไม่ทำให้เปลี่ยนบท) — ยังไม่ได้ล็อก/เล่นไม่ได้แล้ว → เลือกแล้วล็อกใหม่
+  const { boss, needsPin } = ready
+    ? currentBoss({ scenarios: scenarioList, bossWeek, weekId, isAvailable: available, getMeta: getScenarioMeta })
+    : { boss: done ? getScenarioMeta(bossWeek.scenarioId) : null, needsPin: false }
+  const bossId = boss?.id
+  useEffect(() => {
+    if (needsPin && bossId) pinBoss(bossId)
+  }, [needsPin, bossId, pinBoss])
+
+  return (
+    <Section title={t('plan.boss.title')} description={t('plan.boss.newWeek')}>
+      <div className={done ? `${styles.boss} ${styles.bossDone}` : styles.boss}>
+        {boss ? (
+          <>
+            <Picture image={boss.image} size="sm" alt="" className={styles.bossPicture} />
+            <div className={styles.taskText}>
+              <p className={styles.taskTitle}>{loc(boss, 'name')}</p>
+              <p className={styles.taskDesc}>{done ? t('plan.boss.done') : t('plan.boss.desc')}</p>
+            </div>
+            <Button
+              to={`/talk/${boss.id}?mode=boss&seed=${bossSeed(weekId)}`}
+              size="sm"
+              variant={done ? 'secondary' : 'primary'}
+              icon={ICONS.boss}
+            >
+              {done ? t('plan.boss.again') : t('plan.boss.start')}
+            </Button>
+          </>
+        ) : (
+          <p className={styles.taskDesc}>{ready ? t('plan.boss.none') : t('plan.boss.locked')}</p>
+        )}
+      </div>
+    </Section>
+  )
+}
 
 export default function DailyPlanPage() {
   const { t } = useTranslation()
@@ -115,6 +171,8 @@ export default function DailyPlanPage() {
           })}
         </ol>
       </Section>
+
+      <BossCard />
 
       <Section title={t('plan.speaking')} description={t('plan.speakingNote')}>
         <p className={styles.speakingToday}>

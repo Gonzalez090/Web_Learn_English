@@ -61,13 +61,24 @@ export function pickTwist(scenario, seed, twist = 'auto') {
   return random() < TWIST_CHANCE ? twists[Math.floor(random() * twists.length)] : null
 }
 
-// ลำดับ turn ของรอบนี้: แทรก twist ต่อจาก afterTurn และตัดบรรทัดที่ไม่เข้ากับ twist แล้ว (skip)
-function turnsWithTwist(scenario, twist) {
-  if (!twist) return scenario.turns
-  const skip = new Set(twist.skip ?? [])
+// twist ที่ใช้รอบนี้ (array): 'auto' = สุ่ม 30% (0–1 แบบ) / null = ไม่มี / id = แบบนั้น / [id, …] = หลายแบบพร้อมกัน (Boss — ขั้นที่ 18-2)
+function pickTwists(scenario, seed, option) {
+  if (Array.isArray(option)) return (scenario.twists ?? []).filter((twist) => option.includes(twist.id))
+  const twist = pickTwist(scenario, seed, option)
+  return twist ? [twist] : []
+}
+
+// ลำดับ turn ของรอบนี้: แทรกแต่ละ twist ต่อจาก afterTurn ของมัน และตัดบรรทัดที่ไม่เข้ากับ twist แล้ว (skip ของทุก twist)
+//   turn ของ twist ติด twistId → หน้าบทสนทนาขึ้นป้าย "เหตุการณ์ไม่คาดคิด" ก่อนบรรทัดแรกของแต่ละ twist
+function turnsWithTwists(scenario, twists) {
+  if (!twists.length) return scenario.turns
+  const skip = new Set(twists.flatMap((twist) => twist.skip ?? []))
   return scenario.turns.flatMap((turn) => {
     if (skip.has(turn.id)) return []
-    return turn.id === twist.afterTurn ? [turn, ...twist.turns.map((entry) => ({ ...entry, twist: true }))] : [turn]
+    const inserted = twists
+      .filter((twist) => twist.afterTurn === turn.id)
+      .flatMap((twist) => twist.turns.map((entry) => ({ ...entry, twist: twist.id })))
+    return [turn, ...inserted]
   })
 }
 
@@ -76,7 +87,7 @@ const allTurns = (scenario) => [...scenario.turns, ...(scenario.twists ?? []).fl
 
 /**
  * สร้างบทสนทนา 1 รอบ
- * @param options.twist 'auto' | null | id ของ twist
+ * @param options.twist 'auto' | null | id ของ twist | [id, …] (หลาย twist พร้อมกัน — Boss Conversation)
  * @returns { seed, values, twist: { id, title, titleTh } | null,
  *            lines: [npc { id, speaker, target, translationTh, twist? } | user { id, speaker, hintTh, options, requiredWords, acceptedAnswers, freeAnswer, twist? }] }
  */
@@ -85,8 +96,8 @@ export function buildConversation(scenario, seed, { twist: twistOption = 'auto' 
   const values = Object.fromEntries(
     Object.entries(scenario.slots ?? {}).map(([name, list]) => [name, list[Math.floor(random() * list.length)]]),
   )
-  const twist = pickTwist(scenario, seed, twistOption)
-  const lines = turnsWithTwist(scenario, twist).map((turn) => {
+  const twists = pickTwists(scenario, seed, twistOption)
+  const lines = turnsWithTwists(scenario, twists).map((turn) => {
     if (turn.speaker === 'npc') {
       const variant = turn.variants[Math.floor(random() * turn.variants.length)]
       return {
@@ -95,6 +106,7 @@ export function buildConversation(scenario, seed, { twist: twistOption = 'auto' 
         target: fillSlots(variant.text, values),
         translationTh: fillSlots(variant.th, values, 'th'),
         twist: Boolean(turn.twist),
+        twistId: turn.twist || null,
       }
     }
     return {
@@ -106,10 +118,12 @@ export function buildConversation(scenario, seed, { twist: twistOption = 'auto' 
       acceptedAnswers: (turn.acceptedAnswers ?? []).map((answer) => fillSlots(answer, values)),
       freeAnswer: Boolean(turn.freeAnswer),
       twist: Boolean(turn.twist),
+      twistId: turn.twist || null,
     }
   })
-  const twistInfo = twist ? { id: twist.id, title: twist.title, titleTh: twist.titleTh } : null
-  return { seed, values, twist: twistInfo, lines }
+  const twistInfos = twists.map((twist) => ({ id: twist.id, title: twist.title, titleTh: twist.titleTh }))
+  // twist = แบบแรก (ใช้ร่วมกับโค้ดเดิม) / twists = ทุกแบบของรอบนี้ (Boss มี 2)
+  return { seed, values, twist: twistInfos[0] ?? null, twists: twistInfos, lines }
 }
 
 const transcriptsOf = (alternatives) =>

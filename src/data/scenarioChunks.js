@@ -13,10 +13,24 @@ export const SCENARIO_MODULE_PREFIX = 'virtual:scenarios/scenario-'
 // ส่วนที่ใหญ่และใช้แค่ตอนเล่น → อยู่ในก้อนย่อยเท่านั้น
 const HEAVY_FIELDS = new Set(['turns', 'twists', 'slots'])
 
-// สถานการณ์แบบย่อ: ทุกอย่างยกเว้นบทพูด (แสดงรายการ/ปุ่มสุ่ม/สถานะล็อกได้โดยไม่ต้องโหลดบท) + จำนวนบรรทัด
+// twist ทุกแบบใช้พร้อมกันได้ไหม (Boss Conversation — ขั้นที่ 18-2): ≥ 2 แบบ, ไม่มีแบบไหนตัด (skip) บรรทัดที่อีกแบบต้องแทรกต่อ
+//   และไม่มีแบบไหนประกาศว่าเนื้อเรื่องขัดกับอีกแบบ (twist.conflicts เช่น เมนูหมด + ได้อาหารผิด)
+export function twistsCompatible(scenario) {
+  const twists = scenario.twists ?? []
+  if (twists.length < 2) return false
+  return twists.every((twist) =>
+    twists.every(
+      (other) =>
+        other === twist || (!(other.skip ?? []).includes(twist.afterTurn) && !(other.conflicts ?? []).includes(twist.id)),
+    ),
+  )
+}
+
+// สถานการณ์แบบย่อ: ทุกอย่างยกเว้นบทพูด (แสดงรายการ/ปุ่มสุ่ม/สถานะล็อกได้โดยไม่ต้องโหลดบท) + จำนวนบรรทัด + เล่นเป็น Boss ได้ไหม
 export const scenarioMeta = (scenario) => ({
   ...Object.fromEntries(Object.entries(scenario).filter(([key]) => !HEAVY_FIELDS.has(key))),
   turnCount: scenario.turns.length,
+  bossReady: twistsCompatible(scenario),
 })
 
 // โค้ดของโมดูลสารบัญ (ตัวโหลดเป็น import() → Vite แยกเป็นไฟล์ JS ต่อสถานการณ์)

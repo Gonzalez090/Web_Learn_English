@@ -45,9 +45,11 @@ export default function ConversationSummary({
         <p className={styles.resultTitle}>{t('talk.doneTitle')}</p>
         <p>{t('talk.doneCount', { n: passedCount, total: userLines.length })}</p>
         {timeupCount > 0 && <p>{t('talk.timeupCount', { n: timeupCount })}</p>}
-        {conversation.twist && (
-          <p className={styles.twistNote}>{t('talk.twist', { title: loc(conversation.twist, 'title') })}</p>
-        )}
+        {(conversation.twists ?? []).map((twist) => (
+          <p key={twist.id} className={styles.twistNote}>
+            {t('talk.twist', { title: loc(twist, 'title') })}
+          </p>
+        ))}
         {xp > 0 && <p className={styles.resultXp}>{t('phrases.gameXp', { xp })}</p>}
       </div>
 

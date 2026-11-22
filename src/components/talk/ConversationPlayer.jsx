@@ -68,9 +68,15 @@ export default function ConversationPlayer({
   const myTurn = line?.speaker === 'user'
   const canSkip = attempts >= MAX_ATTEMPTS_BEFORE_SKIP || blocked
   const partner = loc(scenario.partner, 'name')
-  const hard = mode === 'hard'
+  // Boss Conversation (ขั้นที่ 18-2) = ระดับยาก (ไม่มีตัวเลือก เหลือคำใบ้ไทย) + twist 2 ครั้ง
+  const hard = mode === 'hard' || mode === 'boss'
   const speed = mode === 'speed'
-  const firstTwistIndex = lines.findIndex((entry) => entry.twist)
+  // บรรทัดแรกของแต่ละ twist → ป้าย "เหตุการณ์ไม่คาดคิด: <ชื่อ>" (Boss มี 2 ป้าย)
+  const twistAt = (index) => {
+    const entry = lines[index]
+    if (!entry?.twistId || lines[index - 1]?.twistId === entry.twistId) return null
+    return (conversation.twists ?? []).find((twist) => twist.id === entry.twistId) ?? null
+  }
 
   // Speed Order: หมดเวลา → หยุดไมค์ แล้วไปบรรทัดถัดไป (บรรทัดนั้นเข้ารายการทบทวน)
   useEffect(() => {
@@ -171,12 +177,13 @@ export default function ConversationPlayer({
               fileVoice={mine ? null : npcVoice}
             />
           )
-          if (index !== firstTwistIndex || !conversation.twist) return bubble
+          const twist = twistAt(index)
+          if (!twist) return bubble
           return (
             <Fragment key={entry.id}>
               <p className={styles.twistBanner} role="status">
                 <Zap className={styles.hintIcon} aria-hidden="true" />
-                {t('talk.twist', { title: loc(conversation.twist, 'title') })}
+                {t('talk.twist', { title: loc(twist, 'title') })}
               </p>
               {bubble}
             </Fragment>
