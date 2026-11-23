@@ -71,6 +71,13 @@
   gap: var(--space-2);
 }
 
+/* กล่องปุ่มพูด (hooks/useStepReveal เลื่อนจอมาหาตอนเข้าขั้น) → เผื่อแถบบนและแถบเมนูล่าง (fixed) */
+.micBox {
+  width: 100%;
+  scroll-margin-top: calc(var(--topbar-height) + var(--space-3));
+  scroll-margin-bottom: calc(var(--bottomnav-height) + env(safe-area-inset-bottom) + var(--space-3));
+}
+
 .actions {
   display: flex;
   flex-direction: column;

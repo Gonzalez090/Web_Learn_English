@@ -617,6 +617,8 @@
   "error": {
     "title": "Oops, something went wrong",
     "text": "Don't worry, your progress is safe. Please reload the page.",
+    "loadTitle": "Couldn't load this page",
+    "loadText": "Check your internet, then reload the page. Your progress is safe.",
     "reload": "Reload page"
   },
   "level": {

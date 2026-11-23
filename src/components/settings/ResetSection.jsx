@@ -12,6 +12,7 @@ import { clearChecks, isCheckStoreSupported } from '../../utils/checkStore'
 import { ICONS } from '../../utils/icons'
 import Section from '../Section'
 import Button from '../Button'
+import { useReturnFocus } from './useReturnFocus'
 import styles from './DataSections.module.css'
 
 function ConfirmReset({ onDone, onCancel }) {
@@ -64,6 +65,7 @@ function ConfirmReset({ onDone, onCancel }) {
 
 export default function ResetSection({ notice, onNotice, open, onOpen, onClose }) {
   const { t } = useTranslation()
+  const startRef = useReturnFocus(open)
   const message = notice?.section === 'reset' ? notice : null
 
   return (
@@ -79,6 +81,7 @@ export default function ResetSection({ notice, onNotice, open, onOpen, onClose }
       ) : (
         <div className={styles.actions}>
           <Button
+            ref={startRef}
             variant="danger"
             icon={ICONS.delete}
             onClick={() => {

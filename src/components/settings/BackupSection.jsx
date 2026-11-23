@@ -15,6 +15,7 @@ import { formatShortDate, toDateKey, todayKey } from '../../utils/date'
 import { ICONS } from '../../utils/icons'
 import Section from '../Section'
 import Button from '../Button'
+import { useReturnFocus } from './useReturnFocus'
 import styles from './DataSections.module.css'
 
 // ดาวน์โหลดข้อความเป็นไฟล์
@@ -86,6 +87,7 @@ export default function BackupSection({ notice, onNotice, open, onOpen, onClose 
   const progress = useProgressStore()
   const reviewQueue = useReviewStore((state) => state.reviewQueue)
   const inputRef = useRef(null)
+  const chooseRef = useReturnFocus(open)
   const [candidate, setCandidate] = useState(null) // ไฟล์ที่ตรวจผ่าน รอยืนยัน (แสดงเมื่อ open)
   const message = notice?.section === 'backup' ? notice : null
   const setMessage = (kind, key) => onNotice({ section: 'backup', kind, key })
@@ -128,7 +130,7 @@ export default function BackupSection({ notice, onNotice, open, onOpen, onClose 
         <Button variant="secondary" icon={ICONS.download} onClick={save}>
           {t('settings.backupSave')}
         </Button>
-        <Button variant="secondary" icon={ICONS.upload} onClick={() => inputRef.current?.click()}>
+        <Button ref={chooseRef} variant="secondary" icon={ICONS.upload} onClick={() => inputRef.current?.click()}>
           {t('settings.restoreChoose')}
         </Button>
         <input

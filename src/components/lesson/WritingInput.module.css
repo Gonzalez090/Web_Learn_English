@@ -19,7 +19,8 @@
   font-size: 1.125rem;
   font-weight: 700;
   scroll-margin-top: calc(var(--topbar-height) + var(--space-3));
-  scroll-margin-bottom: var(--space-6);
+  /* แป้นพิมพ์ขึ้นแล้วจอหด → เผื่อแถบเมนูล่าง (fixed) ไม่ให้บังช่องพิมพ์ */
+  scroll-margin-bottom: calc(var(--bottomnav-height) + env(safe-area-inset-bottom) + var(--space-3));
 }
 
 .field:focus-visible {

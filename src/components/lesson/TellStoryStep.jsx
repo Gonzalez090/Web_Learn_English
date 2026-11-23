@@ -6,13 +6,13 @@
 //   "ดูคำใบ้" → เห็นคำสำคัญ (ไม่บังคับ) / ลองครบ 3 ครั้ง (หรือไมค์ใช้ไม่ได้) → "ไปต่อ" (ภาพนั้นเข้ารายการทบทวน)
 // props: item (ภาพนี้: target, requiredWords, image), story (ทุกภาพของเรื่อง), onDone({ passed })
 // =========================================================
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Lightbulb } from 'lucide-react'
 import { compareKeywords, keywordLabel } from '../../utils/storyCheck'
 import { MAX_ATTEMPTS_BEFORE_SKIP } from '../../utils/lessonSteps'
 import { isBlockingMicError, isRecognitionSupported } from '../../utils/recognition'
-import { scrollIntoViewGently } from '../../utils/scroll'
+import { useStepReveal } from '../../hooks/useStepReveal'
 import Picture from '../Picture'
 import MicButton from '../MicButton'
 import Button from '../Button'
@@ -26,12 +26,10 @@ export default function TellStoryStep({ item, story, onDone }) {
   const [attempts, setAttempts] = useState(0)
   const [blocked, setBlocked] = useState(!isRecognitionSupported)
   const [hintOpen, setHintOpen] = useState(false)
-  const actionsRef = useRef(null)
   const index = Math.max(0, story.findIndex((panel) => panel.id === item.id))
   const canSkip = attempts >= MAX_ATTEMPTS_BEFORE_SKIP || blocked
-
-  // ได้ผลแล้ว → เลื่อนจอให้เห็นผล + ปุ่มไปต่อ (ภาพใหญ่ทำให้ผลตกขอบจอมือถือ)
-  const showActions = () => setTimeout(() => scrollIntoViewGently(actionsRef.current), 60)
+  // จอเตี้ย: เข้าขั้นแล้วเห็นปุ่มพูด / ได้ผลแล้วเห็นผล + ปุ่มไปต่อ
+  const { micRef, actionsRef, showActions } = useStepReveal(item.id)
 
   function handleResult(result) {
     setAttempts((count) => count + 1)
@@ -53,7 +51,7 @@ export default function TellStoryStep({ item, story, onDone }) {
         image={item.image}
         size="fill"
         alt={t('story.panel', { n: index + 1, total: story.length })}
-        className={styles.picture}
+        className={`${styles.picture} ${tellStyles.picture}`}
       />
 
       {hintOpen ? (
@@ -73,17 +71,19 @@ export default function TellStoryStep({ item, story, onDone }) {
         </Button>
       )}
 
-      <MicButton
-        target={item.target}
-        evaluate={(alternatives, attempt) =>
-          compareKeywords(item.requiredWords, alternatives, { model: item.target, attempt })
-        }
-        wordsLabel={t('story.keywords')}
-        speakId={`${item.id}:tell`}
-        label={t('mic.tell')}
-        onResult={handleResult}
-        onError={handleError}
-      />
+      <div ref={micRef} className={styles.micBox}>
+        <MicButton
+          target={item.target}
+          evaluate={(alternatives, attempt) =>
+            compareKeywords(item.requiredWords, alternatives, { model: item.target, attempt })
+          }
+          wordsLabel={t('story.keywords')}
+          speakId={`${item.id}:tell`}
+          label={t('mic.tell')}
+          onResult={handleResult}
+          onError={handleError}
+        />
+      </div>
 
       <div ref={actionsRef} className={styles.actions}>
         {passed && (

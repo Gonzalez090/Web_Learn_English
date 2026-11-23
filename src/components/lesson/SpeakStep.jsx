@@ -13,6 +13,7 @@ import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSpeech } from '../../hooks/useSpeech'
 import { useSentenceDisplay } from '../../hooks/useSentenceDisplay'
+import { useStepReveal } from '../../hooks/useStepReveal'
 import { MAX_ATTEMPTS_BEFORE_SKIP } from '../../utils/lessonSteps'
 import { isBlockingMicError, isRecognitionSupported } from '../../utils/recognition'
 import Picture from '../Picture'
@@ -35,6 +36,8 @@ export default function SpeakStep({ item, stage, mode = 'shadow', revealed, onRe
   const target = item.target ?? item.word
   const canSkip = attempts >= MAX_ATTEMPTS_BEFORE_SKIP || blocked
   const idPrefix = `${item.id}:${mode}`
+  // จอเตี้ย: เข้าขั้นแล้วเห็นปุ่มพูด / ได้ผลแล้วเห็นผล + ปุ่มไปต่อ
+  const { micRef, actionsRef, showActions } = useStepReveal(item.id)
 
   // ใช้เอง: เปิดขั้นแล้วพ่อแม่ถามให้ฟังเลย
   useEffect(() => {
@@ -46,11 +49,13 @@ export default function SpeakStep({ item, stage, mode = 'shadow', revealed, onRe
   function handleResult(result) {
     setAttempts((count) => count + 1)
     if (result.passed) setPassed(true)
+    showActions()
   }
 
   function handleError(error) {
     if (isBlockingMicError(error)) setBlocked(true)
     else setAttempts((count) => count + 1) // เช่น ไม่ได้ยินเสียง = นับเป็น 1 ครั้ง
+    showActions()
   }
 
   return (
@@ -65,18 +70,20 @@ export default function SpeakStep({ item, stage, mode = 'shadow', revealed, onRe
       {sentence && <Exchange item={item} display={display} parts={own ? 'ownTurn' : 'answer'} idPrefix={idPrefix} />}
       {/* Stage 4+ ฟังตัวอย่างได้จากกล่องคำตอบ + ปุ่มนี้ (ช้า) / ใช้เอง ไม่มีตัวอย่างให้ฟังก่อน */}
       {!own && <SpeakButton text={target} id={`${item.id}:model`} />}
-      <MicButton
-        target={target}
-        acceptAlso={item.acceptAlso}
-        lenient={stage.id <= 3}
-        showText={display.textVisible}
-        recast={sentence ? item : null}
-        speakId={idPrefix}
-        label={own ? t('mic.answer') : undefined}
-        onResult={handleResult}
-        onError={handleError}
-      />
-      <div className={styles.actions}>
+      <div ref={micRef} className={styles.micBox}>
+        <MicButton
+          target={target}
+          acceptAlso={item.acceptAlso}
+          lenient={stage.id <= 3}
+          showText={display.textVisible}
+          recast={sentence ? item : null}
+          speakId={idPrefix}
+          label={own ? t('mic.answer') : undefined}
+          onResult={handleResult}
+          onError={handleError}
+        />
+      </div>
+      <div ref={actionsRef} className={styles.actions}>
         {passed && (
           <Button block size="lg" onClick={() => onDone({ passed: true })}>
             {t('lesson.next')}

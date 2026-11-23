@@ -16,6 +16,7 @@ import { Languages } from 'lucide-react'
 import phonicsData from '../../data/phonics.json'
 import { useSpeech } from '../../hooks/useSpeech'
 import { useSentenceDisplay } from '../../hooks/useSentenceDisplay'
+import { useStepReveal } from '../../hooks/useStepReveal'
 import { MAX_ATTEMPTS_BEFORE_SKIP } from '../../utils/lessonSteps'
 import { graphemeUnits, readingUnits, readProgress } from '../../utils/reading'
 import { isBlockingMicError, isRecognitionSupported } from '../../utils/recognition'
@@ -46,6 +47,8 @@ export default function ReadAloudStep({ item, stage, variant = 'page', onDone })
   const tried = attempts > 0 || blocked
   const canSkip = attempts >= MAX_ATTEMPTS_BEFORE_SKIP || blocked
   const wordKey = `${item.id}:word`
+  // จอเตี้ย: เข้าขั้นแล้วเห็นปุ่มอ่าน / ได้ผลแล้วเห็นผล + ปุ่มไปต่อ
+  const { micRef, actionsRef, showActions } = useStepReveal(item.id)
 
   // sight word: เปิดขั้นแล้วพูดคำให้ฟัง (จำทั้งหน้าตาและเสียงของคำ)
   useEffect(() => {
@@ -61,11 +64,13 @@ export default function ReadAloudStep({ item, stage, variant = 'page', onDone })
     setAttempts((count) => count + 1)
     setLastHeard(result.heard ?? '')
     if (result.passed) setPassed(true)
+    showActions()
   }
 
   function handleError(error) {
     if (isBlockingMicError(error)) setBlocked(true)
     else setAttempts((count) => count + 1) // เช่น ไม่ได้ยินเสียง = นับเป็น 1 ครั้ง
+    showActions()
   }
 
   return (
@@ -128,20 +133,22 @@ export default function ReadAloudStep({ item, stage, variant = 'page', onDone })
         </Button>
       )}
 
-      <MicButton
-        target={target}
-        acceptAlso={item.acceptAlso}
-        lenient={isWord}
-        showText
-        recast={{ ...item, target }}
-        speakId={`${item.id}:read`}
-        label={t('read.readAloud')}
-        onResult={handleResult}
-        onError={handleError}
-        onInterim={setLive}
-      />
+      <div ref={micRef} className={stepStyles.micBox}>
+        <MicButton
+          target={target}
+          acceptAlso={item.acceptAlso}
+          lenient={isWord}
+          showText
+          recast={{ ...item, target }}
+          speakId={`${item.id}:read`}
+          label={t('read.readAloud')}
+          onResult={handleResult}
+          onError={handleError}
+          onInterim={setLive}
+        />
+      </div>
 
-      <div className={stepStyles.actions}>
+      <div ref={actionsRef} className={stepStyles.actions}>
         {passed && (
           <Button block size="lg" onClick={() => onDone({ passed: true })}>
             {t('lesson.next')}
