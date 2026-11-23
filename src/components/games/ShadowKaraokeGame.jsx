@@ -99,7 +99,7 @@ export default function ShadowKaraokeGame({ items, lenient = false, ordered = fa
       const modelMs = await getSpeechDurationMs(target, 'normal')
       if (!run.active) return
       sweep(karaokeTimings(target, modelMs))
-      await speak(target, { key: `karaoke:${item.id}:normal` })
+      await speak(target, { rate: 'normal', key: `karaoke:${item.id}:normal` }) // แถบสีจับจังหวะกับเสียงปกติ
       if (!run.active) return
       stopSweeps()
       setActiveWord(words.length)

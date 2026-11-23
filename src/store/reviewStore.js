@@ -37,6 +37,16 @@ export const useReviewStore = create(
         return outcomes
       },
 
+      // กู้คืนจากไฟล์สำรอง (คิวตรวจแล้วจาก utils/backup.js cleanReviewQueue)
+      restoreReview: (reviewQueue) => set({ reviewQueue }),
+
+      // เอารายการออกจากคิว (ข้อที่ไม่มีจริงแล้ว — utils/review.js missingEntries)
+      removeEntries: (entryIds) => {
+        if (!entryIds.length) return
+        const gone = new Set(entryIds)
+        set((state) => ({ reviewQueue: state.reviewQueue.filter((entry) => !gone.has(entry.id)) }))
+      },
+
       // ล้างรายการทบทวนทั้งหมด
       resetReview: () => set({ reviewQueue: [] }),
     }),

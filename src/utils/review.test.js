@@ -1,5 +1,18 @@
 import { describe, it, expect } from 'vitest'
-import { addMissedToQueue, buildReviewItems, dueEntries, gradeReview, nextDueDate } from './review'
+import { addMissedToQueue, buildReviewItems, dueEntries, gradeReview, missingEntries, nextDueDate } from './review'
+
+describe('missingEntries', () => {
+  const lessons = [{ id: 'L1', type: 'word', items: [{ id: 'a', word: 'dog' }] }]
+  it('บทหรือข้อที่ไม่มีจริง = ต้องเอาออก / ข้อที่มีจริงเก็บไว้แม้ยังไม่ถึงกำหนด', () => {
+    const queue = [
+      { id: 'L1:a', lessonId: 'L1', itemId: 'a', dueDate: '2099-01-01' },
+      { id: 'L1:x', lessonId: 'L1', itemId: 'x', dueDate: '2026-11-01' },
+      { id: 'zzz:a', lessonId: 'zzz', itemId: 'a', dueDate: '2026-11-01' },
+    ]
+    expect(missingEntries(queue, lessons)).toEqual(['L1:x', 'zzz:a'])
+    expect(missingEntries([], lessons)).toEqual([])
+  })
+})
 
 describe('addMissedToQueue', () => {
   it('เพิ่มข้อที่พลาด ครบกำหนดพรุ่งนี้ (รอบ 1 วัน)', () => {

@@ -10,6 +10,7 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Languages } from 'lucide-react'
+import { useSpeech } from '../../hooks/useSpeech'
 import { useSentenceDisplay } from '../../hooks/useSentenceDisplay'
 import Picture from '../Picture'
 import SpeakButton from '../SpeakButton'
@@ -22,6 +23,7 @@ import swapStyles from './SwapSentence.module.css'
 
 export default function SwapStep({ item, stage, revealed, onReveal, onDone }) {
   const { t } = useTranslation()
+  const { defaultRate } = useSpeech()
   const display = useSentenceDisplay(stage, { revealed, onReveal })
   const [choice, setChoice] = useState(null)
   const [swaps, setSwaps] = useState(0)
@@ -43,7 +45,7 @@ export default function SwapStep({ item, stage, revealed, onReveal, onDone }) {
     <div className={styles.step}>
       <p className={styles.instruction}>{t('lesson.swapInstruction')}</p>
       <Picture image={item.image} size="fill" alt={item.target} className={styles.pictureSmall} />
-      <SwapSentence item={item} choice={choice} onChoose={handleChoose} speakKey={`${speakId}:normal`} />
+      <SwapSentence item={item} choice={choice} onChoose={handleChoose} speakKey={`${speakId}:${defaultRate}`} />
 
       {chosen ? (
         <p className={swapStyles.meaning} lang="th">

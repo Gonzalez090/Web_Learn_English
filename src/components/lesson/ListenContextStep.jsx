@@ -17,14 +17,14 @@ import styles from './Step.module.css'
 
 export default function ListenContextStep({ item, stage, revealed, onReveal, onDone }) {
   const { t } = useTranslation()
-  const { speak } = useSpeech()
+  const { speak, defaultRate } = useSpeech()
   const display = useSentenceDisplay(stage, { revealed, onReveal })
   const [heard, setHeard] = useState(false)
   const speakId = `${item.id}:context`
 
   useEffect(() => {
     let active = true
-    speak(item.target, { key: `${speakId}:normal` }).finally(() => active && setHeard(true))
+    speak(item.target, { key: `${speakId}:${defaultRate}` }).finally(() => active && setHeard(true))
     return () => {
       active = false
     }

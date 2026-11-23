@@ -86,7 +86,7 @@ export default function WordSwapRaceGame({ items, onRoundResult, onFinish }) {
     setSolved(true)
     setPoints((count) => count + 1)
     if (wrong.length === 0) onRoundResult?.(round.item, true)
-    speak(round.text, { key: `race:${round.item.id}:normal` })
+    speak(round.text, { rate: 'normal', key: `race:${round.item.id}:normal` }) // แข่งเวลา → ความเร็วปกติเสมอ
     nextTimer.current = setTimeout(() => {
       // วนครบทุกรอบแล้ว → สับใหม่เล่นต่อจนหมดเวลา
       if (roundIndex + 1 >= rounds.length) {

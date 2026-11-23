@@ -103,7 +103,9 @@ export default function ConversationPlayer({
     if (!line || myTurn) return undefined
     let active = true
     let timer
-    speak(line.target, { key: npcSpeakKey(line), rate: npcRate, fileVoice: npcVoice }).finally(() => {
+    // NPC ที่พูดช้า = ช้าเสมอ / นอกนั้นตามความเร็วเริ่มต้นในหน้าตั้งค่า
+    const rate = npcRate === 'slow' ? 'slow' : undefined
+    speak(line.target, { key: npcSpeakKey(line), rate, fileVoice: npcVoice }).finally(() => {
       if (active) timer = setTimeout(advance, OTHER_PAUSE_MS)
     })
     return () => {

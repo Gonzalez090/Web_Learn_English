@@ -2,8 +2,10 @@
 // SettingsPage — ตั้งค่า
 // ขั้นที่ 1: ภาษาของหน้าเว็บ
 // ขั้นที่ 2: คำอ่านไทย, คำแปลไทย, เสียงอ่านภาษาอังกฤษ
-// ขั้นที่ 21: ความเร็วเสียงเริ่มต้น, เป้าหมายรายวัน, เสียงเอฟเฟกต์, รีเซ็ตความคืบหน้า
+// ขั้นที่ 20: เสียงเอฟเฟกต์ + แอนิเมชัน
+// ขั้นที่ 21ข: เป้าหมายรายวัน, ความเร็วเสียงเริ่มต้น, สำรอง/กู้คืน, รีเซ็ตความคืบหน้า (components/settings/)
 // =========================================================
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { CircleHelp, Images } from 'lucide-react'
 import { useSettingsStore } from '../store/settingsStore'
@@ -14,12 +16,18 @@ import LanguageToggle from '../components/LanguageToggle'
 import SegmentedControl from '../components/SegmentedControl'
 import { playSfx } from '../utils/sfx'
 import SpeakButton from '../components/SpeakButton'
-import ComingSoon from '../components/ComingSoon'
+import LineButton from '../components/lesson/LineButton'
+import BackupSection from '../components/settings/BackupSection'
+import ResetSection from '../components/settings/ResetSection'
+import { PLAN_GOALS } from '../utils/dailyPlan'
 import Tile, { TileList } from '../components/Tile'
 import styles from './SettingsPage.module.css'
 
 // ประโยคสำหรับลองฟังเสียง (ภาษาที่เจ้าของภาษาพูดจริง)
 const VOICE_SAMPLE = "Hey, how's it going? Let's practice some English today."
+
+// ประโยคลองความเร็ว (มีไฟล์เสียงทั้ง 2 ความเร็วจากคลังวลี)
+const RATE_SAMPLE = "Hey, how's it going?"
 
 export default function SettingsPage() {
   const { t } = useTranslation()
@@ -29,7 +37,10 @@ export default function SettingsPage() {
   const animations = useSettingsStore((state) => state.animations)
   const voiceURI = useSettingsStore((state) => state.voiceURI)
   const setSetting = useSettingsStore((state) => state.setSetting)
-  const { supported, voices, activeVoice, usingLocalFallback } = useSpeech()
+  const [notice, setNotice] = useState(null) // ผลล่าสุดของสำรอง/กู้คืน/รีเซ็ต
+  const [panel, setPanel] = useState(null) // กล่องยืนยันที่เปิดอยู่: 'restore' | 'reset' | null (ทีละกล่อง)
+  const dailyGoal = useSettingsStore((state) => state.dailyGoal)
+  const { supported, voices, activeVoice, usingLocalFallback, defaultRate } = useSpeech()
 
   return (
     <Page title={t('settings.title')} backTo="/">
@@ -62,6 +73,30 @@ export default function SettingsPage() {
             { value: 'shown', label: t('settings.translationShown') },
           ]}
         />
+      </Section>
+
+      <Section title={t('plan.goalLabel')} description={t('settings.dailyGoalHint')}>
+        <SegmentedControl
+          label={t('plan.goalLabel')}
+          value={dailyGoal}
+          onChange={(value) => setSetting('dailyGoal', value)}
+          options={PLAN_GOALS.map((minutes) => ({ value: minutes, label: t('plan.goalMinutes', { count: minutes }) }))}
+        />
+      </Section>
+
+      <Section title={t('settings.speechRate')} description={t('settings.speechRateHint')}>
+        <div className={styles.rateRow}>
+          <SegmentedControl
+            label={t('settings.speechRate')}
+            value={defaultRate}
+            onChange={(value) => setSetting('speechRate', value)}
+            options={[
+              { value: 'normal', label: t('settings.rateNormal') },
+              { value: 'slow', label: t('speech.slow') },
+            ]}
+          />
+          {supported && <LineButton text={RATE_SAMPLE} speakKey="settings-rate-test" label={t('settings.rateTest')} />}
+        </div>
       </Section>
 
       <Section title={t('settings.voice')} description={t('settings.voiceHint')}>
@@ -128,7 +163,20 @@ export default function SettingsPage() {
 
       <Section title={t('settings.mic')} description={t('settings.micPrivacy')} />
 
-      <ComingSoon step={21} />
+      <BackupSection
+        notice={notice}
+        onNotice={setNotice}
+        open={panel === 'restore'}
+        onOpen={() => setPanel('restore')}
+        onClose={() => setPanel(null)}
+      />
+      <ResetSection
+        notice={notice}
+        onNotice={setNotice}
+        open={panel === 'reset'}
+        onOpen={() => setPanel('reset')}
+        onClose={() => setPanel(null)}
+      />
 
       <TileList>
         {/* หน้าแนะนำวิธีเรียน (ที่เห็นตอนเข้าเว็บครั้งแรก) */}

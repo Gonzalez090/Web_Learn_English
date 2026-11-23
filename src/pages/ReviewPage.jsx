@@ -4,7 +4,7 @@
 // - มี → ReviewPlayer (เกม + พูดตาม) → สรุปว่าแต่ละข้อเลื่อนไปอีกกี่วัน / กลับมาพรุ่งนี้ / จำได้แล้ว
 // รายการรอบนี้ถูก "จับภาพ" ตอนเริ่ม → ระหว่างเล่นคิวเปลี่ยนก็ไม่กระทบ
 // =========================================================
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSearchParams } from 'react-router-dom'
 import { getLessonMeta, getStage } from '../data'
@@ -18,6 +18,7 @@ import {
   buildReviewItems,
   dueEntries,
   MAX_REVIEW_PER_SESSION,
+  missingEntries,
   nextDueDate,
   SHORT_REVIEW_COUNT,
 } from '../utils/review'
@@ -63,6 +64,13 @@ export default function ReviewPage() {
     () => [...stageLessons, ...talkScenarios.map(talkReviewLesson)],
     [stageLessons, talkScenarios],
   )
+
+  // ข้อที่ไม่มีจริงแล้ว → เอาออกจากคิว (ตรวจครั้งเดียวตอนเปิดหน้า ใช้คิวชุดเดียวกับที่โหลดบทมา)
+  const [missingIds] = useState(() => missingEntries(queue, lessons))
+  const removeEntries = useReviewStore((state) => state.removeEntries)
+  useEffect(() => {
+    removeEntries(missingIds)
+  }, [missingIds, removeEntries])
 
   const [round, setRound] = useState(0) // เพิ่มขึ้น = เริ่มทบทวนรอบใหม่
   // ?short=1 (กลับมาหลังหายไปนาน — คำทัก "Long time no see!") → ทบทวนสั้น ๆ แค่ 5 ข้อแรก

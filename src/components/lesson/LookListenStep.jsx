@@ -14,7 +14,7 @@ import styles from './Step.module.css'
 
 export default function LookListenStep({ item, onDone }) {
   const { t } = useTranslation()
-  const { speak } = useSpeech()
+  const { speak, defaultRate } = useSpeech()
   const [heard, setHeard] = useState(false)
   const lines = item.parentese?.length ? item.parentese : [item.target ?? item.word]
   const buttonId = `${item.id}:look`
@@ -22,7 +22,7 @@ export default function LookListenStep({ item, onDone }) {
   // เปิดขั้น → เล่นเสียงให้เลย (ถ้าเบราว์เซอร์ไม่ยอมเล่นอัตโนมัติ ผู้ใช้กดปุ่มฟังเองได้)
   useEffect(() => {
     let active = true
-    speak(lines, { key: `${buttonId}:normal` }).finally(() => active && setHeard(true))
+    speak(lines, { key: `${buttonId}:${defaultRate}` }).finally(() => active && setHeard(true))
     return () => {
       active = false
     }

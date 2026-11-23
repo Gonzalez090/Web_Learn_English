@@ -58,6 +58,24 @@ export function gradeReview(queue, entryId, passed, today) {
 }
 
 /**
+ * รายการในคิวที่ไม่มีข้อจริงแล้ว (บท/ข้อถูกลบจากเว็บ หรือมาจากไฟล์สำรองที่แก้มือ) → เอาออกจากคิว
+ * ไม่งั้นหน้าแรก/แผนนับว่าต้องทบทวน แต่หน้าทบทวนไม่มีอะไรให้ทำ
+ * @param lessons บทเต็มของทุก Stage/บทสนทนาที่คิวอ้างถึง (โหลดครบแล้ว)
+ * @returns [entryId]
+ */
+export function missingEntries(queue, lessons) {
+  const itemIds = new Map()
+  const idsOf = (lessonId) => {
+    if (!itemIds.has(lessonId)) {
+      const lesson = lessons.find((candidate) => candidate.id === lessonId)
+      itemIds.set(lessonId, new Set(lesson ? prepareLessonItems(lesson).map((item) => item.id) : []))
+    }
+    return itemIds.get(lessonId)
+  }
+  return queue.filter((entry) => !idsOf(entry.lessonId).has(entry.itemId)).map((entry) => entry.id)
+}
+
+/**
  * รายการที่จะทบทวนรอบนี้: ถึงกำหนดแล้ว + ยังมีข้อนั้นในบทเรียน เรียงจากค้างนานสุด ไม่เกิน limit ข้อ
  * ข้อเป็นแบบเตรียมแล้ว (บทสนทนา/คำคล้องจองมีบรรทัดก่อนหน้าเป็นตัวนำ — utils/lessonItems.js)
  * @returns [{ entry, item, lesson }]

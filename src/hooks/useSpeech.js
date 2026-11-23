@@ -4,6 +4,9 @@
 //   const { supported, speak, stop, speakingKey, voices, activeVoice } = useSpeech()
 //   speak('Big dog!', { rate: 'slow', key: 's1-dog:slow' })
 // - เสียงที่ผู้ใช้เลือกในหน้าตั้งค่า (voiceURI) ถูกใช้ให้อัตโนมัติ
+// - ไม่ส่ง rate → ใช้ความเร็วเริ่มต้นจากหน้าตั้งค่า (et-settings.speechRate) = defaultRate
+//   เล่นอัตโนมัติคู่กับ SpeakButton ให้ใช้ key `${id}:${defaultRate}` → ปุ่มความเร็วที่เล่นจริงขึ้นสถานะ
+//   เกมที่จับจังหวะ/แข่งเวลา (คาราโอเกะ, Word Swap Race) ส่ง rate: 'normal' ตายตัว
 // - speakingKey บอกว่าปุ่มไหนกำลังเล่นอยู่ (ทั้งแอปเล่นได้ทีละเสียง)
 // =========================================================
 import { useCallback, useMemo, useSyncExternalStore } from 'react'
@@ -14,7 +17,12 @@ export function useSpeech() {
   const { speakingKey, voices, usingLocalFallback } = useSyncExternalStore(subscribe, getSnapshot, getSnapshot)
   const voiceURI = useSettingsStore((state) => state.voiceURI)
 
-  const speakText = useCallback((input, options = {}) => speak(input, { voiceURI, ...options }), [voiceURI])
+  const defaultRate = useSettingsStore((state) => (state.speechRate === 'slow' ? 'slow' : 'normal'))
+
+  const speakText = useCallback(
+    (input, options = {}) => speak(input, { voiceURI, ...options, rate: options.rate ?? defaultRate }),
+    [voiceURI, defaultRate],
+  )
   const englishList = useMemo(() => englishVoices(voices), [voices])
   // เสียงที่ใช้จริงตอนนี้ (ถ้าเสียงออนไลน์ใช้ไม่ได้ จะเป็นเสียงในเครื่อง)
   const activeVoice = useMemo(
@@ -25,6 +33,7 @@ export function useSpeech() {
   return {
     supported: canSpeak,
     speak: speakText,
+    defaultRate,
     stop,
     speakingKey,
     voices: englishList,

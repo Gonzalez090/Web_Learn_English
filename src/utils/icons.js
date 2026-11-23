@@ -13,6 +13,7 @@ import {
   CircleCheck,
   CircleHelp,
   Construction,
+  Download,
   Ear,
   HeartHandshake,
   Flame,
@@ -38,6 +39,7 @@ import {
   Target,
   Timer,
   Trash2,
+  Upload,
   User,
   Wrench,
 } from 'lucide-react'
@@ -82,6 +84,8 @@ export const ICONS = {
   stop: Square,
   delete: Trash2,
   add: Plus,
+  download: Download, // สำรองความคืบหน้า
+  upload: Upload, // กู้คืนความคืบหน้า
   soon: Construction,
 }
 

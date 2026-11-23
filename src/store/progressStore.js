@@ -198,6 +198,9 @@ export const useProgressStore = create(
         if (next !== room) set({ room: next })
       },
 
+      // กู้คืนจากไฟล์สำรอง (ค่าตรวจแล้วจาก utils/backup.js cleanProgress) → แทนที่ทั้งหมด
+      restoreProgress: (progress) => set({ ...INITIAL_PROGRESS, ...progress }),
+
       // ล้างความคืบหน้าทั้งหมด กลับเป็นผู้เรียนใหม่
       resetProgress: () => set(INITIAL_PROGRESS),
     }),

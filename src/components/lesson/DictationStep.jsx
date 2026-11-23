@@ -24,7 +24,7 @@ import styles from './WriteStep.module.css'
 
 export default function DictationStep({ item, stage, mode, onDone }) {
   const { t } = useTranslation()
-  const { speak } = useSpeech()
+  const { speak, defaultRate } = useSpeech()
   const display = useSentenceDisplay(stage)
   const [text, setText] = useState('')
   const [result, setResult] = useState(null)
@@ -38,7 +38,7 @@ export default function DictationStep({ item, stage, mode, onDone }) {
 
   // เปิดขั้น → พูดให้ฟังเลย (ปุ่ม "ฟัง" ขึ้นสถานะกำลังเล่น)
   useEffect(() => {
-    speak(item.target, { key: `${audioId}:normal` })
+    speak(item.target, { key: `${audioId}:${defaultRate}` })
     // พูดใหม่เฉพาะเมื่อเปลี่ยนข้อ
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [item.id])

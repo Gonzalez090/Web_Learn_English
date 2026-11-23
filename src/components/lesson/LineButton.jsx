@@ -6,7 +6,7 @@
 //   speakKey รหัสเสียง (ไม่ซ้ำกันในหน้า) — ปุ่มขึ้นสถานะ "กำลังเล่น" เมื่อเสียงรหัสนี้เล่นอยู่
 //            (ตัวเล่นต่อเนื่องหลายบรรทัดใช้รหัสเดียวกัน → ปุ่มของบรรทัดที่กำลังเล่นขึ้นสถานะตามไปด้วย)
 //   label    ชื่อปุ่มสำหรับโปรแกรมอ่านหน้าจอ
-//   rate     'normal' (ค่าเริ่มต้น) | 'slow' — เช่น NPC ที่พูดช้า (ป้าโรส)
+//   rate     'slow' = ช้าเสมอ เช่น NPC ที่พูดช้า (ป้าโรส) / 'normal' หรือไม่ใส่ = ความเร็วเริ่มต้นจากหน้าตั้งค่า
 //   fileVoice เสียง Kokoro ของ NPC (world.json npc.voice) — ไม่ใส่ = เสียงหลัก
 // =========================================================
 import { useTranslation } from 'react-i18next'
@@ -29,7 +29,8 @@ export default function LineButton({ text, speakKey, label, rate = 'normal', fil
       onClick={() => {
         if (playing) return stop()
         abortListening() // กำลังฟังไมค์อยู่ → หยุดก่อน ไม่ให้ไมค์ได้ยินเสียงตัวอย่าง
-        return speak(text, { key: speakKey, rate, fileVoice })
+        // ช้าเฉพาะที่ระบุ (NPC พูดช้า) — นอกนั้นใช้ความเร็วเริ่มต้นจากหน้าตั้งค่า
+        return speak(text, { key: speakKey, rate: rate === 'slow' ? 'slow' : undefined, fileVoice })
       }}
     >
       <Icon className={styles.icon} aria-hidden="true" />

@@ -56,5 +56,8 @@ export const saveCheck = (record) => withStore('readwrite', (store) => store.put
 
 export const deleteCheck = (id) => withStore('readwrite', (store) => store.delete(id))
 
+// ลบทุกครั้ง (รีเซ็ตความคืบหน้าแบบลบเสียงด้วย)
+export const clearChecks = () => withStore('readwrite', (store) => store.clear())
+
 // รหัสของการอัดใหม่ (เวลา + สุ่มกันชน)
 export const newCheckId = (now = Date.now()) => `${now.toString(36)}-${Math.random().toString(36).slice(2, 7)}`

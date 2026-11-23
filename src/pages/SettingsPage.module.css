@@ -45,3 +45,11 @@
 .effectLabel {
   font-weight: 700;
 }
+
+/* ความเร็วเสียง: ปุ่มเลือก + ลำโพงลองฟัง */
+.rateRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}

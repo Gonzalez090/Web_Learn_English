@@ -48,7 +48,7 @@ export default function MicButton({
 }) {
   const { t } = useTranslation()
   const { supported, status, interim, error, listen, stop } = useRecognition()
-  const { speak } = useSpeech()
+  const { speak, defaultRate } = useSpeech()
   const [result, setResult] = useState(null)
   const [attempts, setAttempts] = useState(0)
 
@@ -99,7 +99,7 @@ export default function MicButton({
     if (scored.passed) playSfx('pass')
     onResult?.(scored)
     // ทวนประโยคที่ถูกให้ฟังทันที แบบพ่อแม่ ("Yes! He goes to school.")
-    if (scored.recast) speak(scored.recast.lines, { key: `${speakId}:recast:normal` })
+    if (scored.recast) speak(scored.recast.lines, { key: `${speakId}:recast:${defaultRate}` })
   }
 
   return (
