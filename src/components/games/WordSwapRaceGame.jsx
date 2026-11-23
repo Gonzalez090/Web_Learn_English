@@ -13,6 +13,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Shuffle, SkipForward, Timer } from 'lucide-react'
 import { useSpeech } from '../../hooks/useSpeech'
+import { scrollIntoViewGently } from '../../utils/scroll'
 import { splitKeywords, swapRaceRounds } from '../../utils/swap'
 import Picture from '../Picture'
 import Button from '../Button'
@@ -32,6 +33,7 @@ export default function WordSwapRaceGame({ items, onRoundResult, onFinish }) {
   const [secondsLeft, setSecondsLeft] = useState(RACE.seconds)
   const endsAt = useRef(0)
   const nextTimer = useRef(null)
+  const optionsRef = useRef(null)
   const round = rounds[roundIndex % Math.max(rounds.length, 1)]
   const noRounds = rounds.length === 0
 
@@ -54,6 +56,11 @@ export default function WordSwapRaceGame({ items, onRoundResult, onFinish }) {
     }, 250)
     return () => clearInterval(timer)
   }, [phase])
+
+  // จอเตี้ย: เริ่มเกม/ขึ้นรอบใหม่ → เลื่อนให้ตัวเลือกพ้นแถบเมนูล่าง (เกมจับเวลา ไม่ต้องเลื่อนเอง)
+  useEffect(() => {
+    if (phase === 'play') scrollIntoViewGently(optionsRef.current)
+  }, [phase, round])
 
   // ออกจากเกมกลางคัน → หยุดเสียง + ล้างตัวจับเวลา
   useEffect(
@@ -147,7 +154,7 @@ export default function WordSwapRaceGame({ items, onRoundResult, onFinish }) {
           <p className={styles.prompt}>
             {t('game.swapTo')} <strong lang="th">{round.answer.meaningTh}</strong>
           </p>
-          <div className={styles.options}>
+          <div ref={optionsRef} className={styles.options}>
             {round.options.map((option) => {
               const isWrong = wrong.includes(option.word)
               const isRight = solved && option.word === round.answer.word

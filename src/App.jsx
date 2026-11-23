@@ -18,7 +18,6 @@ import PhraseSituationPage from './pages/PhraseSituationPage'
 import RealVsTextbookPage from './pages/RealVsTextbookPage'
 import DailyPlanPage from './pages/DailyPlanPage'
 import GamesPage from './pages/GamesPage'
-import GamePage from './pages/GamePage'
 import SoundPracticePage from './pages/SoundPracticePage'
 import SoundDrillPage from './pages/SoundDrillPage'
 import WelcomePage from './pages/WelcomePage'
@@ -38,6 +37,8 @@ const ReviewPage = lazyPage(() => import('./pages/ReviewPage'))
 const SpeakingCheckPage = lazyPage(() => import('./pages/SpeakingCheckPage'))
 // Collection การ์ดวลี: โหลดวลีทุกสถานการณ์ → แยกไฟล์ (ขั้นที่ 20)
 const CollectionPage = lazyPage(() => import('./pages/CollectionPage'))
+// มินิเกมเล่นแยก: ใช้ตัวเกมชุดเดียวกับบทเรียน → แยกไฟล์ (ขั้นที่ 17)
+const GamePage = lazyPage(() => import('./pages/GamePage'))
 // ห้องของตัวละคร (ขั้นที่ 20-2)
 const RoomPage = lazyPage(() => import('./pages/RoomPage'))
 

@@ -387,7 +387,21 @@
   },
   "games": {
     "title": "Mini games",
-    "subtitle": "Mix them in with lessons. Never get bored."
+    "subtitle": "Mix them in with lessons. Never get bored.",
+    "source": "This round: {{title}}",
+    "start": "Start",
+    "again": "Play again",
+    "other": "Other games",
+    "doneTitle": "Game over!",
+    "score": "{{n}} of {{total}} rounds",
+    "scoreCount": "Right on the first try: {{n}} words",
+    "xp": "+{{xp}} XP",
+    "skippedTitle": "Skipped for now",
+    "skippedText": "No worries. Play again when you're ready, or try another game.",
+    "lockedTitle": "You can't play this one yet",
+    "lockedLesson": "Finish at least 1 lesson in Stage {{n}} first. Then you'll play with what you've learned.",
+    "lockedStage": "Finish Stage {{n}} to open the first shop in town.",
+    "goLearn": "Go learn"
   },
   "sounds": {
     "title": "Sounds",

@@ -163,6 +163,8 @@
 }
 
 .blocked {
+  scroll-margin-top: calc(var(--topbar-height) + var(--space-3));
+  scroll-margin-bottom: calc(var(--bottomnav-height) + env(safe-area-inset-bottom) + var(--space-3));
   display: flex;
   flex-direction: column;
   align-items: center;

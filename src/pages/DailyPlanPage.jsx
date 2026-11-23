@@ -93,13 +93,11 @@ export default function DailyPlanPage() {
   const today = todayKey()
 
   const lesson = nextLesson(lessonList, unlockedStages, lessonProgress)
-  // มินิเกม: ยังไม่ถึงบทสนทนา → ฝึกเสียง (ฟังแล้วเลือก) / พูดเป็นประโยคแล้ว → Real or Textbook?
-  const gameLink = unlockedStages.includes(TALK_FROM_STAGE) ? '/phrases/real-vs-textbook' : '/sounds'
   const taskLink = {
     review: plan?.goal === 5 ? '/review?short=1' : '/review',
     lesson: lesson ? `/lesson/${lesson.id}` : '/learn',
     talk: '/talk',
-    game: gameLink,
+    game: '/games', // เลือกมินิเกมที่เล่นได้ (ขั้นที่ 17)
   }
   const taskDesc = (task) => {
     if (task.kind !== 'lesson') return t(`plan.taskDesc.${task.kind}`)

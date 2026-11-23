@@ -35,6 +35,7 @@ import {
   startListening,
   stopListening,
 } from '../../utils/recognition'
+import { scrollIntoViewGently } from '../../utils/scroll'
 import { playSfx } from '../../utils/sfx'
 import { getSpeechDurationMs } from '../../utils/speech'
 import { shuffle } from '../../utils/random'
@@ -59,6 +60,7 @@ export default function ShadowKaraokeGame({ items, lenient = false, ordered = fa
   const [beat, setBeat] = useState(KARAOKE.countdown)
   const [interim, setInterim] = useState('')
   const [result, setResult] = useState(null)
+  const blockedRef = useRef(null)
   const [points, setPoints] = useState(0)
 
   const item = rounds[roundIndex]
@@ -69,6 +71,13 @@ export default function ShadowKaraokeGame({ items, lenient = false, ordered = fa
   useEffect(() => {
     callbacks.current = { onRoundResult, onFinish }
   })
+
+  // ไมค์ใช้ไม่ได้ → เลื่อนให้เห็นข้อความ + ปุ่มข้ามเกม (จอเตี้ยปุ่มอยู่ใต้แถบเมนูล่าง)
+  useEffect(() => {
+    if (phase !== 'blocked') return undefined
+    const timer = setTimeout(() => scrollIntoViewGently(blockedRef.current), 250) // รอหน้าเลื่อนขึ้นบนก่อน
+    return () => clearTimeout(timer)
+  }, [phase])
 
   // 1 รอบ = ฟังต้นแบบ → นับถอยหลัง → ตาเรา → ผล (ทำงานใหม่ทุกครั้งที่เปลี่ยนรอบ)
   useEffect(() => {
@@ -245,7 +254,7 @@ export default function ShadowKaraokeGame({ items, lenient = false, ordered = fa
       )}
 
       {phase === 'blocked' && (
-        <div className={styles.blocked}>
+        <div ref={blockedRef} className={styles.blocked}>
           <p className={styles.error} role="alert">
             {t(micErrorMessageKey(micError))}
           </p>
