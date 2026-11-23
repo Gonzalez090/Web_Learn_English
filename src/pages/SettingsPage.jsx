@@ -12,6 +12,7 @@ import Page from '../components/Page'
 import Section from '../components/Section'
 import LanguageToggle from '../components/LanguageToggle'
 import SegmentedControl from '../components/SegmentedControl'
+import { playSfx } from '../utils/sfx'
 import SpeakButton from '../components/SpeakButton'
 import ComingSoon from '../components/ComingSoon'
 import Tile, { TileList } from '../components/Tile'
@@ -24,6 +25,8 @@ export default function SettingsPage() {
   const { t } = useTranslation()
   const thaiReading = useSettingsStore((state) => state.thaiReading)
   const thaiTranslation = useSettingsStore((state) => state.thaiTranslation)
+  const soundEffects = useSettingsStore((state) => state.soundEffects)
+  const animations = useSettingsStore((state) => state.animations)
   const voiceURI = useSettingsStore((state) => state.voiceURI)
   const setSetting = useSettingsStore((state) => state.setSetting)
   const { supported, voices, activeVoice, usingLocalFallback } = useSpeech()
@@ -89,6 +92,37 @@ export default function SettingsPage() {
         )}
         <div className={styles.voiceTest}>
           <SpeakButton text={VOICE_SAMPLE} id="settings-voice-test" useFiles={false} />
+        </div>
+      </Section>
+
+      {/* เสียงเอฟเฟกต์ + แอนิเมชันเล็ก ๆ (ขั้นที่ 20) */}
+      <Section title={t('settings.effects')} description={t('settings.effectsHint')}>
+        <div className={styles.effectRow}>
+          <span className={styles.effectLabel}>{t('settings.soundEffects')}</span>
+          <SegmentedControl
+            label={t('settings.soundEffects')}
+            value={soundEffects ? 'on' : 'off'}
+            onChange={(value) => {
+              setSetting('soundEffects', value === 'on')
+              if (value === 'on') playSfx('pass')
+            }}
+            options={[
+              { value: 'on', label: t('settings.on') },
+              { value: 'off', label: t('settings.off') },
+            ]}
+          />
+        </div>
+        <div className={styles.effectRow}>
+          <span className={styles.effectLabel}>{t('settings.animations')}</span>
+          <SegmentedControl
+            label={t('settings.animations')}
+            value={animations ? 'on' : 'off'}
+            onChange={(value) => setSetting('animations', value === 'on')}
+            options={[
+              { value: 'on', label: t('settings.on') },
+              { value: 'off', label: t('settings.off') },
+            ]}
+          />
         </div>
       </Section>
 

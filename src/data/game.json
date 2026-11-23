@@ -214,6 +214,64 @@
       ]
     }
   ],
+  "collection": {
+    "special": {
+      "idiom": [
+        "Same old, same old.",
+        "Hanging in there.",
+        "Hang in there!",
+        "It's been ages!",
+        "Fancy seeing you here!",
+        "Let's call it a night.",
+        "Don't be a stranger!",
+        "This hits the spot.",
+        "It's on me.",
+        "Thanks a lot, I owe you one.",
+        "You're a lifesaver!",
+        "Can I take a rain check?",
+        "I'm kind of tied up this week.",
+        "I'm swamped right now.",
+        "Let's play it by ear.",
+        "I'll sleep on it.",
+        "I hear you.",
+        "This made my day!",
+        "I'm over the moon!",
+        "I'm running on empty.",
+        "I'm burned out.",
+        "I have butterflies in my stomach.",
+        "It's driving me crazy.",
+        "That drives me nuts.",
+        "It gets on my nerves.",
+        "Fingers crossed!",
+        "You nailed it!",
+        "Count me in!",
+        "Better late than never!",
+        "No harm done.",
+        "That's a rip-off!",
+        "You can't miss it.",
+        "Can you cover for me?",
+        "Can I run something by you?",
+        "Thank God it's Friday!",
+        "You're breaking up.",
+        "I'm up for anything.",
+        "Way to go!"
+      ],
+      "slang": [
+        "What's up?",
+        "That sucks.",
+        "I'm down.",
+        "My bad.",
+        "Sorry for ghosting you.",
+        "Bummer.",
+        "I'm beat.",
+        "I'm wiped out.",
+        "I'm freaking out.",
+        "I'm stuffed.",
+        "Dig in!",
+        "Catch you later."
+      ]
+    }
+  },
   "speakingCheck": {
     "pictures": [
       { "id": "s5-u10-picnic-1", "image": "/images/s5-u10-picnic-1.webp", "target": "Dad packed a picnic for the kids.", "translationTh": "พ่อเตรียมของไปปิกนิกให้ลูก ๆ" },

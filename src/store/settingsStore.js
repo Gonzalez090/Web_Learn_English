@@ -16,7 +16,8 @@ export const DEFAULT_SETTINGS = {
   speechRate: 'normal', // ความเร็วเสียงเริ่มต้น: 'normal' | 'slow'
   voiceURI: null, // เสียงอ่านที่เลือก (null = ให้ระบบเลือกเสียง en-US เอง)
   dailyGoal: 10, // เป้าหมายรายวัน (นาที): 5 | 10 | 15 | 20
-  soundEffects: true, // เปิด/ปิดเสียงเอฟเฟกต์
+  soundEffects: true, // เปิด/ปิดเสียงเอฟเฟกต์ (utils/sfx.js — ขั้นที่ 20)
+  animations: true, // เปิด/ปิดแอนิเมชันเล็ก ๆ (ปิด = <html data-motion="off"> — ขั้นที่ 20)
   introSeen: false, // ดูหน้าแนะนำวิธีเรียน (/welcome) แล้วหรือยัง — ยังไม่เคย → หน้าแรกพาไปหน้าแนะนำก่อน
 }
 

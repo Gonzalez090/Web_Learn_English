@@ -1,6 +1,6 @@
 // =========================================================
 // Toaster — แสดงข้อความแจ้งเตือนสั้น ๆ เหนือแถบเมนูล่าง แล้วหายเองใน 4 วินาที
-// (ขึ้นเลเวล / ภารกิจสำเร็จ / ใช้ Streak Freeze / สนิทกับ NPC มากขึ้น) — ข้อมูลจาก toastStore
+// (ขึ้นเลเวล / ภารกิจสำเร็จ / ใช้ Streak Freeze / สนิทกับ NPC มากขึ้น / การ์ดวลีใหม่) — ข้อมูลจาก toastStore
 // =========================================================
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -47,6 +47,14 @@ function useToastContent(toast) {
   if (toast.kind === 'bossDone') {
     return { Icon: ICONS.boss, title: t('toast.bossDone', { xp: toast.xp }), text: t('toast.bossDoneText') }
   }
+  if (toast.kind === 'collect') {
+    return {
+      Icon: toast.rarity ? ICONS.special : ICONS.collection,
+      title: toast.rarity ? t('toast.collectSpecial', { kind: t(`collection.rarity.${toast.rarity}`) }) : t('toast.collect'),
+      text: toast.text,
+      lang: 'en',
+    }
+  }
   if (toast.kind === 'planDone') {
     return { Icon: ICONS.completed, title: t('toast.planDone'), text: t('toast.planDoneText') }
   }
@@ -55,7 +63,7 @@ function useToastContent(toast) {
 
 function ToastItem({ toast, dismiss }) {
   const { t } = useTranslation()
-  const { Icon, title, text } = useToastContent(toast)
+  const { Icon, title, text, lang } = useToastContent(toast)
 
   useEffect(() => {
     const timer = setTimeout(() => dismiss(toast.id), SHOW_MS)
@@ -63,11 +71,15 @@ function ToastItem({ toast, dismiss }) {
   }, [toast.id, dismiss])
 
   return (
-    <div className={`${styles.toast} ${styles[toast.kind] ?? ''}`}>
+    <div className={`${styles.toast} ${styles[toast.kind] ?? ''} ${toast.rarity ? styles.special : ''}`}>
       <Icon className={styles.icon} aria-hidden="true" />
       <div className={styles.body}>
         <p className={styles.title}>{title}</p>
-        {text && <p className={styles.text}>{text}</p>}
+        {text && (
+          <p className={styles.text} lang={lang}>
+            {text}
+          </p>
+        )}
       </div>
       <button type="button" className={styles.close} aria-label={t('toast.dismiss')} onClick={() => dismiss(toast.id)}>
         <X aria-hidden="true" />

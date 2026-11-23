@@ -39,7 +39,10 @@ export default function TopBar() {
           </span>
           <span className={styles.stat}>
             <XpIcon className={`${styles.statIcon} ${styles.xp}`} aria-hidden="true" />
-            <span aria-hidden="true">{xp}</span>
+            {/* key = xp → ได้ XP แล้วตัวเลขเด้ง (ขั้นที่ 20 — ปิดได้ในตั้งค่า "แอนิเมชัน") */}
+            <span key={xp} className={styles.bump} aria-hidden="true">
+              {xp}
+            </span>
             <span className="sr-only">{t('stats.xp', { count: xp })}</span>
           </span>
           <LanguageToggle />

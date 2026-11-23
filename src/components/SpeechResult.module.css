@@ -133,3 +133,17 @@
   font-weight: 700;
   overflow-wrap: anywhere;
 }
+
+/* พูดผ่าน: ไอคอน ✓ เด้ง (ขั้นที่ 20 — ปิดได้ในตั้งค่า "แอนิเมชัน") */
+.passed .icon {
+  animation: check-bounce 0.5s ease-out 0.1s;
+}
+
+@keyframes check-bounce {
+  40% {
+    transform: scale(1.35) rotate(-8deg);
+  }
+  70% {
+    transform: scale(0.95);
+  }
+}

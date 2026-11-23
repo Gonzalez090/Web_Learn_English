@@ -97,8 +97,63 @@
   outline-offset: 1px;
 }
 
+/* ขึ้นเลเวล: ไอคอนเด้ง + กรอบเรืองแสง (ขั้นที่ 20) */
+.levelUp {
+  animation:
+    toast-in 0.25s ease-out,
+    glow 1.2s ease-out 0.25s 2;
+}
+
+.levelUp .icon {
+  animation: bounce 0.6s ease-out 0.2s 2;
+}
+
+@keyframes glow {
+  50% {
+    box-shadow:
+      0 8px 24px rgb(0 0 0 / 0.15),
+      0 0 0 6px rgb(245 165 36 / 0.35);
+  }
+}
+
+@keyframes bounce {
+  40% {
+    transform: translateY(-6px) scale(1.15);
+  }
+  70% {
+    transform: translateY(0) scale(0.95);
+  }
+}
+
+/* การ์ดวลีใหม่: พลิกเข้ามาเหมือนเปิดการ์ด / การ์ดพิเศษ = กรอบทอง + ระยิบ */
+.collect {
+  border-color: var(--color-primary);
+  animation: card-in 0.45s ease-out;
+}
+
+.collect.special {
+  border-color: var(--color-xp);
+  background: linear-gradient(135deg, #fffaf0, #fff4d6);
+  animation:
+    card-in 0.45s ease-out,
+    glow 1.2s ease-out 0.45s 2;
+}
+
+.collect.special .icon {
+  color: var(--color-xp);
+  animation: bounce 0.6s ease-out 0.4s 2;
+}
+
+@keyframes card-in {
+  from {
+    transform: perspective(600px) rotateY(80deg);
+    opacity: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .toast {
+  .toast,
+  .toast .icon {
     animation: none;
   }
 }

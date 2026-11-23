@@ -1,0 +1,210 @@
+/* Collection การ์ดวลี (ขั้นที่ 20) */
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-2);
+}
+
+.summaryItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.summarySpecial {
+  border-color: var(--color-xp);
+  background: linear-gradient(135deg, #fffaf0, #fff4d6);
+}
+
+.summaryValue {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.summaryTotal {
+  color: var(--color-muted);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.summaryLabel {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.meter {
+  position: relative;
+  height: 6px;
+  overflow: hidden;
+  border-radius: var(--radius-full);
+  background: var(--color-locked-bg);
+}
+
+.meterFill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-radius: inherit;
+  background: var(--color-primary);
+}
+
+.meterSpecial {
+  background: var(--color-xp);
+}
+
+.hint {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.875rem;
+}
+
+.inlineIcon {
+  flex: none;
+  width: 16px;
+  height: 16px;
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.empty p {
+  margin: 0;
+}
+
+.cards {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--space-2);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  animation: card-in 0.3s ease-out;
+}
+
+@keyframes card-in {
+  from {
+    transform: translateY(6px);
+    opacity: 0;
+  }
+}
+
+/* การ์ดพิเศษ: กรอบทอง + แสงวิ่งผ่านเบา ๆ */
+.cardSpecial {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--color-xp);
+  background: linear-gradient(135deg, #fffaf0, #fff4d6);
+}
+
+.cardSpecial::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 40%, rgb(255 255 255 / 0.7) 50%, transparent 60%);
+  transform: translateX(-100%);
+  animation: shine 3s ease-in-out 0.6s infinite;
+  pointer-events: none;
+}
+
+@keyframes shine {
+  40%,
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.cardLocked {
+  border: 2px dashed var(--color-xp);
+  background: var(--color-surface-soft);
+}
+
+.badge {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-full);
+  background: var(--color-xp);
+  color: #3b2a00;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.cardLocked .badge {
+  background: var(--color-locked-bg);
+  color: var(--color-locked-text);
+}
+
+.cardMain {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.cardText {
+  min-width: 0;
+}
+
+.phrase,
+.meaning,
+.situation {
+  margin: 0;
+}
+
+.phrase {
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.meaning {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+}
+
+.situation {
+  margin-top: auto;
+  color: var(--color-muted);
+  font-size: 0.75rem;
+}
+
+.situationLink {
+  margin-top: auto;
+  color: var(--color-primary-strong);
+  font-size: 0.875rem;
+  font-weight: 700;
+}

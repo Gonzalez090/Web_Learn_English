@@ -32,3 +32,16 @@
   color: var(--color-muted);
   font-size: 0.9375rem;
 }
+
+/* เสียงเอฟเฟกต์ / แอนิเมชัน: ชื่อ + ปุ่มเปิด/ปิด ในแถวเดียว (จอแคบขึ้นบรรทัดใหม่) */
+.effectRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-3);
+}
+
+.effectLabel {
+  font-weight: 700;
+}

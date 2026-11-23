@@ -1,10 +1,11 @@
 // =========================================================
 // LessonSummaryPage — หน้าสรุปท้ายบท (/lesson/:lessonId/summary)
-// แสดง: XP ที่ได้, คะแนน, Stage ที่เพิ่งปลดล็อก, ข้อที่ทำได้, ข้อที่ต้องฝึกซ้ำ (+ ปุ่มฝึกซ้ำเฉพาะข้อที่พลาด)
+// แสดง (+ เสียงจบบท/ปลดล็อก): XP ที่ได้, คะแนน, Stage ที่เพิ่งปลดล็อก, ข้อที่ทำได้, ข้อที่ต้องฝึกซ้ำ (+ ปุ่มฝึกซ้ำเฉพาะข้อที่พลาด)
 // ผลมาจาก LessonPlayer ทาง navigation state — เข้าหน้านี้ตรง ๆ (ไม่มีผล) → ชวนเริ่มบทเรียน
 // ⚠️ Stage 1–3 แสดงแค่ภาพ + ปุ่มฟัง (ไม่แสดงคำภาษาอังกฤษ)
 // =========================================================
-import { useLocation, useNavigate, useParams } from 'react-router-dom'
+import { useEffect } from 'react'
+import { useLocation, useNavigate, useNavigationType, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { cityMap, getStage } from '../data'
 import { placesUnlockedBy } from '../utils/places'
@@ -13,6 +14,7 @@ import { useLocalized } from '../hooks/useLocalized'
 import { englishTextMode } from '../utils/display'
 import { LESSON_FLOWS } from '../utils/lessonSteps'
 import { ICONS } from '../utils/icons'
+import { playSfx } from '../utils/sfx'
 import Page from '../components/Page'
 import Section from '../components/Section'
 import Button from '../components/Button'
@@ -66,6 +68,14 @@ export default function LessonSummaryPage() {
   const loc = useLocalized()
 
   const lesson = useLesson(lessonId)
+  // เพิ่งเรียนจบแล้วเข้าหน้าสรุป → เสียงจบบท / ปลดล็อก Stage ใหม่ = เสียงปลดล็อก (ขั้นที่ 20 — ปิดได้ในตั้งค่า)
+  // POP = กด Back/Forward หรือรีโหลด (ผลเดิมยังอยู่ใน history) → ไม่เล่นซ้ำ
+  const justFinished = useNavigationType() !== 'POP'
+  const finishedResult = readResult(state)
+  const fanfare = finishedResult && justFinished ? (finishedResult.newlyUnlocked.length ? 'unlock' : 'complete') : null
+  useEffect(() => {
+    if (fanfare) playSfx(fanfare)
+  }, [fanfare])
   if (!lesson) return <NotFoundPage />
   const stage = getStage(lesson.stageId)
   const result = readResult(state)

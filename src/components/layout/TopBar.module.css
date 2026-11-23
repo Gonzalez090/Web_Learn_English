@@ -82,3 +82,16 @@
     display: none;
   }
 }
+
+/* ตัวเลข XP เด้งเมื่อได้ XP (ขั้นที่ 20) */
+.bump {
+  display: inline-block;
+  animation: bump 0.45s ease-out;
+}
+
+@keyframes bump {
+  40% {
+    transform: scale(1.35);
+    color: var(--color-xp);
+  }
+}

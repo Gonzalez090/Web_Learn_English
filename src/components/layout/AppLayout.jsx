@@ -15,12 +15,20 @@ import ScrollToTop from './ScrollToTop'
 import ErrorBoundary from '../ErrorBoundary'
 import Toaster from '../Toaster'
 import { useProgressStore } from '../../store/progressStore'
+import { useSettingsStore } from '../../store/settingsStore'
 import styles from './AppLayout.module.css'
 
 export default function AppLayout() {
   const { pathname } = useLocation()
 
   const recordVisit = useProgressStore((state) => state.recordVisit)
+  const animations = useSettingsStore((state) => state.animations)
+
+  // ปิดแอนิเมชันในหน้าตั้งค่า → CSS ใน global.css หยุดแอนิเมชันทั้งเว็บ (ขั้นที่ 20)
+  useEffect(() => {
+    if (animations) delete document.documentElement.dataset.motion
+    else document.documentElement.dataset.motion = 'off'
+  }, [animations])
 
   // เปลี่ยนหน้า → หยุดเสียงที่กำลังพูด และหยุดไมค์ที่กำลังฟัง (ไม่ให้ค้างจากหน้าเก่า)
   // + บันทึกวันที่เข้าเว็บ (ขั้นที่ 15: หายไป ≥ 3 วัน → NPC ทัก "Long time no see!" — วันเดิมไม่ทำอะไร)

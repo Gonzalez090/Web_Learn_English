@@ -27,6 +27,7 @@ import { useSpeech } from '../hooks/useSpeech'
 import { compareSpeech } from '../utils/compareWords'
 import { applyRecast } from '../utils/recast'
 import { micErrorMessageKey } from '../utils/recognition'
+import { playSfx } from '../utils/sfx'
 import SpeechResult from './SpeechResult'
 import styles from './MicButton.module.css'
 
@@ -94,6 +95,8 @@ export default function MicButton({
     if (recast && !evaluate) scored = applyRecast(recast, scored, attempts)
     setResult(scored)
     setAttempts((count) => count + 1)
+    // พูดผ่าน → เสียง "ติ๊ง" ทันที (XP/ภารกิจอาจให้ทีหลังตอนกดไปต่อ) — ได้การ์ดพร้อมกัน sfx เลือกเสียงที่สำคัญกว่าเอง
+    if (scored.passed) playSfx('pass')
     onResult?.(scored)
     // ทวนประโยคที่ถูกให้ฟังทันที แบบพ่อแม่ ("Yes! He goes to school.")
     if (scored.recast) speak(scored.recast.lines, { key: `${speakId}:recast:normal` })

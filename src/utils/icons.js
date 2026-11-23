@@ -18,6 +18,7 @@ import {
   Flame,
   Gamepad2,
   House,
+  Layers,
   Lock,
   Map,
   MessageCircleMore,
@@ -29,6 +30,7 @@ import {
   Settings,
   Shuffle,
   Snowflake,
+  Sparkles,
   Square,
   Star,
   Swords,
@@ -68,6 +70,8 @@ export const ICONS = {
   map: Map,
   missions: Target,
   speakingCheck: Mic,
+  collection: Layers, // Collection การ์ดวลี (ขั้นที่ 20)
+  special: Sparkles, // การ์ดพิเศษ (สำนวน/สแลง)
   realVsTextbook: BookOpenCheck,
   dev: Wrench,
 

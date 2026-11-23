@@ -35,6 +35,7 @@ function SituationPhrases({ situation }) {
   const loc = useLocalized()
   const addXp = useProgressStore((state) => state.addXp)
   const trackEvent = useProgressStore((state) => state.trackEvent)
+  const collectPhrase = useProgressStore((state) => state.collectPhrase)
   const [playing, setPlaying] = useState(false)
   const [searchParams, setSearchParams] = useSearchParams()
   const topRef = useRef(null)
@@ -52,10 +53,12 @@ function SituationPhrases({ situation }) {
     if (scroll) topRef.current?.scrollIntoView({ block: 'start' })
   }
 
-  function speakPass() {
+  // พูดวลีผ่านครั้งแรกในการ์ด → XP + ภารกิจ + ได้การ์ดวลีนั้นเข้า Collection (ขั้นที่ 20)
+  function speakPass(phrase) {
     addXp(XP.speak)
     trackEvent('speakPass')
     trackEvent('phrase')
+    collectPhrase(phrase)
   }
 
   return (

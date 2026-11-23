@@ -35,6 +35,8 @@ const LessonPage = lazy(() => import('./pages/LessonPage'))
 const ReviewPage = lazy(() => import('./pages/ReviewPage'))
 // Speaking Check (อัดเสียง + IndexedDB + สถิติ) เปิดเดือนละครั้ง → แยกไฟล์ (ขั้นที่ 19)
 const SpeakingCheckPage = lazy(() => import('./pages/SpeakingCheckPage'))
+// Collection การ์ดวลี: โหลดวลีทุกสถานการณ์ → แยกไฟล์ (ขั้นที่ 20)
+const CollectionPage = lazy(() => import('./pages/CollectionPage'))
 
 // หน้าทดสอบ /dev โหลดเฉพาะตอน npm run dev (ตอน build จริงโค้ดส่วนนี้ถูกตัดทิ้ง)
 const DevPage = import.meta.env.DEV ? lazy(() => import('./pages/DevPage')) : null
@@ -70,6 +72,7 @@ export default function App() {
         {/* โปรไฟล์ + ตั้งค่า */}
         <Route path="profile" element={<ProfilePage />} />
         <Route path="profile/speaking-check" element={<SpeakingCheckPage />} />
+        <Route path="profile/collection" element={<CollectionPage />} />
         <Route path="settings" element={<SettingsPage />} />
         <Route path="credits" element={<CreditsPage />} />
 

@@ -130,3 +130,12 @@ img {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ปิดแอนิเมชันในหน้าตั้งค่า (et-settings.animations = false → AppLayout ใส่ data-motion="off") */
+:root[data-motion='off'] *,
+:root[data-motion='off'] *::before,
+:root[data-motion='off'] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}

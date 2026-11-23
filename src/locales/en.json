@@ -495,6 +495,31 @@
       "pauses": "Long pauses (2s+)"
     }
   },
+  "collection": {
+    "title": "Phrase collection",
+    "subtitle": "Say a phrase right in the phrase library to get its card",
+    "tile": "{{count}} / {{total}} cards — idioms and slang are special cards",
+    "cards": "Cards collected",
+    "specialCards": "Special cards",
+    "howTo": "In the phrase library, say a phrase right for the first time to get its card. Idioms and slang that native speakers use a lot are gold special cards.",
+    "show": "Show cards",
+    "showAll": "All",
+    "showSpecial": "Special",
+    "situations": "Situations",
+    "allSituations": "All situations",
+    "emptyAll": "No cards yet. Say phrases right in the phrase library and your cards will show up here.",
+    "empty": "No cards here yet. Go collect some!",
+    "goCollect": "Collect in the phrase library",
+    "listen": "Play this phrase",
+    "locked": "Card not collected yet",
+    "lockedHint": "Hint: “{{meaning}}”",
+    "findIt": "Find it in {{name}}",
+    "rarity": {
+      "idiom": "Idiom",
+      "slang": "Slang"
+    },
+    "lockedText": "? ? ?  (not collected yet)"
+  },
   "settings": {
     "title": "Settings",
     "thaiReading": "Thai reading",
@@ -515,7 +540,13 @@
     "micPrivacy": "The “Say it” button uses your browser's speech listening. Chrome and Edge send what you say to Google / Microsoft servers to turn it into text, so it needs the internet. This site doesn't record or keep your voice from this button. (Speaking Check on your profile keeps recordings on this device only, so you can compare them.)",
     "voiceFallbackNote": "The online voice isn't working right now (maybe no internet), so the on-device voice “{{name}}” is used. It will switch back when you're online.",
     "howTo": "How it works",
-    "howToHint": "See the welcome guide again"
+    "howToHint": "See the welcome guide again",
+    "effects": "Sound effects and animations",
+    "effectsHint": "Little sounds when you get it right, get a card, level up or unlock something, plus small movements on screen.",
+    "soundEffects": "Sound effects",
+    "animations": "Animations",
+    "on": "On",
+    "off": "Off"
   },
   "credits": {
     "title": "Photo credits",
@@ -573,7 +604,9 @@
     "planDone": "Today's plan is done!",
     "planDoneText": "Great job. See you tomorrow!",
     "bossDone": "You beat the weekly Boss! +{{xp}} XP",
-    "bossDoneText": "Amazing! A new Boss comes next week."
+    "bossDoneText": "Amazing! A new Boss comes next week.",
+    "collect": "New phrase card!",
+    "collectSpecial": "Special card: {{kind}}!"
   },
   "sentence": {
     "stressHint": "Stressed word",

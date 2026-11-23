@@ -1,16 +1,15 @@
 // =========================================================
 // ProfilePage — โปรไฟล์: เลเวล/streak, สถิติ, Speaking Check
-// (กราฟนาทีที่พูด ขั้นที่ 18, Collection/ห้องของตัวละคร ขั้นที่ 20)
+// (กราฟนาทีที่พูด ขั้นที่ 18, Collection การ์ดวลี ขั้นที่ 20-1, ห้องของตัวละคร ขั้นที่ 20-2)
 // =========================================================
 import { useTranslation } from 'react-i18next'
-import { stages } from '../data'
+import { phraseSituations, stages } from '../data'
 import { useProgressStore } from '../store/progressStore'
 import { ICONS } from '../utils/icons'
 import Page from '../components/Page'
 import Section from '../components/Section'
 import LevelCard from '../components/LevelCard'
 import Tile, { TileList } from '../components/Tile'
-import ComingSoon from '../components/ComingSoon'
 import SpeakingChart from '../components/SpeakingChart'
 import { todayKey } from '../utils/date'
 import styles from './ProfilePage.module.css'
@@ -22,6 +21,8 @@ export default function ProfilePage() {
   const lessonProgress = useProgressStore((state) => state.lessonProgress)
   const unlockedStages = useProgressStore((state) => state.unlockedStages)
   const speakingMinutes = useProgressStore((state) => state.speakingMinutes)
+  const cardCount = useProgressStore((state) => state.collection.length)
+  const phraseTotal = phraseSituations.reduce((sum, situation) => sum + situation.phraseCount, 0)
 
   const lessonsDone = Object.values(lessonProgress).filter((progress) => progress.completed).length
   const stats = [
@@ -48,6 +49,12 @@ export default function ProfilePage() {
 
       <TileList>
         <Tile
+          to="/profile/collection"
+          icon={ICONS.collection}
+          title={t('collection.title')}
+          description={t('collection.tile', { count: cardCount, total: phraseTotal })}
+        />
+        <Tile
           to="/profile/speaking-check"
           icon={ICONS.speakingCheck}
           title={t('profile.speakingCheck')}
@@ -58,8 +65,6 @@ export default function ProfilePage() {
       <Section title={t('plan.speaking')} description={t('plan.speakingNote')}>
         <SpeakingChart minutes={speakingMinutes} today={todayKey()} />
       </Section>
-      {/* Collection + ห้องของตัวละคร (ขั้นที่ 20) */}
-      <ComingSoon step={20} />
     </Page>
   )
 }

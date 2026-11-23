@@ -35,6 +35,7 @@ import {
   startListening,
   stopListening,
 } from '../../utils/recognition'
+import { playSfx } from '../../utils/sfx'
 import { getSpeechDurationMs } from '../../utils/speech'
 import { shuffle } from '../../utils/random'
 import Picture from '../Picture'
@@ -149,6 +150,7 @@ export default function ShadowKaraokeGame({ items, lenient = false, ordered = fa
       setResult(scored)
       setPhase('result')
       setPoints((total) => total + scored.score)
+      if (scored.passed) playSfx('pass')
       callbacks.current.onRoundResult?.(item, scored.passed)
 
       await later(KARAOKE.resultMs)

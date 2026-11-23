@@ -20,6 +20,7 @@ import { applyMissionEvent, ensureDailyMissions, missionReward } from '../utils/
 import { addFriendship, recordVisit as visitResult } from '../utils/friendship'
 import { applyPlanEvent, ensureDailyPlan, TALK_FROM_STAGE } from '../utils/dailyPlan'
 import { addSpeaking } from '../utils/speaking'
+import { addCard, cardRarity } from '../utils/collection'
 import { useToastStore } from './toastStore'
 
 // ค่าเริ่มต้นของผู้เรียนใหม่
@@ -30,7 +31,7 @@ export const INITIAL_PROGRESS = {
   unlockedStages: [1], // Stage ที่ปลดล็อกแล้ว
   unlockedPlaces: ['home'], // สถานที่ที่ปลดล็อกแล้ว (ขั้นที่ 14)
   lessonProgress: {}, // { [lessonId]: { completed, bestScore, attempts, completedAt } }
-  collection: [], // วลีที่สะสมได้ (ขั้นที่ 20)
+  collection: [], // การ์ดวลีที่สะสมได้ [phraseId] เรียงตามลำดับที่ได้ (ขั้นที่ 20 — utils/collection.js)
   npcFriendship: {}, // { [npcId]: แต้มความสนิท } (ขั้นที่ 15)
   dailyMissions: { date: null, missions: [] }, // ภารกิจของวันนี้ [{ id, progress, done }]
   speakingMinutes: {}, // { 'YYYY-MM-DD': นาทีที่พูด (ทศนิยม) } ย้อนหลัง 60 วัน (ขั้นที่ 18 — utils/speaking.js)
@@ -175,6 +176,16 @@ export const useProgressStore = create(
           return { lessonProgress, unlockedStages: result.unlockedStages }
         })
         return newlyUnlocked
+      },
+
+      // พูดวลีในคลังวลีผ่าน → ได้การ์ดวลีนั้น (ครั้งแรกเท่านั้น) + แจ้ง "การ์ดใหม่" (การ์ดพิเศษ = สำนวน/สแลง)
+      // @returns true ถ้าเพิ่งได้การ์ดใบนี้
+      collectPhrase: (phrase) => {
+        const { collection, added } = addCard(get().collection, phrase?.id)
+        if (!added) return false
+        set({ collection })
+        useToastStore.getState().show({ kind: 'collect', text: phrase.text, rarity: cardRarity(phrase), count: collection.length })
+        return true
       },
 
       // ล้างความคืบหน้าทั้งหมด กลับเป็นผู้เรียนใหม่
