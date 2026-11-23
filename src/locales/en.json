@@ -520,6 +520,22 @@
     },
     "lockedText": "? ? ?  (not collected yet)"
   },
+  "room": {
+    "title": "My room",
+    "subtitle": "Homes and decorations unlock as you level up. Make it yours.",
+    "tile": "Living in: {{name}} — decorate and see what you've unlocked",
+    "decor": "Decorations",
+    "decorate": "Decorate",
+    "hint": "Tap to use. Tap a decoration you're using again to take it out.",
+    "home": "Home",
+    "change": "{{name}} — tap to change",
+    "add": "{{name}} — tap to choose",
+    "next": "At Lv {{level}} you get: {{items}}",
+    "complete": "You've unlocked everything. Amazing!",
+    "using": "In use",
+    "use": "Tap to use",
+    "lockedAt": "Unlocks at Lv {{level}}"
+  },
   "settings": {
     "title": "Settings",
     "thaiReading": "Thai reading",
@@ -594,6 +610,7 @@
   "toast": {
     "levelUp": "Level up! Lv {{level}}",
     "newTitle": "New title: {{title}}",
+    "newRoomItems": "New for your room: {{items}}",
     "keepGoing": "Getting better every day. Keep going!",
     "missionDone": "Mission done! +{{xp}} XP",
     "freezeUsed": "Streak Freeze used",

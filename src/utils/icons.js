@@ -26,6 +26,7 @@ import {
   Mic,
   MicVocal,
   Play,
+  Plus,
   RotateCcw,
   Settings,
   Shuffle,
@@ -80,6 +81,7 @@ export const ICONS = {
   next: ArrowRight,
   stop: Square,
   delete: Trash2,
+  add: Plus,
   soon: Construction,
 }
 

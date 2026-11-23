@@ -65,6 +65,7 @@
 }
 
 .text {
+  white-space: pre-line; /* ฉายาใหม่ / ของใหม่ในห้อง คนละบรรทัด */
   color: var(--color-muted);
   font-size: 0.875rem;
 }

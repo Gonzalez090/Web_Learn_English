@@ -19,6 +19,7 @@ import { checkKeywords } from '../utils/storyCheck.js'
 import { graphemeUnits, spellUnits } from '../utils/reading.js'
 import { checkFreeWriting, hasThaiLetters, SPELLING_MODES, splitBlank } from '../utils/spelling.js'
 import { FRIENDSHIP_THRESHOLDS } from '../utils/friendship.js'
+import { ROOM_ITEMS } from '../utils/room.js'
 import { itemTexts, totalVocabulary, wordsOf } from '../utils/vocabulary.js'
 import audioManifest from './audioManifest.json'
 import th from '../locales/th.json'
@@ -842,6 +843,7 @@ describe('ภาพถ่ายประกอบ', () => {
       ...scenariosData.scenarios.map((scenario) => scenario.image),
       ...worldData.cityMap.map((place) => place.image),
       ...worldData.npcs.map((npc) => npc.image),
+      ...ROOM_ITEMS.map((item) => item.image),
     ]),
   ]
   // '/images/x.webp' → ไฟล์จริงใน public/images/x.webp

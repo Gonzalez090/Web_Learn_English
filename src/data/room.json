@@ -1,0 +1,53 @@
+{
+  "homes": [
+    { "id": "small", "level": 1, "name": "Small room", "nameTh": "ห้องเล็ก ๆ", "image": "/images/room-home-small.webp" },
+    { "id": "studio", "level": 3, "name": "Studio", "nameTh": "ห้องสตูดิโอ", "image": "/images/room-home-studio.webp" },
+    { "id": "apartment", "level": 5, "name": "Cozy apartment", "nameTh": "อพาร์ตเมนต์แสนสบาย", "image": "/images/room-home-apartment.webp" },
+    { "id": "loft", "level": 8, "name": "Brick loft", "nameTh": "ลอฟต์ผนังอิฐ", "image": "/images/room-home-loft.webp" },
+    { "id": "house", "level": 12, "name": "House with a garden", "nameTh": "บ้านมีสวน", "image": "/images/room-home-house.webp" },
+    { "id": "beach", "level": 16, "name": "Beach house", "nameTh": "บ้านริมทะเล", "image": "/images/room-home-beach.webp" },
+    { "id": "dream", "level": 20, "name": "Dream house", "nameTh": "บ้านในฝัน", "image": "/images/room-home-dream.webp" }
+  ],
+  "slots": [
+    {
+      "id": "lamp",
+      "name": "Lights",
+      "nameTh": "โคมไฟ",
+      "items": [
+        { "id": "lamp-desk", "level": 1, "name": "Table lamp", "nameTh": "โคมไฟตั้งโต๊ะ", "image": "/images/room-lamp-desk.webp" },
+        { "id": "lamp-floor", "level": 6, "name": "Floor lamp", "nameTh": "โคมไฟตั้งพื้น", "image": "/images/room-lamp-floor.webp" },
+        { "id": "lamp-lights", "level": 11, "name": "String lights", "nameTh": "ไฟราว", "image": "/images/room-lamp-lights.webp" }
+      ]
+    },
+    {
+      "id": "plant",
+      "name": "Plants",
+      "nameTh": "ต้นไม้",
+      "items": [
+        { "id": "plant-cactus", "level": 2, "name": "Cactus", "nameTh": "กระบองเพชร", "image": "/images/room-plant-cactus.webp" },
+        { "id": "plant-monstera", "level": 7, "name": "Monstera", "nameTh": "ต้นมอนสเตอรา", "image": "/images/room-plant-monstera.webp" },
+        { "id": "plant-flowers", "level": 13, "name": "Fresh flowers", "nameTh": "ดอกไม้สด", "image": "/images/room-plant-flowers.webp" }
+      ]
+    },
+    {
+      "id": "sofa",
+      "name": "Seats",
+      "nameTh": "ที่นั่ง",
+      "items": [
+        { "id": "sofa-armchair", "level": 4, "name": "Armchair", "nameTh": "เก้าอี้นวม", "image": "/images/room-sofa-armchair.webp" },
+        { "id": "sofa-gray", "level": 9, "name": "Gray sofa", "nameTh": "โซฟาสีเทา", "image": "/images/room-sofa-gray.webp" },
+        { "id": "sofa-leather", "level": 14, "name": "Leather sofa", "nameTh": "โซฟาหนัง", "image": "/images/room-sofa-leather.webp" }
+      ]
+    },
+    {
+      "id": "wall",
+      "name": "Walls",
+      "nameTh": "ของติดผนัง",
+      "items": [
+        { "id": "art-photos", "level": 5, "name": "Photo frames", "nameTh": "กรอบรูป", "image": "/images/room-art-photos.webp" },
+        { "id": "art-painting", "level": 10, "name": "Painting", "nameTh": "ภาพวาด", "image": "/images/room-art-painting.webp" },
+        { "id": "art-guitar", "level": 18, "name": "Guitar wall", "nameTh": "กีตาร์ติดผนัง", "image": "/images/room-art-guitar.webp" }
+      ]
+    }
+  ]
+}

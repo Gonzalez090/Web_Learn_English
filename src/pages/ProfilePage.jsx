@@ -5,6 +5,9 @@
 import { useTranslation } from 'react-i18next'
 import { phraseSituations, stages } from '../data'
 import { useProgressStore } from '../store/progressStore'
+import { useLocalized } from '../hooks/useLocalized'
+import { levelFromXp } from '../utils/level'
+import { currentHome } from '../utils/room'
 import { ICONS } from '../utils/icons'
 import Page from '../components/Page'
 import Section from '../components/Section'
@@ -16,12 +19,15 @@ import styles from './ProfilePage.module.css'
 
 export default function ProfilePage() {
   const { t } = useTranslation()
+  const loc = useLocalized()
   const xp = useProgressStore((state) => state.xp)
   const bestStreak = useProgressStore((state) => state.streak.best ?? state.streak.count)
   const lessonProgress = useProgressStore((state) => state.lessonProgress)
   const unlockedStages = useProgressStore((state) => state.unlockedStages)
   const speakingMinutes = useProgressStore((state) => state.speakingMinutes)
   const cardCount = useProgressStore((state) => state.collection.length)
+  const room = useProgressStore((state) => state.room)
+  const home = currentHome(room, levelFromXp(xp))
   const phraseTotal = phraseSituations.reduce((sum, situation) => sum + situation.phraseCount, 0)
 
   const lessonsDone = Object.values(lessonProgress).filter((progress) => progress.completed).length
@@ -48,6 +54,7 @@ export default function ProfilePage() {
       </Section>
 
       <TileList>
+        <Tile to="/profile/room" image={home.image} title={t('room.title')} description={t('room.tile', { name: loc(home, 'name') })} />
         <Tile
           to="/profile/collection"
           icon={ICONS.collection}

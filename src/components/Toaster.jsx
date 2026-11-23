@@ -9,10 +9,12 @@ import { dailyMissionPool, getNpc } from '../data'
 import { useToastStore } from '../store/toastStore'
 import { useLocalized } from '../hooks/useLocalized'
 import { titleKeyForLevel } from '../utils/level'
+import { unlockedBetween } from '../utils/room'
 import { ICONS } from '../utils/icons'
 import styles from './Toaster.module.css'
 
 const SHOW_MS = 4000
+const MAX_ROOM_NAMES = 3 // ของใหม่ในห้องที่บอกชื่อ (ที่เหลือ = +N) ให้อ่านทันก่อนหาย
 
 // ชนิด → ไอคอน + ข้อความ
 function useToastContent(toast) {
@@ -21,11 +23,21 @@ function useToastContent(toast) {
 
   if (toast.kind === 'levelUp') {
     const titleKey = titleKeyForLevel(toast.level)
-    const newTitle = titleKey !== titleKeyForLevel(toast.level - 1)
+    // ข้ามหลายเลเวลได้ในครั้งเดียว → เทียบกับเลเวลก่อนได้ XP (from)
+    const from = toast.from ?? toast.level - 1
+    const newTitle = titleKey !== titleKeyForLevel(from)
+    // ฉายาใหม่ + ของใหม่สำหรับห้อง (ขั้นที่ 20-2) คนละบรรทัด — ไม่มีทั้งคู่ = คำให้กำลังใจ
+    const roomItems = unlockedBetween(from, toast.level)
+    const names = roomItems.slice(0, MAX_ROOM_NAMES).map((item) => loc(item, 'name')).join(', ')
+    const more = roomItems.length - MAX_ROOM_NAMES
+    const lines = [
+      newTitle && t('toast.newTitle', { title: t(`level.titles.${titleKey}`) }),
+      roomItems.length > 0 && t('toast.newRoomItems', { items: more > 0 ? `${names} +${more}` : names }),
+    ].filter(Boolean)
     return {
       Icon: Trophy,
       title: t('toast.levelUp', { level: toast.level }),
-      text: newTitle ? t('toast.newTitle', { title: t(`level.titles.${titleKey}`) }) : t('toast.keepGoing'),
+      text: lines.length ? lines.join('\n') : t('toast.keepGoing'),
     }
   }
   if (toast.kind === 'mission') {

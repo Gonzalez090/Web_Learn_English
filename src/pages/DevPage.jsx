@@ -51,6 +51,8 @@ const ROUTES = [
   '/games/listen-tap',
   '/sounds',
   '/profile',
+  '/profile/room',
+  '/profile/collection',
   '/profile/speaking-check',
   '/settings',
   '/credits',

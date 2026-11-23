@@ -174,6 +174,139 @@
     "photographerUrl": "https://pixabay.com/users/Surprising_Media-11873433/",
     "pageUrl": "https://pixabay.com/photos/woman-store-kiosk-buying-a-drink-7368231/"
   },
+  "room-art-guitar": {
+    "provider": "pixabay",
+    "sourceId": 114491,
+    "photographer": "charlemagne",
+    "photographerUrl": "https://pixabay.com/users/charlemagne-21733/",
+    "pageUrl": "https://pixabay.com/photos/guitars-wall-decoration-114491/"
+  },
+  "room-art-painting": {
+    "provider": "pixabay",
+    "sourceId": 2901057,
+    "photographer": "anaterate",
+    "photographerUrl": "https://pixabay.com/users/anaterate-2348028/",
+    "pageUrl": "https://pixabay.com/photos/painting-frame-landscape-painted-2901057/"
+  },
+  "room-art-photos": {
+    "provider": "pixabay",
+    "sourceId": 2558279,
+    "photographer": "StockSnap",
+    "photographerUrl": "https://pixabay.com/users/StockSnap-894430/",
+    "pageUrl": "https://pixabay.com/photos/wall-picture-frame-display-interior-2558279/"
+  },
+  "room-home-apartment": {
+    "provider": "pixabay",
+    "sourceId": 6893060,
+    "photographer": "23555986",
+    "photographerUrl": "https://pixabay.com/users/23555986-23555986/",
+    "pageUrl": "https://pixabay.com/photos/real-estate-living-room-sofa-6893060/"
+  },
+  "room-home-beach": {
+    "provider": "pixabay",
+    "sourceId": 10316785,
+    "photographer": "experimentMR",
+    "photographerUrl": "https://pixabay.com/users/experimentMR-22646995/",
+    "pageUrl": "https://pixabay.com/photos/house-thatched-roof-dune-sky-10316785/"
+  },
+  "room-home-dream": {
+    "provider": "pixabay",
+    "sourceId": 389271,
+    "photographer": "GregoryButler",
+    "photographerUrl": "https://pixabay.com/users/GregoryButler-331410/",
+    "pageUrl": "https://pixabay.com/photos/large-home-residential-house-389271/"
+  },
+  "room-home-house": {
+    "provider": "pixabay",
+    "sourceId": 2955582,
+    "photographer": "Stanly8853",
+    "photographerUrl": "https://pixabay.com/users/Stanly8853-4964326/",
+    "pageUrl": "https://pixabay.com/photos/cottage-trees-path-trail-house-2955582/"
+  },
+  "room-home-loft": {
+    "provider": "pixabay",
+    "sourceId": 1850095,
+    "photographer": "Pexels",
+    "photographerUrl": "https://pixabay.com/users/Pexels-2286921/",
+    "pageUrl": "https://pixabay.com/photos/brick-wall-room-interior-design-1850095/"
+  },
+  "room-home-small": {
+    "provider": "pixabay",
+    "sourceId": 174839,
+    "photographer": "RitaE",
+    "photographerUrl": "https://pixabay.com/users/RitaE-19628/",
+    "pageUrl": "https://pixabay.com/photos/bed-antique-sleep-nostalgia-blue-174839/"
+  },
+  "room-home-studio": {
+    "provider": "pixabay",
+    "sourceId": 7132454,
+    "photographer": "23555986",
+    "photographerUrl": "https://pixabay.com/users/23555986-23555986/",
+    "pageUrl": "https://pixabay.com/photos/interior-design-bedroom-furniture-7132454/"
+  },
+  "room-lamp-desk": {
+    "provider": "pixabay",
+    "sourceId": 8407976,
+    "photographer": "HomeoGrapher",
+    "photographerUrl": "https://pixabay.com/users/HomeoGrapher-39677170/",
+    "pageUrl": "https://pixabay.com/photos/room-interior-bedroom-bed-hotel-8407976/"
+  },
+  "room-lamp-floor": {
+    "provider": "pixabay",
+    "sourceId": 2596975,
+    "photographer": "StockSnap",
+    "photographerUrl": "https://pixabay.com/users/StockSnap-894430/",
+    "pageUrl": "https://pixabay.com/photos/house-interior-design-room-couch-2596975/"
+  },
+  "room-lamp-lights": {
+    "provider": "pixabay",
+    "sourceId": 2569309,
+    "photographer": "StockSnap",
+    "photographerUrl": "https://pixabay.com/users/StockSnap-894430/",
+    "pageUrl": "https://pixabay.com/photos/wooden-furniture-wire-light-2569309/"
+  },
+  "room-plant-cactus": {
+    "provider": "pixabay",
+    "sourceId": 716579,
+    "photographer": "milivigerova",
+    "photographerUrl": "https://pixabay.com/users/milivigerova-742747/",
+    "pageUrl": "https://pixabay.com/photos/pots-plants-cactus-succulents-716579/"
+  },
+  "room-plant-flowers": {
+    "provider": "pixabay",
+    "sourceId": 7233992,
+    "photographer": "Johanna84",
+    "photographerUrl": "https://pixabay.com/users/Johanna84-31220/",
+    "pageUrl": "https://pixabay.com/photos/flowers-table-bouquet-window-vase-7233992/"
+  },
+  "room-plant-monstera": {
+    "provider": "pixabay",
+    "sourceId": 3301769,
+    "photographer": "sodamtree",
+    "photographerUrl": "https://pixabay.com/users/sodamtree-4094353/",
+    "pageUrl": "https://pixabay.com/photos/ceriman-monster-high-soil-moisture-3301769/"
+  },
+  "room-sofa-armchair": {
+    "provider": "pixabay",
+    "sourceId": 5055005,
+    "photographer": "RaniRamli",
+    "photographerUrl": "https://pixabay.com/users/RaniRamli-731298/",
+    "pageUrl": "https://pixabay.com/photos/sofa-lamp-wall-rug-5055005/"
+  },
+  "room-sofa-gray": {
+    "provider": "pixabay",
+    "sourceId": 2155376,
+    "photographer": "ErikaWittlieb",
+    "photographerUrl": "https://pixabay.com/users/ErikaWittlieb-427626/",
+    "pageUrl": "https://pixabay.com/photos/living-room-chair-sofa-couch-home-2155376/"
+  },
+  "room-sofa-leather": {
+    "provider": "pixabay",
+    "sourceId": 8539771,
+    "photographer": "Mylene2401",
+    "photographerUrl": "https://pixabay.com/users/Mylene2401-10328767/",
+    "pageUrl": "https://pixabay.com/photos/couch-rusty-floor-loft-window-8539771/"
+  },
   "s1-apple": {
     "provider": "pixabay",
     "sourceId": 7932156,

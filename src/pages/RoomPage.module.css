@@ -1,0 +1,198 @@
+/* ห้องของตัวละคร (ขั้นที่ 20-2) */
+
+.scene {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.home,
+.frame,
+.option {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: center;
+  cursor: pointer;
+}
+
+.home:focus-visible,
+.frame:focus-visible,
+.option:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.home {
+  position: relative;
+  border-radius: var(--radius-md);
+}
+
+/* ภาพบ้านแนวนอน ไม่สูงเกินครึ่งจอ (มือถือเห็นของตกแต่งใต้ภาพด้วย) */
+.home .homePicture {
+  aspect-ratio: 4 / 3;
+  max-height: 44vh;
+  border-radius: var(--radius-md);
+}
+
+.homeName {
+  position: absolute;
+  left: var(--space-2);
+  bottom: var(--space-2);
+  padding: 2px var(--space-3);
+  border-radius: var(--radius-full);
+  background: rgb(255 255 255 / 0.92);
+  font-weight: 800;
+}
+
+.frames {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-2);
+}
+
+.frame {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  width: 100%;
+  border-radius: var(--radius-sm);
+}
+
+/* กรอบรูปไม้ */
+.frame .framePicture {
+  box-sizing: border-box;
+  border: 4px solid #b98a5a;
+  border-radius: var(--radius-sm);
+}
+
+.frameEmpty {
+  align-items: center;
+}
+
+.addIcon {
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  padding: 32%;
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-muted);
+}
+
+.frameName {
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.frameEmpty .frameName {
+  color: var(--color-muted);
+}
+
+.next {
+  margin: 0;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-soft);
+  font-weight: 700;
+}
+
+.options {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(124px, 1fr));
+  gap: var(--space-2);
+  /* เลื่อนจอมาที่ตัวเลือก → เผื่อแถบบนและแถบเมนูล่างที่ลอยทับอยู่ */
+  scroll-margin-top: calc(var(--topbar-height) + var(--space-3));
+  scroll-margin-bottom: calc(var(--bottomnav-height) + env(safe-area-inset-bottom) + var(--space-3));
+}
+
+.option {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+  height: 100%;
+  padding: var(--space-2);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.option:hover:not(:disabled) {
+  border-color: var(--color-primary);
+}
+
+.optionUsed {
+  border-color: var(--color-success);
+  background: var(--color-success-soft);
+}
+
+.optionLocked {
+  cursor: not-allowed;
+}
+
+/* ยังล็อก: ภาพสีจริง จางลง + กุญแจ */
+.optionLocked .optionPicture {
+  opacity: 0.55;
+}
+
+.optionThumb {
+  position: relative;
+  display: block;
+}
+
+.optionThumb .optionPicture {
+  border-radius: var(--radius-sm);
+}
+
+.mark {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  background: var(--color-locked-text);
+  color: #fff;
+}
+
+.optionUsed .mark {
+  background: var(--color-success);
+}
+
+.mark svg {
+  width: 16px;
+  height: 16px;
+}
+
+.optionName {
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.optionStatus {
+  color: var(--color-muted);
+  font-size: 0.8125rem;
+}
+
+.optionUsed .optionStatus {
+  color: var(--color-success);
+  font-weight: 700;
+}

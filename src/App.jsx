@@ -37,6 +37,8 @@ const ReviewPage = lazy(() => import('./pages/ReviewPage'))
 const SpeakingCheckPage = lazy(() => import('./pages/SpeakingCheckPage'))
 // Collection การ์ดวลี: โหลดวลีทุกสถานการณ์ → แยกไฟล์ (ขั้นที่ 20)
 const CollectionPage = lazy(() => import('./pages/CollectionPage'))
+// ห้องของตัวละคร (ขั้นที่ 20-2)
+const RoomPage = lazy(() => import('./pages/RoomPage'))
 
 // หน้าทดสอบ /dev โหลดเฉพาะตอน npm run dev (ตอน build จริงโค้ดส่วนนี้ถูกตัดทิ้ง)
 const DevPage = import.meta.env.DEV ? lazy(() => import('./pages/DevPage')) : null
@@ -73,6 +75,7 @@ export default function App() {
         <Route path="profile" element={<ProfilePage />} />
         <Route path="profile/speaking-check" element={<SpeakingCheckPage />} />
         <Route path="profile/collection" element={<CollectionPage />} />
+        <Route path="profile/room" element={<RoomPage />} />
         <Route path="settings" element={<SettingsPage />} />
         <Route path="credits" element={<CreditsPage />} />
 

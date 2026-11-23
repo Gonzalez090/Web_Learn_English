@@ -21,6 +21,7 @@ import { addFriendship, recordVisit as visitResult } from '../utils/friendship'
 import { applyPlanEvent, ensureDailyPlan, TALK_FROM_STAGE } from '../utils/dailyPlan'
 import { addSpeaking } from '../utils/speaking'
 import { addCard, cardRarity } from '../utils/collection'
+import { chooseItem } from '../utils/room'
 import { useToastStore } from './toastStore'
 
 // ค่าเริ่มต้นของผู้เรียนใหม่
@@ -32,6 +33,7 @@ export const INITIAL_PROGRESS = {
   unlockedPlaces: ['home'], // สถานที่ที่ปลดล็อกแล้ว (ขั้นที่ 14)
   lessonProgress: {}, // { [lessonId]: { completed, bestScore, attempts, completedAt } }
   collection: [], // การ์ดวลีที่สะสมได้ [phraseId] เรียงตามลำดับที่ได้ (ขั้นที่ 20 — utils/collection.js)
+  room: { home: null, items: {} }, // ห้องของตัวละคร: บ้านที่เลือก (null = หลังล่าสุด) + ของแต่ละช่อง (ขั้นที่ 20-2 — utils/room.js)
   npcFriendship: {}, // { [npcId]: แต้มความสนิท } (ขั้นที่ 15)
   dailyMissions: { date: null, missions: [] }, // ภารกิจของวันนี้ [{ id, progress, done }]
   speakingMinutes: {}, // { 'YYYY-MM-DD': นาทีที่พูด (ทศนิยม) } ย้อนหลัง 60 วัน (ขั้นที่ 18 — utils/speaking.js)
@@ -47,7 +49,8 @@ function announce({ previousXp, nextXp, completed = [], usedFreeze = false, stre
   if (usedFreeze) show({ kind: 'freeze', count: streakCount })
   for (const mission of completed) show({ kind: 'mission', missionId: mission.id, xp: mission.xp })
   const level = levelFromXp(nextXp)
-  if (level > levelFromXp(previousXp)) show({ kind: 'levelUp', level })
+  const from = levelFromXp(previousXp)
+  if (level > from) show({ kind: 'levelUp', level, from })
 }
 
 // ภารกิจของวันนี้ + ผลของเหตุการณ์หนึ่ง
@@ -186,6 +189,13 @@ export const useProgressStore = create(
         set({ collection })
         useToastStore.getState().show({ kind: 'collect', text: phrase.text, rarity: cardRarity(phrase), count: collection.length })
         return true
+      },
+
+      // ตกแต่งห้อง: เลือกบ้าน (slotId 'home') หรือของในช่อง / itemId null = เอาออก — ชิ้นที่ยังไม่ปลดล็อกเลือกไม่ได้
+      chooseRoomItem: (slotId, itemId) => {
+        const { room, xp } = get()
+        const next = chooseItem(room, slotId, itemId, levelFromXp(xp))
+        if (next !== room) set({ room: next })
       },
 
       // ล้างความคืบหน้าทั้งหมด กลับเป็นผู้เรียนใหม่
