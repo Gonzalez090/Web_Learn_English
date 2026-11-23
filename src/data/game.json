@@ -173,7 +173,104 @@
       "step": 12
     }
   ],
-  "milestones": [],
+  "milestones": [
+    {
+      "id": "day30",
+      "day": 30,
+      "title": "Day 30",
+      "titleTh": "30 วัน",
+      "summary": "Introduce yourself, order food, and ask for directions.",
+      "summaryTh": "แนะนำตัว สั่งอาหาร และถามทางได้",
+      "goals": [
+        { "text": "Introduce yourself", "textTh": "แนะนำตัวเอง", "to": "/phrases/greetings" },
+        { "text": "Order food", "textTh": "สั่งอาหาร", "to": "/phrases/food" },
+        { "text": "Ask for directions", "textTh": "ถามทาง", "to": "/phrases/directions" }
+      ]
+    },
+    {
+      "id": "day90",
+      "day": 90,
+      "title": "Day 90",
+      "titleTh": "90 วัน",
+      "summary": "Chat about everyday life for 3–5 minutes.",
+      "summaryTh": "คุยเรื่องชีวิตประจำวันได้ 3–5 นาที",
+      "goals": [
+        { "text": "Chat with people in town", "textTh": "คุยกับคนในเมือง (บทสนทนาสุ่ม)", "to": "/talk" },
+        { "text": "Make plans with a friend", "textTh": "ชวนเพื่อน นัดเพื่อน", "to": "/phrases/invite" },
+        { "text": "Talk on the phone or chat", "textTh": "คุยโทรศัพท์ แชต", "to": "/phrases/phone" }
+      ]
+    },
+    {
+      "id": "day180",
+      "day": 180,
+      "title": "Day 180 (about B1)",
+      "titleTh": "180 วัน (ประมาณ B1)",
+      "summary": "Tell a story, give your opinion, and handle surprises.",
+      "summaryTh": "เล่าเรื่อง แสดงความเห็น และรับมือสถานการณ์ไม่คาดคิดได้",
+      "goals": [
+        { "text": "Tell a story from pictures", "textTh": "เล่าเรื่องจากภาพ", "to": "/learn/5" },
+        { "text": "Say what you think and feel", "textTh": "แสดงความเห็น บอกความรู้สึก", "to": "/phrases/feelings" },
+        { "text": "Handle surprises", "textTh": "รับมือเรื่องไม่คาดคิด (Boss Conversation)", "to": "/plan" }
+      ]
+    }
+  ],
+  "speakingCheck": {
+    "pictures": [
+      { "id": "s5-u10-picnic-1", "image": "/images/s5-u10-picnic-1.webp", "target": "Dad packed a picnic for the kids.", "translationTh": "พ่อเตรียมของไปปิกนิกให้ลูก ๆ" },
+      { "id": "s5-u10-picnic-2", "image": "/images/s5-u10-picnic-2.webp", "target": "He gave them sandwiches from the basket.", "translationTh": "พ่อหยิบแซนด์วิชจากตะกร้าให้ทั้งสองคน" },
+      { "id": "s5-u10-picnic-3", "image": "/images/s5-u10-picnic-3.webp", "target": "They sat on the blanket and ate together.", "translationTh": "ทุกคนนั่งบนผ้าห่มแล้วกินด้วยกัน" },
+      { "id": "s5-u10-picnic-4", "image": "/images/s5-u10-picnic-4.webp", "target": "Then they had warm tea from a thermos. Yum!", "translationTh": "แล้วก็ดื่มชาอุ่น ๆ จากกระติก อร่อย!" }
+    ],
+    "prompts": [
+      { "text": "Who can you see?", "textTh": "เห็นใครบ้าง" },
+      { "text": "Where are they?", "textTh": "อยู่ที่ไหน" },
+      { "text": "What are they doing?", "textTh": "กำลังทำอะไรกัน" },
+      { "text": "What happens next?", "textTh": "แล้วเกิดอะไรต่อ" },
+      { "text": "How do they feel? What do you think?", "textTh": "รู้สึกยังไง แล้วคุณคิดว่ายังไง" }
+    ],
+    "chunks": [
+      "there is/there are",
+      "i can see/we can see/you can see",
+      "it looks like/looks like/look like",
+      "look happy/looks happy/looking happy",
+      "have a picnic/having a picnic/had a picnic",
+      "have fun/having fun/had fun",
+      "have a good time/having a good time/had a good time",
+      "spend time/spending time/spent time",
+      "hang out/hanging out",
+      "get ready/getting ready/got ready",
+      "going to",
+      "want to/wants to/wanted to",
+      "and then",
+      "after that",
+      "at the end/in the end",
+      "at first/first of all",
+      "i think/i guess",
+      "i feel like",
+      "i am not sure",
+      "kind of/sort of",
+      "a lot of/lots of",
+      "a little bit/a bit",
+      "next to",
+      "in front of",
+      "on the grass/on the blanket",
+      "in the park/at the park",
+      "out of",
+      "pick up/picks up/picked up/picking up",
+      "sit down/sits down/sat down/sitting down",
+      "each other",
+      "eat together/ate together/eating together",
+      "a cup of",
+      "warm tea/hot tea",
+      "a nice day/a beautiful day/a sunny day",
+      "so yummy/looks yummy/looks delicious/so good",
+      "you know/i mean",
+      "it seems/seems like",
+      "of course",
+      "the whole family",
+      "enjoy the/enjoys the/enjoying the/enjoyed the"
+    ]
+  },
   "soundPractice": [
     {
       "id": "th",

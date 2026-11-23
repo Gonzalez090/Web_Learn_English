@@ -113,6 +113,105 @@ export function startListening({ onInterim, maxListenMs = 8000 } = {}) {
   return { token, promise }
 }
 
+const MAX_RESTARTS = 30 // กันวนเริ่มใหม่ไม่รู้จบ (ระบบตัดเองบ่อยผิดปกติ)
+
+/**
+ * ฟังต่อเนื่องยาว ๆ (Speaking Check พูดบรรยาย 1 นาที — ขั้นที่ 19)
+ * - Chrome ตัดการฟังเองเมื่อเงียบนาน ๆ → เริ่มใหม่ให้เองจนกว่าจะสั่งหยุด
+ * - ไม่หยุดเสียงที่เล่นอยู่ / ไม่ยุ่งกับไฟล์ที่อัด (ตัวอัดเสียงใช้ไมค์แยกกัน)
+ * - เปลี่ยนหน้า (abortListening) → หยุดด้วย
+ * @param onText ข้อความทั้งหมดที่ได้ยินจนถึงตอนนี้ (รวมส่วนที่ยังไม่แน่นอน)
+ * @returns { token, stop(): Promise<{ transcript, error }> }  error = ปัญหาที่ทำให้ถอดข้อความไม่ได้ (null = ปกติ)
+ */
+export function startContinuousListening({ onText, maxListenMs = 75000 } = {}) {
+  if (!isRecognitionSupported) {
+    return { token: null, stop: () => Promise.resolve({ transcript: '', error: 'unsupported' }) }
+  }
+  abortListening()
+
+  const token = Symbol('listen-long')
+  const finals = []
+  let interim = ''
+  let current = null
+  let stopped = false
+  let finished = false
+  let restarts = 0
+  let lastError = null
+  let resolveDone
+  const done = new Promise((resolve) => {
+    resolveDone = resolve
+  })
+  const text = () => [...finals, interim].join(' ').replace(/\s+/g, ' ').trim()
+
+  const finish = () => {
+    if (finished) return
+    finished = true
+    clearTimeout(timer)
+    if (activeSession?.token === token) activeSession = null
+    if (interim) finals.push(interim.trim())
+    interim = ''
+    resolveDone({ transcript: text(), error: finals.length ? null : lastError })
+  }
+
+  const halt = (abort) => {
+    stopped = true
+    if (!current) return finish()
+    if (abort) current.abort()
+    else current.stop()
+  }
+
+  const startOne = () => {
+    const recognition = new RecognitionClass()
+    recognition.lang = 'en-US'
+    recognition.interimResults = true
+    recognition.maxAlternatives = 1
+    recognition.continuous = true
+    recognition.onresult = (event) => {
+      interim = ''
+      for (let i = event.resultIndex; i < event.results.length; i += 1) {
+        const result = event.results[i]
+        if (result.isFinal) finals.push(result[0].transcript.trim())
+        else interim += result[0].transcript
+      }
+      onText?.(text())
+    }
+    recognition.onerror = (event) => {
+      if (event.error === 'no-speech' || event.error === 'aborted') return
+      lastError = event.error || 'unknown'
+      if (isBlockingMicError(lastError)) stopped = true // ไม่ได้รับอนุญาต / ไม่มีเน็ต → เริ่มใหม่ก็ไม่หาย
+    }
+    recognition.onend = () => {
+      current = null
+      if (interim) finals.push(interim.trim())
+      interim = ''
+      if (stopped || restarts >= MAX_RESTARTS) return finish()
+      restarts += 1
+      startOne()
+    }
+    current = recognition
+    try {
+      recognition.start()
+    } catch {
+      current = null
+      lastError = 'start-failed'
+      finish()
+    }
+  }
+
+  // abortListening()/stopListening() จากที่อื่น (เช่น เปลี่ยนหน้า) หยุดรอบนี้ได้ด้วย
+  activeSession = { token, recognition: { stop: () => halt(false), abort: () => halt(true) } }
+  const timer = setTimeout(() => halt(false), maxListenMs)
+  startOne()
+
+  return {
+    token,
+    stop: () => {
+      if (!stopped) halt(false)
+      return done
+    },
+  }
+}
+
 // หยุดฟังแล้วเอาผลที่ได้ยินแล้วมาใช้ (เช่น ผู้ใช้กดปุ่มไมค์อีกครั้งเพื่อบอกว่าพูดจบแล้ว)
 export function stopListening(token) {
   if (activeSession && (!token || activeSession.token === token)) activeSession.recognition.stop()

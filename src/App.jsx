@@ -22,7 +22,6 @@ import SoundPracticePage from './pages/SoundPracticePage'
 import SoundDrillPage from './pages/SoundDrillPage'
 import WelcomePage from './pages/WelcomePage'
 import ProfilePage from './pages/ProfilePage'
-import SpeakingCheckPage from './pages/SpeakingCheckPage'
 import SettingsPage from './pages/SettingsPage'
 import NotFoundPage from './pages/NotFoundPage'
 
@@ -34,6 +33,8 @@ const CreditsPage = lazy(() => import('./pages/CreditsPage'))
 const LessonPage = lazy(() => import('./pages/LessonPage'))
 // หน้าทบทวนใช้ขั้นต่าง ๆ ของบทเรียนชุดเดียวกัน (พูด / อ่าน / เขียน / เกมแตะภาพ) → แยกไฟล์ด้วย ใช้โค้ดร่วมกับหน้าบทเรียน
 const ReviewPage = lazy(() => import('./pages/ReviewPage'))
+// Speaking Check (อัดเสียง + IndexedDB + สถิติ) เปิดเดือนละครั้ง → แยกไฟล์ (ขั้นที่ 19)
+const SpeakingCheckPage = lazy(() => import('./pages/SpeakingCheckPage'))
 
 // หน้าทดสอบ /dev โหลดเฉพาะตอน npm run dev (ตอน build จริงโค้ดส่วนนี้ถูกตัดทิ้ง)
 const DevPage = import.meta.env.DEV ? lazy(() => import('./pages/DevPage')) : null

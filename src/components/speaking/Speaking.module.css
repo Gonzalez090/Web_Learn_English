@@ -1,0 +1,545 @@
+/* Speaking Check (ขั้นที่ 19) — หน้าภาพรวม / หน้าอัด / หน้าผล ใช้ไฟล์นี้ร่วมกัน */
+
+.hint {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.875rem;
+}
+
+.inlineIcon {
+  flex: none;
+  width: 18px;
+  height: 18px;
+}
+
+/* ---------- กล่องสถานะ (ภาพรวม) ---------- */
+.statusCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.statusDue {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px var(--color-primary-soft);
+}
+
+.statusTitle {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 800;
+}
+
+.statusText {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+.how {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.notice {
+  margin: 0;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-soft);
+}
+
+.notice p {
+  margin: 0;
+}
+
+.noticeTitle {
+  font-weight: 800;
+  margin-bottom: var(--space-1) !important;
+}
+
+.noticeInline {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.9375rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+/* ---------- หน้าอัด ---------- */
+.recorder {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.pictures {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-2);
+}
+
+/* จอกว้าง: 4 ภาพเรียงแถวเดียว ภาพไม่ใหญ่เกิน */
+@media (min-width: 560px) {
+  .pictures {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.pictureItem {
+  position: relative;
+}
+
+.pictureNumber {
+  position: absolute;
+  top: var(--space-1);
+  left: var(--space-1);
+  min-width: 26px;
+  height: 26px;
+  padding: 0 var(--space-1);
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.875rem;
+}
+
+.prompts {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-soft);
+}
+
+.promptsTitle {
+  margin: 0 0 var(--space-1);
+  font-weight: 800;
+}
+
+.promptList {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.promptTh {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+}
+
+
+/* แถบเวลา/ปุ่ม: อยู่ที่เดิมถ้าเห็นอยู่แล้ว / ถ้าตกจอ → ติดเหนือเมนูล่าง */
+.dock {
+  position: sticky;
+  bottom: calc(var(--bottomnav-height) + env(safe-area-inset-bottom) + var(--space-2));
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.dockLive {
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: 0 4px 16px rgb(0 0 0 / 0.08);
+}
+
+.dockRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.dockButton {
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.recDot {
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-full);
+  background: var(--color-danger);
+  animation: blink 1s ease-in-out infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.3;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .recDot {
+    animation: none;
+  }
+}
+
+.timer {
+  white-space: nowrap; /* จอ 320: "เหลือ 0:45" ไม่ตัดบรรทัด */
+  font-size: 1.25rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.bar,
+.level {
+  position: relative;
+  height: 10px;
+  overflow: hidden;
+  border-radius: var(--radius-full);
+  background: var(--color-locked-bg);
+}
+
+.level {
+  height: 6px;
+}
+
+.barFill,
+.levelFill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-radius: inherit;
+  background: var(--color-primary);
+  transition: width 0.1s linear;
+}
+
+.levelFill {
+  background: var(--color-success);
+}
+
+.liveText {
+  max-height: calc(3 * 1.5em + 2 * var(--space-3));
+  overflow-y: auto;
+  line-height: 1.5;
+}
+
+.liveText,
+.transcript {
+  margin: 0;
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  overflow-wrap: anywhere;
+}
+
+.liveLabel {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+}
+
+/* ---------- ผล / สถิติ ---------- */
+.done {
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--color-success-soft);
+}
+
+.done p {
+  margin: 0;
+}
+
+.doneTitle {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--color-success);
+  margin-bottom: var(--space-1) !important;
+}
+
+.player {
+  display: block;
+  width: 100%;
+  height: 40px;
+}
+
+.statsBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.compareLabel {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.875rem;
+}
+
+.stats {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(118px, 1fr));
+  gap: var(--space-2);
+}
+
+.stat {
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.statLabel {
+  color: var(--color-muted);
+  font-size: 0.8125rem;
+}
+
+.statValue {
+  margin: var(--space-1) 0 0;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  font-size: 1.375rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.delta,
+.deltaBetter {
+  padding: 0 var(--space-1);
+  border-radius: var(--radius-sm);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  background: var(--color-locked-bg);
+  color: var(--color-locked-text);
+}
+
+.deltaBetter {
+  background: var(--color-success-soft);
+  color: var(--color-success);
+}
+
+.chunks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.chunk {
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-full);
+  background: var(--color-primary-soft);
+  color: var(--color-primary-strong);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+/* ---------- เจ้าของภาษาเล่า ---------- */
+.sample {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.sampleLines {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.sampleLine {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.sampleLineActive {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+}
+
+.sampleText,
+.sampleTh {
+  margin: 0;
+}
+
+.sampleText {
+  font-weight: 700;
+}
+
+.sampleTh {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+}
+
+/* ---------- เทียบครั้งแรก vs ล่าสุด ---------- */
+.compare {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-3);
+}
+
+@media (min-width: 560px) {
+  .compare {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.compareSide {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.compareDate {
+  margin: 0;
+  font-weight: 700;
+}
+
+/* ---------- milestone ---------- */
+.milestones {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.milestone {
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.milestoneNext {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px var(--color-primary-soft);
+}
+
+.milestoneReached {
+  background: var(--color-success-soft);
+}
+
+.milestoneHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-2);
+}
+
+.milestoneTitle {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.milestoneStatus {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.milestoneReached .milestoneStatus {
+  color: var(--color-success);
+}
+
+.milestoneSummary {
+  margin: var(--space-1) 0 var(--space-2);
+}
+
+.goals {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.goal {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: 36px;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  background: var(--color-primary-soft);
+  color: var(--color-primary-strong);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.goal:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* ---------- ประวัติ ---------- */
+.history {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.historyItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.historyHead p {
+  margin: 0;
+}
+
+.historyTitle {
+  font-weight: 800;
+}
+
+.historyMeta {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+}
+
+.deleteButton {
+  align-self: flex-start;
+}
+
+.confirm {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.9375rem;
+}

@@ -33,6 +33,13 @@ export function weekStartKey(dateKey) {
   return addDays(dateKey, -offset)
 }
 
+// วันที่แบบสั้นมีปี เช่น "16 พ.ย. 2569" / "Nov 16, 2026" (ประวัติ Speaking Check)
+export function formatShortDate(dateKey, language = 'th') {
+  const [y, m, d] = dateKey.split('-').map(Number)
+  const locale = language === 'th' ? 'th-TH' : 'en-US'
+  return new Date(y, m - 1, d).toLocaleDateString(locale, { day: 'numeric', month: 'short', year: 'numeric' })
+}
+
 // แสดงวันที่ให้คนอ่าน เช่น "วันจันทร์ที่ 16 พฤศจิกายน" / "Monday, November 16"
 export function formatDateKey(dateKey, language = 'th') {
   const [y, m, d] = dateKey.split('-').map(Number)

@@ -9,7 +9,7 @@
 //   scenarios.json → บทสนทนาสุ่ม (ขั้นที่ 11–12) — แบ่งก้อนรายสถานการณ์ (ดู scenarioChunks.js, ขั้นที่ 28-1):
 //                    สารบัญ scenarioList อยู่ในไฟล์หลัก / บทพูดเต็มโหลดเมื่อเปิดเล่น → loadScenario() / hooks/useScenarios.js
 //   world.json     → cityMap, npcs                    (ขั้นที่ 14–15)
-//   game.json      → dailyMissionPool, miniGames, milestones, soundPractice
+//   game.json      → dailyMissionPool, miniGames, milestones, speakingCheck (ภาพ/คำถาม/วลีของ Speaking Check), soundPractice
 //   imageCredits.json → นำเข้าตรงในหน้าเครดิต (โหลดเฉพาะตอนเปิดหน้านั้น)
 // =========================================================
 import { stages as stageData, lessonList as lessonListData, stageLoaders } from 'virtual:lessons'
@@ -28,7 +28,7 @@ export const textbookVsReal = textbookPairs
 //   — ⚠️ ไม่มี turns/twists/slots (โหลดแยก: loadScenario / hooks/useScenarios.js) (ขั้นที่ 28-1)
 export const scenarioList = scenarioListData
 export const { cityMap, npcs } = worldData
-export const { dailyMissionPool, miniGames, milestones, soundPractice } = gameData
+export const { dailyMissionPool, miniGames, milestones, speakingCheck, soundPractice } = gameData
 
 // ---------- ฟังก์ชันค้นหาที่ใช้บ่อย ----------
 

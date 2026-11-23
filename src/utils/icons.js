@@ -29,10 +29,12 @@ import {
   Settings,
   Shuffle,
   Snowflake,
+  Square,
   Star,
   Swords,
   Target,
   Timer,
+  Trash2,
   User,
   Wrench,
 } from 'lucide-react'
@@ -72,6 +74,8 @@ export const ICONS = {
   // อื่น ๆ
   back: ArrowLeft,
   next: ArrowRight,
+  stop: Square,
+  delete: Trash2,
   soon: Construction,
 }
 
