@@ -20,6 +20,7 @@ const FULL = {
   npcFriendship: { rose: 4 },
   dailyMissions: { date: '2026-11-23', missions: [{ id: 'listen-10', progress: 3, done: false }] },
   speakingMinutes: { '2026-11-23': 1.25 },
+  studyMinutes: { '2026-11-23': 8.25 },
   bossWeek: { weekId: '2026-11-23', scenarioId: 'cafe', done: true },
   dailyPlan: { date: '2026-11-23', goal: 10, tasks: [] },
   lastVisitDate: '2026-11-23',

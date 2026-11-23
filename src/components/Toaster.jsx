@@ -14,6 +14,7 @@ import { ICONS } from '../utils/icons'
 import styles from './Toaster.module.css'
 
 const SHOW_MS = 4000
+const BREAK_SHOW_MS = 8000 // ชวนพัก: ข้อความยาวกว่า ให้อ่านทัน (กดปิดได้)
 const MAX_ROOM_NAMES = 3 // ของใหม่ในห้องที่บอกชื่อ (ที่เหลือ = +N) ให้อ่านทันก่อนหาย
 
 // ชนิด → ไอคอน + ข้อความ
@@ -70,6 +71,9 @@ function useToastContent(toast) {
   if (toast.kind === 'planDone') {
     return { Icon: ICONS.completed, title: t('toast.planDone'), text: t('toast.planDoneText') }
   }
+  if (toast.kind === 'break') {
+    return { Icon: ICONS.rest, title: t('toast.break'), text: t('toast.breakText') }
+  }
   return { Icon: Snowflake, title: t('toast.freezeUsed'), text: t('toast.freezeText', { count: toast.count }) }
 }
 
@@ -78,9 +82,9 @@ function ToastItem({ toast, dismiss }) {
   const { Icon, title, text, lang } = useToastContent(toast)
 
   useEffect(() => {
-    const timer = setTimeout(() => dismiss(toast.id), SHOW_MS)
+    const timer = setTimeout(() => dismiss(toast.id), toast.kind === 'break' ? BREAK_SHOW_MS : SHOW_MS)
     return () => clearTimeout(timer)
-  }, [toast.id, dismiss])
+  }, [toast.id, toast.kind, dismiss])
 
   return (
     <div className={`${styles.toast} ${styles[toast.kind] ?? ''} ${toast.rarity ? styles.special : ''}`}>

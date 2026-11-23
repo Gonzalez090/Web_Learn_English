@@ -19,6 +19,9 @@ import '@fontsource/noto-sans-thai-looped/700.css'
 import './styles/global.css'
 import './i18n'
 import App from './App'
+import { syncTabs } from './store/syncTabs'
+
+syncTabs() // เปิดหลายแท็บ → ความคืบหน้าตรงกัน ไม่เขียนทับกัน
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

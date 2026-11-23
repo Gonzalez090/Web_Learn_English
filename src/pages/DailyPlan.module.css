@@ -9,6 +9,16 @@
   font-weight: 700;
 }
 
+.studyTime {
+  font-weight: 700;
+}
+
+.goalMore {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
 .allDone {
   display: flex;
   gap: var(--space-3);

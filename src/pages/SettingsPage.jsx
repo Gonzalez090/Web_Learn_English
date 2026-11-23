@@ -19,7 +19,7 @@ import SpeakButton from '../components/SpeakButton'
 import LineButton from '../components/lesson/LineButton'
 import BackupSection from '../components/settings/BackupSection'
 import ResetSection from '../components/settings/ResetSection'
-import { PLAN_GOALS } from '../utils/dailyPlan'
+import GoalPicker from '../components/GoalPicker'
 import Tile, { TileList } from '../components/Tile'
 import styles from './SettingsPage.module.css'
 
@@ -39,7 +39,6 @@ export default function SettingsPage() {
   const setSetting = useSettingsStore((state) => state.setSetting)
   const [notice, setNotice] = useState(null) // ผลล่าสุดของสำรอง/กู้คืน/รีเซ็ต
   const [panel, setPanel] = useState(null) // กล่องยืนยันที่เปิดอยู่: 'restore' | 'reset' | null (ทีละกล่อง)
-  const dailyGoal = useSettingsStore((state) => state.dailyGoal)
   const { supported, voices, activeVoice, usingLocalFallback, defaultRate } = useSpeech()
 
   return (
@@ -76,12 +75,7 @@ export default function SettingsPage() {
       </Section>
 
       <Section title={t('plan.goalLabel')} description={t('settings.dailyGoalHint')}>
-        <SegmentedControl
-          label={t('plan.goalLabel')}
-          value={dailyGoal}
-          onChange={(value) => setSetting('dailyGoal', value)}
-          options={PLAN_GOALS.map((minutes) => ({ value: minutes, label: t('plan.goalMinutes', { count: minutes }) }))}
-        />
+        <GoalPicker />
       </Section>
 
       <Section title={t('settings.speechRate')} description={t('settings.speechRateHint')}>

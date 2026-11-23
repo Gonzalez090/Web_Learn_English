@@ -23,6 +23,7 @@ import Page from '../components/Page'
 import Section from '../components/Section'
 import Button from '../components/Button'
 import Tile, { TileList } from '../components/Tile'
+import StudyTime from '../components/StudyTime'
 import LevelCard from '../components/LevelCard'
 import MissionList from '../components/MissionList'
 import CityMap from '../components/CityMap'
@@ -86,6 +87,7 @@ function PlanCard() {
         <span className={styles.planProgress}>
           {finished ? t('home.planDone') : t('home.planProgress', { done, total })}
         </span>
+        <StudyTime planDone={finished} className={styles.planProgress} />
       </span>
       <span className={styles.planBar} aria-hidden="true">
         <span className={styles.planFill} style={{ width: `${Math.round((done / total) * 100)}%` }} />

@@ -1,6 +1,6 @@
 // =========================================================
 // WelcomePage — แนะนำวิธีเรียน (/welcome): เข้าเว็บครั้งแรก หน้าแรกพามาที่นี่ / เปิดดูอีกครั้งได้จากหน้าตั้งค่า
-//   3 หน้าสั้น ๆ: 1) เรียนแบบเด็กเจ้าของภาษา ฟัง → พูด → อ่าน → เขียน (เรียงเป็น Stage ปลดล็อกทีละขั้น)
+//   4 หน้าสั้น ๆ (หน้า 4 = เลือกเวลาเรียนต่อวัน เปลี่ยนทีหลังได้):1) เรียนแบบเด็กเจ้าของภาษา ฟัง → พูด → อ่าน → เขียน (เรียงเป็น Stage ปลดล็อกทีละขั้น)
 //                2) เดาจากภาพและเสียงก่อน ไม่ต้องแปล — พูดผิดได้ไม่จำกัด
 //                3) เตรียมไมค์ + วันละนิดทุกวัน + ปุ่ม "เรียนต่อ" พาไปบทถัดไปเอง
 //   กด "ข้าม" ได้ทุกหน้า — จบแล้วบันทึกว่าเห็นแล้ว (introSeen) แล้วพาไปบทถัดไปเลย
@@ -15,6 +15,7 @@ import { useSettingsStore } from '../store/settingsStore'
 import { nextLesson } from '../utils/progress'
 import Page from '../components/Page'
 import Button from '../components/Button'
+import GoalPicker from '../components/GoalPicker'
 import styles from './WelcomePage.module.css'
 
 // ลำดับทักษะแบบเด็กเจ้าของภาษา (หน้า 1)
@@ -39,7 +40,7 @@ const POINTS = {
   ],
 }
 
-const PAGES = ['native', 'guess', 'daily']
+const PAGES = ['native', 'guess', 'daily', 'goal']
 
 export default function WelcomePage() {
   const { t } = useTranslation()
@@ -89,6 +90,9 @@ export default function WelcomePage() {
             ))}
           </ul>
         )}
+
+        {/* หน้าสุดท้าย: เลือกเวลาเรียนต่อวัน (แยกหน้า จอเตี้ยเห็นตัวเลือกโดยไม่ต้องเลื่อน) */}
+        {page === 'goal' && <GoalPicker />}
       </div>
 
       {/* จุดบอกหน้า */}

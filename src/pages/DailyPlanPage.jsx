@@ -15,15 +15,15 @@ import Picture from '../components/Picture'
 import { useLocalized } from '../hooks/useLocalized'
 import { useDailyPlan } from '../hooks/useDailyPlan'
 import { useProgressStore } from '../store/progressStore'
-import { useSettingsStore } from '../store/settingsStore'
 import { todayKey, weekStartKey } from '../utils/date'
 import { nextLesson } from '../utils/progress'
-import { isPlanDone, isTaskDone, nextPlanTask, PLAN_GOALS, TALK_FROM_STAGE } from '../utils/dailyPlan'
+import { isPlanDone, isTaskDone, nextPlanTask, TALK_FROM_STAGE } from '../utils/dailyPlan'
 import { ICONS } from '../utils/icons'
 import Page from '../components/Page'
 import Section from '../components/Section'
 import Button from '../components/Button'
-import SegmentedControl from '../components/SegmentedControl'
+import GoalPicker from '../components/GoalPicker'
+import StudyTime from '../components/StudyTime'
 import SpeakingChart from '../components/SpeakingChart'
 import { formatMinutes } from '../utils/speaking'
 import styles from './DailyPlan.module.css'
@@ -85,8 +85,6 @@ export default function DailyPlanPage() {
   const { t } = useTranslation()
   const loc = useLocalized()
   const plan = useDailyPlan()
-  const goal = useSettingsStore((state) => state.dailyGoal)
-  const setSetting = useSettingsStore((state) => state.setSetting)
   const unlockedStages = useProgressStore((state) => state.unlockedStages)
   const lessonProgress = useProgressStore((state) => state.lessonProgress)
   const speakingMinutes = useProgressStore((state) => state.speakingMinutes)
@@ -112,12 +110,11 @@ export default function DailyPlanPage() {
     <Page title={t('plan.title')} subtitle={t('plan.subtitle')} backTo="/">
       <div className={styles.goal}>
         <span className={styles.goalLabel}>{t('plan.goalLabel')}</span>
-        <SegmentedControl
-          label={t('plan.goalLabel')}
-          value={goal}
-          onChange={(value) => setSetting('dailyGoal', value)}
-          options={PLAN_GOALS.map((minutes) => ({ value: minutes, label: t('plan.goalMinutes', { count: minutes }) }))}
-        />
+        <GoalPicker />
+        <p className={styles.studyTime}>
+          <StudyTime planDone={done} />
+        </p>
+        <p className={styles.goalMore}>{t('plan.goalMore')}</p>
       </div>
 
       {done && (

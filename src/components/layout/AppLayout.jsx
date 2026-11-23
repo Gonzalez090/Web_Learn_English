@@ -16,6 +16,7 @@ import ErrorBoundary from '../ErrorBoundary'
 import Toaster from '../Toaster'
 import { useProgressStore } from '../../store/progressStore'
 import { useSettingsStore } from '../../store/settingsStore'
+import { useStudyTimer } from '../../hooks/useStudyTimer'
 import styles from './AppLayout.module.css'
 
 export default function AppLayout() {
@@ -23,6 +24,8 @@ export default function AppLayout() {
 
   const recordVisit = useProgressStore((state) => state.recordVisit)
   const animations = useSettingsStore((state) => state.animations)
+
+  useStudyTimer(pathname) // นับเวลาเรียนของวัน + ชวนพักเมื่อเรียนต่อเนื่อง 20 นาที
 
   // ปิดแอนิเมชันในหน้าตั้งค่า → CSS ใน global.css หยุดแอนิเมชันทั้งเว็บ (ขั้นที่ 20)
   useEffect(() => {

@@ -147,6 +147,13 @@
     "planProgress": "{{done}}/{{total}} steps done",
     "planDone": "Today's plan is done"
   },
+  "study": {
+    "start": "Try {{recommended}} minutes a day. Every day beats a long day.",
+    "going": "{{minutes}} of {{goal}} minutes today",
+    "enough": "{{minutes}} min today. That's enough. Great job, take a rest!",
+    "enoughShort": "That's enough for today. Great job, take a rest!",
+    "plenty": "{{minutes}} min today. That's a lot! Rest now and come back tomorrow."
+  },
   "learn": {
     "title": "Basics",
     "subtitle": "7 stages, just like native kids learn",
@@ -346,6 +353,15 @@
     "subtitle": "In order: review → new lesson → conversation → mini game",
     "goalLabel": "Daily goal",
     "goalMinutes": "{{count}} min",
+    "goalHint": {
+      "5": "Busy day: a short review and 1 lesson",
+      "10": "An easy start: good for Stages 1–3 and older kids",
+      "15": "Just right: good for teens and adults from Stage 4",
+      "20": "A bit more: split it into morning and evening, then rest"
+    },
+    "goalMatch": "Good for you right now",
+    "goalRecommend": "Best for you right now: {{count}} min",
+    "goalMore": "Want more? Split it into rounds of 20 minutes or less, up to 40 minutes a day. A little every day beats one long day.",
     "tasks": "Today's steps",
     "task": {
       "review": "Review what is due",
@@ -672,6 +688,8 @@
     "friendshipLevel": "Now: {{level}} — new things to talk about",
     "planDone": "Today's plan is done!",
     "planDoneText": "Great job. See you tomorrow!",
+    "break": "20 minutes already! Time for a break?",
+    "breakText": "Stretch and drink some water for 5 minutes. Then come back, or save the rest for tomorrow.",
     "bossDone": "You beat the weekly Boss! +{{xp}} XP",
     "bossDoneText": "Amazing! A new Boss comes next week.",
     "collect": "New phrase card!",
@@ -832,10 +850,14 @@
   },
   "welcome": {
     "title": "Welcome to English Town",
-    "subtitle": "3 things to know before you start",
+    "subtitle": "A few things to know before you start",
     "pageN": "Page {{n}} of {{total}}",
     "next": "Next",
     "skip": "Skip and start",
+    "goal": {
+      "title": "How many minutes a day?",
+      "text": "Pick what you can do every day. It doesn't have to be a lot. You can change it later in Today's plan or Settings."
+    },
     "start": "Let's start",
     "native": {
       "title": "Learn like a native child",

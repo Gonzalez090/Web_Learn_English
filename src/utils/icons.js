@@ -12,6 +12,7 @@ import {
   CalendarCheck,
   CircleCheck,
   CircleHelp,
+  Coffee,
   Construction,
   Download,
   Ear,
@@ -79,6 +80,7 @@ export const ICONS = {
   dev: Wrench,
 
   // อื่น ๆ
+  rest: Coffee, // ชวนพัก
   back: ArrowLeft,
   next: ArrowRight,
   stop: Square,

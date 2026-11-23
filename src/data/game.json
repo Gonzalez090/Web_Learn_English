@@ -203,10 +203,10 @@
     {
       "id": "day180",
       "day": 180,
-      "title": "Day 180 (about B1)",
-      "titleTh": "180 วัน (ประมาณ B1)",
-      "summary": "Tell a story, give your opinion, and handle surprises.",
-      "summaryTh": "เล่าเรื่อง แสดงความเห็น และรับมือสถานการณ์ไม่คาดคิดได้",
+      "title": "Day 180",
+      "titleTh": "180 วัน",
+      "summary": "Tell a short story, say what you think, and try to handle small surprises.",
+      "summaryTh": "เล่าเรื่องสั้น ๆ บอกความคิดเห็นง่าย ๆ และลองรับมือเรื่องไม่คาดคิด — แต่ละคนไปถึงช้าเร็วต่างกันได้",
       "goals": [
         { "text": "Tell a story from pictures", "textTh": "เล่าเรื่องจากภาพ", "to": "/learn/5" },
         { "text": "Say what you think and feel", "textTh": "แสดงความเห็น บอกความรู้สึก", "to": "/phrases/feelings" },

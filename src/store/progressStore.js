@@ -37,6 +37,7 @@ export const INITIAL_PROGRESS = {
   npcFriendship: {}, // { [npcId]: แต้มความสนิท } (ขั้นที่ 15)
   dailyMissions: { date: null, missions: [] }, // ภารกิจของวันนี้ [{ id, progress, done }]
   speakingMinutes: {}, // { 'YYYY-MM-DD': นาทีที่พูด (ทศนิยม) } ย้อนหลัง 60 วัน (ขั้นที่ 18 — utils/speaking.js)
+  studyMinutes: {}, // { 'YYYY-MM-DD': นาทีที่เรียน (ทศนิยม) } ย้อนหลัง 60 วัน (utils/studyTime.js)
   bossWeek: null, // Boss Conversation สัปดาห์นี้ { weekId, scenarioId, done } (ขั้นที่ 18-2 — utils/boss.js)
   dailyPlan: null, // แผนของวันนี้ { date, goal, tasks: [{ kind, target, progress }] } (ขั้นที่ 18 — utils/dailyPlan.js)
   lastVisitDate: null, // วันที่เข้าเว็บล่าสุด — ใช้ตรวจว่าหายไปหลายวันหรือไม่ (ขั้นที่ 15)
@@ -140,6 +141,13 @@ export const useProgressStore = create(
         if (minutes === state.speakingMinutes) return
         set({ speakingMinutes: minutes })
         if (wholeMinutes > 0) get().trackEvent('speakingMinutes', wholeMinutes)
+      },
+
+      // เวลาเรียนของวันนี้ (hooks/useStudyTimer.js เรียกทุก 15 วินาทีตอนเรียนอยู่)
+      addStudyTime: (ms) => {
+        const state = get()
+        const { minutes } = addSpeaking(state.studyMinutes, todayKey(), ms)
+        if (minutes !== state.studyMinutes) set({ studyMinutes: minutes })
       },
 
       // เปิดหน้าแรกวันใหม่ → สุ่มภารกิจของวันนี้

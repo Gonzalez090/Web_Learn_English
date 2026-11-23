@@ -89,6 +89,9 @@ export function cleanProgress(raw, defaults, today) {
     speakingMinutes: cleanMap(source.speakingMinutes, toDate, (minutes) =>
       Number.isFinite(minutes) && minutes >= 0 && minutes <= 1440 ? minutes : undefined,
     ),
+    studyMinutes: cleanMap(source.studyMinutes, toDate, (minutes) =>
+      Number.isFinite(minutes) && minutes >= 0 && minutes <= 1440 ? minutes : undefined,
+    ),
     bossWeek,
     lastVisitDate: upTo(toDate(source.lastVisitDate), today),
   }
@@ -138,6 +141,7 @@ const SAVED_KEYS = [
   'room',
   'npcFriendship',
   'speakingMinutes',
+  'studyMinutes',
   'bossWeek',
   'lastVisitDate',
 ]
