@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest'
-import { ContentLoadError, forgetFailedLoads, loadOnce } from './contentLoad'
+import { ContentLoadError, forgetFailedLoads, loadOnce, RETRY_AFTER_MS } from './contentLoad'
 
 describe('loadOnce', () => {
   it('ขอซ้ำได้ promise ตัวเดิม โหลดครั้งเดียว', async () => {
@@ -21,6 +21,26 @@ describe('loadOnce', () => {
     forgetFailedLoads()
     expect(await loadOnce(cache, 's5', start)).toBe('ok')
     expect(start).toHaveBeenCalledTimes(2)
+  })
+
+  it('ล้มเหลวไปนานแล้ว (ไม่มี ErrorBoundary มาลืมให้) → ลองใหม่ได้ครั้งเดียว ไม่วน', async () => {
+    vi.useFakeTimers()
+    try {
+      const cache = new Map()
+      const start = vi.fn(() => Promise.reject(new Error('x')))
+      await expect(loadOnce(cache, 'a', start)).rejects.toThrow()
+      await Promise.resolve()
+      vi.advanceTimersByTime(RETRY_AFTER_MS - 1)
+      loadOnce(cache, 'a', start)
+      expect(start).toHaveBeenCalledTimes(1)
+      vi.advanceTimersByTime(1)
+      const second = loadOnce(cache, 'a', start)
+      await expect(second).rejects.toThrow()
+      for (let i = 0; i < 50; i += 1) loadOnce(cache, 'a', start)
+      expect(start).toHaveBeenCalledTimes(2)
+    } finally {
+      vi.useRealTimers()
+    }
   })
 
   it('forgetFailedLoads ไม่แตะตัวที่สำเร็จ/กำลังโหลด', async () => {

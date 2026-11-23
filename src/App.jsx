@@ -4,6 +4,7 @@
 // =========================================================
 import { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
+import { lazyPage } from './utils/lazyPage'
 import AppLayout from './components/layout/AppLayout'
 import HomePage from './pages/HomePage'
 import LearnPage from './pages/LearnPage'
@@ -26,19 +27,19 @@ import SettingsPage from './pages/SettingsPage'
 import NotFoundPage from './pages/NotFoundPage'
 
 // หน้าเครดิตมีรายชื่อช่างภาพหลายร้อยรายการ → แยกไฟล์ โหลดเฉพาะตอนเปิดหน้า (Suspense อยู่ใน AppLayout)
-const CreditsPage = lazy(() => import('./pages/CreditsPage'))
+const CreditsPage = lazyPage(() => import('./pages/CreditsPage'))
 
 // หน้าบทเรียน = ตัวเล่นบท + ทุกขั้น + มินิเกม (โค้ดก้อนใหญ่ที่สุด) → แยกไฟล์ โหลดเมื่อเข้าบทเรียน
 // เปิดเว็บครั้งแรกจึงเร็วขึ้น (ระหว่างโหลดแสดงตัวโหลดของ AppLayout เหมือนตอนรอเนื้อหาบท)
-const LessonPage = lazy(() => import('./pages/LessonPage'))
+const LessonPage = lazyPage(() => import('./pages/LessonPage'))
 // หน้าทบทวนใช้ขั้นต่าง ๆ ของบทเรียนชุดเดียวกัน (พูด / อ่าน / เขียน / เกมแตะภาพ) → แยกไฟล์ด้วย ใช้โค้ดร่วมกับหน้าบทเรียน
-const ReviewPage = lazy(() => import('./pages/ReviewPage'))
+const ReviewPage = lazyPage(() => import('./pages/ReviewPage'))
 // Speaking Check (อัดเสียง + IndexedDB + สถิติ) เปิดเดือนละครั้ง → แยกไฟล์ (ขั้นที่ 19)
-const SpeakingCheckPage = lazy(() => import('./pages/SpeakingCheckPage'))
+const SpeakingCheckPage = lazyPage(() => import('./pages/SpeakingCheckPage'))
 // Collection การ์ดวลี: โหลดวลีทุกสถานการณ์ → แยกไฟล์ (ขั้นที่ 20)
-const CollectionPage = lazy(() => import('./pages/CollectionPage'))
+const CollectionPage = lazyPage(() => import('./pages/CollectionPage'))
 // ห้องของตัวละคร (ขั้นที่ 20-2)
-const RoomPage = lazy(() => import('./pages/RoomPage'))
+const RoomPage = lazyPage(() => import('./pages/RoomPage'))
 
 // หน้าทดสอบ /dev โหลดเฉพาะตอน npm run dev (ตอน build จริงโค้ดส่วนนี้ถูกตัดทิ้ง)
 const DevPage = import.meta.env.DEV ? lazy(() => import('./pages/DevPage')) : null

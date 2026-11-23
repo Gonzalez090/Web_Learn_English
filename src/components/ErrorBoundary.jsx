@@ -8,6 +8,7 @@
 import { Component } from 'react'
 import { withTranslation } from 'react-i18next'
 import { TriangleAlert } from 'lucide-react'
+import { reloadIfUpdated } from '../utils/appUpdate'
 import { ContentLoadError, forgetFailedLoads } from '../utils/contentLoad'
 import Button from './Button'
 import styles from './ErrorBoundary.module.css'
@@ -20,8 +21,19 @@ class ErrorBoundaryInner extends Component {
   }
 
   // แสดงข้อความแล้ว (ไม่วาดหน้าที่พังอีก) → ลืมไฟล์ที่โหลดไม่สำเร็จ ให้เปลี่ยนหน้าแล้วกลับมาลองใหม่ได้
-  componentDidCatch() {
+  // โหลดไฟล์ไม่ได้เพราะมีเวอร์ชันใหม่ขึ้นแล้ว → โหลดหน้าใหม่ให้เอง (utils/appUpdate.js)
+  componentDidCatch(error) {
     forgetFailedLoads()
+    // ตรวจอีกครั้งตอนได้คำตอบ: ยังแสดงข้อผิดพลาดเดิมอยู่ (ไม่ได้ไปหน้าอื่น/กลับไปทำบท) จึงโหลดใหม่
+    if (error instanceof ContentLoadError) reloadIfUpdated(() => this.mounted && this.state.error === error)
+  }
+
+  componentDidMount() {
+    this.mounted = true
+  }
+
+  componentWillUnmount() {
+    this.mounted = false
   }
 
   // เปลี่ยนหน้าแล้ว → ล้าง error
