@@ -1,132 +1,162 @@
-.actions {
+/* หน้าแรก: มือถือเรียงลงมา / จอกว้าง 2 คอลัมน์ (เรียน + เมือง | เลเวล + ภารกิจ) */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    'main'
+    'side'
+    'town';
+  gap: var(--space-5);
+}
+
+.main,
+.side,
+.town {
   display: flex;
   flex-direction: column;
+  gap: var(--space-5);
+  min-width: 0;
+}
+
+.main {
+  grid-area: main;
   gap: var(--space-3);
 }
 
-/* ปุ่มใหญ่ "เรียนต่อ" (หน้าตาแบบปุ่มหลัก แต่มี 2 บรรทัด: เรียนต่อ + ชื่อบทถัดไป) */
-.continue {
+.side {
+  grid-area: side;
+}
+
+.town {
+  grid-area: town;
+}
+
+/* 1024–1179: เมนูซ้ายกินที่ → คอลัมน์เดียว (สองคอลัมน์จะแคบเกิน) */
+@media (min-width: 900px) and (max-width: 1023px), (min-width: 1180px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr) 336px;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      'main side'
+      'town side';
+    gap: var(--space-6) var(--space-5);
+  }
+}
+
+/* การ์ดคู่: แผนวันนี้ | ทบทวนวันนี้ */
+.duo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-3);
+}
+
+@media (min-width: 560px) {
+  .duo {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.card {
   display: flex;
   align-items: center;
   gap: var(--space-3);
-  min-height: 64px;
-  padding: var(--space-3) var(--space-4);
-  border-radius: var(--radius-md);
-  background: var(--color-primary);
-  color: #fff;
+  min-height: 84px;
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  color: var(--color-text);
   text-decoration: none;
-  box-shadow: 0 4px 0 var(--color-primary-strong);
   -webkit-tap-highlight-color: transparent;
   transition:
-    transform 0.08s,
-    box-shadow 0.08s;
+    transform 0.25s var(--ease),
+    box-shadow 0.25s var(--ease),
+    border-color 0.25s var(--ease);
 }
 
-.continue:active {
-  transform: translateY(2px);
-  box-shadow: 0 2px 0 var(--color-primary-strong);
+a.card:active {
+  transform: scale(0.98);
 }
 
-.continue:focus-visible {
-  outline: 3px solid var(--color-primary-strong);
-  outline-offset: 2px;
+@media (hover: hover) {
+  a.card:hover {
+    border-color: var(--color-primary-line);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
 }
 
-.continueIcon {
+.cardIcon {
   flex: none;
-  width: 28px;
-  height: 28px;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: var(--tone-violet-bg);
+  color: var(--tone-violet);
 }
 
-.continueText {
+.cardIcon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.reviewIcon {
+  background: var(--tone-peach-bg);
+  color: var(--tone-peach);
+}
+
+.doneIcon {
+  background: var(--color-success-soft);
+  color: var(--color-success);
+}
+
+.cardText {
   display: flex;
+  flex: 1;
   flex-direction: column;
   min-width: 0;
 }
 
-.continueTitle {
-  font-size: 1.125rem;
-  font-weight: 800;
+.cardTitle {
+  font-weight: 700;
+  line-height: 1.4;
 }
 
-/* ชื่อบทถัดไป — ยาวแค่ไหนก็ตัดเป็น … ไม่ดันปุ่มให้สูง */
-.continueLesson {
-  overflow: hidden;
-  font-size: 0.875rem;
-  font-weight: 600;
-  opacity: 0.92;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .continue {
-    transition: none;
-  }
-}
-
-/* การ์ดแผนวันนี้ (ขั้นที่ 18) — กรอบขาว + แถบความคืบหน้า (ปุ่มหลักยังเป็น "เรียนต่อ") */
-.plan {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  min-height: 64px;
-  padding: var(--space-3) var(--space-4) calc(var(--space-3) + 6px);
-  overflow: hidden;
-  border: 2px solid var(--color-primary);
-  border-radius: var(--radius-md);
-  background: var(--color-surface);
-  color: var(--color-text);
-  text-decoration: none;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.plan:focus-visible {
-  outline: 3px solid var(--color-primary-strong);
-  outline-offset: 2px;
-}
-
-.planDone {
-  border-color: var(--color-success);
-}
-
-.planIcon {
-  flex: none;
-  width: 28px;
-  height: 28px;
-  color: var(--color-primary);
-}
-
-.planDone .planIcon {
-  color: var(--color-success);
-}
-
-.planTitle {
-  font-size: 1.0625rem;
-  font-weight: 800;
-}
-
-.planProgress {
+.cardNote {
   color: var(--color-muted);
   font-size: 0.875rem;
-  font-weight: 600;
+  line-height: 1.5;
 }
 
-.planBar {
-  position: absolute;
-  inset: auto 0 0;
-  height: 6px;
-  background: var(--color-primary-soft);
-}
-
-.planFill {
+.cardBar {
   display: block;
-  height: 100%;
-  background: var(--color-primary);
-  transition: width 0.3s ease;
+  height: 6px;
+  margin: 6px 0;
+  overflow: hidden;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-soft);
 }
 
-.planDone .planFill {
+.cardFill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--color-primary);
+  transform-origin: left center;
+  transition: transform 0.4s var(--ease);
+}
+
+.planDone .cardFill {
   background: var(--color-success);
+}
+
+/* ปุ่มลัด: จอกว้างมีเมนูซ้ายแล้ว ไม่ต้องแสดงซ้ำ */
+@media (min-width: 1024px) {
+  .shortcuts {
+    display: none;
+  }
 }

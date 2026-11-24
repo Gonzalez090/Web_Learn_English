@@ -2,8 +2,8 @@
 .sentence {
   display: block;
   max-width: 100%;
-  font-weight: 700;
-  line-height: 1.3;
+  font-weight: 600;
+  line-height: 1.35;
   text-align: center;
   overflow-wrap: anywhere;
 }
@@ -23,7 +23,7 @@
 
 /* คำที่ลงเสียงหนัก */
 .stress {
-  font-weight: 900;
+  font-weight: 800;
   text-decoration: underline;
   text-decoration-color: var(--color-xp);
   text-decoration-thickness: 3px;

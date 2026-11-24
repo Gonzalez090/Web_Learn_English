@@ -32,12 +32,12 @@
 .rhyme {
   padding: 0 4px;
   border-radius: 4px;
-  background: #fde68a;
+  background: var(--color-rhyme-a);
   color: inherit;
 }
 
 .coupletB {
-  background: #bbf7d0;
+  background: var(--color-rhyme-b);
 }
 
 /* ช่องว่างรอเติมคำ */
@@ -65,21 +65,23 @@
   min-width: 96px;
   min-height: 48px;
   padding: 0 var(--space-4);
-  border: 2px solid var(--color-border);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-full);
   background: var(--color-surface);
   color: var(--color-text);
   font: inherit;
   font-size: 1.125rem;
-  font-weight: 800;
+  font-weight: 700;
   cursor: pointer;
   transition:
-    border-color 0.15s ease,
-    opacity 0.15s ease;
+    border-color 0.15s var(--ease),
+    opacity 0.15s var(--ease);
 }
 
-.choice:hover:not(:disabled) {
-  border-color: var(--color-primary);
+@media (hover: hover) {
+  .choice:hover:not(:disabled) {
+    border-color: var(--color-primary);
+  }
 }
 
 /* แตะแล้วไม่ใช่ / ตอบถูกแล้ว (ตัวเลือกอื่น) → จางลง */
@@ -103,7 +105,7 @@
 
 .praise {
   color: var(--color-success);
-  font-weight: 800;
+  font-weight: 700;
   text-align: center;
 }
 

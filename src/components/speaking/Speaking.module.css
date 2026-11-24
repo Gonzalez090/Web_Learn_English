@@ -31,7 +31,7 @@
 .statusTitle {
   margin: 0;
   font-size: 1.125rem;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .statusText {
@@ -59,7 +59,7 @@
 }
 
 .noticeTitle {
-  font-weight: 800;
+  font-weight: 700;
   margin-bottom: var(--space-1) !important;
 }
 
@@ -113,8 +113,8 @@
   place-items: center;
   border-radius: var(--radius-full);
   background: var(--color-primary);
-  color: #fff;
-  font-weight: 800;
+  color: var(--color-on-primary);
+  font-weight: 700;
   font-size: 0.875rem;
 }
 
@@ -126,7 +126,7 @@
 
 .promptsTitle {
   margin: 0 0 var(--space-1);
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .promptList {
@@ -158,7 +158,7 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   background: var(--color-surface);
-  box-shadow: 0 4px 16px rgb(0 0 0 / 0.08);
+  box-shadow: var(--shadow-md);
 }
 
 .dockRow {
@@ -195,7 +195,7 @@
 .timer {
   white-space: nowrap; /* จอ 320: "เหลือ 0:45" ไม่ตัดบรรทัด */
   font-size: 1.25rem;
-  font-weight: 800;
+  font-weight: 700;
   font-variant-numeric: tabular-nums;
 }
 
@@ -259,7 +259,7 @@
 
 .doneTitle {
   font-size: 1.125rem;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--color-success);
   margin-bottom: var(--space-1) !important;
 }
@@ -308,7 +308,7 @@
   flex-wrap: wrap;
   gap: var(--space-1);
   font-size: 1.375rem;
-  font-weight: 800;
+  font-weight: 700;
   font-variant-numeric: tabular-nums;
 }
 
@@ -451,7 +451,7 @@
 .milestoneTitle {
   margin: 0;
   font-size: 1rem;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .milestoneStatus {
@@ -484,7 +484,7 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-1);
-  min-height: 36px;
+  min-height: 40px;
   padding: var(--space-1) var(--space-3);
   border-radius: var(--radius-full);
   background: var(--color-primary-soft);
@@ -494,9 +494,11 @@
   text-decoration: none;
 }
 
-.goal:hover {
-  background: var(--color-primary);
-  color: #fff;
+@media (hover: hover) {
+  .goal:hover {
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+  }
 }
 
 /* ---------- ประวัติ ---------- */
@@ -524,7 +526,7 @@
 }
 
 .historyTitle {
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .historyMeta {

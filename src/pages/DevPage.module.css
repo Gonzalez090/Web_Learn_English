@@ -18,8 +18,10 @@
   text-decoration: none;
 }
 
-.links a:hover {
-  border-color: var(--color-primary);
+@media (hover: hover) {
+  .links a:hover {
+    border-color: var(--color-primary);
+  }
 }
 
 .row {
@@ -64,8 +66,8 @@
   padding: var(--space-3);
   overflow: auto;
   border-radius: var(--radius-sm);
-  background: #1f2430;
-  color: #e6e9ef;
+  background: var(--color-ink);
+  color: var(--color-on-ink-muted);
   font-family: var(--font-mono);
   font-size: 0.75rem;
 }

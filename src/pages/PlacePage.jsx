@@ -37,9 +37,7 @@ export default function PlacePage() {
 
   return (
     <Page title={loc(place, 'name')} subtitle={loc(place, 'description')} backTo="/">
-      <div className={styles.intro}>
-        <Picture image={place.image} size="fill" alt="" className={styles.introPicture} />
-      </div>
+      <Picture image={place.image} size="fill" alt="" className={`${styles.introPicture} ${styles.banner}`} />
 
       {!unlocked ? (
         <div className={styles.randomBox}>

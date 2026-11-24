@@ -1,7 +1,15 @@
+/* ความกว้างหน้า: ปกติ = คอลัมน์อ่านสบาย / wide = หน้ารายการหลายคอลัมน์ */
 .page {
   display: flex;
   flex-direction: column;
   gap: var(--space-5);
+  width: 100%;
+  max-width: var(--page-narrow);
+  margin: 0 auto;
+}
+
+.wide {
+  max-width: var(--page-wide);
 }
 
 .header {
@@ -16,11 +24,27 @@
   place-items: center;
   width: 44px;
   height: 44px;
-  border: 2px solid var(--color-border);
-  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
   background: var(--color-surface);
   color: var(--color-text);
+  box-shadow: var(--shadow-sm);
   text-decoration: none;
+  transition:
+    border-color 0.2s var(--ease),
+    color 0.2s var(--ease),
+    transform 0.2s var(--ease);
+}
+
+.back:active {
+  transform: scale(0.96);
+}
+
+@media (hover: hover) {
+  .back:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary-strong);
+  }
 }
 
 .back svg {
@@ -30,6 +54,7 @@
 
 .heading {
   min-width: 0;
+  padding-top: 2px;
 }
 
 .title {
@@ -50,6 +75,26 @@
 
 @media (min-width: 640px) {
   .title {
-    font-size: 1.75rem;
+    font-size: 1.875rem;
+  }
+
+  .body {
+    gap: var(--space-6);
+  }
+}
+
+/* จอเตี้ย (บทเรียน/ทบทวน): ซ่อนคำอธิบาย ย่อหัวหน้าและระยะห่าง */
+@media (max-height: 760px) {
+  .compact,
+  .compact .body {
+    gap: var(--space-2);
+  }
+
+  .compact .title {
+    font-size: 1.125rem;
+  }
+
+  .compact .subtitle {
+    display: none;
   }
 }

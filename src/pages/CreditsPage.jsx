@@ -18,7 +18,7 @@ export default function CreditsPage() {
   const entries = Object.entries(imageCredits)
 
   return (
-    <Page title={t('credits.title')} subtitle={t('credits.subtitle')} backTo="/settings">
+    <Page title={t('credits.title')} subtitle={t('credits.subtitle')} backTo="/settings" wide>
       <p className={styles.source}>
         {t('credits.source')}{' '}
         <a href={PIXABAY_URL} target="_blank" rel="noopener noreferrer">

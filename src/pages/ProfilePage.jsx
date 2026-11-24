@@ -39,39 +39,48 @@ export default function ProfilePage() {
   ]
 
   return (
-    <Page title={t('profile.title')}>
-      <LevelCard />
+    <Page title={t('profile.title')} wide>
+      <div className={styles.layout}>
+        <div className={styles.col}>
+          <LevelCard />
+          <TileList>
+            <Tile to="/profile/room" image={home.image} title={t('room.title')} description={t('room.tile', { name: loc(home, 'name') })} />
+            <Tile
+              to="/profile/collection"
+              icon={ICONS.collection}
+              tone="lemon"
+              title={t('collection.title')}
+              description={t('collection.tile', { count: cardCount, total: phraseTotal })}
+            />
+            <Tile
+              to="/profile/speaking-check"
+              icon={ICONS.speakingCheck}
+              tone="mint"
+              title={t('profile.speakingCheck')}
+              description={t('profile.speakingCheckDesc')}
+            />
+          </TileList>
+        </div>
 
-      <Section title={t('profile.stats')}>
-        <dl className={styles.stats}>
-          {stats.map((stat) => (
-            <div key={stat.key} className={styles.stat}>
-              <dt className={styles.label}>{t(`profile.${stat.key}`)}</dt>
-              <dd className={styles.value}>{stat.value}</dd>
+        <div className={styles.col}>
+          <Section title={t('profile.stats')}>
+            <dl className={styles.stats}>
+              {stats.map((stat) => (
+                <div key={stat.key} className={styles.stat}>
+                  <dt className={styles.label}>{t(`profile.${stat.key}`)}</dt>
+                  <dd className={styles.value}>{stat.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </Section>
+          {/* นาทีที่พูดภาษาอังกฤษ 7 วันล่าสุด (ขั้นที่ 18) */}
+          <Section title={t('plan.speaking')} description={t('plan.speakingNote')}>
+            <div className={styles.panel}>
+              <SpeakingChart minutes={speakingMinutes} today={todayKey()} />
             </div>
-          ))}
-        </dl>
-      </Section>
-
-      <TileList>
-        <Tile to="/profile/room" image={home.image} title={t('room.title')} description={t('room.tile', { name: loc(home, 'name') })} />
-        <Tile
-          to="/profile/collection"
-          icon={ICONS.collection}
-          title={t('collection.title')}
-          description={t('collection.tile', { count: cardCount, total: phraseTotal })}
-        />
-        <Tile
-          to="/profile/speaking-check"
-          icon={ICONS.speakingCheck}
-          title={t('profile.speakingCheck')}
-          description={t('profile.speakingCheckDesc')}
-        />
-      </TileList>
-      {/* นาทีที่พูดภาษาอังกฤษ 7 วันล่าสุด (ขั้นที่ 18) */}
-      <Section title={t('plan.speaking')} description={t('plan.speakingNote')}>
-        <SpeakingChart minutes={speakingMinutes} today={todayKey()} />
-      </Section>
+          </Section>
+        </div>
+      </div>
     </Page>
   )
 }

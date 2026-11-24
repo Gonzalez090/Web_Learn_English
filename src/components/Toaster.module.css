@@ -12,17 +12,24 @@
   pointer-events: none;
 }
 
+/* จอกว้าง: กลางพื้นที่เนื้อหา ไม่ใช่กลางจอ (เมนูซ้ายกินที่ไปแล้ว) */
+@media (min-width: 1024px) {
+  .region {
+    left: calc(50% + var(--sidenav-width) / 2);
+  }
+}
+
 .toast {
   display: flex;
   align-items: center;
   gap: var(--space-3);
   padding: var(--space-3);
-  border: 2px solid var(--color-primary);
+  border: 1px solid var(--color-primary);
   border-radius: var(--radius-lg);
   background: var(--color-surface);
-  box-shadow: 0 8px 24px rgb(0 0 0 / 0.15);
+  box-shadow: var(--shadow-lg);
   pointer-events: auto;
-  animation: toast-in 0.25s ease-out;
+  animation: toast-in 0.25s var(--ease);
 }
 
 .levelUp {
@@ -61,7 +68,7 @@
 }
 
 .title {
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .text {
@@ -89,8 +96,10 @@
   height: 18px;
 }
 
-.close:hover {
-  background: var(--color-surface-soft);
+@media (hover: hover) {
+  .close:hover {
+    background: var(--color-surface-soft);
+  }
 }
 
 .close:focus-visible {
@@ -101,19 +110,19 @@
 /* ขึ้นเลเวล: ไอคอนเด้ง + กรอบเรืองแสง (ขั้นที่ 20) */
 .levelUp {
   animation:
-    toast-in 0.25s ease-out,
-    glow 1.2s ease-out 0.25s 2;
+    toast-in 0.25s var(--ease),
+    glow 1.2s var(--ease) 0.25s 2;
 }
 
 .levelUp .icon {
-  animation: bounce 0.6s ease-out 0.2s 2;
+  animation: bounce 0.6s var(--ease) 0.2s 2;
 }
 
 @keyframes glow {
   50% {
     box-shadow:
-      0 8px 24px rgb(0 0 0 / 0.15),
-      0 0 0 6px rgb(245 165 36 / 0.35);
+      var(--shadow-lg),
+      0 0 0 6px color-mix(in srgb, var(--color-xp) 35%, transparent);
   }
 }
 
@@ -129,20 +138,20 @@
 /* การ์ดวลีใหม่: พลิกเข้ามาเหมือนเปิดการ์ด / การ์ดพิเศษ = กรอบทอง + ระยิบ */
 .collect {
   border-color: var(--color-primary);
-  animation: card-in 0.45s ease-out;
+  animation: card-in 0.45s var(--ease);
 }
 
 .collect.special {
   border-color: var(--color-xp);
-  background: linear-gradient(135deg, #fffaf0, #fff4d6);
+  background: var(--color-sun-soft);
   animation:
-    card-in 0.45s ease-out,
-    glow 1.2s ease-out 0.45s 2;
+    card-in 0.45s var(--ease),
+    glow 1.2s var(--ease) 0.45s 2;
 }
 
 .collect.special .icon {
   color: var(--color-xp);
-  animation: bounce 0.6s ease-out 0.4s 2;
+  animation: bounce 0.6s var(--ease) 0.4s 2;
 }
 
 @keyframes card-in {

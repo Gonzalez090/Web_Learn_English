@@ -7,21 +7,23 @@
   width: 40px;
   height: 40px;
   padding: 0;
-  border: 2px solid var(--color-border);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-full);
   background: var(--color-surface);
   color: var(--color-primary);
   cursor: pointer;
 }
 
-.button:hover {
-  border-color: var(--color-primary);
+@media (hover: hover) {
+  .button:hover {
+    border-color: var(--color-primary);
+  }
 }
 
 .playing {
   border-color: var(--color-primary);
   background: var(--color-primary);
-  color: #fff;
+  color: var(--color-on-primary);
 }
 
 .icon {

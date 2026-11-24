@@ -30,7 +30,7 @@
   min-width: 0;
   max-width: 100%;
   padding: var(--space-2) var(--space-3);
-  border: 2px solid var(--color-border);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   background: var(--color-surface);
 }
@@ -63,10 +63,10 @@
 .yourTurn {
   flex-direction: row;
   gap: var(--space-2);
-  border: 2px dashed var(--color-primary);
+  border: 1.5px dashed var(--color-primary);
   background: var(--color-surface);
   color: var(--color-primary-strong);
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .yourTurnIcon {
@@ -87,7 +87,7 @@
   align-items: center;
   justify-content: center;
   gap: 6px;
-  min-height: 36px;
+  min-height: 40px;
   padding: 0 var(--space-3);
   border: 1px dashed var(--color-border);
   border-radius: var(--radius-full);
@@ -98,9 +98,11 @@
   cursor: pointer;
 }
 
-.reveal:hover {
-  border-color: var(--color-primary);
-  color: var(--color-primary-strong);
+@media (hover: hover) {
+  .reveal:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary-strong);
+  }
 }
 
 .revealIcon {

@@ -12,6 +12,9 @@ import { GAME_ICONS, ICONS } from '../utils/icons'
 import Page from '../components/Page'
 import Tile, { TileList } from '../components/Tile'
 
+// สีของการ์ดเกม เรียงตามลำดับในรายการ
+const TONES = ['sky', 'violet', 'mint', 'lemon', 'peach', 'pink']
+
 export default function GamesPage() {
   const { t } = useTranslation()
   const loc = useLocalized()
@@ -19,15 +22,17 @@ export default function GamesPage() {
   const speedScenarios = useSpeedScenarios()
 
   return (
-    <Page title={t('games.title')} subtitle={t('games.subtitle')}>
-      <TileList>
-        {miniGames.map((game) => {
+    <Page title={t('games.title')} subtitle={t('games.subtitle')} wide>
+      <TileList variant="features">
+        {miniGames.map((game, index) => {
           const { ready, stage } = gameAvailability(game.id, { lessonList, lessonProgress, speedScenarios })
           return (
             <Tile
               key={game.id}
               to={`/games/${game.id}`}
               icon={ready ? GAME_ICONS[game.id] : ICONS.locked}
+              tone={ready ? TONES[index % TONES.length] : 'plain'}
+              layout="feature"
               title={game.name}
               description={ready ? loc(game, 'description') : t(LESSON_GAMES[game.id] ? 'games.lockedLesson' : 'games.lockedStage', { n: stage })}
             />

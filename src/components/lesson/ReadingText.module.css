@@ -1,6 +1,6 @@
 .text {
   font-size: clamp(1.5rem, 7vw, 1.875rem);
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.35;
   text-align: center;
   overflow-wrap: anywhere;
@@ -9,8 +9,8 @@
 .word {
   border-radius: var(--radius-sm);
   transition:
-    color 0.15s ease,
-    background-color 0.15s ease;
+    color 0.15s var(--ease),
+    background-color 0.15s var(--ease);
 }
 
 /* คำที่อ่านถึงแล้ว */

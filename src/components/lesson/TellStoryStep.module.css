@@ -17,7 +17,7 @@
 .hintLabel {
   color: var(--color-muted);
   font-size: 0.875rem;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .keywords {
@@ -36,5 +36,5 @@
   border-radius: var(--radius-full);
   background: var(--color-primary-soft);
   color: var(--color-primary-strong);
-  font-weight: 800;
+  font-weight: 700;
 }

@@ -18,6 +18,7 @@ import StatusBadge from '../components/StatusBadge'
 import ComingSoon from '../components/ComingSoon'
 import LockedNotice from '../components/LockedNotice'
 import NotFoundPage from './NotFoundPage'
+import styles from './StagePage.module.css'
 
 // Stage ที่ยังไม่มีเนื้อหา จะมีบทเรียนในขั้นไหนของแผน
 const CONTENT_STEP = { 5: 7, 6: 8, 7: 9 }
@@ -66,12 +67,26 @@ export default function StagePage() {
     )
   }
 
+  const done = stageLessons.filter((lesson) => lessonProgress[lesson.id]?.completed).length
+  const total = stageLessons.length
+
   return (
-    <Page title={title} subtitle={loc(stage, 'description')} backTo="/learn">
-      {stageLessons.length === 0 ? (
+    <Page title={title} subtitle={loc(stage, 'description')} backTo="/learn" wide>
+      {total > 0 && (
+        <div className={styles.progress}>
+          <span className={styles.bar} aria-hidden="true">
+            <span
+              className={done === total ? `${styles.fill} ${styles.complete}` : styles.fill}
+              style={{ transform: `scaleX(${done / total})` }}
+            />
+          </span>
+          <span className={styles.count}>{t('learn.lessonsDone', { done, total })}</span>
+        </div>
+      )}
+      {total === 0 ? (
         <ComingSoon step={CONTENT_STEP[stage.id]} />
       ) : (
-        <TileList>
+        <TileList variant="columns">
           {stageLessons.map((lesson) => {
             const progress = lessonProgress[lesson.id]
             const isNext = lesson.id === nextId

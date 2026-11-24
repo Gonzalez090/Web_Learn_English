@@ -10,6 +10,7 @@
     "profile": "โปรไฟล์",
     "back": "ย้อนกลับ",
     "mainMenu": "เมนูหลัก",
+    "practice": "ฝึกเพิ่ม",
     "goHome": "กลับหน้าแรก"
   },
   "language": {
@@ -130,7 +131,7 @@
   "home": {
     "title": "สวัสดี! วันนี้มาฝึกพูดกันนะ",
     "startPlan": "เริ่มแผนวันนี้",
-    "reviewToday": "ทบทวนวันนี้ ({{count}} รายการ)",
+    "reviewDue": "ถึงรอบแล้ว {{count}} รายการ",
     "noReview": "วันนี้ไม่มีรายการต้องทบทวน",
     "cityMap": "แผนที่เมือง",
     "todayMissions": "ภารกิจวันนี้",
@@ -158,6 +159,7 @@
     "title": "เรียนพื้นฐาน",
     "subtitle": "7 ขั้นตามพัฒนาการเด็กเจ้าของภาษา",
     "stageN": "Stage {{n}}",
+    "lessonsDone": "{{done}}/{{total}} บท",
     "noLessons": "Stage นี้ยังไม่มีบทเรียน",
     "bestScore": "ดีที่สุด {{score}}%"
   },

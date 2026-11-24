@@ -1,3 +1,4 @@
+/* ภารกิจวันนี้: การ์ดเดียว แบ่งแถวด้วยเส้นบาง */
 .wrap {
   display: flex;
   flex-direction: column;
@@ -5,10 +6,12 @@
 }
 
 .list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-  padding: 0;
+  margin: 0;
+  padding: 0 var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
   list-style: none;
 }
 
@@ -16,25 +19,26 @@
   display: flex;
   align-items: center;
   gap: var(--space-3);
-  padding: var(--space-3);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  background: var(--color-surface);
+  padding: var(--space-3) 0;
 }
 
-.done {
-  border-color: var(--color-success);
-  background: var(--color-success-soft);
+.item + .item {
+  border-top: 1px solid var(--color-border);
 }
 
 .icon {
   flex: none;
-  width: 24px;
-  height: 24px;
+  box-sizing: border-box;
+  width: 40px;
+  height: 40px;
+  padding: 9px;
+  border-radius: 12px;
+  background: var(--color-primary-soft);
   color: var(--color-primary);
 }
 
 .done .icon {
+  background: var(--color-success-soft);
   color: var(--color-success);
 }
 
@@ -42,12 +46,14 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  gap: var(--space-1);
+  gap: 6px;
   min-width: 0;
 }
 
 .title {
-  font-weight: 700;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.4;
 }
 
 .bar {
@@ -55,7 +61,7 @@
   height: 6px;
   overflow: hidden;
   border-radius: var(--radius-full);
-  background: var(--color-border);
+  background: var(--color-surface-soft);
 }
 
 .barFill {
@@ -65,7 +71,7 @@
   border-radius: inherit;
   background: var(--color-primary);
   transform-origin: left center;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s var(--ease);
 }
 
 .done .barFill {
@@ -78,6 +84,7 @@
   flex-direction: column;
   align-items: flex-end;
   font-size: 0.875rem;
+  line-height: 1.45;
   font-variant-numeric: tabular-nums;
 }
 
@@ -85,8 +92,14 @@
   font-weight: 700;
 }
 
+.done .count {
+  color: var(--color-success);
+}
+
 .reward {
-  color: var(--color-muted);
+  color: var(--color-xp-text);
+  font-size: 0.8125rem;
+  font-weight: 600;
 }
 
 .note {

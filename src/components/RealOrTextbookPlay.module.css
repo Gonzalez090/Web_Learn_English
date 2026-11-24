@@ -3,8 +3,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
-  padding: var(--space-3);
-  border: 2px dashed var(--color-primary);
+  padding: var(--space-4);
   border-radius: var(--radius-lg);
   background: var(--color-primary-soft);
 }
@@ -31,7 +30,7 @@
 
 .title {
   font-size: 1.25rem;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .score {
@@ -40,8 +39,8 @@
 }
 
 .xp {
-  color: var(--color-xp);
-  font-weight: 800;
+  color: var(--color-xp-text);
+  font-weight: 700;
 }
 
 .actions {

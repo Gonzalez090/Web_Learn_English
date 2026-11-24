@@ -1,0 +1,273 @@
+/* เส้นทางเรียน: จุดซ้าย + เส้นต่อกัน + การ์ด Stage */
+.stop {
+  position: relative;
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  gap: var(--space-3);
+  align-items: center;
+}
+
+/* เส้นเชื่อมไปจุดถัดไป */
+.stop:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  bottom: calc(-50% - var(--space-4));
+  left: 17px;
+  width: 2px;
+  background: var(--color-border-strong);
+}
+
+.completed:not(:last-child)::before {
+  background: var(--color-success);
+}
+
+.node {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 2px solid var(--color-border-strong);
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  color: var(--color-muted);
+  font-weight: 800;
+}
+
+.node svg {
+  width: 18px;
+  height: 18px;
+}
+
+.unlocked .node {
+  border-color: var(--color-primary);
+  color: var(--color-primary-strong);
+}
+
+.current .node {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  box-shadow: 0 0 0 5px var(--color-primary-soft);
+}
+
+.completed .node {
+  border-color: var(--color-success);
+  background: var(--color-success);
+  color: var(--color-on-primary);
+}
+
+.locked .node {
+  background: var(--color-locked-bg);
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  min-width: 0;
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  color: var(--color-text);
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    transform 0.25s var(--ease),
+    box-shadow 0.25s var(--ease),
+    border-color 0.25s var(--ease);
+}
+
+.card:active {
+  transform: scale(0.99);
+}
+
+@media (hover: hover) {
+  .card:hover {
+    border-color: var(--color-primary-line);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+.current .card {
+  border-color: var(--color-primary);
+}
+
+.card .picture {
+  --frame: 132px;
+  border-radius: 16px;
+}
+
+/* ยังล็อก: ภาพยังเป็นสีจริง แค่จางลง */
+.locked .picture {
+  opacity: 0.6;
+}
+
+.text {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.stage {
+  color: var(--color-muted);
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.skill {
+  padding: 1px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.listen {
+  background: var(--tone-sky-bg);
+  color: var(--tone-sky);
+}
+
+.speak {
+  background: var(--tone-violet-bg);
+  color: var(--tone-violet);
+}
+
+.read {
+  background: var(--tone-peach-bg);
+  color: var(--tone-peach);
+}
+
+.write {
+  background: var(--tone-pink-bg);
+  color: var(--tone-pink);
+}
+
+.title {
+  font-size: 1.1875rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.locked .title {
+  color: var(--color-muted);
+}
+
+.description {
+  color: var(--color-muted);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.age {
+  color: var(--color-muted);
+  font-size: 0.8125rem;
+}
+
+.lockedText {
+  margin-top: var(--space-1);
+  color: var(--color-locked-text);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.progress {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.bar {
+  flex: 1;
+  max-width: 220px;
+  height: 8px;
+  overflow: hidden;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-soft);
+}
+
+.fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--color-primary);
+  transform-origin: left center;
+}
+
+.completed .fill {
+  background: var(--color-success);
+}
+
+.count {
+  flex: none;
+  color: var(--color-muted);
+  font-size: 0.8125rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.chevron {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  color: var(--color-faint);
+}
+
+@media (max-width: 519px) {
+  .stop {
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: var(--space-2);
+  }
+
+  .stop:not(:last-child)::before {
+    left: 14px;
+  }
+
+  .node {
+    width: 30px;
+    height: 30px;
+    font-size: 0.875rem;
+  }
+
+  .card {
+    gap: var(--space-3);
+  }
+
+  .card .picture {
+    --frame: 84px;
+  }
+
+  .title {
+    font-size: 1.0625rem;
+  }
+
+  .description {
+    font-size: 0.875rem;
+  }
+
+  .progress {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+  }
+
+  .bar {
+    flex: none;
+    max-width: none;
+    height: 6px;
+  }
+
+  .chevron {
+    display: none;
+  }
+}

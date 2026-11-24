@@ -5,8 +5,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: var(--space-2);
-  padding: var(--space-3);
-  border: 2px solid var(--color-primary);
+  padding: var(--space-4);
   border-radius: var(--radius-lg);
   background: var(--color-primary-soft);
 }
@@ -50,7 +49,7 @@
 .speaker {
   color: var(--color-primary-strong);
   font-size: 0.8125rem;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .line {
@@ -59,7 +58,7 @@
   align-items: center;
   gap: var(--space-2);
   font-size: 1.125rem;
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.3;
 }
 

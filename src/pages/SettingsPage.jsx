@@ -43,13 +43,13 @@ export default function SettingsPage() {
 
   return (
     <Page title={t('settings.title')} backTo="/">
-      <Section title={t('language.label')} description={t('language.hint')}>
+      <Section card title={t('language.label')} description={t('language.hint')}>
         <div>
           <LanguageToggle size="md" />
         </div>
       </Section>
 
-      <Section title={t('settings.thaiReading')} description={t('settings.thaiReadingHint')}>
+      <Section card title={t('settings.thaiReading')} description={t('settings.thaiReadingHint')}>
         <SegmentedControl
           label={t('settings.thaiReading')}
           value={thaiReading}
@@ -62,7 +62,7 @@ export default function SettingsPage() {
         />
       </Section>
 
-      <Section title={t('settings.thaiTranslation')} description={t('settings.translationHint')}>
+      <Section card title={t('settings.thaiTranslation')} description={t('settings.translationHint')}>
         <SegmentedControl
           label={t('settings.thaiTranslation')}
           value={thaiTranslation}
@@ -74,11 +74,11 @@ export default function SettingsPage() {
         />
       </Section>
 
-      <Section title={t('plan.goalLabel')} description={t('settings.dailyGoalHint')}>
+      <Section card title={t('plan.goalLabel')} description={t('settings.dailyGoalHint')}>
         <GoalPicker />
       </Section>
 
-      <Section title={t('settings.speechRate')} description={t('settings.speechRateHint')}>
+      <Section card title={t('settings.speechRate')} description={t('settings.speechRateHint')}>
         <div className={styles.rateRow}>
           <SegmentedControl
             label={t('settings.speechRate')}
@@ -93,7 +93,7 @@ export default function SettingsPage() {
         </div>
       </Section>
 
-      <Section title={t('settings.voice')} description={t('settings.voiceHint')}>
+      <Section card title={t('settings.voice')} description={t('settings.voiceHint')}>
         {supported && voices.length > 0 && (
           <select
             className={styles.select}
@@ -125,7 +125,7 @@ export default function SettingsPage() {
       </Section>
 
       {/* เสียงเอฟเฟกต์ + แอนิเมชันเล็ก ๆ (ขั้นที่ 20) */}
-      <Section title={t('settings.effects')} description={t('settings.effectsHint')}>
+      <Section card title={t('settings.effects')} description={t('settings.effectsHint')}>
         <div className={styles.effectRow}>
           <span className={styles.effectLabel}>{t('settings.soundEffects')}</span>
           <SegmentedControl
@@ -155,7 +155,7 @@ export default function SettingsPage() {
         </div>
       </Section>
 
-      <Section title={t('settings.mic')} description={t('settings.micPrivacy')} />
+      <Section card title={t('settings.mic')} description={t('settings.micPrivacy')} />
 
       <BackupSection
         notice={notice}

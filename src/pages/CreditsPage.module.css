@@ -4,6 +4,7 @@
 
 .source a,
 .item a {
+  padding-block: 9px;
   color: var(--color-primary-strong);
   font-weight: 700;
 }
@@ -39,8 +40,6 @@
 }
 
 .by {
-  overflow: hidden;
   color: var(--color-muted);
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  overflow-wrap: anywhere;
 }

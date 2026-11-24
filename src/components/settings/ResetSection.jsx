@@ -69,7 +69,7 @@ export default function ResetSection({ notice, onNotice, open, onOpen, onClose }
   const message = notice?.section === 'reset' ? notice : null
 
   return (
-    <Section title={t('settings.reset')} description={t('settings.resetHint')}>
+    <Section card title={t('settings.reset')} description={t('settings.resetHint')}>
       {open ? (
         <ConfirmReset
           onCancel={onClose}

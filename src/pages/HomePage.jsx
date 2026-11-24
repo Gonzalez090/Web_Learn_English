@@ -1,19 +1,15 @@
 // =========================================================
 // HomePage — หน้าแรก
 //   เข้าเว็บครั้งแรก → พาไปหน้าแนะนำวิธีเรียน (/welcome) ก่อน
-//   ปุ่มใหญ่ "เรียนต่อ" → บทถัดไปที่ยังไม่จบ (ไล่ Stage ฟัง → พูด → อ่าน → เขียน) — บอกชื่อบทบนปุ่มเลย ไม่ต้องหาเอง
-//     (ขั้นที่ 18 แผนรายวันเสร็จแล้ว ค่อยเปลี่ยนเป็น "เริ่มแผนวันนี้")
-//   ปุ่ม "ทบทวนวันนี้", การ์ดเลเวล/streak, ภารกิจวันนี้, ปุ่มลัดไปส่วนที่เปิดแล้ว
-//   (แผนที่เมือง ขั้นที่ 14 / มินิเกมเล่นแยก ขั้นที่ 17 — ยังไม่แสดง จะได้ไม่หลงเข้าหน้าว่าง / คลังวลีเปิดแล้วในขั้นที่ 10)
+//   การ์ดใหญ่ "เรียนต่อ" (ContinueCard) → บทถัดไปที่ยังไม่จบ — บอกชื่อบทเลย ไม่ต้องหาเอง
+//   การ์ดคู่ "แผนวันนี้" + "ทบทวนวันนี้", การ์ดเลเวล/streak, ภารกิจวันนี้, แผนที่เมือง, ปุ่มลัด (มือถือ)
+//   จอกว้าง 2 คอลัมน์: เรียน + เมือง | เลเวล + ภารกิจ
 // =========================================================
 import { Link, Navigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { getStage, lessonList } from '../data'
-import { useLocalized } from '../hooks/useLocalized'
 import { useProgressStore } from '../store/progressStore'
 import { useReviewStore } from '../store/reviewStore'
 import { useSettingsStore } from '../store/settingsStore'
-import { nextLesson } from '../utils/progress'
 import { dueEntries } from '../utils/review'
 import { todayKey } from '../utils/date'
 import { isPlanDone, isTaskDone } from '../utils/dailyPlan'
@@ -21,55 +17,24 @@ import { useDailyPlan } from '../hooks/useDailyPlan'
 import { ICONS } from '../utils/icons'
 import Page from '../components/Page'
 import Section from '../components/Section'
-import Button from '../components/Button'
 import Tile, { TileList } from '../components/Tile'
 import StudyTime from '../components/StudyTime'
+import ContinueCard from '../components/ContinueCard'
 import LevelCard from '../components/LevelCard'
 import MissionList from '../components/MissionList'
 import CityMap from '../components/CityMap'
 import WelcomeBack from '../components/WelcomeBack'
 import styles from './HomePage.module.css'
 
-// ปุ่มลัดไปส่วนที่ใช้งานได้แล้ว
+// ปุ่มลัดไปส่วนที่ใช้งานได้แล้ว (จอกว้างอยู่ในเมนูซ้ายแล้ว)
 const SHORTCUTS = [
-  { to: '/learn', icon: ICONS.learn, labelKey: 'home.learnBasics' },
-  { to: '/phrases', icon: ICONS.phrases, labelKey: 'home.phrases' },
-  { to: '/talk', icon: ICONS.talk, labelKey: 'home.talk' },
-  { to: '/sounds', icon: ICONS.sounds, labelKey: 'home.soundPractice' },
-  { to: '/profile', icon: ICONS.profile, labelKey: 'nav.profile' },
-  { to: '/settings', icon: ICONS.settings, labelKey: 'home.settings' },
+  { to: '/learn', icon: ICONS.learn, labelKey: 'home.learnBasics', tone: 'violet' },
+  { to: '/phrases', icon: ICONS.phrases, labelKey: 'home.phrases', tone: 'sky' },
+  { to: '/talk', icon: ICONS.talk, labelKey: 'home.talk', tone: 'mint' },
+  { to: '/sounds', icon: ICONS.sounds, labelKey: 'home.soundPractice', tone: 'peach' },
+  { to: '/profile', icon: ICONS.profile, labelKey: 'nav.profile', tone: 'pink' },
+  { to: '/settings', icon: ICONS.settings, labelKey: 'home.settings', tone: 'plain' },
 ]
-
-// ปุ่มใหญ่ "เรียนต่อ" — บทถัดไป หรือ (เรียนครบทุกบทที่เปิดแล้ว) ไปหน้ารายการ Stage
-function ContinueButton() {
-  const { t } = useTranslation()
-  const loc = useLocalized()
-  const unlockedStages = useProgressStore((state) => state.unlockedStages)
-  const lessonProgress = useProgressStore((state) => state.lessonProgress)
-  const lesson = nextLesson(lessonList, unlockedStages, lessonProgress)
-  const ContinueIcon = ICONS.unlocked
-
-  if (!lesson) {
-    return (
-      <Button to="/learn" size="lg" block icon={ICONS.learn}>
-        {t('home.allDone')}
-      </Button>
-    )
-  }
-
-  const stage = getStage(lesson.stageId)
-  return (
-    <Link to={`/lesson/${lesson.id}`} className={styles.continue}>
-      <ContinueIcon className={styles.continueIcon} aria-hidden="true" />
-      <span className={styles.continueText}>
-        <span className={styles.continueTitle}>{t('home.continue')}</span>
-        <span className={styles.continueLesson}>
-          {t('learn.stageN', { n: stage.id })} · {loc(lesson, 'title')}
-        </span>
-      </span>
-    </Link>
-  )
-}
 
 // การ์ด "แผนวันนี้" (ขั้นที่ 18) — ทำแล้วกี่ขั้น / ครบแล้ว → ไปหน้า /plan
 function PlanCard() {
@@ -80,17 +45,48 @@ function PlanCard() {
   const done = plan.tasks.filter(isTaskDone).length
   const finished = isPlanDone(plan)
   return (
-    <Link to="/plan" className={finished ? `${styles.plan} ${styles.planDone}` : styles.plan}>
-      <ICONS.plan className={styles.planIcon} aria-hidden="true" />
-      <span className={styles.continueText}>
-        <span className={styles.planTitle}>{t('home.plan', { goal: plan.goal })}</span>
-        <span className={styles.planProgress}>
+    <Link to="/plan" className={finished ? `${styles.card} ${styles.planDone}` : styles.card}>
+      <span className={finished ? `${styles.cardIcon} ${styles.doneIcon}` : styles.cardIcon}>
+        <ICONS.plan aria-hidden="true" />
+      </span>
+      <span className={styles.cardText}>
+        <span className={styles.cardTitle}>{t('home.plan', { goal: plan.goal })}</span>
+        <span className={styles.cardNote}>
           {finished ? t('home.planDone') : t('home.planProgress', { done, total })}
         </span>
-        <StudyTime planDone={finished} className={styles.planProgress} />
+        <span className={styles.cardBar} aria-hidden="true">
+          <span className={styles.cardFill} style={{ transform: `scaleX(${done / total})` }} />
+        </span>
+        <StudyTime planDone={finished} className={styles.cardNote} />
       </span>
-      <span className={styles.planBar} aria-hidden="true">
-        <span className={styles.planFill} style={{ width: `${Math.round((done / total) * 100)}%` }} />
+    </Link>
+  )
+}
+
+// การ์ด "ทบทวนวันนี้" — มีรายการถึงกำหนด = ลิงก์ / ไม่มี = บอกว่าว่าง
+function ReviewCard({ count }) {
+  const { t } = useTranslation()
+  if (count === 0) {
+    return (
+      <div className={styles.card}>
+        <span className={`${styles.cardIcon} ${styles.doneIcon}`}>
+          <ICONS.completed aria-hidden="true" />
+        </span>
+        <span className={styles.cardText}>
+          <span className={styles.cardTitle}>{t('review.title')}</span>
+          <span className={styles.cardNote}>{t('home.noReview')}</span>
+        </span>
+      </div>
+    )
+  }
+  return (
+    <Link to="/review" className={styles.card}>
+      <span className={`${styles.cardIcon} ${styles.reviewIcon}`}>
+        <ICONS.review aria-hidden="true" />
+      </span>
+      <span className={styles.cardText}>
+        <span className={styles.cardTitle}>{t('review.title')}</span>
+        <span className={styles.cardNote}>{t('home.reviewDue', { count })}</span>
       </span>
     </Link>
   )
@@ -109,44 +105,45 @@ export default function HomePage() {
   if (!introSeen && !hasProgress) return <Navigate to="/welcome" replace />
 
   return (
-    <Page title={t('home.title')} subtitle={t('app.tagline')}>
+    <Page title={t('home.title')} subtitle={t('app.tagline')} wide>
       {/* หายไป ≥ 3 วัน → NPC ทัก "Long time no see!" + ทบทวนสั้น ๆ (ขั้นที่ 15) */}
       <WelcomeBack reviewCount={reviewCount} />
 
-      <LevelCard />
+      <div className={styles.layout}>
+        <div className={styles.main}>
+          <ContinueCard />
+          <div className={styles.duo}>
+            <PlanCard />
+            <ReviewCard count={reviewCount} />
+          </div>
+        </div>
 
-      <div className={styles.actions}>
-        <PlanCard />
-        <ContinueButton />
-        {reviewCount > 0 ? (
-          <Button to="/review" variant="secondary" block icon={ICONS.review}>
-            {t('home.reviewToday', { count: reviewCount })}
-          </Button>
-        ) : (
-          // ไม่มีอะไรต้องทบทวน → ปุ่มกดไม่ได้ พร้อมข้อความบอก
-          <Button variant="secondary" block icon={ICONS.completed} disabled>
-            {t('home.noReview')}
-          </Button>
-        )}
+        <div className={styles.side}>
+          <LevelCard />
+          <Section title={t('home.todayMissions')}>
+            <MissionList />
+          </Section>
+        </div>
+
+        <div className={styles.town}>
+          {/* แผนที่เมือง (ขั้นที่ 14): ผ่าน Stage แล้วปลดล็อกสถานที่ */}
+          <Section title={t('home.cityMap')}>
+            <CityMap />
+          </Section>
+          <div className={styles.shortcuts}>
+            <Section title={t('home.shortcuts')}>
+              <TileList variant="grid">
+                {SHORTCUTS.map((item) => (
+                  <Tile key={item.to} to={item.to} icon={item.icon} title={t(item.labelKey)} tone={item.tone} layout="stack" />
+                ))}
+                {import.meta.env.DEV && (
+                  <Tile to="/dev" icon={ICONS.dev} title={t('home.dev')} tone="plain" layout="stack" />
+                )}
+              </TileList>
+            </Section>
+          </div>
+        </div>
       </div>
-
-      <Section title={t('home.todayMissions')}>
-        <MissionList />
-      </Section>
-
-      {/* แผนที่เมือง (ขั้นที่ 14): ผ่าน Stage แล้วปลดล็อกสถานที่ */}
-      <Section title={t('home.cityMap')}>
-        <CityMap />
-      </Section>
-
-      <Section title={t('home.shortcuts')}>
-        <TileList variant="grid">
-          {SHORTCUTS.map((item) => (
-            <Tile key={item.to} to={item.to} icon={item.icon} title={t(item.labelKey)} layout="stack" />
-          ))}
-          {import.meta.env.DEV && <Tile to="/dev" icon={ICONS.dev} title={t('home.dev')} layout="stack" />}
-        </TileList>
-      </Section>
     </Page>
   )
 }

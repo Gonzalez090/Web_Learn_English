@@ -8,7 +8,7 @@
   color: var(--color-muted);
   font-weight: 700;
   opacity: 0;
-  animation: appear 0.2s ease-out 0.25s forwards;
+  animation: appear 0.2s var(--ease) 0.25s forwards;
 }
 
 .spinner {

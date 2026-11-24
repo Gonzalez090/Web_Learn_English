@@ -167,7 +167,7 @@ export default function ReviewPage() {
 
   // ---------- ทบทวน ----------
   return (
-    <Page title={t('review.title')} subtitle={t('review.subtitle', { count: dueEntries(queue, today).length })}>
+    <Page title={t('review.title')} subtitle={t('review.subtitle', { count: dueEntries(queue, today).length })} compact>
       <ReviewPlayer key={round} reviewItems={session} onFinish={handleFinish} />
     </Page>
   )

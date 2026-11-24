@@ -50,7 +50,7 @@ export default function LessonPage() {
 
   if (isPlayable(lesson)) {
     return (
-      <Page title={title} subtitle={subtitle}>
+      <Page title={title} subtitle={subtitle} compact>
         {/* key = รายการประวัติ → กด "เล่นอีกครั้ง" / "ฝึกซ้ำ" แล้วเริ่มบทใหม่ทั้งหมด */}
         <LessonPlayer
           key={location.key}

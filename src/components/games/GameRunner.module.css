@@ -23,7 +23,7 @@
 .title {
   margin: 0;
   font-size: 1.25rem;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .score {
@@ -40,7 +40,7 @@
 .xp {
   margin: 0;
   color: var(--color-success);
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .actions {

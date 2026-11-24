@@ -125,7 +125,7 @@ export default function BackupSection({ notice, onNotice, open, onOpen, onClose 
   }
 
   return (
-    <Section title={t('settings.backup')} description={t('settings.backupHint')}>
+    <Section card title={t('settings.backup')} description={t('settings.backupHint')}>
       <div className={styles.actions}>
         <Button variant="secondary" icon={ICONS.download} onClick={save}>
           {t('settings.backupSave')}

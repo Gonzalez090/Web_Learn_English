@@ -6,7 +6,7 @@
   padding: var(--space-2) var(--space-3);
   border-radius: var(--radius-md);
   text-align: left;
-  animation: pop 0.25s ease-out;
+  animation: pop 0.25s var(--ease);
 }
 
 @keyframes pop {
@@ -21,7 +21,7 @@
 }
 
 .retry {
-  background: #fff4e5;
+  background: var(--color-warn-soft);
 }
 
 /* ไอคอน | ข้อความ (ตัดบรรทัดได้) | เปอร์เซ็นต์ — อยู่แถวเดียวกันเสมอ แม้การ์ดแคบ */
@@ -31,7 +31,7 @@
   align-items: center;
   gap: 6px;
   font-size: 0.875rem;
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.35;
 }
 
@@ -40,7 +40,7 @@
 }
 
 .retry .headline {
-  color: #8a4b00;
+  color: var(--color-warn);
 }
 
 .icon {
@@ -50,7 +50,7 @@
 }
 
 .score {
-  font-weight: 800;
+  font-weight: 700;
   white-space: nowrap;
 }
 
@@ -66,7 +66,7 @@
 /* ป้ายหน้าแถวคำ เช่น "คำสำคัญ:" */
 .wordsLabel {
   color: var(--color-muted);
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .correct {
@@ -74,7 +74,7 @@
 }
 
 .close {
-  color: #b45309;
+  color: var(--color-warn-strong);
   text-decoration: underline wavy;
   text-underline-offset: 4px;
 }
@@ -136,7 +136,7 @@
 
 /* พูดผ่าน: ไอคอน ✓ เด้ง (ขั้นที่ 20 — ปิดได้ในตั้งค่า "แอนิเมชัน") */
 .passed .icon {
-  animation: check-bounce 0.5s ease-out 0.1s;
+  animation: check-bounce 0.5s var(--ease) 0.1s;
 }
 
 @keyframes check-bounce {

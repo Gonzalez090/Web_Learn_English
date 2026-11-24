@@ -20,7 +20,7 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .titleIcon {
@@ -68,7 +68,7 @@
 /* โหมดอ่าน: คำ/ประโยคที่ต้องอ่าน */
 .prompt {
   font-size: clamp(1.5rem, 7vw, 2rem);
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.25;
   text-align: center;
   overflow-wrap: anywhere;
@@ -92,18 +92,20 @@
   display: block;
   padding: 0;
   overflow: hidden;
-  border: 3px solid var(--color-border);
+  border: 2px solid var(--color-border);
   border-radius: var(--radius-lg);
   background: var(--color-surface);
   cursor: pointer;
   transition:
-    transform 0.12s ease,
-    opacity 0.2s ease,
-    border-color 0.2s ease;
+    transform 0.12s var(--ease),
+    opacity 0.2s var(--ease),
+    border-color 0.2s var(--ease);
 }
 
-.option:hover:not(:disabled) {
-  border-color: var(--color-primary);
+@media (hover: hover) {
+  .option:hover:not(:disabled) {
+    border-color: var(--color-primary);
+  }
 }
 
 .option:active:not(:disabled) {
@@ -133,5 +135,16 @@
 @media (prefers-reduced-motion: reduce) {
   .option {
     transition: none;
+  }
+}
+
+@media (max-height: 760px) {
+  .game {
+    gap: var(--space-2);
+  }
+
+  .options {
+    gap: var(--space-2);
+    width: min(100%, 42vh);
   }
 }

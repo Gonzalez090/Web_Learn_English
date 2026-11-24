@@ -16,9 +16,9 @@ export default function PhrasesPage() {
   const loc = useLocalized()
 
   return (
-    <Page title={t('phrases.title')} subtitle={t('phrases.subtitle')} backTo="/">
+    <Page title={t('phrases.title')} subtitle={t('phrases.subtitle')} backTo="/" wide>
       <Section title={t('phrases.situations')}>
-        <TileList>
+        <TileList variant="columns">
           {phraseSituations.map((situation) => (
             <Tile
               key={situation.id}
@@ -35,6 +35,7 @@ export default function PhrasesPage() {
           <Tile
             to="/phrases/real-vs-textbook"
             icon={ICONS.realVsTextbook}
+            tone="mint"
             title={t('phrases.realVsTextbook')}
             description={t('phrases.pairCount', { count: textbookVsReal.length })}
           />

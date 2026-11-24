@@ -60,7 +60,7 @@ export default function CollectionPage() {
   const LockedIcon = ICONS.locked
 
   return (
-    <Page title={t('collection.title')} subtitle={t('collection.subtitle')} backTo="/profile">
+    <Page title={t('collection.title')} subtitle={t('collection.subtitle')} backTo="/profile" wide>
       <div className={styles.summary}>
         <div className={styles.summaryItem}>
           <p className={styles.summaryValue}>

@@ -11,14 +11,14 @@
   display: inline;
   max-width: 100%;
   font-size: 1.1875rem;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.9;
   text-align: center;
   overflow-wrap: anywhere;
 }
 
 .stress {
-  font-weight: 900;
+  font-weight: 800;
   text-decoration: underline;
   text-decoration-color: var(--color-xp);
   text-decoration-thickness: 3px;
@@ -36,13 +36,18 @@
   background: var(--color-primary-soft);
   color: var(--color-primary-strong);
   font: inherit;
-  font-weight: 900;
+  font-weight: 700;
   cursor: pointer;
 }
 
-.keyword:hover,
 .keyword:focus-visible {
-  background: #cfdcff;
+  background: var(--color-primary-line);
+}
+
+@media (hover: hover) {
+  .keyword:hover {
+    background: var(--color-primary-line);
+  }
 }
 
 .active {
@@ -56,7 +61,7 @@
   border-bottom-color: var(--color-success);
   background: var(--color-success-soft);
   color: var(--color-success);
-  animation: pop 0.25s ease-out;
+  animation: pop 0.25s var(--ease);
 }
 
 @keyframes pop {
@@ -87,10 +92,10 @@
 .panel {
   width: 100%;
   padding: var(--space-2);
-  border: 2px solid var(--color-primary-soft);
+  border: 1px solid var(--color-primary-soft);
   border-radius: var(--radius-md);
   background: var(--color-surface);
-  animation: open 0.15s ease-out;
+  animation: open 0.15s var(--ease);
 }
 
 @keyframes open {
@@ -131,7 +136,7 @@
   min-width: 0;
   min-height: 44px;
   padding: var(--space-2) var(--space-3);
-  border: 2px solid var(--color-border);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   background: var(--color-bg);
   color: var(--color-text);
@@ -140,9 +145,14 @@
   cursor: pointer;
 }
 
-.pick:hover,
 .pick:focus-visible {
   border-color: var(--color-primary);
+}
+
+@media (hover: hover) {
+  .pick:hover {
+    border-color: var(--color-primary);
+  }
 }
 
 .current {
@@ -151,7 +161,7 @@
 }
 
 .word {
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .meaning {
@@ -176,7 +186,7 @@
   align-items: center;
   justify-content: center;
   width: 44px;
-  border: 2px solid var(--color-primary-soft);
+  border: 1px solid var(--color-primary-soft);
   border-radius: var(--radius-sm);
   background: var(--color-surface);
   color: var(--color-primary);
@@ -185,7 +195,7 @@
 
 .playing {
   background: var(--color-primary);
-  color: #fff;
+  color: var(--color-on-primary);
 }
 
 .soundIcon {

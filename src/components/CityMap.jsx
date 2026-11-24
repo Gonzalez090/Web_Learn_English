@@ -16,7 +16,7 @@ export default function CityMap() {
   const unlockedStages = useProgressStore((state) => state.unlockedStages)
 
   return (
-    <TileList variant="grid">
+    <TileList variant="gallery">
       {cityMap.map((place) => {
         const unlocked = isPlaceUnlocked(place, unlockedStages)
         return (
@@ -27,7 +27,7 @@ export default function CityMap() {
             title={loc(place, 'name')}
             description={unlocked ? undefined : t('map.unlockAt', { n: place.unlockAfterStage })}
             locked={!unlocked}
-            layout="stack"
+            layout="cover"
           />
         )
       })}

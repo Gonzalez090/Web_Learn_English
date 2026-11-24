@@ -13,7 +13,7 @@
   gap: 6px;
   color: var(--color-primary-strong);
   font-size: 0.875rem;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .labelIcon {
@@ -43,7 +43,7 @@
 }
 
 .chipText {
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .chipNote {

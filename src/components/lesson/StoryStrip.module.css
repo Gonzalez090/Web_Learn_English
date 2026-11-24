@@ -12,7 +12,7 @@
 
 .panel {
   opacity: 0.55;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.2s var(--ease);
 }
 
 .current {
@@ -24,7 +24,7 @@
   display: block;
   width: 100%;
   padding: 0;
-  border: 3px solid transparent;
+  border: 2px solid transparent;
   border-radius: var(--radius-md);
   background: none;
   font: inherit;
@@ -54,9 +54,9 @@ button.thumb {
   height: 22px;
   border-radius: var(--radius-full);
   background: var(--color-primary);
-  color: #fff;
+  color: var(--color-on-primary);
   font-size: 0.75rem;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 @media (prefers-reduced-motion: reduce) {

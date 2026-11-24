@@ -10,6 +10,7 @@
     "profile": "Profile",
     "back": "Back",
     "mainMenu": "Main menu",
+    "practice": "Practice more",
     "goHome": "Go home"
   },
   "language": {
@@ -130,7 +131,7 @@
   "home": {
     "title": "Hi! Let's practice speaking today",
     "startPlan": "Start today's plan",
-    "reviewToday": "Review today ({{count}})",
+    "reviewDue": "{{count}} due today",
     "noReview": "Nothing to review today",
     "cityMap": "City map",
     "todayMissions": "Today's missions",
@@ -158,6 +159,7 @@
     "title": "Basics",
     "subtitle": "7 stages, just like native kids learn",
     "stageN": "Stage {{n}}",
+    "lessonsDone": "{{done}}/{{total}} lessons",
     "noLessons": "No lessons in this stage yet",
     "bestScore": "Best {{score}}%"
   },

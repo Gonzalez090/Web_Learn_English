@@ -21,7 +21,7 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .titleIcon {
@@ -51,12 +51,12 @@
 .promptLabel {
   color: var(--color-muted);
   font-size: 0.8125rem;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .promptText {
   font-size: 1.125rem;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .question {
@@ -80,8 +80,7 @@
   width: 100%;
   min-height: 64px;
   padding: var(--space-3);
-  border: 2px solid var(--color-border);
-  border-bottom-width: 4px;
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   background: var(--color-surface);
   color: var(--color-text);
@@ -89,8 +88,10 @@
   cursor: pointer;
 }
 
-.option:not(:disabled):hover {
-  border-color: var(--color-primary);
+@media (hover: hover) {
+  .option:not(:disabled):hover {
+    border-color: var(--color-primary);
+  }
 }
 
 .option:focus-visible {
@@ -104,7 +105,7 @@
 
 .optionText {
   font-size: 1.125rem;
-  font-weight: 800;
+  font-weight: 700;
   text-align: center;
   overflow-wrap: anywhere;
 }
@@ -126,7 +127,7 @@
   gap: 4px;
   color: var(--color-muted);
   font-size: 0.8125rem;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .real .badge {
@@ -153,12 +154,12 @@
 }
 
 .feedbackRetry {
-  background: #fff4e5;
-  color: #8a4b00;
+  background: var(--color-warn-soft);
+  color: var(--color-warn);
 }
 
 .feedbackTitle {
-  font-weight: 800;
+  font-weight: 700;
   overflow-wrap: anywhere;
 }
 

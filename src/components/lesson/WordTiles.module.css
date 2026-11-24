@@ -14,14 +14,14 @@
   gap: var(--space-2);
   min-height: 64px;
   padding: var(--space-2);
-  border: 2px dashed var(--color-primary);
+  border: 1.5px dashed var(--color-primary);
   border-radius: var(--radius-md);
   background: var(--color-primary-soft);
-  transition: background-color 0.15s ease;
+  transition: background-color 0.15s var(--ease);
 }
 
 .answerActive {
-  background: #d3e1ff;
+  background: var(--color-primary-line);
 }
 
 .empty {
@@ -48,14 +48,13 @@
   min-width: 44px;
   min-height: 44px;
   padding: var(--space-1) var(--space-3);
-  border: 2px solid var(--color-border);
-  border-bottom-width: 4px;
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   background: var(--color-surface);
   color: var(--color-text);
   font: inherit;
   font-size: 1.0625rem;
-  font-weight: 800;
+  font-weight: 700;
   cursor: grab;
   /* ลากด้วยนิ้วได้โดยจอไม่เลื่อนตาม */
   touch-action: none;
@@ -75,7 +74,6 @@
 /* ช่องของคำที่ใช้แล้ว (แถวล่างไม่ขยับ) */
 .placeholder {
   border-style: dashed;
-  border-bottom-width: 2px;
   background: transparent;
   color: transparent;
   cursor: default;
@@ -90,7 +88,7 @@
   position: fixed;
   z-index: 50;
   border-color: var(--color-primary);
-  box-shadow: 0 8px 20px rgb(0 0 0 / 0.18);
+  box-shadow: var(--shadow-lg);
   pointer-events: none;
   cursor: grabbing;
 }
@@ -112,9 +110,9 @@
 }
 
 .retry {
-  border-color: #f0b46a;
-  background: #fff4e5;
-  color: #8a4b00;
+  border-color: var(--color-warn-line);
+  background: var(--color-warn-soft);
+  color: var(--color-warn);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -38,7 +38,7 @@ export default function TalkListPage() {
   }
 
   return (
-    <Page title={t('talk.title')} subtitle={t('talk.subtitle')} backTo="/">
+    <Page title={t('talk.title')} subtitle={t('talk.subtitle')} backTo="/" wide>
       <div className={styles.randomBox}>
         <p className={styles.note}>{t('talk.randomNote')}</p>
         <Button block size="lg" icon={Dices} onClick={randomScenario}>
@@ -55,7 +55,7 @@ export default function TalkListPage() {
         if (!talks.length) return null
         return (
           <Section key={place.placeId} title={loc(place, 'name')}>
-            <TileList>
+            <TileList variant="columns">
               {talks.map((scenario) => {
                 const locked = isScenarioLocked(scenario, friendship)
                 const npc = getNpc(scenario.npcId)

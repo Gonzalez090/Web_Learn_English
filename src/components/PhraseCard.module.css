@@ -2,23 +2,23 @@
 .card {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
-  padding: var(--space-3);
-  border: 2px solid var(--color-border);
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   background: var(--color-surface);
-  box-shadow: 0 3px 0 var(--color-border);
+  box-shadow: var(--shadow-sm);
 }
 
 .text {
   font-size: 1.375rem;
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.25;
 }
 
 .meaning {
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .tags {
@@ -33,7 +33,7 @@
   background: var(--color-surface-soft);
   color: var(--color-muted);
   font-size: 0.75rem;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .actions {
@@ -47,12 +47,12 @@
   display: flex;
   align-items: flex-start;
   gap: 6px;
-  padding: var(--space-2);
+  padding: var(--space-3);
   border-radius: var(--radius-sm);
   background: var(--color-primary-soft);
   color: var(--color-primary-strong);
   font-size: 0.875rem;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .noteIcon {
@@ -67,7 +67,7 @@
   gap: 6px;
   color: var(--color-muted);
   font-size: 0.8125rem;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .examples {
@@ -111,9 +111,9 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-1);
-  padding: var(--space-2) var(--space-3);
+  padding: var(--space-3);
   border-radius: var(--radius-sm);
-  background: #fff4e5;
+  background: var(--color-warn-soft);
 }
 
 .mistakeRow {
@@ -121,7 +121,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 4px 8px;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .wrong {
@@ -140,7 +140,7 @@
 }
 
 .mistakeNote {
-  color: #8a4b00;
+  color: var(--color-warn);
   font-size: 0.875rem;
   font-weight: 600;
 }

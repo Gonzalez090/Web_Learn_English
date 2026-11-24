@@ -4,7 +4,7 @@
   align-items: flex-end;
   gap: var(--space-2);
   max-width: 100%;
-  animation: pop 0.2s ease-out;
+  animation: pop 0.2s var(--ease);
   /* เลื่อนจอมาที่บรรทัดนี้ → เผื่อที่ให้แถบบน (sticky) และแถบเมนูล่าง (fixed) ไม่บังกล่อง */
   scroll-margin: calc(var(--topbar-height) + env(safe-area-inset-top) + var(--space-3)) 0
     calc(var(--bottomnav-height) + env(safe-area-inset-bottom) + var(--space-3));
@@ -45,7 +45,7 @@
   padding: 0 var(--space-2);
   color: var(--color-muted);
   font-size: 0.75rem;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .passedIcon {
@@ -62,12 +62,12 @@
   min-width: 0;
   max-width: 100%;
   padding: var(--space-2) var(--space-3);
-  border: 2px solid var(--color-border);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   border-bottom-left-radius: 4px;
   background: var(--color-surface);
   text-align: left;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s var(--ease);
 }
 
 .right .bubble {
@@ -100,7 +100,7 @@
   gap: 4px;
   color: var(--color-primary-strong);
   font-size: 0.8125rem;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .cueIcon {

@@ -1,18 +1,36 @@
 /* ---------- รายการ ---------- */
 .list,
-.grid {
+.grid,
+.columns,
+.gallery {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
+/* เรียงลงมา */
 .list {
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
 }
 
+/* ปุ่มลัด / การ์ดใหญ่: 2 → 3 คอลัมน์ */
 .grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+/* รายการยาว: มือถือเรียงลงมา / จอกว้าง 2 คอลัมน์ */
+.columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-3);
+}
+
+/* การ์ดภาพใหญ่: 2 → 4 คอลัมน์ */
+.gallery {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-3);
@@ -21,6 +39,17 @@
 @media (min-width: 520px) {
   .grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 720px) {
+  .columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .gallery {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-4);
   }
 }
 
@@ -34,68 +63,100 @@
   align-items: center;
   gap: var(--space-3);
   height: 100%;
-  min-height: 64px;
-  padding: var(--space-3) var(--space-4);
-  border: 2px solid var(--color-border);
-  border-radius: var(--radius-md);
+  min-height: 72px;
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
   background: var(--color-surface);
-  box-shadow: 0 3px 0 var(--color-border);
+  box-shadow: var(--shadow-sm);
   color: var(--color-text);
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
   transition:
-    transform 0.08s,
-    border-color 0.15s;
+    transform 0.25s var(--ease),
+    box-shadow 0.25s var(--ease),
+    border-color 0.25s var(--ease);
 }
 
 /* รายการที่แนะนำให้ทำต่อ (บทต่อไป) */
 .current {
   border-color: var(--color-primary);
-  box-shadow: 0 3px 0 var(--color-primary);
-  /* เลื่อนจอมาที่บทนี้ → เผื่อที่ให้แถบบน (fixed) ไม่บัง */
+  box-shadow: 0 0 0 3px var(--color-primary-soft);
+  /* เลื่อนจอมาที่บทนี้ → เผื่อที่ให้แถบบน (sticky) ไม่บัง */
   scroll-margin-top: calc(var(--topbar-height) + var(--space-4));
 }
 
-.tile:hover {
-  border-color: var(--color-primary);
+@media (hover: hover) {
+  .tile:hover {
+    border-color: var(--color-primary-line);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
 }
 
 .tile:active {
-  transform: translateY(2px);
-  box-shadow: 0 1px 0 var(--color-border);
+  transform: scale(0.98);
 }
 
-.stack {
-  flex-direction: column;
-  justify-content: center;
-  gap: var(--space-2);
-  padding: var(--space-4) var(--space-2);
-  text-align: center;
-}
-
-/* ไอคอนเส้นในกล่องสีอ่อน */
+/* ---------- ไอคอนเส้นในกล่องสีพาสเทล ---------- */
 .icon {
   flex: none;
   display: grid;
   place-items: center;
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-sm);
-  background: var(--color-primary-soft);
-  color: var(--color-primary-strong);
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: var(--tone-bg, var(--tone-violet-bg));
+  color: var(--tone, var(--tone-violet));
 }
 
 .icon svg {
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
 }
 
+.violet {
+  --tone-bg: var(--tone-violet-bg);
+  --tone: var(--tone-violet);
+}
+
+.sky {
+  --tone-bg: var(--tone-sky-bg);
+  --tone: var(--tone-sky);
+}
+
+.mint {
+  --tone-bg: var(--tone-mint-bg);
+  --tone: var(--tone-mint);
+}
+
+.peach {
+  --tone-bg: var(--tone-peach-bg);
+  --tone: var(--tone-peach);
+}
+
+.lemon {
+  --tone-bg: var(--tone-lemon-bg);
+  --tone: var(--tone-lemon);
+}
+
+.pink {
+  --tone-bg: var(--tone-pink-bg);
+  --tone: var(--tone-pink);
+}
+
+.plain {
+  --tone-bg: var(--color-locked-bg);
+  --tone: var(--color-locked-text);
+}
+
+/* ---------- ภาพย่อ ---------- */
 .thumb {
   position: relative;
   flex: none;
 }
 
-/* รูปกุญแจทับมุมภาพ (เฉพาะ Stage ที่ยังล็อก) */
+/* รูปกุญแจทับมุมภาพ (เฉพาะที่ยังล็อก) */
 .lock {
   position: absolute;
   right: -4px;
@@ -107,12 +168,12 @@
   border: 2px solid var(--color-surface);
   border-radius: var(--radius-full);
   background: var(--color-locked-text);
-  color: #fff;
+  color: var(--color-on-primary);
 }
 
 .lock svg {
-  width: 14px;
-  height: 14px;
+  width: 13px;
+  height: 13px;
   stroke-width: 2.5;
 }
 
@@ -124,14 +185,9 @@
   min-width: 0;
 }
 
-.stack .text {
-  flex: none;
-  align-items: center;
-}
-
 .title {
-  font-weight: 800;
-  line-height: 1.35;
+  font-weight: 700;
+  line-height: 1.4;
 }
 
 /* ป้ายสถานะอยู่ใต้ชื่อ — ชื่อไม่ถูกเบียดจนตกบรรทัดบนจอแคบ */
@@ -142,12 +198,161 @@
 .description {
   color: var(--color-muted);
   font-size: 0.875rem;
-  line-height: 1.45;
+  line-height: 1.5;
+}
+
+/* ลูกศรท้ายแถว */
+.chevron {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  color: var(--color-faint);
+  transition: transform 0.25s var(--ease);
+}
+
+@media (hover: hover) {
+  .tile:hover .chevron {
+    color: var(--color-primary);
+    transform: translateX(2px);
+  }
+}
+
+/* ---------- แนวตั้ง (ปุ่มลัด) ---------- */
+.stack {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-4);
+}
+
+.stack .icon {
+  width: 48px;
+  height: 48px;
+}
+
+.stack .text {
+  flex: none;
+}
+
+/* ---------- การ์ดใหญ่ (มินิเกม): ไอคอนใหญ่ + ชื่อ + คำอธิบาย / จอแคบวางนอน อ่านเร็วกว่า ---------- */
+@media (max-width: 719px) {
+  .features {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (min-width: 720px) {
+  .feature {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+    padding: var(--space-5);
+  }
+
+  .feature .icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 20px;
+  }
+
+  .feature .icon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .feature .title {
+    margin-bottom: 2px;
+    font-size: 1.125rem;
+  }
+
+  .feature .chevron {
+    display: none;
+  }
+}
+
+/* ---------- การ์ดภาพ (แผนที่เมือง): ภาพเต็มความกว้าง + ชื่อข้างล่าง ---------- */
+.cover {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  padding: 6px;
+}
+
+.cover .thumb {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.cover .thumb > :first-child {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+}
+
+.cover .thumb img {
+  transition: transform 0.5s var(--ease);
+}
+
+@media (hover: hover) {
+  .cover:hover .thumb img {
+    transform: scale(1.04);
+  }
+}
+
+.cover .lock {
+  top: 8px;
+  right: 8px;
+  bottom: auto;
+  width: 30px;
+  height: 30px;
+}
+
+.cover .text {
+  padding: var(--space-2) var(--space-2) var(--space-1);
+}
+
+.cover .description {
+  font-size: 0.8125rem;
+}
+
+/* มือถือ: จำนวนคี่ ใบแรกกว้างเต็มแถว (ไม่เหลือช่องว่างท้ายรายการ) */
+@media (max-width: 719px) {
+  .gallery > .item:first-child:nth-last-child(odd) {
+    grid-column: 1 / -1;
+  }
+
+  .gallery > .item:first-child:nth-last-child(odd) .thumb {
+    aspect-ratio: 5 / 2;
+  }
+}
+
+/* จอกว้าง 4 คอลัมน์ มี 7 ใบ: ใบแรกกว้าง 2 ช่อง → เต็ม 2 แถวพอดี */
+@media (min-width: 720px) {
+  .gallery > .item:first-child:nth-last-child(4n + 3) {
+    grid-column: span 2;
+  }
+
+  .gallery > .item:first-child:nth-last-child(4n + 3) .thumb {
+    flex: 1;
+    min-height: 0;
+    aspect-ratio: auto;
+  }
+
+  .gallery > .item:first-child:nth-last-child(4n + 3) .thumb > :first-child {
+    position: absolute;
+    inset: 0;
+  }
+
+  .gallery > .item:first-child:nth-last-child(4n + 3) .text {
+    flex: none;
+  }
 }
 
 /* ยังล็อก: ภาพยังเป็นสีจริง แค่จางลงเล็กน้อย */
 .locked .thumb > :first-child,
-.locked .icon {
+.locked > .icon {
   opacity: 0.6;
 }
 

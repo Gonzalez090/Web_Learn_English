@@ -10,6 +10,7 @@ import {
   BookOpen,
   BookOpenCheck,
   CalendarCheck,
+  ChevronRight,
   CircleCheck,
   CircleHelp,
   Coffee,
@@ -83,6 +84,7 @@ export const ICONS = {
   rest: Coffee, // ชวนพัก
   back: ArrowLeft,
   next: ArrowRight,
+  chevron: ChevronRight, // ลูกศรท้ายแถวการ์ด
   stop: Square,
   delete: Trash2,
   add: Plus,

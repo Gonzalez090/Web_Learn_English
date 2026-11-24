@@ -12,7 +12,7 @@
 /* พยางค์ที่ลงเสียงหนัก: ตัวหนา สีเข้ม ขีดเส้นใต้หนา */
 .stress {
   color: var(--color-primary-strong);
-  font-weight: 800;
+  font-weight: 700;
   text-decoration: underline;
   text-decoration-color: color-mix(in srgb, var(--color-primary) 45%, transparent);
   text-decoration-thickness: 3px;

@@ -17,8 +17,8 @@
   border: 2px solid transparent;
   border-radius: var(--radius-md);
   transition:
-    border-color 0.2s ease,
-    background-color 0.2s ease;
+    border-color 0.2s var(--ease),
+    background-color 0.2s var(--ease);
 }
 
 /* บรรทัดที่กำลังร้อง */
@@ -42,11 +42,11 @@
 }
 
 .coupletA .rhymeWord {
-  background: #fde68a;
+  background: var(--color-rhyme-a);
 }
 
 .coupletB .rhymeWord {
-  background: #bbf7d0;
+  background: var(--color-rhyme-b);
 }
 
 .meaning {
