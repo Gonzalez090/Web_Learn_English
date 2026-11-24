@@ -18,6 +18,7 @@ export const DEFAULT_SETTINGS = {
   dailyGoal: 10, // เป้าหมายรายวัน (นาที): 5 | 10 | 15 | 20
   soundEffects: true, // เปิด/ปิดเสียงเอฟเฟกต์ (utils/sfx.js — ขั้นที่ 20)
   animations: true, // เปิด/ปิดแอนิเมชันเล็ก ๆ (ปิด = <html data-motion="off"> — ขั้นที่ 20)
+  accountPromptHidden: false, // ปิดแถบชวนล็อกอินบนหน้าแรกแล้ว (components/AccountPrompt.jsx — ขั้นที่ 31)
   introSeen: false, // ดูหน้าแนะนำวิธีเรียน (/welcome) แล้วหรือยัง — ยังไม่เคย → หน้าแรกพาไปหน้าแนะนำก่อน
 }
 

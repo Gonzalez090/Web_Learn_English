@@ -22,6 +22,7 @@ const TABS = [
       '/sounds',
       '/settings',
       '/credits',
+      '/privacy',
       ...(import.meta.env.DEV ? ['/dev'] : []), // หน้า /dev มีเฉพาะตอนพัฒนา
     ],
   },

@@ -1,0 +1,50 @@
+.avatar {
+  flex: none;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  transition: transform 0.2s var(--ease);
+}
+
+.avatar:active {
+  transform: scale(0.96);
+}
+
+.signIn {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 40px;
+  min-height: 40px;
+  padding: 0 var(--space-3);
+  border-radius: 12px;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.2s var(--ease);
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+}
+
+@media (hover: hover) {
+  .signIn:hover {
+    background: var(--color-primary-strong);
+  }
+}
+
+@media (max-width: 639px) {
+  .signIn {
+    padding: 0;
+  }
+
+  .label {
+    display: none;
+  }
+}

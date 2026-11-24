@@ -596,7 +596,7 @@
     "rateTest": "Try this speed",
     "cancel": "Cancel",
     "backup": "Back up and restore progress",
-    "backupHint": "Your progress lives only in this browser. Save it to a file in case you clear the browser or change devices (settings and Speaking Check recordings are not included).",
+    "backupHint": "Save your progress to a file in case you clear the browser or change devices (settings and Speaking Check recordings are not included).",
     "backupSave": "Save to a file",
     "backupSaved": "Your backup is downloading. Keep it somewhere safe.",
     "restoreChoose": "Restore from a file",
@@ -914,5 +914,65 @@
     "note": "You were away for {{days}} days. Let's keep going!",
     "noteReview": "You were away for {{days}} days. Warm up with a quick review.",
     "shortReview": "Quick review ({{count}})"
+  },
+  "account": {
+    "guestName": "Learner",
+    "guestNote": "Not signed in. Your progress is only on this device.",
+    "signInShort": "Sign in",
+    "openProfile": "{{name}}'s profile",
+    "promptTitle": "Keep your progress safe?",
+    "promptText": "Sign in with Google and learn on any device. It is optional.",
+    "promptClose": "Close this message",
+    "title": "My account",
+    "why": "Sign in to keep your progress in your account. Learn on any device, and keep it even if you clear the browser.",
+    "optional": "You can learn without signing in.",
+    "haveOne": "Already learning on another device?",
+    "signIn": "Sign in with Google",
+    "connecting": "Connecting…",
+    "signOut": "Sign out",
+    "leaving": "Signing out…",
+    "signOutNote": "After you sign out, your progress stays on this device. On a shared device, other people can see it.",
+    "syncNow": "Sync now",
+    "reload": "Reload page",
+    "sync": {
+      "syncing": "Syncing…",
+      "synced": "Synced at {{time}}",
+      "offline": "No internet. Keep learning — your progress is safe here and will sync later.",
+      "error": "Can't sync right now. Keep learning — your progress is safe here. We'll try again.",
+      "outdated": "There is a new version. Reload the page to keep syncing."
+    },
+    "error": {
+      "signIn": "Sign in didn't work. Please try again.",
+      "cancelled": "Sign in was cancelled. Try again when you are ready.",
+      "inApp": "Google doesn't allow sign in from in-app browsers (like LINE or Facebook). Open this site in Chrome or Safari and try again."
+    },
+    "replaceNote": "You are signed in, so the progress in your account and on your other devices will be replaced too.",
+    "delete": "Delete account",
+    "deleteHint": "Delete your account and the progress on the server (progress on this device stays).",
+    "deleteConfirm": "Delete this account?",
+    "deleteWarning": "Your data on the server will be gone forever. Your other devices will stop syncing.",
+    "deleteYes": "Delete forever",
+    "deleteDone": "Account deleted. Your progress on this device is still here.",
+    "deleteFailed": "Couldn't delete the account. Check your internet and try again."
+  },
+  "privacy": {
+    "title": "Privacy",
+    "subtitle": "What we keep, where, and how to delete it",
+    "device": {
+      "title": "On your device",
+      "text": "Your progress, settings and Speaking Check recordings are kept in your browser. This site has no ads and does not track you on other sites."
+    },
+    "account": {
+      "title": "If you sign in with Google",
+      "text": "We get your name, email and account ID from Google. We keep your progress and review list on Supabase servers so you can learn on any device. Other learners cannot see it. Only you and the site owner can access it. We never see your Google password, your Gmail or your files, and we do not sell data. Settings and recordings are not sent to the server."
+    },
+    "mic": {
+      "title": "Microphone",
+      "text": "When you speak, Chrome and Edge send your voice to Google or Microsoft servers to turn it into text. This site does not keep it."
+    },
+    "delete": {
+      "title": "Delete your data",
+      "text": "Clear the progress on this device in Settings → Start over. Delete your account and its data on the server at any time in Profile → Delete account (while signed in)."
+    }
   }
 }

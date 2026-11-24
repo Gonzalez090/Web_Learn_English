@@ -24,6 +24,7 @@ import LevelCard from '../components/LevelCard'
 import MissionList from '../components/MissionList'
 import CityMap from '../components/CityMap'
 import WelcomeBack from '../components/WelcomeBack'
+import AccountPrompt from '../components/AccountPrompt'
 import styles from './HomePage.module.css'
 
 // ปุ่มลัดไปส่วนที่ใช้งานได้แล้ว (จอกว้างอยู่ในเมนูซ้ายแล้ว)
@@ -108,6 +109,7 @@ export default function HomePage() {
     <Page title={t('home.title')} subtitle={t('app.tagline')} wide>
       {/* หายไป ≥ 3 วัน → NPC ทัก "Long time no see!" + ทบทวนสั้น ๆ (ขั้นที่ 15) */}
       <WelcomeBack reviewCount={reviewCount} />
+      <AccountPrompt />
 
       <div className={styles.layout}>
         <div className={styles.main}>

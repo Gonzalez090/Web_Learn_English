@@ -23,7 +23,7 @@ const PRACTICE = [
 ]
 
 const BOTTOM = [
-  { to: '/settings', icon: ICONS.settings, labelKey: 'home.settings', prefixes: ['/settings', '/credits'] },
+  { to: '/settings', icon: ICONS.settings, labelKey: 'home.settings', prefixes: ['/settings', '/credits', '/privacy'] },
   // หน้า /dev มีเฉพาะตอนพัฒนา
   ...(import.meta.env.DEV ? [{ to: '/dev', icon: ICONS.dev, labelKey: 'home.dev', prefixes: ['/dev'] }] : []),
 ]

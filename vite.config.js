@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import react from '@vitejs/plugin-react'
 import basicSsl from '@vitejs/plugin-basic-ssl'
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import { INDEX_MODULE_ID, STAGE_MODULE_PREFIX, indexModuleCode, stageModuleCode } from './src/data/lessonChunks.js'
 import { PHRASES_INDEX_ID, SITUATION_MODULE_PREFIX, phrasesIndexCode, situationModuleCode } from './src/data/phraseChunks.js'
 import { SCENARIOS_INDEX_ID, SCENARIO_MODULE_PREFIX, scenariosIndexCode, scenarioModuleCode } from './src/data/scenarioChunks.js'
@@ -80,20 +80,37 @@ const scenarioChunks = () =>
 // → ถ้ามีใครพยายามแทรกสคริปต์จากที่อื่น เบราว์เซอร์จะไม่ยอมรัน
 // (ตอน npm run dev ไม่ใส่ เพราะ Vite/React Refresh ต้องใช้สคริปต์แบบ inline)
 // =========================================================
-const CONTENT_SECURITY_POLICY = [
+// connect-src มี Supabase เพิ่มเฉพาะเมื่อตั้งค่าระบบบัญชี (ขั้นที่ 31)
+const contentSecurityPolicy = (supabaseOrigin) => [
   "default-src 'self'",
   "script-src 'self'",
   "style-src 'self'",
   "img-src 'self' data: blob:",
   "font-src 'self'",
   "media-src 'self' blob:", // เล่นไฟล์เสียงที่อัดเอง (ขั้นที่ 19)
-  "connect-src 'self'",
+  ['connect-src', "'self'", supabaseOrigin].filter(Boolean).join(' '),
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",
 ].join('; ')
 
-function securityMetaTags() {
+// ค่าระบบบัญชีจาก .env.local / Vercel → ที่อยู่ Supabase (ไม่ได้ตั้ง = null)
+// ใส่ key ลับมาโดยพลาด → หยุด build ทันที (ทุกอย่างที่ขึ้นต้นด้วย VITE_ คนทั่วไปเห็นได้)
+function accountOrigin(env) {
+  const url = env.VITE_SUPABASE_URL?.trim()
+  const key = env.VITE_SUPABASE_PUBLISHABLE_KEY?.trim()
+  if (!url || !key) return null
+  const payload = key.split('.')[1]
+  const role = payload ? Buffer.from(payload, 'base64url').toString('utf8') : ''
+  if (key.startsWith('sb_secret_') || role.includes('service_role')) {
+    throw new Error('VITE_SUPABASE_PUBLISHABLE_KEY เป็น key ลับ — ใช้ Publishable key (sb_publishable_…) หรือ anon key เท่านั้น')
+  }
+  const { origin, protocol } = new URL(url)
+  if (protocol !== 'https:') throw new Error('VITE_SUPABASE_URL ต้องขึ้นต้นด้วย https://')
+  return origin
+}
+
+function securityMetaTags(supabaseOrigin) {
   return {
     name: 'security-meta-tags',
     apply: 'build',
@@ -103,7 +120,7 @@ function securityMetaTags() {
         tags: [
           {
             tag: 'meta',
-            attrs: { 'http-equiv': 'Content-Security-Policy', content: CONTENT_SECURITY_POLICY },
+            attrs: { 'http-equiv': 'Content-Security-Policy', content: contentSecurityPolicy(supabaseOrigin) },
             injectTo: 'head-prepend',
           },
           // ลิงก์ออกไปเว็บอื่น ส่งแค่ชื่อเว็บเรา ไม่ส่ง path เต็ม
@@ -131,7 +148,7 @@ const PREVIEW_SECURITY_HEADERS = {
 // - npm run build     → เว็บจริงใน dist/ (ไม่มี source map → คนเปิด F12 ไม่เห็นโค้ดต้นฉบับ/คอมเมนต์)
 // =========================================================
 export default defineConfig(({ mode }) => ({
-  plugins: [react(), lessonChunks(), phraseChunks(), scenarioChunks(), securityMetaTags(), mode === 'phone' && basicSsl()].filter(Boolean),
+  plugins: [react(), lessonChunks(), phraseChunks(), scenarioChunks(), securityMetaTags(accountOrigin(loadEnv(mode, process.cwd(), 'VITE_'))), mode === 'phone' && basicSsl()].filter(Boolean),
   // ไฟล์เสียง (~28,000) + ภาพ (~2,200) ใน public/ ไม่ต้องเฝ้าดู — ตัวเฝ้าไฟล์กิน CPU 100% ตลอดเวลาจนเสียงช้า 10–30 วินาที
   // (Vite จำรายการไฟล์ใน public/ ตั้งแต่เริ่ม server อยู่แล้ว → สร้างเสียง/ภาพใหม่ต้องรีสตาร์ต npm run dev เหมือนเดิม)
   server: { watch: { ignored: ['**/public/audio/**', '**/public/images/**'] } },

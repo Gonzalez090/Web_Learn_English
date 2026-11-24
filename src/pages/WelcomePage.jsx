@@ -16,6 +16,8 @@ import { nextLesson } from '../utils/progress'
 import Page from '../components/Page'
 import Button from '../components/Button'
 import GoalPicker from '../components/GoalPicker'
+import GoogleButton from '../components/GoogleButton'
+import { signIn, useAccountStore } from '../store/accountStore'
 import styles from './WelcomePage.module.css'
 
 // ลำดับทักษะแบบเด็กเจ้าของภาษา (หน้า 1)
@@ -49,6 +51,8 @@ export default function WelcomePage() {
   const unlockedStages = useProgressStore((state) => state.unlockedStages)
   const lessonProgress = useProgressStore((state) => state.lessonProgress)
   const [index, setIndex] = useState(0)
+  const account = useAccountStore((state) => state.status)
+  const accountError = useAccountStore((state) => state.error)
   const page = PAGES[index]
   const last = index + 1 >= PAGES.length
 
@@ -110,6 +114,14 @@ export default function WelcomePage() {
           <Button block variant="ghost" onClick={finish}>
             {t('welcome.skip')}
           </Button>
+        )}
+        {/* เคยเรียนแล้วในเครื่องอื่น (ขั้นที่ 31) */}
+        {index === 0 && (account === 'guest' || account === 'loading') && (
+          <div className={styles.account}>
+            <p>{t('account.haveOne')}</p>
+            <GoogleButton block onClick={signIn} disabled={account === 'loading'} loading={account === 'loading'} />
+            {accountError && <p role="alert">{t(`account.error.${accountError}`)}</p>}
+          </div>
         )}
       </div>
     </Page>

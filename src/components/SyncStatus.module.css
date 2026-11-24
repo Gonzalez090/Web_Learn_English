@@ -1,0 +1,40 @@
+.sync {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-soft);
+  color: var(--color-muted);
+  font-size: 0.9375rem;
+}
+
+.sync[data-state='synced'] {
+  background: var(--color-success-soft);
+  color: var(--color-success);
+}
+
+.sync[data-state='offline'],
+.sync[data-state='error'],
+.sync[data-state='outdated'] {
+  background: var(--color-warn-soft);
+  color: var(--color-warn);
+}
+
+.syncIcon {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+}
+
+.sync[data-state='syncing'] .syncIcon {
+  animation: turn 1.2s linear infinite;
+}
+
+@keyframes turn {
+  to {
+    transform: rotate(360deg);
+  }
+}

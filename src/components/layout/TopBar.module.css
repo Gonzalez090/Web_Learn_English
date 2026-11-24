@@ -79,10 +79,26 @@
   white-space: nowrap;
 }
 
-/* จอแคบมาก: ซ่อนชื่อแอป เหลือแค่โลโก้ */
-@media (max-width: 400px) {
+/* จอแคบ: มีปุ่มบัญชี → ซ่อนชื่อแอป เหลือโลโก้ / แคบมาก (≤ 400): มีหน้าแรกในเมนูล่างแล้ว ซ่อนโลโก้ด้วยให้พอที่ */
+@media (max-width: 479px) {
   .name {
     display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .withAccount .brand {
+    display: none;
+  }
+
+  .withAccount .right {
+    flex: 1;
+    justify-content: space-between;
+    gap: 6px;
+  }
+
+  .withAccount .stat {
+    padding: 0 8px;
   }
 }
 

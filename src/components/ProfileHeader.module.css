@@ -1,0 +1,96 @@
+/* หัวโปรไฟล์: พื้นหมึก ชื่อซ้าย สถานะ/ปุ่มขวา */
+.card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-5);
+  padding: var(--space-5);
+  border-radius: var(--radius-xl);
+  background: var(--color-ink);
+  color: var(--color-on-primary);
+  box-shadow: var(--shadow-md);
+}
+
+@media (min-width: 720px) {
+  .card {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 360px);
+    align-items: center;
+    padding: var(--space-6);
+  }
+}
+
+@media (max-width: 359px) {
+  .card {
+    padding: var(--space-4);
+  }
+}
+
+.who {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.text {
+  min-width: 0;
+}
+
+.name {
+  font-size: 1.375rem;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.note {
+  color: var(--color-on-ink-muted);
+  font-size: 0.9375rem;
+  overflow-wrap: anywhere;
+}
+
+.level {
+  display: inline-block;
+  margin-top: var(--space-2);
+  padding: 3px 12px;
+  border-radius: var(--radius-full);
+  background: var(--color-ink-soft);
+  color: var(--color-on-ink-muted);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--space-2);
+}
+
+.error {
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--color-warn-soft);
+  color: var(--color-warn);
+  font-size: 0.9375rem;
+}
+
+.small {
+  color: var(--color-on-ink-muted);
+  font-size: 0.875rem;
+}
+
+.link {
+  color: var(--color-sun);
+  font-weight: 600;
+}
+
+.link:focus-visible,
+.side button:focus-visible,
+.side a:focus-visible {
+  outline-color: var(--color-sun);
+}

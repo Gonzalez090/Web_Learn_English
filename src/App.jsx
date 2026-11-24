@@ -39,6 +39,8 @@ const SpeakingCheckPage = lazyPage(() => import('./pages/SpeakingCheckPage'))
 const CollectionPage = lazyPage(() => import('./pages/CollectionPage'))
 // มินิเกมเล่นแยก: ใช้ตัวเกมชุดเดียวกับบทเรียน → แยกไฟล์ (ขั้นที่ 17)
 const GamePage = lazyPage(() => import('./pages/GamePage'))
+// ความเป็นส่วนตัว (ขั้นที่ 31)
+const PrivacyPage = lazyPage(() => import('./pages/PrivacyPage'))
 // ห้องของตัวละคร (ขั้นที่ 20-2)
 const RoomPage = lazyPage(() => import('./pages/RoomPage'))
 
@@ -80,6 +82,7 @@ export default function App() {
         <Route path="profile/room" element={<RoomPage />} />
         <Route path="settings" element={<SettingsPage />} />
         <Route path="credits" element={<CreditsPage />} />
+        <Route path="privacy" element={<PrivacyPage />} />
 
         {DevPage && (
           <Route

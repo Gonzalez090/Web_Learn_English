@@ -1,16 +1,18 @@
 // =========================================================
 // TopBar — แถบบนของทุกหน้า
 //   ซ้าย: โลโก้ + ชื่อแอป (กดแล้วกลับหน้าแรก)
-//   ขวา: streak 🔥 + XP ⭐ แบบย่อ + ปุ่มสลับภาษา TH | EN
+//   ขวา: streak + XP แบบย่อ + ปุ่มสลับภาษา TH | EN + บัญชี (เข้าสู่ระบบ / วงกลมชื่อ)
 // (แถบเลเวลเต็มอยู่ในการ์ด LevelCard หน้าแรก/โปรไฟล์)
 // =========================================================
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { useAccountStore } from '../../store/accountStore'
 import { useProgressStore } from '../../store/progressStore'
 import { ICONS } from '../../utils/icons'
 import { todayKey } from '../../utils/date'
 import { displayStreak } from '../../utils/streak'
 import LanguageToggle from '../LanguageToggle'
+import AccountButton from './AccountButton'
 import styles from './TopBar.module.css'
 
 export default function TopBar() {
@@ -20,12 +22,13 @@ export default function TopBar() {
   const freeze = useProgressStore((state) => state.streakFreeze)
   // หายไปจน streak ขาดแล้ว → แสดง 0 (ยังต่อได้ด้วย Freeze → แสดงตัวเลขเดิม)
   const streak = displayStreak(streakState, freeze, todayKey())
+  const hasAccount = useAccountStore((state) => state.status !== 'off')
   const StreakIcon = ICONS.streak
   const XpIcon = ICONS.xp
 
   return (
     <header className={styles.bar}>
-      <div className={styles.inner}>
+      <div className={hasAccount ? `${styles.inner} ${styles.withAccount}` : styles.inner}>
         <Link to="/" className={styles.brand}>
           <img src="/favicon.svg" alt="" className={styles.logo} width="32" height="32" />
           <span className={styles.name}>{t('app.name')}</span>
@@ -46,6 +49,7 @@ export default function TopBar() {
             <span className="sr-only">{t('stats.xp', { count: xp })}</span>
           </span>
           <LanguageToggle />
+          <AccountButton />
         </div>
       </div>
     </header>

@@ -7,6 +7,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useProgressStore } from '../../store/progressStore'
+import { progressReplaced, useAccountStore } from '../../store/accountStore'
 import { useReviewStore } from '../../store/reviewStore'
 import { clearChecks, isCheckStoreSupported } from '../../utils/checkStore'
 import { ICONS } from '../../utils/icons'
@@ -19,6 +20,7 @@ function ConfirmReset({ onDone, onCancel }) {
   const { t } = useTranslation()
   const [withRecordings, setWithRecordings] = useState(false)
   const [busy, setBusy] = useState(false)
+  const signedIn = useAccountStore((state) => state.user !== null)
   const boxRef = useRef(null)
 
   // เปิดกล่อง → ย้ายโฟกัสมาที่กล่อง (คีย์บอร์ด/โปรแกรมอ่านหน้าจอ)
@@ -38,6 +40,7 @@ function ConfirmReset({ onDone, onCancel }) {
     }
     useProgressStore.getState().resetProgress()
     useReviewStore.getState().resetReview()
+    progressReplaced() // ล็อกอินอยู่ → ล้างในบัญชีด้วย
     onDone(result)
   }
 
@@ -45,6 +48,7 @@ function ConfirmReset({ onDone, onCancel }) {
     <div ref={boxRef} className={styles.confirm} role="group" tabIndex={-1} aria-label={t('settings.resetConfirm')}>
       <p className={styles.confirmTitle}>{t('settings.resetConfirm')}</p>
       <p className={styles.note}>{t('settings.resetWarning')}</p>
+      {signedIn && <p className={styles.note}>{t('account.replaceNote')}</p>}
       {isCheckStoreSupported && (
         <label className={styles.check}>
           <input type="checkbox" checked={withRecordings} onChange={(event) => setWithRecordings(event.target.checked)} />

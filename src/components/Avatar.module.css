@@ -1,0 +1,53 @@
+.avatar {
+  position: relative;
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.lg {
+  width: 76px;
+  height: 76px;
+  background: var(--color-sun);
+  color: var(--color-on-sun);
+  font-size: 2rem;
+}
+
+.guest {
+  background: var(--color-surface-soft);
+  color: var(--color-muted);
+}
+
+.avatar svg {
+  width: 52%;
+  height: 52%;
+}
+
+/* จุดสถานะการซิงก์ */
+.dot {
+  position: absolute;
+  right: -1px;
+  bottom: -1px;
+  width: 13px;
+  height: 13px;
+  border: 2px solid var(--color-bg);
+  border-radius: var(--radius-full);
+  background: var(--color-faint);
+}
+
+.dot[data-state='synced'] {
+  background: var(--color-success);
+}
+
+.dot[data-state='offline'],
+.dot[data-state='error'],
+.dot[data-state='outdated'] {
+  background: var(--color-streak);
+}

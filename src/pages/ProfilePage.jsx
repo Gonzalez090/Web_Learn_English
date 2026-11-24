@@ -1,5 +1,5 @@
 // =========================================================
-// ProfilePage — โปรไฟล์: เลเวล/streak, สถิติ, Speaking Check
+// ProfilePage — โปรไฟล์: หัวโปรไฟล์/บัญชี (ขั้นที่ 31), เลเวล/streak, สถิติ, Speaking Check
 // (กราฟนาทีที่พูด ขั้นที่ 18, Collection การ์ดวลี ขั้นที่ 20-1, ห้องของตัวละคร ขั้นที่ 20-2)
 // =========================================================
 import { useTranslation } from 'react-i18next'
@@ -12,6 +12,8 @@ import { ICONS } from '../utils/icons'
 import Page from '../components/Page'
 import Section from '../components/Section'
 import LevelCard from '../components/LevelCard'
+import ProfileHeader from '../components/ProfileHeader'
+import DeleteAccountSection from '../components/DeleteAccountSection'
 import Tile, { TileList } from '../components/Tile'
 import SpeakingChart from '../components/SpeakingChart'
 import { todayKey } from '../utils/date'
@@ -40,6 +42,7 @@ export default function ProfilePage() {
 
   return (
     <Page title={t('profile.title')} wide>
+      <ProfileHeader />
       <div className={styles.layout}>
         <div className={styles.col}>
           <LevelCard />
@@ -81,6 +84,8 @@ export default function ProfilePage() {
           </Section>
         </div>
       </div>
+      {/* ล็อกอินอยู่เท่านั้น */}
+      <DeleteAccountSection />
     </Page>
   )
 }

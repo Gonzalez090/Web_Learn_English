@@ -7,7 +7,7 @@
 // =========================================================
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { CircleHelp, Images } from 'lucide-react'
+import { CircleHelp, Images, ShieldCheck } from 'lucide-react'
 import { useSettingsStore } from '../store/settingsStore'
 import { useSpeech } from '../hooks/useSpeech'
 import Page from '../components/Page'
@@ -175,7 +175,8 @@ export default function SettingsPage() {
       <TileList>
         {/* หน้าแนะนำวิธีเรียน (ที่เห็นตอนเข้าเว็บครั้งแรก) */}
         <Tile to="/welcome" icon={CircleHelp} title={t('settings.howTo')} description={t('settings.howToHint')} />
-        <Tile to="/credits" icon={Images} title={t('credits.title')} description={t('credits.subtitle')} />
+        <Tile to="/privacy" icon={ShieldCheck} tone="mint" title={t('privacy.title')} description={t('privacy.subtitle')} />
+        <Tile to="/credits" icon={Images} tone="sky" title={t('credits.title')} description={t('credits.subtitle')} />
       </TileList>
     </Page>
   )

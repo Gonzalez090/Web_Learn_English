@@ -20,8 +20,10 @@ import './styles/global.css'
 import './i18n'
 import App from './App'
 import { syncTabs } from './store/syncTabs'
+import { startAccount } from './store/accountStore'
 
 syncTabs() // เปิดหลายแท็บ → ความคืบหน้าตรงกัน ไม่เขียนทับกัน
+startAccount() // บัญชี Google + ซิงก์ (ไม่ได้ตั้งค่า = ไม่ทำอะไร)
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

@@ -10,6 +10,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { INITIAL_PROGRESS, useProgressStore } from '../../store/progressStore'
 import { useReviewStore } from '../../store/reviewStore'
+import { progressReplaced, useAccountStore } from '../../store/accountStore'
 import { backupFileName, createBackup, MAX_BACKUP_BYTES, parseBackup, summarize } from '../../utils/backup'
 import { formatShortDate, toDateKey, todayKey } from '../../utils/date'
 import { ICONS } from '../../utils/icons'
@@ -35,6 +36,7 @@ const SUMMARY_KEYS = ['xp', 'lessons', 'cards', 'review']
 
 function ConfirmRestore({ candidate, now, onConfirm, onCancel }) {
   const { t, i18n } = useTranslation()
+  const signedIn = useAccountStore((state) => state.user !== null)
   const boxRef = useRef(null)
 
   // ได้ไฟล์ (ใหม่) → ย้ายโฟกัสมาที่กล่อง (คีย์บอร์ด/โปรแกรมอ่านหน้าจอ)
@@ -70,6 +72,7 @@ function ConfirmRestore({ candidate, now, onConfirm, onCancel }) {
           ))}
         </tbody>
       </table>
+      {signedIn && <p className={styles.note}>{t('account.replaceNote')}</p>}
       <div className={styles.actions}>
         <Button variant="danger" onClick={onConfirm}>
           {t('settings.restoreYes')}
@@ -120,6 +123,7 @@ export default function BackupSection({ notice, onNotice, open, onOpen, onClose 
   function restore() {
     progress.restoreProgress(candidate.progress)
     useReviewStore.getState().restoreReview(candidate.reviewQueue)
+    progressReplaced() // ล็อกอินอยู่ → แทนที่ในบัญชีด้วย
     onClose()
     setMessage('ok', 'settings.restoreDone')
   }
