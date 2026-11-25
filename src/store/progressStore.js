@@ -16,7 +16,8 @@ import { todayKey, weekStartKey } from '../utils/date'
 import { BOSS_BONUS_XP, isWeeklyBoss } from '../utils/boss'
 import { levelFromXp } from '../utils/level'
 import { recordActivity } from '../utils/streak'
-import { applyMissionEvent, ensureDailyMissions, missionReward } from '../utils/missions'
+import { missionContext } from '../utils/missionContext'
+import { applyMissionEvent, ensureDailyMissions, missionReward, refreshMissions } from '../utils/missions'
 import { addFriendship, recordVisit as visitResult } from '../utils/friendship'
 import { applyPlanEvent, ensureDailyPlan, TALK_FROM_STAGE } from '../utils/dailyPlan'
 import { addSpeaking } from '../utils/speaking'
@@ -56,7 +57,7 @@ function announce({ previousXp, nextXp, completed = [], usedFreeze = false, stre
 
 // ภารกิจของวันนี้ + ผลของเหตุการณ์หนึ่ง
 function missionsAfter(state, event, amount) {
-  const daily = ensureDailyMissions(state.dailyMissions, dailyMissionPool, todayKey())
+  const daily = ensureDailyMissions(state.dailyMissions, dailyMissionPool, todayKey(), missionContext(state))
   return applyMissionEvent(daily, dailyMissionPool, event, amount)
 }
 
@@ -152,10 +153,12 @@ export const useProgressStore = create(
         if (minutes !== state.studyMinutes) set({ studyMinutes: minutes })
       },
 
-      // เปิดหน้าแรกวันใหม่ → สุ่มภารกิจของวันนี้
-      refreshDailyMissions: () => {
+      // เปิดหน้าแรก → สุ่มภารกิจของวันนี้ (วันใหม่) / เปลี่ยนข้อที่ทำไม่ได้ (เช่น ความคืบหน้าเปลี่ยนจากการซิงก์)
+      //   reviewDue = รายการทบทวนที่ถึงกำหนดวันนี้ (ส่งมาจากหน้า — store นี้ไม่อ่าน store อื่น)
+      refreshDailyMissions: (reviewDue) => {
         const state = get()
-        const daily = ensureDailyMissions(state.dailyMissions, dailyMissionPool, todayKey())
+        const context = missionContext(state, reviewDue)
+        const daily = refreshMissions(state.dailyMissions, dailyMissionPool, todayKey(), context)
         if (daily !== state.dailyMissions) set({ dailyMissions: daily })
       },
 

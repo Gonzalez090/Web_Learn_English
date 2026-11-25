@@ -687,7 +687,7 @@
     "done": "Done",
     "progress": "{{progress}}/{{target}}",
     "allDone": "All missions done today. Great job!",
-    "newDaily": "New missions every day. Finish them for extra XP."
+    "newDaily": "Tap a mission to start it. New missions every day."
   },
   "toast": {
     "levelUp": "Level up! Lv {{level}}",

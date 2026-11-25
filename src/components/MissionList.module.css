@@ -7,7 +7,8 @@
 
 .list {
   margin: 0;
-  padding: 0 var(--space-4);
+  padding: 0;
+  overflow: hidden;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   background: var(--color-surface);
@@ -15,15 +16,49 @@
   list-style: none;
 }
 
-.item {
+.row {
   display: flex;
   align-items: center;
   gap: var(--space-3);
-  padding: var(--space-3) 0;
+  padding: var(--space-3) var(--space-4);
 }
 
 .item + .item {
   border-top: 1px solid var(--color-border);
+}
+
+/* ข้อที่ยังไม่สำเร็จ: แตะได้ทั้งแถว → ไปหน้าที่ทำภารกิจนั้น */
+.link {
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.2s var(--ease);
+}
+
+.link:active {
+  transform: scale(0.98);
+}
+
+.link:focus-visible {
+  outline-offset: -3px;
+}
+
+.go {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin: 0 -4px 0 calc(var(--space-2) * -1);
+  color: var(--color-muted);
+}
+
+/* ข้อที่สำเร็จแล้วไม่มีลูกศร → เว้นที่ให้ตัวเลขตรงกับข้ออื่น (ความกว้างที่ลูกศรใช้) */
+.done .row {
+  padding-right: calc(var(--space-4) + 18px);
+}
+
+@media (hover: hover) {
+  .link:hover {
+    background: var(--color-surface-soft);
+  }
 }
 
 .icon {
@@ -108,7 +143,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .barFill {
+  .barFill,
+  .link {
     transition: none;
   }
 }

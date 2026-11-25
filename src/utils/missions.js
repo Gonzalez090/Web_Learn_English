@@ -1,71 +1,170 @@
 // =========================================================
 // missions.js — ภารกิจรายวัน (ส่วนที่ 8.3)
-// - ทุกวันสุ่ม 3 ภารกิจจาก game.json → dailyMissionPool (สุ่มจากวันที่ → วันเดียวกันได้ชุดเดิม)
-// - สุ่มเฉพาะภารกิจที่ฟีเจอร์มีแล้วในเว็บ และไม่ซ้ำชนิดกันในวันเดียว
+// - ทุกวันสุ่ม 3 ภารกิจจาก game.json → dailyMissionPool (สุ่มจากวันที่ → วันเดียวกันได้ชุดเดิม) ไม่ซ้ำชนิดกันในวันเดียว
+// - สุ่มเฉพาะภารกิจที่ทำได้จากสิ่งที่เรียนแล้ว (missionPath ≠ null) เช่น ยังไม่เคยเรียนบทเขียน → ไม่มีภารกิจเขียน
+//   เรียนครบทุกบทแล้ว → ไม่มีภารกิจ "เรียนจบ N บท" (ไม่มีบทใหม่) เหลือการใช้จริง/ฝึกซ้ำ
+// - แตะภารกิจ → ไปหน้าที่ทำภารกิจนั้นได้ (missionPath)
 // - เว็บแจ้ง "เหตุการณ์" (เช่น พูดผ่าน 1 ครั้ง) → ภารกิจชนิดนั้นคืบหน้า → ครบเป้า = สำเร็จ ได้ XP รางวัล
+// (ฟังก์ชันล้วน → ทดสอบได้ — ctx สร้างจาก utils/missionContext.js)
 // =========================================================
+import { TALK_FROM_STAGE } from './dailyPlan'
+import { isScenarioLocked } from './friendship'
+import { LESSON_GAMES, playableLessons } from './gamePool'
+import { LESSON_FLOWS } from './lessonSteps'
+import { isPlaceUnlocked } from './places'
+import { nextLesson } from './progress'
 import { createRandom, hashString, shuffle } from './random'
 
-// ชนิดเหตุการณ์ทั้งหมดที่ภารกิจใช้ได้ → ขั้นที่ฟีเจอร์นั้นเริ่มมี
-export const MISSION_EVENTS = {
-  listen: 4, // ฟังคำ/ประโยคในบทเรียน 1 ข้อ
-  speakPass: 4, // พูดตามผ่าน 1 ครั้ง
-  gameCorrect: 4, // มินิเกม: ตอบถูกตั้งแต่ครั้งแรก 1 รอบ
-  gamePlay: 4, // เล่นมินิเกมจบ 1 เกม
-  lessonComplete: 4, // เรียนจบ 1 บท
-  perfectLesson: 4, // จบบทได้ 100%
-  xp: 13, // เก็บ XP จากการเรียน (ไม่นับ XP รางวัลภารกิจ)
-  sound: 8, // ฝึกเสียงที่คนไทยออกยาก 1 ชุด
-  writePass: 9, // แบบฝึกเขียนผ่าน 1 ข้อ (Stage 7)
-  phrase: 10, // ฝึกวลีใช้งานจริง 1 วลี
-  conversation: 11, // คุยบทสนทนาสุ่มจบ 1 รอบ
-  npcTalk: 15, // คุยกับ NPC 1 ครั้ง
-  review: 16, // ทบทวน 1 รายการ
-  speakingMinutes: 18, // พูดภาษาอังกฤษ 1 นาที
-}
-
-// เหตุการณ์ที่เว็บแจ้งได้แล้วตอนนี้ — ทำขั้นใหม่เสร็จ ให้เพิ่มเหตุการณ์ของขั้นนั้นที่นี่
-export const AVAILABLE_MISSION_EVENTS = new Set([
-  'listen',
-  'speakPass',
-  'gameCorrect',
-  'gamePlay',
-  'lessonComplete',
-  'perfectLesson',
-  'xp',
-  'review',
-  'sound', // โหมดฝึกเสียง (ขั้นที่ 8 + 21ก)
-  'writePass', // แบบฝึกเขียน (ขั้นที่ 9)
-  'phrase', // คลังวลี: พูดตามวลีผ่าน (ขั้นที่ 10)
-  'conversation', // บทสนทนาสุ่มจบ 1 รอบ (ขั้นที่ 11)
-  'npcTalk', // คุยบทสนทนาสุ่มจบกับ NPC ประจำสถานที่ (ขั้นที่ 15)
-  'speakingMinutes', // พูดภาษาอังกฤษครบ 1 นาที (นับจากช่วงที่ไมค์ตรวจพบเสียงพูด — ขั้นที่ 18)
-])
+// ฝึกเสียงแสดงคำเป็นตัวอักษร → เริ่มเมื่อเรียนบท Stage 4 แล้ว (Stage 1–3 ไม่แสดงตัวอักษร)
+export const SOUND_FROM_STAGE = 4
 
 export const MISSIONS_PER_DAY = 3
 
-// เลือกภารกิจของวันนั้น (ผลเดิมทุกครั้งสำหรับวันเดียวกัน)
-export function pickDailyMissions(pool, today, count = MISSIONS_PER_DAY) {
+// ชนิดบทที่ทำให้ภารกิจคืบหน้า
+const LESSON_TYPES = Object.keys(LESSON_FLOWS).filter((type) => type !== 'talk')
+const typesReviewedBy = (...kinds) =>
+  LESSON_TYPES.filter((type) => LESSON_FLOWS[type].review.some((kind) => kinds.includes(kind)))
+const LISTEN_TYPES = LESSON_TYPES.filter((type) => !['sightWords', 'writing'].includes(type))
+const SPEAK_TYPES = typesReviewedBy('speak', 'read')
+// นับเป็นนาที → บทที่พูดเป็นประโยค (คำเดี่ยวสั้นเกินไป พูดครบนาทียาก)
+const SENTENCE_TYPES = ['sentence', 'context', 'dialogue', 'story', 'rhyme', 'reading']
+const WRITE_TYPES = ['writing']
+
+// ---------- ทำภารกิจได้ที่ไหน ----------
+
+const lessonPath = (lesson) => (lesson ? `/lesson/${lesson.id}` : null)
+
+const nextOf = (ctx) => nextLesson(ctx.lessonList, ctx.unlockedStages, ctx.lessonProgress)
+
+// บทที่เรียนจบแล้ว (ของชนิดที่ระบุ)
+const learnedLessons = (ctx, types = LESSON_TYPES) =>
+  ctx.lessonList.filter((lesson) => types.includes(lesson.type) && ctx.lessonProgress[lesson.id]?.completed)
+
+// บทต่อไป — ถ้าเป็นชนิดที่ใช้ได้
+function nextPath(ctx, types = LESSON_TYPES) {
+  const lesson = nextOf(ctx)
+  return lesson && types.includes(lesson.type) ? lessonPath(lesson) : null
+}
+
+// บทที่เรียนแล้วให้เรียนซ้ำ: Stage สูงสุดก่อน แล้วบทที่ไม่ได้เล่นนานที่สุด
+function replayPath(ctx, types) {
+  const playedAt = (lesson) => ctx.lessonProgress[lesson.id].lastPlayedAt ?? ''
+  const [lesson] = learnedLessons(ctx, types).sort(
+    (a, b) => b.stageId - a.stageId || playedAt(a).localeCompare(playedAt(b)),
+  )
+  return lessonPath(lesson)
+}
+
+// บทสนทนาสุ่มที่เล่นได้ (พูดเป็นประโยคได้แล้ว + สถานที่เปิด + ไม่ล็อกตามความสนิท)
+function openScenarios(ctx) {
+  if (!ctx.unlockedStages.includes(TALK_FROM_STAGE)) return []
+  return ctx.scenarioList.filter((scenario) => {
+    const place = ctx.cityMap.find((entry) => entry.placeId === scenario.placeId)
+    return Boolean(place && isPlaceUnlocked(place, ctx.unlockedStages)) && !isScenarioLocked(scenario, ctx.npcFriendship)
+  })
+}
+
+const talkPath = (ctx) => (openScenarios(ctx).length > 0 ? '/talk' : null)
+
+// ฝึกพูด: ต้องเคยเรียนบทที่พูดแล้ว → บทต่อไป / บทสนทนาสุ่ม / เรียนซ้ำ
+function speakingPath(ctx, types) {
+  if (learnedLessons(ctx, types).length === 0) return null
+  return nextPath(ctx, types) ?? talkPath(ctx) ?? replayPath(ctx, types)
+}
+
+// หน้ามินิเกม: มีเกมที่ใช้บทที่เรียนแล้วอย่างน้อย 1 เกม
+function gamesPath(ctx) {
+  const ready = Object.keys(LESSON_GAMES).some(
+    (gameId) => playableLessons(gameId, ctx.lessonList, ctx.lessonProgress).length > 0,
+  )
+  return ready ? '/games' : null
+}
+
+// เหตุการณ์ของภารกิจ → หน้าที่ทำได้ (null = ยังไม่เปิด / ยังไม่ได้เรียน)
+const EVENT_PATH = {
+  // ทำได้ตั้งแต่บทแรก
+  listen: (ctx) => nextPath(ctx, LISTEN_TYPES) ?? replayPath(ctx, LISTEN_TYPES),
+  lessonComplete: (ctx) => nextPath(ctx) ?? replayPath(ctx),
+  xp: (ctx) => nextPath(ctx) ?? talkPath(ctx) ?? replayPath(ctx),
+  // ต้องเคยเรียนบทที่ใช้ทักษะนั้นแล้วอย่างน้อย 1 บท
+  perfectLesson: (ctx) => (learnedLessons(ctx).length > 0 ? (nextPath(ctx) ?? replayPath(ctx)) : null),
+  speakPass: (ctx) => speakingPath(ctx, SPEAK_TYPES),
+  speakingMinutes: (ctx) => speakingPath(ctx, SENTENCE_TYPES),
+  writePass: (ctx) => {
+    if (learnedLessons(ctx, WRITE_TYPES).length === 0) return null
+    return nextPath(ctx, WRITE_TYPES) ?? replayPath(ctx, WRITE_TYPES)
+  },
+  gamePlay: gamesPath,
+  gameCorrect: gamesPath,
+  sound: (ctx) => (learnedLessons(ctx).some((lesson) => lesson.stageId >= SOUND_FROM_STAGE) ? '/sounds' : null),
+  // ทบทวนที่ทำแล้ว + ที่ยังค้าง ต้องพอถึงเป้า
+  review: (ctx, mission, progress) =>
+    ctx.reviewDue > 0 && progress + ctx.reviewDue >= mission.target ? '/review' : null,
+  // ภาษาในเมืองเป็นประโยคเต็ม → Stage 5 เปิดแล้ว
+  phrase: (ctx) => (ctx.unlockedStages.includes(TALK_FROM_STAGE) ? '/phrases' : null),
+  conversation: talkPath,
+  npcTalk: (ctx) => {
+    const scenario = openScenarios(ctx).find((entry) => entry.npcId)
+    return scenario ? `/place/${scenario.placeId}` : null
+  },
+}
+
+// เหตุการณ์ที่ภารกิจใช้ได้
+export const MISSION_EVENTS = Object.keys(EVENT_PATH)
+
+/**
+ * หน้าที่ทำภารกิจนี้ได้
+ * @param ctx      { lessonList, scenarioList, cityMap, unlockedStages, lessonProgress, npcFriendship, reviewDue }
+ * @param progress ความคืบหน้าวันนี้ของภารกิจ
+ * @returns path หรือ null ถ้ายังทำไม่ได้
+ */
+export const missionPath = (mission, ctx, progress = 0) => EVENT_PATH[mission.event]?.(ctx, mission, progress) ?? null
+
+// ควรสุ่มภารกิจนี้ให้ไหม: ทำได้แล้ว + ไม่ใช่ "เรียนจบ N บท" ตอนที่ไม่มีบทใหม่ให้เรียน
+const isSuitable = (mission, ctx) =>
+  missionPath(mission, ctx) !== null && (mission.event !== 'lessonComplete' || nextOf(ctx) !== null)
+
+// ---------- ภารกิจของวัน ----------
+
+// เลือกภารกิจของวันนั้น (ผลเดิมทุกครั้งสำหรับวันเดียวกัน + ความคืบหน้าเดียวกัน)
+//   exclude = ชนิดเหตุการณ์ที่มีอยู่แล้ววันนี้
+export function pickDailyMissions(pool, today, ctx, { count = MISSIONS_PER_DAY, exclude = [] } = {}) {
   const random = createRandom(hashString(today))
-  const available = pool.filter((mission) => AVAILABLE_MISSION_EVENTS.has(mission.event))
   const picked = []
-  const usedEvents = new Set()
-  for (const mission of shuffle(available, random)) {
-    if (usedEvents.has(mission.event)) continue
+  const usedEvents = new Set(exclude)
+  for (const mission of shuffle(pool, random)) {
+    if (picked.length === count) break
+    if (usedEvents.has(mission.event) || !isSuitable(mission, ctx)) continue
     picked.push(mission)
     usedEvents.add(mission.event)
-    if (picked.length === count) break
   }
   return picked
 }
 
+const newEntry = (mission) => ({ id: mission.id, progress: 0, done: false })
+
 // ถ้ายังไม่มีภารกิจของวันนี้ → สร้างใหม่ (คืน object เดิมถ้าเป็นของวันนี้อยู่แล้ว)
-export function ensureDailyMissions(daily, pool, today) {
+export function ensureDailyMissions(daily, pool, today, ctx) {
   if (daily?.date === today && daily.missions?.length) return daily
-  return {
-    date: today,
-    missions: pickDailyMissions(pool, today).map((mission) => ({ id: mission.id, progress: 0, done: false })),
-  }
+  return { date: today, missions: pickDailyMissions(pool, today, ctx).map(newEntry) }
+}
+
+/**
+ * เปิดหน้าแรก → ภารกิจของวันนี้ โดยเปลี่ยนข้อที่ยังไม่สำเร็จและทำไม่ได้ (ยังไม่เปิด / ไม่เหลือให้ทบทวนพอ) เป็นข้อที่ทำได้
+ * ข้อที่สำเร็จแล้วคงไว้ / ไม่มีอะไรต้องเปลี่ยน → คืน object เดิม
+ */
+export function refreshMissions(daily, pool, today, ctx) {
+  const current = ensureDailyMissions(daily, pool, today, ctx)
+  const missionOf = (entry) => pool.find((mission) => mission.id === entry.id)
+  const keep = current.missions.filter((entry) => {
+    const mission = missionOf(entry)
+    return mission && (entry.done || missionPath(mission, ctx, entry.progress) !== null)
+  })
+  const missing = Math.max(0, MISSIONS_PER_DAY - keep.length)
+  const exclude = keep.map((entry) => missionOf(entry).event)
+  const added = pickDailyMissions(pool, today, ctx, { count: missing, exclude })
+  if (keep.length === current.missions.length && added.length === 0) return current
+  return { ...current, missions: [...keep, ...added.map(newEntry)] }
 }
 
 /**
