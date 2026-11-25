@@ -31,6 +31,8 @@ const emptyCounts = () => Object.fromEntries([...PLAN_EVENTS].map((event) => [ev
 // บทสนทนาสุ่มเหมาะเมื่อพูดเป็นประโยคได้แล้ว = ผ่าน Stage 4 (Stage 5 เปิดแล้ว)
 export const TALK_FROM_STAGE = 5
 
+export const isTaskDone = (task) => task.progress >= task.target
+
 const withProgress = (tasks, counts) =>
   tasks.map((task) => ({ ...task, progress: Math.min(task.target, counts[PLAN_TASK_EVENTS[task.kind]] ?? 0) }))
 
@@ -60,16 +62,31 @@ export function buildDailyPlan({ goal, today, reviewDue = 0, talkReady = false, 
   return { date: today, goal: minutes, counts: done, tasks: withProgress(tasks, done) }
 }
 
+// ขั้นที่ยังไม่เสร็จแต่ทำไม่ได้แล้ว เช่น แผนสร้างไว้ก่อนความคืบหน้าจากบัญชีซิงก์มาแทน
+//   บทสนทนาสุ่มแต่ Stage ยังไม่ถึง / ทบทวนมากกว่าที่ทำแล้ว + ที่ยังค้างจริง
+const isUnreachable = (task, counts, { reviewDue, talkReady }) =>
+  !isTaskDone(task) &&
+  ((task.kind === 'talk' && !talkReady) || (task.kind === 'review' && task.target > counts.review + reviewDue))
+
 // แผนที่ใช้วันนี้: ของเดิมถ้ายังเป็นวันนี้และเป้าเดิม ไม่งั้นสร้างใหม่ (คืนตัวเดิมถ้าไม่เปลี่ยน — store เช็กได้ว่าต้อง set ไหม)
+//   มีขั้นที่ทำไม่ได้แล้ว → จัดใหม่ / lessonsToday = บทที่จบวันนี้ตามความคืบหน้า (รวมเครื่องอื่นที่ซิงก์มา) → นับให้ด้วย
 //   วันเดียวกัน → คง counts ไว้ / แผนรุ่นแรกที่ยังไม่มี counts → สร้างใหม่ (นับจาก progress เดิม)
-export function ensureDailyPlan(plan, { goal, today, reviewDue, talkReady }) {
+export function ensureDailyPlan(plan, { goal, today, reviewDue = 0, talkReady = false, lessonsToday = 0 }) {
   const minutes = PLAN_GOALS.includes(goal) ? goal : DEFAULT_GOAL
-  if (plan?.date === today && plan.goal === minutes && plan.counts) return plan
-  let counts = null
+  let counts = emptyCounts()
   if (plan?.date === today) {
-    counts =
-      plan.counts ??
-      Object.fromEntries(plan.tasks.map((task) => [PLAN_TASK_EVENTS[task.kind], task.progress ?? 0]))
+    counts = {
+      ...counts,
+      ...(plan.counts ??
+        Object.fromEntries(plan.tasks.map((task) => [PLAN_TASK_EVENTS[task.kind], task.progress ?? 0]))),
+    }
+  }
+  const moreLessons = lessonsToday > counts.lessonComplete
+  if (moreLessons) counts.lessonComplete = lessonsToday
+
+  const current = plan?.date === today && plan.goal === minutes && plan.counts
+  if (current && !plan.tasks.some((task) => isUnreachable(task, counts, { reviewDue, talkReady }))) {
+    return moreLessons ? { ...plan, counts, tasks: withProgress(plan.tasks, counts) } : plan
   }
   return buildDailyPlan({ goal: minutes, today, reviewDue, talkReady, counts })
 }
@@ -85,8 +102,10 @@ export function applyPlanEvent(plan, event, amount, today) {
   return { plan: next, completed: isPlanDone(next) && !isPlanDone(plan) }
 }
 
-export const isTaskDone = (task) => task.progress >= task.target
 export const isPlanDone = (plan) => Boolean(plan?.tasks.length) && plan.tasks.every(isTaskDone)
+
+// จำนวนขั้นที่ยังไม่เสร็จ
+export const planStepsLeft = (plan) => plan?.tasks.filter((task) => !isTaskDone(task)).length ?? 0
 
 // ขั้นแรกที่ยังไม่เสร็จ (ทำตามลำดับ) — ไม่มี = เสร็จหมดแล้ว
 export const nextPlanTask = (plan) => plan?.tasks.find((task) => !isTaskDone(task)) ?? null

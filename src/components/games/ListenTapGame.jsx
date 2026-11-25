@@ -17,6 +17,7 @@ import { useTranslation } from 'react-i18next'
 import { BookOpen, Ear } from 'lucide-react'
 import { buildListenTapRounds, listenTapPrompt } from '../../utils/listenTap'
 import { useSpeech } from '../../hooks/useSpeech'
+import { useStudyActivity } from '../../hooks/useStudyActivity'
 import Picture from '../Picture'
 import Button from '../Button'
 import styles from './ListenTapGame.module.css'
@@ -40,6 +41,7 @@ export default function ListenTapGame({ items, pool = items, onRoundResult, onFi
   //        โหมดอ่านไม่มีเสียงตอนถาม → เริ่มที่ 'playing' เลย
   const [phase, setPhase] = useState(reading ? 'playing' : 'asking')
   const [wrongIds, setWrongIds] = useState([])
+  useStudyActivity() // เล่นอยู่ → นับเวลาเรียน
 
   const round = rounds[roundIndex]
   const prompt = listenTapPrompt(round.answer)

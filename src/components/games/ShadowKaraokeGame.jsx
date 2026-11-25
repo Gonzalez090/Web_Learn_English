@@ -18,6 +18,7 @@ import { Fragment, useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { MicVocal, SkipForward } from 'lucide-react'
 import { useSpeech } from '../../hooks/useSpeech'
+import { useStudyActivity } from '../../hooks/useStudyActivity'
 import { compareSpeech, scoreTranscript } from '../../utils/compareWords'
 import {
   activeWordAt,
@@ -56,6 +57,7 @@ export default function ShadowKaraokeGame({ items, lenient = false, ordered = fa
   // phase: 'demo' (ฟังต้นแบบ) → 'countdown' → 'sing' (ตาเรา) → 'result' | 'blocked' (ไมค์ใช้ไม่ได้)
   const [phase, setPhase] = useState(isRecognitionSupported ? 'demo' : 'blocked')
   const [micError, setMicError] = useState(isRecognitionSupported ? null : 'unsupported')
+  useStudyActivity(phase !== 'blocked') // เล่นอยู่ → นับเวลาเรียน
   const [activeWord, setActiveWord] = useState(-1)
   const [beat, setBeat] = useState(KARAOKE.countdown)
   const [interim, setInterim] = useState('')

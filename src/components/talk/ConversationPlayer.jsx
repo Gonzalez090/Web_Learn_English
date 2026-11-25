@@ -16,6 +16,7 @@ import { useTranslation } from 'react-i18next'
 import { Languages, MessageCircleQuestion, Zap } from 'lucide-react'
 import { getStage } from '../../data'
 import { useSpeech } from '../../hooks/useSpeech'
+import { useStudyActivity } from '../../hooks/useStudyActivity'
 import { useLocalized } from '../../hooks/useLocalized'
 import { useSentenceDisplay } from '../../hooks/useSentenceDisplay'
 import { checkUserTurn } from '../../utils/conversation'
@@ -47,6 +48,7 @@ export default function ConversationPlayer({
   const { t } = useTranslation()
   const loc = useLocalized()
   const { speak } = useSpeech()
+  useStudyActivity() // กดเริ่มคุยแล้ว → นับเวลาเรียน
   // บทสนทนาสุ่มเป็นภาษาผู้ใหญ่ → แสดงข้อความเลยแบบ Stage 5 (ความหมายไทยตามการตั้งค่า)
   const display = useSentenceDisplay(useMemo(() => getStage(5), []))
   const { lines } = conversation

@@ -8,6 +8,7 @@
 // =========================================================
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { abortListening, isRecognitionSupported, startListening, stopListening } from '../utils/recognition'
+import { markPractice } from '../utils/studyActivity'
 import { useProgressStore } from '../store/progressStore'
 
 export function useRecognition() {
@@ -26,6 +27,7 @@ export function useRecognition() {
   }, [])
 
   const listen = useCallback(async () => {
+    markPractice() // นับเวลาเรียนในหน้าฝึก (hooks/useStudyTimer.js)
     setStatus('listening')
     setInterim('')
     setError(null)

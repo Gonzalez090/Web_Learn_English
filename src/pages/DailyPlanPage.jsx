@@ -17,7 +17,7 @@ import { useDailyPlan } from '../hooks/useDailyPlan'
 import { useProgressStore } from '../store/progressStore'
 import { todayKey, weekStartKey } from '../utils/date'
 import { nextLesson } from '../utils/progress'
-import { isPlanDone, isTaskDone, nextPlanTask, TALK_FROM_STAGE } from '../utils/dailyPlan'
+import { isPlanDone, isTaskDone, nextPlanTask, planStepsLeft, TALK_FROM_STAGE } from '../utils/dailyPlan'
 import { ICONS } from '../utils/icons'
 import Page from '../components/Page'
 import Section from '../components/Section'
@@ -112,7 +112,7 @@ export default function DailyPlanPage() {
         <span className={styles.goalLabel}>{t('plan.goalLabel')}</span>
         <GoalPicker />
         <p className={styles.studyTime}>
-          <StudyTime planDone={done} />
+          <StudyTime stepsLeft={planStepsLeft(plan)} />
         </p>
         <p className={styles.goalMore}>{t('plan.goalMore')}</p>
       </div>

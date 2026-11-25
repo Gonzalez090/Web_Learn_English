@@ -11,7 +11,7 @@
 import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
 import { stages, lessonList, dailyMissionPool } from '../data'
-import { computeUnlockedStages, recordLessonResult } from '../utils/progress'
+import { computeUnlockedStages, recordLessonResult, lessonsPlayedOn } from '../utils/progress'
 import { todayKey, weekStartKey } from '../utils/date'
 import { BOSS_BONUS_XP, isWeeklyBoss } from '../utils/boss'
 import { levelFromXp } from '../utils/level'
@@ -110,7 +110,9 @@ export const useProgressStore = create(
       refreshDailyPlan: ({ goal, reviewDue }) => {
         const state = get()
         const talkReady = state.unlockedStages.includes(TALK_FROM_STAGE)
-        const plan = ensureDailyPlan(state.dailyPlan, { goal, today: todayKey(), reviewDue, talkReady })
+        const today = todayKey()
+        const lessonsToday = lessonsPlayedOn(state.lessonProgress, today)
+        const plan = ensureDailyPlan(state.dailyPlan, { goal, today, reviewDue, talkReady, lessonsToday })
         if (plan !== state.dailyPlan) set({ dailyPlan: plan })
       },
 

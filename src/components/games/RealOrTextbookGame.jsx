@@ -15,6 +15,7 @@ import { useTranslation } from 'react-i18next'
 import { BookOpen, CircleHelp, MessageCircle } from 'lucide-react'
 import { buildRotRounds } from '../../utils/realOrTextbook'
 import { useSpeech } from '../../hooks/useSpeech'
+import { useStudyActivity } from '../../hooks/useStudyActivity'
 import Button from '../Button'
 import styles from './RealOrTextbookGame.module.css'
 
@@ -24,6 +25,7 @@ export default function RealOrTextbookGame({ items, pool = items, onRoundResult,
   const [rounds] = useState(() => buildRotRounds(items, { extra: pool }))
   const [roundIndex, setRoundIndex] = useState(0)
   const [chosen, setChosen] = useState(null) // ตัวเลือกที่แตะ (null = ยังไม่เลือก)
+  useStudyActivity() // เล่นอยู่ → นับเวลาเรียน
   const nextRef = useRef(null)
   const round = rounds[roundIndex]
   const answered = chosen !== null

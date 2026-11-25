@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { applyPlanEvent, buildDailyPlan, ensureDailyPlan, isPlanDone, nextPlanTask } from './dailyPlan'
+import { applyPlanEvent, buildDailyPlan, ensureDailyPlan, isPlanDone, nextPlanTask, planStepsLeft } from './dailyPlan'
 
 const today = '2026-11-22'
 const kinds = (plan) => plan.tasks.map((task) => `${task.kind}:${task.target}`)
@@ -32,7 +32,8 @@ describe('buildDailyPlan (ทบทวน → บทใหม่ → บทส�
 describe('ensureDailyPlan / applyPlanEvent', () => {
   it('วันเดิมเป้าเดิม → แผนเดิม (เป้าทบทวนคงที่ระหว่างวัน) / วันใหม่ → แผนใหม่ นับ 0', () => {
     const plan = buildDailyPlan({ goal: 10, today, reviewDue: 2 })
-    expect(ensureDailyPlan(plan, { goal: 10, today, reviewDue: 0 })).toBe(plan)
+    expect(ensureDailyPlan(plan, { goal: 10, today, reviewDue: 2 })).toBe(plan)
+    expect(ensureDailyPlan(plan, { goal: 10, today, reviewDue: 9 })).toBe(plan)
     const done = applyPlanEvent(plan, 'review', 2, today).plan
     const tomorrow = ensureDailyPlan(done, { goal: 10, today: '2026-11-23', reviewDue: 0 })
     expect(tomorrow.date).toBe('2026-11-23')
@@ -54,6 +55,29 @@ describe('ensureDailyPlan / applyPlanEvent', () => {
     let partial = applyPlanEvent(buildDailyPlan({ goal: 10, today, reviewDue: 5 }), 'review', 3, today).plan
     partial = ensureDailyPlan(partial, { goal: 15, today, reviewDue: 2, talkReady: true })
     expect(partial.tasks[0]).toMatchObject({ kind: 'review', target: 5, progress: 3 })
+  })
+
+  it('ขั้นที่ทำไม่ได้แล้ว (ความคืบหน้าจากบัญชีมาแทน) → จัดใหม่ / ขั้นที่ทำเสร็จแล้วยังอยู่', () => {
+    const plan = buildDailyPlan({ goal: 20, today, reviewDue: 5, talkReady: true })
+    const fixed = ensureDailyPlan(plan, { goal: 20, today, reviewDue: 0, talkReady: false })
+    expect(progress(fixed)).toEqual(['lesson:0/3', 'game:0/1'])
+    expect(ensureDailyPlan(fixed, { goal: 20, today, reviewDue: 0, talkReady: false })).toBe(fixed)
+    // ทำไป 3 จาก 5 แล้วรายการที่ค้างหายไป → เป้าเหลือเท่าที่ทำ
+    const partial = applyPlanEvent(plan, 'review', 3, today).plan
+    expect(progress(ensureDailyPlan(partial, { goal: 20, today, reviewDue: 0, talkReady: true }))[0]).toBe('review:3/3')
+    // คุยจบแล้ว → ขั้นบทสนทนายังอยู่
+    const talked = applyPlanEvent(plan, 'conversation', 1, today).plan
+    expect(ensureDailyPlan(talked, { goal: 20, today, reviewDue: 5, talkReady: false })).toBe(talked)
+  })
+
+  it('บทที่จบวันนี้ในเครื่องอื่น (ซิงก์มา) นับในแผน ไม่บวกซ้ำ / เหลือกี่ขั้น', () => {
+    const plan = applyPlanEvent(buildDailyPlan({ goal: 20, today, talkReady: true }), 'lessonComplete', 1, today).plan
+    expect(planStepsLeft(plan)).toBe(3)
+    expect(ensureDailyPlan(plan, { goal: 20, today, talkReady: true, lessonsToday: 1 })).toBe(plan)
+    const synced = ensureDailyPlan(plan, { goal: 20, today, talkReady: true, lessonsToday: 11 })
+    expect(progress(synced)).toEqual(['lesson:2/2', 'talk:0/1', 'game:0/1'])
+    expect(planStepsLeft(synced)).toBe(2)
+    expect(progress(ensureDailyPlan(null, { goal: 10, today, lessonsToday: 1 }))).toEqual(['lesson:1/1', 'game:0/1'])
   })
 
   it('เกมในบทเรียน/ทบทวน (gamePlay) ไม่ทำให้ขั้นมินิเกมเสร็จ — นับเฉพาะ miniGame (เกมที่เล่นแยก)', () => {

@@ -7,6 +7,7 @@
 import { useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useRecorder } from '../../hooks/useRecorder'
+import { useStudyActivity } from '../../hooks/useStudyActivity'
 import { isRecognitionSupported, micErrorMessageKey } from '../../utils/recognition'
 import { RECORD_MS } from '../../utils/speakingCheck'
 import { ICONS } from '../../utils/icons'
@@ -26,6 +27,7 @@ export default function CheckRecorder({ pictures, prompts, onDone }) {
   const { t } = useTranslation()
   const { supported, status, elapsedMs, level, liveText, error, start, finish } = useRecorder({ onDone })
   const recording = status === 'recording'
+  useStudyActivity(recording) // นับเวลาเรียนเฉพาะตอนอัด
   const busy = status === 'starting' || status === 'processing'
   const MicIcon = ICONS.speakingCheck
   const StopIcon = ICONS.stop

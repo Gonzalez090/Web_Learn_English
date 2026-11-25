@@ -11,6 +11,7 @@
 // =========================================================
 import { useCallback, useMemo, useSyncExternalStore } from 'react'
 import { useSettingsStore } from '../store/settingsStore'
+import { markPractice } from '../utils/studyActivity'
 import { canSpeak, englishVoices, getSnapshot, pickVoice, speak, stop, subscribe } from '../utils/speech'
 
 export function useSpeech() {
@@ -20,7 +21,10 @@ export function useSpeech() {
   const defaultRate = useSettingsStore((state) => (state.speechRate === 'slow' ? 'slow' : 'normal'))
 
   const speakText = useCallback(
-    (input, options = {}) => speak(input, { voiceURI, ...options, rate: options.rate ?? defaultRate }),
+    (input, options = {}) => {
+      markPractice() // นับเวลาเรียนในหน้าฝึก (hooks/useStudyTimer.js)
+      return speak(input, { voiceURI, ...options, rate: options.rate ?? defaultRate })
+    },
     [voiceURI, defaultRate],
   )
   const englishList = useMemo(() => englishVoices(voices), [voices])

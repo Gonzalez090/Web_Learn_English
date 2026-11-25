@@ -13,6 +13,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Shuffle, SkipForward, Timer } from 'lucide-react'
 import { useSpeech } from '../../hooks/useSpeech'
+import { useStudyActivity } from '../../hooks/useStudyActivity'
 import { scrollIntoViewGently } from '../../utils/scroll'
 import { splitKeywords, swapRaceRounds } from '../../utils/swap'
 import Picture from '../Picture'
@@ -25,6 +26,7 @@ export default function WordSwapRaceGame({ items, onRoundResult, onFinish }) {
   const { t } = useTranslation()
   const { speak, stop } = useSpeech()
   const [phase, setPhase] = useState('intro') // intro → play → done
+  useStudyActivity(phase === 'play') // เล่นอยู่ → นับเวลาเรียน
   const [rounds, setRounds] = useState(() => swapRaceRounds(items))
   const [roundIndex, setRoundIndex] = useState(0)
   const [wrong, setWrong] = useState([]) // คำที่แตะผิดในรอบนี้

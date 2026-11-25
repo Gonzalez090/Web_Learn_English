@@ -6,21 +6,22 @@ import {
   countedMs,
   EMPTY_SESSION,
   IDLE_MS,
-  isStudyPath,
+  isPracticePath,
   needsBreak,
   PLENTY_MINUTES,
+  PRACTICE_IDLE_MS,
   recommendedGoal,
   studyAdvice,
   TICK_MS,
 } from './studyTime'
 import { PLAN_GOALS } from './dailyPlan'
 
-describe('isStudyPath', () => {
-  it('นับเฉพาะหน้าที่เรียนจริง', () => {
-    for (const path of ['/lesson/s1-a', '/review', '/talk/cafe', '/games/listen-tap', '/sounds/th', '/phrases/food', '/lesson/s1-a/'])
-      expect(isStudyPath(path), path).toBe(true)
-    for (const path of ['/', '/learn/1', '/lesson/s1-a/summary', '/talk', '/games', '/sounds', '/phrases', '/plan', '/settings', '/profile'])
-      expect(isStudyPath(path), path).toBe(false)
+describe('isPracticePath', () => {
+  it('เฉพาะหน้าที่ฝึกได้เลยโดยไม่มีปุ่มเริ่ม (หน้าอื่นนับเมื่อตัวเล่นทำงานเท่านั้น)', () => {
+    for (const path of ['/sounds/th', '/phrases/food', '/phrases/real-vs-textbook', '/place/home', '/place/home/'])
+      expect(isPracticePath(path), path).toBe(true)
+    for (const path of ['/', '/learn/1', '/lesson/s1-a', '/lesson/s1-a/summary', '/review', '/talk', '/talk/cafe', '/games', '/games/listen-tap', '/sounds', '/phrases', '/plan', '/settings', '/profile', '/profile/speaking-check'])
+      expect(isPracticePath(path), path).toBe(false)
   })
 })
 
@@ -30,6 +31,11 @@ describe('countedMs', () => {
   it('หน้าซ่อน / ไม่แตะนาน → ไม่นับ', () => {
     expect(countedMs({ ...base, visible: false })).toBe(0)
     expect(countedMs({ ...base, lastInput: base.now - IDLE_MS - 1 })).toBe(0)
+  })
+  it('หน้าฝึก: ยังไม่เคยกดฟัง/พูด หรือกดนานแล้ว → ไม่นับ', () => {
+    expect(countedMs({ ...base, lastInput: -Infinity, idleMs: PRACTICE_IDLE_MS })).toBe(0)
+    expect(countedMs({ ...base, lastInput: base.now - PRACTICE_IDLE_MS - 1, idleMs: PRACTICE_IDLE_MS })).toBe(0)
+    expect(countedMs({ ...base, lastInput: base.now - PRACTICE_IDLE_MS, idleMs: PRACTICE_IDLE_MS })).toBe(TICK_MS)
   })
   it('ช่วงยาวผิดปกติ → ตัด / เวลาย้อน → 0', () => {
     expect(countedMs({ ...base, now: 1000 + IDLE_MS })).toBe(TICK_MS * 2)
@@ -59,9 +65,11 @@ describe('คำแนะนำของวัน', () => {
   it('ยังไม่เริ่ม → กำลังเรียน → พอแล้ว → เยอะแล้ว', () => {
     expect(studyAdvice({ minutes: 0, goal: 10, planDone: false })).toBe('start')
     expect(studyAdvice({ minutes: 4, goal: 10, planDone: false })).toBe('going')
-    expect(studyAdvice({ minutes: 10, goal: 10, planDone: false })).toBe('enough')
+    expect(studyAdvice({ minutes: 10, goal: 10, planDone: false })).toBe('timeUp')
     expect(studyAdvice({ minutes: 4, goal: 10, planDone: true })).toBe('enough')
+    expect(studyAdvice({ minutes: 12, goal: 10, planDone: true })).toBe('enough')
     expect(studyAdvice({ minutes: PLENTY_MINUTES, goal: 10, planDone: true })).toBe('plenty')
+    expect(studyAdvice({ minutes: PLENTY_MINUTES, goal: 10, planDone: false })).toBe('plenty')
   })
   it('เป้าที่แนะนำอยู่ในตัวเลือกเสมอ และเพิ่มเมื่อพูดเป็นประโยคแล้ว', () => {
     expect(recommendedGoal([1])).toBe(10)

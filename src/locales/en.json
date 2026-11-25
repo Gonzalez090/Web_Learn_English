@@ -151,6 +151,8 @@
   "study": {
     "start": "Try {{recommended}} minutes a day. Every day beats a long day.",
     "going": "{{minutes}} of {{goal}} minutes today",
+    "timeUp_one": "{{minutes}} min done. {{count}} plan step left. Keep going or take a rest.",
+    "timeUp_other": "{{minutes}} min done. {{count}} plan steps left. Keep going or take a rest.",
     "enough": "{{minutes}} min today. That's enough. Great job, take a rest!",
     "enoughShort": "That's enough for today. Great job, take a rest!",
     "plenty": "{{minutes}} min today. That's a lot! Rest now and come back tomorrow."

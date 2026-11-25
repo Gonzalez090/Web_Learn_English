@@ -15,6 +15,7 @@ import { useTranslation } from 'react-i18next'
 import { Ear, Swords } from 'lucide-react'
 import { buildDuelRounds } from '../../utils/duel'
 import { useSpeech } from '../../hooks/useSpeech'
+import { useStudyActivity } from '../../hooks/useStudyActivity'
 import Button from '../Button'
 import styles from './MinimalPairDuelGame.module.css'
 
@@ -32,6 +33,7 @@ export default function MinimalPairDuelGame({ items, pool = items, onRoundResult
   // phase: 'asking' (พูดคำ) → 'playing' (นับเวลา) → 'correct' | 'wrong' | 'timeup' (ฟังเทียบ)
   const [phase, setPhase] = useState('asking')
   const [chosen, setChosen] = useState(null) // คำที่เลือก
+  useStudyActivity() // เล่นอยู่ → นับเวลาเรียน
   const [comparing, setComparing] = useState(null) // คำที่กำลังพูดตอนฟังเทียบ
 
   const round = rounds[roundIndex]

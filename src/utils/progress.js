@@ -58,6 +58,10 @@ export function nextLesson(lessons, unlockedStages, lessonProgress, { stageId } 
   )
 }
 
+// จำนวนบทที่เรียนจบในวันนั้น (รวมที่เรียนในเครื่องอื่นแล้วซิงก์มา)
+export const lessonsPlayedOn = (lessonProgress, date) =>
+  Object.values(lessonProgress).filter((entry) => entry.completed && entry.lastPlayedAt === date).length
+
 // บันทึกผลบทเรียน 1 ครั้ง (คืน object ใหม่ ไม่แก้ของเดิม)
 export function recordLessonResult(lessonProgress, lessonId, score, today) {
   const previous = lessonProgress[lessonId] ?? { completed: false, bestScore: 0, attempts: 0 }

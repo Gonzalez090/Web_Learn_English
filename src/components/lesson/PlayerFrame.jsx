@@ -5,12 +5,14 @@
 // =========================================================
 import { useTranslation } from 'react-i18next'
 import { X } from 'lucide-react'
+import { useStudyActivity } from '../../hooks/useStudyActivity'
 import Button from '../Button'
 import styles from './PlayerFrame.module.css'
 
 export default function PlayerFrame({ exitTo, index, total, stepKey, children }) {
   const { t } = useTranslation()
   const ratio = total > 0 ? index / total : 0
+  useStudyActivity() // เข้าเรียนจริงแล้ว → นับเวลาเรียน
 
   return (
     <div className={styles.player}>

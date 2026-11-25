@@ -12,7 +12,7 @@ import { useReviewStore } from '../store/reviewStore'
 import { useSettingsStore } from '../store/settingsStore'
 import { dueEntries } from '../utils/review'
 import { todayKey } from '../utils/date'
-import { isPlanDone, isTaskDone } from '../utils/dailyPlan'
+import { isPlanDone, planStepsLeft } from '../utils/dailyPlan'
 import { useDailyPlan } from '../hooks/useDailyPlan'
 import { ICONS } from '../utils/icons'
 import Page from '../components/Page'
@@ -43,7 +43,8 @@ function PlanCard() {
   const plan = useDailyPlan()
   if (!plan) return null
   const total = plan.tasks.length
-  const done = plan.tasks.filter(isTaskDone).length
+  const left = planStepsLeft(plan)
+  const done = total - left
   const finished = isPlanDone(plan)
   return (
     <Link to="/plan" className={finished ? `${styles.card} ${styles.planDone}` : styles.card}>
@@ -58,7 +59,7 @@ function PlanCard() {
         <span className={styles.cardBar} aria-hidden="true">
           <span className={styles.cardFill} style={{ transform: `scaleX(${done / total})` }} />
         </span>
-        <StudyTime planDone={finished} className={styles.cardNote} />
+        <StudyTime stepsLeft={left} className={styles.cardNote} />
       </span>
     </Link>
   )
