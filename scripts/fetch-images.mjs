@@ -20,6 +20,10 @@
 //   ปกติครอปเป็นสี่เหลี่ยมจัตุรัสตรงจุดเด่นของภาพเอง — ถ้าครอปแล้วคนหลุดกรอบ ใส่โหมดท้ายเลขภาพได้:
 //     s5-leo-3=3@right   เลื่อนกรอบไปทาง right / left / top / bottom / center
 //     s5-teddy-1=1@contain  เห็นทั้งภาพ (ภาพกว้างที่มีคนอยู่คนละฝั่ง) เติมขอบด้วยภาพเดียวกันแบบเบลอ
+//     s2-bus=1@white     เห็นทั้งภาพบนพื้นขาว (ภาพสิ่งของพื้นขาว/พื้นโปร่งใส)
+//     s1-cup=3@30,60,70  ครอปเอง: จุดกลางกรอบที่ 30% จากซ้าย 60% จากบน, กรอบยาว 70% ของด้านสั้น (ให้สิ่งที่คำพูดถึงเด่น)
+//   s2-nose=7@44,39,75,90  เหมือนกัน แต่หมุนภาพตามเข็ม 90 องศาก่อน (90 / 180 / 270 — ภาพที่ถ่ายตะแคง)
+//   ครอปใหม่จากภาพต้นฉบับเดิม (ไม่เปลี่ยนภาพ) — ดูต้นฉบับเต็มก่อน: original s1-cup s1-hat / แล้ว recrop s1-cup=contain s1-hat=40,50,90
 //
 // ใช้ภาพเดิมซ้ำ — คัดลอกภาพ + เครดิตของข้อเดิมไปเป็นภาพของข้อใหม่ (ไม่ต้องใช้ key)
 //   node scripts/fetch-images.mjs copy s6-ant=s4-so-tiny s6-pants=s1-pants
@@ -36,10 +40,29 @@ const IMAGES_DIR = path.join(ROOT, 'public', 'images')
 
 const CANDIDATES = 9 // จำนวนภาพตัวเลือกต่อ 1 รายการ (ตาราง 3x3)
 const OUTPUT_SIZE = 640 // ขนาดภาพสุดท้าย (px)
-const CROP_MODES = ['right', 'left', 'top', 'bottom', 'center', 'contain'] // โหมดครอปที่ใส่ท้ายเลขภาพตอน pick
+const CROP_MODES = ['right', 'left', 'top', 'bottom', 'center', 'contain', 'white'] // โหมดครอปที่ใส่ท้ายเลขภาพตอน pick
+
+const CUSTOM_CROP = /^([0-9]{1,3}),([0-9]{1,3}),([0-9]{1,3})(?:,(90|180|270))?$/ // จุดกลาง x%,y%, ขนาด % ของด้านสั้น, (หมุนกี่องศา)
+const isCropMode = (mode) => CROP_MODES.includes(mode) || CUSTOM_CROP.test(mode)
+
+// ครอปเอง: กรอบจัตุรัสรอบจุดกลางที่กำหนด (เลื่อนให้อยู่ในภาพเสมอ)
+async function cropAround(source, [cx, cy, size, angle]) {
+  const buffer = angle ? await sharp(source).rotate(angle).toBuffer() : source
+  const { width, height } = await sharp(buffer).metadata()
+  const side = Math.round((Math.min(width, height) * Math.min(100, Math.max(10, size))) / 100)
+  const fit = (percent, total) => Math.min(total - side, Math.max(0, Math.round((total * percent) / 100 - side / 2)))
+  return sharp(buffer)
+    .extract({ left: fit(cx, width), top: fit(cy, height), width: side, height: side })
+    .resize(OUTPUT_SIZE, OUTPUT_SIZE)
+}
 
 // ภาพต้นฉบับ → สี่เหลี่ยมจัตุรัส OUTPUT_SIZE (sharp instance ที่ยังไม่บันทึก)
-async function toSquare(buffer, mode) {
+async function toSquare(source, mode) {
+  // พื้นโปร่งใส → พื้นขาว
+  const buffer = await sharp(source).flatten({ background: '#ffffff' }).toBuffer()
+  if (mode === 'white') return sharp(buffer).resize(OUTPUT_SIZE, OUTPUT_SIZE, { fit: 'contain', background: '#ffffff' })
+  const custom = mode?.match(CUSTOM_CROP)
+  if (custom) return cropAround(buffer, custom.slice(1).map((value) => Number(value ?? 0)))
   if (mode !== 'contain') {
     const position = mode ?? sharp.strategy.attention // ไม่ใส่โหมด = ให้ sharp หาจุดเด่นของภาพเอง
     return sharp(buffer).resize(OUTPUT_SIZE, OUTPUT_SIZE, { fit: 'cover', position })
@@ -156,7 +179,7 @@ async function makeContactSheet(buffers, title, file) {
         `<svg width="${cell}" height="${cell}"><rect x="8" y="8" width="44" height="44" rx="10" fill="#2563eb"/>` +
           `<text x="30" y="40" font-size="28" font-family="Arial" font-weight="bold" fill="#fff" text-anchor="middle">${index + 1}</text></svg>`,
       )
-      const image = await sharp(buffer).resize(cell, cell, { fit: 'cover' }).composite([{ input: label }]).toBuffer()
+      const image = await sharp(buffer).resize(cell, cell, { fit: 'contain', background: '#ffffff' }).composite([{ input: label }]).toBuffer()
       return { input: image, left: (index % cols) * cell, top: header + Math.floor(index / cols) * cell }
     }),
   )
@@ -246,7 +269,7 @@ async function runPick(choices) {
   for (const choice of choices) {
     const [id, pickText] = choice.split('=')
     const [numberText, mode] = pickText.split('@')
-    if (mode && !CROP_MODES.includes(mode)) throw new Error(`${id}: โหมดครอป "${mode}" ใช้ไม่ได้ (${CROP_MODES.join(' / ')})`)
+    if (mode && !isCropMode(mode)) throw new Error(`${id}: โหมดครอป "${mode}" ใช้ไม่ได้ (${CROP_MODES.join(' / ')} / x,y,ขนาด)`)
     const candidates = JSON.parse(await fs.readFile(path.join(options.out, `${id}.json`), 'utf8'))
     const picked = candidates[Number(numberText) - 1]
     if (!picked) throw new Error(`${id}: ไม่มีภาพหมายเลข ${numberText}`)
@@ -268,6 +291,42 @@ async function runPick(choices) {
   }
 
   await saveCredits(credits)
+}
+
+// ---------- คำสั่ง original / recrop (ใช้ภาพต้นฉบับเดิมตามเครดิต) ----------
+async function originalOf(id, credits) {
+  const credit = credits[id]
+  if (!credit) throw new Error(`${id}: ไม่มีเครดิต`)
+  if (credit.provider !== 'pixabay' || !provider.byId) throw new Error(`${id}: ใช้ได้กับภาพจาก Pixabay เท่านั้น`)
+  const found = await provider.byId(credit.sourceId)
+  if (!found) throw new Error(`${id}: ไม่พบภาพเลข ${credit.sourceId} แล้ว`)
+  return download(found.full)
+}
+
+// ต้นฉบับเต็มภาพ → <out>/original-<id>.jpg
+async function runOriginal(ids) {
+  const credits = JSON.parse(await fs.readFile(CREDITS_FILE, 'utf8'))
+  await fs.mkdir(options.out, { recursive: true })
+  for (const id of ids) {
+    try {
+      const file = path.join(options.out, `original-${id}.jpg`)
+      await sharp(await originalOf(id, credits)).flatten({ background: '#ffffff' }).resize(options.cell, options.cell, { fit: 'inside' }).jpeg({ quality: 80 }).toFile(file)
+      console.log(file)
+    } catch (error) {
+      console.warn(error.message)
+    }
+  }
+}
+
+async function runRecrop(choices) {
+  const credits = JSON.parse(await fs.readFile(CREDITS_FILE, 'utf8'))
+  for (const choice of choices) {
+    const [id, mode] = choice.split('=')
+    if (!isCropMode(mode)) throw new Error(`${id}: โหมดครอป "${mode}" ใช้ไม่ได้`)
+    const square = await toSquare(await originalOf(id, credits), mode)
+    await square.webp({ quality: 78 }).toFile(path.join(IMAGES_DIR, `${id}.webp`))
+    console.log(`${id} ครอปใหม่ (${mode})`)
+  }
 }
 
 // เรียง key ให้อ่านง่าย แล้วบันทึกเครดิต
@@ -296,6 +355,8 @@ if (command === 'search') await runSearch(args)
 else if (command === 'series') await runSeries(args)
 else if (command === 'pick') await runPick(args)
 else if (command === 'copy') await runCopy(args)
+else if (command === 'original') await runOriginal(args)
+else if (command === 'recrop') await runRecrop(args)
 else {
   console.log(
     'ใช้: node --env-file=.env.local scripts/fetch-images.mjs search [id ...] | series <id> <เลขภาพ> | pick id=เลข ... | copy id=idเดิม ...',
