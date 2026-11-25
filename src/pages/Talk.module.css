@@ -42,6 +42,14 @@
   text-align: center;
 }
 
+/* สถานที่เปิดแล้วแต่ยังไม่ถึง Stage ที่แนะนำ */
+.earlyNote {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-primary-soft);
+  font-size: 0.9375rem;
+}
+
 .intro {
   display: flex;
   flex-direction: column;

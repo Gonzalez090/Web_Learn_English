@@ -73,9 +73,11 @@ const LIST_CLASS = {
 }
 
 export function TileList({ variant = 'list', children }) {
-  return (
+  const list = (
     <ul className={LIST_CLASS[variant]}>
       {Children.map(children, (child) => child && <li className={styles.item}>{child}</li>)}
     </ul>
   )
+  // gallery ปรับจำนวนช่องตามความกว้างของกล่อง (container query)
+  return variant === 'gallery' ? <div className={styles.galleryBox}>{list}</div> : list
 }

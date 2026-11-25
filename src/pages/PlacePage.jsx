@@ -2,15 +2,17 @@
 // PlacePage — สถานที่ในเมือง (/place/:placeId) (ส่วนที่ 7)
 //   ภาพสถานที่ → NPC ประจำสถานที่ + ความสนิท (ขั้นที่ 15) → บทสนทนาสุ่มที่เกิดที่นี่ (+ Speed Order ถ้ามี)
 //   → วลีที่ใช้ที่นี่ (จากคลังวลี) / ยังล็อก → บอกว่าต้องผ่าน Stage ไหน + ปุ่มไปเรียนต่อ
+//   เปิดแล้วแต่ยังไม่ถึง Stage ที่แนะนำ → เข้าได้ปกติ + บอกว่าควรถึง Stage ไหนก่อน
 // =========================================================
 import { useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Timer } from 'lucide-react'
-import { cityMap, getPhraseSituation, npcOfPlace, scenarioList } from '../data'
+import { cityMap, getPhraseSituation, lessonList, npcOfPlace, scenarioList } from '../data'
 import { isScenarioLocked } from '../utils/friendship'
 import { useLocalized } from '../hooks/useLocalized'
 import { useProgressStore } from '../store/progressStore'
-import { isPlaceUnlocked } from '../utils/places'
+import { placeStatus, recommendedStage } from '../utils/places'
+import { nextLesson } from '../utils/progress'
 import { ICONS } from '../utils/icons'
 import Page from '../components/Page'
 import Section from '../components/Section'
@@ -27,27 +29,33 @@ export default function PlacePage() {
   const loc = useLocalized()
   const unlockedStages = useProgressStore((state) => state.unlockedStages)
   const friendship = useProgressStore((state) => state.npcFriendship)
+  const lessonProgress = useProgressStore((state) => state.lessonProgress)
   const place = cityMap.find((entry) => entry.placeId === placeId)
   if (!place) return <NotFoundPage />
 
-  const unlocked = isPlaceUnlocked(place, unlockedStages)
+  const status = placeStatus(place, unlockedStages)
   const talks = scenarioList.filter((scenario) => scenario.placeId === place.placeId)
   const situations = place.phraseGroups.map(getPhraseSituation).filter(Boolean)
   const npc = npcOfPlace(place.placeId)
+  // ยังล็อก → ปุ่ม "เรียนต่อ" พาไปบทถัดไปที่ยังไม่จบเลย
+  const lesson = status === 'locked' ? nextLesson(lessonList, unlockedStages, lessonProgress) : null
 
   return (
     <Page title={loc(place, 'name')} subtitle={loc(place, 'description')} backTo="/">
       <Picture image={place.image} size="fill" alt="" className={`${styles.introPicture} ${styles.banner}`} />
 
-      {!unlocked ? (
+      {status === 'locked' ? (
         <div className={styles.randomBox}>
           <p className={styles.note}>{t('place.locked', { n: place.unlockAfterStage })}</p>
-          <Button block icon={ICONS.learn} to="/">
+          <Button block icon={ICONS.learn} to={lesson ? `/lesson/${lesson.id}` : '/learn'}>
             {t('home.continue')}
           </Button>
         </div>
       ) : (
         <>
+          {status === 'early' && (
+            <p className={styles.earlyNote}>{t('place.early', { n: recommendedStage(place) })}</p>
+          )}
           {npc && (
             <Section title={t('place.npc')} description={t('npc.howToFriend', { name: loc(npc, 'name') })}>
               <NpcCard npc={npc} points={friendship[npc.id] ?? 0} />

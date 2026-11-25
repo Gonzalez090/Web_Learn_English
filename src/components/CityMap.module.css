@@ -1,0 +1,53 @@
+/* กล่องคำแนะนำเหนือแผนที่เมือง */
+.guide {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--color-primary-soft);
+}
+
+.icon {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  color: var(--color-primary);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.title {
+  font-weight: 700;
+}
+
+.next {
+  color: var(--color-primary-strong);
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+
+.note {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+}
+
+/* ข้อความใต้ชื่อสถานที่ */
+.line {
+  display: block;
+}
+
+.ready {
+  color: var(--color-success);
+  font-weight: 700;
+}
+
+.recommend {
+  color: var(--color-primary-strong);
+  font-weight: 700;
+}

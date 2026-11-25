@@ -249,6 +249,7 @@
   "place": {
     "title": "Place",
     "locked": "Not open yet. Finish Stage {{n}} to unlock this place.",
+    "early": "This place is open, so you can go in and listen. It's easier to talk after you reach Stage {{n}}.",
     "talk": "Talk to people here",
     "noTalk": "No random talks here yet. Practice the phrases below for now.",
     "phrases": "Phrases for this place",
@@ -257,7 +258,16 @@
     "npc": "Who's here"
   },
   "map": {
-    "unlockAt": "Finish Stage {{n}} to unlock"
+    "unlockAt": "Finish Stage {{n}} to unlock",
+    "ready": "Ready for you",
+    "early": "Open. Listen and try",
+    "opensAfter": "Opens after Stage {{n}}",
+    "recommend": "Best from Stage {{n}}",
+    "youAreAt": "You're at Stage {{n}} · {{name}}",
+    "next_one": "Next: {{place}}. Finish Stage {{n}} ({{count}} lesson left)",
+    "next_other": "Next: {{place}}. Finish Stage {{n}} ({{count}} lessons left)",
+    "allOpen": "Every place is open. Explore the whole town!",
+    "talkAdvice": "People in town talk in full sentences. It's best to talk from Stage {{n}}. Before that, you can go in and listen."
   },
   "talk": {
     "title": "Random talk",

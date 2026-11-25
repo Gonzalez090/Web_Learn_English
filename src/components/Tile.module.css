@@ -46,7 +46,14 @@
   .columns {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
 
+/* การ์ดภาพ: จำนวนช่องยึดความกว้างคอลัมน์ที่วางจริง (หน้าแรกมีเมนูซ้าย + คอลัมน์ขวา) ไม่ใช่ความกว้างจอ */
+.galleryBox {
+  container: gallery / inline-size;
+}
+
+@container gallery (min-width: 640px) {
   .gallery {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: var(--space-4);
@@ -317,8 +324,8 @@
   font-size: 0.8125rem;
 }
 
-/* มือถือ: จำนวนคี่ ใบแรกกว้างเต็มแถว (ไม่เหลือช่องว่างท้ายรายการ) */
-@media (max-width: 719px) {
+/* คอลัมน์แคบ: จำนวนคี่ ใบแรกกว้างเต็มแถว (ไม่เหลือช่องว่างท้ายรายการ) */
+@container gallery (max-width: 639.98px) {
   .gallery > .item:first-child:nth-last-child(odd) {
     grid-column: 1 / -1;
   }
@@ -328,8 +335,8 @@
   }
 }
 
-/* จอกว้าง 4 คอลัมน์ มี 7 ใบ: ใบแรกกว้าง 2 ช่อง → เต็ม 2 แถวพอดี */
-@media (min-width: 720px) {
+/* คอลัมน์กว้าง 4 ช่อง มี 7 ใบ: ใบแรกกว้าง 2 ช่อง → เต็ม 2 แถวพอดี */
+@container gallery (min-width: 640px) {
   .gallery > .item:first-child:nth-last-child(4n + 3) {
     grid-column: span 2;
   }
