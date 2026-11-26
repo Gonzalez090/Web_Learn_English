@@ -52,3 +52,9 @@ describe('reading (ขั้นอ่าน Stage 6)', () => {
     expect(readProgress('Sam got a new kite.', 'sam kite')).toBe(1)
   })
 })
+
+describe('readProgress กับคำพ้องเสียง', () => {
+  it('ได้ยิน "two" ตอนอ่าน "to" = อ่านถึงแล้ว', () => {
+    expect(readProgress('I want to go.', 'I want two go')).toBe(4)
+  })
+})

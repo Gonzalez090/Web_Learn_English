@@ -83,3 +83,11 @@ describe('compareKeywords (ผลแบบเดียวกับ compareSpeech
     expect(compareKeywords(['kite'], [], { model })).toMatchObject({ score: 0, passed: false, heard: '' })
   })
 })
+
+describe('คำพ้องเสียงในคำสำคัญ', () => {
+  it('ได้ยินคำพ้องเสียง (rode = road, sails = sale) นับว่าพบคำสำคัญ', () => {
+    expect(checkKeywords(['road'], 'we rode down the hill').words[0].found).toBe(true)
+    expect(checkKeywords(['sale'], 'look at the sails').words[0].found).toBe(true)
+    expect(checkKeywords(['read'], 'she is reading').words[0].found).toBe(true)
+  })
+})

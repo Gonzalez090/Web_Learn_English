@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { normalizeWord, tokenize, similarity, scoreTranscript, compareSpeech, PASS_SCORE } from './compareWords'
+import { normalizeWord, tokenize, similarity, scoreTranscript, compareSpeech, soundAlike, PASS_SCORE } from './compareWords'
 
 const statuses = (result) => result.words.map((word) => `${word.text}:${word.status}`)
 
@@ -133,5 +133,29 @@ describe('compareSpeech (เลือกแบบที่ได้ยินด�
     expect(compareSpeech("Daddy's home!", ["daddy's home"]).passed).toBe(true)
     expect(compareSpeech("Where's the cat?", ['where is the cat']).passed).toBe(true)
     expect(compareSpeech('He goes to school.', ['he go school']).passed).toBe(false)
+  })
+})
+
+describe('คำพ้องเสียง (ระบบรับเสียงสะกดคนละแบบ แต่ผู้ใช้ออกเสียงถูก)', () => {
+  it('soundAlike: คำในกลุ่มเดียวกัน → ตัวแทนเดียวกัน, คำอื่นคงเดิม', () => {
+    expect(soundAlike('eye')).toBe(soundAlike('i'))
+    expect(soundAlike('two')).toBe(soundAlike('too'))
+    expect(soundAlike('dog')).toBe('dog')
+  })
+
+  it('ได้ยินคำพ้องเสียง = ถูกทุกคำ', () => {
+    expect(compareSpeech('I want juice.', ['eye want juice']).score).toBe(100)
+    expect(compareSpeech('I want to go.', ['I want 2 go']).score).toBe(100)
+    expect(compareSpeech('Bye-bye!', ['buy buy']).passed).toBe(true)
+    expect(statuses(scoreTranscript('No, thank you.', 'know thank you'))).toEqual(['No,:correct', 'thank:correct', 'you.:correct'])
+  })
+
+  it('acceptAlso ก็เทียบด้วยคำพ้องเสียง', () => {
+    expect(compareSpeech('Hello!', ['high'], { lenient: true, acceptAlso: ['hi'] }).passed).toBe(true)
+  })
+
+  it('คำที่ออกเสียงต่างกันยังไม่นับว่าถูก (red ≠ read, are ≠ our ไม่อยู่ในตาราง)', () => {
+    expect(soundAlike('read')).not.toBe(soundAlike('red'))
+    expect(soundAlike('are')).not.toBe(soundAlike('our'))
   })
 })

@@ -10,6 +10,7 @@
 //      - คำเกินที่พูดเพิ่ม (um, like, please) ไม่หักคะแนน
 //   3) ระบบรับเสียงส่งคำที่อาจได้ยินมาหลายแบบ → เลือกแบบที่ได้คะแนนดีที่สุด
 //   4) โหมดผ่อนปรน (Stage 2–3): คำใกล้เคียงได้คะแนนมากขึ้น + ยอมรับคำใน acceptAlso
+//   5) คำพ้องเสียง (I = eye, to = two) นับว่าตรงกัน — soundAlike
 // =========================================================
 
 // เกณฑ์ผ่าน (ตามแผน): ผ่อนปรน 60%, ปกติ 70%
@@ -72,6 +73,67 @@ const NUMBER_WORDS = {
   17: 'seventeen', 18: 'eighteen', 19: 'nineteen', 20: 'twenty', 30: 'thirty', 40: 'forty', 50: 'fifty',
   60: 'sixty', 70: 'seventy', 80: 'eighty', 90: 'ninety', 100: 'hundred',
 }
+
+// คำพ้องเสียง (ออกเสียงเหมือนกันในสำเนียงอเมริกัน) — ระบบรับเสียงเลือกสะกดแบบไหนก็ได้
+// เช่น ผู้ใช้พูด "I" ถูกแล้ว แต่ระบบเขียนว่า "eye" → ต้องนับว่าถูก (ผู้ใช้ออกเสียงถูก ระบบแค่สะกดคนละแบบ)
+// + คำเดียวกันที่สะกดได้หลายแบบ (doggy/doggie, gray/grey)
+// ⚠️ ใส่เฉพาะคำที่ออกเสียงเหมือนกันจริงทุกความหมาย (are/our แค่คล้าย, red/read อ่านได้ 2 เสียง → ห้ามใส่)
+const HOMOPHONE_GROUPS = [
+  ['i', 'eye', 'aye'],
+  ['to', 'too', 'two'],
+  ['for', 'four', 'fore'],
+  ['one', 'won'],
+  ['eight', 'ate'],
+  ['no', 'know'],
+  ['new', 'knew'],
+  ['hi', 'high'],
+  ['bye', 'by', 'buy'],
+  ['see', 'sea'],
+  ['be', 'bee'],
+  ['right', 'write'],
+  ['there', 'their'],
+  ['here', 'hear'],
+  ['where', 'wear'],
+  ['which', 'witch'],
+  ['weather', 'whether'],
+  ['would', 'wood'],
+  ['hour', 'our'],
+  ['whole', 'hole'],
+  ['night', 'knight'],
+  ['meet', 'meat'],
+  ['sun', 'son'],
+  ['week', 'weak'],
+  ['wait', 'weight'],
+  ['way', 'weigh'],
+  ['flower', 'flour'],
+  ['pair', 'pear'],
+  ['bear', 'bare'],
+  ['hair', 'hare'],
+  ['deer', 'dear'],
+  ['tail', 'tale'],
+  ['blue', 'blew'],
+  ['road', 'rode'],
+  ['rain', 'reign', 'rein'],
+  ['sail', 'sale'],
+  ['mail', 'male'],
+  ['made', 'maid'],
+  ['piece', 'peace'],
+  ['plane', 'plain'],
+  ['so', 'sew'],
+  ['oh', 'owe'],
+  ['ant', 'aunt'],
+  ['aloud', 'allowed'],
+  ['cent', 'sent', 'scent'],
+  ['fair', 'fare'],
+  ['doggy', 'doggie'],
+  ['gray', 'grey'],
+]
+const HOMOPHONE_KEY = Object.fromEntries(
+  HOMOPHONE_GROUPS.flatMap((group) => group.map((word) => [word, group[0]])),
+)
+
+// คำ (หลัง normalizeWord) → ตัวแทนของกลุ่มคำพ้องเสียง (ไม่อยู่ในกลุ่ม = คำเดิม) — ใช้ตอนเทียบเท่านั้น ไม่ใช้แสดงผล
+export const soundAlike = (token) => HOMOPHONE_KEY[token] ?? token
 
 // 1 คำ (ตามที่เขียน) → คำย่อย ๆ ที่ใช้เทียบ เช่น "Don't," → ['do', 'not'], "bye-bye" → ['bye', 'bye']
 export function normalizeWord(word) {
@@ -188,8 +250,9 @@ const containsTokens = (haystack, needle) =>
  */
 export function scoreTranscript(target, transcript, { lenient = false, acceptAlso = [] } = {}) {
   const units = tokenize(target)
-  const targetTokens = units.flatMap((unit) => unit.tokens)
-  const heardTokens = tokenize(transcript).flatMap((unit) => unit.tokens)
+  // เทียบด้วยตัวแทนคำพ้องเสียง (to = two = too) — จำนวนคำเท่าเดิม แสดงผลด้วย unit.display
+  const targetTokens = units.flatMap((unit) => unit.tokens.map(soundAlike))
+  const heardTokens = tokenize(transcript).flatMap((unit) => unit.tokens.map(soundAlike))
   const allCorrect = () => ({
     score: 100,
     words: units.map((unit) => ({ text: unit.display, status: 'correct' })),
@@ -201,7 +264,7 @@ export function scoreTranscript(target, transcript, { lenient = false, acceptAls
   }
 
   // ตรงเป้าหมายทุกคำ หรือเป็นคำที่ยอมรับเพิ่ม (acceptAlso)
-  const accepted = acceptAlso.map((text) => tokenize(text).flatMap((unit) => unit.tokens))
+  const accepted = acceptAlso.map((text) => tokenize(text).flatMap((unit) => unit.tokens.map(soundAlike)))
   if (sameTokens(heardTokens, targetTokens) || accepted.some((tokens) => sameTokens(heardTokens, tokens))) {
     return allCorrect()
   }

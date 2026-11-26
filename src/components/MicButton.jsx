@@ -47,7 +47,7 @@ export default function MicButton({
   size = 'md',
 }) {
   const { t } = useTranslation()
-  const { supported, status, interim, error, listen, stop } = useRecognition()
+  const { supported, status, ready, interim, error, listen, stop } = useRecognition()
   const { speak, defaultRate } = useSpeech()
   const [result, setResult] = useState(null)
   const [attempts, setAttempts] = useState(0)
@@ -80,6 +80,20 @@ export default function MicButton({
   }
 
   const listening = status === 'listening'
+  // แตะแล้วไมค์ยังไม่รับเสียงทันที (~0.3–1 วิ) → บอก "รอสักครู่" ก่อน ไม่ให้พูดเร็วไปจนคำแรกหาย
+  const preparing = listening && !ready
+  const buttonClass = preparing
+    ? `${styles.button} ${styles.preparing}`
+    : listening
+      ? `${styles.button} ${styles.listening}`
+      : styles.button
+  const buttonLabel = preparing
+    ? t('mic.preparing')
+    : listening
+      ? t('mic.listening')
+      : result
+        ? t('mic.again')
+        : (label ?? t('mic.speak'))
 
   async function handleClick() {
     if (listening) {
@@ -106,12 +120,12 @@ export default function MicButton({
     <div className={`${styles.wrap} ${styles[size]}`}>
       <button
         type="button"
-        className={listening ? `${styles.button} ${styles.listening}` : styles.button}
+        className={buttonClass}
         aria-pressed={listening}
         onClick={handleClick}
       >
         {listening ? <Square className={styles.icon} aria-hidden="true" /> : <Mic className={styles.icon} aria-hidden="true" />}
-        <span>{listening ? t('mic.listening') : result ? t('mic.again') : (label ?? t('mic.speak'))}</span>
+        <span aria-live="polite">{buttonLabel}</span>
       </button>
 
       {/* ระหว่างพูด: แสดงสิ่งที่ได้ยินสด ๆ (เฉพาะ Stage ที่แสดงตัวอักษรได้) */}
@@ -120,6 +134,8 @@ export default function MicButton({
           {interim}
         </p>
       )}
+      {/* ไมค์พร้อมแล้ว: บอกทางลัด — แตะซ้ำ = ให้คะแนนทันที ไม่ต้องรอระบบจับความเงียบ (~1 วิ) */}
+      {listening && ready && <p className={styles.hint}>{t('mic.tapToFinish')}</p>}
 
       {status === 'error' && error && (
         <p className={styles.error} role="alert">

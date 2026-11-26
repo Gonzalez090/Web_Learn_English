@@ -1,9 +1,10 @@
 // =========================================================
 // useRecognition — hook สำหรับฟังเสียงพูดผ่านไมค์ 1 ครั้ง
 // ใช้:
-//   const { supported, status, interim, error, listen, stop } = useRecognition()
+//   const { supported, status, ready, interim, error, listen, stop } = useRecognition()
 //   const alternatives = await listen()   // [{ transcript, confidence }] หรือ null ถ้าไม่สำเร็จ
 // status: 'idle' | 'listening' | 'done' | 'error'
+// ready: ระหว่าง 'listening' — false = กำลังเปิดไมค์ (ยังไม่ควรพูด) / true = ไมค์รับเสียงแล้ว พูดได้เลย
 // - component ถูกถอดออก (เปลี่ยนหน้า) → ยกเลิกการฟังของตัวเองอัตโนมัติ
 // =========================================================
 import { useCallback, useEffect, useRef, useState } from 'react'
@@ -15,6 +16,7 @@ export function useRecognition() {
   const [status, setStatus] = useState('idle')
   const [interim, setInterim] = useState('')
   const [error, setError] = useState(null)
+  const [ready, setReady] = useState(false) // ไมค์รับเสียงจริงแล้ว (ระหว่าง status 'listening')
   const tokenRef = useRef(null)
   const mountedRef = useRef(true)
 
@@ -29,9 +31,13 @@ export function useRecognition() {
   const listen = useCallback(async () => {
     markPractice() // นับเวลาเรียนในหน้าฝึก (hooks/useStudyTimer.js)
     setStatus('listening')
+    setReady(false)
     setInterim('')
     setError(null)
-    const { token, promise } = startListening({ onInterim: (text) => mountedRef.current && setInterim(text) })
+    const { token, promise } = startListening({
+      onInterim: (text) => mountedRef.current && setInterim(text),
+      onReady: () => mountedRef.current && setReady(true),
+    })
     tokenRef.current = token
     const result = await promise
     if (!mountedRef.current || tokenRef.current !== token) return null
@@ -61,5 +67,5 @@ export function useRecognition() {
     setError(null)
   }, [])
 
-  return { supported: isRecognitionSupported, status, interim, error, listen, stop, reset }
+  return { supported: isRecognitionSupported, status, ready, interim, error, listen, stop, reset }
 }

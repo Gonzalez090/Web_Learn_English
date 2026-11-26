@@ -11,7 +11,7 @@
 // ผลมีรูปแบบเดียวกับ compareSpeech → แสดงด้วย SpeechResult ได้ (words = คำสำคัญ: พูดแล้ว/ยังไม่ได้พูด)
 // (ฟังก์ชันล้วน ใส่ .js ใน import เผื่อสคริปต์ Node ใช้)
 // =========================================================
-import { normalizeWord, similarity } from './compareWords.js'
+import { normalizeWord, similarity, soundAlike } from './compareWords.js'
 import { RECAST_OPENERS } from './recast.js'
 
 export const KEYWORD_PASS_RATIO = 0.6
@@ -49,7 +49,8 @@ const stemsOf = (text) =>
   String(text ?? '')
     .split(/\s+/)
     .flatMap(normalizeWord)
-    .map(stem)
+    // คำพ้องเสียง (I = eye) นับว่าตรงกัน — ทำทั้งก่อนและหลังตัดคำลงท้าย (maid/made → mad, sails → sail → sale)
+    .map((word) => soundAlike(stem(soundAlike(word))))
 
 // คำสำคัญ 1 รายการ → ทางเลือก (แต่ละทางเลือกเป็นรากคำเรียงกัน)
 export const parseKeyword = (entry) =>

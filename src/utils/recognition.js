@@ -35,13 +35,16 @@ let activeSession = null // { recognition, token }
 /**
  * เริ่มฟัง 1 ครั้ง (พูดจบแล้วระบบหยุดเอง หรือกด stopListening)
  * @param onInterim ฟังก์ชันรับข้อความระหว่างพูด (แสดงสด ๆ ว่ากำลังได้ยินอะไร)
+ * @param onReady ไมค์เริ่มรับเสียงจริงแล้ว (หลังแตะปุ่ม ระบบใช้เวลาเปิดไมค์ ~0.3–1 วิ — พูดก่อนหน้านี้คำแรกหาย)
  * @param maxListenMs ฟังนานสุดกี่ ms
  * @returns Promise<{ ok: true, alternatives: [{ transcript, confidence }], speechMs } | { ok: false, error }>
  *   speechMs = เวลาที่พูดจริง (ms) — นับเป็นนาทีที่พูดภาษาอังกฤษ (utils/speaking.js)
  *   error: 'not-allowed' (ไม่อนุญาตไมค์) | 'no-speech' | 'audio-capture' (ไม่มีไมค์) | 'network'
  *          | 'aborted' (ถูกยกเลิก) | 'unsupported' | อื่น ๆ
  */
-export function startListening({ onInterim, maxListenMs = 8000 } = {}) {
+export const READY_FALLBACK_MS = 1500 // เบราว์เซอร์ไม่ส่งสัญญาณไมค์พร้อม → ถือว่าพร้อมเมื่อครบเวลานี้ (ไม่ให้ค้าง "รอสักครู่")
+
+export function startListening({ onInterim, onReady, maxListenMs = 8000 } = {}) {
   if (!isRecognitionSupported) return { token: null, promise: Promise.resolve({ ok: false, error: 'unsupported' }) }
 
   abortListening()
@@ -62,8 +65,18 @@ export function startListening({ onInterim, maxListenMs = 8000 } = {}) {
     // ช่วงที่ระบบตรวจพบเสียงพูดจริง (ใช้นับ "นาทีที่พูดภาษาอังกฤษ" — ขั้นที่ 18)
     let speechStart = null
     let speechEnd = null
+    // ไมค์พร้อม: แจ้งครั้งเดียว (ได้ยินเสียง/ได้ผลก่อนสัญญาณ audiostart ก็ถือว่าพร้อมแล้ว)
+    let ready = false
+    const markReady = () => {
+      if (ready || finished) return
+      ready = true
+      clearTimeout(readyTimer)
+      onReady?.()
+    }
+    recognition.onaudiostart = markReady
     recognition.onspeechstart = () => {
       speechStart = Date.now()
+      markReady()
     }
     recognition.onspeechend = () => {
       speechEnd = Date.now()
@@ -72,11 +85,13 @@ export function startListening({ onInterim, maxListenMs = 8000 } = {}) {
       if (finished) return
       finished = true
       clearTimeout(timer)
+      clearTimeout(readyTimer)
       if (activeSession?.token === token) activeSession = null
       resolve(result)
     }
 
     recognition.onresult = (event) => {
+      markReady()
       let interim = ''
       for (let i = event.resultIndex; i < event.results.length; i += 1) {
         const result = event.results[i]
@@ -102,6 +117,7 @@ export function startListening({ onInterim, maxListenMs = 8000 } = {}) {
 
     // กันไมค์ค้าง: ครบเวลาแล้วสั่งหยุด (ระบบจะส่งผลที่ได้ยินมาให้ก่อนจบ)
     const timer = setTimeout(() => recognition.stop(), maxListenMs)
+    const readyTimer = setTimeout(markReady, READY_FALLBACK_MS)
 
     try {
       recognition.start()

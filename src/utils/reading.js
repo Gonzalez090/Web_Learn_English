@@ -5,7 +5,7 @@
 //   (ไฮไลต์คำที่อ่านแล้วตอนอ่านนิทานออกเสียง)
 // (ฟังก์ชันล้วน → ทดสอบได้)
 // =========================================================
-import { normalizeWord, similarity } from './compareWords.js'
+import { normalizeWord, similarity, soundAlike } from './compareWords.js'
 
 // คำที่ได้ยินใกล้พอจะนับว่า "อ่านคำนี้แล้ว" (ระหว่างพูดระบบยังเดาไม่ครบ → ผ่อนปรน)
 const CLOSE_ENOUGH = 0.6
@@ -77,7 +77,8 @@ export function readProgress(text, heard) {
       const limit = Math.min(heardTokens.length, position + LOOK_AHEAD)
       let found = -1
       for (let index = position; index < limit; index += 1) {
-        if (similarity(token, heardTokens[index]) >= CLOSE_ENOUGH) {
+        // คำพ้องเสียง (to = two) นับว่าอ่านถึงแล้ว
+        if (similarity(soundAlike(token), soundAlike(heardTokens[index])) >= CLOSE_ENOUGH) {
           found = index
           break
         }

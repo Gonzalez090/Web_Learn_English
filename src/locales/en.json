@@ -90,7 +90,9 @@
   "mic": {
     "speak": "Say it",
     "again": "Say it again",
-    "listening": "Listening… tap to finish",
+    "listening": "Speak now",
+    "preparing": "One moment…",
+    "tapToFinish": "Done? Tap again to see your result faster",
     "score": "{{score}}%",
     "heard": "I heard:",
     "praise": [
